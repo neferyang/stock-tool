@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具</h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r5</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -170,10 +170,13 @@ async function fetchWithProxy(url) {
   // proxy 備援
   for (const px of ['https://corsproxy.io/?','https://api.codetabs.com/v1/proxy?quest=','https://thingproxy.freeboard.io/fetch/']) {
     try {
+      console.log('[proxy] trying:', px.substring(0,30), url.substring(0,60));
       const r = await fetch(px + encodeURIComponent(url), {signal:AbortSignal.timeout(13000)});
+      console.log('[proxy] status:', r.status, 'ok:', r.ok);
       if (r.ok) return await r.json();
-    } catch(e) {}
+    } catch(e) { console.log('[proxy] error:', e.message); }
   }
+  console.log('[fetchWithProxy] ALL failed:', url.substring(0,80));
   return null;
 }
 
@@ -186,11 +189,13 @@ async function fetchChart(sym) {
 
 // 輔助：v7/quote 取基本面（美股直連可用；台股走 proxy 嘗試）
 async function fetchQuoteFundamentals(sym) {
+  console.log('[fetchQuoteFundamentals] sym:', sym);
   // 方法1：v10/quoteSummary（美股直連可用，台股靠 proxy）
   const url1 = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
   const d1 = await fetchWithProxy(url1);
   const r1 = d1?.quoteSummary?.result?.[0];
   if (r1) {
+    console.log('[fundamentals] v10/quoteSummary OK for', sym);
     // 把 quoteSummary 格式轉成 flat 格式
     function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
     const pr = r1.price || {}, sd = r1.summaryDetail || {}, ks = r1.defaultKeyStatistics || {}, fd = r1.financialData || {};
@@ -223,6 +228,7 @@ async function fetchQuoteFundamentals(sym) {
       annualReportExpenseRatio: raw(ks.annualReportExpenseRatio) || raw(sd.expenseRatio),
     };
   }
+  console.log('[fundamentals] v10/quoteSummary failed, trying v7/quote for', sym);
   // 方法2：v7/quote（備援）
   const fields = 'trailingPE,forwardPE,priceToBook,dividendYield,trailingAnnualDividendRate,trailingEps,forwardEps,beta,returnOnEquity,grossMargins,pegRatio,shortName,longName,sector,industry,quoteType,marketCap,fiftyTwoWeekHigh,fiftyTwoWeekLow';
   const url2 = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=${fields}`;
