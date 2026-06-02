@@ -186,10 +186,48 @@ async function fetchChart(sym) {
 
 // 輔助：v7/quote 取基本面（美股直連可用；台股走 proxy 嘗試）
 async function fetchQuoteFundamentals(sym) {
-  const fields = 'trailingPE,forwardPE,priceToBook,dividendYield,trailingAnnualDividendRate,dividendRate,trailingEps,forwardEps,bookValue,beta,returnOnEquity,grossMargins,pegRatio,enterpriseToEbitda,shortName,longName,sector,industry,quoteType,marketCap,totalAssets,ytdReturn,threeYearAverageReturn,annualReportExpenseRatio';
-  const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=${fields}`;
-  const d = await fetchWithProxy(url);
-  return d?.quoteResponse?.result?.[0] || null;
+  // 方法1：v10/quoteSummary（美股直連可用，台股靠 proxy）
+  const url1 = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
+  const d1 = await fetchWithProxy(url1);
+  const r1 = d1?.quoteSummary?.result?.[0];
+  if (r1) {
+    // 把 quoteSummary 格式轉成 flat 格式
+    function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
+    const pr = r1.price || {}, sd = r1.summaryDetail || {}, ks = r1.defaultKeyStatistics || {}, fd = r1.financialData || {};
+    return {
+      shortName: pr.shortName || pr.longName,
+      longName: pr.longName,
+      sector: pr.sector || '',
+      industry: pr.industry || '',
+      quoteType: pr.quoteType || '',
+      fullExchangeName: pr.exchangeName || '',
+      marketCap: raw(pr.marketCap),
+      trailingPE: raw(sd.trailingPE),
+      forwardPE: raw(pr.forwardPE) || raw(ks.forwardPE),
+      priceToBook: raw(sd.priceToBook) || raw(ks.priceToBook),
+      dividendYield: raw(sd.dividendYield),
+      trailingAnnualDividendRate: raw(sd.trailingAnnualDividendRate) || raw(sd.dividendRate),
+      dividendRate: raw(sd.dividendRate),
+      trailingEps: raw(ks.trailingEps),
+      forwardEps: raw(ks.forwardEps),
+      beta: raw(ks.beta),
+      returnOnEquity: raw(fd.returnOnEquity),
+      grossMargins: raw(fd.grossMargins),
+      pegRatio: raw(ks.pegRatio),
+      enterpriseToEbitda: raw(ks.enterpriseToEbitda),
+      fiftyTwoWeekHigh: raw(sd.fiftyTwoWeekHigh),
+      fiftyTwoWeekLow: raw(sd.fiftyTwoWeekLow),
+      totalAssets: raw(sd.totalAssets),
+      ytdReturn: raw(ks.ytdReturn),
+      threeYearAverageReturn: raw(ks.threeYearAverageReturn),
+      annualReportExpenseRatio: raw(ks.annualReportExpenseRatio) || raw(sd.expenseRatio),
+    };
+  }
+  // 方法2：v7/quote（備援）
+  const fields = 'trailingPE,forwardPE,priceToBook,dividendYield,trailingAnnualDividendRate,trailingEps,forwardEps,beta,returnOnEquity,grossMargins,pegRatio,shortName,longName,sector,industry,quoteType,marketCap,fiftyTwoWeekHigh,fiftyTwoWeekLow';
+  const url2 = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=${fields}`;
+  const d2 = await fetchWithProxy(url2);
+  return d2?.quoteResponse?.result?.[0] || null;
 }
 
 // 從 v8/chart meta 建立基本資料（台股備援）
