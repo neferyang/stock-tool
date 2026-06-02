@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r5</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r6</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -167,13 +167,32 @@ async function fetchWithProxy(url) {
       if (r.ok) return await r.json();
     } catch(e) {}
   }
-  // proxy 備援
-  for (const px of ['https://corsproxy.io/?','https://api.codetabs.com/v1/proxy?quest=','https://thingproxy.freeboard.io/fetch/']) {
+  // proxy 備援：依序嘗試，找到第一個成功的
+  const proxies = [
+    u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+    u => `https://cors-proxy.fringe.zone/${u}`,
+    u => `https://yacdn.org/proxy/${u}`,
+  ];
+  for (const mkUrl of proxies) {
     try {
-      console.log('[proxy] trying:', px.substring(0,30), url.substring(0,60));
-      const r = await fetch(px + encodeURIComponent(url), {signal:AbortSignal.timeout(13000)});
-      console.log('[proxy] status:', r.status, 'ok:', r.ok);
-      if (r.ok) return await r.json();
+      const pu = mkUrl(url);
+      console.log('[proxy] trying:', pu.substring(0,80));
+      const r = await fetch(pu, {signal:AbortSignal.timeout(13000)});
+      console.log('[proxy] status:', r.status);
+      if (!r.ok) continue;
+      const text = await r.text();
+      // allorigins /get 會包在 {contents:"..."} 裡
+      if (text.includes('"contents"')) {
+        const wrapper = JSON.parse(text);
+        const inner = JSON.parse(wrapper.contents);
+        console.log('[proxy] allorigins/get ok');
+        return inner;
+      }
+      const d = JSON.parse(text);
+      console.log('[proxy] ok');
+      return d;
     } catch(e) { console.log('[proxy] error:', e.message); }
   }
   console.log('[fetchWithProxy] ALL failed:', url.substring(0,80));
