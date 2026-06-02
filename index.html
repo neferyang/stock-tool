@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r14</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r15</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -297,12 +297,10 @@ async function fetchTWSEFundamentals(stockNo) {
   const no = stockNo.replace('.TW','').replace('.TWO','');
 
   async function twseFetch(url) {
-    // 直連
     try {
       const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
       if (r.ok) return await r.json();
     } catch(e) {}
-    // corsproxy 備援
     try {
       const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
       if (r.ok) return await r.json();
@@ -311,47 +309,338 @@ async function fetchTWSEFundamentals(stockNo) {
   }
 
   try {
-    const [peArr, infoArr] = await Promise.all([
-      twseFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d'),
-      twseFetch('https://openapi.twse.com.tw/v1/opendata/t187ap03_L')
-    ]);
+    // 只抓本益比/殖利率/P/B（URL 短，corsproxy 不會 413）
+    const peArr = await twseFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
+    if (!peArr) return null;
 
-    let peData = null, infoData = null;
-    if (peArr) { peData = peArr.find(r => r.Code === no); console.log('[TWSE] PE', no, peData?'ok':'not found', peData?JSON.stringify(peData):''); }
-    if (infoArr) {
-      infoData = infoArr.find(r => r['公司代號'] === no);
-      console.log('[TWSE] info', no, infoData?'ok':'not found');
-      if (!infoData) {
-        // 嘗試其他欄位名稱
-        const sample = infoArr[0];
-        console.log('[TWSE] infoArr keys:', sample ? Object.keys(sample).join(',') : 'empty');
-      } else {
-        console.log('[TWSE] infoData:', JSON.stringify(infoData));
-      }
-    }
-
-    if (!peData && !infoData) return null;
+    const peData = peArr.find(r => r.Code === no);
+    if (!peData) { console.log('[TWSE] not found:', no); return null; }
+    console.log('[TWSE] ok:', JSON.stringify(peData));
 
     const result = {};
-    if (peData) {
-      if (peData.PEratio && peData.PEratio !== '-') result['peNormalizedAnnual'] = parseFloat(peData.PEratio);
-      if (peData.PBratio && peData.PBratio !== '-') result['pbAnnual'] = parseFloat(peData.PBratio);
-      if (peData.DividendYield && peData.DividendYield !== '-') result['dividendYieldIndicatedAnnual'] = parseFloat(peData.DividendYield);
-    }
-    if (infoData) {
-      result['_sector'] = infoData['產業類別'] || '';
-      result['_name'] = infoData['公司簡稱'] || infoData['公司名稱'] || '';
-      result['_industry'] = infoData['產業類別'] || '';
-    }
+    if (peData.PEratio && peData.PEratio !== '-') result['peNormalizedAnnual'] = parseFloat(peData.PEratio);
+    if (peData.PBratio && peData.PBratio !== '-') result['pbAnnual'] = parseFloat(peData.PBratio);
+    if (peData.DividendYield && peData.DividendYield !== '-') result['dividendYieldIndicatedAnnual'] = parseFloat(peData.DividendYield);
+
+    // 從名稱和代號推斷產業
+    const nm = (peData.Name || '').toLowerCase();
+    const code = parseInt(no);
+    let sector = '';
+    if (nm.includes('半導') || nm.includes('積電') || nm.includes('聯發') || nm.includes('矽力') || (code >= 2300 && code <= 2399 && !nm.includes('航')) ) sector = '半導體';
+    else if (nm.includes('金控') || nm.includes('銀行') || nm.includes('壽險') || nm.includes('保險') || nm.includes('證券')) sector = '金融';
+    else if (nm.includes('航運') || nm.includes('鋼鐵') || nm.includes('塑化') || nm.includes('水泥')) sector = '景氣循環';
+    else if (nm.includes('電信') || nm.includes('中華電') || nm.includes('台灣大') || nm.includes('遠傳')) sector = '電信';
+    else if (nm.includes('生技') || nm.includes('醫療') || nm.includes('藥')) sector = '生技';
+    else if (nm.includes('建設') || nm.includes('營建') || nm.includes('不動產')) sector = '不動產';
+    // 依代號範圍補充
+    else if (code >= 2800 && code <= 2899) sector = '金融';
+    else if (code >= 2600 && code <= 2699) sector = '航運';
+
+    result['_sector'] = sector;
+    result['_industry'] = sector;
+    result['_name'] = peData.Name || '';
     return result;
   } catch(e) {
     console.log('[TWSE] error:', e.message);
     return null;
   }
 }
+DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股票估價分析工具</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.sub{color:var(--muted);font-size:.875rem;margin-bottom:20px}
+.apibox{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:.875rem}
+.apibox strong{color:#92400e}
+.apibox a{color:var(--accent)}
+.apirow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.apirow input{flex:1;min-width:200px;padding:7px 12px;border:1.5px solid var(--border);border-radius:6px;font-size:.875rem;font-family:monospace;outline:none}
+.apirow input:focus{border-color:var(--accent)}
+.apirow button{padding:7px 14px;background:#059669;color:#fff;border:none;border-radius:6px;font-size:.875rem;cursor:pointer}
+.sbox{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.sbox input{flex:1;min-width:160px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:1rem;outline:none;transition:border-color .2s}
+.sbox input:focus{border-color:var(--accent)}
+.sbox button{padding:10px 22px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer}
+.sbox button:hover{background:#1d4ed8}
+.sbox button:disabled{background:#93c5fd;cursor:not-allowed}
+.hint{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+#st{font-size:.875rem;color:var(--muted);min-height:22px;margin-bottom:16px}
+#st.err{color:var(--red)}
+.sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.sn{font-size:1.4rem;font-weight:700}.sy{font-size:.9rem;color:var(--muted)}
+.sp{font-size:2rem;font-weight:700}.pc{font-size:1rem;font-weight:600}
+.up{color:var(--red)}.dn{color:var(--green)}
+.itag{background:var(--al);color:var(--accent);padding:2px 10px;border-radius:20px;font-size:.8rem;font-weight:600}
+.sec{margin-bottom:28px}
+.st2{font-size:1rem;font-weight:700;border-left:3px solid var(--accent);padding-left:10px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
+.card{background:var(--sbg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.cl{font-size:.75rem;color:var(--muted)}.cv{font-size:1.05rem;font-weight:600}
+.vt{width:100%;border-collapse:collapse;font-size:.9rem}
+.vt th,.vt td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--border)}
+.vt th{background:var(--sbg);font-weight:600;font-size:.8rem;color:var(--muted)}
+.vt tr:last-child td{border-bottom:none}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600;white-space:nowrap}
+.bl{background:#dcfce7;color:#15803d}.bf{background:#fef9c3;color:#854d0e}.bh{background:#fee2e2;color:#b91c1c}.bn{background:#f3f4f6;color:#6b7280}
+.vd{border-radius:10px;padding:16px 20px;margin-bottom:28px;border-left:4px solid}
+.vd.buy{border-color:var(--red);background:#fff1f2}
+.vd.hold{border-color:var(--yel);background:#fffbeb}
+.vd.sell{border-color:var(--green);background:#f0fdf4}
+.vdtit{font-weight:700;font-size:1.1rem;margin-bottom:6px}.vdbod{font-size:.875rem;line-height:1.8}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
+.tc{background:var(--sbg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
+.tl{font-size:.75rem;color:var(--muted);margin-bottom:2px}
+.tv{font-size:1rem;font-weight:600}.ts{font-size:.75rem;margin-top:2px}
+.sb{color:var(--red)}.ss{color:var(--green)}.sn2{color:var(--yel)}
+.cw{position:relative;height:260px;margin-bottom:8px}
+.pb{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.pbtn{padding:4px 12px;border:1px solid var(--border);border-radius:6px;font-size:.8rem;cursor:pointer;background:#fff}
+.pbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.divhr{border:none;border-top:1px solid var(--border);margin:24px 0}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hidden{display:none!important}
+@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}.tgrid{grid-template-columns:repeat(2,1fr)}.sp{font-size:1.5rem}.vt{font-size:.8rem}.vt th,.vt td{padding:7px 8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r15</span></h1>
+<p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
+<!-- API Key 設定區 -->
+<div class="apibox hidden" id="apiSetup">
+  <strong>⚙️ 首次使用請設定免費 API Key</strong>（只需設定一次，存在瀏覽器裡）<br>
+  免費申請：<a href="https://finnhub.io/register" target="_blank">https://finnhub.io/register</a>（用 Email 註冊，不需信用卡，約 30 秒）
+  <div class="apirow">
+    <input type="text" id="apiKeyInput" placeholder="貼上你的 Finnhub API Key，如 abc123xyz..." />
+    <button onclick="saveKey()">儲存</button>
+  </div>
+  <div id="keyStatus" style="margin-top:6px;font-size:.8rem;color:var(--muted)"></div>
+</div>
 
-// chart data 供 go() 使用
+<div class="sbox">
+  <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
+  <button id="btn" onclick="go()">分析</button>
+</div>
+<p class="hint">台股輸入數字代號（自動加 .TW）；美股直接輸入英文；按 Enter 也可查詢。<br>
+  範例：2330 台積電｜2317 鴻海｜0050 元大台灣50｜00878 國泰高股息｜AAPL｜TSLA｜SPY</p>
+<div id="st"></div>
+<div id="res" class="hidden"></div>
+</div>
+
+<script>
+// ── API Key 管理 ────────────────────────────────────────────────────────────
+let FKEY = localStorage.getItem('finnhub_key') || 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
+
+function saveKey() {
+  const k = document.getElementById('apiKeyInput').value.trim();
+  if (!k) { document.getElementById('keyStatus').textContent = '請貼上 API Key'; return; }
+  FKEY = k;
+  localStorage.setItem('finnhub_key', k);
+  document.getElementById('keyStatus').innerHTML = '✅ 已儲存！可以開始查詢股票了。';
+  document.getElementById('apiKeyInput').value = '';
+  setTimeout(() => { document.getElementById('apiSetup').style.display='none'; }, 1500);
+}
+
+window.addEventListener('load', () => { //
+  if (FKEY) {
+    document.getElementById('apiSetup').style.display = 'none';
+  } else {
+    document.getElementById('apiKeyInput').focus();
+  }
+});
+
+// ── 資料抓取策略 ─────────────────────────────────────────────────────────────
+// 方案A：Yahoo Finance v8 chart（K線，通常允許跨域）
+// 方案B：Finnhub（報價 + 基本面，需要 API key）
+// 合併使用：Yahoo 抓歷史K線，Finnhub 抓即時報價+基本面
+
+async function fetchYahooChart(sym) {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
+  // 試多個 endpoint
+  for (const base of [
+    'https://query1.finance.yahoo.com',
+    'https://query2.finance.yahoo.com'
+  ]) {
+    try {
+      const r = await fetch(`${base}/v8/finance/chart/${sym}?interval=1d&range=2y`, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+          'Accept': 'application/json',
+          'Accept-Language': 'en-US,en;q=0.9'
+        },
+        signal: AbortSignal.timeout(12000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        if (d?.chart?.result?.[0]) return d.chart.result[0];
+      }
+    } catch(e) {}
+  }
+  // 備援：CORS proxy
+  for (const px of ['https://corsproxy.io/?', 'https://api.codetabs.com/v1/proxy?quest=']) {
+    try {
+      const r = await fetch(px + encodeURIComponent(url), { signal: AbortSignal.timeout(12000) });
+      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
+    } catch(e) {}
+  }
+  return null;
+}
+
+// ── Yahoo Finance fetch ─────────────────────────────────────────────────────
+// 發現：corsproxy.io 對 v8/chart 台股回 200（可用！）
+//       corsproxy.io 對 v10/quoteSummary 台股回 401（被封）
+// 策略：全部改用 v8/finance/chart + modules 參數取基本面
+
+async function yfFetch(sym, extraParams = '') {
+  const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
+
+  // 直連嘗試（美股通常可用，台股 CORS 被擋）
+  const directUrls = [
+    `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`,
+    `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`,
+  ];
+  for (const url of directUrls) {
+    try {
+      const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
+      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) { console.log('[yfFetch] direct ok'); return d.chart.result[0]; } }
+    } catch(e) {}
+  }
+
+  // corsproxy 備援（台股靠這個）
+  const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(directUrls[0]);
+  console.log('[yfFetch] trying corsproxy:', proxyUrl.substring(0,80));
+  try {
+    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(15000)});
+    console.log('[yfFetch] corsproxy status:', r.status);
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.chart?.result?.[0]) { console.log('[yfFetch] corsproxy ok'); return d.chart.result[0]; }
+    }
+  } catch(e) { console.log('[yfFetch] corsproxy error:', e.message); }
+
+  console.log('[yfFetch] ALL FAILED for', sym);
+  return null;
+}
+
+// 從 v8/chart result 解出所有需要的資訊
+function parseChartResult(result, sym) {
+  if (!result) return null;
+  const meta = result.meta || {};
+  const price = meta.regularMarketPrice || meta.price;
+  if (!price) return null;
+  const prev = meta.previousClose || meta.chartPreviousClose || price;
+  const chg = price - prev;
+  const chgPct = prev ? (chg / prev) * 100 : 0;
+
+  return {
+    quote: { c: price, d: chg, dp: chgPct },
+    meta,
+    timestamps: result.timestamp || [],
+    ohlcv: result.indicators?.quote?.[0] || {}
+  };
+}
+
+// 取報價（含 chart）
+async function fetchFinnhubQuote(sym) {
+  const result = await yfFetch(sym);
+  if (!result) return null;
+  const parsed = parseChartResult(result, sym);
+  if (!parsed) return null;
+
+  const meta = parsed.meta;
+  const profile = {
+    name: meta.longName || meta.shortName || sym,
+    exchange: meta.exchangeName || meta.fullExchangeName || '',
+    finnhubIndustry: '',
+    industry: '',
+    marketCapitalization: null,
+    quoteType: meta.instrumentType || ''
+  };
+
+  // 快取 chart result 供後續使用
+  fetchFinnhubQuote._cache = result;
+  return { quote: parsed.quote, profile };
+}
+
+// 取基本面 metrics
+async function fetchFinnhubMetrics(sym) {
+  const cached = fetchFinnhubQuote._cache;
+  const meta = cached?.meta || {};
+
+  // 從已快取的 v8/chart meta 取基本數據（台股美股都有）
+  const base = {
+    '52WeekHigh': meta.fiftyTwoWeekHigh,
+    '52WeekLow': meta.fiftyTwoWeekLow,
+    'regularVolume': meta.regularMarketVolume,
+  };
+
+  // 嘗試 quoteSummary 取完整基本面（美股直連可用，台股跳過）
+  const urlSummary = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=summaryDetail,defaultKeyStatistics,financialData,price`;
+  for (const base2 of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
+    try {
+      const url2 = urlSummary.replace('query1.finance.yahoo.com', base2.replace('https://',''));
+      const r = await fetch(url2, {
+        headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'},
+        signal:AbortSignal.timeout(8000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const rr = d?.quoteSummary?.result?.[0];
+        if (rr) { console.log('[metrics] quoteSummary direct ok'); mergeSummary(base, rr); return base; }
+      }
+    } catch(e) {}
+  }
+  // 台股：嘗試 TWSE Open API 取基本面
+  if (sym.endsWith('.TW') || sym.endsWith('.TWO')) {
+    const twse = await fetchTWSEFundamentals(sym);
+    if (twse) {
+      console.log('[metrics] TWSE ok:', Object.keys(twse));
+      Object.assign(base, twse);
+    } else {
+      console.log('[metrics] TWSE failed, meta only for', sym);
+    }
+  }
+  return base;
+}
+
+function mergeSummary(target, r) {
+  function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
+  const sd = r.summaryDetail || {}, ks = r.defaultKeyStatistics || {}, fd = r.financialData || {}, pr = r.price || {};
+  Object.assign(target, {
+    'peNormalizedAnnual': raw(sd.trailingPE),
+    'peTTM': raw(sd.trailingPE),
+    'pbAnnual': raw(sd.priceToBook) || raw(ks.priceToBook),
+    'dividendYieldIndicatedAnnual': raw(sd.dividendYield) ? raw(sd.dividendYield)*100 : null,
+    'dividendPerShareAnnual': raw(sd.dividendRate) || raw(sd.trailingAnnualDividendRate),
+    'epsNormalizedAnnual': raw(ks.trailingEps),
+    'epsTTM': raw(ks.trailingEps),
+    'roeRfy': raw(fd.returnOnEquity) ? raw(fd.returnOnEquity)*100 : null,
+    'grossMarginTTM': raw(fd.grossMargins) ? raw(fd.grossMargins)*100 : null,
+    'beta': raw(ks.beta),
+    '52WeekHigh': raw(sd.fiftyTwoWeekHigh) || target['52WeekHigh'],
+    '52WeekLow': raw(sd.fiftyTwoWeekLow) || target['52WeekLow'],
+    'psTTM': raw(ks.priceToSalesTrailing12Months),
+    'totalAssets': raw(sd.totalAssets),
+    'ytdReturn': raw(ks.ytdReturn),
+    'threeYearAverageReturn': raw(ks.threeYearAverageReturn),
+    'annualReportExpenseRatio': raw(ks.annualReportExpenseRatio),
+  });
+  if (pr.sector) { target._sector = pr.sector; target._industry = pr.industry || ''; }
+}
+
+// ── TWSE Open API（台灣證交所，完全允許跨域）────────────────────────────────
+
 async function fetchYahooChart(sym) {
   return fetchFinnhubQuote._cache || await yfFetch(sym);
 }
@@ -466,7 +755,51 @@ function calcVals(price, m, ind) {
     res.push({m:'P/S 本益銷售比',d:`P/S=${f(ps,1)}（${ind}合理約 ${fairPS}x）`,t:f(ps,1)+'x',b:sig});
   }
 
+  // ── 殖利率成長模型（適合高股息股）─────────────────
+  if(div&&div>0&&m['peNormalizedAnnual']){
+    // 合理價 = 現金股利 / 長期合理殖利率（依產業）
+    const fairYield = ind==='公用事業/電信'?0.04:ind==='金融保險'?0.045:ind==='ETF'?0.04:0.05;
+    const divTarget = div / fairYield;
+    res.push({m:'殖利率合理價',d:`現金股利 ${f(div)} ÷ 合理殖利率 ${f(fairYield*100,1)}%（${ind}）`,t:f(divTarget),b:bdg(f(divTarget),price)});
+  }
+
   return res;
+}
+
+// ── 買賣建議價位計算 ──────────────────────────────────────────────────────────
+function calcPriceTargets(price, m, tech, ind) {
+  const hi52 = m['52WeekHigh'], lo52 = m['52WeekLow'];
+  const pe = m['peNormalizedAnnual'], pb = m['pbAnnual'];
+  const div = m['dividendPerShareAnnual'];
+  const targets = [];
+
+  // 1. 技術面支撐/壓力
+  if(hi52&&lo52) {
+    const range = hi52 - lo52;
+    targets.push({ label:'技術支撐（52週低點）', price: f(lo52), type:'support', note:'跌破此價位風險增加' });
+    targets.push({ label:'技術壓力（52週高點）', price: f(hi52), type:'resist', note:'突破此價位可能加速上漲' });
+    const mid = lo52 + range * 0.5;
+    targets.push({ label:'52週中間價', price: f(mid), type:'neutral', note:'多空分界參考' });
+  }
+
+  // 2. 基本面合理價
+  if(pe&&pe>0) {
+    const fairPE = ind==='科技/半導體'?25:ind==='金融保險'?12:ind==='景氣循環/原物料'?10:18;
+    const eps = price/pe;
+    const buyPE = eps * fairPE * 0.85;
+    const sellPE = eps * fairPE * 1.15;
+    targets.push({ label:`合理買進價（P/E=${fairPE}x×0.85）`, price: f(buyPE), type:'buy', note:'低於此價可考慮買進' });
+    targets.push({ label:`合理賣出價（P/E=${fairPE}x×1.15）`, price: f(sellPE), type:'sell', note:'高於此價考慮減碼' });
+  }
+
+  // 3. 殖利率防線
+  if(div&&div>0) {
+    const yieldFloor = ind==='公用事業/電信'?0.04:ind==='金融保險'?0.045:0.05;
+    const divSupport = div / yieldFloor;
+    targets.push({ label:`殖利率防線（${f(yieldFloor*100,1)}%）`, price: f(divSupport), type:'support', note:'機構被動買盤支撐' });
+  }
+
+  return targets;
 }
 
 function mkVerdict(price, vlist, tech, ind, m) {
@@ -597,6 +930,18 @@ ${vlist.length?vlist.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ DCF 以 EPS 代替自由現金流，為簡化估算。請搭配多個模型綜合判斷，不構成投資建議。</p>
 </div>
 ${AP_.length>0?`
+${(()=>{
+  const pts = calcPriceTargets(price, m, tech, ind);
+  if(!pts.length) return '';
+  const typeStyle = t => t==='buy'?'color:var(--red);font-weight:600':t==='sell'?'color:var(--green);font-weight:600':t==='support'?'color:var(--accent)':t==='resist'?'color:var(--yel)':'color:var(--muted)';
+  const typeIcon = t => t==='buy'?'🟢 ':t==='sell'?'🔴 ':t==='support'?'▲ ':t==='resist'?'▼ ':'◆ ';
+  return `<div class="sec"><div class="st2">買賣參考價位</div>
+  <div style="overflow-x:auto"><table class="vt"><thead><tr><th>價位類型</th><th>參考價</th><th>說明</th></tr></thead><tbody>
+  ${pts.map(p=>`<tr><td style="${typeStyle(p.type)}">${typeIcon(p.type)}${p.label}</td><td><strong>${p.price}</strong></td><td style="font-size:.8rem;color:var(--muted)">${p.note}</td></tr>`).join('')}
+  </tbody></table></div>
+  <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 價位僅供參考，不構成投資建議。實際操作請搭配完整研究。</p>
+  </div>`;
+})()}
 <div class="sec"><div class="st2">技術指標</div><div class="tgrid">
   ${ma5v!=null?tc2('MA5（週線）',f(ma5v),price>ma5v?'▲ 股價在MA5之上':'▼ 跌破MA5（短線轉弱）',price>ma5v?'sb':'ss'):''}
   ${ma20v!=null?tc2('MA20（月線）',f(ma20v),price>ma20v?'▲ 月線守護中':'▼ 跌破月線，轉弱',price>ma20v?'sb':'ss'):''}
