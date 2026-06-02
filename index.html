@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r12</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r13</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -359,7 +359,8 @@ function guessIndustry(profile, sym) {
   const symClean = sym.replace('.TW','').replace('.TWO','');
 
   // ── TWSE 產業類別直接對應（fi/ind2 存的是中文產業名）──
-  const twseCat = fi || ind2;  // TWSE 的 _sector/_industry 存在這裡
+  // TWSE 的 _sector/_industry 存在 fi(finnhubIndustry) 和 ind2(industry)
+  const twseCat = (fi + ' ' + ind2).trim();
   if(twseCat.includes('半導體')||twseCat.includes('積體電路'))return'科技/半導體';
   if(twseCat.includes('電腦')||twseCat.includes('電子零組件')||twseCat.includes('光電')||twseCat.includes('電子通路')||twseCat.includes('資訊服務')||twseCat.includes('其他電子'))return'科技/半導體';
   if(twseCat.includes('金融')||twseCat.includes('銀行')||twseCat.includes('保險')||twseCat.includes('證券'))return'金融保險';
@@ -414,12 +415,15 @@ function calcVals(price, m, ind) {
     res.push({m:'P/E 本益比評估',d:`目前P/E=${f(pe,1)}（成熟股合理區間 12~25x）`,t:f(pe,1)+'x',b:sig});
   }
 
-  // P/B
+  // P/B：直接評估目前 P/B 是否合理，並計算淨值估價
   if(pb&&pb>0){
-    const fp=ind==='金融保險'?1.2:ind==='景氣循環/原物料'?1.0:2.0;
+    // 各產業合理 P/B 區間上限
+    const fp=ind==='金融保險'?1.5:ind==='景氣循環/原物料'?1.5:ind==='科技/半導體'?6.0:ind==='生技/醫療'?5.0:3.0;
     const bv=price/pb;
     const tgt=bv*fp;
-    res.push({m:'P/B 淨值估價',d:`每股淨值≈${f(bv)} × 合理P/B ${fp}（目前P/B=${f(pb,1)}）`,t:f(tgt),b:bdg(f(tgt),price)});
+    // P/B 評估：目前 P/B 和合理 P/B 比較
+    const pbSig=pb<=fp?'<span class="badge bl">P/B合理 ✓</span>':pb<=fp*1.5?'<span class="badge bf">P/B偏高</span>':'<span class="badge bh">P/B偏高 !</span>';
+    res.push({m:'P/B 淨值估價',d:`每股淨值≈${f(bv)} × 合理P/B ${fp}（目前P/B=${f(pb,1)}，${ind}合理上限${fp}x）`,t:f(tgt),b:pbSig});
   }
 
   // 殖利率防線
