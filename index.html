@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r13</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r14</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -317,8 +317,18 @@ async function fetchTWSEFundamentals(stockNo) {
     ]);
 
     let peData = null, infoData = null;
-    if (peArr) { peData = peArr.find(r => r.Code === no); console.log('[TWSE] PE', no, peData?'ok':'not found'); }
-    if (infoArr) { infoData = infoArr.find(r => r['公司代號'] === no); console.log('[TWSE] info', no, infoData?'ok':'not found'); }
+    if (peArr) { peData = peArr.find(r => r.Code === no); console.log('[TWSE] PE', no, peData?'ok':'not found', peData?JSON.stringify(peData):''); }
+    if (infoArr) {
+      infoData = infoArr.find(r => r['公司代號'] === no);
+      console.log('[TWSE] info', no, infoData?'ok':'not found');
+      if (!infoData) {
+        // 嘗試其他欄位名稱
+        const sample = infoArr[0];
+        console.log('[TWSE] infoArr keys:', sample ? Object.keys(sample).join(',') : 'empty');
+      } else {
+        console.log('[TWSE] infoData:', JSON.stringify(infoData));
+      }
+    }
 
     if (!peData && !infoData) return null;
 
