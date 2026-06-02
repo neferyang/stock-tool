@@ -150,79 +150,93 @@ async function fetchYahooChart(sym) {
   return null;
 }
 
-// Yahoo Finance 直連（GitHub Pages https 環境可用）
+// ── Yahoo Finance fetch helper ─────────────────────────────────────────────
+// 四層備援：直連q1 → 直連q2 → corsproxy → codetabs
 async function yfGet(url) {
-  const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
-  // 直連
-  try {
-    const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(12000)});
-    if (r.ok) { const d = await r.json(); return d; }
-  } catch(e) {}
-  // 備援 proxy
-  for (const px of ['https://corsproxy.io/?','https://api.codetabs.com/v1/proxy?quest=']) {
+  const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36','Accept':'application/json','Accept-Language':'en-US,en;q=0.9'};
+  // 直連（美股通常可以，台股可能被 CORS 擋）
+  for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
     try {
-      const r = await fetch(px+encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
+      const u = url.replace('https://query1.finance.yahoo.com', base).replace('https://query2.finance.yahoo.com', base);
+      const r = await fetch(u, {headers:hdrs, signal:AbortSignal.timeout(10000)});
+      if (r.ok) { const d = await r.json(); return d; }
+    } catch(e) {}
+  }
+  // proxy 備援（台股主要靠這裡）
+  for (const px of [
+    'https://corsproxy.io/?',
+    'https://api.codetabs.com/v1/proxy?quest=',
+    'https://thingproxy.freeboard.io/fetch/'
+  ]) {
+    try {
+      const r = await fetch(px + encodeURIComponent(url), {signal:AbortSignal.timeout(14000)});
       if (r.ok) return await r.json();
     } catch(e) {}
   }
   return null;
 }
 
-async function fetchFinnhubQuote(sym) {
-  // 用 Yahoo Finance v10 quoteSummary 取代 Finnhub
-  const modules = 'price,summaryDetail,defaultKeyStatistics,financialData';
-  const d = await yfGet(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=${modules}`);
-  const r = d?.quoteSummary?.result?.[0];
+function parseYFSummary(r) {
   if (!r) return null;
   const pr = r.price || {};
   const sd = r.summaryDetail || {};
   const ks = r.defaultKeyStatistics || {};
   const fd = r.financialData || {};
   function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
+
   const quote = {
-    c: raw(pr.regularMarketPrice) || raw(pr.postMarketPrice),
+    c: raw(pr.regularMarketPrice),
     d: raw(pr.regularMarketChange),
     dp: raw(pr.regularMarketChangePercent) ? raw(pr.regularMarketChangePercent)*100 : null
   };
   const profile = {
-    name: pr.shortName || pr.longName || sym,
+    name: pr.shortName || pr.longName || '',
     exchange: pr.exchangeName || pr.fullExchangeName || '',
     finnhubIndustry: pr.sector || '',
-    marketCapitalization: raw(pr.marketCap) ? raw(pr.marketCap)/1e6 : null,
-    industry: pr.industry || ''
+    industry: pr.industry || '',
+    marketCapitalization: raw(pr.marketCap) ? raw(pr.marketCap)/1e6 : null
   };
-  if (!quote.c) return null;
-  return { quote, profile, summaryDetail: sd, keyStats: ks, financialData: fd };
-}
-
-async function fetchFinnhubMetrics(sym) {
-  const d = await yfGet(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=summaryDetail,defaultKeyStatistics,financialData`);
-  const r = d?.quoteSummary?.result?.[0];
-  if (!r) return null;
-  const sd = r.summaryDetail || {}, ks = r.defaultKeyStatistics || {}, fd = r.financialData || {};
-  function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
-  return {
-    'peNormalizedAnnual': raw(sd.trailingPE) || raw(ks.forwardPE),
+  const metrics = {
+    'peNormalizedAnnual': raw(sd.trailingPE) || raw(pr.forwardPE),
     'peTTM': raw(sd.trailingPE),
     'pbAnnual': raw(sd.priceToBook) || raw(ks.priceToBook),
     'dividendYieldIndicatedAnnual': raw(sd.dividendYield) ? raw(sd.dividendYield)*100 : null,
     'dividendPerShareAnnual': raw(sd.dividendRate) || raw(sd.trailingAnnualDividendRate),
-    'epsNormalizedAnnual': raw(ks.trailingEps) || raw(fd.revenuePerShare),
+    'epsNormalizedAnnual': raw(ks.trailingEps),
     'epsTTM': raw(ks.trailingEps),
     'roeRfy': raw(fd.returnOnEquity) ? raw(fd.returnOnEquity)*100 : null,
-    'roeTTM': raw(fd.returnOnEquity) ? raw(fd.returnOnEquity)*100 : null,
     'grossMarginTTM': raw(fd.grossMargins) ? raw(fd.grossMargins)*100 : null,
     'beta': raw(ks.beta),
     '52WeekHigh': raw(sd.fiftyTwoWeekHigh),
     '52WeekLow': raw(sd.fiftyTwoWeekLow),
     'psTTM': raw(ks.priceToSalesTrailing12Months),
-    'currentEv/freeCashFlowTTM': raw(ks.enterpriseToEbitda),
-    // ETF
     'totalAssets': raw(sd.totalAssets),
     'ytdReturn': raw(ks.ytdReturn),
     'threeYearAverageReturn': raw(ks.threeYearAverageReturn),
     'annualReportExpenseRatio': raw(ks.annualReportExpenseRatio) || raw(sd.expenseRatio),
   };
+  return { quote, profile, metrics };
+}
+
+async function fetchFinnhubQuote(sym) {
+  const modules = 'price,summaryDetail,defaultKeyStatistics,financialData';
+  const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=${modules}`;
+  const d = await yfGet(url);
+  const r = d?.quoteSummary?.result?.[0];
+  if (!r) return null;
+  const parsed = parseYFSummary(r);
+  if (!parsed || !parsed.quote.c) return null;
+  return parsed;
+}
+
+async function fetchFinnhubMetrics(sym) {
+  // 資料已在 fetchFinnhubQuote 裡一起取回，這裡直接重取
+  const modules = 'summaryDetail,defaultKeyStatistics,financialData,price';
+  const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=${modules}`;
+  const d = await yfGet(url);
+  const r = d?.quoteSummary?.result?.[0];
+  if (!r) return null;
+  return parseYFSummary(r)?.metrics || null;
 }
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -376,13 +390,12 @@ async function go(){
 
     if(!finnData) throw new Error('無法取得報價，請確認代號是否正確（台股用數字，美股用英文）');
 
-    const { quote, profile } = finnData;
-    const price = quote.c; // current price
+    const { quote, profile, metrics: finnMetrics } = finnData;
+    const price = quote.c;
     const chg = quote.d ?? 0;
     const chgP = quote.dp ?? 0;
-
-    // 建立 info 物件（統一格式）
-    const m = metrics;
+    // metrics：優先用 fetchFinnhubMetrics 結果，備援用 finnData 裡的
+    const m = metrics || finnMetrics;
     const ind = guessIndustry(profile, tk);
 
     // 處理 K 線資料
