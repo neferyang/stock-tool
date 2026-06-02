@@ -71,7 +71,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料來源：Yahoo Finance + Finnhub</p>
 
 <!-- API Key 設定區 -->
-<div class="apibox" id="apiSetup">
+<div class="apibox hidden" id="apiSetup">
   <strong>⚙️ 首次使用請設定免費 API Key</strong>（只需設定一次，存在瀏覽器裡）<br>
   免費申請：<a href="https://finnhub.io/register" target="_blank">https://finnhub.io/register</a>（用 Email 註冊，不需信用卡，約 30 秒）
   <div class="apirow">
@@ -93,7 +93,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 
 <script>
 // ── API Key 管理 ────────────────────────────────────────────────────────────
-let FKEY = localStorage.getItem('finnhub_key') || '';
+let FKEY = localStorage.getItem('finnhub_key') || 'd8f87g9r01qub7kga950d8f87g9r01qub7kga95g';
 
 function saveKey() {
   const k = document.getElementById('apiKeyInput').value.trim();
@@ -105,7 +105,7 @@ function saveKey() {
   setTimeout(() => { document.getElementById('apiSetup').style.display='none'; }, 1500);
 }
 
-window.addEventListener('load', () => {
+window.addEventListener('load', () => { //
   if (FKEY) {
     document.getElementById('apiSetup').style.display = 'none';
   } else {
