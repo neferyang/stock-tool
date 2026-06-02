@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r7</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r8</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -156,22 +156,33 @@ async function fetchYahooChart(sym) {
 // 策略：全部改用 v8/finance/chart + modules 參數取基本面
 
 async function yfFetch(sym, extraParams = '') {
-  // v8/chart 支援 modules 參數，可一次取 K線 + 基本面
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`;
   const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
 
-  // 直連（美股可用）
-  for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
+  // 直連嘗試（美股通常可用，台股 CORS 被擋）
+  const directUrls = [
+    `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`,
+    `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`,
+  ];
+  for (const url of directUrls) {
     try {
-      const r = await fetch(url.replace('query1.finance.yahoo.com', base.replace('https://','').replace('http://','')), {headers:hdrs, signal:AbortSignal.timeout(9000)});
-      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
+      const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
+      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) { console.log('[yfFetch] direct ok'); return d.chart.result[0]; } }
     } catch(e) {}
   }
-  // corsproxy（台股必須靠這個）
+
+  // corsproxy 備援（台股靠這個）
+  const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(directUrls[0]);
+  console.log('[yfFetch] trying corsproxy:', proxyUrl.substring(0,80));
   try {
-    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(15000)});
-    if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
-  } catch(e) {}
+    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(15000)});
+    console.log('[yfFetch] corsproxy status:', r.status);
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.chart?.result?.[0]) { console.log('[yfFetch] corsproxy ok'); return d.chart.result[0]; }
+    }
+  } catch(e) { console.log('[yfFetch] corsproxy error:', e.message); }
+
+  console.log('[yfFetch] ALL FAILED for', sym);
   return null;
 }
 
