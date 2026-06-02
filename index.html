@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r8</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r9</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -226,62 +226,36 @@ async function fetchFinnhubQuote(sym) {
   return { quote: parsed.quote, profile };
 }
 
-// 取基本面 metrics（從 meta + 嘗試 financials endpoint）
+// 取基本面 metrics
 async function fetchFinnhubMetrics(sym) {
   const cached = fetchFinnhubQuote._cache;
   const meta = cached?.meta || {};
 
-  // v8/chart meta 裡直接有的數據
+  // 從已快取的 v8/chart meta 取基本數據（台股美股都有）
   const base = {
     '52WeekHigh': meta.fiftyTwoWeekHigh,
     '52WeekLow': meta.fiftyTwoWeekLow,
     'regularVolume': meta.regularMarketVolume,
   };
 
-  // 嘗試 Yahoo Finance 的 spark/v7 financials（有時對台股可用）
-  // 或用 v8/chart?modules=financials
-  const urlFin = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=1d&modules=financialData,summaryDetail,defaultKeyStatistics`;
-  let finData = null;
-  // 直連
-  try {
-    const r = await fetch(urlFin, {headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'}, signal:AbortSignal.timeout(8000)});
-    if (r.ok) finData = await r.json();
-  } catch(e) {}
-  // corsproxy 備援
-  if (!finData) {
-    try {
-      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(urlFin), {signal:AbortSignal.timeout(13000)});
-      if (r.ok) finData = await r.json();
-    } catch(e) {}
-  }
-
-  if (finData?.chart?.result?.[0]) {
-    const cr = finData.chart.result[0];
-    const meta2 = cr.meta || {};
-    // v8/chart 有時在 meta 裡帶財務資料
-    Object.assign(base, {
-      '52WeekHigh': meta2.fiftyTwoWeekHigh || base['52WeekHigh'],
-      '52WeekLow': meta2.fiftyTwoWeekLow || base['52WeekLow'],
-    });
-  }
-
-  // 嘗試 quoteSummary（這個對台股 corsproxy 401，對美股直連可用）
+  // 嘗試 quoteSummary 取完整基本面（美股直連可用，台股跳過）
   const urlSummary = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=summaryDetail,defaultKeyStatistics,financialData,price`;
-  let summaryOk = false;
-  // 直連（美股）
   for (const base2 of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
     try {
-      const r = await fetch(urlSummary.replace('query1.finance.yahoo.com', new URL(base2).hostname), {
-        headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'}, signal:AbortSignal.timeout(9000)
+      const url2 = urlSummary.replace('query1.finance.yahoo.com', base2.replace('https://',''));
+      const r = await fetch(url2, {
+        headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'},
+        signal:AbortSignal.timeout(8000)
       });
       if (r.ok) {
         const d = await r.json();
         const rr = d?.quoteSummary?.result?.[0];
-        if (rr) { mergeSummary(base, rr); summaryOk = true; break; }
+        if (rr) { console.log('[metrics] quoteSummary direct ok'); mergeSummary(base, rr); return base; }
       }
     } catch(e) {}
   }
-
+  // 台股到這裡就回傳 base（只有52週高低點），不再嘗試 proxy
+  console.log('[metrics] using meta only for', sym);
   return base;
 }
 
