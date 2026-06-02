@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r6</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r7</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -151,114 +151,57 @@ async function fetchYahooChart(sym) {
 }
 
 // ── Yahoo Finance fetch ─────────────────────────────────────────────────────
-// v8/chart：台股美股都支援 CORS，且含 meta（即時價、52週高低）+ K線
-// v7/quote：美股支援 CORS，台股不支援（有時可用 proxy）
-// 策略：
-//   1. v8/chart 取即時價 + K線（台股美股都適用）
-//   2. v7/quote 取基本面（美股優先直連；台股走 proxy）
+// 發現：corsproxy.io 對 v8/chart 台股回 200（可用！）
+//       corsproxy.io 對 v10/quoteSummary 台股回 401（被封）
+// 策略：全部改用 v8/finance/chart + modules 參數取基本面
 
-async function fetchWithProxy(url) {
+async function yfFetch(sym, extraParams = '') {
+  // v8/chart 支援 modules 參數，可一次取 K線 + 基本面
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y${extraParams}`;
   const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
-  // 直連
+
+  // 直連（美股可用）
   for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
     try {
-      const u = url.includes('query1') ? url.replace('query1',base.includes('query2')?'query2':'query1') : url;
-      const r = await fetch(url.replace(/https:\/\/query[12]\.finance\.yahoo\.com/, base), {headers:hdrs, signal:AbortSignal.timeout(9000)});
-      if (r.ok) return await r.json();
+      const r = await fetch(url.replace('query1.finance.yahoo.com', base.replace('https://','').replace('http://','')), {headers:hdrs, signal:AbortSignal.timeout(9000)});
+      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
     } catch(e) {}
   }
-  // proxy 備援：依序嘗試，找到第一個成功的
-  const proxies = [
-    u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-    u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-    u => `https://cors-proxy.fringe.zone/${u}`,
-    u => `https://yacdn.org/proxy/${u}`,
-  ];
-  for (const mkUrl of proxies) {
-    try {
-      const pu = mkUrl(url);
-      console.log('[proxy] trying:', pu.substring(0,80));
-      const r = await fetch(pu, {signal:AbortSignal.timeout(13000)});
-      console.log('[proxy] status:', r.status);
-      if (!r.ok) continue;
-      const text = await r.text();
-      // allorigins /get 會包在 {contents:"..."} 裡
-      if (text.includes('"contents"')) {
-        const wrapper = JSON.parse(text);
-        const inner = JSON.parse(wrapper.contents);
-        console.log('[proxy] allorigins/get ok');
-        return inner;
-      }
-      const d = JSON.parse(text);
-      console.log('[proxy] ok');
-      return d;
-    } catch(e) { console.log('[proxy] error:', e.message); }
-  }
-  console.log('[fetchWithProxy] ALL failed:', url.substring(0,80));
+  // corsproxy（台股必須靠這個）
+  try {
+    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(15000)});
+    if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
+  } catch(e) {}
   return null;
 }
 
-// 主要：v8/chart 取即時價 + K線（這個對台股美股都可用）
-async function fetchChart(sym) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y&includePrePost=false`;
-  const d = await fetchWithProxy(url);
-  return d?.chart?.result?.[0] || null;
-}
+// 從 v8/chart result 解出所有需要的資訊
+function parseChartResult(result, sym) {
+  if (!result) return null;
+  const meta = result.meta || {};
+  const price = meta.regularMarketPrice || meta.price;
+  if (!price) return null;
+  const prev = meta.previousClose || meta.chartPreviousClose || price;
+  const chg = price - prev;
+  const chgPct = prev ? (chg / prev) * 100 : 0;
 
-// 輔助：v7/quote 取基本面（美股直連可用；台股走 proxy 嘗試）
-async function fetchQuoteFundamentals(sym) {
-  console.log('[fetchQuoteFundamentals] sym:', sym);
-  // 方法1：v10/quoteSummary（美股直連可用，台股靠 proxy）
-  const url1 = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
-  const d1 = await fetchWithProxy(url1);
-  const r1 = d1?.quoteSummary?.result?.[0];
-  if (r1) {
-    console.log('[fundamentals] v10/quoteSummary OK for', sym);
-    // 把 quoteSummary 格式轉成 flat 格式
-    function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
-    const pr = r1.price || {}, sd = r1.summaryDetail || {}, ks = r1.defaultKeyStatistics || {}, fd = r1.financialData || {};
-    return {
-      shortName: pr.shortName || pr.longName,
-      longName: pr.longName,
-      sector: pr.sector || '',
-      industry: pr.industry || '',
-      quoteType: pr.quoteType || '',
-      fullExchangeName: pr.exchangeName || '',
-      marketCap: raw(pr.marketCap),
-      trailingPE: raw(sd.trailingPE),
-      forwardPE: raw(pr.forwardPE) || raw(ks.forwardPE),
-      priceToBook: raw(sd.priceToBook) || raw(ks.priceToBook),
-      dividendYield: raw(sd.dividendYield),
-      trailingAnnualDividendRate: raw(sd.trailingAnnualDividendRate) || raw(sd.dividendRate),
-      dividendRate: raw(sd.dividendRate),
-      trailingEps: raw(ks.trailingEps),
-      forwardEps: raw(ks.forwardEps),
-      beta: raw(ks.beta),
-      returnOnEquity: raw(fd.returnOnEquity),
-      grossMargins: raw(fd.grossMargins),
-      pegRatio: raw(ks.pegRatio),
-      enterpriseToEbitda: raw(ks.enterpriseToEbitda),
-      fiftyTwoWeekHigh: raw(sd.fiftyTwoWeekHigh),
-      fiftyTwoWeekLow: raw(sd.fiftyTwoWeekLow),
-      totalAssets: raw(sd.totalAssets),
-      ytdReturn: raw(ks.ytdReturn),
-      threeYearAverageReturn: raw(ks.threeYearAverageReturn),
-      annualReportExpenseRatio: raw(ks.annualReportExpenseRatio) || raw(sd.expenseRatio),
-    };
-  }
-  console.log('[fundamentals] v10/quoteSummary failed, trying v7/quote for', sym);
-  // 方法2：v7/quote（備援）
-  const fields = 'trailingPE,forwardPE,priceToBook,dividendYield,trailingAnnualDividendRate,trailingEps,forwardEps,beta,returnOnEquity,grossMargins,pegRatio,shortName,longName,sector,industry,quoteType,marketCap,fiftyTwoWeekHigh,fiftyTwoWeekLow';
-  const url2 = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}&fields=${fields}`;
-  const d2 = await fetchWithProxy(url2);
-  return d2?.quoteResponse?.result?.[0] || null;
-}
-
-// 從 v8/chart meta 建立基本資料（台股備援）
-function metaToInfo(meta, sym) {
-  if (!meta) return null;
   return {
+    quote: { c: price, d: chg, dp: chgPct },
+    meta,
+    timestamps: result.timestamp || [],
+    ohlcv: result.indicators?.quote?.[0] || {}
+  };
+}
+
+// 取報價（含 chart）
+async function fetchFinnhubQuote(sym) {
+  const result = await yfFetch(sym);
+  if (!result) return null;
+  const parsed = parseChartResult(result, sym);
+  if (!parsed) return null;
+
+  const meta = parsed.meta;
+  const profile = {
     name: meta.longName || meta.shortName || sym,
     exchange: meta.exchangeName || meta.fullExchangeName || '',
     finnhubIndustry: '',
@@ -266,86 +209,102 @@ function metaToInfo(meta, sym) {
     marketCapitalization: null,
     quoteType: meta.instrumentType || ''
   };
+
+  // 快取 chart result 供後續使用
+  fetchFinnhubQuote._cache = result;
+  return { quote: parsed.quote, profile };
 }
 
-function metaToMetrics(meta) {
-  if (!meta) return {};
-  return {
+// 取基本面 metrics（從 meta + 嘗試 financials endpoint）
+async function fetchFinnhubMetrics(sym) {
+  const cached = fetchFinnhubQuote._cache;
+  const meta = cached?.meta || {};
+
+  // v8/chart meta 裡直接有的數據
+  const base = {
     '52WeekHigh': meta.fiftyTwoWeekHigh,
     '52WeekLow': meta.fiftyTwoWeekLow,
-    // v8 meta 沒有基本面，但有價格資訊
+    'regularVolume': meta.regularMarketVolume,
   };
+
+  // 嘗試 Yahoo Finance 的 spark/v7 financials（有時對台股可用）
+  // 或用 v8/chart?modules=financials
+  const urlFin = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=1d&modules=financialData,summaryDetail,defaultKeyStatistics`;
+  let finData = null;
+  // 直連
+  try {
+    const r = await fetch(urlFin, {headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'}, signal:AbortSignal.timeout(8000)});
+    if (r.ok) finData = await r.json();
+  } catch(e) {}
+  // corsproxy 備援
+  if (!finData) {
+    try {
+      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(urlFin), {signal:AbortSignal.timeout(13000)});
+      if (r.ok) finData = await r.json();
+    } catch(e) {}
+  }
+
+  if (finData?.chart?.result?.[0]) {
+    const cr = finData.chart.result[0];
+    const meta2 = cr.meta || {};
+    // v8/chart 有時在 meta 裡帶財務資料
+    Object.assign(base, {
+      '52WeekHigh': meta2.fiftyTwoWeekHigh || base['52WeekHigh'],
+      '52WeekLow': meta2.fiftyTwoWeekLow || base['52WeekLow'],
+    });
+  }
+
+  // 嘗試 quoteSummary（這個對台股 corsproxy 401，對美股直連可用）
+  const urlSummary = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=summaryDetail,defaultKeyStatistics,financialData,price`;
+  let summaryOk = false;
+  // 直連（美股）
+  for (const base2 of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
+    try {
+      const r = await fetch(urlSummary.replace('query1.finance.yahoo.com', new URL(base2).hostname), {
+        headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'}, signal:AbortSignal.timeout(9000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const rr = d?.quoteSummary?.result?.[0];
+        if (rr) { mergeSummary(base, rr); summaryOk = true; break; }
+      }
+    } catch(e) {}
+  }
+
+  return base;
 }
 
-// v7/quote 結果轉 metrics
-function quoteToMetrics(q) {
-  if (!q) return {};
-  const pct = v => v != null ? (Math.abs(v) > 1 ? v : v * 100) : null;
-  return {
-    'peNormalizedAnnual': q.trailingPE || q.forwardPE,
-    'peTTM': q.trailingPE,
-    'pbAnnual': q.priceToBook,
-    'dividendYieldIndicatedAnnual': pct(q.dividendYield),
-    'dividendPerShareAnnual': q.trailingAnnualDividendRate || q.dividendRate,
-    'epsNormalizedAnnual': q.trailingEps || q.forwardEps,
-    'epsTTM': q.trailingEps,
-    'roeRfy': pct(q.returnOnEquity),
-    'grossMarginTTM': pct(q.grossMargins),
-    'beta': q.beta,
-    '52WeekHigh': q.fiftyTwoWeekHigh,
-    '52WeekLow': q.fiftyTwoWeekLow,
-    'psTTM': q.priceToSalesTrailing12Months,
-    'totalAssets': q.totalAssets,
-    'ytdReturn': q.ytdReturn,
-    'threeYearAverageReturn': q.threeYearAverageReturn,
-    'annualReportExpenseRatio': q.annualReportExpenseRatio || q.expenseRatio,
-  };
+function mergeSummary(target, r) {
+  function raw(o) { return (o && typeof o === 'object' && 'raw' in o) ? o.raw : o; }
+  const sd = r.summaryDetail || {}, ks = r.defaultKeyStatistics || {}, fd = r.financialData || {}, pr = r.price || {};
+  Object.assign(target, {
+    'peNormalizedAnnual': raw(sd.trailingPE),
+    'peTTM': raw(sd.trailingPE),
+    'pbAnnual': raw(sd.priceToBook) || raw(ks.priceToBook),
+    'dividendYieldIndicatedAnnual': raw(sd.dividendYield) ? raw(sd.dividendYield)*100 : null,
+    'dividendPerShareAnnual': raw(sd.dividendRate) || raw(sd.trailingAnnualDividendRate),
+    'epsNormalizedAnnual': raw(ks.trailingEps),
+    'epsTTM': raw(ks.trailingEps),
+    'roeRfy': raw(fd.returnOnEquity) ? raw(fd.returnOnEquity)*100 : null,
+    'grossMarginTTM': raw(fd.grossMargins) ? raw(fd.grossMargins)*100 : null,
+    'beta': raw(ks.beta),
+    '52WeekHigh': raw(sd.fiftyTwoWeekHigh) || target['52WeekHigh'],
+    '52WeekLow': raw(sd.fiftyTwoWeekLow) || target['52WeekLow'],
+    'psTTM': raw(ks.priceToSalesTrailing12Months),
+    'totalAssets': raw(sd.totalAssets),
+    'ytdReturn': raw(ks.ytdReturn),
+    'threeYearAverageReturn': raw(ks.threeYearAverageReturn),
+    'annualReportExpenseRatio': raw(ks.annualReportExpenseRatio),
+  });
+  if (pr.sector) { target._sector = pr.sector; target._industry = pr.industry || ''; }
 }
 
-// 統一入口：取報價 + 基本資料
-async function fetchFinnhubQuote(sym) {
-  // 同步抓 chart 和 fundamentals
-  const [chartData, quoteData] = await Promise.all([
-    fetchChart(sym),
-    fetchQuoteFundamentals(sym)
-  ]);
-
-  // chart 是必須的（取即時價 + K線）
-  if (!chartData) return null;
-  const meta = chartData.meta || {};
-  const price = meta.regularMarketPrice || meta.price;
-  if (!price) return null;
-
-  const prevClose = meta.previousClose || meta.chartPreviousClose || price;
-  const chgAmt = price - prevClose;
-  const chgPct = prevClose ? (chgAmt / prevClose) * 100 : 0;
-
-  // 優先用 v7/quote 的基本資料，備援用 meta
-  const profile = quoteData ? {
-    name: quoteData.shortName || quoteData.longName || meta.longName || sym,
-    exchange: quoteData.fullExchangeName || meta.exchangeName || '',
-    finnhubIndustry: quoteData.sector || '',
-    industry: quoteData.industry || '',
-    marketCapitalization: quoteData.marketCap ? quoteData.marketCap / 1e6 : null,
-    quoteType: quoteData.quoteType || meta.instrumentType || ''
-  } : metaToInfo(meta, sym);
-
-  const quote = { c: price, d: chgAmt, dp: chgPct };
-
-  // 儲存 chartData 供外部取用
-  fetchFinnhubQuote._lastChart = chartData;
-
-  return { quote, profile };
+// chart data 供 go() 使用
+async function fetchYahooChart(sym) {
+  return fetchFinnhubQuote._cache || await yfFetch(sym);
 }
 
-async function fetchFinnhubMetrics(sym) {
-  const quoteData = await fetchQuoteFundamentals(sym);
-  const chartMeta = fetchFinnhubQuote._lastChart?.meta || {};
-  const base = metaToMetrics(chartMeta);
-  const fromQuote = quoteToMetrics(quoteData);
-  // 合併：quoteData 優先，meta 補充缺少的
-  return Object.assign(base, fromQuote);
-}
+
 // ── Helpers ────────────────────────────────────────────────────────────────
 const f = (n,d=2) => (n==null||n===undefined||isNaN(n)||!isFinite(n)) ? 'N/A' : Number(n).toFixed(d);
 function fB(n){if(!n||isNaN(n))return'N/A';const a=Math.abs(n);if(a>=1e12)return(n/1e12).toFixed(2)+' T';if(a>=1e9)return(n/1e9).toFixed(2)+' B';if(a>=1e6)return(n/1e6).toFixed(2)+' M';return n.toFixed(0);}
@@ -496,7 +455,7 @@ async function go(){
     // 取基本面（重用已快取的 chart meta）
     const metrics = await fetchFinnhubMetrics(tk);
     // chart 資料直接從快取取得
-    const chartData = fetchFinnhubQuote._lastChart;
+    const chartData = fetchFinnhubQuote._cache;
 
     const { quote, profile } = finnData;
     const price = quote.c;
@@ -504,6 +463,8 @@ async function go(){
     const chgP = quote.dp ?? 0;
     // metrics：優先用 fetchFinnhubMetrics 結果，備援用 finnData 裡的
     const m = metrics || {};
+    // 若 metrics 有 sector（美股 quoteSummary 取到），補進 profile
+    if (m && m._sector) { profile.finnhubIndustry = m._sector; profile.industry = m._industry || ''; }
     const ind = guessIndustry(profile, tk);
 
     // 處理 K 線資料
