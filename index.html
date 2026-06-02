@@ -67,7 +67,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r11</span></h1>
+<h1>📊 股票估價分析工具 <span style="font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle">v2026.06.02-r12</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance</p>
 
 <!-- API Key 設定區 -->
@@ -357,14 +357,28 @@ function guessIndustry(profile, sym) {
   const ind2 = (profile?.industry||'').toLowerCase();
   const nm = (profile?.name||'').toLowerCase();
   const symClean = sym.replace('.TW','').replace('.TWO','');
-  // ETF：台股 00 開頭，或名稱含 etf
-  if(/^00\d{2,3}/.test(symClean)||nm.includes('etf')||fi.includes('fund')||ind2.includes('etf'))return'ETF';
-  if(fi.includes('bank')||fi.includes('insurance')||fi.includes('financial')||ind2.includes('bank')||ind2.includes('insurance')||nm.includes('金控')||nm.includes('銀行')||nm.includes('壽險'))return'金融保險';
-  if(fi.includes('real estate')||ind2.includes('reit')||ind2.includes('real estate'))return'不動產/REITs';
-  if(fi.includes('utilities')||fi.includes('telecom')||ind2.includes('telecom')||ind2.includes('utilities')||nm.includes('電信')||nm.includes('中華電')||nm.includes('台灣大'))return'公用事業/電信';
-  if(fi.includes('energy')||fi.includes('mining')||fi.includes('steel')||fi.includes('shipping')||ind2.includes('steel')||ind2.includes('shipping')||nm.includes('航運')||nm.includes('鋼鐵'))return'景氣循環/原物料';
-  if(fi.includes('tech')||fi.includes('semiconductor')||fi.includes('electronic')||ind2.includes('semiconductor')||ind2.includes('electronic')||nm.includes('科技')||nm.includes('半導體')||nm.includes('台積')||nm.includes('聯發科'))return'科技/半導體';
-  if(fi.includes('health')||fi.includes('biotech')||fi.includes('pharma')||ind2.includes('biotech')||ind2.includes('pharma')||nm.includes('生技')||nm.includes('醫療')||nm.includes('藥'))return'生技/醫療';
+
+  // ── TWSE 產業類別直接對應（fi/ind2 存的是中文產業名）──
+  const twseCat = fi || ind2;  // TWSE 的 _sector/_industry 存在這裡
+  if(twseCat.includes('半導體')||twseCat.includes('積體電路'))return'科技/半導體';
+  if(twseCat.includes('電腦')||twseCat.includes('電子零組件')||twseCat.includes('光電')||twseCat.includes('電子通路')||twseCat.includes('資訊服務')||twseCat.includes('其他電子'))return'科技/半導體';
+  if(twseCat.includes('金融')||twseCat.includes('銀行')||twseCat.includes('保險')||twseCat.includes('證券'))return'金融保險';
+  if(twseCat.includes('鋼鐵')||twseCat.includes('航運')||twseCat.includes('航空')||twseCat.includes('塑膠')||twseCat.includes('化學')||twseCat.includes('水泥')||twseCat.includes('玻璃')||twseCat.includes('造紙'))return'景氣循環/原物料';
+  if(twseCat.includes('電信')||twseCat.includes('通信'))return'公用事業/電信';
+  if(twseCat.includes('建材')||twseCat.includes('不動產')||twseCat.includes('營建'))return'不動產/REITs';
+  if(twseCat.includes('生技')||twseCat.includes('醫療')||twseCat.includes('藥'))return'生技/醫療';
+  if(twseCat.includes('食品')||twseCat.includes('紡織')||twseCat.includes('電機')||twseCat.includes('汽車')||twseCat.includes('橡膠'))return'一般製造/消費';
+
+  // ── ETF ──
+  if(/^00\d{2,3}/.test(symClean)||nm.includes('etf')||nm.includes('基金'))return'ETF';
+
+  // ── 英文 sector（美股）──
+  if(fi.includes('bank')||fi.includes('insurance')||fi.includes('financial')||nm.includes('金控')||nm.includes('銀行'))return'金融保險';
+  if(fi.includes('real estate')||ind2.includes('reit'))return'不動產/REITs';
+  if(fi.includes('utilities')||fi.includes('telecom')||nm.includes('電信'))return'公用事業/電信';
+  if(fi.includes('energy')||fi.includes('mining')||fi.includes('steel')||fi.includes('shipping')||nm.includes('航運')||nm.includes('鋼鐵'))return'景氣循環/原物料';
+  if(fi.includes('tech')||fi.includes('semiconductor')||fi.includes('electronic')||nm.includes('科技')||nm.includes('半導體')||nm.includes('台積')||nm.includes('聯發科'))return'科技/半導體';
+  if(fi.includes('health')||fi.includes('biotech')||fi.includes('pharma')||nm.includes('生技')||nm.includes('醫療')||nm.includes('藥'))return'生技/醫療';
   return'一般製造/消費';
 }
 
