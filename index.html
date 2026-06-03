@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r24</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r25</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -146,19 +146,21 @@ async function safeFetch(url) {
   return null;
 }
 
-// TWSE（上市）：本益比/P/B/殖利率
+// TWSE（上市）：本益比/P/B/殖利率（BWIBBU_ALL 含更多資料，BWIBBU_d 備援）
 async function twseFetch() {
+  const d = await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL');
+  if (d && d.length > 0) return d;
   return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
 }
 
 // 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
 // 或嘗試 BWIBBU_ALL（合併版）
 async function tpexFetch() {
-  // 上櫃本益比資料來源（TWSE openapi 上市用 BWIBBU_d，上櫃用不同 endpoint）
+  // 上櫃股：目前公開API無法直接取得，回傳 null（顯示 N/A）
+  // 僅做嘗試，若未來 API 支援則自動生效
   const candidates = [
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL', // 合併（若存在）
-    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis', // TPEX 官方
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',   // 上市（備援，上櫃不在裡面）
+    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis',
+    'https://www.tpex.org.tw/openapi/v1/tpex_esb_peratio_analysis',
   ];
   for (const url of candidates) {
     // 直連
@@ -609,7 +611,7 @@ ${ind==='ETF'?`<div class="sec"><div class="st2">ETF 指標</div><div class="gri
 
 <div class="sec"><div class="st2">估值模型試算（${ind}）</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
-${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):'<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">財務資料不足，無法計算（ETF 或缺少基本面資料）</td></tr>'}
+${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':'財務資料不足，無法計算（ETF 或缺少基本面資料）'}</td></tr>`}
 </tbody></table></div>
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 模型均為簡化估算，請搭配多個模型綜合判斷，不構成投資建議。</p>
 </div>
