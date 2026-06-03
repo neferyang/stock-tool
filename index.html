@@ -242,137 +242,7 @@ async function newsAnnouncementsFetch(code) {
 }
 
 // ════════════════════════════════════════════════════════
-// FinMind 法人持股 API
-// ════════════════════════════════════════════════════════
-async function finmindFetch(code) {
-  if (!code) return null;
-
-  // 嘗試多個方式獲取法人持股數據
-  const methods = [
-    // 方法 1：直接 API
-    async () => {
-      const url = `https://api.finmind.com.tw/v1/data?dataset=TaiwanStockInstitutional&data_id=${code}`;
-      const r = await fetch(url, {signal:AbortSignal.timeout(6000), mode:'cors'});
-      if (!r.ok) throw new Error('API status ' + r.status);
-      return await r.json();
-    },
-    // 方法 2：使用 CORS 代理
-    async () => {
-      const url = `https://api.finmind.com.tw/v1/data?dataset=TaiwanStockInstitutional&data_id=${code}`;
-      const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
-      const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(6000)});
-      if (!r.ok) throw new Error('Proxy status ' + r.status);
-      return await r.json();
-    }
-  ];
-
-  for (const method of methods) {
-    try {
-      const data = await method();
-      if (data.data && Array.isArray(data.data) && data.data.length > 0) {
-        // 最新數據（排序後取最後一筆）
-        const sorted = data.data.sort((a, b) => new Date(a.date) - new Date(b.date));
-        const latest = sorted[sorted.length - 1];
-
-        // 計算趨勢（比較最近 5 筆）
-        let trend = 'stable';
-        if (sorted.length >= 5) {
-          const recent = sorted.slice(-5);
-          const firstVal = parseFloat(recent[0].institutional_investors_holding_share_percenage || 0);
-          const lastVal = parseFloat(recent[recent.length - 1].institutional_investors_holding_share_percenage || 0);
-          if (lastVal > firstVal * 1.02) trend = 'up';
-          else if (lastVal < firstVal * 0.98) trend = 'down';
-        }
-
-        const percentage = parseFloat(latest.institutional_investors_holding_share_percenage || 0);
-        console.log('[finmindFetch] ✅ 成功取得法人持股:', code, '持股比例:', percentage + '%');
-        return {
-          holding: percentage,
-          trend: trend,
-          date: latest.date
-        };
-      }
-    } catch(e) {
-      console.log('[finmindFetch] 方法失敗:', e.message);
-    }
-  }
-
-  console.log('[finmindFetch] ⚠️ 無法取得法人持股數據');
-  return null;
-}
-
-// ════════════════════════════════════════════════════════
-// FinmoConf 法人說明會爬蟲
-// ════════════════════════════════════════════════════════
-async function finconfFetch(code) {
-  if (!code) return null;
-
-  // 方法 1：嘗試直接爬蟲
-  try {
-    const searchUrl = `https://finmoconf.diveinvest.net/search?q=${code}`;
-    const r = await fetch(searchUrl, {signal:AbortSignal.timeout(6000), mode:'cors'});
-
-    if (r.ok) {
-      const html = await r.text();
-      // 提取最新說明會日期
-      const confRegex = /(\d{4}[-\/]\d{2}[-\/]\d{2})/g;
-      const matches = [...html.matchAll(confRegex)];
-
-      if (matches.length > 0) {
-        const latestDate = matches[0][1].replace(/\//g, '-');
-        console.log('[finconfFetch] ✅ 成功取得法人說明會:', code, '日期:', latestDate);
-        return {
-          date: latestDate,
-          url: `https://finmoconf.diveinvest.net/search?q=${code}`,
-          title: code + ' 法人說明會'
-        };
-      }
-    }
-  } catch(e) {
-    console.log('[finconfFetch] 直接爬蟲失敗:', e.message);
-  }
-
-  // 方法 2：使用 CORS 代理
-  try {
-    const searchUrl = `https://finmoconf.diveinvest.net/search?q=${code}`;
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(searchUrl)}`;
-    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(6000)});
-
-    if (r.ok) {
-      const html = await r.text();
-      const confRegex = /(\d{4}[-\/]\d{2}[-\/]\d{2})/g;
-      const matches = [...html.matchAll(confRegex)];
-
-      if (matches.length > 0) {
-        const latestDate = matches[0][1].replace(/\//g, '-');
-        console.log('[finconfFetch] ✅ 代理成功，法人說明會:', code);
-        return {
-          date: latestDate,
-          url: `https://finmoconf.diveinvest.net/search?q=${code}`,
-          title: code + ' 法人說明會'
-        };
-      }
-    }
-  } catch(e) {
-    console.log('[finconfFetch] 代理爬蟲失敗:', e.message);
-  }
-
-  // 備援方案：演示數據（使用近期假設日期）
-  const today = new Date();
-  const daysAgo = Math.floor(Math.random() * 60) + 1;
-  const confDate = new Date(today.getTime() - daysAgo * 24 * 60 * 60 * 1000);
-  const dateStr = confDate.toISOString().split('T')[0];
-
-  console.log('[finconfFetch] ⚠️ 使用演示數據');
-  return {
-    date: dateStr,
-    url: `https://finmoconf.diveinvest.net/search?q=${code}`,
-    title: code + ' 法人說明會'
-  };
-}
-
-// ════════════════════════════════════════════════════════
-// 產業分類系統 v2.0 - 精細化產業判斷 + 估值參數
+// 產業分類系統 v4.0 - 動態 OpenAPI 集成 + 精細化產業判斷
 // ════════════════════════════════════════════════════════
 
 // ════════════════════════════════════════════════════════
@@ -641,12 +511,15 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   // L0.5：官方企業分類映射（TWSE/TPEX OpenAPI - 最高準確度）
   // ─────────────────────────────────────────────────────────
-  const code = sym.replace('.TW','').replace('.TWO','');
-  if (COMPANY_INDUSTRY_MAP.has(code)) {
-    const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
-    console.log(`[L0.5] ${code} → ${officialIndustry} (官方映射)`);
-    return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE官方產業代碼'}};
-  }
+  // [暫時禁用以確保應用穩定性，將在後續優化時啟用]
+  // if (typeof COMPANY_INDUSTRY_MAP !== 'undefined' && COMPANY_INDUSTRY_MAP.size > 0) {
+  //   const code = sym.replace('.TW','').replace('.TWO','');
+  //   if (COMPANY_INDUSTRY_MAP.has(code)) {
+  //     const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
+  //     console.log(`[L0.5] ${code} → ${officialIndustry} (官方映射)`);
+  //     return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE官方產業代碼'}};
+  //   }
+  // }
 
   // ─────────────────────────────────────────────────────────
   // L1：官方 API 資料（Sector/Industry）
@@ -749,14 +622,14 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   // L4：代號範圍推斷（台股）- 改為返回官方產業名稱
   // ─────────────────────────────────────────────────────────
-  const code = parseInt(sym.replace('.TW','').replace('.TWO',''));
-  if (!isNaN(code)) {
+  const codeNum = parseInt(sym.replace('.TW','').replace('.TWO',''));
+  if (!isNaN(codeNum)) {
     for (const range of CODE_RANGE_MAP) {
-      if (code >= range.range[0] && code <= range.range[1]) {
+      if (codeNum >= range.range[0] && codeNum <= range.range[1]) {
         // 將舊產業代碼轉換為官方產業名稱
         const oldIndustry = range.industry;
         const officialName = OLD_INDUSTRY_TO_OFFICIAL[oldIndustry] || '未分類';
-        return {industry: officialName, confidence: 'medium', details: {method: '代號範圍推斷', code, range: range.range}};
+        return {industry: officialName, confidence: 'medium', details: {method: '代號範圍推斷', code: codeNum, range: range.range}};
       }
     }
   }
@@ -1263,17 +1136,7 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 
 function setSt(m,err){const el=document.getElementById('st');el.innerHTML=m;el.className=err?'err':'';}
 document.getElementById('ti').addEventListener('keydown',e=>{if(e.key==='Enter')go();});
-</script>
 
-<div style="text-align:center;font-size:.75rem;color:#999;padding:0 16px 20px">
-  台股：TWSE Open API｜美股/K線：Yahoo Finance｜支援台股、美股、ETF｜手機/平板/電腦均可使用
-</div>
-
-<div id="initStatus" style="position:fixed;bottom:10px;right:10px;font-size:0.75rem;color:#666;padding:8px 12px;background:#f0f0f0;border-radius:4px;display:none;z-index:9999">
-  <span id="syncIcon">⏳</span> 同步中...
-</div>
-
-<script>
 // 方案 B：監視官方產業數據同步狀態
 async function monitorIndustrySync() {
   const statusEl = document.getElementById('initStatus');
@@ -1306,5 +1169,13 @@ if (document.readyState === 'loading') {
   monitorIndustrySync();
 }
 </script>
+
+<div style="text-align:center;font-size:.75rem;color:#999;padding:0 16px 20px">
+  台股：TWSE Open API｜美股/K線：Yahoo Finance｜支援台股、美股、ETF｜手機/平板/電腦均可使用
+</div>
+
+<div id="initStatus" style="position:fixed;bottom:10px;right:10px;font-size:0.75rem;color:#666;padding:8px 12px;background:#f0f0f0;border-radius:4px;display:none;z-index:9999">
+  <span id="syncIcon">⏳</span> 同步中...
+</div>
 </body>
 </html>
