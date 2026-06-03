@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r15</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r16</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -457,10 +457,16 @@ async function go(){
     const vd = mkVerdict(price, vals, tech, ind, m);
     const ptRows = calcPriceTargets(price, m, tech, ind);
 
-    // 漲跌
-    const prev = meta.previousClose||meta.chartPreviousClose||price;
-    const chg = price-prev, chgPct=(chg/prev)*100;
-    const cc=chg>=0?'up':'dn', cs=chg>=0?'+':'';
+    // 漲跌：用K線最後兩日計算（比meta更準確）
+    let chg=0, chgPct=0;
+    if (AP.length >= 2) {
+      const lc=AP[AP.length-1], pc=AP[AP.length-2];
+      if (lc&&pc&&pc>0&&Math.abs((lc-pc)/pc)<0.3) { chg=lc-pc; chgPct=(chg/pc)*100; }
+    }
+    // 台股：漲紅跌綠；美股：漲綠跌紅
+    const isTW2 = ticker.endsWith('.TW');
+    const cc = chg>=0 ? (isTW2?'up':'dn') : (isTW2?'dn':'up');
+    const cs = chg>=0?'+':'';
     const pct52 = m['52hi']&&m['52lo'] ? f((price-m['52lo'])/(m['52hi']-m['52lo'])*100,1)+'%' : 'N/A';
 
     const sc2=(l,v)=>`<div class="card"><div class="cl">${l}</div><div class="cv">${v}</div></div>`;
