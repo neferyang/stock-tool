@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r30 (Industry Classifier v2.0)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r32 (TWSE Official 33)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -190,99 +190,180 @@ async function tpexFetch() {
 // 產業分類系統 v2.0 - 精細化產業判斷 + 估值參數
 // ════════════════════════════════════════════════════════
 
-// 產業資料庫：包含代碼、估值參數、特徵詞
+// ════════════════════════════════════════════════════════
+// 官方產業代碼對應表（TWSE 2023 年 33 種產業標準）
+// ════════════════════════════════════════════════════════
+const OFFICIAL_INDUSTRY_CODES = {
+  '01': '水泥工業',
+  '02': '食品工業',
+  '03': '塑膠工業',
+  '04': '紡織纖維',
+  '05': '電機機械',
+  '06': '電器電纜',
+  '08': '玻璃陶瓷',
+  '09': '造紙工業',
+  '10': '鋼鐵工業',
+  '11': '橡膠工業',
+  '12': '汽車工業',
+  '14': '建材營造',
+  '15': '航運業',
+  '16': '觀光餐旅',
+  '17': '金融保險業',
+  '18': '貿易百貨業',
+  '19': '綜合',
+  '20': '其他業',
+  '21': '化學工業',
+  '22': '生技醫療業',
+  '23': '油電燃氣業',
+  '24': '半導體業',
+  '25': '電腦及週邊設備業',
+  '26': '光電業',
+  '27': '通信網路業',
+  '28': '電子零組件業',
+  '29': '電子通路業',
+  '30': '資訊服務業',
+  '31': '其他電子業',
+  '35': '綠能環保',
+  '36': '數位雲端',
+  '37': '運動休閒',
+  '38': '居家生活'
+};
+
+// 產業資料庫：官方產業名稱 → 估值參數
 const INDUSTRY_DB = {
-  'etf': {name:'ETF', parent:'工具型', fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null, description:'交易所買賣基金'},
-  'ic-design': {name:'IC設計', parent:'科技硬體', fairPE:35, fairPB:8, fairDiv:0, fairYield:0, evEbitda:20, description:'積體電路設計'},
-  'foundry': {name:'晶圓代工', parent:'科技硬體', fairPE:20, fairPB:4, fairDiv:3, fairYield:3, evEbitda:12, description:'晶圓製造'},
-  'memory': {name:'記憶體', parent:'科技硬體', fairPE:12, fairPB:1.5, fairDiv:2, fairYield:4, evEbitda:6, description:'DRAM/NAND'},
-  'ic-package': {name:'IC封測', parent:'科技硬體', fairPE:15, fairPB:2, fairDiv:3, fairYield:4, evEbitda:8, description:'積體電路封裝測試'},
-  'optoelectronics': {name:'光電', parent:'科技硬體', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10, description:'LED/光學元件'},
-  'passive-component': {name:'被動元件', parent:'科技硬體', fairPE:15, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8, description:'電阻電容電感'},
-  'connector': {name:'連接器', parent:'科技硬體', fairPE:20, fairPB:3, fairDiv:2, fairYield:3, evEbitda:10, description:'連接器/端子'},
-  'comm-equipment': {name:'通訊設備', parent:'科技硬體', fairPE:22, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11, description:'基站/通訊模組'},
-  'computer-peripheral': {name:'電腦週邊', parent:'科技硬體', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9, description:'主機板/電源供應'},
+  'etf': {code:null, name:'ETF', parent:'工具型', fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
+  // 官方 33 種產業 (按代碼順序)
+  '水泥工業': {code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
+  '食品工業': {code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+  '塑膠工業': {code:'03', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '紡織纖維': {code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '電機機械': {code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
+  '電器電纜': {code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
+  '玻璃陶瓷': {code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
+  '造紙工業': {code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
+  '鋼鐵工業': {code:'10', fairPE:8, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
+  '橡膠工業': {code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '汽車工業': {code:'12', fairPE:10, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
+  '建材營造': {code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
+  '航運業': {code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
+  '觀光餐旅': {code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
+  '金融保險業': {code:'17', fairPE:10, fairPB:1.1, fairDiv:3, fairYield:3.5, evEbitda:null},
+  '貿易百貨業': {code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '綜合': {code:'19', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '其他業': {code:'20', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '化學工業': {code:'21', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '生技醫療業': {code:'22', fairPE:25, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
+  '油電燃氣業': {code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
+  '半導體業': {code:'24', fairPE:30, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
+  '電腦及週邊設備業': {code:'25', fairPE:14, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
+  '光電業': {code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
+  '通信網路業': {code:'27', fairPE:22, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
+  '電子零組件業': {code:'28', fairPE:15, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
+  '電子通路業': {code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '資訊服務業': {code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
+  '其他電子業': {code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
+  '綠能環保': {code:'35', fairPE:22, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
+  '數位雲端': {code:'36', fairPE:32, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
+  '運動休閒': {code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+  '居家生活': {code:'38', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
 
-  'consumer-electronics': {name:'消費電子', parent:'電子製造', fairPE:14, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8, description:'手機/平板/穿戴'},
-  'power-battery': {name:'電池電源', parent:'電子製造', fairPE:20, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:12, description:'鋰電池/電源管理'},
-  'contract-mfg': {name:'代工製造', parent:'電子製造', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7, description:'EMS/ODM/OEM'},
-
-  'shipping': {name:'航運', parent:'景氣循環', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4, description:'海運/空運'},
-  'steel': {name:'鋼鐵', parent:'景氣循環', fairPE:8, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5, description:'鋼鐵/煉鋼'},
-  'chemical': {name:'化學', parent:'景氣循環', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6, description:'化工/塑膠'},
-  'cement': {name:'水泥', parent:'景氣循環', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5, description:'水泥'},
-  'paper': {name:'紙業', parent:'景氣循環', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5, description:'紙製品'},
-  'auto-parts': {name:'汽車零件', parent:'景氣循環', fairPE:10, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6, description:'汽車零組件'},
-  'panel': {name:'面板', parent:'景氣循環', fairPE:8, fairPB:0.9, fairDiv:3, fairYield:5, evEbitda:4, description:'TFT-LCD/OLED'},
-
-  'bank': {name:'銀行', parent:'金融保險', fairPE:8, fairPB:0.9, fairDiv:4, fairYield:4.5, evEbitda:null, description:'商業銀行'},
-  'insurance': {name:'保險', parent:'金融保險', fairPE:12, fairPB:1.2, fairDiv:3, fairYield:3.5, evEbitda:null, description:'壽險/產險'},
-  'securities': {name:'證券期貨', parent:'金融保險', fairPE:10, fairPB:1.1, fairDiv:2, fairYield:3, evEbitda:null, description:'券商/期商'},
-  'fintech': {name:'金融科技', parent:'金融保險', fairPE:28, fairPB:6, fairDiv:0, fairYield:0, evEbitda:18, description:'支付/借貸/保險科技'},
-
-  'food': {name:'食品飲料', parent:'民生消費', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10, description:'食品/飲料/乳品'},
-  'textile': {name:'紡織服飾', parent:'民生消費', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7, description:'紡織/成衣'},
-  'retail': {name:'零售流通', parent:'民生消費', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9, description:'百貨/超商/流通'},
-  'hospitality': {name:'飯店觀光', parent:'民生消費', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8, description:'飯店/觀光/餐飲'},
-
-  'biotech': {name:'生技製藥', parent:'生技醫療', fairPE:30, fairPB:5, fairDiv:0, fairYield:0, evEbitda:22, description:'生技/新藥研發'},
-  'pharmaceutical': {name:'藥品', parent:'生技醫療', fairPE:20, fairPB:3.5, fairDiv:2, fairYield:2.5, evEbitda:12, description:'西藥/中藥'},
-  'medical-device': {name:'醫療器材', parent:'生技醫療', fairPE:25, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15, description:'醫療設備/器材'},
-  'hospital': {name:'醫療機構', parent:'生技醫療', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10, description:'醫院/診所'},
-
-  'real-estate': {name:'不動產', parent:'房地產', fairPE:12, fairPB:1.5, fairDiv:4, fairYield:4.5, evEbitda:7, description:'房地產開發'},
-  'reit': {name:'REITs', parent:'房地產', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5, evEbitda:8, description:'房地產投資信託'},
-  'construction': {name:'營建', parent:'房地產', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6, description:'營造工程'},
-
-  'telecom': {name:'電信', parent:'公用事業', fairPE:14, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:8, description:'電信運營'},
-  'power': {name:'電力公用', parent:'公用事業', fairPE:16, fairPB:1.5, fairDiv:4.5, fairYield:5, evEbitda:9, description:'電力/瓦斯/水'},
-  'renewable': {name:'再生能源', parent:'公用事業', fairPE:22, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12, description:'太陽能/風電'},
-
-  'software': {name:'軟體服務', parent:'資訊科技', fairPE:28, fairPB:6, fairDiv:0, fairYield:0, evEbitda:18, description:'應用軟體/SaaS'},
-  'cloud-internet': {name:'雲端網際', parent:'資訊科技', fairPE:32, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20, description:'雲端/互聯網'},
-  'security': {name:'資訊安全', parent:'資訊科技', fairPE:26, fairPB:5.5, fairDiv:0, fairYield:0, evEbitda:16, description:'資訊安全/監控'},
-  'it-service': {name:'資訊服務', parent:'資訊科技', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10, description:'系統整合/IT服務'},
-
-  'machinery': {name:'機械', parent:'一般製造', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7, description:'機械製造'},
-  'appliance': {name:'家電', parent:'一般製造', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8, description:'家電製造'},
-  'unknown': {name:'未分類', parent:'其他', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9, description:'無法判斷'}
+  // 備選項
+  'ETF': {code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
+  '未分類': {code:null, fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9}
 };
 
-// 關鍵字庫（高置信度）
+// 關鍵字庫（高置信度）- 官方 33 種產業標準版本
 const KEYWORD_MAP = {
-  'ic-design': ['積電','台積','聯發科','瑞昱','矽力','創意','聯咖','繪晶','聯陽','世芯','智原'],
-  'foundry': ['台積電','聯電','globalfoundries','gfs'],
-  'memory': ['美光','SK海力士','samsung','東芝','南亞','華邦','鎰勝','南茂','晶愛'],
-  'ic-package': ['日月光','兆晶','京元','容錦','矽品','卓越','環旭','長科','致伸'],
-  'optoelectronics': ['晶電','新亞','世磊','光磊','彩晶','群光','友達','均億','佳世達'],
-  'passive-component': ['台灣被動','國巨','智邦','大毅','佳磊','文晶','升貿','光磊','光磊'],
-  'shipping': ['長榮','陽明','萬海','和桐','中航','東洋','志信','德昇'],
-  'steel': ['中鋼','龍鋼','豐興','三陽','卓越','大成','中山','岳豐'],
-  'bank': ['玉山','台新','國泰','日盛','台華','中華','彰銀','台銀','土銀','合庫'],
-  'telecom': ['中華電','台灣大','遠傳','亞太','優先','台灣','FET','TWM'],
-  'food': ['卜蜂','大成','中華食','加味','馬祖','美食達','泰昌','大統'],
-  'biotech': ['浩鼎','信達','康友','台灣新','南港','東洋','友華','興櫻','瑞光'],
-  'pharmaceutical': ['永信','東洋','樂威','南光','中化','健亞','基因','第一','康友'],
-  'real-estate': ['遠雄','新光','宏匯','冠德','潤泰','富邦','陸虹','東急','豪景'],
-  'telecom': ['中華電','台灣大','遠傳','台固','優先','鑫禾','威潤','國磊']
+  // 電子科技產業
+  '半導體業': ['台積','積電','聯發科','瑞昱','矽力','聯電','中芯'],
+  '電腦及週邊設備業': ['鴻海','和碩','緯創','廣達','英業達','華碩','宏碁','華芸'],
+  '光電業': ['晶電','光磊','新亞','世磊','彩晶','群光','友達','均億','佳世達'],
+  '通信網路業': ['聯絡','聯想','TP-Link','中興','華為'],
+  '電子零組件業': ['日月光','矽品','京元','兆晶','容錦','環旭','致伸','京鎮','被動','國巨','智邦','大毅'],
+  '電子通路業': ['技嘉','華碩','精技','聯想','迪斯','宜鼎'],
+  '資訊服務業': ['資策','聯成','精成','世紀','創晶'],
+  '其他電子業': ['晶宏','光磊','鴻海','瑞昱','台達'],
+
+  // 傳統產業
+  '水泥工業': ['台泥','亞洲水泥'],
+  '食品工業': ['卜蜂','大成','中華食','加味','馬祖','美食達','泰昌','大統','力麗','四季','可口可樂'],
+  '塑膠工業': ['台塑','南茂','台聚','永大','臺南'],
+  '紡織纖維': ['聯發','儒鴻','宏遠','聯成','唐榮','南紡','曾士','吉祥','福興'],
+  '電機機械': ['東方','亞德客','永安','中祥','均瀛','永光'],
+  '電器電纜': ['大同','華新','華榮','中興','台灣通信'],
+  '玻璃陶瓷': ['台硝','玻工','三龍','水泥','台泥'],
+  '造紙工業': ['永豐餘','中華紙漿','美祿','和紙','瑞翔'],
+  '鋼鐵工業': ['中鋼','中華鋼','龍鋼','豐興','新光鋼','明德鋼','欣興'],
+  '橡膠工業': ['正新','南應','綸昌','華新','聯成'],
+  '汽車工業': ['和泰','裕隆','三陽','中華','台新','美利達','桂盟','永彰','飛蝶','台北汽','光寶'],
+  '建材營造': ['潤弘精密','精成','雷蒙','和大','亞昌','華建','高振','唐鋒'],
+  '航運業': ['長榮','陽明','萬海','中航','東方海','志信','德昇','台航','馬紹爾'],
+  '觀光餐旅': ['晶華','慶聯','老爺','馬紹爾','力麗','雲朗','福朋喜來登','柯達'],
+  '油電燃氣業': ['台電','中油','中華','台灣瓦斯','聯大'],
+
+  // 金融保險
+  '金融保險業': ['台新金','玉山金','國泰金','日盛金','第一金','中華金','彰銀','台銀','土銀','合庫','兆豐金','華南金','富邦金','元大金'],
+
+  // 服務業
+  '貿易百貨業': ['全家','統一超商','遠百','新光','家樂福','COSTCO','好市多','永旺'],
+  '綜合': ['台灣綜合','各類'],
+  '其他業': ['各類'],
+
+  // 化學與能源
+  '化學工業': ['中石化','聯成','台聚','永大','臺南','台灣化肥'],
+  '生技醫療業': ['浩鼎','信達','康友','台灣新','南港','東洋','友華','興櫻','瑞光','中天','長春','泰合','南光','永信','樂威','中化','健亞','基因','第一','美時','臺灣生'],
+
+  // 新經濟
+  '綠能環保': ['茂迪','聯合再生','元晶','昱晶','錦昱','洛碁','華新','中華鋼','ENEOS','台灣燃料'],
+  '數位雲端': ['創意','宏齊','巨流','光罡','光漲','連貫','聯合再生','凱聯'],
+  '運動休閒': ['美利達','捷安特','特品','展志','昇銘','美之約','運動科技'],
+  '居家生活': ['柏文','品牌精品','華美','聯成','永日','聞聲','台灣'],
+
+  // 備選
+  'ETF': [],
+  '未分類': []
 };
 
-// TWSE 代號範圍對應（作為 L3 級判斷）
+// TWSE 代號範圍對應（作為 L4 級判斷 - 精細化版）
 const CODE_RANGE_MAP = [
-  {range:[1000,1499], industry:'basic-materials', type:'上市 - 食品'},
-  {range:[1500,1899], industry:'textile', type:'上市 - 紡織'},
-  {range:[2000,2399], industry:'ic-design', type:'上市 - 電子上游'},
-  {range:[2400,2799], industry:'consumer-electronics', type:'上市 - 電子中下游'},
-  {range:[2800,2999], industry:'bank', type:'上市 - 金融保險'},
-  {range:[3000,3299], industry:'contract-mfg', type:'上市 - 代工製造'},
+  // 1000-1999：食品、紡織、汽車、造紙
+  {range:[1000,1299], industry:'food', type:'上市 - 食品'},
+  {range:[1300,1399], industry:'textile', type:'上市 - 紡織'},
+  {range:[1400,1499], industry:'paper', type:'上市 - 造紙'},
+  {range:[1500,1699], industry:'textile', type:'上市 - 紡織'},
+  {range:[1700,1799], industry:'chemical', type:'上市 - 化學'},
+  {range:[1800,1899], industry:'textile', type:'上市 - 紡織'},
+  {range:[1900,1999], industry:'auto-parts', type:'上市 - 汽車零件'},
+
+  // 2000-2499：電子硬體（細化版）
+  {range:[2000,2099], industry:'auto-parts', type:'上市 - 汽車'},
+  {range:[2100,2199], industry:'computer-peripheral', type:'上市 - 電腦週邊'},
+  {range:[2200,2299], industry:'machinery', type:'上市 - 機械電機'},
+  {range:[2300,2399], industry:'ic-design', type:'上市 - IC設計及製造'},
+  {range:[2400,2599], industry:'optoelectronics', type:'上市 - 光電'},
+  {range:[2600,2699], industry:'passive-component', type:'上市 - 被動元件'},
+  {range:[2700,2799], industry:'consumer-electronics', type:'上市 - 消費電子'},
+
+  // 2800-3499：電子製造、代工、機械
+  {range:[2800,2899], industry:'bank', type:'上市 - 金融保險'},
+  {range:[2900,2999], industry:'insurance', type:'上市 - 保險'},
+  {range:[3000,3199], industry:'contract-mfg', type:'上市 - 代工製造'},
+  {range:[3200,3299], industry:'connector', type:'上市 - 連接器'},
   {range:[3300,3499], industry:'machinery', type:'上市 - 機械'},
+
+  // 4000-5999：重工業、能源、營建
   {range:[4000,4299], industry:'cement', type:'上市 - 水泥'},
   {range:[4400,4699], industry:'steel', type:'上市 - 鋼鐵'},
   {range:[4700,4999], industry:'biotech', type:'上市 - 生技醫療'},
-  {range:[5000,5299], industry:'power', type:'上市 - 電力公用'},
+  {range:[5000,5199], industry:'power', type:'上市 - 電力'},
+  {range:[5200,5299], industry:'power', type:'上市 - 瓦斯'},
   {range:[5300,5399], industry:'chemical', type:'上市 - 化學'},
-  {range:[5400,5699], industry:'building', type:'上市 - 建材營建'},
-  {range:[5700,6000], industry:'shipping', type:'上市 - 航運'}
+  {range:[5400,5599], industry:'construction', type:'上市 - 建材營建'},
+  {range:[5600,5699], industry:'real-estate', type:'上市 - 不動產'},
+  {range:[5700,5999], industry:'shipping', type:'上市 - 航運'},
+
+  // 6000+：其他
+  {range:[6000,9999], industry:'retail', type:'上市 - 其他服務'}
 ];
 
 function classifyIndustry(sym, name, sector, industry) {
@@ -303,55 +384,57 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   const zh = ((sector||'') + ' ' + (industry||'')).toLowerCase();
 
-  // 中文匹配
-  const zhMatches = [
-    ['半導體|積體電路|IC|設計', 'ic-design'],
-    ['晶圓|代工', 'foundry'],
-    ['記憶體|DRAM|NAND', 'memory'],
-    ['封測|測試|包裝', 'ic-package'],
-    ['光電|LED', 'optoelectronics'],
-    ['被動元件|電阻|電容|電感', 'passive-component'],
-    ['連接器|端子|接頭', 'connector'],
-    ['通訊|基站|模組', 'comm-equipment'],
-    ['電腦|主機板|電源供應', 'computer-peripheral'],
-    ['消費電子|手機|平板|穿戴|鍵盤|滑鼠', 'consumer-electronics'],
-    ['電池|鋰電|電源管理|充電', 'power-battery'],
-    ['代工|ODM|OEM|EMS', 'contract-mfg'],
-    ['航運|航空|海運|運輸', 'shipping'],
-    ['鋼鐵|煉鋼|鋼材', 'steel'],
-    ['化學|塑膠|石化', 'chemical'],
-    ['水泥', 'cement'],
-    ['紙業|造紙|紙製品', 'paper'],
-    ['汽車|車用|零件|零組件', 'auto-parts'],
-    ['面板|LCD|OLED|液晶', 'panel'],
-    ['銀行|商銀|信用', 'bank'],
-    ['保險|壽險|產險', 'insurance'],
-    ['證券|期貨|期商', 'securities'],
-    ['食品|飲料|乳品|酒', 'food'],
-    ['紡織|成衣|布料|服飾', 'textile'],
-    ['零售|百貨|超商|便利', 'retail'],
-    ['飯店|觀光|餐飲|民宿', 'hospitality'],
-    ['生技|新藥|生物科技', 'biotech'],
-    ['藥品|製藥|西藥|中藥|藥廠', 'pharmaceutical'],
-    ['醫療器材|設備|器械', 'medical-device'],
-    ['醫院|診所|醫療機構', 'hospital'],
-    ['不動產|房地產|建築|土地|建案', 'real-estate'],
-    ['REIT|房地產投資', 'reit'],
-    ['營建|營造|工程|營造業', 'construction'],
-    ['電信|通信|電話|5G', 'telecom'],
-    ['電力|瓦斯|供電|電廠', 'power'],
-    ['再生能源|太陽能|風電|綠能', 'renewable'],
-    ['軟體|應用程式|SaaS|app|軟件', 'software'],
-    ['雲端|互聯網|網際|平台|電商', 'cloud-internet'],
-    ['安全|資訊安全|監控|防護', 'security'],
-    ['資訊|系統|IT服務|整合', 'it-service'],
-    ['機械|機器|製造機械', 'machinery'],
-    ['家電|冷氣|洗衣|電器', 'appliance']
+  // 直接對應官方產業名稱（中文）
+  const officialMatches = [
+    ['半導體|積體電路', '半導體業'],
+    ['晶圓|代工', '電腦及週邊設備業'],
+    ['記憶體|DRAM|NAND', '電子零組件業'],
+    ['光電|LED|光磊|晶電', '光電業'],
+    ['被動元件|電阻|電容|電感|國巨', '電子零組件業'],
+    ['連接器|端子', '電子零組件業'],
+    ['通訊|基站|模組|5G|電信', '通信網路業'],
+    ['電腦|主機板|電源|鴻海|和碩|廣達|英業達', '電腦及週邊設備業'],
+    ['消費電子|手機|平板|穿戴', '電腦及週邊設備業'],
+    ['電池|鋰電|電源管理|充電|台達', '電子零組件業'],
+    ['代工|ODM|OEM|EMS', '電腦及週邊設備業'],
+    ['航運|航空|海運|長榮|陽明', '航運業'],
+    ['鋼鐵|煉鋼|鋼材|中鋼', '鋼鐵工業'],
+    ['化學|塑膠|石化|台塑|中石化', '化學工業'],
+    ['水泥|台泥', '水泥工業'],
+    ['紙業|造紙|造紙工業|永豐餘', '造紙工業'],
+    ['汽車|車用|零件|和泰|裕隆|三陽', '汽車工業'],
+    ['面板|LCD|OLED|液晶', '電子零組件業'],
+    ['銀行|商銀|信用|台新金|玉山金', '金融保險業'],
+    ['保險|壽險|產險|富邦|南山', '金融保險業'],
+    ['證券|期貨|期商', '金融保險業'],
+    ['食品|飲料|乳品|酒|卜蜂|大成', '食品工業'],
+    ['紡織|成衣|布料|服飾|聯發|儒鴻', '紡織纖維'],
+    ['零售|百貨|超商|便利|全家|統一', '貿易百貨業'],
+    ['飯店|觀光|餐飲|民宿|晶華', '觀光餐旅'],
+    ['生技|新藥|生物科技|生技醫療|浩鼎', '生技醫療業'],
+    ['藥品|製藥|西藥|中藥|永信|東洋', '生技醫療業'],
+    ['醫療器材|設備|器械', '生技醫療業'],
+    ['醫院|診所|醫療機構', '生技醫療業'],
+    ['不動產|房地產|建築|建案|遠雄|新光', '建材營造'],
+    ['REIT|房地產投資', '建材營造'],
+    ['營建|營造|工程', '建材營造'],
+    ['瓦斯|電力|供電|電廠|油電|燃氣', '油電燃氣業'],
+    ['綠能|再生能源|太陽能|風電|茂迪', '綠能環保'],
+    ['雲端|互聯網|網際|平台|電商|數位|軟體', '數位雲端'],
+    ['安全|資訊安全|監控|防護', '資訊服務業'],
+    ['資訊|系統|IT服務|整合', '資訊服務業'],
+    ['機械|機器|製造|電機|東方', '電機機械'],
+    ['家電|冷氣|洗衣|電器|大同', '電器電纜'],
+    ['電器電纜|電線|華新', '電器電纜'],
+    ['玻璃|陶瓷|台硝', '玻璃陶瓷'],
+    ['橡膠|正新|南應', '橡膠工業'],
+    ['運動|休閒|美利達|捷安特', '運動休閒'],
+    ['居家|生活|家居|柏文', '居家生活']
   ];
 
-  for (const [pattern, ind] of zhMatches) {
+  for (const [pattern, officialName] of officialMatches) {
     if (new RegExp(pattern).test(zh)) {
-      return {industry:ind, confidence:'high', details:{method:'官方產業代碼', sector, industry}};
+      return {industry: officialName, confidence: 'high', details: {method: '官方產業代碼', sector, industry}};
     }
   }
 
@@ -371,30 +454,40 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   const s = (sector||'').toLowerCase();
   const enMatches = [
-    ['semiconductor|computer hardware|electronic equipment', 'ic-design'],
-    ['technology|software|it services', 'software'],
-    ['financial services|bank|insurance', 'bank'],
-    ['real estate', 'real-estate'],
-    ['health care|pharmaceutical|medical device|biotech', 'biotech'],
-    ['utilities|communication services|telecom', 'telecom'],
-    ['energy|materials|industrial|machinery', 'machinery'],
-    ['consumer cyclical|consumer non-cyclical|retail|food', 'retail']
+    ['semiconductor|chip|processor', '半導體業'],
+    ['computer hardware|computer|electronic equipment|peripherals', '電腦及週邊設備業'],
+    ['technology|software|it services|cloud|saas', '數位雲端'],
+    ['financial services|bank|insurance|financial', '金融保險業'],
+    ['real estate|reit', '建材營造'],
+    ['health care|pharmaceutical|medical device|biotech', '生技醫療業'],
+    ['utilities|communication services|telecom|telephone', '通信網路業'],
+    ['energy|oil|gas|materials|mining', '油電燃氣業'],
+    ['industrial|machinery|equipment', '電機機械'],
+    ['consumer cyclical|consumer discretionary|automotive', '汽車工業'],
+    ['consumer staples|consumer non-cyclical|retail|food|beverage', '食品工業'],
+    ['transportation|shipping|airline', '航運業'],
+    ['construction|building', '建材營造'],
+    ['utilities|electric|power', '油電燃氣業'],
+    ['renewable|solar|wind', '綠能環保']
   ];
 
-  for (const [pattern, ind] of enMatches) {
+  for (const [pattern, officialName] of enMatches) {
     if (new RegExp(pattern).test(s)) {
-      return {industry:ind, confidence:'high', details:{method:'英文Sector', sector}};
+      return {industry: officialName, confidence: 'high', details: {method: '英文Sector', sector}};
     }
   }
 
   // ─────────────────────────────────────────────────────────
-  // L4：代號範圍推斷（台股）
+  // L4：代號範圍推斷（台股）- 改為返回官方產業名稱
   // ─────────────────────────────────────────────────────────
   const code = parseInt(sym.replace('.TW','').replace('.TWO',''));
   if (!isNaN(code)) {
     for (const range of CODE_RANGE_MAP) {
       if (code >= range.range[0] && code <= range.range[1]) {
-        return {industry:range.industry, confidence:'medium', details:{method:'代號範圍推斷', code, range:range.range}};
+        // 將 range.industry 轉換為官方產業名稱
+        const industryCode = range.industry;
+        const officialName = OFFICIAL_INDUSTRY_CODES[industryCode] || range.industry;
+        return {industry: officialName, confidence: 'medium', details: {method: '代號範圍推斷', code, range: range.range}};
       }
     }
   }
@@ -402,12 +495,12 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   // L5：預設
   // ─────────────────────────────────────────────────────────
-  return {industry:'unknown', confidence:'low', details:{method:'預設'}};
+  return {industry: '未分類', confidence: 'low', details: {method: '預設'}};
 }
 
-// 取得產業的估值參數
+// 取得產業的估值參數（官方產業名稱版本）
 function getIndustryParams(indKey) {
-  return INDUSTRY_DB[indKey] || INDUSTRY_DB['unknown'];
+  return INDUSTRY_DB[indKey] || INDUSTRY_DB['未分類'];
 }
 
 // ════════════════════════════════════════════════════════
