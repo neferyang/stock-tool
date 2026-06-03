@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r22</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r23</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -113,16 +113,23 @@ async function yfFetch(sym) {
   return null;
 }
 
-// quoteSummary：美股直連可用，台股跳過
+// quoteSummary：直連（美股）或 corsproxy（台股備援）
 async function yfSummary(sym) {
   const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
   const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
   for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
     try {
-      const r = await fetch(url.replace('query1.finance.yahoo.com', base.split('//')[1]), {headers:hdrs, signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); return d?.quoteSummary?.result?.[0] || null; }
+      const u = url.replace('query1.finance.yahoo.com', base.replace('https://',''));
+      const r = await fetch(u, {headers:hdrs, signal:AbortSignal.timeout(8000)});
+      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
     } catch(e) {}
   }
+  // corsproxy 備援（台股有時能通）
+  try {
+    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(14000)});
+    console.log('[yfSummary] proxy', r.status, sym);
+    if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
+  } catch(e) {}
   return null;
 }
 
@@ -148,8 +155,8 @@ async function twseFetch() {
 // 或嘗試 BWIBBU_ALL（合併版）
 async function tpexFetch() {
   const candidates = [
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL',
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',   // 上市（確定能通）
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL', // 合併（備援）
   ];
   for (const url of candidates) {
     // 直連
@@ -432,9 +439,9 @@ async function go(){
     // 並行抓取基本面資料
     // 上市用 BWIBBU_d，上櫃用 BWIBBU_ALL（含上市+上櫃），美股用 quoteSummary
     const [twseArr, tpexArr, summaryResult] = await Promise.all([
-      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),   // 上市
-      isOTC ? tpexFetch() : Promise.resolve(null),               // 上櫃（含合併API）
-      !isTW ? yfSummary(ticker) : Promise.resolve(null)          // 美股
+      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
+      isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
+      yfSummary(ticker)                                         // 所有股票都試（美股直連，台股走proxy）
     ]);
 
     if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
@@ -493,24 +500,30 @@ async function go(){
       }
     }
 
-    // quoteSummary 資料（美股）
+    // quoteSummary 資料（美股直連，台股上櫃走proxy也可能取到）
+    // TWSE/TPEX 已有的數值優先保留，summary 只補充缺少的欄位
     if (summaryResult) {
       const pr=summaryResult.price||{}, sd=summaryResult.summaryDetail||{}, ks=summaryResult.defaultKeyStatistics||{}, fd=summaryResult.financialData||{};
-      m.name = raw2(pr.shortName)||raw2(pr.longName)||'';
-      m.sector = raw2(pr.sector)||'';
-      m.industry = raw2(pr.industry)||'';
-      m.quoteType = raw2(pr.quoteType)||'';
-      m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
-      m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
-      m.divYield = raw2(sd.dividendYield)?raw2(sd.dividendYield)*100:null;
-      m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
-      m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
-      m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:null;
-      m.beta = raw2(ks.beta);
-      m.evEbitda = raw2(ks.enterpriseToEbitda);
-      m.peg = raw2(ks.pegRatio)||raw2(ks.trailingPegRatio);
-      m.marketCap = raw2(pr.marketCap);
-      m.grossMargin = raw2(fd.grossMargins)?raw2(fd.grossMargins)*100:null;
+      // 名稱：summary 有中文名時優先用
+      const sName = raw2(pr.shortName)||raw2(pr.longName)||'';
+      if (sName && (!m.name || m.name===ticker)) m.name = sName;
+      // 產業：summary 補充
+      if (!m.sector) m.sector = raw2(pr.sector)||'';
+      if (!m.industry) m.industry = raw2(pr.industry)||'';
+      m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
+      // 財務資料：TWSE/TPEX 已有的不覆蓋
+      if (!m.pe) m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
+      if (!m.pb) m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
+      if (!m.divYield && raw2(sd.dividendYield)) m.divYield = raw2(sd.dividendYield)*100;
+      if (!m.div) m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
+      if (!m.eps) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
+      // 以下只有 summary 有，直接填入
+      m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
+      m.beta = m.beta||raw2(ks.beta);
+      m.evEbitda = m.evEbitda||raw2(ks.enterpriseToEbitda);
+      m.peg = m.peg||raw2(ks.pegRatio)||raw2(ks.trailingPegRatio);
+      m.marketCap = m.marketCap||raw2(pr.marketCap);
+      m.grossMargin = m.grossMargin||(raw2(fd.grossMargins)?raw2(fd.grossMargins)*100:null);
       m['52hi'] = m['52hi']||raw2(sd.fiftyTwoWeekHigh);
       m['52lo'] = m['52lo']||raw2(sd.fiftyTwoWeekLow);
     }
