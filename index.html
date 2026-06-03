@@ -324,6 +324,32 @@ const KEYWORD_MAP = {
   '未分類': []
 };
 
+// 舊產業代碼 → 官方產業名稱對應表（用於 L4 級轉換）
+const OLD_INDUSTRY_TO_OFFICIAL = {
+  'food': '食品工業',
+  'textile': '紡織纖維',
+  'paper': '造紙工業',
+  'chemical': '化學工業',
+  'auto-parts': '汽車工業',
+  'computer-peripheral': '電腦及週邊設備業',
+  'machinery': '電機機械',
+  'ic-design': '半導體業',
+  'optoelectronics': '光電業',
+  'passive-component': '電子零組件業',
+  'consumer-electronics': '電腦及週邊設備業',
+  'bank': '金融保險業',
+  'insurance': '金融保險業',
+  'contract-mfg': '電腦及週邊設備業',
+  'connector': '電子零組件業',
+  'cement': '水泥工業',
+  'steel': '鋼鐵工業',
+  'biotech': '生技醫療業',
+  'power': '油電燃氣業',
+  'construction': '建材營造',
+  'shipping': '航運業',
+  'retail': '其他業'
+};
+
 // TWSE 代號範圍對應（作為 L4 級判斷 - 精細化版）
 const CODE_RANGE_MAP = [
   // 1000-1999：食品、紡織、汽車、造紙
@@ -359,7 +385,7 @@ const CODE_RANGE_MAP = [
   {range:[5200,5299], industry:'power', type:'上市 - 瓦斯'},
   {range:[5300,5399], industry:'chemical', type:'上市 - 化學'},
   {range:[5400,5599], industry:'construction', type:'上市 - 建材營建'},
-  {range:[5600,5699], industry:'real-estate', type:'上市 - 不動產'},
+  {range:[5600,5699], industry:'retail', type:'上市 - 不動產'},
   {range:[5700,5999], industry:'shipping', type:'上市 - 航運'},
 
   // 6000+：其他
@@ -484,9 +510,9 @@ function classifyIndustry(sym, name, sector, industry) {
   if (!isNaN(code)) {
     for (const range of CODE_RANGE_MAP) {
       if (code >= range.range[0] && code <= range.range[1]) {
-        // 將 range.industry 轉換為官方產業名稱
-        const industryCode = range.industry;
-        const officialName = OFFICIAL_INDUSTRY_CODES[industryCode] || range.industry;
+        // 將舊產業代碼轉換為官方產業名稱
+        const oldIndustry = range.industry;
+        const officialName = OLD_INDUSTRY_TO_OFFICIAL[oldIndustry] || '未分類';
         return {industry: officialName, confidence: 'medium', details: {method: '代號範圍推斷', code, range: range.range}};
       }
     }
