@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r16</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r17</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -358,17 +358,32 @@ function setPd(n,b){if(apb)apb.classList.remove('active');b.classList.add('activ
 async function go(){
   let raw=document.getElementById('ti').value.trim().toUpperCase();
   if(!raw)return;
-  const isTW = /^\d{4,6}$/.test(raw);
-  const ticker = isTW ? raw+'.TW' : raw;
+  const isNumeric = /^\d{4,6}$/.test(raw);
+  let ticker = isNumeric ? raw+'.TW' : raw;
   const btn=document.getElementById('btn');btn.disabled=true;
   setSt('<span class="spin"></span>查詢 '+ticker+'...',false);
   document.getElementById('res').classList.add('hidden');
 
   try{
-    // 並行抓取 chart + TWSE（台股）或 quoteSummary（美股）
     setSt('<span class="spin"></span>抓取資料中...',false);
-    const [chartResult, twseArr, summaryResult] = await Promise.all([
-      yfFetch(ticker),
+
+    // 台股：先試 .TW，失敗再試 .TWO（上櫃股）
+    let chartResult = null;
+    if (isNumeric) {
+      chartResult = await yfFetch(raw+'.TW');
+      if (!chartResult) {
+        ticker = raw+'.TWO';
+        setSt('<span class="spin"></span>嘗試上櫃代號 '+ticker+'...',false);
+        chartResult = await yfFetch(raw+'.TWO');
+      }
+    } else {
+      chartResult = await yfFetch(ticker);
+    }
+
+    const isTW = ticker.endsWith('.TW') || ticker.endsWith('.TWO');
+
+    // 並行抓取 TWSE（台股）或 quoteSummary（美股）
+    const [twseArr, summaryResult] = await Promise.all([
       isTW ? twseFetch() : Promise.resolve(null),
       !isTW ? yfSummary(ticker) : Promise.resolve(null)
     ]);
