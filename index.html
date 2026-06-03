@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r21</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r22</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -144,25 +144,34 @@ async function twseFetch() {
   return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
 }
 
-// TPEX（上櫃）：改用 TWSE openapi 的上市上櫃合併本益比資料
-// TWSE BWIBBU_ALL 包含上市+上櫃
+// 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
+// 或嘗試 BWIBBU_ALL（合併版）
 async function tpexFetch() {
-  // 上櫃本益比資料（TWSE openapi 有上市上櫃合併版）
-  const urls = [
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL',  // 上市+上櫃合併
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',    // 只上市，備援
+  const candidates = [
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL',
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',
   ];
-  for (const url of urls) {
+  for (const url of candidates) {
+    // 直連
     try {
       const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); if (d&&d.length>0) { console.log('[TPEX/ALL] direct ok, sample:', JSON.stringify(d[0])); return d; } }
+      if (r.ok) {
+        const d = await r.json();
+        if (d && d.length > 0) { console.log('[tpexFetch] direct ok:', url.split('/').pop(), 'keys:', Object.keys(d[0]).join(',')); return d; }
+      }
     } catch(e) {}
+    // corsproxy
     try {
-      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
-      console.log('[TPEX/ALL] proxy status:', r.status);
-      if (r.ok) { const d = await r.json(); if (d&&d.length>0) { console.log('[TPEX/ALL] proxy ok, sample:', JSON.stringify(d[0])); return d; } }
-    } catch(e) { console.log('[TPEX/ALL] error:', e.message); }
+      const pu = 'https://corsproxy.io/?' + encodeURIComponent(url);
+      const r = await fetch(pu, {signal:AbortSignal.timeout(14000)});
+      console.log('[tpexFetch] proxy', url.split('/').pop(), 'status:', r.status);
+      if (r.ok) {
+        const d = await r.json();
+        if (d && d.length > 0) { console.log('[tpexFetch] proxy ok, keys:', Object.keys(d[0]).join(','), 'sample:', JSON.stringify(d[0])); return d; }
+      }
+    } catch(e) { console.log('[tpexFetch] proxy error:', e.message); }
   }
+  console.log('[tpexFetch] all failed');
   return null;
 }
 
