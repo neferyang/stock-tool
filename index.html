@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r17</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r18</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -115,9 +115,8 @@ async function yfSummary(sym) {
   return null;
 }
 
-// TWSE：本益比/P/B/殖利率（透過 corsproxy）
-async function twseFetch() {
-  const url = 'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d';
+// 通用 fetch（直連 + corsproxy 備援）
+async function safeFetch(url) {
   try {
     const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
     if (r.ok) return await r.json();
@@ -127,6 +126,26 @@ async function twseFetch() {
     if (r.ok) return await r.json();
   } catch(e) {}
   return null;
+}
+
+// TWSE（上市）：本益比/P/B/殖利率
+async function twseFetch() {
+  return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
+}
+
+// TPEX（上櫃）：本益比/P/B/殖利率
+async function tpexFetch() {
+  return await safeFetch('https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis');
+}
+
+// TWSE 上市公司名稱對照
+async function twseNameFetch() {
+  return await safeFetch('https://openapi.twse.com.tw/v1/opendata/t187ap03_L');
+}
+
+// TPEX 上櫃公司名稱（用公司基本資料）
+async function tpexNameFetch() {
+  return await safeFetch('https://www.tpex.org.tw/openapi/v1/tpex_mopsfin_auditorsOpinion');
 }
 
 // ════════════════════════════════════════════════════════
@@ -381,11 +400,13 @@ async function go(){
     }
 
     const isTW = ticker.endsWith('.TW') || ticker.endsWith('.TWO');
+    const isOTC = ticker.endsWith('.TWO'); // 上櫃
 
-    // 並行抓取 TWSE（台股）或 quoteSummary（美股）
-    const [twseArr, summaryResult] = await Promise.all([
-      isTW ? twseFetch() : Promise.resolve(null),
-      !isTW ? yfSummary(ticker) : Promise.resolve(null)
+    // 並行抓取基本面資料
+    const [twseArr, tpexArr, summaryResult] = await Promise.all([
+      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),   // 上市
+      isOTC ? tpexFetch() : Promise.resolve(null),               // 上櫃
+      !isTW ? yfSummary(ticker) : Promise.resolve(null)          // 美股
     ]);
 
     if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
@@ -414,17 +435,36 @@ async function go(){
       marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
     };
 
-    // TWSE 資料
+    // TWSE 上市資料
     if (twseArr) {
-      const no = ticker.replace('.TW','');
-      const twseRow = twseArr.find(r=>r.Code===no);
-      if (twseRow) {
-        if (twseRow.PEratio && twseRow.PEratio!=='-') m.pe = parseFloat(twseRow.PEratio);
-        if (twseRow.PBratio && twseRow.PBratio!=='-') m.pb = parseFloat(twseRow.PBratio);
-        if (twseRow.DividendYield && twseRow.DividendYield!=='-') m.divYield = parseFloat(twseRow.DividendYield);
-        if (m.pe && m.pb && m.pe>0 && m.pb>0) m.eps = price / m.pe;
+      const no = ticker.replace('.TW','').replace('.TWO','');
+      const row = twseArr.find(r=>r.Code===no);
+      if (row) {
+        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
+        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
+        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
-        m.name = twseRow.Name || '';
+        if (row.Name) m.name = row.Name;
+      }
+    }
+
+    // TPEX 上櫃資料
+    if (tpexArr) {
+      const no = ticker.replace('.TWO','').replace('.TW','');
+      // TPEX API 欄位：SecuritiesCompanyCode, CompanyName, PriceEarningRatio, PriceBookRatio, DividendYield
+      const row = tpexArr.find(r => r.SecuritiesCompanyCode===no || r['股票代號']===no || r.Code===no);
+      if (row) {
+        const pe = row.PriceEarningRatio || row['本益比'] || row.PEratio;
+        const pb = row.PriceBookRatio || row['股價淨值比'] || row.PBratio;
+        const dy = row.DividendYield || row['殖利率'] || row.DividendYield;
+        const nm = row.CompanyName || row['公司名稱'] || row['股票名稱'] || row.Name;
+        if (pe && pe!=='-' && pe!=='N/A') m.pe = parseFloat(pe);
+        if (pb && pb!=='-' && pb!=='N/A') m.pb = parseFloat(pb);
+        if (dy && dy!=='-' && dy!=='N/A') m.divYield = parseFloat(dy);
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
+        if (m.divYield) m.div = price * m.divYield / 100;
+        if (nm) m.name = nm;
       }
     }
 
