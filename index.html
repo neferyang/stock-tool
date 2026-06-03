@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r25</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r30 (Industry Classifier v2.0)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -187,55 +187,227 @@ async function tpexFetch() {
 }
 
 // ════════════════════════════════════════════════════════
-// 產業分類
+// 產業分類系統 v2.0 - 精細化產業判斷 + 估值參數
 // ════════════════════════════════════════════════════════
+
+// 產業資料庫：包含代碼、估值參數、特徵詞
+const INDUSTRY_DB = {
+  'etf': {name:'ETF', parent:'工具型', fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null, description:'交易所買賣基金'},
+  'ic-design': {name:'IC設計', parent:'科技硬體', fairPE:35, fairPB:8, fairDiv:0, fairYield:0, evEbitda:20, description:'積體電路設計'},
+  'foundry': {name:'晶圓代工', parent:'科技硬體', fairPE:20, fairPB:4, fairDiv:3, fairYield:3, evEbitda:12, description:'晶圓製造'},
+  'memory': {name:'記憶體', parent:'科技硬體', fairPE:12, fairPB:1.5, fairDiv:2, fairYield:4, evEbitda:6, description:'DRAM/NAND'},
+  'ic-package': {name:'IC封測', parent:'科技硬體', fairPE:15, fairPB:2, fairDiv:3, fairYield:4, evEbitda:8, description:'積體電路封裝測試'},
+  'optoelectronics': {name:'光電', parent:'科技硬體', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10, description:'LED/光學元件'},
+  'passive-component': {name:'被動元件', parent:'科技硬體', fairPE:15, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8, description:'電阻電容電感'},
+  'connector': {name:'連接器', parent:'科技硬體', fairPE:20, fairPB:3, fairDiv:2, fairYield:3, evEbitda:10, description:'連接器/端子'},
+  'comm-equipment': {name:'通訊設備', parent:'科技硬體', fairPE:22, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11, description:'基站/通訊模組'},
+  'computer-peripheral': {name:'電腦週邊', parent:'科技硬體', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9, description:'主機板/電源供應'},
+
+  'consumer-electronics': {name:'消費電子', parent:'電子製造', fairPE:14, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8, description:'手機/平板/穿戴'},
+  'power-battery': {name:'電池電源', parent:'電子製造', fairPE:20, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:12, description:'鋰電池/電源管理'},
+  'contract-mfg': {name:'代工製造', parent:'電子製造', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7, description:'EMS/ODM/OEM'},
+
+  'shipping': {name:'航運', parent:'景氣循環', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4, description:'海運/空運'},
+  'steel': {name:'鋼鐵', parent:'景氣循環', fairPE:8, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5, description:'鋼鐵/煉鋼'},
+  'chemical': {name:'化學', parent:'景氣循環', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6, description:'化工/塑膠'},
+  'cement': {name:'水泥', parent:'景氣循環', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5, description:'水泥'},
+  'paper': {name:'紙業', parent:'景氣循環', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5, description:'紙製品'},
+  'auto-parts': {name:'汽車零件', parent:'景氣循環', fairPE:10, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6, description:'汽車零組件'},
+  'panel': {name:'面板', parent:'景氣循環', fairPE:8, fairPB:0.9, fairDiv:3, fairYield:5, evEbitda:4, description:'TFT-LCD/OLED'},
+
+  'bank': {name:'銀行', parent:'金融保險', fairPE:8, fairPB:0.9, fairDiv:4, fairYield:4.5, evEbitda:null, description:'商業銀行'},
+  'insurance': {name:'保險', parent:'金融保險', fairPE:12, fairPB:1.2, fairDiv:3, fairYield:3.5, evEbitda:null, description:'壽險/產險'},
+  'securities': {name:'證券期貨', parent:'金融保險', fairPE:10, fairPB:1.1, fairDiv:2, fairYield:3, evEbitda:null, description:'券商/期商'},
+  'fintech': {name:'金融科技', parent:'金融保險', fairPE:28, fairPB:6, fairDiv:0, fairYield:0, evEbitda:18, description:'支付/借貸/保險科技'},
+
+  'food': {name:'食品飲料', parent:'民生消費', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10, description:'食品/飲料/乳品'},
+  'textile': {name:'紡織服飾', parent:'民生消費', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7, description:'紡織/成衣'},
+  'retail': {name:'零售流通', parent:'民生消費', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9, description:'百貨/超商/流通'},
+  'hospitality': {name:'飯店觀光', parent:'民生消費', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8, description:'飯店/觀光/餐飲'},
+
+  'biotech': {name:'生技製藥', parent:'生技醫療', fairPE:30, fairPB:5, fairDiv:0, fairYield:0, evEbitda:22, description:'生技/新藥研發'},
+  'pharmaceutical': {name:'藥品', parent:'生技醫療', fairPE:20, fairPB:3.5, fairDiv:2, fairYield:2.5, evEbitda:12, description:'西藥/中藥'},
+  'medical-device': {name:'醫療器材', parent:'生技醫療', fairPE:25, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15, description:'醫療設備/器材'},
+  'hospital': {name:'醫療機構', parent:'生技醫療', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10, description:'醫院/診所'},
+
+  'real-estate': {name:'不動產', parent:'房地產', fairPE:12, fairPB:1.5, fairDiv:4, fairYield:4.5, evEbitda:7, description:'房地產開發'},
+  'reit': {name:'REITs', parent:'房地產', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5, evEbitda:8, description:'房地產投資信託'},
+  'construction': {name:'營建', parent:'房地產', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6, description:'營造工程'},
+
+  'telecom': {name:'電信', parent:'公用事業', fairPE:14, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:8, description:'電信運營'},
+  'power': {name:'電力公用', parent:'公用事業', fairPE:16, fairPB:1.5, fairDiv:4.5, fairYield:5, evEbitda:9, description:'電力/瓦斯/水'},
+  'renewable': {name:'再生能源', parent:'公用事業', fairPE:22, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12, description:'太陽能/風電'},
+
+  'software': {name:'軟體服務', parent:'資訊科技', fairPE:28, fairPB:6, fairDiv:0, fairYield:0, evEbitda:18, description:'應用軟體/SaaS'},
+  'cloud-internet': {name:'雲端網際', parent:'資訊科技', fairPE:32, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20, description:'雲端/互聯網'},
+  'security': {name:'資訊安全', parent:'資訊科技', fairPE:26, fairPB:5.5, fairDiv:0, fairYield:0, evEbitda:16, description:'資訊安全/監控'},
+  'it-service': {name:'資訊服務', parent:'資訊科技', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10, description:'系統整合/IT服務'},
+
+  'machinery': {name:'機械', parent:'一般製造', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7, description:'機械製造'},
+  'appliance': {name:'家電', parent:'一般製造', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8, description:'家電製造'},
+  'unknown': {name:'未分類', parent:'其他', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9, description:'無法判斷'}
+};
+
+// 關鍵字庫（高置信度）
+const KEYWORD_MAP = {
+  'ic-design': ['積電','台積','聯發科','瑞昱','矽力','創意','聯咖','繪晶','聯陽','世芯','智原'],
+  'foundry': ['台積電','聯電','globalfoundries','gfs'],
+  'memory': ['美光','SK海力士','samsung','東芝','南亞','華邦','鎰勝','南茂','晶愛'],
+  'ic-package': ['日月光','兆晶','京元','容錦','矽品','卓越','環旭','長科','致伸'],
+  'optoelectronics': ['晶電','新亞','世磊','光磊','彩晶','群光','友達','均億','佳世達'],
+  'passive-component': ['台灣被動','國巨','智邦','大毅','佳磊','文晶','升貿','光磊','光磊'],
+  'shipping': ['長榮','陽明','萬海','和桐','中航','東洋','志信','德昇'],
+  'steel': ['中鋼','龍鋼','豐興','三陽','卓越','大成','中山','岳豐'],
+  'bank': ['玉山','台新','國泰','日盛','台華','中華','彰銀','台銀','土銀','合庫'],
+  'telecom': ['中華電','台灣大','遠傳','亞太','優先','台灣','FET','TWM'],
+  'food': ['卜蜂','大成','中華食','加味','馬祖','美食達','泰昌','大統'],
+  'biotech': ['浩鼎','信達','康友','台灣新','南港','東洋','友華','興櫻','瑞光'],
+  'pharmaceutical': ['永信','東洋','樂威','南光','中化','健亞','基因','第一','康友'],
+  'real-estate': ['遠雄','新光','宏匯','冠德','潤泰','富邦','陸虹','東急','豪景'],
+  'telecom': ['中華電','台灣大','遠傳','台固','優先','鑫禾','威潤','國磊']
+};
+
+// TWSE 代號範圍對應（作為 L3 級判斷）
+const CODE_RANGE_MAP = [
+  {range:[1000,1499], industry:'basic-materials', type:'上市 - 食品'},
+  {range:[1500,1899], industry:'textile', type:'上市 - 紡織'},
+  {range:[2000,2399], industry:'ic-design', type:'上市 - 電子上游'},
+  {range:[2400,2799], industry:'consumer-electronics', type:'上市 - 電子中下游'},
+  {range:[2800,2999], industry:'bank', type:'上市 - 金融保險'},
+  {range:[3000,3299], industry:'contract-mfg', type:'上市 - 代工製造'},
+  {range:[3300,3499], industry:'machinery', type:'上市 - 機械'},
+  {range:[4000,4299], industry:'cement', type:'上市 - 水泥'},
+  {range:[4400,4699], industry:'steel', type:'上市 - 鋼鐵'},
+  {range:[4700,4999], industry:'biotech', type:'上市 - 生技醫療'},
+  {range:[5000,5299], industry:'power', type:'上市 - 電力公用'},
+  {range:[5300,5399], industry:'chemical', type:'上市 - 化學'},
+  {range:[5400,5699], industry:'building', type:'上市 - 建材營建'},
+  {range:[5700,6000], industry:'shipping', type:'上市 - 航運'}
+];
+
 function classifyIndustry(sym, name, sector, industry) {
-  const s = (sector||'').toLowerCase();
-  const ind = (industry||'').toLowerCase();
-  const nm = (name||'').toLowerCase();
-  const code = parseInt(sym.replace('.TW',''));
+  let result = {industry:'unknown', confidence:'low', details:{}};
+
+  // ─────────────────────────────────────────────────────────
+  // L0：ETF 判斷（最優先）
+  // ─────────────────────────────────────────────────────────
   const symU = sym.toUpperCase();
-
-  // ETF
-  if (/^00\d{2,3}/.test(sym.replace('.TW','')) || nm.includes('etf') || symU==='SPY'||symU==='QQQ'||symU==='VTI') return 'ETF';
-
-  // TWSE 中文產業（從 sector/industry 帶進來）
-  const zh = s + ' ' + ind;
-  if (zh.includes('半導體') || zh.includes('積體電路')) return '科技/半導體';
-  if (zh.includes('電子零組件') || zh.includes('光電') || zh.includes('電腦') || zh.includes('其他電子') || zh.includes('通信網路') || zh.includes('電子通路') || zh.includes('資訊服務')) return '科技/半導體';
-  if (zh.includes('金融') || zh.includes('銀行') || zh.includes('保險') || zh.includes('證券')) return '金融保險';
-  if (zh.includes('鋼鐵') || zh.includes('塑膠') || zh.includes('化學') || zh.includes('水泥') || zh.includes('造紙') || zh.includes('橡膠')) return '景氣循環/原物料';
-  if (zh.includes('航運') || zh.includes('航空')) return '景氣循環/原物料';
-  if (zh.includes('電信') || zh.includes('通信')) return '公用事業/電信';
-  if (zh.includes('建材') || zh.includes('不動產') || zh.includes('營建')) return '不動產/REITs';
-  if (zh.includes('生技') || zh.includes('醫療') || zh.includes('藥')) return '生技/醫療';
-  if (zh.includes('食品') || zh.includes('紡織') || zh.includes('汽車') || zh.includes('電機機械')) return '一般製造/消費';
-
-  // 名稱關鍵字
-  if (nm.includes('半導') || nm.includes('積電') || nm.includes('聯發科') || nm.includes('矽力') || nm.includes('聯電') || nm.includes('日月光')) return '科技/半導體';
-  if (nm.includes('金控') || nm.includes('銀行') || nm.includes('壽險') || nm.includes('保險')) return '金融保險';
-  if (nm.includes('電信') || nm.includes('中華電') || nm.includes('台灣大') || nm.includes('遠傳')) return '公用事業/電信';
-  if (nm.includes('航運') || nm.includes('長榮') || nm.includes('陽明') || nm.includes('萬海')) return '景氣循環/原物料';
-  if (nm.includes('鋼鐵') || nm.includes('中鋼')) return '景氣循環/原物料';
-  if (nm.includes('生技') || nm.includes('醫療') || nm.includes('藥')) return '生技/醫療';
-
-  // 英文 sector（美股）
-  if (s.includes('semiconductor') || s.includes('technology') || ind.includes('semiconductor') || ind.includes('electronic')) return '科技/半導體';
-  if (s.includes('financial') || s.includes('bank') || s.includes('insurance')) return '金融保險';
-  if (s.includes('real estate') || ind.includes('reit')) return '不動產/REITs';
-  if (s.includes('utilities') || s.includes('communication') || ind.includes('telecom')) return '公用事業/電信';
-  if (s.includes('energy') || s.includes('material') || ind.includes('steel') || ind.includes('oil')) return '景氣循環/原物料';
-  if (s.includes('health') || s.includes('biotech') || ind.includes('pharma')) return '生技/醫療';
-
-  // 台股代號範圍推斷
-  if (!isNaN(code)) {
-    if (code >= 2300 && code <= 2399) return '科技/半導體';
-    if (code >= 2800 && code <= 2899) return '金融保險';
-    if (code >= 2600 && code <= 2699) return '景氣循環/原物料';
-    if (code >= 4700 && code <= 4799) return '生技/醫療';
+  const nm = (name||'').toLowerCase();
+  if (/^00\d{2,3}/.test(sym.replace('.TW','')) || nm.includes('etf') ||
+      ['SPY','QQQ','VTI','VOO','VUG','IVV','SCHX','DIA','IWM','VTV','VOE','VBR','VWO','BND','BLV','BSV'].includes(symU)) {
+    return {industry:'etf', confidence:'high', details:{method:'ETF特徵'}};
   }
 
-  return '一般製造/消費';
+  // ─────────────────────────────────────────────────────────
+  // L1：官方 API 資料（Sector/Industry）最準
+  // ─────────────────────────────────────────────────────────
+  const zh = ((sector||'') + ' ' + (industry||'')).toLowerCase();
+
+  // 中文匹配
+  const zhMatches = [
+    ['半導體|積體電路|IC|設計', 'ic-design'],
+    ['晶圓|代工', 'foundry'],
+    ['記憶體|DRAM|NAND', 'memory'],
+    ['封測|測試|包裝', 'ic-package'],
+    ['光電|LED', 'optoelectronics'],
+    ['被動元件|電阻|電容|電感', 'passive-component'],
+    ['連接器|端子|接頭', 'connector'],
+    ['通訊|基站|模組', 'comm-equipment'],
+    ['電腦|主機板|電源供應', 'computer-peripheral'],
+    ['消費電子|手機|平板|穿戴|鍵盤|滑鼠', 'consumer-electronics'],
+    ['電池|鋰電|電源管理|充電', 'power-battery'],
+    ['代工|ODM|OEM|EMS', 'contract-mfg'],
+    ['航運|航空|海運|運輸', 'shipping'],
+    ['鋼鐵|煉鋼|鋼材', 'steel'],
+    ['化學|塑膠|石化', 'chemical'],
+    ['水泥', 'cement'],
+    ['紙業|造紙|紙製品', 'paper'],
+    ['汽車|車用|零件|零組件', 'auto-parts'],
+    ['面板|LCD|OLED|液晶', 'panel'],
+    ['銀行|商銀|信用', 'bank'],
+    ['保險|壽險|產險', 'insurance'],
+    ['證券|期貨|期商', 'securities'],
+    ['食品|飲料|乳品|酒', 'food'],
+    ['紡織|成衣|布料|服飾', 'textile'],
+    ['零售|百貨|超商|便利', 'retail'],
+    ['飯店|觀光|餐飲|民宿', 'hospitality'],
+    ['生技|新藥|生物科技', 'biotech'],
+    ['藥品|製藥|西藥|中藥|藥廠', 'pharmaceutical'],
+    ['醫療器材|設備|器械', 'medical-device'],
+    ['醫院|診所|醫療機構', 'hospital'],
+    ['不動產|房地產|建築|土地|建案', 'real-estate'],
+    ['REIT|房地產投資', 'reit'],
+    ['營建|營造|工程|營造業', 'construction'],
+    ['電信|通信|電話|5G', 'telecom'],
+    ['電力|瓦斯|供電|電廠', 'power'],
+    ['再生能源|太陽能|風電|綠能', 'renewable'],
+    ['軟體|應用程式|SaaS|app|軟件', 'software'],
+    ['雲端|互聯網|網際|平台|電商', 'cloud-internet'],
+    ['安全|資訊安全|監控|防護', 'security'],
+    ['資訊|系統|IT服務|整合', 'it-service'],
+    ['機械|機器|製造機械', 'machinery'],
+    ['家電|冷氣|洗衣|電器', 'appliance']
+  ];
+
+  for (const [pattern, ind] of zhMatches) {
+    if (new RegExp(pattern).test(zh)) {
+      return {industry:ind, confidence:'high', details:{method:'官方產業代碼', sector, industry}};
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // L2：公司名稱高置信度關鍵字
+  // ─────────────────────────────────────────────────────────
+  for (const [ind, keywords] of Object.entries(KEYWORD_MAP)) {
+    for (const kw of keywords) {
+      if (nm.includes(kw.toLowerCase())) {
+        return {industry:ind, confidence:'very-high', details:{method:'公司名稱高置信', keyword:kw}};
+      }
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // L3：英文 Sector 判斷（美股優先）
+  // ─────────────────────────────────────────────────────────
+  const s = (sector||'').toLowerCase();
+  const enMatches = [
+    ['semiconductor|computer hardware|electronic equipment', 'ic-design'],
+    ['technology|software|it services', 'software'],
+    ['financial services|bank|insurance', 'bank'],
+    ['real estate', 'real-estate'],
+    ['health care|pharmaceutical|medical device|biotech', 'biotech'],
+    ['utilities|communication services|telecom', 'telecom'],
+    ['energy|materials|industrial|machinery', 'machinery'],
+    ['consumer cyclical|consumer non-cyclical|retail|food', 'retail']
+  ];
+
+  for (const [pattern, ind] of enMatches) {
+    if (new RegExp(pattern).test(s)) {
+      return {industry:ind, confidence:'high', details:{method:'英文Sector', sector}};
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // L4：代號範圍推斷（台股）
+  // ─────────────────────────────────────────────────────────
+  const code = parseInt(sym.replace('.TW','').replace('.TWO',''));
+  if (!isNaN(code)) {
+    for (const range of CODE_RANGE_MAP) {
+      if (code >= range.range[0] && code <= range.range[1]) {
+        return {industry:range.industry, confidence:'medium', details:{method:'代號範圍推斷', code, range:range.range}};
+      }
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // L5：預設
+  // ─────────────────────────────────────────────────────────
+  return {industry:'unknown', confidence:'low', details:{method:'預設'}};
+}
+
+// 取得產業的估值參數
+function getIndustryParams(indKey) {
+  return INDUSTRY_DB[indKey] || INDUSTRY_DB['unknown'];
 }
 
 // ════════════════════════════════════════════════════════
@@ -256,30 +428,34 @@ const f = (n,d=2) => (n==null||isNaN(n)||!isFinite(n))?'N/A':Number(n).toFixed(d
 function fB(n){if(!n||isNaN(n))return'N/A';const a=Math.abs(n);if(a>=1e12)return(n/1e12).toFixed(2)+' T';if(a>=1e9)return(n/1e9).toFixed(2)+' B';if(a>=1e6)return(n/1e6).toFixed(2)+' M';return n.toFixed(0);}
 function bdg(est,cur){ if(est==='N/A'||!cur||isNaN(parseFloat(est)))return'<span class="badge bn">資料不足</span>'; const r=cur/parseFloat(est); if(r<0.88)return'<span class="badge bl">偏低 ✓</span>'; if(r>1.15)return'<span class="badge bh">偏高 !</span>'; return'<span class="badge bf">合理</span>'; }
 
-function calcVals(price, m, ind) {
+function calcVals(price, m, indKey, indObj) {
   const pe = m.pe, pb = m.pb, div = m.div, divYield = m.divYield;
   const eps = m.eps, roe = m.roe, beta = m.beta;
   const res = [];
 
+  // 從產業資料庫取得估值參數
+  const params = getIndustryParams(indKey);
+  const indName = indObj ? indObj.name : params.name;
+
   // ── 1. P/E 評估 ──────────────────────────────────────────
   if (pe && pe > 0 && pe < 500) {
-    const fairPE = ind==='科技/半導體'?25:ind==='生技/醫療'?30:ind==='金融保險'?12:ind==='景氣循環/原物料'?10:ind==='公用事業/電信'?18:20;
+    const fairPE = params.fairPE || 16;
     const sig = pe < fairPE*0.8 ? '<span class="badge bl">低估 ✓</span>' : pe < fairPE ? '<span class="badge bl">合理偏低</span>' : pe < fairPE*1.3 ? '<span class="badge bf">合理</span>' : '<span class="badge bh">偏高 !</span>';
-    res.push({m:'P/E 本益比評估', d:`目前P/E=${f(pe,1)}（${ind}合理區間：${Math.round(fairPE*0.7)}~${fairPE}x）`, t:f(pe,1)+'x', b:sig});
+    res.push({m:'P/E 本益比評估', d:`目前P/E=${f(pe,1)}（${indName}合理區間：${Math.round(fairPE*0.7)}~${fairPE}x）`, t:f(pe,1)+'x', b:sig});
   }
 
   // ── 2. P/B 淨值估價 ───────────────────────────────────────
   if (pb && pb > 0) {
-    const fairPB = ind==='金融保險'?1.5:ind==='景氣循環/原物料'?1.5:ind==='科技/半導體'?6:ind==='生技/醫療'?5:3;
+    const fairPB = params.fairPB || 2.5;
     const bv = price / pb;
     const tgt = bv * fairPB;
     const sig = pb<=fairPB?'<span class="badge bl">合理 ✓</span>':pb<=fairPB*1.5?'<span class="badge bf">偏高</span>':'<span class="badge bh">偏高 !</span>';
-    res.push({m:'P/B 淨值估價', d:`每股淨值≈${f(bv)} × 合理P/B ${fairPB}x（目前P/B=${f(pb,1)}，${ind}合理上限${fairPB}x）`, t:f(tgt), b:sig});
+    res.push({m:'P/B 淨值估價', d:`每股淨值≈${f(bv)} × 合理P/B ${fairPB}x（目前P/B=${f(pb,1)}，${indName}合理上限${fairPB}x）`, t:f(tgt), b:sig});
   }
 
   // ── 3. 殖利率防線 ─────────────────────────────────────────
   if (div && div > 0) {
-    const yFloor = ind==='公用事業/電信'?0.04:ind==='金融保險'?0.045:ind==='ETF'?0.04:0.05;
+    const yFloor = (params.fairYield || 4) / 100;
     const tgt = div / yFloor;
     res.push({m:`殖利率防線（${f(yFloor*100,1)}%）`, d:`現金股利 ${f(div)} ÷ ${f(yFloor*100,1)}%（機構被動買盤支撐價）`, t:f(tgt), b:bdg(f(tgt),price)});
   }
@@ -293,7 +469,7 @@ function calcVals(price, m, ind) {
 
   // ── 5. 殖利率合理價 ───────────────────────────────────────
   if (divYield && divYield > 0) {
-    const fairY = ind==='公用事業/電信'?3.5:ind==='金融保險'?4.0:ind==='ETF'?3.5:4.5;
+    const fairY = params.fairDiv > 0 ? Math.min(params.fairDiv, 5) : 4.5;
     const tgt = price * (divYield / fairY);
     res.push({m:`殖利率合理價（目標${fairY}%）`, d:`目前殖利率${f(divYield,2)}%，目標${fairY}%反算合理價`, t:f(tgt), b:bdg(f(tgt),price)});
   }
@@ -301,7 +477,10 @@ function calcVals(price, m, ind) {
   // ── 6. DCF 簡化 ───────────────────────────────────────────
   if (eps && eps > 0) {
     const wacc = beta ? Math.min(Math.max(0.05+beta*0.045,0.07),0.14) : 0.09;
-    const gHigh = ind==='科技/半導體'?0.15:ind==='生技/醫療'?0.12:0.08;
+    // 根據產業調整成長率
+    const gHigh = indKey.includes('software') || indKey.includes('cloud') ? 0.15 :
+                  indKey.includes('biotech') || indKey.includes('medical') ? 0.12 :
+                  indKey.includes('cycle') || indKey.includes('steel') ? 0.05 : 0.08;
     let dcf=0, cf=eps;
     for(let i=1;i<=5;i++){cf*=(1+gHigh);dcf+=cf/Math.pow(1+wacc,i);}
     const tv=(cf*1.03)/(wacc-0.03); dcf+=tv/Math.pow(1+wacc,5);
@@ -310,16 +489,18 @@ function calcVals(price, m, ind) {
 
   // ── 7. EV/EBITDA ─────────────────────────────────────────
   if (m.evEbitda && m.evEbitda > 0 && m.evEbitda < 200) {
-    const fair = ind==='景氣循環/原物料'?8:ind==='科技/半導體'?20:ind==='生技/醫療'?25:12;
+    const fair = params.evEbitda || 10;
     const sig = m.evEbitda<fair*0.8?'<span class="badge bl">偏低 ✓</span>':m.evEbitda>fair*1.3?'<span class="badge bh">偏高 !</span>':'<span class="badge bf">合理</span>';
-    res.push({m:'EV/EBITDA', d:`目前${f(m.evEbitda)}x（${ind}合理區間約${Math.round(fair*0.7)}~${fair}x）`, t:f(m.evEbitda)+'x', b:sig});
+    res.push({m:'EV/EBITDA', d:`目前${f(m.evEbitda)}x（${indName}合理區間約${Math.round(fair*0.7)}~${fair}x）`, t:f(m.evEbitda)+'x', b:sig});
   }
 
   // ── 8. RIM（金融業）─────────────────────────────────────
-  if (ind==='金融保險' && pb && roe && pb>0) {
-    const bv = price/pb;
-    const tgt = Math.max(bv*(1+(roe/100-0.08)/0.08), bv*0.7);
-    res.push({m:'RIM 剩餘盈餘模型', d:`淨值≈${f(bv)} × (1+(ROE ${f(roe,1)}%−8%)/8%)（適合金融業）`, t:f(tgt), b:bdg(f(tgt),price)});
+  if (indKey.includes('bank') || indKey.includes('insurance') || indKey.includes('securities')) {
+    if (pb && roe && pb>0) {
+      const bv = price/pb;
+      const tgt = Math.max(bv*(1+(roe/100-0.08)/0.08), bv*0.7);
+      res.push({m:'RIM 剩餘盈餘模型', d:`淨值≈${f(bv)} × (1+(ROE ${f(roe,1)}%−8%)/8%)（適合金融業）`, t:f(tgt), b:bdg(f(tgt),price)});
+    }
   }
 
   // ── 9. PEG ───────────────────────────────────────────────
@@ -332,10 +513,12 @@ function calcVals(price, m, ind) {
 }
 
 // ── 買賣建議價位 ──────────────────────────────────────────────────────────────
-function calcPriceTargets(price, m, tech, ind) {
+function calcPriceTargets(price, m, tech, indKey) {
   const hi52=m['52hi'], lo52=m['52lo'];
   const pe=m.pe, pb=m.pb, div=m.div, eps=m.eps;
   const rows = [];
+
+  const params = getIndustryParams(indKey);
 
   // 技術面
   if (lo52) rows.push({cls:'pt-sup', icon:'▲', label:'52週低點支撐', val:f(lo52), note:'跌破此價位風險增加，止損參考'});
@@ -352,7 +535,7 @@ function calcPriceTargets(price, m, tech, ind) {
 
   // 基本面
   if (pe && pe > 0 && eps > 0) {
-    const fairPE = ind==='科技/半導體'?25:ind==='金融保險'?12:ind==='景氣循環/原物料'?10:18;
+    const fairPE = params.fairPE || 16;
     rows.push({cls:'pt-buy', icon:'🟢', label:`合理買進價（P/E=${fairPE}x）`, val:f(eps*fairPE), note:`EPS=${f(eps)} × 合理P/E ${fairPE}x`});
     rows.push({cls:'pt-buy', icon:'🟢', label:`強力買進價（P/E=${Math.round(fairPE*0.75)}x）`, val:f(eps*fairPE*0.75), note:'折讓25%，低估明顯時考慮積極買入'});
     rows.push({cls:'pt-sell', icon:'🔴', label:`合理賣出價（P/E=${Math.round(fairPE*1.2)}x）`, val:f(eps*fairPE*1.2), note:'超過合理P/E 20%，考慮分批減碼'});
@@ -361,7 +544,7 @@ function calcPriceTargets(price, m, tech, ind) {
 
   // 殖利率防線
   if (div && div > 0) {
-    const yFloor = ind==='公用事業/電信'?0.04:ind==='金融保險'?0.045:0.05;
+    const yFloor = (params.fairYield || 4) / 100;
     rows.push({cls:'pt-sup', icon:'▲', label:`殖利率防線（${f(yFloor*100,1)}%）`, val:f(div/yFloor), note:'機構被動買盤支撐，跌破視為異常'});
   }
 
@@ -375,14 +558,15 @@ function calcPriceTargets(price, m, tech, ind) {
 }
 
 // ── 綜合建議 ─────────────────────────────────────────────────────────────────
-function mkVerdict(price, vals, tech, ind, m) {
+function mkVerdict(price, vals, tech, indKey, indObj, m) {
   let bull=0, bear=0;
   vals.forEach(v=>{ if(v.b.includes('低估')||v.b.includes('偏低')||v.b.includes('合理偏低')||v.b.includes('PEG<1'))bull++; if(v.b.includes('偏高'))bear++; });
   if(tech.rsi<35)bull++; if(tech.rsi>70)bear++;
   if(tech.macdBull)bull++; if(tech.macdBear)bear++;
   if(tech.kd<25)bull++; if(tech.kd>80)bear++;
   const lo=f(m['52lo']), hi=f(m['52hi']);
-  if(bull>=2&&bull>bear) return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局',bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${ind==='ETF'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}。52週低點 ${lo} 為重要支撐，請設好停損點。`};
+  const indName = indObj ? indObj.name : getIndustryParams(indKey).name;
+  if(bull>=2&&bull>bear) return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局',bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}。52週低點 ${lo} 為重要支撐，請設好停損點。`};
   if(bear>=2&&bear>bull) return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。`};
   return{t:'hold',ti:'🟡 估值合理，持有觀望',bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。`};
 }
@@ -544,8 +728,11 @@ async function go(){
     // meta 補充名稱
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
 
-    // 產業分類
-    const ind = classifyIndustry(ticker, m.name, m.sector, m.industry);
+    // 產業分類（新系統）
+    const indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
+    const indKey = indResult.industry;
+    const indObj = INDUSTRY_DB[indKey];
+    const indName = indObj ? indObj.name : '未分類';
 
     // 技術指標
     const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
@@ -559,9 +746,9 @@ async function go(){
     };
 
     // 估值 & 建議
-    const vals = calcVals(price, m, ind);
-    const vd = mkVerdict(price, vals, tech, ind, m);
-    const ptRows = calcPriceTargets(price, m, tech, ind);
+    const vals = calcVals(price, m, indKey, indObj);
+    const vd = mkVerdict(price, vals, tech, indKey, indObj, m);
+    const ptRows = calcPriceTargets(price, m, tech, indKey);
 
     // 漲跌：用K線最後兩日計算（比meta更準確）
     let chg=0, chgPct=0;
@@ -582,7 +769,7 @@ async function go(){
 <div class="sh">
   <div><div class="sn">${m.name||ticker}</div><div class="sy">${ticker}${meta.exchangeName?' · '+meta.exchangeName:''}</div></div>
   <div><div class="sp">${f(price)}</div><div class="pc ${cc}">${cs}${f(chg)} (${cs}${f(chgPct,2)}%)</div></div>
-  <span class="itag">${ind}</span>
+  <span class="itag" title="分類方法：${indResult.details.method}｜置信度：${indResult.confidence}">${indName}${indResult.confidence!=='high'?' ⓘ':''}</span>
 </div>
 
 <div class="vd ${vd.t}"><div class="vdtit">${vd.ti}</div><div class="vdbod">${vd.bo}</div></div>
@@ -599,19 +786,19 @@ async function go(){
   ${sc2('EPS', f(m.eps))}
   ${sc2('毛利率', m.grossMargin!=null?f(m.grossMargin,1)+'%':'N/A')}
   ${sc2('現金股利', f(m.div))}
-  ${sc2('產業', ind)}
+  ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
-${ind==='ETF'?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
+${indKey==='etf'?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
   ${sc2('基金規模', fB(m.totalAssets))}
   ${sc2('今年報酬', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
   ${sc2('3年平均年報酬', m.y3return!=null?f(m.y3return*100,2)+'%':'N/A')}
   ${sc2('費用率', m.expRatio!=null?f(m.expRatio*100,3)+'%':'N/A')}
 </div></div>`:''}
 
-<div class="sec"><div class="st2">估值模型試算（${ind}）</div><div style="overflow-x:auto">
+<div class="sec"><div class="st2">估值模型試算（${indName}）</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
-${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':'財務資料不足，無法計算（ETF 或缺少基本面資料）'}</td></tr>`}
+${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':indKey==='etf'?'ETF 不適用傳統企業估值模型，請參考技術面和費用率分析':'財務資料不足，無法計算'}</td></tr>`}
 </tbody></table></div>
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 模型均為簡化估算，請搭配多個模型綜合判斷，不構成投資建議。</p>
 </div>
