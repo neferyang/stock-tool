@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r18</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r20</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -85,20 +85,31 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 
 // v8/chart：台股美股都可透過 corsproxy 抓到
 async function yfFetch(sym) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
+  const url1 = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
+  const url2 = `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
+
   // 直連（美股通常可用）
-  for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
+  for (const url of [url1, url2]) {
     try {
-      const r = await fetch(url.replace('query1.finance.yahoo.com', base.split('//')[1]), {headers:hdrs, signal:AbortSignal.timeout(8000)});
+      const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
       if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
     } catch(e) {}
   }
-  // corsproxy（台股靠這個）
+
+  // corsproxy 備援（台股靠這個）
+  console.log('[yfFetch] trying corsproxy for', sym);
   try {
-    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(15000)});
-    if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
-  } catch(e) {}
+    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url1), {signal:AbortSignal.timeout(18000)});
+    console.log('[yfFetch] corsproxy status:', r.status, 'for', sym);
+    if (r.ok) {
+      const d = await r.json();
+      if (d?.chart?.result?.[0]) { console.log('[yfFetch] corsproxy ok'); return d.chart.result[0]; }
+      // 404 = 代號不存在
+      if (r.status === 404) return null;
+    }
+    if (r.status === 404) return null;
+  } catch(e) { console.log('[yfFetch] corsproxy error:', e.message); }
   return null;
 }
 
@@ -134,18 +145,26 @@ async function twseFetch() {
 }
 
 // TPEX（上櫃）：本益比/P/B/殖利率
+// 嘗試多個 TPEX endpoint，找到能用的
 async function tpexFetch() {
-  return await safeFetch('https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis');
-}
-
-// TWSE 上市公司名稱對照
-async function twseNameFetch() {
-  return await safeFetch('https://openapi.twse.com.tw/v1/opendata/t187ap03_L');
-}
-
-// TPEX 上櫃公司名稱（用公司基本資料）
-async function tpexNameFetch() {
-  return await safeFetch('https://www.tpex.org.tw/openapi/v1/tpex_mopsfin_auditorsOpinion');
+  const urls = [
+    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis',
+    'https://www.tpex.org.tw/openapi/v1/tpex_esb_peratio_analysis',
+  ];
+  for (const url of urls) {
+    // 直連
+    try {
+      const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
+      if (r.ok) { const d = await r.json(); console.log('[TPEX] direct ok, keys:', d[0]?Object.keys(d[0]).join(','):'empty'); return d; }
+    } catch(e) {}
+    // corsproxy
+    try {
+      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
+      console.log('[TPEX] corsproxy status:', r.status, url.split('/').pop());
+      if (r.ok) { const d = await r.json(); console.log('[TPEX] corsproxy ok, keys:', d[0]?Object.keys(d[0]).join(','):'empty'); return d; }
+    } catch(e) { console.log('[TPEX] error:', e.message); }
+  }
+  return null;
 }
 
 // ════════════════════════════════════════════════════════
@@ -452,13 +471,21 @@ async function go(){
     // TPEX 上櫃資料
     if (tpexArr) {
       const no = ticker.replace('.TWO','').replace('.TW','');
-      // TPEX API 欄位：SecuritiesCompanyCode, CompanyName, PriceEarningRatio, PriceBookRatio, DividendYield
-      const row = tpexArr.find(r => r.SecuritiesCompanyCode===no || r['股票代號']===no || r.Code===no);
+      // 先印出第一筆看欄位結構
+      if (tpexArr.length > 0) console.log('[TPEX] keys:', Object.keys(tpexArr[0]).join(', '));
+      // 嘗試多種欄位名稱對應
+      const row = tpexArr.find(r =>
+        r.SecuritiesCompanyCode===no || r['股票代號']===no ||
+        r.Code===no || r.code===no || r['代號']===no ||
+        r.StockCode===no || r.stockCode===no
+      );
+      console.log('[TPEX] found row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
       if (row) {
-        const pe = row.PriceEarningRatio || row['本益比'] || row.PEratio;
-        const pb = row.PriceBookRatio || row['股價淨值比'] || row.PBratio;
-        const dy = row.DividendYield || row['殖利率'] || row.DividendYield;
-        const nm = row.CompanyName || row['公司名稱'] || row['股票名稱'] || row.Name;
+        // 嘗試所有可能的欄位名稱
+        const pe = row.PriceEarningRatio || row['本益比'] || row.PEratio || row.pe || row.PE;
+        const pb = row.PriceBookRatio || row['股價淨值比'] || row.PBratio || row.pb || row.PB;
+        const dy = row.DividendYield || row['殖利率'] || row.dividendYield || row.yield;
+        const nm = row.CompanyName || row['公司名稱'] || row['股票名稱'] || row.Name || row.name || row['名稱'];
         if (pe && pe!=='-' && pe!=='N/A') m.pe = parseFloat(pe);
         if (pb && pb!=='-' && pb!=='N/A') m.pb = parseFloat(pb);
         if (dy && dy!=='-' && dy!=='N/A') m.divYield = parseFloat(dy);
