@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r23</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r24</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -154,9 +154,11 @@ async function twseFetch() {
 // 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
 // 或嘗試 BWIBBU_ALL（合併版）
 async function tpexFetch() {
+  // 上櫃本益比資料來源（TWSE openapi 上市用 BWIBBU_d，上櫃用不同 endpoint）
   const candidates = [
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',   // 上市（確定能通）
-    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL', // 合併（備援）
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL', // 合併（若存在）
+    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis', // TPEX 官方
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',   // 上市（備援，上櫃不在裡面）
   ];
   for (const url of candidates) {
     // 直連
@@ -484,19 +486,28 @@ async function go(){
       }
     }
 
-    // TPEX 上櫃資料（BWIBBU_ALL 格式與 BWIBBU_d 相同：Code, Name, PEratio, PBratio, DividendYield）
+    // TPEX 上櫃資料（格式同 BWIBBU_d：Code, Name, PEratio, PBratio, DividendYield）
     if (tpexArr) {
       const no = ticker.replace('.TWO','').replace('.TW','');
       if (tpexArr.length > 0) console.log('[TPEX] sample keys:', Object.keys(tpexArr[0]).join(', '));
-      const row = tpexArr.find(r => r.Code===no || r['股票代號']===no || r.StockCode===no);
+      // 同時嘗試多種欄位名稱（TPEX API 可能不同）
+      const row = tpexArr.find(r =>
+        r.Code===no || r['股票代號']===no || r.StockCode===no ||
+        r.SecuritiesCompanyCode===no || r['代號']===no
+      );
       console.log('[TPEX] row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
       if (row) {
-        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
-        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
-        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
+        // 欄位名稱：BWIBBU_d 格式 OR TPEX 格式
+        const pe = row.PEratio || row['本益比'] || row.PriceEarningRatio;
+        const pb = row.PBratio || row['股價淨值比'] || row.PriceBookRatio;
+        const dy = row.DividendYield || row['殖利率'];
+        const nm = row.Name || row['名稱'] || row['股票名稱'] || row.CompanyName;
+        if (pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
+        if (pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
+        if (dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
-        if (row.Name) m.name = row.Name;
+        if (nm) m.name = nm;
       }
     }
 
