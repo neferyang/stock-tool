@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r4.0 )</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r33 (TWSE Official 33)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -904,7 +904,7 @@ async function go(){
       '52hi': meta.fiftyTwoWeekHigh,
       '52lo': meta.fiftyTwoWeekLow,
       pe:null, pb:null, div:null, divYield:null,
-      eps:null, roe:null, beta:null, evEbitda:null, peg:null,
+      eps:null, roe:null, evEbitda:null, peg:null,
       marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
     };
 
@@ -919,6 +919,13 @@ async function go(){
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (row.Name) m.name = row.Name;
+        // TWSE 額外財務數據（如果提供）
+        if (row.OutstandingShares && !isNaN(row.OutstandingShares)) {
+          const shares = parseFloat(row.OutstandingShares);
+          m.marketCap = price * shares;
+        }
+        if (row.ROE && row.ROE!=='-') m.roe = parseFloat(row.ROE);
+        if (row.GrossMargin && row.GrossMargin!=='-') m.grossMargin = parseFloat(row.GrossMargin);
       }
     }
 
@@ -944,6 +951,13 @@ async function go(){
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (nm) m.name = nm;
+        // TPEX 額外財務數據
+        const shares = row.OutstandingShares || row['流通股數'];
+        if (shares && !isNaN(shares)) m.marketCap = price * parseFloat(shares);
+        const roe = row.ROE || row['淨資產報酬率'];
+        if (roe && roe!=='-') m.roe = parseFloat(roe);
+        const gm = row.GrossMargin || row['毛利率'];
+        if (gm && gm!=='-') m.grossMargin = parseFloat(gm);
       }
     }
 
@@ -1047,13 +1061,9 @@ async function go(){
   ${sc2('本益比 P/E', f(m.pe))}
   ${sc2('股價淨值比 P/B', f(m.pb))}
   ${sc2('現金殖利率', m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
-  ${sc2('市值', fB(m.marketCap))}
   ${sc2('52週高點', f(m['52hi']))}
   ${sc2('52週低點', f(m['52lo']))}
-  ${sc2('Beta 值', f(m.beta))}
-  ${sc2('ROE', m.roe!=null?f(m.roe,2)+'%':'N/A')}
   ${sc2('EPS', f(m.eps))}
-  ${sc2('毛利率', m.grossMargin!=null?f(m.grossMargin,1)+'%':'N/A')}
   ${sc2('現金股利', f(m.div))}
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
