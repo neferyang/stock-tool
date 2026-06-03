@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r20</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r21</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -144,25 +144,24 @@ async function twseFetch() {
   return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
 }
 
-// TPEX（上櫃）：本益比/P/B/殖利率
-// 嘗試多個 TPEX endpoint，找到能用的
+// TPEX（上櫃）：改用 TWSE openapi 的上市上櫃合併本益比資料
+// TWSE BWIBBU_ALL 包含上市+上櫃
 async function tpexFetch() {
+  // 上櫃本益比資料（TWSE openapi 有上市上櫃合併版）
   const urls = [
-    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis',
-    'https://www.tpex.org.tw/openapi/v1/tpex_esb_peratio_analysis',
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL',  // 上市+上櫃合併
+    'https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d',    // 只上市，備援
   ];
   for (const url of urls) {
-    // 直連
     try {
       const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); console.log('[TPEX] direct ok, keys:', d[0]?Object.keys(d[0]).join(','):'empty'); return d; }
+      if (r.ok) { const d = await r.json(); if (d&&d.length>0) { console.log('[TPEX/ALL] direct ok, sample:', JSON.stringify(d[0])); return d; } }
     } catch(e) {}
-    // corsproxy
     try {
       const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
-      console.log('[TPEX] corsproxy status:', r.status, url.split('/').pop());
-      if (r.ok) { const d = await r.json(); console.log('[TPEX] corsproxy ok, keys:', d[0]?Object.keys(d[0]).join(','):'empty'); return d; }
-    } catch(e) { console.log('[TPEX] error:', e.message); }
+      console.log('[TPEX/ALL] proxy status:', r.status);
+      if (r.ok) { const d = await r.json(); if (d&&d.length>0) { console.log('[TPEX/ALL] proxy ok, sample:', JSON.stringify(d[0])); return d; } }
+    } catch(e) { console.log('[TPEX/ALL] error:', e.message); }
   }
   return null;
 }
@@ -422,9 +421,10 @@ async function go(){
     const isOTC = ticker.endsWith('.TWO'); // 上櫃
 
     // 並行抓取基本面資料
+    // 上市用 BWIBBU_d，上櫃用 BWIBBU_ALL（含上市+上櫃），美股用 quoteSummary
     const [twseArr, tpexArr, summaryResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),   // 上市
-      isOTC ? tpexFetch() : Promise.resolve(null),               // 上櫃
+      isOTC ? tpexFetch() : Promise.resolve(null),               // 上櫃（含合併API）
       !isTW ? yfSummary(ticker) : Promise.resolve(null)          // 美股
     ]);
 
@@ -468,30 +468,19 @@ async function go(){
       }
     }
 
-    // TPEX 上櫃資料
+    // TPEX 上櫃資料（BWIBBU_ALL 格式與 BWIBBU_d 相同：Code, Name, PEratio, PBratio, DividendYield）
     if (tpexArr) {
       const no = ticker.replace('.TWO','').replace('.TW','');
-      // 先印出第一筆看欄位結構
-      if (tpexArr.length > 0) console.log('[TPEX] keys:', Object.keys(tpexArr[0]).join(', '));
-      // 嘗試多種欄位名稱對應
-      const row = tpexArr.find(r =>
-        r.SecuritiesCompanyCode===no || r['股票代號']===no ||
-        r.Code===no || r.code===no || r['代號']===no ||
-        r.StockCode===no || r.stockCode===no
-      );
-      console.log('[TPEX] found row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
+      if (tpexArr.length > 0) console.log('[TPEX] sample keys:', Object.keys(tpexArr[0]).join(', '));
+      const row = tpexArr.find(r => r.Code===no || r['股票代號']===no || r.StockCode===no);
+      console.log('[TPEX] row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
       if (row) {
-        // 嘗試所有可能的欄位名稱
-        const pe = row.PriceEarningRatio || row['本益比'] || row.PEratio || row.pe || row.PE;
-        const pb = row.PriceBookRatio || row['股價淨值比'] || row.PBratio || row.pb || row.PB;
-        const dy = row.DividendYield || row['殖利率'] || row.dividendYield || row.yield;
-        const nm = row.CompanyName || row['公司名稱'] || row['股票名稱'] || row.Name || row.name || row['名稱'];
-        if (pe && pe!=='-' && pe!=='N/A') m.pe = parseFloat(pe);
-        if (pb && pb!=='-' && pb!=='N/A') m.pb = parseFloat(pb);
-        if (dy && dy!=='-' && dy!=='N/A') m.divYield = parseFloat(dy);
+        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
+        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
+        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
-        if (nm) m.name = nm;
+        if (row.Name) m.name = row.Name;
       }
     }
 
