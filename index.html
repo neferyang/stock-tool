@@ -73,8 +73,8 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.16 (Finnhub API)</span></h1>
-<p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
+<h1>📊 股票估價分析工具<span class="vsub">v4.17 (美股搜尋)</span></h1>
+<p class="sub">支援台股（如 2330、台積電）、美股模糊搜尋（如 AAPL、Apple）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE + Finnhub</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
   <button id="btn" onclick="go()">分析</button>
@@ -92,8 +92,10 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 <script>
 // ════════════════════════════════════════════════════════
 // v4.15：中文股票名稱搜尋（TWSE 動態加載）
+// v4.17：美股模糊搜尋（US 股票列表）
 // ════════════════════════════════════════════════════════
 let STOCK_CACHE = null;  // 緩存 TWSE 上市公司列表
+let US_STOCK_CACHE = null;  // 緩存美股列表
 
 async function initStockCache() {
   // 優先順序改為：本地 JSON → TWSE API → corsproxy → 示例數據
@@ -202,26 +204,64 @@ async function initStockCache() {
   console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
 }
 
+// 加載美股列表
+async function initUSStockCache() {
+  try {
+    const resp = await fetch('us-stocks.json', {signal: AbortSignal.timeout(5000)});
+    if (resp.ok) {
+      US_STOCK_CACHE = await resp.json();
+      console.log(`✅ 美股數據已加載 (${US_STOCK_CACHE.length} 支股票)`);
+      return;
+    }
+  } catch(e) {
+    console.warn('⚠️ 美股列表加載失敗:', e.message);
+    US_STOCK_CACHE = [];
+  }
+}
+
 function searchStock(keyword) {
   if (!keyword || keyword.length < 1) return [];
-  if (!STOCK_CACHE || STOCK_CACHE.length === 0) {
-    console.error('[searchStock] STOCK_CACHE 未初始化！', STOCK_CACHE);
-    return [];
+
+  let results = [];
+  const kw = keyword.toLowerCase();
+
+  // 搜尋台股
+  if (STOCK_CACHE && STOCK_CACHE.length > 0) {
+    const twResults = STOCK_CACHE.filter(c=> {
+      try {
+        return (c.Code && c.Code.includes(keyword)) ||
+               (c.CHName && c.CHName.toLowerCase().includes(kw)) ||
+               (c.Name && c.Name.toLowerCase().includes(kw));
+      } catch(e) {
+        return false;
+      }
+    });
+    results = results.concat(twResults);
   }
 
-  const kw = keyword.toLowerCase();
-  const results = STOCK_CACHE.filter(c=> {
-    try {
-      return (c.Code && c.Code.includes(keyword)) ||
-             (c.CHName && c.CHName.toLowerCase().includes(kw)) ||
-             (c.Name && c.Name.toLowerCase().includes(kw));
-    } catch(e) {
-      console.warn('Filter error for stock:', c, e);
-      return false;
-    }
-  }).slice(0, 10);
+  // 搜尋美股
+  if (US_STOCK_CACHE && US_STOCK_CACHE.length > 0) {
+    const usResults = US_STOCK_CACHE.filter(c=> {
+      try {
+        return (c.Code && c.Code.toUpperCase().includes(keyword.toUpperCase())) ||
+               (c.Name && c.Name.toLowerCase().includes(kw));
+      } catch(e) {
+        return false;
+      }
+    });
+    results = results.concat(usResults);
+  }
 
-  console.log(`[searchStock] 搜尋 "${keyword}" → 找到 ${results.length} 筆 (總計 ${STOCK_CACHE.length} 支)`, results);
+  // 去重並限制結果數量
+  const seen = new Set();
+  results = results.filter(r => {
+    const key = `${r.Code}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 15);
+
+  console.log(`[searchStock] 搜尋 "${keyword}" → 找到 ${results.length} 筆`);
   return results;
 }
 
@@ -235,12 +275,17 @@ function displaySearchResults(results) {
     return;
   }
 
-  resultsList.innerHTML = results.map((r, idx) =>
-    `<li class="result-item" data-code="${r.Code}" data-name="${r.CHName}" data-idx="${idx}">\
-      <strong>${r.CHName}</strong> (${r.Code})\
-      <span class="result-type">${r.Type || '上市'}</span>\
-    </li>`
-  ).join('');
+  resultsList.innerHTML = results.map((r, idx) => {
+    const isTW = r.Type && (r.Type.includes('上市') || r.Type.includes('上櫃') || r.Type.includes('興櫃'));
+    const displayName = r.CHName || r.Name || r.Code;
+    const typeLabel = isTW ? `<span style="color:#16a34a">🟢 ${r.Type || '上市'}</span>` : `<span style="color:#2563eb">🔵 美股</span>`;
+    return `<li class="result-item" data-code="${r.Code}" data-name="${displayName}" data-idx="${idx}">\
+      <div>\
+        <strong>${displayName}</strong> (${r.Code})\
+      </div>\
+      ${typeLabel}\
+    </li>`;
+  }).join('');
 
   // 添加事件委託監聽
   resultsList.querySelectorAll('.result-item').forEach(item => {
@@ -264,9 +309,13 @@ function selectStock(code, name) {
 function initSearchFeature() {
   console.log('[initSearchFeature] Starting...');
 
-  // 立即初始化 STOCK_CACHE（不等待異步完成）
+  // 立即初始化 STOCK_CACHE 和 US_STOCK_CACHE（不等待異步完成）
   initStockCache().then(() => {
     console.log('[initSearchFeature] STOCK_CACHE ready:', STOCK_CACHE ? STOCK_CACHE.length : 0);
+  });
+
+  initUSStockCache().then(() => {
+    console.log('[initSearchFeature] US_STOCK_CACHE ready:', US_STOCK_CACHE ? US_STOCK_CACHE.length : 0);
   });
 
   const input = document.getElementById('ti');
@@ -312,6 +361,10 @@ setTimeout(() => {
   if (!STOCK_CACHE) {
     console.log('[備援] 延遲初始化 STOCK_CACHE...');
     initStockCache();
+  }
+  if (!US_STOCK_CACHE) {
+    console.log('[備援] 延遲初始化 US_STOCK_CACHE...');
+    initUSStockCache();
   }
 }, 500);
 
