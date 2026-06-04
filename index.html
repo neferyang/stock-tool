@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.07 (P1 公告直呈)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.08 (當日走勢)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -945,7 +945,14 @@ function renderChart(dates,prices,vols){
     }
   });
 }
-function setPd(n,b){if(apb)apb.classList.remove('active');b.classList.add('active');apb=b;const s=Math.max(0,AP.length-n);renderChart(AD.slice(s),AP.slice(s),AV.slice(s));}
+function setPd(n,b){
+  if(apb)apb.classList.remove('active');
+  b.classList.add('active');
+  apb=b;
+  // 當日走勢：顯示最近 5 天（包含當日）
+  const s = n === -1 ? Math.max(0, AP.length - 5) : Math.max(0, AP.length - n);
+  renderChart(AD.slice(s),AP.slice(s),AV.slice(s));
+}
 
 // ════════════════════════════════════════════════════════
 // 主程式
@@ -1185,45 +1192,6 @@ async function go(){
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
-${m.news.length > 0 ? `<div class="sec"><div class="st2">📰 公司公告</div>
-<div style="display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap">
-  ${m.majorNewsCount > 0 ? `<div style="background:#fee2e2;padding:8px 12px;border-radius:6px;border-left:3px solid #dc2626;flex:1;min-width:120px">
-    <div style="font-size:0.75rem;color:#666;margin-bottom:3px">🔴 重大訊息</div>
-    <div style="font-size:1.1rem;font-weight:700;color:#dc2626">${m.majorNewsCount}則</div>
-  </div>` : ''}
-  ${m.minorNewsCount > 0 ? `<div style="background:#f3f4f6;padding:8px 12px;border-radius:6px;flex:1;min-width:120px">
-    <div style="font-size:0.75rem;color:#666;margin-bottom:3px">📌 一般公告</div>
-    <div style="font-size:1.1rem;font-weight:700;color:var(--text)">${m.minorNewsCount}則</div>
-  </div>` : ''}
-  <div style="background:#f0f9ff;padding:8px 12px;border-radius:6px;border-left:3px solid var(--accent);flex:1;min-width:120px">
-    <div style="font-size:0.75rem;color:#666;margin-bottom:3px">⏰ 最新公告</div>
-    <div style="font-size:0.9rem;font-weight:600;color:var(--text)">${m.lastNewsDate || '查詢中'}</div>
-  </div>
-</div>
-
-<div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;margin-bottom:12px">
-  <div style="background:var(--sbg);padding:10px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-    <span style="font-weight:600;color:var(--text)">最新公告</span>
-    <a href="https://mops.twse.com.tw/mops/web/t05_query?code=${code}" target="_blank" style="color:var(--accent);text-decoration:none;font-size:0.85rem;font-weight:600">詳細查詢 MOPS→</a>
-  </div>
-  <div style="max-height:300px;overflow-y:auto">
-    ${m.news.slice(0, 5).map((n, i) => `
-      <div style="padding:12px 14px;border-bottom:${i < Math.min(m.news.length - 1, 4) ? '1px solid var(--border)' : 'none'};display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
-        <div style="flex:1;min-width:0">
-          <div style="font-size:0.8rem;color:var(--muted);margin-bottom:4px">${n.date || '未知日期'}</div>
-          <div style="font-size:0.9rem;color:var(--text);line-height:1.4;word-break:break-word">${n.title}</div>
-        </div>
-        ${n.type === 'M' ? `<span style="background:#dc2626;color:#fff;padding:2px 8px;border-radius:3px;font-size:0.7rem;white-space:nowrap;font-weight:600">🔴 重大</span>` : `<span style="background:#f3f4f6;color:#666;padding:2px 8px;border-radius:3px;font-size:0.7rem;white-space:nowrap">一般</span>`}
-      </div>
-    `).join('')}
-  </div>
-</div>
-
-${m.majorNewsCount > 0 ? `<div style="background:#fff1f2;border-left:4px solid #dc2626;padding:10px 12px;border-radius:4px;color:#b91c1c;font-size:0.85rem">
-  <strong>⚠️ 重要提醒：</strong>本公司有 ${m.majorNewsCount} 則重大訊息，建議前往公開資訊觀測站瞭解完整內容後再做投資決策。
-</div>` : ''}
-
-</div>` : ''}
 
 ${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
   ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
@@ -1268,6 +1236,7 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 
 <div class="sec"><div class="st2">價格走勢圖（MA20 / MA60 / 成交量）</div>
 <div class="pb">
+  <button class="pbtn" onclick="setPd(-1,this)">當日</button>
   <button class="pbtn" onclick="setPd(20,this)">1個月</button>
   <button class="pbtn" onclick="setPd(60,this)">3個月</button>
   <button class="pbtn" id="dp" onclick="setPd(120,this)">6個月</button>
