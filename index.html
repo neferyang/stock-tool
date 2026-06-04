@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.15.2 (28支示例+調試)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.15.4 (150+完整)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -108,7 +108,7 @@ async function initStockCache() {
     console.warn('⚠️ TWSE API 直連失敗:', e.message);
   }
 
-  // 備援：使用 corsproxy
+  // 備援 1：使用 corsproxy
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
     const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
@@ -119,7 +119,19 @@ async function initStockCache() {
       return;
     }
   } catch(e) {
-    console.warn('⚠️ TWSE corsproxy 備援也失敗:', e.message);
+    console.warn('⚠️ TWSE corsproxy 備援失敗:', e.message);
+  }
+
+  // 備援 2：從本地 JSON 檔案加載
+  try {
+    const resp = await fetch('twse-stocks.json', {signal: AbortSignal.timeout(8000)});
+    if (resp.ok) {
+      STOCK_CACHE = await resp.json();
+      console.log(`✅ 台股數據已加載 (本地 JSON，${STOCK_CACHE.length} 支上市公司)`);
+      return;
+    }
+  } catch(e) {
+    console.warn('⚠️ 本地 JSON 加載失敗:', e.message);
   }
 
   // 最後備援：使用示例數據
@@ -133,6 +145,9 @@ async function initStockCache() {
     {Code:'3529',CHName:'積威',Name:'',Type:'上市'},
     {Code:'2303',CHName:'聯電',Name:'UMC',Type:'上市'},
     {Code:'2388',CHName:'威盛',Name:'VIA',Type:'上市'},
+    {Code:'2379',CHName:'瑞昱',Name:'Realtek',Type:'上市'},
+    {Code:'2408',CHName:'南茂',Name:'Nanya',Type:'上市'},
+    {Code:'2407',CHName:'智磊',Name:'CHEMI',Type:'上市'},
     // 汽車
     {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
     {Code:'2201',CHName:'裕隆',Name:'Yulon',Type:'上市'},
@@ -142,26 +157,44 @@ async function initStockCache() {
     {Code:'2412',CHName:'中華電',Name:'CHT',Type:'上市'},
     {Code:'3711',CHName:'日月光',Name:'ASE',Type:'上市'},
     {Code:'2498',CHName:'宏達電',Name:'HTC',Type:'上市'},
+    {Code:'2371',CHName:'大同',Name:'Tatung',Type:'上市'},
+    {Code:'2448',CHName:'晶電',Name:'Epistar',Type:'上市'},
+    {Code:'2449',CHName:'京元電',Name:'Elite',Type:'上市'},
     // 傳統
     {Code:'1101',CHName:'台泥',Name:'TCC',Type:'上市'},
     {Code:'1102',CHName:'亞泥',Name:'ACC',Type:'上市'},
     {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'},
     {Code:'1605',CHName:'華新科',Name:'HSI',Type:'上市'},
+    {Code:'1707',CHName:'葡萄王',Name:'GrapeFruit',Type:'上市'},
+    {Code:'1210',CHName:'大成',Name:'TATUNG',Type:'上市'},
     // 金融
     {Code:'2887',CHName:'台新金',Name:'TSCB',Type:'上市'},
     {Code:'2890',CHName:'永豐金',Name:'Sinopac',Type:'上市'},
     {Code:'2892',CHName:'第一金',Name:'FUBON',Type:'上市'},
+    {Code:'2891',CHName:'中信金',Name:'CHINFIN',Type:'上市'},
+    {Code:'2884',CHName:'玉山金',Name:'ESUNBANK',Type:'上市'},
+    {Code:'2886',CHName:'兆豐金',Name:'MEGABANK',Type:'上市'},
+    {Code:'2889',CHName:'國泰金',Name:'CATHAYLIFE',Type:'上市'},
+    {Code:'2882',CHName:'國票金',Name:'NTB',Type:'上市'},
+    {Code:'2880',CHName:'華南金',Name:'HUANAN',Type:'上市'},
     // 航運
     {Code:'2603',CHName:'長榮',Name:'Evergreen',Type:'上市'},
     {Code:'2609',CHName:'陽明',Name:'Yang Ming',Type:'上市'},
     {Code:'2618',CHName:'長華',Name:'',Type:'上市'},
+    {Code:'2606',CHName:'裕民',Name:'TCI',Type:'上市'},
     // ETF
     {Code:'0050',CHName:'台灣50',Name:'ETF',Type:'上市'},
     {Code:'0056',CHName:'高股息',Name:'ETF',Type:'上市'},
+    {Code:'006208',CHName:'富邦台灣',Name:'ETF',Type:'上市'},
     // 其他
     {Code:'2845',CHName:'元大金',Name:'YuantaFH',Type:'上市'},
     {Code:'1217',CHName:'廣宇',Name:'',Type:'上市'},
-    {Code:'1713',CHName:'國化',Name:'',Type:'上市'}
+    {Code:'1713',CHName:'國化',Name:'',Type:'上市'},
+    {Code:'2888',CHName:'新光金',Name:'SinopacLife',Type:'上市'},
+    {Code:'1301',CHName:'台塑',Name:'Formosa',Type:'上市'},
+    {Code:'1326',CHName:'天傑',Name:'',Type:'上市'},
+    {Code:'2353',CHName:'鴻準',Name:'HHM',Type:'上市'},
+    {Code:'2405',CHName:'浩鼎',Name:'PCI',Type:'上市'}
   ];
   console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
 }
