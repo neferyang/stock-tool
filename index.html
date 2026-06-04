@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.10 (5日走勢)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.11 (本益比標準化)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -430,44 +430,65 @@ const OFFICIAL_INDUSTRY_CODES = {
 };
 
 // 產業資料庫：官方產業名稱 → 估值參數
+// 更新日期：2026-06-04 | 參考標準：TWSE 法人評價 | 版本：v4.10
 const INDUSTRY_DB = {
   'etf': {name:'ETF', code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
-  // 官方 33 種產業 (按代碼順序)
-  '水泥工業': {name:'水泥工業', code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
+  // ═══════════════════════════════════════════════════════════
+  // 【A】高成長與科技族群 - 高本益比
+  // ═══════════════════════════════════════════════════════════
+  '半導體業': {name:'半導體業', code:'24', fairPE:25, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
+  '數位雲端': {name:'數位雲端', code:'36', fairPE:30, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
+  '生技醫療業': {name:'生技醫療業', code:'22', fairPE:30, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
+  '光電業': {name:'光電業', code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
+  '電子零組件業': {name:'電子零組件業', code:'28', fairPE:18, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
+  '資訊服務業': {name:'資訊服務業', code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
+  '電腦及週邊設備業': {name:'電腦及週邊設備業', code:'25', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
+  '其他電子業': {name:'其他電子業', code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
+  '綠能環保': {name:'綠能環保', code:'35', fairPE:24, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
+  '運動休閒': {name:'運動休閒', code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+
+  // ═══════════════════════════════════════════════════════════
+  // 【B】防禦與內需族群 - 中等本益比
+  // ═══════════════════════════════════════════════════════════
   '食品工業': {name:'食品工業', code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
-  '塑膠工業': {name:'塑膠工業', code:'03', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '紡織纖維': {name:'紡織纖維', code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
-  '電機機械': {name:'電機機械', code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
-  '電器電纜': {name:'電器電纜', code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
-  '玻璃陶瓷': {name:'玻璃陶瓷', code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
-  '造紙工業': {name:'造紙工業', code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
-  '鋼鐵工業': {name:'鋼鐵工業', code:'10', fairPE:10, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
-  '橡膠工業': {name:'橡膠工業', code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
   '汽車工業': {name:'汽車工業', code:'12', fairPE:15, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
-  '建材營造': {name:'建材營造', code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
-  '航運業': {name:'航運業', code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
   '觀光餐旅': {name:'觀光餐旅', code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
-  '金融保險業': {name:'金融保險業', code:'17', fairPE:10, fairPB:1.1, fairDiv:3, fairYield:3.5, evEbitda:null},
   '貿易百貨業': {name:'貿易百貨業', code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
   '綜合': {name:'綜合', code:'19', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
   '其他業': {name:'其他業', code:'20', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '化學工業': {name:'化學工業', code:'21', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '生技醫療業': {name:'生技醫療業', code:'22', fairPE:30, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
-  '油電燃氣業': {name:'油電燃氣業', code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
-  '半導體業': {name:'半導體業', code:'24', fairPE:25, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
-  '電腦及週邊設備業': {name:'電腦及週邊設備業', code:'25', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
-  '光電業': {name:'光電業', code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
-  '通信網路業': {name:'通信網路業', code:'27', fairPE:13, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
-  '電子零組件業': {name:'電子零組件業', code:'28', fairPE:18, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
-  '電子通路業': {name:'電子通路業', code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
-  '資訊服務業': {name:'資訊服務業', code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
-  '其他電子業': {name:'其他電子業', code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
-  '綠能環保': {name:'綠能環保', code:'35', fairPE:24, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
-  '數位雲端': {name:'數位雲端', code:'36', fairPE:30, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
-  '運動休閒': {name:'運動休閒', code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
   '居家生活': {name:'居家生活', code:'38', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '通信網路業': {name:'通信網路業', code:'27', fairPE:13, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
+  '電子通路業': {name:'電子通路業', code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '油電燃氣業': {name:'油電燃氣業', code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
+  '電器電纜': {name:'電器電纜', code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
+  '電機機械': {name:'電機機械', code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
 
-  // 備選項
+  // ═══════════════════════════════════════════════════════════
+  // 【C】景氣循環與原物料族群 - 低本益比 (逆向邏輯)
+  // ═══════════════════════════════════════════════════════════
+  '航運業': {name:'航運業', code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
+  '鋼鐵工業': {name:'鋼鐵工業', code:'10', fairPE:10, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
+  '塑膠工業': {name:'塑膠工業', code:'03', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '化學工業': {name:'化學工業', code:'21', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '水泥工業': {name:'水泥工業', code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
+  '橡膠工業': {name:'橡膠工業', code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '建材營造': {name:'建材營造', code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
+
+  // ═══════════════════════════════════════════════════════════
+  // 【D】傳統製造族群
+  // ═══════════════════════════════════════════════════════════
+  '紡織纖維': {name:'紡織纖維', code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '玻璃陶瓷': {name:'玻璃陶瓷', code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
+  '造紙工業': {name:'造紙工業', code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
+
+  // ═══════════════════════════════════════════════════════════
+  // 【E】特殊行業
+  // ═══════════════════════════════════════════════════════════
+  '金融保險業': {name:'金融保險業', code:'17', fairPE:10, fairPB:1.1, fairDiv:3, fairYield:3.5, evEbitda:null},  // 注：金融業優先看 P/B
+
+  // ═══════════════════════════════════════════════════════════
+  // 【備選項】
+  // ═══════════════════════════════════════════════════════════
   'ETF': {name:'ETF', code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
   '未分類': {name:'未分類', code:null, fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9}
 };
