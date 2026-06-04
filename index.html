@@ -6,20 +6,28 @@
 <title>股票估價分析工具</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
-:root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb}
+:root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb;--grad1:#2563eb;--grad2:#1d4ed8}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75}
+body{font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(135deg, #f8f9ff 0%, #fff 100%);color:var(--text);font-size:15px;line-height:1.75}
 .wrap{max-width:880px;margin:0 auto;padding:24px 16px 60px}
-h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
-.vsub{font-size:.7rem;font-weight:400;color:var(--muted);background:var(--sbg);padding:2px 8px;border-radius:10px;vertical-align:middle;margin-left:8px}
-.sub{color:var(--muted);font-size:.875rem;margin-bottom:24px}
-.sbox{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
-.sbox input{flex:1;min-width:180px;padding:10px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:1rem;outline:none;transition:border-color .2s}
-.sbox input:focus{border-color:var(--accent)}
-.sbox button{padding:10px 24px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer}
-.sbox button:hover{background:#1d4ed8}
-.sbox button:disabled{background:#93c5fd;cursor:not-allowed}
-.hint{font-size:.8rem;color:var(--muted);margin-bottom:20px}
+
+/* ═══════════════ 表頭美化 ═══════════════ */
+.header{background:linear-gradient(135deg, var(--grad1) 0%, var(--grad2) 100%);border-radius:16px;padding:32px 28px;margin-bottom:28px;color:#fff;box-shadow:0 10px 30px rgba(37, 99, 235, 0.15);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-50%;right:-10%;width:200px;height:200px;background:rgba(255,255,255,0.1);border-radius:50%;z-index:0}
+.header-content{position:relative;z-index:1}
+h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
+.vsub{font-size:.75rem;font-weight:600;color:rgba(255,255,255,0.8);background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:12px;vertical-align:middle;margin-left:12px;border:1px solid rgba(255,255,255,0.3);backdrop-filter:blur(10px)}
+.sub{color:rgba(255,255,255,0.85);font-size:.95rem;margin-bottom:0;line-height:1.6}
+/* ═══════════════ 搜尋框美化 ═══════════════ */
+.sbox{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.sbox input{flex:1;min-width:180px;padding:14px 18px;border:2px solid #e5e7eb;border-radius:12px;font-size:1rem;outline:none;transition:all .3s;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.sbox input::placeholder{color:#a3a3a3}
+.sbox input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(37, 99, 235, 0.1), 0 2px 8px rgba(0,0,0,0.04)}
+.sbox button{padding:14px 32px;background:linear-gradient(135deg, var(--accent) 0%, #1d4ed8 100%);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 12px rgba(37, 99, 235, 0.3);transition:all .3s;white-space:nowrap}
+.sbox button:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(37, 99, 235, 0.4)}
+.sbox button:active{transform:translateY(0)}
+.sbox button:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed;transform:none}
+.hint{font-size:.8rem;color:var(--muted);margin-bottom:20px;line-height:1.6;background:#f0f7ff;padding:12px 14px;border-radius:8px;border-left:3px solid var(--accent)}
 #st{font-size:.875rem;color:var(--muted);min-height:22px;margin-bottom:16px}
 #st.err{color:var(--red)}
 .sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
@@ -61,30 +69,69 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 .pt-sup{color:var(--accent)}
 .pt-res{color:var(--yel)}
 .pt-neu{color:var(--muted)}
-.search-results{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:6px;max-height:300px;overflow-y:auto;z-index:100;box-shadow:0 4px 6px rgba(0,0,0,0.1);margin-top:4px}
+/* ═══════════════ 搜尋結果美化 ═══════════════ */
+.search-results{position:absolute;top:100%;left:0;right:0;background:#fff;border:2px solid #e5e7eb;border-radius:12px;max-height:320px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.12);margin-top:8px}
 .search-results ul{list-style:none;margin:0;padding:0}
-.result-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background .2s}
-.result-item:hover{background:var(--sbg)}
+.result-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+.result-item:hover{background:#f8f9ff;border-radius:8px;padding-left:20px}
 .result-item:last-child{border-bottom:none}
-.result-type{font-size:.75rem;color:var(--muted)}
-.no-result{padding:10px 14px;color:var(--muted);text-align:center}
-@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}.tgrid{grid-template-columns:repeat(2,1fr)}.sp{font-size:1.5rem}.vt{font-size:.8rem}.vt th,.vt td{padding:7px 8px}}
+.result-item strong{color:#1a1a1a;font-weight:600}
+.result-type{font-size:.75rem;color:#7c3aed;background:#f3e8ff;padding:3px 8px;border-radius:6px;font-weight:600}
+.no-result{padding:20px 16px;color:var(--muted);text-align:center;font-size:.9rem}
+/* ═══════════════ 響應式設計 ═══════════════ */
+@media(max-width:640px){
+  .header{padding:24px 20px;margin-bottom:20px}
+  h1{font-size:1.6rem}
+  .vsub{font-size:.65rem;padding:3px 8px}
+  .sub{font-size:.85rem}
+  .sbox{gap:8px}
+  .sbox input{padding:12px 14px}
+  .sbox button{padding:12px 24px;font-size:.95rem}
+  .hint{font-size:.75rem;padding:10px 12px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:repeat(2,1fr)}
+  .sp{font-size:1.5rem}
+  .vt{font-size:.8rem}
+  .vt th,.vt td{padding:7px 8px}
+}
+
+@media(max-width:480px){
+  .header{padding:20px 16px;border-radius:12px}
+  h1{font-size:1.4rem;margin-bottom:6px}
+  .sub{font-size:.8rem;margin-bottom:0}
+  .sbox{flex-direction:column}
+  .sbox input{min-width:100%;padding:12px 14px}
+  .sbox button{width:100%;padding:12px 20px}
+  .hint{font-size:.7rem;padding:8px 10px;margin-bottom:16px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.20 (全面優化)</span></h1>
-<p class="sub">支援台股（如 2330、台積電）、美股模糊搜尋（如 AAPL、Apple）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE + Finnhub</p>
+<!-- ═══════════════ 美化表頭 ═══════════════ -->
+<div class="header">
+  <div class="header-content">
+    <h1>📊 股票估價分析工具 <span class="vsub">v4.20</span></h1>
+    <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
+  </div>
+</div>
+
+<!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
-  <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
+  <input type="text" id="ti" placeholder="🔍 輸入代號或名稱... 如 2330、台積電、AAPL" autocomplete="off" autocapitalize="characters"/>
   <button id="btn" onclick="go()">分析</button>
   <!-- 搜尋結果下拉菜單 -->
   <div id="search-results" class="search-results hidden">
     <ul id="results-list"></ul>
   </div>
 </div>
-<p class="hint">台股輸入數字代號（自動加 .TW）；美股直接輸入英文；按 Enter 也可查詢。<br>
-  範例：2330 台積電｜2317 鴻海｜0050 元大台灣50｜00878 國泰高股息｜AAPL｜TSLA｜SPY</p>
+
+<!-- ═══════════════ 使用提示 ═══════════════ -->
+<p class="hint">
+  <strong>✨ 使用提示：</strong><br>
+  🇹🇼 台股輸入數字代號（自動加 .TW）；🇺🇸 美股直接輸入英文代號；⏎ 按 Enter 也可查詢<br>
+  📌 範例：<code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">2330</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">台積電</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">AAPL</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">0050</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">SPY</code>
+</p>
 <div id="st"></div>
 <div id="res" class="hidden"></div>
 </div>
