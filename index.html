@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>股票估價分析工具</title>
+<title>?∠巨隡啣??撌亙</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb}
@@ -73,139 +73,135 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.16 (Finnhub API)</span></h1>
-<p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
+<h1>?? ?∠巨隡啣??撌亙<span class="vsub">v4.16 (Finnhub API)</span></h1>
+<p class="sub">?舀?啗嚗? 2330嚗??∴?憒?AAPL嚗TF嚗? 0050?PY嚗????皞?Yahoo Finance + TWSE</p>
 <div class="sbox" style="position:relative;">
-  <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
-  <button id="btn" onclick="go()">分析</button>
-  <!-- 搜尋結果下拉菜單 -->
+  <input type="text" id="ti" placeholder="頛詨隞????蝔梧?憒?2330?蝛?APL??050" autocomplete="off" autocapitalize="characters"/>
+  <button id="btn" onclick="go()">??</button>
+  <!-- ??蝯?銝?? -->
   <div id="search-results" class="search-results hidden">
     <ul id="results-list"></ul>
   </div>
 </div>
-<p class="hint">台股輸入數字代號（自動加 .TW）；美股直接輸入英文；按 Enter 也可查詢。<br>
-  範例：2330 台積電｜2317 鴻海｜0050 元大台灣50｜00878 國泰高股息｜AAPL｜TSLA｜SPY</p>
+<p class="hint">?啗頛詨?詨?隞??嚗?? .TW嚗?蝢?湔頛詨?望?嚗? Enter 銋?亥岷??br>
+  蝭?嚗?330 ?啁??鳴?2317 暾餅絲嚚?050 ?之?啁50嚚?0878 ?陸擃?荔?AAPL嚚SLA嚚PY</p>
 <div id="st"></div>
 <div id="res" class="hidden"></div>
 </div>
 
 <script>
-// ════════════════════════════════════════════════════════
-// v4.15：中文股票名稱搜尋（TWSE 動態加載）
-// ════════════════════════════════════════════════════════
-let STOCK_CACHE = null;  // 緩存 TWSE 上市公司列表
+// ????????????????????????????????????????????????????????
+// v4.15嚗葉?蟡典?蝔望?撠?TWSE ????嚗?// ????????????????????????????????????????????????????????
+let STOCK_CACHE = null;  // 蝺拙? TWSE 銝??砍?”
 
 async function initStockCache() {
-  // 優先順序改為：本地 JSON → TWSE API → corsproxy → 示例數據
+  // ?芸????寧嚗??JSON ??TWSE API ??corsproxy ??蝷箔??豢?
 
-  // 備援 1：優先從本地 JSON 檔案加載（最快最可靠）
-  try {
+  // ? 1嚗???砍 JSON 瑼???嚗?敹急??舫?嚗?  try {
     const resp = await fetch('twse-stocks.json', {signal: AbortSignal.timeout(5000)});
     if (resp.ok) {
       STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股數據已加載 (本地 JSON，${STOCK_CACHE.length} 支股票)`);
+      console.log(`???啗?豢?撌脣?頛?(?砍 JSON嚗?{STOCK_CACHE.length} ?航蟡?`);
       return;
     }
   } catch(e) {
-    console.warn('⚠️ 本地 JSON 加載失敗:', e.message);
+    console.warn('?? ?砍 JSON ??憭望?:', e.message);
   }
 
-  // 備援 2：使用 TWSE API 直連
-  try {
+  // ? 2嚗蝙??TWSE API ?湧?  try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
     const resp = await fetch(url, {signal: AbortSignal.timeout(8000)});
     if (resp.ok) {
       STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股名稱緩存已加載 (TWSE API，${STOCK_CACHE.length} 支上市公司)`);
+      console.log(`???啗?迂蝺拙?撌脣?頛?(TWSE API嚗?{STOCK_CACHE.length} ?臭?撣??`);
       return;
     }
   } catch(e) {
-    console.warn('⚠️ TWSE API 直連失敗:', e.message);
+    console.warn('?? TWSE API ?湧?仃??', e.message);
   }
 
-  // 備援 3：使用 corsproxy
+  // ? 3嚗蝙??corsproxy
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
     const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
     const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(10000)});
     if (resp.ok) {
       STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股名稱緩存已加載 (corsproxy，${STOCK_CACHE.length} 支上市公司)`);
+      console.log(`???啗?迂蝺拙?撌脣?頛?(corsproxy嚗?{STOCK_CACHE.length} ?臭?撣??`);
       return;
     }
   } catch(e) {
-    console.warn('⚠️ TWSE corsproxy 備援失敗:', e.message);
+    console.warn('?? TWSE corsproxy ?憭望?:', e.message);
   }
 
-  // 最後備援：使用示例數據
-  console.warn('⚠️ 使用本地示例數據');
+  // ?敺??湛?雿輻蝷箔??豢?
+  console.warn('?? 雿輻?砍蝷箔??豢?');
   STOCK_CACHE = [
-    // 科技 - 半導體
-    {Code:'2330',CHName:'台積電',Name:'TSMC',Type:'上市'},
-    {Code:'2454',CHName:'聯發科',Name:'MTK',Type:'上市'},
-    {Code:'8299',CHName:'群聯',Name:'Phison',Type:'上市'},
-    {Code:'2308',CHName:'台達電',Name:'Delta',Type:'上市'},
-    {Code:'3529',CHName:'積威',Name:'',Type:'上市'},
-    {Code:'2303',CHName:'聯電',Name:'UMC',Type:'上市'},
-    {Code:'2388',CHName:'威盛',Name:'VIA',Type:'上市'},
-    {Code:'2379',CHName:'瑞昱',Name:'Realtek',Type:'上市'},
-    {Code:'2408',CHName:'南茂',Name:'Nanya',Type:'上市'},
-    {Code:'2407',CHName:'智磊',Name:'CHEMI',Type:'上市'},
-    // 汽車
-    {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
-    {Code:'2201',CHName:'裕隆',Name:'Yulon',Type:'上市'},
-    {Code:'2227',CHName:'裕日車',Name:'YRC',Type:'上市'},
-    // 電子
-    {Code:'2317',CHName:'鴻海',Name:'Hon Hai',Type:'上市'},
-    {Code:'2412',CHName:'中華電',Name:'CHT',Type:'上市'},
-    {Code:'3711',CHName:'日月光',Name:'ASE',Type:'上市'},
-    {Code:'2498',CHName:'宏達電',Name:'HTC',Type:'上市'},
-    {Code:'2371',CHName:'大同',Name:'Tatung',Type:'上市'},
-    {Code:'2448',CHName:'晶電',Name:'Epistar',Type:'上市'},
-    {Code:'2449',CHName:'京元電',Name:'Elite',Type:'上市'},
-    // 傳統
-    {Code:'1101',CHName:'台泥',Name:'TCC',Type:'上市'},
-    {Code:'1102',CHName:'亞泥',Name:'ACC',Type:'上市'},
-    {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'},
-    {Code:'1605',CHName:'華新科',Name:'HSI',Type:'上市'},
-    {Code:'1707',CHName:'葡萄王',Name:'GrapeFruit',Type:'上市'},
-    {Code:'1210',CHName:'大成',Name:'TATUNG',Type:'上市'},
-    // 金融
-    {Code:'2887',CHName:'台新金',Name:'TSCB',Type:'上市'},
-    {Code:'2890',CHName:'永豐金',Name:'Sinopac',Type:'上市'},
-    {Code:'2892',CHName:'第一金',Name:'FUBON',Type:'上市'},
-    {Code:'2891',CHName:'中信金',Name:'CHINFIN',Type:'上市'},
-    {Code:'2884',CHName:'玉山金',Name:'ESUNBANK',Type:'上市'},
-    {Code:'2886',CHName:'兆豐金',Name:'MEGABANK',Type:'上市'},
-    {Code:'2889',CHName:'國泰金',Name:'CATHAYLIFE',Type:'上市'},
-    {Code:'2882',CHName:'國票金',Name:'NTB',Type:'上市'},
-    {Code:'2880',CHName:'華南金',Name:'HUANAN',Type:'上市'},
-    // 航運
-    {Code:'2603',CHName:'長榮',Name:'Evergreen',Type:'上市'},
-    {Code:'2609',CHName:'陽明',Name:'Yang Ming',Type:'上市'},
-    {Code:'2618',CHName:'長華',Name:'',Type:'上市'},
-    {Code:'2606',CHName:'裕民',Name:'TCI',Type:'上市'},
+    // 蝘? - ??擃?    {Code:'2330',CHName:'?啁???,Name:'TSMC',Type:'銝?'},
+    {Code:'2454',CHName:'?舐蝘?,Name:'MTK',Type:'銝?'},
+    {Code:'8299',CHName:'蝢方',Name:'Phison',Type:'銝?'},
+    {Code:'2308',CHName:'?圈???,Name:'Delta',Type:'銝?'},
+    {Code:'3529',CHName:'蝛?',Name:'',Type:'銝?'},
+    {Code:'2303',CHName:'?舫',Name:'UMC',Type:'銝?'},
+    {Code:'2388',CHName:'憡?',Name:'VIA',Type:'銝?'},
+    {Code:'2379',CHName:'?',Name:'Realtek',Type:'銝?'},
+    {Code:'2408',CHName:'??',Name:'Nanya',Type:'銝?'},
+    {Code:'2407',CHName:'?箇?',Name:'CHEMI',Type:'銝?'},
+    // 瘙質?
+    {Code:'2207',CHName:'?陸',Name:'HotAI',Type:'銝?'},
+    {Code:'2201',CHName:'鋆?',Name:'Yulon',Type:'銝?'},
+    {Code:'2227',CHName:'鋆頠?,Name:'YRC',Type:'銝?'},
+    // ?餃?
+    {Code:'2317',CHName:'暾餅絲',Name:'Hon Hai',Type:'銝?'},
+    {Code:'2412',CHName:'銝剛??,Name:'CHT',Type:'銝?'},
+    {Code:'3711',CHName:'?交???,Name:'ASE',Type:'銝?'},
+    {Code:'2498',CHName:'摰???,Name:'HTC',Type:'銝?'},
+    {Code:'2371',CHName:'憭批?',Name:'Tatung',Type:'銝?'},
+    {Code:'2448',CHName:'?園',Name:'Epistar',Type:'銝?'},
+    {Code:'2449',CHName:'鈭砍???,Name:'Elite',Type:'銝?'},
+    // ?喟絞
+    {Code:'1101',CHName:'?唳野',Name:'TCC',Type:'銝?'},
+    {Code:'1102',CHName:'鈭野',Name:'ACC',Type:'銝?'},
+    {Code:'1110',CHName:'?啁?',Name:'TSC',Type:'銝?'},
+    {Code:'1605',CHName:'?舀蝘?,Name:'HSI',Type:'銝?'},
+    {Code:'1707',CHName:'?∟???,Name:'GrapeFruit',Type:'銝?'},
+    {Code:'1210',CHName:'憭扳?',Name:'TATUNG',Type:'銝?'},
+    // ??
+    {Code:'2887',CHName:'?唳??,Name:'TSCB',Type:'銝?'},
+    {Code:'2890',CHName:'瘞貉???,Name:'Sinopac',Type:'銝?'},
+    {Code:'2892',CHName:'蝚砌???,Name:'FUBON',Type:'銝?'},
+    {Code:'2891',CHName:'銝凋縑??,Name:'CHINFIN',Type:'銝?'},
+    {Code:'2884',CHName:'?控??,Name:'ESUNBANK',Type:'銝?'},
+    {Code:'2886',CHName:'????,Name:'MEGABANK',Type:'銝?'},
+    {Code:'2889',CHName:'?陸??,Name:'CATHAYLIFE',Type:'銝?'},
+    {Code:'2882',CHName:'?巨??,Name:'NTB',Type:'銝?'},
+    {Code:'2880',CHName:'?臬???,Name:'HUANAN',Type:'銝?'},
+    // ?芷?
+    {Code:'2603',CHName:'?瑟旨',Name:'Evergreen',Type:'銝?'},
+    {Code:'2609',CHName:'?賣?',Name:'Yang Ming',Type:'銝?'},
+    {Code:'2618',CHName:'?瑁',Name:'',Type:'銝?'},
+    {Code:'2606',CHName:'鋆?',Name:'TCI',Type:'銝?'},
     // ETF
-    {Code:'0050',CHName:'台灣50',Name:'ETF',Type:'上市'},
-    {Code:'0056',CHName:'高股息',Name:'ETF',Type:'上市'},
-    {Code:'006208',CHName:'富邦台灣',Name:'ETF',Type:'上市'},
-    // 其他
-    {Code:'2845',CHName:'元大金',Name:'YuantaFH',Type:'上市'},
-    {Code:'1217',CHName:'廣宇',Name:'',Type:'上市'},
-    {Code:'1713',CHName:'國化',Name:'',Type:'上市'},
-    {Code:'2888',CHName:'新光金',Name:'SinopacLife',Type:'上市'},
-    {Code:'1301',CHName:'台塑',Name:'Formosa',Type:'上市'},
-    {Code:'1326',CHName:'天傑',Name:'',Type:'上市'},
-    {Code:'2353',CHName:'鴻準',Name:'HHM',Type:'上市'},
-    {Code:'2405',CHName:'浩鼎',Name:'PCI',Type:'上市'}
+    {Code:'0050',CHName:'?啁50',Name:'ETF',Type:'銝?'},
+    {Code:'0056',CHName:'擃??,Name:'ETF',Type:'銝?'},
+    {Code:'006208',CHName:'撖?啁',Name:'ETF',Type:'銝?'},
+    // ?嗡?
+    {Code:'2845',CHName:'?之??,Name:'YuantaFH',Type:'銝?'},
+    {Code:'1217',CHName:'撱??',Name:'',Type:'銝?'},
+    {Code:'1713',CHName:'??',Name:'',Type:'銝?'},
+    {Code:'2888',CHName:'?啣???,Name:'SinopacLife',Type:'銝?'},
+    {Code:'1301',CHName:'?啣?',Name:'Formosa',Type:'銝?'},
+    {Code:'1326',CHName:'憭拙?',Name:'',Type:'銝?'},
+    {Code:'2353',CHName:'暾餅?',Name:'HHM',Type:'銝?'},
+    {Code:'2405',CHName:'瘚拚?',Name:'PCI',Type:'銝?'}
   ];
-  console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
+  console.log(`?? 蝷箔??豢??? (${STOCK_CACHE.length} ?? - 摰?豢?? TWSE API ?舐`);
 }
 
 function searchStock(keyword) {
   if (!keyword || keyword.length < 1) return [];
   if (!STOCK_CACHE || STOCK_CACHE.length === 0) {
-    console.error('[searchStock] STOCK_CACHE 未初始化！', STOCK_CACHE);
+    console.error('[searchStock] STOCK_CACHE ?芸?憪?嚗?, STOCK_CACHE);
     return [];
   }
 
@@ -221,7 +217,7 @@ function searchStock(keyword) {
     }
   }).slice(0, 10);
 
-  console.log(`[searchStock] 搜尋 "${keyword}" → 找到 ${results.length} 筆 (總計 ${STOCK_CACHE.length} 支)`, results);
+  console.log(`[searchStock] ?? "${keyword}" ???曉 ${results.length} 蝑?(蝮質? ${STOCK_CACHE.length} ??`, results);
   return results;
 }
 
@@ -230,7 +226,7 @@ function displaySearchResults(results) {
   const resultsList = document.getElementById('results-list');
 
   if (results.length === 0) {
-    resultsList.innerHTML = '<li class="no-result">找不到相符的股票</li>';
+    resultsList.innerHTML = '<li class="no-result">?曆??啁蝚衣??∠巨</li>';
     resultsDiv.classList.remove('hidden');
     return;
   }
@@ -238,11 +234,11 @@ function displaySearchResults(results) {
   resultsList.innerHTML = results.map((r, idx) =>
     `<li class="result-item" data-code="${r.Code}" data-name="${r.CHName}" data-idx="${idx}">\
       <strong>${r.CHName}</strong> (${r.Code})\
-      <span class="result-type">${r.Type || '上市'}</span>\
+      <span class="result-type">${r.Type || '銝?'}</span>\
     </li>`
   ).join('');
 
-  // 添加事件委託監聽
+  // 瘛餃?鈭辣憪???
   resultsList.querySelectorAll('.result-item').forEach(item => {
     item.addEventListener('click', function() {
       const code = this.getAttribute('data-code');
@@ -260,12 +256,11 @@ function selectStock(code, name) {
   go();
 }
 
-// 搜尋輸入框事件監聽 - 改進版（兼容不同加載時機）
+// ??頛詨獢?隞嗥??- ?寥脩?嚗摰嫣???頛?璈?
 function initSearchFeature() {
   console.log('[initSearchFeature] Starting...');
 
-  // 立即初始化 STOCK_CACHE（不等待異步完成）
-  initStockCache().then(() => {
+  // 蝡????STOCK_CACHE嚗?蝑??唳郊摰?嚗?  initStockCache().then(() => {
     console.log('[initSearchFeature] STOCK_CACHE ready:', STOCK_CACHE ? STOCK_CACHE.length : 0);
   });
 
@@ -292,7 +287,7 @@ function initSearchFeature() {
     displaySearchResults(results);
   });
 
-  // 點擊外部關閉下拉菜單
+  // 暺?憭??銝??
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.sbox')) {
       document.getElementById('search-results').classList.add('hidden');
@@ -300,40 +295,38 @@ function initSearchFeature() {
   });
 }
 
-// 多種方式觸發初始化（確保成功）
-if (document.readyState === 'loading') {
+// 憭車?孵?閫貊????蝣箔???嚗?if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initSearchFeature);
 } else {
   initSearchFeature();
 }
 
-// 備援：延遲初始化
+// ?嚗辣?脣?憪?
 setTimeout(() => {
   if (!STOCK_CACHE) {
-    console.log('[備援] 延遲初始化 STOCK_CACHE...');
+    console.log('[?] 撱園????STOCK_CACHE...');
     initStockCache();
   }
 }, 500);
 
-// ════════════════════════════════════════════════════════
-// 資料抓取
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// 鞈???
+// ????????????????????????????????????????????????????????
 
-// v8/chart：台股美股都可透過 corsproxy 抓到
+// v8/chart嚗?∠??⊿?舫? corsproxy ?
 async function yfFetch(sym) {
   const url1 = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const url2 = `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
 
-  // 直連（美股通常可用）
-  for (const url of [url1, url2]) {
+  // ?湧??蝢?虜?舐嚗?  for (const url of [url1, url2]) {
     try {
       const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
       if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
     } catch(e) {}
   }
 
-  // corsproxy 備援（台股靠這個）
+  // corsproxy ?嚗?⊿???
   console.log('[yfFetch] trying corsproxy for', sym);
   try {
     const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url1), {signal:AbortSignal.timeout(18000)});
@@ -341,15 +334,14 @@ async function yfFetch(sym) {
     if (r.ok) {
       const d = await r.json();
       if (d?.chart?.result?.[0]) { console.log('[yfFetch] corsproxy ok'); return d.chart.result[0]; }
-      // 404 = 代號不存在
-      if (r.status === 404) return null;
+      // 404 = 隞??銝???      if (r.status === 404) return null;
     }
     if (r.status === 404) return null;
   } catch(e) { console.log('[yfFetch] corsproxy error:', e.message); }
   return null;
 }
 
-// quoteSummary：直連（美股）或 corsproxy（台股備援）
+// quoteSummary嚗???蝢嚗? corsproxy嚗?∪??湛?
 async function yfSummary(sym) {
   const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
   const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
@@ -360,7 +352,7 @@ async function yfSummary(sym) {
       if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
     } catch(e) {}
   }
-  // corsproxy 備援（台股有時能通）
+  // corsproxy ?嚗?⊥????
   try {
     const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(14000)});
     console.log('[yfSummary] proxy', r.status, sym);
@@ -369,8 +361,7 @@ async function yfSummary(sym) {
   return null;
 }
 
-// 通用 fetch（直連 + corsproxy 備援）
-async function safeFetch(url) {
+// ? fetch嚗??+ corsproxy ?嚗?async function safeFetch(url) {
   try {
     const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
     if (r.ok) return await r.json();
@@ -382,25 +373,20 @@ async function safeFetch(url) {
   return null;
 }
 
-// TWSE（上市）：本益比/P/B/殖利率（BWIBBU_ALL 含更多資料，BWIBBU_d 備援）
-async function twseFetch() {
+// TWSE嚗?撣?嚗??/P/B/畾??BWIBBU_ALL ?急憭???BWIBBU_d ?嚗?async function twseFetch() {
   const d = await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL');
   if (d && d.length > 0) return d;
   return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
 }
 
-// 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
-// 或嘗試 BWIBBU_ALL（合併版）
-async function tpexFetch() {
-  // 上櫃股：目前公開API無法直接取得，回傳 null（顯示 N/A）
-  // 僅做嘗試，若未來 API 支援則自動生效
-  const candidates = [
+// 銝??箸?ｇ?BWIBBU_d ?芣?銝?嚗?瑹 TWSE ??OTC 撠惇 endpoint
+// ??閰?BWIBBU_ALL嚗?雿萇?嚗?async function tpexFetch() {
+  // 銝??∴??桀??祇?API?⊥??湔??嚗???null嚗＊蝷?N/A嚗?  // ???岫嚗?芯? API ?舀?????  const candidates = [
     'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis',
     'https://www.tpex.org.tw/openapi/v1/tpex_esb_peratio_analysis',
   ];
   for (const url of candidates) {
-    // 直連
-    try {
+    // ?湧?    try {
       const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
       if (r.ok) {
         const d = await r.json();
@@ -422,9 +408,9 @@ async function tpexFetch() {
   return null;
 }
 
-// ════════════════════════════════════════════════════════
-// Finnhub API：美股基本面數據（P/E、EPS、ROE 等）
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// Finnhub API嚗??∪?祇?豢?嚗/E?PS?OE 蝑?
+// ????????????????????????????????????????????????????????
 async function finnhubFetch(symbol) {
   if (!symbol) return null;
 
@@ -432,35 +418,60 @@ async function finnhubFetch(symbol) {
   console.log('[finnhubFetch] Starting for', symbol, 'with key:', FINNHUB_KEY.substring(0, 10) + '...');
 
   try {
-    // 獲取公司基本資訊和估值數據
+    // Finnhub ?舐??API 蝡舫?
     const profileUrl = `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${FINNHUB_KEY}`;
-    const valuationUrl = `https://finnhub.io/api/v1/stock/valuation?symbol=${symbol}&token=${FINNHUB_KEY}`;
+    const quoteUrl = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_KEY}`;
+    const metricUrl = `https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=all&token=${FINNHUB_KEY}`;
 
     console.log('[finnhubFetch] Profile URL:', profileUrl);
-    console.log('[finnhubFetch] Valuation URL:', valuationUrl);
+    console.log('[finnhubFetch] Quote URL:', quoteUrl);
+    console.log('[finnhubFetch] Metric URL:', metricUrl);
 
-    const [profileResp, valuationResp] = await Promise.all([
+    const [profileResp, quoteResp, metricResp] = await Promise.all([
       fetch(profileUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
         console.error('[finnhubFetch] Profile fetch error:', e.message);
         return {ok: false, status: 0};
       }),
-      fetch(valuationUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
-        console.error('[finnhubFetch] Valuation fetch error:', e.message);
+      fetch(quoteUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
+        console.error('[finnhubFetch] Quote fetch error:', e.message);
+        return {ok: false, status: 0};
+      }),
+      fetch(metricUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
+        console.error('[finnhubFetch] Metric fetch error:', e.message);
         return {ok: false, status: 0};
       })
     ]);
 
     const profile = profileResp.ok ? await profileResp.json() : null;
-    const valuation = valuationResp.ok ? await valuationResp.json() : null;
+    const quote = quoteResp.ok ? await quoteResp.json() : null;
+    const metric = metricResp.ok ? await metricResp.json() : null;
 
     console.log('[finnhubFetch] Profile response:', profile);
-    console.log('[finnhubFetch] Valuation response:', valuation);
+    console.log('[finnhubFetch] Quote response:', quote);
+    console.log('[finnhubFetch] Metric response:', metric);
 
-    if (profile || valuation) {
-      console.log('[finnhubFetch] ✅ Got Finnhub data for', symbol);
-      return {profile: profile || {}, valuation: valuation || {}};
+    // ??隡啣潭??    let valuation = {};
+    if (metric && metric.metric) {
+      const m = metric.metric;
+      valuation = {
+        peRatioTTM: m.peRatioTTM || null,
+        pbRatio: m.pbRatio || null,
+        roe: m.roe || null,
+        dividendYield: m.dividendYield || null,
+        currentRatio: m.currentRatio || null,
+        debtToEquity: m.debtToEquity || null
+      };
+    }
+
+    if (profile || quote || metric) {
+      console.log('[finnhubFetch] ??Got Finnhub data for', symbol);
+      return {
+        profile: profile || {},
+        quote: quote || {},
+        valuation: valuation
+      };
     } else {
-      console.warn('[finnhubFetch] ⚠️ No data returned for', symbol);
+      console.warn('[finnhubFetch] ?? No data returned for', symbol);
     }
   } catch(e) {
     console.error('[finnhubFetch] Fatal error:', e.message, e.stack);
@@ -469,16 +480,16 @@ async function finnhubFetch(symbol) {
   return null;
 }
 
-// ════════════════════════════════════════════════════════
-// 公開資訊觀測站公告集成 (P1 優化版)
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// ?祇?鞈?閫皜祉??砍??? (P1 ?芸???
+// ????????????????????????????????????????????????????????
 async function newsAnnouncementsFetch(code) {
   if (!code) return null;
   try {
-    console.log(`[公告] 正在查詢 ${code} 的最新公告...`);
+    console.log(`[?砍?] 甇??亥岷 ${code} ???啣??..`);
 
-    // 方案 A：TWSE 重大訊息 API（推薦）
-    // ────────────────────────────────────────────────
+    // ?寞? A嚗WSE ?之閮 API嚗?佗?
+    // ????????????????????????????????????????????????
     try {
       const mopsUrl = `https://openapi.twse.com.tw/v1/mopsfin/mops_t187ap05_${code}`;
       const r = await fetch(mopsUrl, {signal:AbortSignal.timeout(8000)});
@@ -486,22 +497,21 @@ async function newsAnnouncementsFetch(code) {
       if (r.ok) {
         const data = await r.json();
         if (Array.isArray(data) && data.length > 0) {
-          // 排序並取前 10 則
-          const sorted = data.sort((a, b) => {
-            const dateA = a.Date || a['公告日期'] || '0000-00-00';
-            const dateB = b.Date || b['公告日期'] || '0000-00-00';
+          // ??銝血???10 ??          const sorted = data.sort((a, b) => {
+            const dateA = a.Date || a['?砍??交?'] || '0000-00-00';
+            const dateB = b.Date || b['?砍??交?'] || '0000-00-00';
             return dateB.localeCompare(dateA);
           }).slice(0, 10);
 
           const items = sorted.map(item => ({
-            date: item.Date || item['公告日期'] || '',
-            title: item.Title || item['公告標題'] || item['新聞標題'] || '',
-            type: item.Type || (item['公告標題']?.includes('重大') ? 'M' : 'C'),
-            url: item.URL || item['連結'] || null
+            date: item.Date || item['?砍??交?'] || '',
+            title: item.Title || item['?砍?璅?'] || item['?啗?璅?'] || '',
+            type: item.Type || (item['?砍?璅?']?.includes('?之') ? 'M' : 'C'),
+            url: item.URL || item['???'] || null
           })).filter(x => x.title);
 
           if (items.length > 0) {
-            console.log(`[公告] ✅ TWSE API 成功取得 ${items.length} 則公告`);
+            console.log(`[?砍?] ??TWSE API ???? ${items.length} ??);
             return {
               items: items,
               count: data.length,
@@ -512,28 +522,27 @@ async function newsAnnouncementsFetch(code) {
         }
       }
     } catch(twseErr) {
-      console.log('[公告] TWSE API 失敗:', twseErr.message);
+      console.log('[?砍?] TWSE API 憭望?:', twseErr.message);
     }
 
-    // 方案 B：MOPS 網站爬蟲（備援）
-    // ────────────────────────────────────────────────
+    // ?寞? B嚗OPS 蝬脩??祈嚗??湛?
+    // ????????????????????????????????????????????????
     try {
-      // MOPS 公開資訊觀測站查詢 URL
+      // MOPS ?祇?鞈?閫皜祉??亥岷 URL
       const mopsPageUrl = `https://mops.twse.com.tw/mops/web/t05_query?code=${code}`;
-      console.log(`[公告] 使用備援方案，爬取 MOPS 頁面...`);
+      console.log(`[?砍?] 雿輻??寞?嚗??MOPS ?...`);
 
       const pageResp = await fetch(mopsPageUrl, {signal:AbortSignal.timeout(8000)});
       if (pageResp.ok) {
         const html = await pageResp.text();
 
-        // 正則匹配公告列表（簡單解析）
-        // <tr><td>日期</td><td>公司</td><td>標題</td><td>...</td></tr>
+        // 甇???寥??砍??”嚗陛?株圾??
+        // <tr><td>?交?</td><td>?砍</td><td>璅?</td><td>...</td></tr>
         const pattern = /<tr[^>]*>[\s\S]*?<\/tr>/g;
         const rows = html.match(pattern) || [];
 
         const items = [];
-        for (let row of rows.slice(1, 11)) {  // 取前 10 則（跳過表頭）
-          const cellPattern = /<td[^>]*>([^<]+)<\/td>/g;
+        for (let row of rows.slice(1, 11)) {  // ?? 10 ??頝喲?銵券嚗?          const cellPattern = /<td[^>]*>([^<]+)<\/td>/g;
           const cells = [];
           let cell;
           while ((cell = cellPattern.exec(row)) !== null) {
@@ -544,14 +553,14 @@ async function newsAnnouncementsFetch(code) {
             items.push({
               date: cells[0] || '',
               title: cells[2] || '',
-              type: cells[2]?.includes('重大') ? 'M' : 'C',
+              type: cells[2]?.includes('?之') ? 'M' : 'C',
               url: null
             });
           }
         }
 
         if (items.length > 0) {
-          console.log(`[公告] ✅ MOPS 爬蟲成功取得 ${items.length} 則公告`);
+          console.log(`[?砍?] ??MOPS ?祈???? ${items.length} ??);
           return {
             items: items,
             count: items.length,
@@ -561,19 +570,19 @@ async function newsAnnouncementsFetch(code) {
         }
       }
     } catch(mopsErr) {
-      console.log('[公告] MOPS 爬蟲失敗:', mopsErr.message);
+      console.log('[?砍?] MOPS ?祈憭望?:', mopsErr.message);
     }
 
   } catch(e) {
-    console.warn('[公告] 公告查詢異常:', e.message);
+    console.warn('[?砍?] ?砍??亥岷?啣虜:', e.message);
   }
 
-  // 備援方案：回傳參考公告連結
-  console.log('[公告] ⚠️ 使用備援方案');
+  // ??寞?嚗??喳?????
+  console.log('[?砍?] ?? 雿輻??寞?');
   return {
     items: [{
       date: new Date().toISOString().split('T')[0],
-      title: '📌 查詢公開資訊觀測站瞭解最新公告',
+      title: '?? ?亥岷?祇?鞈?閫皜祉??剛圾??啣??,
       type: 'C',
       url: `https://mops.twse.com.tw/mops/web/t05_query?code=${code}`
     }],
@@ -583,65 +592,61 @@ async function newsAnnouncementsFetch(code) {
   };
 }
 
-// ════════════════════════════════════════════════════════
-// 產業分類系統 v4.0 - 動態 OpenAPI 集成 + 精細化產業判斷
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// ?Ｘ平??蝟餌絞 v4.0 - ?? OpenAPI ?? + 蝎曄敦?璆剖??// ????????????????????????????????????????????????????????
 
-// ════════════════════════════════════════════════════════
-// 動態企業分類映射 (TWSE/TPEX OpenAPI)
-// ════════════════════════════════════════════════════════
-let COMPANY_INDUSTRY_MAP = new Map();  // {公司代碼} → {產業名稱}
-let lastIndustrySync = null;           // 最後同步時間
-
+// ????????????????????????????????????????????????????????
+// ??隡平???? (TWSE/TPEX OpenAPI)
+// ????????????????????????????????????????????????????????
+let COMPANY_INDUSTRY_MAP = new Map();  // {?砍隞?Ⅳ} ??{?Ｘ平?迂}
+let lastIndustrySync = null;           // ?敺?甇交???
 async function loadLatestIndustryData() {
   try {
-    console.log('[產業數據] 正在從 TWSE/TPEX 同步官方企業分類...');
+    console.log('[?Ｘ平?豢?] 甇?敺?TWSE/TPEX ?郊摰隡平??...');
 
-    // 上市公司（TWSE - 代碼對應表）
+    // 銝??砍嚗WSE - 隞?Ⅳ撠?銵剁?
     const twseUrl = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L";
     let twseData = [];
     try {
       const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
       if (twseResp.ok) {
         twseData = await twseResp.json();
-        console.log(`[TWSE] 獲得 ${twseData.length} 家上市公司`);
+        console.log(`[TWSE] ?脣? ${twseData.length} 摰嗡?撣?節);
       }
     } catch(twseErr) {
-      console.warn('[TWSE] API 請求失敗:', twseErr.message);
+      console.warn('[TWSE] API 隢?憭望?:', twseErr.message);
     }
 
-    // 上櫃公司（TPEX - 代碼對應表）
+    // 銝??砍嚗PEX - 隞?Ⅳ撠?銵剁?
     const tpexUrl = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O";
     let tpexData = [];
     try {
       const tpexResp = await fetch(tpexUrl, {signal: AbortSignal.timeout(10000)});
       if (tpexResp.ok) {
         tpexData = await tpexResp.json();
-        console.log(`[TPEX] 獲得 ${tpexData.length} 家上櫃公司`);
+        console.log(`[TPEX] ?脣? ${tpexData.length} 摰嗡?瑹?節);
       }
     } catch(tpexErr) {
-      console.warn('[TPEX] API 請求失敗:', tpexErr.message);
+      console.warn('[TPEX] API 隢?憭望?:', tpexErr.message);
     }
 
-    // 合併上市 + 上櫃數據
+    // ?蔥銝? + 銝??豢?
     const allCompanies = [...twseData, ...tpexData];
-    console.log(`[產業數據] 獲得 ${allCompanies.length} 家企業資訊`);
+    console.log(`[?Ｘ平?豢?] ?脣? ${allCompanies.length} 摰嗡?璆剛?閮);
 
-    // 建立快速查找表：公司代碼 → 產業名稱（中文）
+    // 撱箇?敹恍?曇”嚗?訾誨蝣????Ｘ平?迂嚗葉??
     COMPANY_INDUSTRY_MAP = new Map();
     let successCount = 0;
 
     allCompanies.forEach(item => {
-      // 兼容多種欄位名稱（TWSE 和 TPEX 格式可能不同）
-      let code = item.Code || item['公司代號'] || item['代號'] || item.symbol;
-      let industryCode = item.IndustryCode || item['產業代號'] || item['代碼'] || null;
-      let industryName = item['產業別'] || item.Industry || null;
+      // ?澆捆憭車甈??迂嚗WSE ??TPEX ?澆??航銝?嚗?      let code = item.Code || item['?砍隞??'] || item['隞??'] || item.symbol;
+      let industryCode = item.IndustryCode || item['?Ｘ平隞??'] || item['隞?Ⅳ'] || null;
+      let industryName = item['?Ｘ平??] || item.Industry || null;
 
       if (!code) return;
       code = code.toString().trim();
 
-      // 優先用產業名稱，次要用產業代碼轉換
-      let finalIndustry = null;
+      // ?芸??函璆剖?蝔梧?甈∟??函璆凋誨蝣潸???      let finalIndustry = null;
       if (industryName && industryName.trim()) {
         finalIndustry = industryName.trim();
       } else if (industryCode) {
@@ -657,482 +662,443 @@ async function loadLatestIndustryData() {
 
     lastIndustrySync = new Date();
     const successRate = allCompanies.length > 0 ? ((successCount / allCompanies.length) * 100).toFixed(1) : 0;
-    console.log(`✅ 官方企業分類已同步完成 (${successCount}/${allCompanies.length} = ${successRate}%), 時間：${lastIndustrySync.toLocaleString()}`);
+    console.log(`??摰隡平??撌脣?甇亙???(${successCount}/${allCompanies.length} = ${successRate}%), ??嚗?{lastIndustrySync.toLocaleString()}`);
 
-    // 成功率超過 80% 視為成功
+    // ??????80% 閬??
     return successCount > allCompanies.length * 0.8;
   } catch(e) {
-    console.warn('⚠️ 官方企業分類同步失敗:', e.message, '將使用備援方案');
+    console.warn('?? 摰隡平???郊憭望?:', e.message, '撠蝙?典??湔獢?);
     lastIndustrySync = null;
     return false;
   }
 }
 
-// 應用啟動時自動同步（非阻塞）
+// ??????甇伐??憛?
 if (typeof document !== 'undefined') {
   loadLatestIndustryData();
 }
 
-// ════════════════════════════════════════════════════════
-// 官方產業代碼對應表（TWSE 2023 年 33 種產業標準）
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// 摰?Ｘ平隞?Ⅳ撠?銵剁?TWSE 2023 撟?33 蝔桃璆剜?皞?
+// ????????????????????????????????????????????????????????
 const OFFICIAL_INDUSTRY_CODES = {
-  '01': '水泥工業',
-  '02': '食品工業',
-  '03': '塑膠工業',
-  '04': '紡織纖維',
-  '05': '電機機械',
-  '06': '電器電纜',
-  '08': '玻璃陶瓷',
-  '09': '造紙工業',
-  '10': '鋼鐵工業',
-  '11': '橡膠工業',
-  '12': '汽車工業',
-  '14': '建材營造',
-  '15': '航運業',
-  '16': '觀光餐旅',
-  '17': '金融保險業',
-  '18': '貿易百貨業',
-  '19': '綜合',
-  '20': '其他業',
-  '21': '化學工業',
-  '22': '生技醫療業',
-  '23': '油電燃氣業',
-  '24': '半導體業',
-  '25': '電腦及週邊設備業',
-  '26': '光電業',
-  '27': '通信網路業',
-  '28': '電子零組件業',
-  '29': '電子通路業',
-  '30': '資訊服務業',
-  '31': '其他電子業',
-  '35': '綠能環保',
-  '36': '數位雲端',
-  '37': '運動休閒',
-  '38': '居家生活'
+  '01': '瘞湔野撌交平',
+  '02': '憌?撌交平',
+  '03': '憛?撌交平',
+  '04': '蝝∠?蝥雁',
+  '05': '?餅?璈１',
+  '06': '?餃?餌?',
+  '08': '?餌??嗥',
+  '09': '??撌交平',
+  '10': '?潮撌交平',
+  '11': '璈∟?撌交平',
+  '12': '瘙質?撌交平',
+  '14': '撱箸???,
+  '15': '?芷?璆?,
+  '16': '閫????,
+  '17': '??靽璆?,
+  '18': '鞎踵??曇疏璆?,
+  '19': '蝬?',
+  '20': '?嗡?璆?,
+  '21': '?飛撌交平',
+  '22': '???怎?璆?,
+  '23': '瘝寥?除璆?,
+  '24': '??擃平',
+  '25': '?餉?梢?閮剖?璆?,
+  '26': '?璆?,
+  '27': '?縑蝬脰楝璆?,
+  '28': '?餃??嗥?隞嗆平',
+  '29': '?餃??楝璆?,
+  '30': '鞈???璆?,
+  '31': '?嗡??餃?璆?,
+  '35': '蝬?唬?',
+  '36': '?訾??脩垢',
+  '37': '??隡?',
+  '38': '撅振?暑'
 };
 
-// 產業資料庫：官方產業名稱 → 估值參數
-// 更新日期：2026-06-04 | 參考標準：TWSE 法人評價 | 版本：v4.10
+// ?Ｘ平鞈?摨恬?摰?Ｘ平?迂 ??隡啣澆???// ?湔?交?嚗?026-06-04 | ??皞?TWSE 瘜犖閰 | ?嚗4.10
 const INDUSTRY_DB = {
   'etf': {name:'ETF', code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
-  // ═══════════════════════════════════════════════════════════
-  // 【A】高成長與科技族群 - 高本益比
-  // ═══════════════════════════════════════════════════════════
-  '半導體業': {name:'半導體業', code:'24', fairPE:25, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
-  '數位雲端': {name:'數位雲端', code:'36', fairPE:30, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
-  '生技醫療業': {name:'生技醫療業', code:'22', fairPE:30, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
-  '光電業': {name:'光電業', code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
-  '電子零組件業': {name:'電子零組件業', code:'28', fairPE:18, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
-  '資訊服務業': {name:'資訊服務業', code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
-  '電腦及週邊設備業': {name:'電腦及週邊設備業', code:'25', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
-  '其他電子業': {name:'其他電子業', code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
-  '綠能環保': {name:'綠能環保', code:'35', fairPE:24, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
-  '運動休閒': {name:'運動休閒', code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+  // ????????????????????????????????????????????????????????????  // ????????黎 - 擃??
+  // ????????????????????????????????????????????????????????????  '??擃平': {name:'??擃平', code:'24', fairPE:25, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
+  '?訾??脩垢': {name:'?訾??脩垢', code:'36', fairPE:30, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
+  '???怎?璆?: {name:'???怎?璆?, code:'22', fairPE:30, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
+  '?璆?: {name:'?璆?, code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
+  '?餃??嗥?隞嗆平': {name:'?餃??嗥?隞嗆平', code:'28', fairPE:18, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
+  '鞈???璆?: {name:'鞈???璆?, code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
+  '?餉?梢?閮剖?璆?: {name:'?餉?梢?閮剖?璆?, code:'25', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
+  '?嗡??餃?璆?: {name:'?嗡??餃?璆?, code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
+  '蝬?唬?': {name:'蝬?唬?', code:'35', fairPE:24, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
+  '??隡?': {name:'??隡?', code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
 
-  // ═══════════════════════════════════════════════════════════
-  // 【B】防禦與內需族群 - 中等本益比
-  // ═══════════════════════════════════════════════════════════
-  '食品工業': {name:'食品工業', code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
-  '汽車工業': {name:'汽車工業', code:'12', fairPE:15, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
-  '觀光餐旅': {name:'觀光餐旅', code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
-  '貿易百貨業': {name:'貿易百貨業', code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '綜合': {name:'綜合', code:'19', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '其他業': {name:'其他業', code:'20', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '居家生活': {name:'居家生活', code:'38', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '通信網路業': {name:'通信網路業', code:'27', fairPE:13, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
-  '電子通路業': {name:'電子通路業', code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
-  '油電燃氣業': {name:'油電燃氣業', code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
-  '電器電纜': {name:'電器電纜', code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
-  '電機機械': {name:'電機機械', code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
+  // ????????????????????????????????????????????????????????????  // ??蝳西??折??黎 - 銝剔??祉?瘥?  // ????????????????????????????????????????????????????????????  '憌?撌交平': {name:'憌?撌交平', code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+  '瘙質?撌交平': {name:'瘙質?撌交平', code:'12', fairPE:15, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
+  '閫????: {name:'閫????, code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
+  '鞎踵??曇疏璆?: {name:'鞎踵??曇疏璆?, code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '蝬?': {name:'蝬?', code:'19', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '?嗡?璆?: {name:'?嗡?璆?, code:'20', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '撅振?暑': {name:'撅振?暑', code:'38', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
+  '?縑蝬脰楝璆?: {name:'?縑蝬脰楝璆?, code:'27', fairPE:13, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
+  '?餃??楝璆?: {name:'?餃??楝璆?, code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '瘝寥?除璆?: {name:'瘝寥?除璆?, code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
+  '?餃?餌?': {name:'?餃?餌?', code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
+  '?餅?璈１': {name:'?餅?璈１', code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
 
-  // ═══════════════════════════════════════════════════════════
-  // 【C】景氣循環與原物料族群 - 低本益比 (逆向邏輯)
-  // ═══════════════════════════════════════════════════════════
-  '航運業': {name:'航運業', code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
-  '鋼鐵工業': {name:'鋼鐵工業', code:'10', fairPE:10, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
-  '塑膠工業': {name:'塑膠工業', code:'03', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '化學工業': {name:'化學工業', code:'21', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '水泥工業': {name:'水泥工業', code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
-  '橡膠工業': {name:'橡膠工業', code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '建材營造': {name:'建材營造', code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
+  // ????????????????????????????????????????????????????????????  // ??瘞?儐?啗????蝢?- 雿?? (???摩)
+  // ????????????????????????????????????????????????????????????  '?芷?璆?: {name:'?芷?璆?, code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
+  '?潮撌交平': {name:'?潮撌交平', code:'10', fairPE:10, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
+  '憛?撌交平': {name:'憛?撌交平', code:'03', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '?飛撌交平': {name:'?飛撌交平', code:'21', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '瘞湔野撌交平': {name:'瘞湔野撌交平', code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
+  '璈∟?撌交平': {name:'璈∟?撌交平', code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '撱箸???: {name:'撱箸???, code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
 
-  // ═══════════════════════════════════════════════════════════
-  // 【D】傳統製造族群
-  // ═══════════════════════════════════════════════════════════
-  '紡織纖維': {name:'紡織纖維', code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
-  '玻璃陶瓷': {name:'玻璃陶瓷', code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
-  '造紙工業': {name:'造紙工業', code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
+  // ????????????????????????????????????????????????????????????  // ??蝯梯ˊ??蝢?  // ????????????????????????????????????????????????????????????  '蝝∠?蝥雁': {name:'蝝∠?蝥雁', code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
+  '?餌??嗥': {name:'?餌??嗥', code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
+  '??撌交平': {name:'??撌交平', code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
 
-  // ═══════════════════════════════════════════════════════════
-  // 【E】特殊行業
-  // ═══════════════════════════════════════════════════════════
-  '金融保險業': {name:'金融保險業', code:'17', fairPE:10, fairPB:1.1, fairDiv:3, fairYield:3.5, evEbitda:null},  // 注：金融業優先看 P/B
+  // ????????????????????????????????????????????????????????????  // ??畾?璆?  // ????????????????????????????????????????????????????????????  '??靽璆?: {name:'??靽璆?, code:'17', fairPE:10, fairPB:1.1, fairDiv:3, fairYield:3.5, evEbitda:null},  // 瘜剁???璆剖?? P/B
 
-  // ═══════════════════════════════════════════════════════════
-  // 【備選項】
-  // ═══════════════════════════════════════════════════════════
-  'ETF': {name:'ETF', code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
-  '未分類': {name:'未分類', code:null, fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9}
+  // ????????????????????????????????????????????????????????????  // ???賊???  // ????????????????????????????????????????????????????????????  'ETF': {name:'ETF', code:null, fairPE:null, fairPB:null, fairDiv:3.5, fairYield:3.5, evEbitda:null},
+  '?芸?憿?: {name:'?芸?憿?, code:null, fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9}
 };
 
-// 關鍵字庫（高置信度）- 官方 33 種產業標準版本
-const KEYWORD_MAP = {
-  // 電子科技產業
-  '半導體業': ['台積','積電','聯發科','瑞昱','矽力','聯電','中芯'],
-  '電腦及週邊設備業': ['鴻海','和碩','緯創','廣達','英業達','華碩','宏碁','華芸'],
-  '光電業': ['晶電','光磊','新亞','世磊','彩晶','群光','友達','均億','佳世達'],
-  '通信網路業': ['聯絡','聯想','TP-Link','中興','華為'],
-  '電子零組件業': ['日月光','矽品','京元','兆晶','容錦','環旭','致伸','京鎮','被動','國巨','智邦','大毅'],
-  '電子通路業': ['技嘉','華碩','精技','聯想','迪斯','宜鼎'],
-  '資訊服務業': ['資策','聯成','精成','世紀','創晶'],
-  '其他電子業': ['晶宏','光磊','鴻海','瑞昱','台達'],
+// ?摮澈嚗?蝵桐縑摨佗?- 摰 33 蝔桃璆剜?皞???const KEYWORD_MAP = {
+  // ?餃?蝘??Ｘ平
+  '??擃平': ['?啁?','蝛','?舐蝘?,'?','?賢?','?舫','銝剛'],
+  '?餉?梢?閮剖?璆?: ['暾餅絲','?◣','蝺臬','撱??','?望平??,'?舐◣','摰?','?航'],
+  '?璆?: ['?園','??','?唬?','銝?','敶拇','蝢文?','??','??','雿喃???],
+  '?縑蝬脰楝璆?: ['?舐窗','?舀','TP-Link','銝剛?','?舐'],
+  '?餃??嗥?隞嗆平': ['?交???,'?賢?','鈭砍?','?','摰寥','?唳','?港撓','鈭祇','鋡怠?','?楊','?粹','憭扳?'],
+  '?餃??楝璆?: ['???,'?舐◣','蝎暹?','?舀','餈芣','摰?'],
+  '鞈???璆?: ['鞈?','?舀?','蝎暹?','銝?','?菜'],
+  '?嗡??餃?璆?: ['?嗅?','??','暾餅絲','?','?圈?'],
 
-  // 傳統產業
-  '水泥工業': ['台泥','亞洲水泥'],
-  '食品工業': ['卜蜂','大成','中華食','加味','馬祖','美食達','泰昌','大統','力麗','四季','可口可樂'],
-  '塑膠工業': ['台塑','南茂','台聚','永大','臺南'],
-  '紡織纖維': ['聯發','儒鴻','宏遠','聯成','唐榮','南紡','曾士','吉祥','福興'],
-  '電機機械': ['東方','亞德客','永安','中祥','均瀛','永光'],
-  '電器電纜': ['大同','華新','華榮','中興','台灣通信'],
-  '玻璃陶瓷': ['台硝','玻工','三龍','水泥','台泥'],
-  '造紙工業': ['永豐餘','中華紙漿','美祿','和紙','瑞翔'],
-  '鋼鐵工業': ['中鋼','中華鋼','龍鋼','豐興','新光鋼','明德鋼','欣興'],
-  '橡膠工業': ['正新','南應','綸昌','華新','聯成'],
-  '汽車工業': ['和泰','裕隆','三陽','中華','台新','美利達','桂盟','永彰','飛蝶','台北汽','光寶'],
-  '建材營造': ['潤弘精密','精成','雷蒙','和大','亞昌','華建','高振','唐鋒'],
-  '航運業': ['長榮','陽明','萬海','中航','東方海','志信','德昇','台航','馬紹爾'],
-  '觀光餐旅': ['晶華','慶聯','老爺','馬紹爾','力麗','雲朗','福朋喜來登','柯達'],
-  '油電燃氣業': ['台電','中油','中華','台灣瓦斯','聯大'],
+  // ?喟絞?Ｘ平
+  '瘞湔野撌交平': ['?唳野','鈭散瘞湔野'],
+  '憌?撌交平': ['??','憭扳?','銝剛憌?,'?','擐祉?','蝢???,'瘜唳?','憭抒絞','??','?迤','?臬?舀?'],
+  '憛?撌交平': ['?啣?','??','?啗?','瘞詨之','?箏?'],
+  '蝝∠?蝥雁': ['?舐','?暑','摰?','?舀?','?旨','?插','?曉ㄚ','?孕','蝳?'],
+  '?餅?璈１': ['?望','鈭噸摰?,'瘞詨?','銝剔孕','??,'瘞詨?'],
+  '?餃?餌?': ['憭批?','?舀','?舀旨','銝剛?','?啁?縑'],
+  '?餌??嗥': ['?啁?','?餃極','銝?','瘞湔野','?唳野'],
+  '??撌交平': ['瘞貉?擗?,'銝剛蝝撚','蝢正','??','??'],
+  '?潮撌交平': ['銝剝','銝剛??,'樴','鞊?','?啣???,'?噸??,'甈??'],
+  '璈∟?撌交平': ['甇?','??','蝬豢?','?舀','?舀?'],
+  '瘙質?撌交平': ['?陸','鋆?','銝','銝剛','?唳','蝢??,'獢?','瘞詨蔑','憌','?啣?瘙?,'?窄'],
+  '撱箸???: ['瞏文?蝎曉?','蝎暹?','?瑁?','?之','鈭?','?臬遣','擃','??'],
+  '?芷?璆?: ['?瑟旨','?賣?','?祆絲','銝剛','?望瘚?,'敹縑','敺瑟?','?啗','擐祉晶??],
+  '閫????: ['?嗉','?嗉','?','擐祉晶??,'??','?脫?','蝳?????,'?舫?'],
+  '瘝寥?除璆?: ['?圈','銝剜硃','銝剛','?啁?行','?臬之'],
 
-  // 金融保險
-  '金融保險業': ['台新金','玉山金','國泰金','日盛金','第一金','中華金','彰銀','台銀','土銀','合庫','兆豐金','華南金','富邦金','元大金'],
+  // ??靽
+  '??靽璆?: ['?唳??,'?控??,'?陸??,'?亦???,'蝚砌???,'銝剛??,'敶圈?','?圈?','??','?澈','????,'?臬???,'撖??,'?之??],
 
-  // 服務業
-  '貿易百貨業': ['全家','統一超商','遠百','新光','家樂福','COSTCO','好市多','永旺'],
-  '綜合': ['台灣綜合','各類'],
-  '其他業': ['各類'],
+  // ??璆?  '鞎踵??曇疏璆?: ['?典振','蝯曹?頞?','?','?啣?','摰嗆?蝳?,'COSTCO','憟賢?憭?,'瘞豢'],
+  '蝬?': ['?啁蝬?','??'],
+  '?嗡?璆?: ['??'],
 
-  // 化學與能源
-  '化學工業': ['中石化','聯成','台聚','永大','臺南','台灣化肥'],
-  '生技醫療業': ['浩鼎','信達','康友','台灣新','南港','東洋','友華','興櫻','瑞光','中天','長春','泰合','南光','永信','樂威','中化','健亞','基因','第一','美時','臺灣生'],
+  // ?飛?皞?  '?飛撌交平': ['銝剔??,'?舀?','?啗?','瘞詨之','?箏?','?啁?'],
+  '???怎?璆?: ['瘚拚?','靽⊿?','摨瑕?','?啁??,'?葛','?望?','?','?姣','??','銝剖予','?瑟','瘜啣?','??','瘞訾縑','璅?','銝剖?','?乩?','?箏?','蝚砌?','蝢?','?箇??],
 
-  // 新經濟
-  '綠能環保': ['茂迪','聯合再生','元晶','昱晶','錦昱','洛碁','華新','中華鋼','ENEOS','台灣燃料'],
-  '數位雲端': ['創意','宏齊','巨流','光罡','光漲','連貫','聯合再生','凱聯'],
-  '運動休閒': ['美利達','捷安特','特品','展志','昇銘','美之約','運動科技'],
-  '居家生活': ['柏文','品牌精品','華美','聯成','永日','聞聲','台灣'],
+  // ?啁?瞈?  '蝬?唬?': ['?羲','?臬???','?','?望','?行','瘣?','?舀','銝剛??,'ENEOS','?啁??'],
+  '?訾??脩垢': ['?菜?','摰?','撌冽?','?翩','?撞','??疵','?臬???','?梯'],
+  '??隡?': ['蝢??,'?瑕???,'?孵?','撅?','??','蝢?蝝?,'??蝘?'],
+  '撅振?暑': ['??','??蝎曉?','?舐?','?舀?','瘞豢','?','?啁'],
 
-  // 備選
+  // ?
   'ETF': [],
-  '未分類': []
+  '?芸?憿?: []
 };
 
-// 舊產業代碼 → 官方產業名稱對應表（用於 L4 級轉換）
+// ?璆凋誨蝣???摰?Ｘ平?迂撠?銵剁??冽 L4 蝝???
 const OLD_INDUSTRY_TO_OFFICIAL = {
-  'food': '食品工業',
-  'textile': '紡織纖維',
-  'paper': '造紙工業',
-  'chemical': '化學工業',
-  'auto-parts': '汽車工業',
-  'computer-peripheral': '電腦及週邊設備業',
-  'machinery': '電機機械',
-  'ic-design': '半導體業',
-  'optoelectronics': '光電業',
-  'passive-component': '電子零組件業',
-  'consumer-electronics': '電腦及週邊設備業',
-  'bank': '金融保險業',
-  'insurance': '金融保險業',
-  'contract-mfg': '電腦及週邊設備業',
-  'connector': '電子零組件業',
-  'cement': '水泥工業',
-  'steel': '鋼鐵工業',
-  'biotech': '生技醫療業',
-  'power': '油電燃氣業',
-  'construction': '建材營造',
-  'shipping': '航運業',
-  'retail': '其他業'
+  'food': '憌?撌交平',
+  'textile': '蝝∠?蝥雁',
+  'paper': '??撌交平',
+  'chemical': '?飛撌交平',
+  'auto-parts': '瘙質?撌交平',
+  'computer-peripheral': '?餉?梢?閮剖?璆?,
+  'machinery': '?餅?璈１',
+  'ic-design': '??擃平',
+  'optoelectronics': '?璆?,
+  'passive-component': '?餃??嗥?隞嗆平',
+  'consumer-electronics': '?餉?梢?閮剖?璆?,
+  'bank': '??靽璆?,
+  'insurance': '??靽璆?,
+  'contract-mfg': '?餉?梢?閮剖?璆?,
+  'connector': '?餃??嗥?隞嗆平',
+  'cement': '瘞湔野撌交平',
+  'steel': '?潮撌交平',
+  'biotech': '???怎?璆?,
+  'power': '瘝寥?除璆?,
+  'construction': '撱箸???,
+  'shipping': '?芷?璆?,
+  'retail': '?嗡?璆?
 };
 
-// TWSE 代號範圍對應（作為 L4 級判斷 - 精細化版）
-const CODE_RANGE_MAP = [
-  // 1000-1999：食品、紡織、汽車、造紙
-  {range:[1000,1299], industry:'food', type:'上市 - 食品'},
-  {range:[1300,1399], industry:'textile', type:'上市 - 紡織'},
-  {range:[1400,1499], industry:'paper', type:'上市 - 造紙'},
-  {range:[1500,1699], industry:'textile', type:'上市 - 紡織'},
-  {range:[1700,1799], industry:'chemical', type:'上市 - 化學'},
-  {range:[1800,1899], industry:'textile', type:'上市 - 紡織'},
-  {range:[1900,1999], industry:'auto-parts', type:'上市 - 汽車零件'},
+// TWSE 隞??蝭?撠?嚗???L4 蝝??- 蝎曄敦??嚗?const CODE_RANGE_MAP = [
+  // 1000-1999嚗??插蝜掃頠?
+  {range:[1000,1299], industry:'food', type:'銝? - 憌?'},
+  {range:[1300,1399], industry:'textile', type:'銝? - 蝝∠?'},
+  {range:[1400,1499], industry:'paper', type:'銝? - ??'},
+  {range:[1500,1699], industry:'textile', type:'銝? - 蝝∠?'},
+  {range:[1700,1799], industry:'chemical', type:'銝? - ?飛'},
+  {range:[1800,1899], industry:'textile', type:'銝? - 蝝∠?'},
+  {range:[1900,1999], industry:'auto-parts', type:'銝? - 瘙質??嗡辣'},
 
-  // 2000-2499：電子硬體（細化版）
-  {range:[2000,2099], industry:'auto-parts', type:'上市 - 汽車'},
-  {range:[2100,2199], industry:'computer-peripheral', type:'上市 - 電腦週邊'},
-  {range:[2200,2299], industry:'machinery', type:'上市 - 機械電機'},
-  {range:[2300,2399], industry:'ic-design', type:'上市 - IC設計及製造'},
-  {range:[2400,2599], industry:'optoelectronics', type:'上市 - 光電'},
-  {range:[2600,2699], industry:'passive-component', type:'上市 - 被動元件'},
-  {range:[2700,2799], industry:'consumer-electronics', type:'上市 - 消費電子'},
+  // 2000-2499嚗摮′擃?蝝啣???
+  {range:[2000,2099], industry:'auto-parts', type:'銝? - 瘙質?'},
+  {range:[2100,2199], industry:'computer-peripheral', type:'銝? - ?餉?梢?'},
+  {range:[2200,2299], industry:'machinery', type:'銝? - 璈１?餅?'},
+  {range:[2300,2399], industry:'ic-design', type:'銝? - IC閮剛??ˊ??},
+  {range:[2400,2599], industry:'optoelectronics', type:'銝? - ?'},
+  {range:[2600,2699], industry:'passive-component', type:'銝? - 鋡怠??辣'},
+  {range:[2700,2799], industry:'consumer-electronics', type:'銝? - 瘨祥?餃?'},
 
-  // 2800-3499：電子製造、代工、機械
-  {range:[2800,2899], industry:'bank', type:'上市 - 金融保險'},
-  {range:[2900,2999], industry:'insurance', type:'上市 - 保險'},
-  {range:[3000,3199], industry:'contract-mfg', type:'上市 - 代工製造'},
-  {range:[3200,3299], industry:'connector', type:'上市 - 連接器'},
-  {range:[3300,3499], industry:'machinery', type:'上市 - 機械'},
+  // 2800-3499嚗摮ˊ?誨撌乓?璇?  {range:[2800,2899], industry:'bank', type:'銝? - ??靽'},
+  {range:[2900,2999], industry:'insurance', type:'銝? - 靽'},
+  {range:[3000,3199], industry:'contract-mfg', type:'銝? - 隞?極鋆賡?},
+  {range:[3200,3299], industry:'connector', type:'銝? - ????},
+  {range:[3300,3499], industry:'machinery', type:'銝? - 璈１'},
 
-  // 4000-5999：重工業、能源、營建
-  {range:[4000,4299], industry:'cement', type:'上市 - 水泥'},
-  {range:[4400,4699], industry:'steel', type:'上市 - 鋼鐵'},
-  {range:[4700,4999], industry:'biotech', type:'上市 - 生技醫療'},
-  {range:[5000,5199], industry:'power', type:'上市 - 電力'},
-  {range:[5200,5299], industry:'power', type:'上市 - 瓦斯'},
-  {range:[5300,5399], industry:'chemical', type:'上市 - 化學'},
-  {range:[5400,5599], industry:'construction', type:'上市 - 建材營建'},
-  {range:[5600,5699], industry:'retail', type:'上市 - 不動產'},
-  {range:[5700,5999], industry:'shipping', type:'上市 - 航運'},
+  // 4000-5999嚗?撌交平?皞?撱?  {range:[4000,4299], industry:'cement', type:'銝? - 瘞湔野'},
+  {range:[4400,4699], industry:'steel', type:'銝? - ?潮'},
+  {range:[4700,4999], industry:'biotech', type:'銝? - ???怎?'},
+  {range:[5000,5199], industry:'power', type:'銝? - ?餃?'},
+  {range:[5200,5299], industry:'power', type:'銝? - ?行'},
+  {range:[5300,5399], industry:'chemical', type:'銝? - ?飛'},
+  {range:[5400,5599], industry:'construction', type:'銝? - 撱箸??遣'},
+  {range:[5600,5699], industry:'retail', type:'銝? - 銝???},
+  {range:[5700,5999], industry:'shipping', type:'銝? - ?芷?'},
 
-  // 6000+：其他
-  {range:[6000,9999], industry:'retail', type:'上市 - 其他服務'}
+  // 6000+嚗隞?  {range:[6000,9999], industry:'retail', type:'銝? - ?嗡???'}
 ];
 
 function classifyIndustry(sym, name, sector, industry) {
   let result = {industry:'unknown', confidence:'low', details:{}};
 
-  // ─────────────────────────────────────────────────────────
-  // L0：ETF 判斷（最優先）
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L0嚗TF ?斗嚗??芸?嚗?  // ?????????????????????????????????????????????????????????
   const symU = sym.toUpperCase();
   const nm = (name||'').toLowerCase();
   if (/^00\d{2,3}/.test(sym.replace('.TW','')) || nm.includes('etf') ||
       ['SPY','QQQ','VTI','VOO','VUG','IVV','SCHX','DIA','IWM','VTV','VOE','VBR','VWO','BND','BLV','BSV'].includes(symU)) {
-    return {industry:'etf', confidence:'high', details:{method:'ETF特徵'}};
+    return {industry:'etf', confidence:'high', details:{method:'ETF?孵噩'}};
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L0.5：官方企業分類映射（TWSE/TPEX OpenAPI - 最高準確度）✅ 已啟用
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L0.5嚗??嫣?璆剖?憿?撠?TWSE/TPEX OpenAPI - ?擃?蝣箏漲嚗? 撌脣???  // ?????????????????????????????????????????????????????????
   if (typeof COMPANY_INDUSTRY_MAP !== 'undefined' && COMPANY_INDUSTRY_MAP.size > 0) {
     const code = sym.replace('.TW','').replace('.TWO','');
     if (COMPANY_INDUSTRY_MAP.has(code)) {
       const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
-      console.log(`[L0.5] ${code} → ${officialIndustry} (官方TWSE/TPEX映射)`);
-      return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE/TPEX官方產業代碼'}};
+      console.log(`[L0.5] ${code} ??${officialIndustry} (摰TWSE/TPEX??)`);
+      return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE/TPEX摰?Ｘ平隞?Ⅳ'}};
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L1：官方 API 資料（Sector/Industry）
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L1嚗???API 鞈?嚗ector/Industry嚗?  // ?????????????????????????????????????????????????????????
   const zh = ((sector||'') + ' ' + (industry||'')).toLowerCase();
 
-  // 直接對應官方產業名稱（中文）
+  // ?湔撠?摰?Ｘ平?迂嚗葉??
   const officialMatches = [
-    ['半導體|積體電路', '半導體業'],
-    ['晶圓|代工', '電腦及週邊設備業'],
-    ['記憶體|DRAM|NAND', '電子零組件業'],
-    ['光電|LED|光磊|晶電', '光電業'],
-    ['被動元件|電阻|電容|電感|國巨', '電子零組件業'],
-    ['連接器|端子', '電子零組件業'],
-    ['通訊|基站|模組|5G|電信', '通信網路業'],
-    ['電腦|主機板|電源|鴻海|和碩|廣達|英業達', '電腦及週邊設備業'],
-    ['消費電子|手機|平板|穿戴', '電腦及週邊設備業'],
-    ['電池|鋰電|電源管理|充電|台達', '電子零組件業'],
-    ['代工|ODM|OEM|EMS', '電腦及週邊設備業'],
-    ['航運|航空|海運|長榮|陽明', '航運業'],
-    ['鋼鐵|煉鋼|鋼材|中鋼', '鋼鐵工業'],
-    ['化學|塑膠|石化|台塑|中石化', '化學工業'],
-    ['水泥|台泥', '水泥工業'],
-    ['紙業|造紙|造紙工業|永豐餘', '造紙工業'],
-    ['汽車|車用|零件|和泰|裕隆|三陽', '汽車工業'],
-    ['面板|LCD|OLED|液晶', '電子零組件業'],
-    ['銀行|商銀|信用|台新金|玉山金', '金融保險業'],
-    ['保險|壽險|產險|富邦|南山', '金融保險業'],
-    ['證券|期貨|期商', '金融保險業'],
-    ['食品|飲料|乳品|酒|卜蜂|大成', '食品工業'],
-    ['紡織|成衣|布料|服飾|聯發|儒鴻', '紡織纖維'],
-    ['零售|百貨|超商|便利|全家|統一', '貿易百貨業'],
-    ['飯店|觀光|餐飲|民宿|晶華', '觀光餐旅'],
-    ['生技|新藥|生物科技|生技醫療|浩鼎', '生技醫療業'],
-    ['藥品|製藥|西藥|中藥|永信|東洋', '生技醫療業'],
-    ['醫療器材|設備|器械', '生技醫療業'],
-    ['醫院|診所|醫療機構', '生技醫療業'],
-    ['不動產|房地產|建築|建案|遠雄|新光', '建材營造'],
-    ['REIT|房地產投資', '建材營造'],
-    ['營建|營造|工程', '建材營造'],
-    ['瓦斯|電力|供電|電廠|油電|燃氣', '油電燃氣業'],
-    ['綠能|再生能源|太陽能|風電|茂迪', '綠能環保'],
-    ['雲端|互聯網|網際|平台|電商|數位|軟體', '數位雲端'],
-    ['安全|資訊安全|監控|防護', '資訊服務業'],
-    ['資訊|系統|IT服務|整合', '資訊服務業'],
-    ['機械|機器|製造|電機|東方', '電機機械'],
-    ['家電|冷氣|洗衣|電器|大同', '電器電纜'],
-    ['電器電纜|電線|華新', '電器電纜'],
-    ['玻璃|陶瓷|台硝', '玻璃陶瓷'],
-    ['橡膠|正新|南應', '橡膠工業'],
-    ['運動|休閒|美利達|捷安特', '運動休閒'],
-    ['居家|生活|家居|柏文', '居家生活']
+    ['??擃蝛??餉楝', '??擃平'],
+    ['?嗅?|隞?極', '?餉?梢?閮剖?璆?],
+    ['閮擃DRAM|NAND', '?餃??嗥?隞嗆平'],
+    ['?|LED|??|?園', '?璆?],
+    ['鋡怠??辣|?駁|?餃捆|?餅?|?楊', '?餃??嗥?隞嗆平'],
+    ['???育蝡臬?', '?餃??嗥?隞嗆平'],
+    ['??|?箇?|璅∠?|5G|?颱縑', '?縑蝬脰楝璆?],
+    ['?餉|銝餅??糕?餅?|暾餅絲|?◣|撱??|?望平??, '?餉?梢?閮剖?璆?],
+    ['瘨祥?餃?|??|撟單|蝛踵', '?餉?梢?閮剖?璆?],
+    ['?餅?|?圈|?餅?蝞∠?|?|?圈?', '?餃??嗥?隞嗆平'],
+    ['隞?極|ODM|OEM|EMS', '?餉?梢?閮剖?璆?],
+    ['?芷?|?芰征|瘚琿?|?瑟旨|?賣?', '?芷?璆?],
+    ['?潮|?|?潭?|銝剝', '?潮撌交平'],
+    ['?飛|憛?|?喳?|?啣?|銝剔??, '?飛撌交平'],
+    ['瘞湔野|?唳野', '瘞湔野撌交平'],
+    ['蝝平|??|??撌交平|瘞貉?擗?, '??撌交平'],
+    ['瘙質?|頠|?嗡辣|?陸|鋆?|銝', '瘙質?撌交平'],
+    ['?Ｘ|LCD|OLED|瘨脫', '?餃??嗥?隞嗆平'],
+    ['?銵??|靽∠|?唳??控??, '??靽璆?],
+    ['靽|憯賡|?ａ|撖|?控', '??靽璆?],
+    ['霅|?疏|??', '??靽璆?],
+    ['憌?|憌脫?|銋喳?|???|憭扳?', '憌?撌交平'],
+    ['蝝∠?|?﹝|撣?|?ˇ|?舐|?暑', '蝝∠?蝥雁'],
+    ['?嗅|?曇疏|頞?|靘踹|?典振|蝯曹?', '鞎踵??曇疏璆?],
+    ['憌臬?|閫?擗ㄡ|瘞挪|?嗉', '閫????],
+    ['??|?啗|?蝘?|???怎?|瘚拚?', '???怎?璆?],
+    ['?亙?|鋆質|镼輯|銝剛|瘞訾縑|?望?', '???怎?璆?],
+    ['?怎??冽?|閮剖?|?冽１', '???怎?璆?],
+    ['?恍|閮箸?|?怎?璈?', '???怎?璆?],
+    ['銝??└?踹?└撱箇?|撱箸?|??|?啣?', '撱箸???],
+    ['REIT|?踹?Ｘ?鞈?, '撱箸???],
+    ['?遣|?撌亦?', '撱箸???],
+    ['?行|?餃?|靘|?餃?|瘝寥|?除', '瘝寥?除璆?],
+    ['蝬|???賣?|憭芷?罵憸券|?羲', '蝬?唬?'],
+    ['?脩垢|鈭蝬琍蝬脤?|撟喳|?餃?|?訾?|頠?', '?訾??脩垢'],
+    ['摰|鞈?摰|??|?脰風', '鞈???璆?],
+    ['鞈?|蝟餌絞|IT??|?游?', '鞈???璆?],
+    ['璈１|璈|鋆賡?餅?|?望', '?餅?璈１'],
+    ['摰園|?瑟除|瘣﹝|?餃|憭批?', '?餃?餌?'],
+    ['?餃?餌?|?餌?|?舀', '?餃?餌?'],
+    ['?餌?|?嗥|?啁?', '?餌??嗥'],
+    ['璈∟?|甇?|??', '璈∟?撌交平'],
+    ['??|隡?|蝢??瑕???, '??隡?'],
+    ['撅振|?暑|摰嗅?|??', '撅振?暑']
   ];
 
   for (const [pattern, officialName] of officialMatches) {
     if (new RegExp(pattern).test(zh)) {
-      return {industry: officialName, confidence: 'high', details: {method: '官方產業代碼', sector, industry}};
+      return {industry: officialName, confidence: 'high', details: {method: '摰?Ｘ平隞?Ⅳ', sector, industry}};
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L1.5：英文公司名稱匹配（美股常見公司）
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L1.5嚗??詨?蝔勗??蝢撣貉??砍嚗?  // ?????????????????????????????????????????????????????????
   const enCompanyMatches = [
-    // 科技
-    ['apple|microsoft|nvidia|adobe|intel|amd|meta|google|alphabet|amazon', '電腦及週邊設備業'],
-    ['tesla|ford|gm|general motors', '汽車工業'],
-    // 金融
-    ['jpmorgan|goldman|goldman sachs|citigroup|bofa|bank of america', '金融保險業'],
-    ['berkshire|berkshire hathaway', '金融保險業'],
-    // 醫療
-    ['pfizer|johnson|jnj|eli lilly|merck|moderna', '生技醫療業'],
-    // 能源
-    ['exxon|chevron|shell|bp|chevrontexaco', '油電燃氣業'],
-    // 零售
-    ['walmart|costco|amazon|target|home depot', '食品工業'],
-    // 製造
-    ['3m|caterpillar|deere|john deere|boeing', '電機機械'],
-    // 通信
-    ['verizon|at&t|att|t-mobile', '通信網路業'],
-    // 其他
-    ['coca|pepsi|nestle|kraft', '食品工業']
+    // 蝘?
+    ['apple|microsoft|nvidia|adobe|intel|amd|meta|google|alphabet|amazon', '?餉?梢?閮剖?璆?],
+    ['tesla|ford|gm|general motors', '瘙質?撌交平'],
+    // ??
+    ['jpmorgan|goldman|goldman sachs|citigroup|bofa|bank of america', '??靽璆?],
+    ['berkshire|berkshire hathaway', '??靽璆?],
+    // ?怎?
+    ['pfizer|johnson|jnj|eli lilly|merck|moderna', '???怎?璆?],
+    // ?賣?
+    ['exxon|chevron|shell|bp|chevrontexaco', '瘝寥?除璆?],
+    // ?嗅
+    ['walmart|costco|amazon|target|home depot', '憌?撌交平'],
+    // 鋆賡?    ['3m|caterpillar|deere|john deere|boeing', '?餅?璈１'],
+    // ?縑
+    ['verizon|at&t|att|t-mobile', '?縑蝬脰楝璆?],
+    // ?嗡?
+    ['coca|pepsi|nestle|kraft', '憌?撌交平']
   ];
 
   for (const [pattern, officialName] of enCompanyMatches) {
     if (new RegExp(pattern).test(nm)) {
-      return {industry: officialName, confidence: 'high', details: {method: '英文公司名稱', name}};
+      return {industry: officialName, confidence: 'high', details: {method: '?望??砍?迂', name}};
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L2：公司名稱高置信度關鍵字
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L2嚗?詨?蝔梢?蝵桐縑摨阡??萄?
+  // ?????????????????????????????????????????????????????????
   for (const [ind, keywords] of Object.entries(KEYWORD_MAP)) {
     for (const kw of keywords) {
       if (nm.includes(kw.toLowerCase())) {
-        return {industry:ind, confidence:'very-high', details:{method:'公司名稱高置信', keyword:kw}};
+        return {industry:ind, confidence:'very-high', details:{method:'?砍?迂擃蔭靽?, keyword:kw}};
       }
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L3：英文 Sector 判斷（美股優先）
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L3嚗??Sector ?斗嚗??∪??
+  // ?????????????????????????????????????????????????????????
   const s = (sector||'').toLowerCase();
   const enMatches = [
-    // 半導體和芯片
-    ['semiconductor|chip|processor|integrated circuit|ic', '半導體業'],
-    ['semiconductor equipment', '電子零組件業'],
+    // ??擃??舐?
+    ['semiconductor|chip|processor|integrated circuit|ic', '??擃平'],
+    ['semiconductor equipment', '?餃??嗥?隞嗆平'],
 
-    // 電腦和電子設備
-    ['computer hardware|computer|electronic equipment|peripherals|pc', '電腦及週邊設備業'],
-    ['computer peripherals|computer manufacturer|computer hardware', '電腦及週邊設備業'],
-    ['consumer electronics|electronics|computing', '電腦及週邊設備業'],
+    // ?餉?摮身??    ['computer hardware|computer|electronic equipment|peripherals|pc', '?餉?梢?閮剖?璆?],
+    ['computer peripherals|computer manufacturer|computer hardware', '?餉?梢?閮剖?璆?],
+    ['consumer electronics|electronics|computing', '?餉?梢?閮剖?璆?],
 
-    // 科技和軟體
-    ['technology|software|it services|cloud|saas|internet', '數位雲端'],
-    ['software service|information technology|data|artificial intelligence', '數位雲端'],
-    ['cybersecurity|security software|information security', '資訊服務業'],
+    // 蝘???擃?    ['technology|software|it services|cloud|saas|internet', '?訾??脩垢'],
+    ['software service|information technology|data|artificial intelligence', '?訾??脩垢'],
+    ['cybersecurity|security software|information security', '鞈???璆?],
 
-    // 金融
-    ['financial services|bank|insurance|financial', '金融保險業'],
-    ['banking|investment|mutual fund', '金融保險業'],
+    // ??
+    ['financial services|bank|insurance|financial', '??靽璆?],
+    ['banking|investment|mutual fund', '??靽璆?],
 
-    // 房地產
-    ['real estate|reit|property', '建材營造'],
+    // ?踹??    ['real estate|reit|property', '撱箸???],
 
-    // 醫療和生技
-    ['health care|pharmaceutical|medical device|biotech', '生技醫療業'],
-    ['healthcare|drugs|life sciences|hospital', '生技醫療業'],
+    // ?怎????
+    ['health care|pharmaceutical|medical device|biotech', '???怎?璆?],
+    ['healthcare|drugs|life sciences|hospital', '???怎?璆?],
 
-    // 通信網路
-    ['utilities|communication services|telecom|telephone|wireless', '通信網路業'],
-    ['telecommunications|mobile|broadband', '通信網路業'],
+    // ?縑蝬脰楝
+    ['utilities|communication services|telecom|telephone|wireless', '?縑蝬脰楝璆?],
+    ['telecommunications|mobile|broadband', '?縑蝬脰楝璆?],
 
-    // 能源
-    ['energy|oil|gas|materials|mining', '油電燃氣業'],
-    ['utilities|electric|power|natural gas', '油電燃氣業'],
+    // ?賣?
+    ['energy|oil|gas|materials|mining', '瘝寥?除璆?],
+    ['utilities|electric|power|natural gas', '瘝寥?除璆?],
 
-    // 製造和工業
-    ['industrial|machinery|equipment', '電機機械'],
-    ['manufacturing|industrial equipment', '電機機械'],
+    // 鋆賡?撌交平
+    ['industrial|machinery|equipment', '?餅?璈１'],
+    ['manufacturing|industrial equipment', '?餅?璈１'],
 
-    // 汽車
-    ['consumer cyclical|consumer discretionary|automotive|auto', '汽車工業'],
-    ['automotive|car manufacturer|motor', '汽車工業'],
+    // 瘙質?
+    ['consumer cyclical|consumer discretionary|automotive|auto', '瘙質?撌交平'],
+    ['automotive|car manufacturer|motor', '瘙質?撌交平'],
 
-    // 食品和消費品
-    ['consumer staples|consumer non-cyclical|retail|food|beverage', '食品工業'],
-    ['food|beverage|consumer goods', '食品工業'],
+    // 憌???鞎餃?
+    ['consumer staples|consumer non-cyclical|retail|food|beverage', '憌?撌交平'],
+    ['food|beverage|consumer goods', '憌?撌交平'],
 
-    // 運輸和物流
-    ['transportation|shipping|airline|logistics|airline', '航運業'],
-    ['transportation|freight|delivery', '航運業'],
+    // ?撓?瘚?    ['transportation|shipping|airline|logistics|airline', '?芷?璆?],
+    ['transportation|freight|delivery', '?芷?璆?],
 
-    // 建築和營造
-    ['construction|building|architecture', '建材營造'],
+    // 撱箇?????    ['construction|building|architecture', '撱箸???],
 
-    // 綠能
-    ['renewable|solar|wind|clean energy|green', '綠能環保'],
-    ['alternative energy', '綠能環保'],
+    // 蝬
+    ['renewable|solar|wind|clean energy|green', '蝬?唬?'],
+    ['alternative energy', '蝬?唬?'],
 
-    // 零售
-    ['retail|commerce|shopping|department store', '貿易百貨業'],
+    // ?嗅
+    ['retail|commerce|shopping|department store', '鞎踵??曇疏璆?],
 
-    // 紡織
-    ['textile|apparel|clothing|fashion', '紡織纖維'],
+    // 蝝∠?
+    ['textile|apparel|clothing|fashion', '蝝∠?蝥雁'],
 
-    // 化工
-    ['chemical|chemical manufacture', '化學工業'],
+    // ?極
+    ['chemical|chemical manufacture', '?飛撌交平'],
 
-    // 鋼鐵
-    ['steel|iron|metal', '鋼鐵工業'],
+    // ?潮
+    ['steel|iron|metal', '?潮撌交平'],
 
-    // 造紙
-    ['paper|pulp|forest products', '造紙工業']
+    // ??
+    ['paper|pulp|forest products', '??撌交平']
   ];
 
   for (const [pattern, officialName] of enMatches) {
     if (new RegExp(pattern).test(s)) {
-      return {industry: officialName, confidence: 'high', details: {method: '英文Sector', sector}};
+      return {industry: officialName, confidence: 'high', details: {method: '?望?Sector', sector}};
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L4：代號範圍推斷（台股）- 改為返回官方產業名稱
-  // ─────────────────────────────────────────────────────────
+  // ?????????????????????????????????????????????????????????
+  // L4嚗誨????瘀??啗嚗? ?寧餈?摰?Ｘ平?迂
+  // ?????????????????????????????????????????????????????????
   const codeNum = parseInt(sym.replace('.TW','').replace('.TWO',''));
   if (!isNaN(codeNum)) {
     for (const range of CODE_RANGE_MAP) {
       if (codeNum >= range.range[0] && codeNum <= range.range[1]) {
-        // 將舊產業代碼轉換為官方產業名稱
-        const oldIndustry = range.industry;
-        const officialName = OLD_INDUSTRY_TO_OFFICIAL[oldIndustry] || '未分類';
-        return {industry: officialName, confidence: 'medium', details: {method: '代號範圍推斷', code: codeNum, range: range.range}};
+        // 撠??Ｘ平隞?Ⅳ頧??箏??寧璆剖?蝔?        const oldIndustry = range.industry;
+        const officialName = OLD_INDUSTRY_TO_OFFICIAL[oldIndustry] || '?芸?憿?;
+        return {industry: officialName, confidence: 'medium', details: {method: '隞??蝭??冽', code: codeNum, range: range.range}};
       }
     }
   }
 
-  // ─────────────────────────────────────────────────────────
-  // L5：預設
-  // ─────────────────────────────────────────────────────────
-  return {industry: '未分類', confidence: 'low', details: {method: '預設'}};
+  // ?????????????????????????????????????????????????????????
+  // L5嚗?閮?  // ?????????????????????????????????????????????????????????
+  return {industry: '?芸?憿?, confidence: 'low', details: {method: '?身'}};
 }
 
-// 取得產業的估值參數（官方產業名稱版本）
-function getIndustryParams(indKey) {
-  return INDUSTRY_DB[indKey] || INDUSTRY_DB['未分類'];
+// ???Ｘ平?摯?澆??賂?摰?Ｘ平?迂?嚗?function getIndustryParams(indKey) {
+  return INDUSTRY_DB[indKey] || INDUSTRY_DB['?芸?憿?];
 }
 
-// ════════════════════════════════════════════════════════
-// 技術指標
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// ?銵?璅?// ????????????????????????????????????????????????????????
 const maVal = (a,n) => { const c=a.filter(v=>v!=null); return c.length<n?null:c.slice(-n).reduce((s,v)=>s+v,0)/n; };
 const maLine = (a,n) => a.map((_,i)=>{ if(i<n-1)return null; const sl=a.slice(i-n+1,i+1); return sl.some(v=>v==null)?null:sl.reduce((s,v)=>s+v,0)/n; });
 function emaVal(a,n){ const c=a.filter(v=>v!=null); if(c.length<n)return null; const k=2/(n+1); let e=c.slice(0,n).reduce((s,v)=>s+v,0)/n; for(let i=n;i<c.length;i++)e=c[i]*k+e*(1-k); return e; }
@@ -1141,99 +1107,96 @@ function macdVal(a){ const c=a.filter(v=>v!=null); if(c.length<35)return null; c
 function kdVal(hi,lo,cl,n=9){ const h=hi.filter(v=>v!=null).slice(-n),l=lo.filter(v=>v!=null).slice(-n),last=cl.filter(v=>v!=null).slice(-1)[0]; const hh=Math.max(...h),ll=Math.min(...l); const rsv=hh===ll?50:(last-ll)/(hh-ll)*100; return{k:rsv*(2/3)+50*(1/3),d:rsv*(2/9)+50*(7/9)}; }
 function bollVal(a,n=20){ const c=a.filter(v=>v!=null); if(c.length<n)return null; const sl=c.slice(-n),mid=sl.reduce((s,v)=>s+v,0)/n,std=Math.sqrt(sl.reduce((s,v)=>s+(v-mid)**2,0)/n); return{upper:mid+2*std,mid,lower:mid-2*std,bw:(4*std)/mid}; }
 
-// ════════════════════════════════════════════════════════
-// 估值模型
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// 隡啣潭芋??// ????????????????????????????????????????????????????????
 const f = (n,d=2) => (n==null||isNaN(n)||!isFinite(n))?'N/A':Number(n).toFixed(d);
 function fB(n){if(!n||isNaN(n))return'N/A';const a=Math.abs(n);if(a>=1e12)return(n/1e12).toFixed(2)+' T';if(a>=1e9)return(n/1e9).toFixed(2)+' B';if(a>=1e6)return(n/1e6).toFixed(2)+' M';return n.toFixed(0);}
-function bdg(est,cur){ if(est==='N/A'||!cur||isNaN(parseFloat(est)))return'<span class="badge bn">資料不足</span>'; const r=cur/parseFloat(est); if(r<0.88)return'<span class="badge bl">偏低 ✓</span>'; if(r>1.15)return'<span class="badge bh">偏高 !</span>'; return'<span class="badge bf">合理</span>'; }
+function bdg(est,cur){ if(est==='N/A'||!cur||isNaN(parseFloat(est)))return'<span class="badge bn">鞈?銝雲</span>'; const r=cur/parseFloat(est); if(r<0.88)return'<span class="badge bl">?? ??/span>'; if(r>1.15)return'<span class="badge bh">?? !</span>'; return'<span class="badge bf">??</span>'; }
 
 function calcVals(price, m, indKey, indObj) {
   const pe = m.pe, pb = m.pb, div = m.div, divYield = m.divYield;
   const eps = m.eps, roe = m.roe, beta = m.beta;
   const res = [];
 
-  // 從產業資料庫取得估值參數
-  const params = getIndustryParams(indKey);
+  // 敺璆剛??澈??隡啣澆???  const params = getIndustryParams(indKey);
   const indName = indObj ? indObj.name : params.name;
 
-  // ── 1. P/E 評估 ──────────────────────────────────────────
+  // ?? 1. P/E 閰摯 ??????????????????????????????????????????
   if (pe && pe > 0 && pe < 500) {
     const fairPE = params.fairPE || 16;
-    const sig = pe < fairPE*0.8 ? '<span class="badge bl">低估 ✓</span>' : pe < fairPE ? '<span class="badge bl">合理偏低</span>' : pe < fairPE*1.3 ? '<span class="badge bf">合理</span>' : '<span class="badge bh">偏高 !</span>';
-    // 合理區間：fairPE*0.8 ~ fairPE*1.3（低估到高估的邊界）
-    res.push({m:'P/E 本益比評估', d:`目前P/E=${f(pe,1)}（${indName}合理區間：${Math.round(fairPE*0.8)}~${Math.round(fairPE*1.3)}x，fairPE=${fairPE}x）`, t:f(pe,1)+'x', b:sig});
+    const sig = pe < fairPE*0.8 ? '<span class="badge bl">雿摯 ??/span>' : pe < fairPE ? '<span class="badge bl">????</span>' : pe < fairPE*1.3 ? '<span class="badge bf">??</span>' : '<span class="badge bh">?? !</span>';
+    // ?????fairPE*0.8 ~ fairPE*1.3嚗?隡啣擃摯????
+    res.push({m:'P/E ?祉?瘥?隡?, d:`?桀?P/E=${f(pe,1)}嚗?{indName}?????${Math.round(fairPE*0.8)}~${Math.round(fairPE*1.3)}x嚗airPE=${fairPE}x嚗, t:f(pe,1)+'x', b:sig});
   }
 
-  // ── 2. P/B 淨值估價 ───────────────────────────────────────
+  // ?? 2. P/B 瘛典潔摯?????????????????????????????????????????
   if (pb && pb > 0) {
     const fairPB = params.fairPB || 2.5;
     const bv = price / pb;
     const tgt = bv * fairPB;
-    const sig = pb<=fairPB?'<span class="badge bl">合理 ✓</span>':pb<=fairPB*1.5?'<span class="badge bf">偏高</span>':'<span class="badge bh">偏高 !</span>';
-    res.push({m:'P/B 淨值估價', d:`每股淨值≈${f(bv)} × 合理P/B ${fairPB}x（目前P/B=${f(pb,1)}，${indName}合理上限${fairPB}x）`, t:f(tgt), b:sig});
+    const sig = pb<=fairPB?'<span class="badge bl">?? ??/span>':pb<=fairPB*1.5?'<span class="badge bf">??</span>':'<span class="badge bh">?? !</span>';
+    res.push({m:'P/B 瘛典潔摯??, d:`瘥瘛典潑?${f(bv)} ? ??P/B ${fairPB}x嚗?/B=${f(pb,1)}嚗?{indName}??銝?${fairPB}x嚗, t:f(tgt), b:sig});
   }
 
-  // ── 3. 殖利率防線 ─────────────────────────────────────────
+  // ?? 3. 畾?蝺??????????????????????????????????????????
   if (div && div > 0) {
     const yFloor = (params.fairYield || 4) / 100;
     const tgt = div / yFloor;
-    res.push({m:`殖利率防線（${f(yFloor*100,1)}%）`, d:`現金股利 ${f(div)} ÷ ${f(yFloor*100,1)}%（機構被動買盤支撐價）`, t:f(tgt), b:bdg(f(tgt),price)});
+    res.push({m:`畾?蝺?${f(yFloor*100,1)}%嚗, d:`?暸??∪ ${f(div)} 繩 ${f(yFloor*100,1)}%嚗?瑽◤?眺?斗?嚗, t:f(tgt), b:bdg(f(tgt),price)});
   }
 
-  // ── 4. GGM 股息折現 ───────────────────────────────────────
+  // ?? 4. GGM ?⊥? ???????????????????????????????????????
   if (div && div > 0) {
     const g = 0.03, r = 0.07;
     const ggm = (div * (1+g)) / (r - g);
-    res.push({m:'GGM 股息折現', d:`D₁=${f(div*(1+g))} ÷ (r=7% − g=3%)`, t:f(ggm), b:bdg(f(ggm),price)});
+    res.push({m:'GGM ?⊥?', d:`D??${f(div*(1+g))} 繩 (r=7% ??g=3%)`, t:f(ggm), b:bdg(f(ggm),price)});
   }
 
-  // ── 5. 殖利率合理價 ───────────────────────────────────────
+  // ?? 5. 畾??? ???????????????????????????????????????
   if (divYield && divYield > 0) {
     const fairY = params.fairDiv > 0 ? Math.min(params.fairDiv, 5) : 4.5;
     const tgt = price * (divYield / fairY);
-    res.push({m:`殖利率合理價（目標${fairY}%）`, d:`目前殖利率${f(divYield,2)}%，目標${fairY}%反算合理價`, t:f(tgt), b:bdg(f(tgt),price)});
+    res.push({m:`畾???嚗璅?{fairY}%嚗, d:`?桀?畾??{f(divYield,2)}%嚗璅?{fairY}%?????鉑, t:f(tgt), b:bdg(f(tgt),price)});
   }
 
-  // ── 6. DCF 簡化 ───────────────────────────────────────────
+  // ?? 6. DCF 蝪∪? ???????????????????????????????????????????
   if (eps && eps > 0) {
     const wacc = beta ? Math.min(Math.max(0.05+beta*0.045,0.07),0.14) : 0.09;
-    // 根據產業調整成長率
-    const gHigh = indKey.includes('software') || indKey.includes('cloud') ? 0.15 :
+    // ?寞??Ｘ平隤踵???    const gHigh = indKey.includes('software') || indKey.includes('cloud') ? 0.15 :
                   indKey.includes('biotech') || indKey.includes('medical') ? 0.12 :
                   indKey.includes('cycle') || indKey.includes('steel') ? 0.05 : 0.08;
     let dcf=0, cf=eps;
     for(let i=1;i<=5;i++){cf*=(1+gHigh);dcf+=cf/Math.pow(1+wacc,i);}
     const tv=(cf*1.03)/(wacc-0.03); dcf+=tv/Math.pow(1+wacc,5);
-    res.push({m:'DCF 簡化估值', d:`WACC=${f(wacc*100,1)}%，EPS=${f(eps)}，成長${f(gHigh*100,0)}%×5年後終值`, t:f(dcf), b:bdg(f(dcf),price)});
+    res.push({m:'DCF 蝪∪?隡啣?, d:`WACC=${f(wacc*100,1)}%嚗PS=${f(eps)}嚗???{f(gHigh*100,0)}%?5撟游?蝯嬋, t:f(dcf), b:bdg(f(dcf),price)});
   }
 
-  // ── 7. EV/EBITDA ─────────────────────────────────────────
+  // ?? 7. EV/EBITDA ?????????????????????????????????????????
   if (m.evEbitda && m.evEbitda > 0 && m.evEbitda < 200) {
     const fair = params.evEbitda || 10;
-    const sig = m.evEbitda<fair*0.8?'<span class="badge bl">偏低 ✓</span>':m.evEbitda>fair*1.3?'<span class="badge bh">偏高 !</span>':'<span class="badge bf">合理</span>';
-    res.push({m:'EV/EBITDA', d:`目前${f(m.evEbitda)}x（${indName}合理區間約${Math.round(fair*0.7)}~${fair}x）`, t:f(m.evEbitda)+'x', b:sig});
+    const sig = m.evEbitda<fair*0.8?'<span class="badge bl">?? ??/span>':m.evEbitda>fair*1.3?'<span class="badge bh">?? !</span>':'<span class="badge bf">??</span>';
+    res.push({m:'EV/EBITDA', d:`?桀?${f(m.evEbitda)}x嚗?{indName}?????${Math.round(fair*0.7)}~${fair}x嚗, t:f(m.evEbitda)+'x', b:sig});
   }
 
-  // ── 8. RIM（金融業）─────────────────────────────────────
+  // ?? 8. RIM嚗??平嚗?????????????????????????????????????
   if (indKey.includes('bank') || indKey.includes('insurance') || indKey.includes('securities')) {
     if (pb && roe && pb>0) {
       const bv = price/pb;
       const tgt = Math.max(bv*(1+(roe/100-0.08)/0.08), bv*0.7);
-      res.push({m:'RIM 剩餘盈餘模型', d:`淨值≈${f(bv)} × (1+(ROE ${f(roe,1)}%−8%)/8%)（適合金融業）`, t:f(tgt), b:bdg(f(tgt),price)});
+      res.push({m:'RIM ?拚???璅∪?', d:`瘛典潑?${f(bv)} ? (1+(ROE ${f(roe,1)}%??%)/8%)嚗???平嚗, t:f(tgt), b:bdg(f(tgt),price)});
     }
   }
 
-  // ── 9. PEG ───────────────────────────────────────────────
+  // ?? 9. PEG ???????????????????????????????????????????????
   if (m.peg && m.peg > 0 && m.peg < 20) {
-    const sig = m.peg<1?'<span class="badge bl">PEG<1 低估</span>':m.peg<2?'<span class="badge bf">PEG 合理</span>':'<span class="badge bh">PEG>2 偏貴</span>';
-    res.push({m:'PEG 本益成長比', d:`PEG=${f(m.peg)}（<1視為低估，適合高成長股，PEG=P/E÷盈餘成長率）`, t:f(m.peg), b:sig});
+    const sig = m.peg<1?'<span class="badge bl">PEG<1 雿摯</span>':m.peg<2?'<span class="badge bf">PEG ??</span>':'<span class="badge bh">PEG>2 ?眼</span>';
+    res.push({m:'PEG ?祉??瘥?, d:`PEG=${f(m.peg)}嚗?1閬雿摯嚗????∴?PEG=P/E繩?????`, t:f(m.peg), b:sig});
   }
 
   return res;
 }
 
-// ── 買賣建議價位 ──────────────────────────────────────────────────────────────
+// ?? 鞎瑁都撱箄降?嫣? ??????????????????????????????????????????????????????????????
 function calcPriceTargets(price, m, tech, indKey) {
   const hi52=m['52hi'], lo52=m['52lo'];
   const pe=m.pe, pb=m.pb, div=m.div, eps=m.eps;
@@ -1241,96 +1204,92 @@ function calcPriceTargets(price, m, tech, indKey) {
 
   const params = getIndustryParams(indKey);
 
-  // 技術面
-  if (lo52) rows.push({cls:'pt-sup', icon:'▲', label:'52週低點支撐', val:f(lo52), note:'跌破此價位風險增加，止損參考'});
-  if (hi52) rows.push({cls:'pt-res', icon:'▼', label:'52週高點壓力', val:f(hi52), note:'突破此價位可能加速上漲，觀察量能'});
+  // ?銵
+  if (lo52) rows.push({cls:'pt-sup', icon:'??, label:'52?曹?暺??, val:f(lo52), note:'頝甇文雿◢?芸???甇Ｘ???});
+  if (hi52) rows.push({cls:'pt-res', icon:'??, label:'52?梢?暺???, val:f(hi52), note:'蝒甇文雿?賢???瞍莎?閫撖???});
   if (hi52&&lo52) {
-    rows.push({cls:'pt-neu', icon:'◆', label:'52週中間價（黃金分割）', val:f(lo52+(hi52-lo52)*0.618), note:'費波那契 61.8% 支撐/壓力'});
+    rows.push({cls:'pt-neu', icon:'??, label:'52?曹葉?嚗????莎?', val:f(lo52+(hi52-lo52)*0.618), note:'鞎餅郭??? 61.8% ?舀?/憯?'});
   }
 
-  // 技術指標衍生
-  const ma20=tech.ma20, ma60=tech.ma60, ma240=tech.ma240;
-  if (ma20) rows.push({cls:'pt-sup', icon:'▲', label:'MA20 月線支撐', val:f(ma20), note:'短線多空分界，跌破轉弱'});
-  if (ma60) rows.push({cls:'pt-sup', icon:'▲', label:'MA60 季線支撐', val:f(ma60), note:'中線多空分界，重要支撐'});
-  if (ma240) rows.push({cls:'pt-sup', icon:'▲', label:'MA240 年線支撐', val:f(ma240), note:'長線牛熊分界'});
+  // ?銵?璅???  const ma20=tech.ma20, ma60=tech.ma60, ma240=tech.ma240;
+  if (ma20) rows.push({cls:'pt-sup', icon:'??, label:'MA20 ???舀?', val:f(ma20), note:'?剔?憭征??嚗??渲?撘?});
+  if (ma60) rows.push({cls:'pt-sup', icon:'??, label:'MA60 摮???舀?', val:f(ma60), note:'銝剔?憭征??嚗?閬??});
+  if (ma240) rows.push({cls:'pt-sup', icon:'??, label:'MA240 撟渡??舀?', val:f(ma240), note:'?瑞?????'});
 
-  // 基本面
-  if (pe && pe > 0 && eps > 0) {
+  // ?箸??  if (pe && pe > 0 && eps > 0) {
     const fairPE = params.fairPE || 16;
-    rows.push({cls:'pt-buy', icon:'🟢', label:`合理買進價（P/E=${fairPE}x）`, val:f(eps*fairPE), note:`EPS=${f(eps)} × 合理P/E ${fairPE}x`});
-    rows.push({cls:'pt-buy', icon:'🟢', label:`強力買進價（P/E=${Math.round(fairPE*0.75)}x）`, val:f(eps*fairPE*0.75), note:'折讓25%，低估明顯時考慮積極買入'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:`合理賣出價（P/E=${Math.round(fairPE*1.2)}x）`, val:f(eps*fairPE*1.2), note:'超過合理P/E 20%，考慮分批減碼'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:`停利參考價（P/E=${Math.round(fairPE*1.5)}x）`, val:f(eps*fairPE*1.5), note:'明顯超漲區，積極停利'});
+    rows.push({cls:'pt-buy', icon:'?', label:`??鞎琿脣嚗/E=${fairPE}x嚗, val:f(eps*fairPE), note:`EPS=${f(eps)} ? ??P/E ${fairPE}x`});
+    rows.push({cls:'pt-buy', icon:'?', label:`撘瑕?鞎琿脣嚗/E=${Math.round(fairPE*0.75)}x嚗, val:f(eps*fairPE*0.75), note:'??25%嚗?隡唳?憿舀??蝛扔鞎瑕'});
+    rows.push({cls:'pt-sell', icon:'?', label:`??鞈??對?P/E=${Math.round(fairPE*1.2)}x嚗, val:f(eps*fairPE*1.2), note:'頞???P/E 20%嚗?皜Ⅳ'});
+    rows.push({cls:'pt-sell', icon:'?', label:`??嚗/E=${Math.round(fairPE*1.5)}x嚗, val:f(eps*fairPE*1.5), note:'?＊頞撞?嚗?璆萄???});
   }
 
-  // 殖利率防線
-  if (div && div > 0) {
+  // 畾?蝺?  if (div && div > 0) {
     const yFloor = (params.fairYield || 4) / 100;
-    rows.push({cls:'pt-sup', icon:'▲', label:`殖利率防線（${f(yFloor*100,1)}%）`, val:f(div/yFloor), note:'機構被動買盤支撐，跌破視為異常'});
+    rows.push({cls:'pt-sup', icon:'??, label:`畾?蝺?${f(yFloor*100,1)}%嚗, val:f(div/yFloor), note:'璈?鋡怠?鞎瑞?舀?嚗??渲??箇撣?});
   }
 
-  // 布林通道
+  // 撣???
   if (tech.bollU && tech.bollL) {
-    rows.push({cls:'pt-buy', icon:'🟢', label:'布林下軌（短線超賣）', val:f(tech.bollL), note:'觸及下軌可短線反彈，注意量能確認'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:'布林上軌（短線超買）', val:f(tech.bollU), note:'觸及上軌注意拉回，追高需謹慎'});
+    rows.push({cls:'pt-buy', icon:'?', label:'撣?銝?嚗蝺?鞈??', val:f(tech.bollL), note:'閫詨?銝??舐蝺?敶?瘜冽??蝣箄?'});
+    rows.push({cls:'pt-sell', icon:'?', label:'撣?銝?嚗蝺?鞎瘀?', val:f(tech.bollU), note:'閫詨?銝?瘜冽???嚗蕭擃?雓寞?'});
   }
 
   return rows;
 }
 
-// ── 綜合建議 ─────────────────────────────────────────────────────────────────
+// ?? 蝬?撱箄降 ?????????????????????????????????????????????????????????????????
 function mkVerdict(price, vals, tech, indKey, indObj, m) {
   let bull=0, bear=0;
-  vals.forEach(v=>{ if(v.b.includes('低估')||v.b.includes('偏低')||v.b.includes('合理偏低')||v.b.includes('PEG<1'))bull++; if(v.b.includes('偏高'))bear++; });
+  vals.forEach(v=>{ if(v.b.includes('雿摯')||v.b.includes('??')||v.b.includes('????')||v.b.includes('PEG<1'))bull++; if(v.b.includes('??'))bear++; });
   if(tech.rsi<35)bull++; if(tech.rsi>70)bear++;
   if(tech.macdBull)bull++; if(tech.macdBear)bear++;
   if(tech.kd<25)bull++; if(tech.kd>80)bear++;
   const lo=f(m['52lo']), hi=f(m['52hi']);
   const indName = indObj ? indObj.name : getIndustryParams(indKey).name;
 
-  // 融合公告信號（P1 優化版）
+  // ???砍?靽∟?嚗1 ?芸???
   let newsSummary = '';
   let majorNewsWarning = '';
   if (m.news && m.news.length > 0) {
     const latestNews = m.news[0].title;
     const newsPreview = latestNews.length > 40 ? latestNews.substring(0, 40) + '...' : latestNews;
-    newsSummary = `\n📰 最新公告 (${m.lastNewsDate})：${newsPreview}`;
+    newsSummary = `\n? ??啣??(${m.lastNewsDate})嚗?{newsPreview}`;
 
-    // 重大訊息警示
+    // ?之閮霅衣內
     if (m.majorNewsCount > 0) {
-      majorNewsWarning = `\n⚠️ 注意：本公司有 ${m.majorNewsCount} 則重大訊息，建議查詢公開資訊觀測站瞭解詳細內容，再做決策。`;
+      majorNewsWarning = `\n?? 瘜冽?嚗?砍??${m.majorNewsCount} ??憭扯??荔?撱箄降?亥岷?祇?鞈?閫皜祉??剛圾閰喟敦?批捆嚗??捱蝑;
     }
   }
 
-  // 決策邏輯考慮公告因素
-  const newsAdjustment = (m.majorNewsCount > 0) ? ' (🔴有重大訊息，建議謹慎)' : '';
+  // 瘙箇??摩??砍???
+  const newsAdjustment = (m.majorNewsCount > 0) ? ' (???憭扯??荔?撱箄降雓寞?)' : '';
 
   if(bull>=2&&bull>bear) {
-    const buyWarn = m.majorNewsCount > 0 ? ' 但請先確認重大訊息內容。' : '';
-    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
+    const buyWarn = m.majorNewsCount > 0 ? ' 雿??Ⅱ隤?憭扯??臬摰嫘? : '';
+    return{t:'buy',ti:'? 隡啣澆?雿??航鞎琿脫??撣?'+newsAdjustment,bo:`憭摯?潭芋?＊蝷箄?嫣??澆???潘??銵鈭血?曇?鞈????閮????{indKey==='etf'?'摰?摰??Ｖ??Ⅳ':'蝣箄??喳?孵?敺??孵遣??}${buyWarn}52?曹?暺?${lo} ?粹?閬??隢身憟賢?????{newsSummary}${majorNewsWarning}`};
   }
   if(bear>=2&&bear>bull) {
-    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
+    return{t:'sell',ti:'? 隡啣澆?擃?撱箄降雓寞??皜Ⅳ',bo:`憭摯?潭芋?＊蝷箄?孵歇頞???隡啣潘??銵鈭行?頞眺頝∟情?????皜Ⅳ?身???2?梢?暺?${hi} ?箏撥?餃?嚗????賡◢?芥?{newsSummary}${majorNewsWarning}`};
   }
-  return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
+  return{t:'hold',ti:'? 隡啣澆?????閫??+newsAdjustment,bo:`?桀??∪???隡啣澆???憭征閮?瘛瑕??遣霅唳??蒂閫撖??湔???釣銝活鞎∪?璆剖???????${lo} ~ ${hi}??{newsSummary}${majorNewsWarning}`};
 }
 
-// ════════════════════════════════════════════════════════
-// 走勢圖
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// 韏啣??// ????????????????????????????????????????????????????????
 let chart=null, AD=[], AP=[], AV=[];let apb=null;
 function renderChart(dates,prices,vols){
   const ctx=document.getElementById('pc').getContext('2d');
   if(chart)chart.destroy();
   chart=new Chart(ctx,{
     data:{labels:dates,datasets:[
-      {type:'line',label:'收盤價',data:prices,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.07)',borderWidth:1.5,pointRadius:0,fill:true,tension:0.3,yAxisID:'y'},
+      {type:'line',label:'?嗥??,data:prices,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.07)',borderWidth:1.5,pointRadius:0,fill:true,tension:0.3,yAxisID:'y'},
       {type:'line',label:'MA20',data:maLine(prices,20),borderColor:'#f59e0b',borderWidth:1,pointRadius:0,fill:false,tension:0,yAxisID:'y',spanGaps:true},
       {type:'line',label:'MA60',data:maLine(prices,60),borderColor:'#10b981',borderWidth:1,pointRadius:0,fill:false,tension:0,yAxisID:'y',spanGaps:true},
-      {type:'bar',label:'成交量',data:vols,backgroundColor:'rgba(100,116,139,0.3)',yAxisID:'y2'}
+      {type:'bar',label:'?漱??,data:vols,backgroundColor:'rgba(100,116,139,0.3)',yAxisID:'y2'}
     ]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{legend:{labels:{boxWidth:12,font:{size:11}}},tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y2'?'成交量: '+fB(c.raw):c.dataset.label+': '+f(c.raw)}}},
+      plugins:{legend:{labels:{boxWidth:12,font:{size:11}}},tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y2'?'?漱?? '+fB(c.raw):c.dataset.label+': '+f(c.raw)}}},
       scales:{x:{ticks:{maxTicksLimit:8,font:{size:10}},grid:{display:false}},y:{position:'left',ticks:{font:{size:10}}},y2:{position:'right',grid:{display:false},ticks:{display:false}}}
     }
   });
@@ -1340,41 +1299,38 @@ function setPd(n,b){
   b.classList.add('active');
   apb=b;
 
-  // 當日走勢提示：Yahoo Finance 無分鐘線數據
-  // 當日按鈕選中時顯示 5 日走勢作為替代
-  const s = (n === -1) ? Math.max(0, AP.length - 5) : Math.max(0, AP.length - n);
+  // ?嗆韏啣?內嚗ahoo Finance ?∪????豢?
+  // ?嗆???訾葉?＊蝷?5 ?亥粥?Ｖ??箸隞?  const s = (n === -1) ? Math.max(0, AP.length - 5) : Math.max(0, AP.length - n);
 
-  // 若當日模式，添加提示
+  // ?亦?交芋撘?瘛餃??內
   if(n === -1 && AD.length > 0) {
-    const tooltip = `ⓘ 無分鐘線數據，顯示 5 日走勢`;
+    const tooltip = `???∪????豢?嚗＊蝷?5 ?亥粥?瓩;
     console.log(tooltip);
   }
 
   renderChart(AD.slice(s),AP.slice(s),AV.slice(s));
 }
 
-// ════════════════════════════════════════════════════════
-// 主程式
-// ════════════════════════════════════════════════════════
+// ????????????????????????????????????????????????????????
+// 銝餌?撘?// ????????????????????????????????????????????????????????
 async function go(){
   let raw=document.getElementById('ti').value.trim().toUpperCase();
   if(!raw)return;
   const isNumeric = /^\d{4,6}$/.test(raw);
   let ticker = isNumeric ? raw+'.TW' : raw;
   const btn=document.getElementById('btn');btn.disabled=true;
-  setSt('<span class="spin"></span>查詢 '+ticker+'...',false);
+  setSt('<span class="spin"></span>?亥岷 '+ticker+'...',false);
   document.getElementById('res').classList.add('hidden');
 
   try{
-    setSt('<span class="spin"></span>抓取資料中...',false);
+    setSt('<span class="spin"></span>??鞈?銝?..',false);
 
-    // 台股：先試 .TW，失敗再試 .TWO（上櫃股）
-    let chartResult = null;
+    // ?啗嚗?閰?.TW嚗仃??閰?.TWO嚗?瑹嚗?    let chartResult = null;
     if (isNumeric) {
       chartResult = await yfFetch(raw+'.TW');
       if (!chartResult) {
         ticker = raw+'.TWO';
-        setSt('<span class="spin"></span>嘗試上櫃代號 '+ticker+'...',false);
+        setSt('<span class="spin"></span>?岫銝?隞?? '+ticker+'...',false);
         chartResult = await yfFetch(raw+'.TWO');
       }
     } else {
@@ -1382,37 +1338,32 @@ async function go(){
     }
 
     const isTW = ticker.endsWith('.TW') || ticker.endsWith('.TWO');
-    const isOTC = ticker.endsWith('.TWO'); // 上櫃
+    const isOTC = ticker.endsWith('.TWO'); // 銝?
 
-    // 並行抓取基本面資料
-    // 上市用 BWIBBU_d，上櫃用 BWIBBU_ALL（含上市+上櫃），美股用 quoteSummary
+    // 銝西????箸?Ｚ???    // 銝???BWIBBU_d嚗?瑹 BWIBBU_ALL嚗銝?+銝?嚗?蝢??quoteSummary
     const code = ticker.replace('.TW','').replace('.TWO','');
     const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult] = await Promise.all([
-      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
-      isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
-      yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
-      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
-      !isTW ? finnhubFetch(ticker) : Promise.resolve(null)      // v4.16：美股 Finnhub 基本面數據
-    ]);
+      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 銝? TWSE
+      isOTC ? tpexFetch() : Promise.resolve(null),              // 銝? TPEX
+      yfSummary(ticker),                                        // ??蟡券閰佗?蝢?湧???啗韏郡roxy嚗?      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1嚗??閮?皜祉??砍?
+      !isTW ? finnhubFetch(ticker) : Promise.resolve(null)      // v4.16嚗???Finnhub ?箸?Ｘ??    ]);
 
-    // P2：法人數據（暫時禁用，使用默認值避免超時）
+    // P2嚗?鈭箸???急?蝳嚗蝙?券?隤潮????
     const finmindResult = null;
     const finconfResult = null;
 
-    if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
+    if (!chartResult) throw new Error('?⊥???鞈?嚗?蝣箄?隞???臬甇?Ⅱ嚗?∠?詨?嚗??∠?望?嚗?);
 
     const meta = chartResult.meta || {};
     const price = meta.regularMarketPrice || meta.price;
-    if (!price) throw new Error('無法取得股價，請稍後再試');
+    if (!price) throw new Error('?⊥????∪嚗?蝔??岫');
 
-    // K線資料
-    const ts=chartResult.timestamp||[],q=chartResult.indicators?.quote?.[0]||{};
+    // K蝺???    const ts=chartResult.timestamp||[],q=chartResult.indicators?.quote?.[0]||{};
     const closes=q.close||[],highs=q.high||[],lows=q.low||[],vols=q.volume||[];
 
-    // 過濾有效數據：價格 > 0，且非重複數據
-    const idx=ts.map((_,i)=>i).filter(i=>{
+    // ?蕪???豢?嚗??> 0嚗???銴??    const idx=ts.map((_,i)=>i).filter(i=>{
       if(closes[i]==null || closes[i]<=0) return false;
-      // 若與前一根相同且成交量為 0，視為無效（當日盤中未結束）
+      // ?亥????寧???漱? 0嚗??箇???嗆?支葉?芰???
       if(i > 0 && closes[i] === closes[i-1] && (!vols[i] || vols[i]===0)) return false;
       return true;
     });
@@ -1423,8 +1374,7 @@ async function go(){
     const AL=idx.map(i=>lows[i]||closes[i]);
     AV=idx.map(i=>vols[i]||0);
 
-    // 基本面資料整合
-    function raw2(o){return(o&&typeof o==='object'&&'raw'in o)?o.raw:o;}
+    // ?箸?Ｚ????    function raw2(o){return(o&&typeof o==='object'&&'raw'in o)?o.raw:o;}
     let m = {
       '52hi': meta.fiftyTwoWeekHigh,
       '52lo': meta.fiftyTwoWeekLow,
@@ -1433,7 +1383,7 @@ async function go(){
       marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
     };
 
-    // TWSE 上市資料
+    // TWSE 銝?鞈?
     if (twseArr) {
       const no = ticker.replace('.TW','').replace('.TWO','');
       const row = twseArr.find(r=>r.Code===no);
@@ -1444,7 +1394,7 @@ async function go(){
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (row.Name) m.name = row.Name;
-        // TWSE 額外財務數據（如果提供）
+        // TWSE 憿?鞎∪??豢?嚗???靘?
         if (row.OutstandingShares && !isNaN(row.OutstandingShares)) {
           const shares = parseFloat(row.OutstandingShares);
           m.marketCap = price * shares;
@@ -1454,56 +1404,54 @@ async function go(){
       }
     }
 
-    // TPEX 上櫃資料（格式同 BWIBBU_d：Code, Name, PEratio, PBratio, DividendYield）
-    if (tpexArr) {
+    // TPEX 銝?鞈?嚗撘? BWIBBU_d嚗ode, Name, PEratio, PBratio, DividendYield嚗?    if (tpexArr) {
       const no = ticker.replace('.TWO','').replace('.TW','');
       if (tpexArr.length > 0) console.log('[TPEX] sample keys:', Object.keys(tpexArr[0]).join(', '));
-      // 同時嘗試多種欄位名稱（TPEX API 可能不同）
-      const row = tpexArr.find(r =>
-        r.Code===no || r['股票代號']===no || r.StockCode===no ||
-        r.SecuritiesCompanyCode===no || r['代號']===no
+      // ???岫憭車甈??迂嚗PEX API ?航銝?嚗?      const row = tpexArr.find(r =>
+        r.Code===no || r['?∠巨隞??']===no || r.StockCode===no ||
+        r.SecuritiesCompanyCode===no || r['隞??']===no
       );
       console.log('[TPEX] row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
       if (row) {
-        // 欄位名稱：BWIBBU_d 格式 OR TPEX 格式
-        const pe = row.PEratio || row['本益比'] || row.PriceEarningRatio;
-        const pb = row.PBratio || row['股價淨值比'] || row.PriceBookRatio;
-        const dy = row.DividendYield || row['殖利率'];
-        const nm = row.Name || row['名稱'] || row['股票名稱'] || row.CompanyName;
+        // 甈??迂嚗WIBBU_d ?澆? OR TPEX ?澆?
+        const pe = row.PEratio || row['?祉?瘥?] || row.PriceEarningRatio;
+        const pb = row.PBratio || row['?∪瘛典潭?'] || row.PriceBookRatio;
+        const dy = row.DividendYield || row['畾??];
+        const nm = row.Name || row['?迂'] || row['?∠巨?迂'] || row.CompanyName;
         if (pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
         if (pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
         if (dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
         if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (nm) m.name = nm;
-        // TPEX 額外財務數據
-        const shares = row.OutstandingShares || row['流通股數'];
+        // TPEX 憿?鞎∪??豢?
+        const shares = row.OutstandingShares || row['瘚??];
         if (shares && !isNaN(shares)) m.marketCap = price * parseFloat(shares);
-        const roe = row.ROE || row['淨資產報酬率'];
+        const roe = row.ROE || row['瘛刻??Ｗ?祉?'];
         if (roe && roe!=='-') m.roe = parseFloat(roe);
-        const gm = row.GrossMargin || row['毛利率'];
+        const gm = row.GrossMargin || row['瘥??];
         if (gm && gm!=='-') m.grossMargin = parseFloat(gm);
       }
     }
 
-    // quoteSummary 資料（美股直連，台股上櫃走proxy也可能取到）
-    // TWSE/TPEX 已有的數值優先保留，summary 只補充缺少的欄位
+    // quoteSummary 鞈?嚗??∠????啗銝?韏郡roxy銋?賢??堆?
+    // TWSE/TPEX 撌脫???澆????summary ?芾??撩撠?甈?
     if (summaryResult) {
       const pr=summaryResult.price||{}, sd=summaryResult.summaryDetail||{}, ks=summaryResult.defaultKeyStatistics||{}, fd=summaryResult.financialData||{};
-      // 名稱：summary 有中文名時優先用
+      // ?迂嚗ummary ?葉????
       const sName = raw2(pr.shortName)||raw2(pr.longName)||'';
       if (sName && (!m.name || m.name===ticker)) m.name = sName;
-      // 產業：summary 補充（從多個位置查找）
+      // ?Ｘ平嚗ummary 鋆?嚗?憭?蝵格?橘?
       if (!m.sector) m.sector = raw2(pr.sector) || raw2(pr.quoteType) || raw2(sd.sector) || '';
       if (!m.industry) m.industry = raw2(pr.industry) || raw2(sd.industry) || '';
       m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
-      // 財務資料：TWSE/TPEX 已有的不覆蓋
+      // 鞎∪?鞈?嚗WSE/TPEX 撌脫???閬?
       if (!m.pe) m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
       if (!m.pb) m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
       if (!m.divYield && raw2(sd.dividendYield)) m.divYield = raw2(sd.dividendYield)*100;
       if (!m.div) m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
       if (!m.eps) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
-      // 以下只有 summary 有，直接填入
+      // 隞乩??芣? summary ???湔憛怠
       m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
       m.beta = m.beta||raw2(ks.beta);
       m.evEbitda = m.evEbitda||raw2(ks.enterpriseToEbitda);
@@ -1514,23 +1462,20 @@ async function go(){
       m['52lo'] = m['52lo']||raw2(sd.fiftyTwoWeekLow);
     }
 
-    // meta 補充名稱
+    // meta 鋆??迂
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
 
-    // 整合 Finnhub 美股基本面數據（v4.16）
-    if (finnhubResult) {
+    // ?游? Finnhub 蝢?箸?Ｘ??v4.16嚗?    if (finnhubResult) {
       const {profile, valuation} = finnhubResult;
       if (profile) {
-        // 公司信息（優先級低於 summary）
-        if (!m.name && profile.name) m.name = profile.name;
+        // ?砍靽⊥嚗??雿 summary嚗?        if (!m.name && profile.name) m.name = profile.name;
         if (!m.sector && profile.finnhubIndustry) m.sector = profile.finnhubIndustry;
         if (!m.marketCap && profile.marketCapitalization) m.marketCap = profile.marketCapitalization * 1000000;
         if (!m.eps && profile.epsTrailingTwelveMonths) m.eps = profile.epsTrailingTwelveMonths;
         console.log('[Finnhub Profile]', {name: profile.name, sector: profile.finnhubIndustry, cap: profile.marketCapitalization});
       }
       if (valuation) {
-        // 估值指標（優先級低於 summary）
-        if (!m.pe && valuation.peRatioTTM) m.pe = valuation.peRatioTTM;
+        // 隡啣潭?璅??芸?蝝???summary嚗?        if (!m.pe && valuation.peRatioTTM) m.pe = valuation.peRatioTTM;
         if (!m.pb && valuation.pbRatio) m.pb = valuation.pbRatio;
         if (!m.roe && valuation.roe) m.roe = valuation.roe * 100;
         if (!m.divYield && valuation.dividendYield) m.divYield = valuation.dividendYield * 100;
@@ -1538,13 +1483,13 @@ async function go(){
       }
     }
 
-    // 整合公開資訊觀測站新聞（P1 優化版）
+    // ?游??祇?鞈?閫皜祉??啗?嚗1 ?芸???
     if (newsResult) {
       m.news = newsResult.items || [];
       m.newsCount = newsResult.count || 0;
       m.lastNewsDate = newsResult.lastDate || '';
       m.newsSource = newsResult.source || 'TWSE';
-      // 分類計算：重大訊息 vs 常規
+      // ??閮?嚗?憭扯???vs 撣貉?
       m.majorNewsCount = (m.news || []).filter(n => n.type === 'M').length;
       m.minorNewsCount = (m.news || []).filter(n => n.type === 'C').length;
     } else {
@@ -1556,22 +1501,19 @@ async function go(){
       m.minorNewsCount = 0;
     }
 
-    // P2 數據（暫時禁用，以確保 P1 正常工作）
-    m.institutionalHolding = 0;
+    // P2 ?豢?嚗???剁?隞亦Ⅱ靽?P1 甇?虜撌乩?嚗?    m.institutionalHolding = 0;
     m.institutionalTrend = 'stable';
     m.institutionalDate = '';
     m.confDate = '';
     m.confUrl = '';
     m.confTitle = '';
 
-    // 產業分類（新系統）
-    const indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
+    // ?Ｘ平??嚗蝟餌絞嚗?    const indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
     const indKey = indResult.industry;
     const indObj = INDUSTRY_DB[indKey];
-    const indName = indObj ? (indObj.name || indKey) : '未分類';
+    const indName = indObj ? (indObj.name || indKey) : '?芸?憿?;
 
-    // 技術指標
-    const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
+    // ?銵?璅?    const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
     const r14=rsiVal(AP,14), mc=macdVal(AP), kdv=AH.length>=9?kdVal(AH,AL,AP):null, bl=bollVal(AP,20);
     const tech = {
       rsi: r14??50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
@@ -1581,19 +1523,18 @@ async function go(){
       bollU: bl?bl.upper:null, bollL: bl?bl.lower:null
     };
 
-    // 估值 & 建議
+    // 隡啣?& 撱箄降
     const vals = calcVals(price, m, indKey, indObj);
     const vd = mkVerdict(price, vals, tech, indKey, indObj, m);
     const ptRows = calcPriceTargets(price, m, tech, indKey);
 
-    // 漲跌：用K線最後兩日計算（比meta更準確）
+    // 瞍脰?嚗K蝺?敺?亥?蝞?瘥eta?湔?蝣綽?
     let chg=0, chgPct=0;
     if (AP.length >= 2) {
       const lc=AP[AP.length-1], pc=AP[AP.length-2];
       if (lc&&pc&&pc>0&&Math.abs((lc-pc)/pc)<0.3) { chg=lc-pc; chgPct=(chg/pc)*100; }
     }
-    // 台股：漲紅跌綠；美股：漲綠跌紅
-    const isTW2 = ticker.endsWith('.TW');
+    // ?啗嚗撞蝝?蝬?蝢嚗撞蝬?蝝?    const isTW2 = ticker.endsWith('.TW');
     const cc = chg>=0 ? (isTW2?'up':'dn') : (isTW2?'dn':'up');
     const cs = chg>=0?'+':'';
     const pct52 = m['52hi']&&m['52lo'] ? f((price-m['52lo'])/(m['52hi']-m['52lo'])*100,1)+'%' : 'N/A';
@@ -1603,9 +1544,9 @@ async function go(){
 
     document.getElementById('res').innerHTML = `
 <div class="sh">
-  <div><div class="sn">${m.name||ticker}</div><div class="sy">${ticker}${meta.exchangeName?' · '+meta.exchangeName:''}</div></div>
+  <div><div class="sn">${m.name||ticker}</div><div class="sy">${ticker}${meta.exchangeName?' 繚 '+meta.exchangeName:''}</div></div>
   <div><div class="sp">${f(price)}</div><div class="pc ${cc}">${cs}${f(chg)} (${cs}${f(chgPct,2)}%)</div></div>
-  <span class="itag" title="分類方法：${indResult.details.method}｜置信度：${indResult.confidence}">${indName}${indResult.confidence!=='high'?' ⓘ':''}</span>
+  <span class="itag" title="???寞?嚗?{indResult.details.method}嚚蔭靽∪漲嚗?{indResult.confidence}">${indName}${indResult.confidence!=='high'?' ??:''}</span>
 </div>
 
 <div class="vd ${vd.t}"><div class="vdtit">${vd.ti}</div><div class="vdbod">${vd.bo}</div></div>
@@ -1613,87 +1554,87 @@ async function go(){
 ${!isTW && !m.pe && !m.eps ? `
 <div class="warning-box" style="background:#fff8e1;border-left:4px solid #ff9800;padding:12px;margin-bottom:12px;border-radius:4px;">
   <div style="display:flex;align-items:flex-start;gap:10px;">
-    <div style="font-size:20px;">⚠️</div>
+    <div style="font-size:20px;">??</div>
     <div>
-      <strong style="color:#ff6f00;">美股數據限制</strong><br>
-      <span style="font-size:0.9rem;color:#666;">Yahoo Finance 免費 API 無法提供美股的 P/E、EPS 等基本面數據。當前支持技術面分析（K線走勢、均線、成交量）。</span>
+      <strong style="color:#ff6f00;">蝢?豢??</strong><br>
+      <span style="font-size:0.9rem;color:#666;">Yahoo Finance ?祥 API ?⊥???蝢??P/E?PS 蝑?祇?豢?????銵??嚗蝺粥?Ｕ?蝺?鈭日?嚗?/span>
     </div>
   </div>
 </div>
 ` : ''}
 
-<div class="sec"><div class="st2">基本面數據</div><div class="grid">
-  ${sc2('本益比 P/E', f(m.pe))}
-  ${sc2('股價淨值比 P/B', f(m.pb))}
-  ${sc2('現金殖利率', m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
-  ${sc2('52週高點', f(m['52hi']))}
-  ${sc2('52週低點', f(m['52lo']))}
+<div class="sec"><div class="st2">?箸?Ｘ??/div><div class="grid">
+  ${sc2('?祉?瘥?P/E', f(m.pe))}
+  ${sc2('?∪瘛典潭? P/B', f(m.pb))}
+  ${sc2('?暸?畾??, m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
+  ${sc2('52?梢?暺?, f(m['52hi']))}
+  ${sc2('52?曹?暺?, f(m['52lo']))}
   ${sc2('EPS', f(m.eps))}
-  ${sc2('現金股利', f(m.div))}
-  ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
+  ${sc2('?暸??∪', f(m.div))}
+  ${sc2('?Ｘ平??', indName+' ('+indResult.confidence+')')}
 </div></div>
 
 
-${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
-  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
-  ${m.institutionalTrend ? `<div class="card"><div class="cl">持股趨勢</div><div class="cv">${m.institutionalTrend==='up'?'📈 增加':m.institutionalTrend==='down'?'📉 減少':'→ 穩定'}</div></div>` : ''}
-  ${m.institutionalDate ? `<div class="card"><div class="cl">數據日期</div><div class="cv" style="font-size:0.8rem">${m.institutionalDate}</div></div>` : ''}
-  ${m.confDate ? `<div class="card"><div class="cl">法人說明會</div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}→</a></div></div>` : ''}
+${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">? 瘜犖閰摯</div><div class="grid">
+  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">璈??瘥?</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
+  ${m.institutionalTrend ? `<div class="card"><div class="cl">?頞典</div><div class="cv">${m.institutionalTrend==='up'?'?? 憓?':m.institutionalTrend==='down'?'?? 皜?':'??蝛拙?'}</div></div>` : ''}
+  ${m.institutionalDate ? `<div class="card"><div class="cl">?豢??交?</div><div class="cv" style="font-size:0.8rem">${m.institutionalDate}</div></div>` : ''}
+  ${m.confDate ? `<div class="card"><div class="cl">瘜犖隤芣???/div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}??/a></div></div>` : ''}
 </div></div>` : ''}
 
-${indKey==='etf'?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
-  ${sc2('基金規模', fB(m.totalAssets))}
-  ${sc2('今年報酬', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
-  ${sc2('3年平均年報酬', m.y3return!=null?f(m.y3return*100,2)+'%':'N/A')}
-  ${sc2('費用率', m.expRatio!=null?f(m.expRatio*100,3)+'%':'N/A')}
+${indKey==='etf'?`<div class="sec"><div class="st2">ETF ??</div><div class="grid">
+  ${sc2('?粹?閬芋', fB(m.totalAssets))}
+  ${sc2('隞僑?梢', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
+  ${sc2('3撟游像?僑?梢', m.y3return!=null?f(m.y3return*100,2)+'%':'N/A')}
+  ${sc2('鞎餌??, m.expRatio!=null?f(m.expRatio*100,3)+'%':'N/A')}
 </div></div>`:''}
 
-<div class="sec"><div class="st2">估值模型試算（${indName}）</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
-${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':indKey==='etf'?'ETF 不適用傳統企業估值模型，請參考技術面和費用率分析':'財務資料不足，無法計算'}</td></tr>`}
+<div class="sec"><div class="st2">隡啣潭芋?岫蝞?${indName}嚗?/div><div style="overflow-x:auto">
+<table class="vt"><thead><tr><th>璅∪?</th><th>隤芣?</th><th>隡啁???/th><th>閰摯</th></tr></thead><tbody>
+${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'銝??∟瓷????瘜??祇?API??嚗/E?PS蝑＊蝷摸/A撅祆迤撣賂?':indKey==='etf'?'ETF 銝?典蝯曹?璆凋摯?潭芋??隢???銵?祥?函???':'鞎∪?鞈?銝雲嚗瘜?蝞?}</td></tr>`}
 </tbody></table></div>
-<p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 模型均為簡化估算，請搭配多個模型綜合判斷，不構成投資建議。</p>
+<p style="font-size:.75rem;color:var(--muted);margin-top:8px">?? 璅∪??蝪∪?隡啁?嚗??剝?憭芋????瘀?銝???鞈遣霅啜?/p>
 </div>
 
-${ptRows.length?`<div class="sec"><div class="st2">📍 買賣參考價位</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>類型</th><th>價格</th><th>參考說明</th></tr></thead><tbody>
+${ptRows.length?`<div class="sec"><div class="st2">?? 鞎瑁都?雿?/div><div style="overflow-x:auto">
+<table class="vt"><thead><tr><th>憿?</th><th>?寞</th><th>?牧??/th></tr></thead><tbody>
 ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong class="${r.cls}">${r.val}</strong></td><td style="font-size:.8rem;color:var(--muted)">${r.note}</td></tr>`).join('')}
 </tbody></table></div>
-<p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 以上價位僅供參考，操作前請搭配完整研究判斷。</p>
+<p style="font-size:.75rem;color:var(--muted);margin-top:8px">?? 隞乩??嫣??????????剝?摰?弦?斗??/p>
 </div>`:''}
 
-<div class="sec"><div class="st2">技術指標</div><div class="tgrid">
-  ${ma5v!=null?tc2('MA5（週線）',f(ma5v),price>ma5v?'▲ 股價在MA5之上':'▼ 跌破MA5（短線轉弱）',price>ma5v?'sb':'ss'):''}
-  ${ma20v!=null?tc2('MA20（月線）',f(ma20v),price>ma20v?'▲ 月線守護中':'▼ 跌破月線，轉弱',price>ma20v?'sb':'ss'):''}
-  ${ma60v!=null?tc2('MA60（季線）',f(ma60v),price>ma60v?'▲ 季線以上（中線多頭）':'▼ 跌破季線（中線弱勢）',price>ma60v?'sb':'ss'):''}
-  ${ma240v!=null?tc2('MA240（年線）',f(ma240v),price>ma240v?'▲ 年線之上（長線多頭）':'▼ 年線以下（長線弱勢）',price>ma240v?'sb':'ss'):''}
-  ${r14!=null?tc2('RSI (14日)',f(r14,1),r14<30?'🔴 超賣區 (<30) 反彈機會':r14>70?'🟢 超買區 (>70) 注意拉回':'中性區間 (30~70)',r14<30?'sb':r14>70?'ss':'sn2'):''}
-  ${mc?tc2('MACD (12,26,9)','DIF '+f(mc.dif,2),mc.dif>0&&mc.hist>0?'▲ 零軸上柱紅（多頭）':mc.dif<0&&mc.hist<0?'▼ 零軸下柱綠（空頭）':mc.hist>0?'柱狀翻紅（轉強）':'柱狀翻綠（轉弱）',mc.hist>0?'sb':'ss'):''}
-  ${kdv?tc2('KD (9日)','K='+f(kdv.k,1)+' D='+f(kdv.d,1),kdv.k<20?'🔴 超賣K<20（反彈訊號）':kdv.k>80?'🟢 超買K>80（注意反轉）':'中性區間',kdv.k<20?'sb':kdv.k>80?'ss':'sn2'):''}
-  ${bl?tc2('布林通道 (20日)',f(bl.upper)+'~'+f(bl.lower),price>bl.upper?'觸上軌（超買注意）':price<bl.lower?'觸下軌（超賣反彈）':'帶寬'+f(bl.bw*100,1)+'%'+(bl.bw<0.08?'（壓縮蓄勢）':''),price>bl.upper?'ss':price<bl.lower?'sb':'sn2'):''}
-  ${ma5v&&ma20v?tc2('均線排列',price>ma5v&&ma5v>ma20v?'多頭排列':price<ma5v&&ma5v<ma20v?'空頭排列':'糾結整理',price>ma5v&&ma5v>ma20v?'▲ 強勢多頭排列':price<ma20v?'▼ 弱勢空頭排列':'MA線糾結等方向',price>ma5v&&ma5v>ma20v?'sb':price<ma20v?'ss':'sn2'):''}
-  <div class="tc"><div class="tl">距52週區間位置</div><div class="tv">${pct52}</div><div class="ts sn2">0%=年低 / 100%=年高</div></div>
+<div class="sec"><div class="st2">?銵?璅?/div><div class="tgrid">
+  ${ma5v!=null?tc2('MA5嚗梁?嚗?,f(ma5v),price>ma5v?'???∪?決A5銋?':'??頝MA5嚗蝺?撘梧?',price>ma5v?'sb':'ss'):''}
+  ${ma20v!=null?tc2('MA20嚗?蝺?',f(ma20v),price>ma20v?'????摰風銝?:'??頝??嚗?撘?,price>ma20v?'sb':'ss'):''}
+  ${ma60v!=null?tc2('MA60嚗迤蝺?',f(ma60v),price>ma60v?'??摮??隞乩?嚗葉蝺??哨?':'??頝摮??嚗葉蝺摹?ｇ?',price>ma60v?'sb':'ss'):''}
+  ${ma240v!=null?tc2('MA240嚗僑蝺?',f(ma240v),price>ma240v?'??撟渡?銋?嚗蝺??哨?':'??撟渡?隞乩?嚗蝺摹?ｇ?',price>ma240v?'sb':'ss'):''}
+  ${r14!=null?tc2('RSI (14??',f(r14,1),r14<30?'? 頞都? (<30) ??璈?':r14>70?'? 頞眺? (>70) 瘜冽???':'銝剜批???(30~70)',r14<30?'sb':r14>70?'ss':'sn2'):''}
+  ${mc?tc2('MACD (12,26,9)','DIF '+f(mc.dif,2),mc.dif>0&&mc.hist>0?'???嗉遘銝蝝?憭嚗?:mc.dif<0&&mc.hist<0?'???嗉遘銝蝬?蝛粹嚗?:mc.hist>0?'?梁?蝧餌?嚗?撘瘀?':'?梁?蝧餌?嚗?撘梧?',mc.hist>0?'sb':'ss'):''}
+  ${kdv?tc2('KD (9??','K='+f(kdv.k,1)+' D='+f(kdv.d,1),kdv.k<20?'? 頞都K<20嚗?敶???':kdv.k>80?'? 頞眺K>80嚗釣??頧?':'銝剜批???,kdv.k<20?'sb':kdv.k>80?'ss':'sn2'):''}
+  ${bl?tc2('撣??? (20??',f(bl.upper)+'~'+f(bl.lower),price>bl.upper?'閫訾?頠?頞眺瘜冽?嚗?:price<bl.lower?'閫訾?頠?頞都??嚗?:'撣嗅祝'+f(bl.bw*100,1)+'%'+(bl.bw<0.08?'嚗?蝮株??ｇ?':''),price>bl.upper?'ss':price<bl.lower?'sb':'sn2'):''}
+  ${ma5v&&ma20v?tc2('????',price>ma5v&&ma5v>ma20v?'憭??':price<ma5v&&ma5v<ma20v?'蝛粹??':'蝟曄??渡?',price>ma5v&&ma5v>ma20v?'??撘瑕憭??':price<ma20v?'??撘勗蝛粹??':'MA蝺鳥蝯??孵?',price>ma5v&&ma5v>ma20v?'sb':price<ma20v?'ss':'sn2'):''}
+  <div class="tc"><div class="tl">頝?2?勗???蝵?/div><div class="tv">${pct52}</div><div class="ts sn2">0%=撟港? / 100%=撟湧?</div></div>
 </div></div>
 
-<div class="sec"><div class="st2">價格走勢圖（MA20 / MA60 / 成交量）</div>
+<div class="sec"><div class="st2">?寞韏啣??MA20 / MA60 / ?漱??</div>
 <div class="pb">
-  <button class="pbtn" onclick="setPd(-1,this)">五日</button>
-  <button class="pbtn" onclick="setPd(20,this)">1個月</button>
-  <button class="pbtn" onclick="setPd(60,this)">3個月</button>
-  <button class="pbtn" id="dp" onclick="setPd(120,this)">6個月</button>
-  <button class="pbtn" onclick="setPd(250,this)">1年</button>
-  <button class="pbtn" onclick="setPd(9999,this)">全部</button>
+  <button class="pbtn" onclick="setPd(-1,this)">鈭</button>
+  <button class="pbtn" onclick="setPd(20,this)">1??</button>
+  <button class="pbtn" onclick="setPd(60,this)">3??</button>
+  <button class="pbtn" id="dp" onclick="setPd(120,this)">6??</button>
+  <button class="pbtn" onclick="setPd(250,this)">1撟?/button>
+  <button class="pbtn" onclick="setPd(9999,this)">?券</button>
 </div>
 <div class="cw"><canvas id="pc"></canvas></div>
-<p style="font-size:.75rem;color:var(--muted);margin-top:6px">藍=收盤價｜橘=MA20｜綠=MA60｜灰柱=成交量</p>
+<p style="font-size:.75rem;color:var(--muted);margin-top:6px">???嗥?對?璈?MA20嚚?=MA60嚚???漱??/p>
 </div>
 
 <hr class="divhr">
-<p style="font-size:.75rem;color:var(--muted)">⚠️ 本工具僅供學習參考，不構成投資建議。台股資料：TWSE Open API｜美股/K線：Yahoo Finance｜查詢：${new Date().toLocaleString('zh-TW')}</p>`;
+<p style="font-size:.75rem;color:var(--muted)">?? ?砍極?瑕?靘飛蝧???銝???鞈遣霅啜?∟???TWSE Open API嚚???K蝺?Yahoo Finance嚚閰ｇ?${new Date().toLocaleString('zh-TW')}</p>`;
 
     document.getElementById('res').classList.remove('hidden');
     setSt('',false);
-    // 初始化為當日走勢
+    // ????嗆韏啣
     const dailyBtn = document.querySelector('button[onclick="setPd(-1,this)"]');
     if(dailyBtn) {
       apb=dailyBtn;
@@ -1702,7 +1643,7 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
     }
 
   } catch(e) {
-    setSt('❌ '+e.message,true);
+    setSt('??'+e.message,true);
     console.error(e);
   } finally {
     btn.disabled=false;
@@ -1712,12 +1653,11 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 function setSt(m,err){const el=document.getElementById('st');el.innerHTML=m;el.className=err?'err':'';}
 document.getElementById('ti').addEventListener('keydown',e=>{if(e.key==='Enter')go();});
 
-// 方案 B：監視官方產業數據同步狀態
-async function monitorIndustrySync() {
+// ?寞? B嚗閬??寧璆剜??甇亦???async function monitorIndustrySync() {
   const statusEl = document.getElementById('initStatus');
   const iconEl = document.getElementById('syncIcon');
 
-  // 等待初始同步完成
+  // 蝑????郊摰?
   let attempts = 0;
   while (COMPANY_INDUSTRY_MAP.size === 0 && attempts < 30) {
     await new Promise(r => setTimeout(r, 500));
@@ -1725,15 +1665,15 @@ async function monitorIndustrySync() {
   }
 
   if (COMPANY_INDUSTRY_MAP.size > 0) {
-    iconEl.textContent = '✅';
+    iconEl.textContent = '??;
     statusEl.style.color = '#28a745';
-    statusEl.textContent = `✅ 已同步 ${COMPANY_INDUSTRY_MAP.size} 家企業 (${lastIndustrySync ? lastIndustrySync.toLocaleTimeString() : '初始化中'})`;
+    statusEl.textContent = `??撌脣?甇?${COMPANY_INDUSTRY_MAP.size} 摰嗡?璆?(${lastIndustrySync ? lastIndustrySync.toLocaleTimeString() : '???葉'})`;
     statusEl.style.display = 'block';
     setTimeout(() => statusEl.style.display = 'none', 5000);
   } else {
-    iconEl.textContent = '⚠️';
+    iconEl.textContent = '??';
     statusEl.style.color = '#f0ad4e';
-    statusEl.textContent = '⚠️ 使用本地備援方案';
+    statusEl.textContent = '?? 雿輻?砍??寞?';
     statusEl.style.display = 'block';
   }
 }
@@ -1746,11 +1686,11 @@ if (document.readyState === 'loading') {
 </script>
 
 <div style="text-align:center;font-size:.75rem;color:#999;padding:0 16px 20px">
-  台股：TWSE Open API｜美股/K線：Yahoo Finance｜支援台股、美股、ETF｜手機/平板/電腦均可使用
+  ?啗嚗WSE Open API嚚???K蝺?Yahoo Finance嚚?游?～??～TF嚚?璈?撟單/?餉?雿輻
 </div>
 
 <div id="initStatus" style="position:fixed;bottom:10px;right:10px;font-size:0.75rem;color:#666;padding:8px 12px;background:#f0f0f0;border-radius:4px;display:none;z-index:9999">
-  <span id="syncIcon">⏳</span> 同步中...
+  <span id="syncIcon">??/span> ?郊銝?..
 </div>
 </body>
 </html>
