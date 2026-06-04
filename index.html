@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.15.1 (中文搜尋修復)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.15.2 (28支示例+調試)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -125,27 +125,63 @@ async function initStockCache() {
   // 最後備援：使用示例數據
   console.warn('⚠️ 使用本地示例數據');
   STOCK_CACHE = [
+    // 科技 - 半導體
     {Code:'2330',CHName:'台積電',Name:'TSMC',Type:'上市'},
-    {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
-    {Code:'2317',CHName:'鴻海',Name:'HH',Type:'上市'},
     {Code:'2454',CHName:'聯發科',Name:'MTK',Type:'上市'},
+    {Code:'8299',CHName:'群聯',Name:'Phison',Type:'上市'},
+    {Code:'2308',CHName:'台達電',Name:'Delta',Type:'上市'},
+    {Code:'3529',CHName:'積威',Name:'',Type:'上市'},
+    {Code:'2303',CHName:'聯電',Name:'UMC',Type:'上市'},
+    {Code:'2388',CHName:'威盛',Name:'VIA',Type:'上市'},
+    // 汽車
+    {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
+    {Code:'2201',CHName:'裕隆',Name:'Yulon',Type:'上市'},
+    {Code:'2227',CHName:'裕日車',Name:'YRC',Type:'上市'},
+    // 電子
+    {Code:'2317',CHName:'鴻海',Name:'Hon Hai',Type:'上市'},
+    {Code:'2412',CHName:'中華電',Name:'CHT',Type:'上市'},
+    {Code:'3711',CHName:'日月光',Name:'ASE',Type:'上市'},
+    {Code:'2498',CHName:'宏達電',Name:'HTC',Type:'上市'},
+    // 傳統
     {Code:'1101',CHName:'台泥',Name:'TCC',Type:'上市'},
     {Code:'1102',CHName:'亞泥',Name:'ACC',Type:'上市'},
-    {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'}
+    {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'},
+    {Code:'1605',CHName:'華新科',Name:'HSI',Type:'上市'},
+    // 金融
+    {Code:'2887',CHName:'台新金',Name:'TSCB',Type:'上市'},
+    {Code:'2890',CHName:'永豐金',Name:'Sinopac',Type:'上市'},
+    {Code:'2892',CHName:'第一金',Name:'FUBON',Type:'上市'},
+    // 航運
+    {Code:'2603',CHName:'長榮',Name:'Evergreen',Type:'上市'},
+    {Code:'2609',CHName:'陽明',Name:'Yang Ming',Type:'上市'},
+    {Code:'2618',CHName:'長華',Name:'',Type:'上市'},
+    // ETF
+    {Code:'0050',CHName:'台灣50',Name:'ETF',Type:'上市'},
+    {Code:'0056',CHName:'高股息',Name:'ETF',Type:'上市'},
+    // 其他
+    {Code:'2845',CHName:'元大金',Name:'YuantaFH',Type:'上市'},
+    {Code:'1217',CHName:'廣宇',Name:'',Type:'上市'},
+    {Code:'1713',CHName:'國化',Name:'',Type:'上市'}
   ];
   console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
 }
 
 function searchStock(keyword) {
   if (!keyword || keyword.length < 1) return [];
-  if (!STOCK_CACHE || STOCK_CACHE.length === 0) return [];
+  if (!STOCK_CACHE || STOCK_CACHE.length === 0) {
+    console.error('[searchStock] STOCK_CACHE 未初始化！', STOCK_CACHE);
+    return [];
+  }
 
   const kw = keyword.toLowerCase();
-  return STOCK_CACHE.filter(c=>
+  const results = STOCK_CACHE.filter(c=>
     c.Code.includes(keyword) ||
     c.CHName.toLowerCase().includes(kw) ||
     c.Name.toLowerCase().includes(kw)
   ).slice(0, 10);
+
+  console.log(`[searchStock] 搜尋 "${keyword}" → 找到 ${results.length} 筆 (總計 ${STOCK_CACHE.length} 支)`, results);
+  return results;
 }
 
 function displaySearchResults(results) {
