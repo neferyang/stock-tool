@@ -1671,7 +1671,7 @@ async function go(){
     const indName = indObj ? (indObj.name || indKey) : '未分類';
 
     // 技術指標（優化：快速計算 MA，延遲複雜指標）
-    const ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
+    const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
     const tech = {
       rsi: 50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
       macdBull: false,
@@ -1680,9 +1680,14 @@ async function go(){
       bollU: null, bollL: null
     };
 
-    // 複雜指標異步計算（不阻塞主線程）
+    // 複雜指標異步計算（不阻塞主線程，但先初始化變數避免 undefined）
+    let r14 = null, mc = null, kdv = null, bl = null;
     setTimeout(() => {
-      const r14=rsiVal(AP,14), mc=macdVal(AP), kdv=AH.length>=9?kdVal(AH,AL,AP):null, bl=bollVal(AP,20);
+      r14=rsiVal(AP,14);
+      mc=macdVal(AP);
+      kdv=AH.length>=9?kdVal(AH,AL,AP):null;
+      bl=bollVal(AP,20);
+
       tech.rsi = r14??50;
       tech.macdBull = mc?(mc.dif>0&&mc.hist>0):false;
       tech.macdBear = mc?(mc.dif<0&&mc.hist<0):false;
