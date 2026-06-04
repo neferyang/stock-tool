@@ -471,7 +471,7 @@ async function finnhubFetch(symbol) {
       valuation = {
         pe: m.peTTM || null,           // P/E Ratio TTM
         pb: m.pb || m.pbAnnual || null, // P/B Ratio
-        roe: m.roeTTM ? m.roeTTM * 100 : null, // ROE TTM（轉百分比）
+        roe: m.roeTTM || null,         // ROE TTM（已是百分比，無需轉換）
         eps: m.epsTTM || null,          // EPS TTM
         dividend: m.currentDividendYieldTTM || null, // Dividend Yield TTM
         divPerShare: m.dividendPerShareTTM || null  // DPS TTM
