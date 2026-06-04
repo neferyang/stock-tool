@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.17 (美股搜尋)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.18 (美股優化)</span></h1>
 <p class="sub">支援台股（如 2330、台積電）、美股模糊搜尋（如 AAPL、Apple）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE + Finnhub</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -482,40 +482,19 @@ async function finnhubFetch(symbol) {
   if (!symbol) return null;
 
   const FINNHUB_KEY = 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
-  console.log('[finnhubFetch] Starting for', symbol, 'with key:', FINNHUB_KEY.substring(0, 10) + '...');
+  console.log('[finnhubFetch] Optimized: Only fetching Metric for', symbol);
 
   try {
-    // Finnhub 可用的 API 端點
-    const profileUrl = `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${FINNHUB_KEY}`;
-    const quoteUrl = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${FINNHUB_KEY}`;
+    // 優化：只取 Metric（Quote 和 Profile 由 yfSummary 提供）
     const metricUrl = `https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=all&token=${FINNHUB_KEY}`;
 
-    console.log('[finnhubFetch] Profile URL:', profileUrl);
-    console.log('[finnhubFetch] Quote URL:', quoteUrl);
-    console.log('[finnhubFetch] Metric URL:', metricUrl);
+    const metricResp = await fetch(metricUrl, {signal: AbortSignal.timeout(6000)}).catch(e => {
+      console.warn('[finnhubFetch] Metric fetch timeout/error:', e.message);
+      return {ok: false, status: 0};
+    });
 
-    const [profileResp, quoteResp, metricResp] = await Promise.all([
-      fetch(profileUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
-        console.error('[finnhubFetch] Profile fetch error:', e.message);
-        return {ok: false, status: 0};
-      }),
-      fetch(quoteUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
-        console.error('[finnhubFetch] Quote fetch error:', e.message);
-        return {ok: false, status: 0};
-      }),
-      fetch(metricUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
-        console.error('[finnhubFetch] Metric fetch error:', e.message);
-        return {ok: false, status: 0};
-      })
-    ]);
-
-    const profile = profileResp.ok ? await profileResp.json() : null;
-    const quote = quoteResp.ok ? await quoteResp.json() : null;
     const metric = metricResp.ok ? await metricResp.json() : null;
-
-    console.log('[finnhubFetch] Profile response:', profile);
-    console.log('[finnhubFetch] Quote response:', quote);
-    console.log('[finnhubFetch] Metric response:', metric);
+    console.log('[finnhubFetch] Metric response keys:', metric?.metric ? Object.keys(metric.metric).length : 0);
 
     // 提取估值數據（Finnhub Metric API 的正確字段名）
     let valuation = {};
@@ -529,17 +508,10 @@ async function finnhubFetch(symbol) {
         dividend: m.currentDividendYieldTTM || null, // Dividend Yield TTM
         divPerShare: m.dividendPerShareTTM || null  // DPS TTM
       };
-    }
-
-    if (profile || quote || metric) {
-      console.log('[finnhubFetch] ✅ Got Finnhub data for', symbol);
-      return {
-        profile: profile || {},
-        quote: quote || {},
-        valuation: valuation
-      };
+      console.log('[finnhubFetch] ✅ Got Finnhub Metric data for', symbol);
+      return {valuation: valuation};
     } else {
-      console.warn('[finnhubFetch] ⚠️ No data returned for', symbol);
+      console.warn('[finnhubFetch] ⚠️ Metric data unavailable for', symbol);
     }
   } catch(e) {
     console.error('[finnhubFetch] Fatal error:', e.message, e.stack);
@@ -1596,27 +1568,17 @@ async function go(){
     // meta 補充名稱
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
 
-    // 整合 Finnhub 美股基本面數據（v4.16）
-    if (finnhubResult) {
-      const {profile, valuation} = finnhubResult;
-      if (profile) {
-        // 公司信息（優先級低於 summary）
-        if (!m.name && profile.name) m.name = profile.name;
-        if (!m.sector && profile.finnhubIndustry) m.sector = profile.finnhubIndustry;
-        if (!m.marketCap && profile.marketCapitalization) m.marketCap = profile.marketCapitalization * 1000000;
-        if (!m.eps && profile.epsTrailingTwelveMonths) m.eps = profile.epsTrailingTwelveMonths;
-        console.log('[Finnhub Profile]', {name: profile.name, sector: profile.finnhubIndustry, cap: profile.marketCapitalization});
-      }
-      if (valuation) {
-        // 估值指標（優先級低於 summary）
-        if (!m.pe && valuation.pe) m.pe = valuation.pe;
-        if (!m.pb && valuation.pb) m.pb = valuation.pb;
-        if (!m.roe && valuation.roe) m.roe = valuation.roe;
-        if (!m.eps && valuation.eps) m.eps = valuation.eps;
-        if (!m.divYield && valuation.dividend) m.divYield = valuation.dividend * 100; // 轉為百分比
-        if (!m.div && valuation.divPerShare) m.div = valuation.divPerShare;
-        console.log('[Finnhub Valuation]', {pe: valuation.pe, pb: valuation.pb, eps: valuation.eps, roe: valuation.roe, divYield: valuation.dividend});
-      }
+    // 整合 Finnhub 美股基本面數據（v4.17 優化版）
+    if (finnhubResult && finnhubResult.valuation) {
+      const v = finnhubResult.valuation;
+      // 估值指標（優先級低於 summary）
+      if (!m.pe && v.pe) m.pe = v.pe;
+      if (!m.pb && v.pb) m.pb = v.pb;
+      if (!m.roe && v.roe) m.roe = v.roe;
+      if (!m.eps && v.eps) m.eps = v.eps;
+      if (!m.divYield && v.dividend) m.divYield = v.dividend * 100;
+      if (!m.div && v.divPerShare) m.div = v.divPerShare;
+      console.log('[Finnhub] Integrated metric data');
     }
 
     // 整合公開資訊觀測站新聞（P1 優化版）
