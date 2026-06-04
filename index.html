@@ -429,27 +429,41 @@ async function finnhubFetch(symbol) {
   if (!symbol) return null;
 
   const FINNHUB_KEY = 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
+  console.log('[finnhubFetch] Starting for', symbol, 'with key:', FINNHUB_KEY.substring(0, 10) + '...');
 
   try {
     // 獲取公司基本資訊和估值數據
-    const endpoints = [
-      `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${FINNHUB_KEY}`,
-      `https://finnhub.io/api/v1/stock/valuation?symbol=${symbol}&token=${FINNHUB_KEY}`
-    ];
+    const profileUrl = `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${FINNHUB_KEY}`;
+    const valuationUrl = `https://finnhub.io/api/v1/stock/valuation?symbol=${symbol}&token=${FINNHUB_KEY}`;
 
-    const [profile, valuation] = await Promise.all(
-      endpoints.map(url => fetch(url, {signal: AbortSignal.timeout(8000)})
-        .then(r => r.ok ? r.json() : null)
-        .catch(e => {console.warn('[finnhubFetch] error:', e.message); return null;})
-      )
-    );
+    console.log('[finnhubFetch] Profile URL:', profileUrl);
+    console.log('[finnhubFetch] Valuation URL:', valuationUrl);
+
+    const [profileResp, valuationResp] = await Promise.all([
+      fetch(profileUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
+        console.error('[finnhubFetch] Profile fetch error:', e.message);
+        return {ok: false, status: 0};
+      }),
+      fetch(valuationUrl, {signal: AbortSignal.timeout(8000)}).catch(e => {
+        console.error('[finnhubFetch] Valuation fetch error:', e.message);
+        return {ok: false, status: 0};
+      })
+    ]);
+
+    const profile = profileResp.ok ? await profileResp.json() : null;
+    const valuation = valuationResp.ok ? await valuationResp.json() : null;
+
+    console.log('[finnhubFetch] Profile response:', profile);
+    console.log('[finnhubFetch] Valuation response:', valuation);
 
     if (profile || valuation) {
-      console.log('[finnhubFetch] Got Finnhub data for', symbol);
-      return {profile, valuation};
+      console.log('[finnhubFetch] ✅ Got Finnhub data for', symbol);
+      return {profile: profile || {}, valuation: valuation || {}};
+    } else {
+      console.warn('[finnhubFetch] ⚠️ No data returned for', symbol);
     }
   } catch(e) {
-    console.warn('[finnhubFetch] Fetch error:', e.message);
+    console.error('[finnhubFetch] Fatal error:', e.message, e.stack);
   }
 
   return null;
