@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.12 (按鈕初始化+本益比顯示)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.14 (美股優化)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -713,21 +713,76 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   const s = (sector||'').toLowerCase();
   const enMatches = [
-    ['semiconductor|chip|processor', '半導體業'],
-    ['computer hardware|computer|electronic equipment|peripherals', '電腦及週邊設備業'],
-    ['technology|software|it services|cloud|saas', '數位雲端'],
+    // 半導體和芯片
+    ['semiconductor|chip|processor|integrated circuit|ic', '半導體業'],
+    ['semiconductor equipment', '電子零組件業'],
+
+    // 電腦和電子設備
+    ['computer hardware|computer|electronic equipment|peripherals|pc', '電腦及週邊設備業'],
+    ['computer peripherals|computer manufacturer|computer hardware', '電腦及週邊設備業'],
+    ['consumer electronics|electronics|computing', '電腦及週邊設備業'],
+
+    // 科技和軟體
+    ['technology|software|it services|cloud|saas|internet', '數位雲端'],
+    ['software service|information technology|data|artificial intelligence', '數位雲端'],
+    ['cybersecurity|security software|information security', '資訊服務業'],
+
+    // 金融
     ['financial services|bank|insurance|financial', '金融保險業'],
-    ['real estate|reit', '建材營造'],
+    ['banking|investment|mutual fund', '金融保險業'],
+
+    // 房地產
+    ['real estate|reit|property', '建材營造'],
+
+    // 醫療和生技
     ['health care|pharmaceutical|medical device|biotech', '生技醫療業'],
-    ['utilities|communication services|telecom|telephone', '通信網路業'],
+    ['healthcare|drugs|life sciences|hospital', '生技醫療業'],
+
+    // 通信網路
+    ['utilities|communication services|telecom|telephone|wireless', '通信網路業'],
+    ['telecommunications|mobile|broadband', '通信網路業'],
+
+    // 能源
     ['energy|oil|gas|materials|mining', '油電燃氣業'],
+    ['utilities|electric|power|natural gas', '油電燃氣業'],
+
+    // 製造和工業
     ['industrial|machinery|equipment', '電機機械'],
-    ['consumer cyclical|consumer discretionary|automotive', '汽車工業'],
+    ['manufacturing|industrial equipment', '電機機械'],
+
+    // 汽車
+    ['consumer cyclical|consumer discretionary|automotive|auto', '汽車工業'],
+    ['automotive|car manufacturer|motor', '汽車工業'],
+
+    // 食品和消費品
     ['consumer staples|consumer non-cyclical|retail|food|beverage', '食品工業'],
-    ['transportation|shipping|airline', '航運業'],
-    ['construction|building', '建材營造'],
-    ['utilities|electric|power', '油電燃氣業'],
-    ['renewable|solar|wind', '綠能環保']
+    ['food|beverage|consumer goods', '食品工業'],
+
+    // 運輸和物流
+    ['transportation|shipping|airline|logistics|airline', '航運業'],
+    ['transportation|freight|delivery', '航運業'],
+
+    // 建築和營造
+    ['construction|building|architecture', '建材營造'],
+
+    // 綠能
+    ['renewable|solar|wind|clean energy|green', '綠能環保'],
+    ['alternative energy', '綠能環保'],
+
+    // 零售
+    ['retail|commerce|shopping|department store', '貿易百貨業'],
+
+    // 紡織
+    ['textile|apparel|clothing|fashion', '紡織纖維'],
+
+    // 化工
+    ['chemical|chemical manufacture', '化學工業'],
+
+    // 鋼鐵
+    ['steel|iron|metal', '鋼鐵工業'],
+
+    // 造紙
+    ['paper|pulp|forest products', '造紙工業']
   ];
 
   for (const [pattern, officialName] of enMatches) {
@@ -1220,6 +1275,18 @@ async function go(){
 
 <div class="vd ${vd.t}"><div class="vdtit">${vd.ti}</div><div class="vdbod">${vd.bo}</div></div>
 
+${!isTW && !m.pe && !m.eps ? `
+<div class="warning-box" style="background:#fff8e1;border-left:4px solid #ff9800;padding:12px;margin-bottom:12px;border-radius:4px;">
+  <div style="display:flex;align-items:flex-start;gap:10px;">
+    <div style="font-size:20px;">⚠️</div>
+    <div>
+      <strong style="color:#ff6f00;">美股數據限制</strong><br>
+      <span style="font-size:0.9rem;color:#666;">Yahoo Finance 免費 API 無法提供美股的 P/E、EPS 等基本面數據。當前支持技術面分析（K線走勢、均線、成交量）。</span>
+    </div>
+  </div>
+</div>
+` : ''}
+
 <div class="sec"><div class="st2">基本面數據</div><div class="grid">
   ${sc2('本益比 P/E', f(m.pe))}
   ${sc2('股價淨值比 P/B', f(m.pb))}
@@ -1275,7 +1342,7 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 
 <div class="sec"><div class="st2">價格走勢圖（MA20 / MA60 / 成交量）</div>
 <div class="pb">
-  <button class="pbtn" onclick="setPd(-1,this)">當日</button>
+  <button class="pbtn" onclick="setPd(-1,this)">五日</button>
   <button class="pbtn" onclick="setPd(20,this)">1個月</button>
   <button class="pbtn" onclick="setPd(60,this)">3個月</button>
   <button class="pbtn" id="dp" onclick="setPd(120,this)">6個月</button>
