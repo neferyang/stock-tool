@@ -61,16 +61,27 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 .pt-sup{color:var(--accent)}
 .pt-res{color:var(--yel)}
 .pt-neu{color:var(--muted)}
+.search-results{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--border);border-radius:6px;max-height:300px;overflow-y:auto;z-index:100;box-shadow:0 4px 6px rgba(0,0,0,0.1);margin-top:4px}
+.search-results ul{list-style:none;margin:0;padding:0}
+.result-item{padding:10px 14px;cursor:pointer;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.result-item:hover{background:var(--sbg)}
+.result-item:last-child{border-bottom:none}
+.result-type{font-size:.75rem;color:var(--muted)}
+.no-result{padding:10px 14px;color:var(--muted);text-align:center}
 @media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}.tgrid{grid-template-columns:repeat(2,1fr)}.sp{font-size:1.5rem}.vt{font-size:.8rem}.vt th,.vt td{padding:7px 8px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.14 (美股優化)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.15 (中文搜尋)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
-<div class="sbox">
-  <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
+<div class="sbox" style="position:relative;">
+  <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
   <button id="btn" onclick="go()">分析</button>
+  <!-- 搜尋結果下拉菜單 -->
+  <div id="search-results" class="search-results hidden">
+    <ul id="results-list"></ul>
+  </div>
 </div>
 <p class="hint">台股輸入數字代號（自動加 .TW）；美股直接輸入英文；按 Enter 也可查詢。<br>
   範例：2330 台積電｜2317 鴻海｜0050 元大台灣50｜00878 國泰高股息｜AAPL｜TSLA｜SPY</p>
@@ -79,6 +90,88 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </div>
 
 <script>
+// ════════════════════════════════════════════════════════
+// v4.15：中文股票名稱搜尋（TWSE 動態加載）
+// ════════════════════════════════════════════════════════
+let STOCK_CACHE = null;  // 緩存 TWSE 上市公司列表
+
+async function initStockCache() {
+  try {
+    const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
+    const resp = await fetch(url, {signal: AbortSignal.timeout(10000)});
+    if (resp.ok) {
+      STOCK_CACHE = await resp.json();
+      console.log(`✅ 台股名稱緩存已加載 (${STOCK_CACHE.length} 支上市公司)`);
+    }
+  } catch(e) {
+    console.warn('⚠️ TWSE API 加載失敗:', e.message);
+    STOCK_CACHE = [];
+  }
+}
+
+function searchStock(keyword) {
+  if (!keyword || keyword.length < 1) return [];
+  if (!STOCK_CACHE || STOCK_CACHE.length === 0) return [];
+
+  const kw = keyword.toLowerCase();
+  return STOCK_CACHE.filter(c=>
+    c.Code.includes(keyword) ||
+    c.CHName.toLowerCase().includes(kw) ||
+    c.Name.toLowerCase().includes(kw)
+  ).slice(0, 10);
+}
+
+function displaySearchResults(results) {
+  const resultsDiv = document.getElementById('search-results');
+  const resultsList = document.getElementById('results-list');
+
+  if (results.length === 0) {
+    resultsList.innerHTML = '<li class="no-result">找不到相符的股票</li>';
+    resultsDiv.classList.remove('hidden');
+    return;
+  }
+
+  resultsList.innerHTML = results.map(r =>
+    `<li class="result-item" onclick="selectStock('${r.Code}', '${r.CHName}')">\
+      <strong>${r.CHName}</strong> (${r.Code})\
+      <span class="result-type">${r.Type || '上市'}</span>\
+    </li>`
+  ).join('');
+
+  resultsDiv.classList.remove('hidden');
+}
+
+function selectStock(code, name) {
+  document.getElementById('ti').value = code;
+  document.getElementById('search-results').classList.add('hidden');
+  go();
+}
+
+// 搜尋輸入框事件監聽
+document.addEventListener('DOMContentLoaded', function() {
+  initStockCache();
+
+  const input = document.getElementById('ti');
+  input.addEventListener('input', function(e) {
+    const keyword = e.target.value.trim();
+
+    if (keyword.length === 0) {
+      document.getElementById('search-results').classList.add('hidden');
+      return;
+    }
+
+    const results = searchStock(keyword);
+    displaySearchResults(results);
+  });
+
+  // 點擊外部關閉下拉菜單
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.sbox')) {
+      document.getElementById('search-results').classList.add('hidden');
+    }
+  });
+});
+
 // ════════════════════════════════════════════════════════
 // 資料抓取
 // ════════════════════════════════════════════════════════
