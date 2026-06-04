@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v2026.06-r33 (TWSE Official 33)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.05 (TWSE/TPEX OpenAPI)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -255,35 +255,73 @@ async function loadLatestIndustryData() {
   try {
     console.log('[產業數據] 正在從 TWSE/TPEX 同步官方企業分類...');
 
-    // 上市公司
+    // 上市公司（TWSE - 代碼對應表）
     const twseUrl = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L";
-    const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
-    const twseData = twseResp.ok ? await twseResp.json() : [];
+    let twseData = [];
+    try {
+      const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
+      if (twseResp.ok) {
+        twseData = await twseResp.json();
+        console.log(`[TWSE] 獲得 ${twseData.length} 家上市公司`);
+      }
+    } catch(twseErr) {
+      console.warn('[TWSE] API 請求失敗:', twseErr.message);
+    }
 
-    // 上櫃公司
+    // 上櫃公司（TPEX - 代碼對應表）
     const tpexUrl = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O";
-    const tpexResp = await fetch(tpexUrl, {signal: AbortSignal.timeout(10000)});
-    const tpexData = tpexResp.ok ? await tpexResp.json() : [];
+    let tpexData = [];
+    try {
+      const tpexResp = await fetch(tpexUrl, {signal: AbortSignal.timeout(10000)});
+      if (tpexResp.ok) {
+        tpexData = await tpexResp.json();
+        console.log(`[TPEX] 獲得 ${tpexData.length} 家上櫃公司`);
+      }
+    } catch(tpexErr) {
+      console.warn('[TPEX] API 請求失敗:', tpexErr.message);
+    }
 
     // 合併上市 + 上櫃數據
     const allCompanies = [...twseData, ...tpexData];
     console.log(`[產業數據] 獲得 ${allCompanies.length} 家企業資訊`);
 
-    // 建立快速查找表
+    // 建立快速查找表：公司代碼 → 產業名稱（中文）
     COMPANY_INDUSTRY_MAP = new Map();
+    let successCount = 0;
+
     allCompanies.forEach(item => {
-      const code = item.Code || item['公司代號'];
-      const industry = item.Sector || item['產業別'];
-      if (code && industry) {
-        COMPANY_INDUSTRY_MAP.set(code.trim(), industry);
+      // 兼容多種欄位名稱（TWSE 和 TPEX 格式可能不同）
+      let code = item.Code || item['公司代號'] || item['代號'] || item.symbol;
+      let industryCode = item.IndustryCode || item['產業代號'] || item['代碼'] || null;
+      let industryName = item['產業別'] || item.Industry || null;
+
+      if (!code) return;
+      code = code.toString().trim();
+
+      // 優先用產業名稱，次要用產業代碼轉換
+      let finalIndustry = null;
+      if (industryName && industryName.trim()) {
+        finalIndustry = industryName.trim();
+      } else if (industryCode) {
+        const codeStr = industryCode.toString().trim().padStart(2, '0');
+        finalIndustry = OFFICIAL_INDUSTRY_CODES[codeStr] || null;
+      }
+
+      if (finalIndustry) {
+        COMPANY_INDUSTRY_MAP.set(code, finalIndustry);
+        successCount++;
       }
     });
 
     lastIndustrySync = new Date();
-    console.log(`✅ 官方企業分類已同步完成 (${COMPANY_INDUSTRY_MAP.size} 家), 時間：${lastIndustrySync.toLocaleString()}`);
-    return true;
+    const successRate = allCompanies.length > 0 ? ((successCount / allCompanies.length) * 100).toFixed(1) : 0;
+    console.log(`✅ 官方企業分類已同步完成 (${successCount}/${allCompanies.length} = ${successRate}%), 時間：${lastIndustrySync.toLocaleString()}`);
+
+    // 成功率超過 80% 視為成功
+    return successCount > allCompanies.length * 0.8;
   } catch(e) {
     console.warn('⚠️ 官方企業分類同步失敗:', e.message, '將使用備援方案');
+    lastIndustrySync = null;
     return false;
   }
 }
@@ -338,15 +376,15 @@ const INDUSTRY_DB = {
   // 官方 33 種產業 (按代碼順序)
   '水泥工業': {name:'水泥工業', code:'01', fairPE:9, fairPB:0.8, fairDiv:6, fairYield:7, evEbitda:5},
   '食品工業': {name:'食品工業', code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
-  '塑膠工業': {name:'塑膠工業', code:'03', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '塑膠工業': {name:'塑膠工業', code:'03', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
   '紡織纖維': {name:'紡織纖維', code:'04', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
   '電機機械': {name:'電機機械', code:'05', fairPE:13, fairPB:1.8, fairDiv:2, fairYield:2.5, evEbitda:7},
   '電器電纜': {name:'電器電纜', code:'06', fairPE:14, fairPB:2, fairDiv:2, fairYield:2.5, evEbitda:8},
   '玻璃陶瓷': {name:'玻璃陶瓷', code:'08', fairPE:10, fairPB:1.3, fairDiv:4, fairYield:4, evEbitda:6},
   '造紙工業': {name:'造紙工業', code:'09', fairPE:10, fairPB:1.1, fairDiv:5, fairYield:6, evEbitda:5},
-  '鋼鐵工業': {name:'鋼鐵工業', code:'10', fairPE:8, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
+  '鋼鐵工業': {name:'鋼鐵工業', code:'10', fairPE:10, fairPB:0.9, fairDiv:5, fairYield:6, evEbitda:5},
   '橡膠工業': {name:'橡膠工業', code:'11', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '汽車工業': {name:'汽車工業', code:'12', fairPE:10, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
+  '汽車工業': {name:'汽車工業', code:'12', fairPE:15, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
   '建材營造': {name:'建材營造', code:'14', fairPE:11, fairPB:1.4, fairDiv:3, fairYield:3.5, evEbitda:6},
   '航運業': {name:'航運業', code:'15', fairPE:6, fairPB:0.8, fairDiv:8, fairYield:12, evEbitda:4},
   '觀光餐旅': {name:'觀光餐旅', code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
@@ -354,19 +392,19 @@ const INDUSTRY_DB = {
   '貿易百貨業': {name:'貿易百貨業', code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
   '綜合': {name:'綜合', code:'19', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
   '其他業': {name:'其他業', code:'20', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
-  '化學工業': {name:'化學工業', code:'21', fairPE:10, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
-  '生技醫療業': {name:'生技醫療業', code:'22', fairPE:25, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
+  '化學工業': {name:'化學工業', code:'21', fairPE:12, fairPB:1.2, fairDiv:4, fairYield:4.5, evEbitda:6},
+  '生技醫療業': {name:'生技醫療業', code:'22', fairPE:30, fairPB:4, fairDiv:1, fairYield:1.5, evEbitda:15},
   '油電燃氣業': {name:'油電燃氣業', code:'23', fairPE:14, fairPB:1.3, fairDiv:5, fairYield:5.5, evEbitda:8},
-  '半導體業': {name:'半導體業', code:'24', fairPE:30, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
-  '電腦及週邊設備業': {name:'電腦及週邊設備業', code:'25', fairPE:14, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
+  '半導體業': {name:'半導體業', code:'24', fairPE:25, fairPB:6, fairDiv:0, fairYield:0, evEbitda:20},
+  '電腦及週邊設備業': {name:'電腦及週邊設備業', code:'25', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:8},
   '光電業': {name:'光電業', code:'26', fairPE:18, fairPB:3, fairDiv:1, fairYield:2.5, evEbitda:10},
-  '通信網路業': {name:'通信網路業', code:'27', fairPE:22, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
-  '電子零組件業': {name:'電子零組件業', code:'28', fairPE:15, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
+  '通信網路業': {name:'通信網路業', code:'27', fairPE:13, fairPB:3.5, fairDiv:1, fairYield:2, evEbitda:11},
+  '電子零組件業': {name:'電子零組件業', code:'28', fairPE:18, fairPB:2.5, fairDiv:3, fairYield:4, evEbitda:8},
   '電子通路業': {name:'電子通路業', code:'29', fairPE:12, fairPB:1.8, fairDiv:3, fairYield:4, evEbitda:7},
   '資訊服務業': {name:'資訊服務業', code:'30', fairPE:18, fairPB:3, fairDiv:1, fairYield:1.5, evEbitda:10},
   '其他電子業': {name:'其他電子業', code:'31', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:3, evEbitda:9},
-  '綠能環保': {name:'綠能環保', code:'35', fairPE:22, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
-  '數位雲端': {name:'數位雲端', code:'36', fairPE:32, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
+  '綠能環保': {name:'綠能環保', code:'35', fairPE:24, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:12},
+  '數位雲端': {name:'數位雲端', code:'36', fairPE:30, fairPB:7, fairDiv:0, fairYield:0, evEbitda:20},
   '運動休閒': {name:'運動休閒', code:'37', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
   '居家生活': {name:'居家生活', code:'38', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
 
@@ -509,17 +547,16 @@ function classifyIndustry(sym, name, sector, industry) {
   }
 
   // ─────────────────────────────────────────────────────────
-  // L0.5：官方企業分類映射（TWSE/TPEX OpenAPI - 最高準確度）
+  // L0.5：官方企業分類映射（TWSE/TPEX OpenAPI - 最高準確度）✅ 已啟用
   // ─────────────────────────────────────────────────────────
-  // [暫時禁用以確保應用穩定性，將在後續優化時啟用]
-  // if (typeof COMPANY_INDUSTRY_MAP !== 'undefined' && COMPANY_INDUSTRY_MAP.size > 0) {
-  //   const code = sym.replace('.TW','').replace('.TWO','');
-  //   if (COMPANY_INDUSTRY_MAP.has(code)) {
-  //     const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
-  //     console.log(`[L0.5] ${code} → ${officialIndustry} (官方映射)`);
-  //     return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE官方產業代碼'}};
-  //   }
-  // }
+  if (typeof COMPANY_INDUSTRY_MAP !== 'undefined' && COMPANY_INDUSTRY_MAP.size > 0) {
+    const code = sym.replace('.TW','').replace('.TWO','');
+    if (COMPANY_INDUSTRY_MAP.has(code)) {
+      const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
+      console.log(`[L0.5] ${code} → ${officialIndustry} (官方TWSE/TPEX映射)`);
+      return {industry:officialIndustry, confidence:'very-high', details:{method:'TWSE/TPEX官方產業代碼'}};
+    }
+  }
 
   // ─────────────────────────────────────────────────────────
   // L1：官方 API 資料（Sector/Industry）
