@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.15.8 (2327支完整版)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.16 (Finnhub API)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -419,6 +419,39 @@ async function tpexFetch() {
     } catch(e) { console.log('[tpexFetch] proxy error:', e.message); }
   }
   console.log('[tpexFetch] all failed');
+  return null;
+}
+
+// ════════════════════════════════════════════════════════
+// Finnhub API：美股基本面數據（P/E、EPS、ROE 等）
+// ════════════════════════════════════════════════════════
+async function finnhubFetch(symbol) {
+  if (!symbol) return null;
+
+  const FINNHUB_KEY = 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
+
+  try {
+    // 獲取公司基本資訊和估值數據
+    const endpoints = [
+      `https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${FINNHUB_KEY}`,
+      `https://finnhub.io/api/v1/stock/valuation?symbol=${symbol}&token=${FINNHUB_KEY}`
+    ];
+
+    const [profile, valuation] = await Promise.all(
+      endpoints.map(url => fetch(url, {signal: AbortSignal.timeout(8000)})
+        .then(r => r.ok ? r.json() : null)
+        .catch(e => {console.warn('[finnhubFetch] error:', e.message); return null;})
+      )
+    );
+
+    if (profile || valuation) {
+      console.log('[finnhubFetch] Got Finnhub data for', symbol);
+      return {profile, valuation};
+    }
+  } catch(e) {
+    console.warn('[finnhubFetch] Fetch error:', e.message);
+  }
+
   return null;
 }
 
