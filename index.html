@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.11 (本益比標準化)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.12 (按鈕初始化+本益比顯示)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -793,7 +793,8 @@ function calcVals(price, m, indKey, indObj) {
   if (pe && pe > 0 && pe < 500) {
     const fairPE = params.fairPE || 16;
     const sig = pe < fairPE*0.8 ? '<span class="badge bl">低估 ✓</span>' : pe < fairPE ? '<span class="badge bl">合理偏低</span>' : pe < fairPE*1.3 ? '<span class="badge bf">合理</span>' : '<span class="badge bh">偏高 !</span>';
-    res.push({m:'P/E 本益比評估', d:`目前P/E=${f(pe,1)}（${indName}合理區間：${Math.round(fairPE*0.7)}~${fairPE}x）`, t:f(pe,1)+'x', b:sig});
+    // 合理區間：fairPE*0.8 ~ fairPE*1.3（低估到高估的邊界）
+    res.push({m:'P/E 本益比評估', d:`目前P/E=${f(pe,1)}（${indName}合理區間：${Math.round(fairPE*0.8)}~${Math.round(fairPE*1.3)}x，fairPE=${fairPE}x）`, t:f(pe,1)+'x', b:sig});
   }
 
   // ── 2. P/B 淨值估價 ───────────────────────────────────────
@@ -1290,8 +1291,13 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 
     document.getElementById('res').classList.remove('hidden');
     setSt('',false);
-    const dp=document.getElementById('dp'); apb=dp; dp.classList.add('active');
-    setPd(120,dp);
+    // 初始化為當日走勢
+    const dailyBtn = document.querySelector('button[onclick="setPd(-1,this)"]');
+    if(dailyBtn) {
+      apb=dailyBtn;
+      dailyBtn.classList.add('active');
+      setPd(-1,dailyBtn);
+    }
 
   } catch(e) {
     setSt('❌ '+e.message,true);
