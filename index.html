@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.15 (中文搜尋)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.15.1 (中文搜尋修復)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -102,11 +102,38 @@ async function initStockCache() {
     if (resp.ok) {
       STOCK_CACHE = await resp.json();
       console.log(`✅ 台股名稱緩存已加載 (${STOCK_CACHE.length} 支上市公司)`);
+      return;
     }
   } catch(e) {
-    console.warn('⚠️ TWSE API 加載失敗:', e.message);
-    STOCK_CACHE = [];
+    console.warn('⚠️ TWSE API 直連失敗:', e.message);
   }
+
+  // 備援：使用 corsproxy
+  try {
+    const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
+    const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+    const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(15000)});
+    if (resp.ok) {
+      STOCK_CACHE = await resp.json();
+      console.log(`✅ 台股名稱緩存已加載 (corsproxy，${STOCK_CACHE.length} 支上市公司)`);
+      return;
+    }
+  } catch(e) {
+    console.warn('⚠️ TWSE corsproxy 備援也失敗:', e.message);
+  }
+
+  // 最後備援：使用示例數據
+  console.warn('⚠️ 使用本地示例數據');
+  STOCK_CACHE = [
+    {Code:'2330',CHName:'台積電',Name:'TSMC',Type:'上市'},
+    {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
+    {Code:'2317',CHName:'鴻海',Name:'HH',Type:'上市'},
+    {Code:'2454',CHName:'聯發科',Name:'MTK',Type:'上市'},
+    {Code:'1101',CHName:'台泥',Name:'TCC',Type:'上市'},
+    {Code:'1102',CHName:'亞泥',Name:'ACC',Type:'上市'},
+    {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'}
+  ];
+  console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
 }
 
 function searchStock(keyword) {
@@ -131,12 +158,21 @@ function displaySearchResults(results) {
     return;
   }
 
-  resultsList.innerHTML = results.map(r =>
-    `<li class="result-item" onclick="selectStock('${r.Code}', '${r.CHName}')">\
+  resultsList.innerHTML = results.map((r, idx) =>
+    `<li class="result-item" data-code="${r.Code}" data-name="${r.CHName}" data-idx="${idx}">\
       <strong>${r.CHName}</strong> (${r.Code})\
       <span class="result-type">${r.Type || '上市'}</span>\
     </li>`
   ).join('');
+
+  // 添加事件委託監聽
+  resultsList.querySelectorAll('.result-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const code = this.getAttribute('data-code');
+      const name = this.getAttribute('data-name');
+      selectStock(code, name);
+    });
+  });
 
   resultsDiv.classList.remove('hidden');
 }
@@ -147,11 +183,16 @@ function selectStock(code, name) {
   go();
 }
 
-// 搜尋輸入框事件監聽
-document.addEventListener('DOMContentLoaded', function() {
+// 搜尋輸入框事件監聽 - 改進版（兼容不同加載時機）
+function initSearchFeature() {
   initStockCache();
 
   const input = document.getElementById('ti');
+  if (!input) {
+    setTimeout(initSearchFeature, 100);
+    return;
+  }
+
   input.addEventListener('input', function(e) {
     const keyword = e.target.value.trim();
 
@@ -170,7 +211,22 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('search-results').classList.add('hidden');
     }
   });
-});
+}
+
+// 多種方式觸發初始化（確保成功）
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSearchFeature);
+} else {
+  initSearchFeature();
+}
+
+// 備援：延遲初始化
+setTimeout(() => {
+  if (!STOCK_CACHE) {
+    console.log('[備援] 延遲初始化 STOCK_CACHE...');
+    initStockCache();
+  }
+}, 500);
 
 // ════════════════════════════════════════════════════════
 // 資料抓取
