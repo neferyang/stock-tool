@@ -66,7 +66,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.05 (TWSE/TPEX OpenAPI)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.06 (P1 公告整合)</span></h1>
 <p class="sub">支援台股（如 2330）、美股（如 AAPL）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE</p>
 <div class="sbox">
   <input type="text" id="ti" placeholder="輸入代號，如 2330、AAPL、0050、SPY" autocomplete="off" autocapitalize="characters"/>
@@ -187,57 +187,116 @@ async function tpexFetch() {
 }
 
 // ════════════════════════════════════════════════════════
-// 公開資訊觀測站公告 - 使用 TWSE API
+// 公開資訊觀測站公告集成 (P1 優化版)
 // ════════════════════════════════════════════════════════
 async function newsAnnouncementsFetch(code) {
   if (!code) return null;
   try {
-    // 方案：使用 TWSE OpenAPI 獲取上市公司資訊（包含最新公告訊息）
-    // API 文檔：https://openapi.twse.com.tw/
-    const url = `https://openapi.twse.com.tw/v1/opendata/t187ap03_L`;
-    const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
+    console.log(`[公告] 正在查詢 ${code} 的最新公告...`);
 
-    if (r.ok) {
-      const data = await r.json();
-      if (Array.isArray(data)) {
-        // 查找相應公司代碼
-        const company = data.find(row => row.Code === code || row['公司代號'] === code);
+    // 方案 A：TWSE 重大訊息 API（推薦）
+    // ────────────────────────────────────────────────
+    try {
+      const mopsUrl = `https://openapi.twse.com.tw/v1/mopsfin/mops_t187ap05_${code}`;
+      const r = await fetch(mopsUrl, {signal:AbortSignal.timeout(8000)});
 
-        if (company) {
-          // 模擬 5 則公告（實際應用中應該從重大訊息 API 取得）
-          // 此處先用公司名稱和代碼生成示意公告
-          const items = [
-            {
-              date: new Date().toISOString().split('T')[0],
-              title: `${company.Name || company['公司名稱']} - 企業基本資訊已更新`,
-              type: 'C'
-            }
-          ];
+      if (r.ok) {
+        const data = await r.json();
+        if (Array.isArray(data) && data.length > 0) {
+          // 排序並取前 10 則
+          const sorted = data.sort((a, b) => {
+            const dateA = a.Date || a['公告日期'] || '0000-00-00';
+            const dateB = b.Date || b['公告日期'] || '0000-00-00';
+            return dateB.localeCompare(dateA);
+          }).slice(0, 10);
 
-          console.log('[newsAnnouncementsFetch] 成功取得企業資訊:', code);
+          const items = sorted.map(item => ({
+            date: item.Date || item['公告日期'] || '',
+            title: item.Title || item['公告標題'] || item['新聞標題'] || '',
+            type: item.Type || (item['公告標題']?.includes('重大') ? 'M' : 'C'),
+            url: item.URL || item['連結'] || null
+          })).filter(x => x.title);
+
+          if (items.length > 0) {
+            console.log(`[公告] ✅ TWSE API 成功取得 ${items.length} 則公告`);
+            return {
+              items: items,
+              count: data.length,
+              lastDate: items[0]?.date || '',
+              source: 'TWSE'
+            };
+          }
+        }
+      }
+    } catch(twseErr) {
+      console.log('[公告] TWSE API 失敗:', twseErr.message);
+    }
+
+    // 方案 B：MOPS 網站爬蟲（備援）
+    // ────────────────────────────────────────────────
+    try {
+      // MOPS 公開資訊觀測站查詢 URL
+      const mopsPageUrl = `https://mops.twse.com.tw/mops/web/t05_query?code=${code}`;
+      console.log(`[公告] 使用備援方案，爬取 MOPS 頁面...`);
+
+      const pageResp = await fetch(mopsPageUrl, {signal:AbortSignal.timeout(8000)});
+      if (pageResp.ok) {
+        const html = await pageResp.text();
+
+        // 正則匹配公告列表（簡單解析）
+        // <tr><td>日期</td><td>公司</td><td>標題</td><td>...</td></tr>
+        const pattern = /<tr[^>]*>[\s\S]*?<\/tr>/g;
+        const rows = html.match(pattern) || [];
+
+        const items = [];
+        for (let row of rows.slice(1, 11)) {  // 取前 10 則（跳過表頭）
+          const cellPattern = /<td[^>]*>([^<]+)<\/td>/g;
+          const cells = [];
+          let cell;
+          while ((cell = cellPattern.exec(row)) !== null) {
+            cells.push(cell[1].trim());
+          }
+
+          if (cells.length >= 3) {
+            items.push({
+              date: cells[0] || '',
+              title: cells[2] || '',
+              type: cells[2]?.includes('重大') ? 'M' : 'C',
+              url: null
+            });
+          }
+        }
+
+        if (items.length > 0) {
+          console.log(`[公告] ✅ MOPS 爬蟲成功取得 ${items.length} 則公告`);
           return {
             items: items,
-            count: 1,
-            lastDate: items[0]?.date || ''
+            count: items.length,
+            lastDate: items[0]?.date || '',
+            source: 'MOPS'
           };
         }
       }
+    } catch(mopsErr) {
+      console.log('[公告] MOPS 爬蟲失敗:', mopsErr.message);
     }
+
   } catch(e) {
-    console.log('[newsAnnouncementsFetch] TWSE API 請求失敗:', e.message);
+    console.warn('[公告] 公告查詢異常:', e.message);
   }
 
-  // 備援方案：使用靜態公告（演示數據）
-  // P1 在此階段無法即時取得真實公告，需要後續 P2 整合
-  console.log('[newsAnnouncementsFetch] 使用演示公告數據');
+  // 備援方案：回傳參考公告連結
+  console.log('[公告] ⚠️ 使用備援方案');
   return {
     items: [{
       date: new Date().toISOString().split('T')[0],
-      title: '[公開資訊觀測站] 公告數據取得中...',
-      type: 'C'
+      title: '📌 查詢公開資訊觀測站瞭解最新公告',
+      type: 'C',
+      url: `https://mops.twse.com.tw/mops/web/t05_query?code=${code}`
     }],
     count: 0,
-    lastDate: ''
+    lastDate: '',
+    source: 'FALLBACK'
   };
 }
 
@@ -839,17 +898,31 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
   const lo=f(m['52lo']), hi=f(m['52hi']);
   const indName = indObj ? indObj.name : getIndustryParams(indKey).name;
 
-  // 融合公告信號（P1）
+  // 融合公告信號（P1 優化版）
   let newsSummary = '';
+  let majorNewsWarning = '';
   if (m.news && m.news.length > 0) {
     const latestNews = m.news[0].title;
     const newsPreview = latestNews.length > 40 ? latestNews.substring(0, 40) + '...' : latestNews;
     newsSummary = `\n📰 最新公告 (${m.lastNewsDate})：${newsPreview}`;
+
+    // 重大訊息警示
+    if (m.majorNewsCount > 0) {
+      majorNewsWarning = `\n⚠️ 注意：本公司有 ${m.majorNewsCount} 則重大訊息，建議查詢公開資訊觀測站瞭解詳細內容，再做決策。`;
+    }
   }
 
-  if(bull>=2&&bull>bear) return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局',bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}。52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}`};
-  if(bear>=2&&bear>bull) return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}`};
-  return{t:'hold',ti:'🟡 估值合理，持有觀望',bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}`};
+  // 決策邏輯考慮公告因素
+  const newsAdjustment = (m.majorNewsCount > 0) ? ' (🔴有重大訊息，建議謹慎)' : '';
+
+  if(bull>=2&&bull>bear) {
+    const buyWarn = m.majorNewsCount > 0 ? ' 但請先確認重大訊息內容。' : '';
+    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
+  }
+  if(bear>=2&&bear>bull) {
+    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
+  }
+  return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
 }
 
 // ════════════════════════════════════════════════════════
@@ -1029,15 +1102,22 @@ async function go(){
     // meta 補充名稱
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
 
-    // 整合公開資訊觀測站新聞（P1）
+    // 整合公開資訊觀測站新聞（P1 優化版）
     if (newsResult) {
       m.news = newsResult.items || [];
       m.newsCount = newsResult.count || 0;
       m.lastNewsDate = newsResult.lastDate || '';
+      m.newsSource = newsResult.source || 'TWSE';
+      // 分類計算：重大訊息 vs 常規
+      m.majorNewsCount = (m.news || []).filter(n => n.type === 'M').length;
+      m.minorNewsCount = (m.news || []).filter(n => n.type === 'C').length;
     } else {
       m.news = [];
       m.newsCount = 0;
       m.lastNewsDate = '';
+      m.newsSource = 'FALLBACK';
+      m.majorNewsCount = 0;
+      m.minorNewsCount = 0;
     }
 
     // P2 數據（暫時禁用，以確保 P1 正常工作）
@@ -1105,12 +1185,17 @@ async function go(){
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
-${m.news.length > 0 ? `<div class="sec"><div class="st2">📰 公司資訊</div><div class="grid">
-  ${m.newsCount ? `<div class="card"><div class="cl">近7天公告</div><div class="cv">${m.newsCount}則</div></div>` : ''}
-  ${m.lastNewsDate ? `<div class="card"><div class="cl">最新公告日期</div><div class="cv">${m.lastNewsDate}</div></div>` : ''}
-  ${m.news[0] ? `<div class="card"><div class="cl">最新消息</div><div class="cv" style="font-size:0.75rem;color:var(--muted);line-height:1.4">${m.news[0].title.substring(0, 35)}${m.news[0].title.length > 35 ? '...' : ''}</div></div>` : ''}
-  <div class="card"><div class="cl">全部公告</div><div class="cv"><a href="https://mops.twse.com.tw/mops/web/t05_query?code=${code}" target="_blank" style="color:var(--accent);text-decoration:none">查看→</a></div></div>
-</div></div>` : ''}
+${m.news.length > 0 ? `<div class="sec"><div class="st2">📰 公司公告</div><div class="grid">
+  ${m.majorNewsCount > 0 ? `<div class="card" style="border-left:3px solid #dc2626"><div class="cl">🔴 重大訊息</div><div class="cv">${m.majorNewsCount}則</div><div class="ts" style="color:#dc2626;font-size:0.7rem">需特別關注</div></div>` : ''}
+  ${m.minorNewsCount > 0 ? `<div class="card"><div class="cl">📌 一般公告</div><div class="cv">${m.minorNewsCount}則</div></div>` : ''}
+  ${m.lastNewsDate ? `<div class="card"><div class="cl">⏰ 最新公告</div><div class="cv" style="font-size:0.85rem">${m.lastNewsDate}</div></div>` : ''}
+  <div class="card"><div class="cl">🔗 詳細查詢</div><div class="cv"><a href="https://mops.twse.com.tw/mops/web/t05_query?code=${code}" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:600">MOPS→</a></div></div>
+</div>
+<div style="background:var(--sbg);border-left:3px solid var(--accent);padding:10px 14px;border-radius:4px;margin-top:10px">
+  ${m.news[0] ? `<div style="margin-bottom:6px"><span style="font-weight:600;color:var(--text)">最新：</span><span style="color:var(--muted);font-size:0.9rem">${m.news[0].title.length > 50 ? m.news[0].title.substring(0, 50) + '...' : m.news[0].title}</span></div>` : ''}
+  ${m.majorNewsCount > 0 ? `<div style="color:#dc2626;font-size:0.85rem">⚠️ 本公司有重大訊息，建議至公開資訊觀測站查詢完整內容</div>` : ''}
+</div>
+</div>` : ''}
 
 ${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
   ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
