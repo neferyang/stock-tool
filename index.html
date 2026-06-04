@@ -1373,11 +1373,12 @@ async function go(){
     // 並行抓取基本面資料
     // 上市用 BWIBBU_d，上櫃用 BWIBBU_ALL（含上市+上櫃），美股用 quoteSummary
     const code = ticker.replace('.TW','').replace('.TWO','');
-    const [twseArr, tpexArr, summaryResult, newsResult] = await Promise.all([
+    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
       isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
       yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
-      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null)  // P1：公開資訊觀測站公告
+      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
+      !isTW ? finnhubFetch(ticker) : Promise.resolve(null)      // v4.16：美股 Finnhub 基本面數據
     ]);
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
@@ -1501,6 +1502,27 @@ async function go(){
 
     // meta 補充名稱
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
+
+    // 整合 Finnhub 美股基本面數據（v4.16）
+    if (finnhubResult) {
+      const {profile, valuation} = finnhubResult;
+      if (profile) {
+        // 公司信息（優先級低於 summary）
+        if (!m.name && profile.name) m.name = profile.name;
+        if (!m.sector && profile.finnhubIndustry) m.sector = profile.finnhubIndustry;
+        if (!m.marketCap && profile.marketCapitalization) m.marketCap = profile.marketCapitalization * 1000000;
+        if (!m.eps && profile.epsTrailingTwelveMonths) m.eps = profile.epsTrailingTwelveMonths;
+        console.log('[Finnhub Profile]', {name: profile.name, sector: profile.finnhubIndustry, cap: profile.marketCapitalization});
+      }
+      if (valuation) {
+        // 估值指標（優先級低於 summary）
+        if (!m.pe && valuation.peRatioTTM) m.pe = valuation.peRatioTTM;
+        if (!m.pb && valuation.pbRatio) m.pb = valuation.pbRatio;
+        if (!m.roe && valuation.roe) m.roe = valuation.roe * 100;
+        if (!m.divYield && valuation.dividendYield) m.divYield = valuation.dividendYield * 100;
+        console.log('[Finnhub Valuation]', {pe: valuation.peRatioTTM, pb: valuation.pbRatio, roe: valuation.roe});
+      }
+    }
 
     // 整合公開資訊觀測站新聞（P1 優化版）
     if (newsResult) {
