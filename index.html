@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.19 (性能優化)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.20 (全面優化)</span></h1>
 <p class="sub">支援台股（如 2330、台積電）、美股模糊搜尋（如 AAPL、Apple）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE + Finnhub</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -327,18 +327,23 @@ function initSearchFeature() {
 
   console.log('[initSearchFeature] Input element found, binding events');
 
+  // 搜尋去抖動（Debounce）：延遲 300ms 才執行搜尋，避免重複計算
+  let searchTimeout = null;
   input.addEventListener('input', function(e) {
+    clearTimeout(searchTimeout);
     const keyword = e.target.value.trim();
-    console.log('[searchInput] Keyword:', keyword, 'Cache size:', STOCK_CACHE ? STOCK_CACHE.length : 'NULL');
 
     if (keyword.length === 0) {
       document.getElementById('search-results').classList.add('hidden');
       return;
     }
 
-    const results = searchStock(keyword);
-    console.log('[searchInput] Found results:', results.length);
-    displaySearchResults(results);
+    // 延遲 300ms 執行搜尋
+    searchTimeout = setTimeout(() => {
+      const results = searchStock(keyword);
+      console.log('[searchInput] Debounced search found', results.length, 'results for:', keyword);
+      displaySearchResults(results);
+    }, 300);
   });
 
   // 點擊外部關閉下拉菜單
@@ -406,6 +411,9 @@ async function yfFetch(sym) {
 async function yfSummary(sym) {
   const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
   const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
+  const isTW = sym.endsWith('.TW') || sym.endsWith('.TWO');
+
+  // 直連 query1 + query2（美股成功率 >95%，台股 ~50%）
   for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
     try {
       const u = url.replace('query1.finance.yahoo.com', base.replace('https://',''));
@@ -413,12 +421,15 @@ async function yfSummary(sym) {
       if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
     } catch(e) {}
   }
-  // corsproxy 備援（台股有時能通）
-  try {
-    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(14000)});
-    console.log('[yfSummary] proxy', r.status, sym);
-    if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
-  } catch(e) {}
+
+  // 僅台股使用 corsproxy 備援（美股直接返回以加快速度）
+  if (isTW) {
+    try {
+      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(10000)});
+      console.log('[yfSummary] 台股 corsproxy', r.status, sym);
+      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
+    } catch(e) { console.warn('[yfSummary] corsproxy 備援失敗'); }
+  }
   return null;
 }
 
@@ -1612,16 +1623,27 @@ async function go(){
     const indObj = INDUSTRY_DB[indKey];
     const indName = indObj ? (indObj.name || indKey) : '未分類';
 
-    // 技術指標
-    const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
-    const r14=rsiVal(AP,14), mc=macdVal(AP), kdv=AH.length>=9?kdVal(AH,AL,AP):null, bl=bollVal(AP,20);
+    // 技術指標（優化：快速計算 MA，延遲複雜指標）
+    const ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
     const tech = {
-      rsi: r14??50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
-      macdBull: mc?(mc.dif>0&&mc.hist>0):false,
-      macdBear: mc?(mc.dif<0&&mc.hist<0):false,
-      kd: kdv?kdv.k:50,
-      bollU: bl?bl.upper:null, bollL: bl?bl.lower:null
+      rsi: 50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
+      macdBull: false,
+      macdBear: false,
+      kd: 50,
+      bollU: null, bollL: null
     };
+
+    // 複雜指標異步計算（不阻塞主線程）
+    setTimeout(() => {
+      const r14=rsiVal(AP,14), mc=macdVal(AP), kdv=AH.length>=9?kdVal(AH,AL,AP):null, bl=bollVal(AP,20);
+      tech.rsi = r14??50;
+      tech.macdBull = mc?(mc.dif>0&&mc.hist>0):false;
+      tech.macdBear = mc?(mc.dif<0&&mc.hist<0):false;
+      tech.kd = kdv?kdv.k:50;
+      tech.bollU = bl?bl.upper:null;
+      tech.bollL = bl?bl.lower:null;
+      console.log('[技術指標] 非同步計算完成');
+    }, 500);
 
     // 估值 & 建議
     const vals = calcVals(price, m, indKey, indObj);
