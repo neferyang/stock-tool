@@ -698,6 +698,36 @@ function classifyIndustry(sym, name, sector, industry) {
   }
 
   // ─────────────────────────────────────────────────────────
+  // L1.5：英文公司名稱匹配（美股常見公司）
+  // ─────────────────────────────────────────────────────────
+  const enCompanyMatches = [
+    // 科技
+    ['apple|microsoft|nvidia|adobe|intel|amd|meta|google|amazon', '電腦及週邊設備業'],
+    ['tesla|ford|gm|general motors', '汽車工業'],
+    // 金融
+    ['jpmorgan|goldman|goldman sachs|citigroup|bofa|bank of america', '金融保險業'],
+    ['berkshire|berkshire hathaway', '金融保險業'],
+    // 醫療
+    ['pfizer|johnson|jnj|eli lilly|merck|moderna', '生技醫療業'],
+    // 能源
+    ['exxon|chevron|shell|bp|chevrontexaco', '油電燃氣業'],
+    // 零售
+    ['walmart|costco|amazon|target|home depot', '食品工業'],
+    // 製造
+    ['3m|caterpillar|deere|john deere|boeing', '電機機械'],
+    // 通信
+    ['verizon|at&t|att|t-mobile', '通信網路業'],
+    // 其他
+    ['coca|pepsi|nestle|kraft', '食品工業']
+  ];
+
+  for (const [pattern, officialName] of enCompanyMatches) {
+    if (new RegExp(pattern).test(nm)) {
+      return {industry: officialName, confidence: 'high', details: {method: '英文公司名稱', name}};
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────
   // L2：公司名稱高置信度關鍵字
   // ─────────────────────────────────────────────────────────
   for (const [ind, keywords] of Object.entries(KEYWORD_MAP)) {
@@ -1179,9 +1209,9 @@ async function go(){
       // 名稱：summary 有中文名時優先用
       const sName = raw2(pr.shortName)||raw2(pr.longName)||'';
       if (sName && (!m.name || m.name===ticker)) m.name = sName;
-      // 產業：summary 補充
-      if (!m.sector) m.sector = raw2(pr.sector)||'';
-      if (!m.industry) m.industry = raw2(pr.industry)||'';
+      // 產業：summary 補充（從多個位置查找）
+      if (!m.sector) m.sector = raw2(pr.sector) || raw2(pr.quoteType) || raw2(sd.sector) || '';
+      if (!m.industry) m.industry = raw2(pr.industry) || raw2(sd.industry) || '';
       m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
       // 財務資料：TWSE/TPEX 已有的不覆蓋
       if (!m.pe) m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
