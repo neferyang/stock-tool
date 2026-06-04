@@ -464,17 +464,17 @@ async function finnhubFetch(symbol) {
     console.log('[finnhubFetch] Quote response:', quote);
     console.log('[finnhubFetch] Metric response:', metric);
 
-    // 提取估值數據
+    // 提取估值數據（Finnhub Metric API 的正確字段名）
     let valuation = {};
     if (metric && metric.metric) {
       const m = metric.metric;
       valuation = {
-        peRatioTTM: m.peRatioTTM || null,
-        pbRatio: m.pbRatio || null,
-        roe: m.roe || null,
-        dividendYield: m.dividendYield || null,
-        currentRatio: m.currentRatio || null,
-        debtToEquity: m.debtToEquity || null
+        pe: m.peTTM || null,           // P/E Ratio TTM
+        pb: m.pb || m.pbAnnual || null, // P/B Ratio
+        roe: m.roeTTM ? m.roeTTM * 100 : null, // ROE TTM（轉百分比）
+        eps: m.epsTTM || null,          // EPS TTM
+        dividend: m.currentDividendYieldTTM || null, // Dividend Yield TTM
+        divPerShare: m.dividendPerShareTTM || null  // DPS TTM
       };
     }
 
@@ -1556,11 +1556,13 @@ async function go(){
       }
       if (valuation) {
         // 估值指標（優先級低於 summary）
-        if (!m.pe && valuation.peRatioTTM) m.pe = valuation.peRatioTTM;
-        if (!m.pb && valuation.pbRatio) m.pb = valuation.pbRatio;
-        if (!m.roe && valuation.roe) m.roe = valuation.roe * 100;
-        if (!m.divYield && valuation.dividendYield) m.divYield = valuation.dividendYield * 100;
-        console.log('[Finnhub Valuation]', {pe: valuation.peRatioTTM, pb: valuation.pbRatio, roe: valuation.roe});
+        if (!m.pe && valuation.pe) m.pe = valuation.pe;
+        if (!m.pb && valuation.pb) m.pb = valuation.pb;
+        if (!m.roe && valuation.roe) m.roe = valuation.roe;
+        if (!m.eps && valuation.eps) m.eps = valuation.eps;
+        if (!m.divYield && valuation.dividend) m.divYield = valuation.dividend * 100; // 轉為百分比
+        if (!m.div && valuation.divPerShare) m.div = valuation.divPerShare;
+        console.log('[Finnhub Valuation]', {pe: valuation.pe, pb: valuation.pb, eps: valuation.eps, roe: valuation.roe, divYield: valuation.dividend});
       }
     }
 
