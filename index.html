@@ -73,7 +73,7 @@ h1{font-size:1.5rem;font-weight:700;margin-bottom:4px}
 </head>
 <body>
 <div class="wrap">
-<h1>📊 股票估價分析工具<span class="vsub">v4.18 (美股優化)</span></h1>
+<h1>📊 股票估價分析工具<span class="vsub">v4.19 (性能優化)</span></h1>
 <p class="sub">支援台股（如 2330、台積電）、美股模糊搜尋（如 AAPL、Apple）、ETF（如 0050、SPY）。資料即時來源：Yahoo Finance + TWSE + Finnhub</p>
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="輸入代號或名稱，如 2330、台積電、AAPL、0050" autocomplete="off" autocapitalize="characters"/>
@@ -1436,14 +1436,13 @@ async function go(){
     const isOTC = ticker.endsWith('.TWO'); // 上櫃
 
     // 並行抓取基本面資料
-    // 上市用 BWIBBU_d，上櫃用 BWIBBU_ALL（含上市+上櫃），美股用 quoteSummary
     const code = ticker.replace('.TW','').replace('.TWO','');
     const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
       isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
       yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
       isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
-      !isTW ? finnhubFetch(ticker) : Promise.resolve(null)      // v4.16：美股 Finnhub 基本面數據
+      !isTW ? finnhubFetch(ticker) : Promise.resolve(null)      // v4.18：美股 Finnhub 基本面數據（優化版）
     ]);
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
