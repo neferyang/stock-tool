@@ -210,11 +210,16 @@ function searchStock(keyword) {
   }
 
   const kw = keyword.toLowerCase();
-  const results = STOCK_CACHE.filter(c=>
-    c.Code.includes(keyword) ||
-    c.CHName.toLowerCase().includes(kw) ||
-    c.Name.toLowerCase().includes(kw)
-  ).slice(0, 10);
+  const results = STOCK_CACHE.filter(c=> {
+    try {
+      return (c.Code && c.Code.includes(keyword)) ||
+             (c.CHName && c.CHName.toLowerCase().includes(kw)) ||
+             (c.Name && c.Name.toLowerCase().includes(kw));
+    } catch(e) {
+      console.warn('Filter error for stock:', c, e);
+      return false;
+    }
+  }).slice(0, 10);
 
   console.log(`[searchStock] 搜尋 "${keyword}" → 找到 ${results.length} 筆 (總計 ${STOCK_CACHE.length} 支)`, results);
   return results;
