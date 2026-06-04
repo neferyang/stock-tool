@@ -257,16 +257,25 @@ function selectStock(code, name) {
 
 // 搜尋輸入框事件監聽 - 改進版（兼容不同加載時機）
 function initSearchFeature() {
-  initStockCache();
+  console.log('[initSearchFeature] Starting...');
+
+  // 立即初始化 STOCK_CACHE（不等待異步完成）
+  initStockCache().then(() => {
+    console.log('[initSearchFeature] STOCK_CACHE ready:', STOCK_CACHE ? STOCK_CACHE.length : 0);
+  });
 
   const input = document.getElementById('ti');
   if (!input) {
+    console.warn('[initSearchFeature] Input element not found, retrying...');
     setTimeout(initSearchFeature, 100);
     return;
   }
 
+  console.log('[initSearchFeature] Input element found, binding events');
+
   input.addEventListener('input', function(e) {
     const keyword = e.target.value.trim();
+    console.log('[searchInput] Keyword:', keyword, 'Cache size:', STOCK_CACHE ? STOCK_CACHE.length : 'NULL');
 
     if (keyword.length === 0) {
       document.getElementById('search-results').classList.add('hidden');
@@ -274,6 +283,7 @@ function initSearchFeature() {
     }
 
     const results = searchStock(keyword);
+    console.log('[searchInput] Found results:', results.length);
     displaySearchResults(results);
   });
 
