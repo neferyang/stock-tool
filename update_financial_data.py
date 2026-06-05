@@ -10,11 +10,19 @@ Stock Financial Data Auto Update Script (v1.0)
 輸出: financial_db_output.js (可直接複製到 index.html)
 """
 
-import requests
 import json
 import time
 from datetime import datetime
 from typing import Dict, List, Optional
+
+try:
+    import requests
+except ImportError:
+    print("Installing requests library...")
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "requests", "-q"])
+    import requests
 
 # ==================== 配置 ====================
 
