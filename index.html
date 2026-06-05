@@ -1433,24 +1433,19 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
     let supportLevel = tech.bollL ? `布林下軌 ${tech.bollL.toFixed(2)} 為極限支撐，跌破此價風險大幅增加` : '';
 
     const buyWarn = m.majorNewsCount > 0 ? '但請先確認重大訊息內容。' : '';
-    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`【基本面】
+    return{t:'buy',ti:'🟢 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`【基本面】
 • 多個估值模型顯示股價低於合理價值
-
 【技術面】
 • ${techEntry}
 • 均線結構：${maEntry}
 ${supportLevel ? `• 支撐位：${supportLevel}` : ''}
-
 【進場建議】
 激進者
 → 現價可小額布局，但應設好停損（跌破布林下軌或 MA60 時減碼）
-
 穩健者
 → 等待 RSI 回升至 40-50 區間時分批建倉${indKey==='etf'?'（定期定額最佳）':''}
-
 保守者
 → 等待技術面完全確認（MACD 金叉，K值>20）再進場
-
 【停損建議】
 ${supportLevel ? '跳破布林下軌為關鍵止損點' : 'MA60 為重要支撐'} ${buyWarn}
 ${newsSummary}${majorNewsWarning}`};
@@ -1474,25 +1469,20 @@ ${newsSummary}${majorNewsWarning}`};
       }
     }
 
-    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`【估值分析】
+    return{t:'sell',ti:'🔴 估值偏高，建議謹慎或考慮減碼',bo:`【估值分析】
 • P/E 已超過合理倍數
 • 股價溢價 15-20%
 • FCF 與股價的比值下降，支撐力減弱
-
 【技術面】
 • ${techAdvice}
 • 均線結構：${maAdvice}
-
 【行動建議】
 持有者
 → 密切觀察 RSI 回檔至 50 以下，或跌破 MA20 時分批減碼 1/3-1/2
-
 觀望者
 → 等待技術面確認止跌（RSI<40，K值<30），或股價回到 MA60 附近再進場
-
 交易者
 → 短期高風險區，建議先空觀，MACD 死亡交叉或 K 值跌破 80 時可考慮短空
-
 【風險評級】
 中等到高風險｜技術面已過熱，可能迎來調整
 ${newsSummary}${majorNewsWarning}`};
@@ -1517,24 +1507,19 @@ ${newsSummary}${majorNewsWarning}`};
     techStatus += ` | RSI ${tech.rsi.toFixed(0)} 中性區`;
   }
 
-  return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`【估值狀況】
+  return{t:'hold',ti:'🔵 估值合理，持有觀望'+newsAdjustment,bo:`【估值狀況】
 股價處於合理估值區間，多空訊號混合
-
 【技術面結構】
 • 均線排列：${neutralTech}
 • 技術狀態：${techStatus}
-
 【關鍵價位】
 支撐位
 → MA20 ${tech.ma20?.toFixed(2) || 'N/A'}
 → MA60 ${tech.ma60?.toFixed(2) || 'N/A'}${tech.bollL ? `\n→ 布林下軌 ${tech.bollL.toFixed(2)}` : ''}
-
 壓力位
 → MA240 ${tech.ma240?.toFixed(2) || 'N/A'}${tech.bollU ? `\n→ 布林上軌 ${tech.bollU.toFixed(2)}` : ''}
-
 【建議行動】
 繼續持有並觀察技術面突破，注意 MA20 或 MA60 是否被有效跌破。同時關注下次財報及產業動向。
-
 ${newsSummary}${majorNewsWarning}`};
 }
 
