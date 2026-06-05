@@ -1855,7 +1855,7 @@ ${financialTrend.length > 0 ? `
 ${financialTrend.map(f => `<tr>
   <td><strong>${f.year}</strong></td>
   <td>${f.eps.val !== null ? f.eps.val.toFixed(2) : 'N/A'}</td>
-  <td style="color:${f.eps.growth === null ? 'var(--muted)' : f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps.growth === null ? '—' : (f.eps.growth >= 0 ? '+' : '') + f.eps.growth + '%'}</strong></td>
+  <td style="color:${f.eps.growth === null ? 'var(--muted)' : f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps.growth === null ? '—' : (f.eps.growth >= 0 ? '+' : '') + f.eps.growth.toFixed(1) + '%'}</strong></td>
   <td>${f.netMargin.val !== null ? f.netMargin.val.toFixed(1) + '%' : 'N/A'}</td>
   <td style="color:${f.netMargin.growth === null ? 'var(--muted)' : f.netMargin.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.netMargin.growth === null ? '—' : (f.netMargin.growth >= 0 ? '+' : '') + f.netMargin.growth.toFixed(1) + 'ppt'}</strong></td>
   <td>${f.roe.val !== null ? f.roe.val.toFixed(1) + '%' : 'N/A'}</td>
