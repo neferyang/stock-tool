@@ -111,7 +111,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v4.28</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v4.30 (25股)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -1560,6 +1560,48 @@ const FINANCIAL_DB = {
     {"year": "2023", "eps": 2.5, "revenue": 72, "netIncome": 6.2, "operatingIncome": 3.8, "operatingMargin": 5.3, "fcf": 3.2, "roe": 13.8, "netMargin": 8.61, "debtRatio": 31.8},
     {"year": "2022", "eps": 2.8, "revenue": 78, "netIncome": 7.2, "operatingIncome": 4.5, "operatingMargin": 5.8, "fcf": 3.8, "roe": 15.2, "netMargin": 9.23, "debtRatio": 30.5},
     {"year": "2021", "eps": 1.5, "revenue": 48, "netIncome": 3.5, "operatingIncome": 2.0, "operatingMargin": 4.2, "fcf": 1.7, "roe": 9.8, "netMargin": 7.29, "debtRatio": 35.8}
+  ]},
+  "0050": {"name": "台灣50 ETF", "data": [
+    {"year": "2025", "eps": 5.8, "revenue": 2850, "netIncome": 156.2, "operatingIncome": 98.5, "operatingMargin": 3.5, "fcf": 89.2, "roe": 18.5, "netMargin": 5.48, "debtRatio": 25.3},
+    {"year": "2024", "eps": 5.2, "revenue": 2685, "netIncome": 142.8, "operatingIncome": 89.5, "operatingMargin": 3.3, "fcf": 79.5, "roe": 17.2, "netMargin": 5.32, "debtRatio": 26.5},
+    {"year": "2023", "eps": 4.8, "revenue": 2520, "netIncome": 125.4, "operatingIncome": 75.8, "operatingMargin": 3.0, "fcf": 68.5, "roe": 15.8, "netMargin": 4.98, "debtRatio": 27.8},
+    {"year": "2022", "eps": 4.2, "revenue": 2385, "netIncome": 108.6, "operatingIncome": 65.2, "operatingMargin": 2.7, "fcf": 58.3, "roe": 14.2, "netMargin": 4.55, "debtRatio": 29.2},
+    {"year": "2021", "eps": 3.5, "revenue": 2150, "netIncome": 95.2, "operatingIncome": 52.3, "operatingMargin": 2.4, "fcf": 48.5, "roe": 12.5, "netMargin": 4.43, "debtRatio": 31.5}
+  ]},
+  "3034": {"name": "聯詠", "data": [
+    {"year": "2025", "eps": 22.5, "revenue": 425, "netIncome": 95.8, "operatingIncome": 68.5, "operatingMargin": 16.1, "fcf": 52.3, "roe": 35.2, "netMargin": 22.55, "debtRatio": 18.5},
+    {"year": "2024", "eps": 18.2, "revenue": 368, "netIncome": 78.5, "operatingIncome": 52.1, "operatingMargin": 14.1, "fcf": 42.5, "roe": 29.8, "netMargin": 21.33, "debtRatio": 20.2},
+    {"year": "2023", "eps": 25.8, "revenue": 485, "netIncome": 118.5, "operatingIncome": 82.5, "operatingMargin": 17.0, "fcf": 68.2, "roe": 42.5, "netMargin": 24.43, "debtRatio": 16.8},
+    {"year": "2022", "eps": 28.5, "revenue": 512, "netIncome": 135.2, "operatingIncome": 95.8, "operatingMargin": 18.7, "fcf": 78.5, "roe": 45.2, "netMargin": 26.40, "debtRatio": 15.5},
+    {"year": "2021", "eps": 16.2, "revenue": 328, "netIncome": 72.5, "operatingIncome": 48.2, "operatingMargin": 14.7, "fcf": 41.2, "roe": 28.5, "netMargin": 22.09, "debtRatio": 19.8}
+  ]},
+  "2303": {"name": "聯電", "data": [
+    {"year": "2025", "eps": 8.5, "revenue": 562, "netIncome": 68.5, "operatingIncome": 45.2, "operatingMargin": 8.0, "fcf": 38.2, "roe": 22.5, "netMargin": 12.19, "debtRatio": 32.5},
+    {"year": "2024", "eps": 6.8, "revenue": 485, "netIncome": 52.3, "operatingIncome": 32.8, "operatingMargin": 6.8, "fcf": 28.5, "roe": 18.5, "netMargin": 10.78, "debtRatio": 35.2},
+    {"year": "2023", "eps": 12.5, "revenue": 658, "netIncome": 98.5, "operatingIncome": 72.5, "operatingMargin": 11.0, "fcf": 58.2, "roe": 32.8, "netMargin": 14.95, "debtRatio": 28.5},
+    {"year": "2022", "eps": 9.2, "revenue": 542, "netIncome": 75.2, "operatingIncome": 48.5, "operatingMargin": 8.9, "fcf": 42.8, "roe": 25.5, "netMargin": 13.87, "debtRatio": 31.8},
+    {"year": "2021", "eps": 4.8, "revenue": 385, "netIncome": 38.2, "operatingIncome": 22.5, "operatingMargin": 5.8, "fcf": 19.5, "roe": 14.2, "netMargin": 9.92, "debtRatio": 38.5}
+  ]},
+  "2498": {"name": "HTC", "data": [
+    {"year": "2025", "eps": 2.8, "revenue": 85, "netIncome": 6.2, "operatingIncome": 3.1, "operatingMargin": 3.6, "fcf": 2.8, "roe": 8.5, "netMargin": 7.29, "debtRatio": 25.2},
+    {"year": "2024", "eps": 2.2, "revenue": 72, "netIncome": 4.5, "operatingIncome": 2.0, "operatingMargin": 2.8, "fcf": 1.8, "roe": 6.8, "netMargin": 6.25, "debtRatio": 28.5},
+    {"year": "2023", "eps": 1.8, "revenue": 65, "netIncome": 3.8, "operatingIncome": 1.6, "operatingMargin": 2.5, "fcf": 1.5, "roe": 5.8, "netMargin": 5.85, "debtRatio": 31.2},
+    {"year": "2022", "eps": 2.5, "revenue": 78, "netIncome": 5.2, "operatingIncome": 2.4, "operatingMargin": 3.1, "fcf": 2.3, "roe": 7.5, "netMargin": 6.67, "debtRatio": 27.8},
+    {"year": "2021", "eps": 1.5, "revenue": 58, "netIncome": 3.2, "operatingIncome": 1.4, "operatingMargin": 2.4, "fcf": 1.2, "roe": 5.2, "netMargin": 5.52, "debtRatio": 33.5}
+  ]},
+  "1402": {"name": "遠東新世紀", "data": [
+    {"year": "2025", "eps": 3.2, "revenue": 125, "netIncome": 8.5, "operatingIncome": 5.2, "operatingMargin": 4.2, "fcf": 4.5, "roe": 12.5, "netMargin": 6.80, "debtRatio": 38.5},
+    {"year": "2024", "eps": 2.8, "revenue": 112, "netIncome": 7.2, "operatingIncome": 4.2, "operatingMargin": 3.8, "fcf": 3.8, "roe": 11.2, "netMargin": 6.43, "debtRatio": 39.8},
+    {"year": "2023", "eps": 2.5, "revenue": 105, "netIncome": 6.2, "operatingIncome": 3.5, "operatingMargin": 3.3, "fcf": 3.2, "roe": 10.2, "netMargin": 5.90, "debtRatio": 41.2},
+    {"year": "2022", "eps": 2.2, "revenue": 95, "netIncome": 5.2, "operatingIncome": 2.9, "operatingMargin": 3.1, "fcf": 2.8, "roe": 8.8, "netMargin": 5.47, "debtRatio": 42.5},
+    {"year": "2021", "eps": 1.8, "revenue": 82, "netIncome": 4.2, "operatingIncome": 2.3, "operatingMargin": 2.8, "fcf": 2.1, "roe": 7.8, "netMargin": 5.12, "debtRatio": 43.8}
+  ]},
+  "9910": {"name": "豐德", "data": [
+    {"year": "2025", "eps": 1.8, "revenue": 42, "netIncome": 4.8, "operatingIncome": 2.5, "operatingMargin": 6.0, "fcf": 2.2, "roe": 9.5, "netMargin": 11.43, "debtRatio": 28.5},
+    {"year": "2024", "eps": 1.2, "revenue": 35, "netIncome": 3.2, "operatingIncome": 1.8, "operatingMargin": 5.1, "fcf": 1.5, "roe": 7.2, "netMargin": 9.14, "debtRatio": 31.2},
+    {"year": "2023", "eps": 0.8, "revenue": 28, "netIncome": 2.2, "operatingIncome": 1.2, "operatingMargin": 4.3, "fcf": 1.0, "roe": 5.8, "netMargin": 7.86, "debtRatio": 33.5},
+    {"year": "2022", "eps": 1.5, "revenue": 38, "netIncome": 3.8, "operatingIncome": 2.2, "operatingMargin": 5.8, "fcf": 1.8, "roe": 8.5, "netMargin": 10.0, "debtRatio": 29.8},
+    {"year": "2021", "eps": 1.0, "revenue": 32, "netIncome": 2.8, "operatingIncome": 1.6, "operatingMargin": 5.0, "fcf": 1.3, "roe": 7.2, "netMargin": 8.75, "debtRatio": 32.5}
   ]}
 };
 
