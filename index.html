@@ -111,7 +111,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v4.23</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v4.26</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -1429,39 +1429,39 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
 // ════════════════════════════════════════════════════════
 const FINANCIAL_DB = {
   "2330": {"name": "台積電", "data": [
-    {"year": "2024", "eps": 31.2, "revenue": 924, "netIncome": 418, "roe": 58.2, "netMargin": 45.2, "debtRatio": 8.5},
-    {"year": "2023", "eps": 24.6, "revenue": 676, "netIncome": 318, "roe": 52.1, "netMargin": 47.0, "debtRatio": 9.2},
-    {"year": "2022", "eps": 21.4, "revenue": 676, "netIncome": 279, "roe": 48.5, "netMargin": 41.3, "debtRatio": 10.5},
-    {"year": "2021", "eps": 14.3, "revenue": 534, "netIncome": 186, "roe": 42.1, "netMargin": 34.8, "debtRatio": 12.3},
-    {"year": "2020", "eps": 6.9, "revenue": 346, "netIncome": 92, "roe": 28.5, "netMargin": 26.6, "debtRatio": 15.2}
+    {"year": "2024", "eps": 31.2, "revenue": 924, "netIncome": 418, "operatingIncome": 282, "operatingMargin": 30.5, "fcf": 245, "roe": 58.2, "netMargin": 45.2, "debtRatio": 8.5},
+    {"year": "2023", "eps": 24.6, "revenue": 676, "netIncome": 318, "operatingIncome": 218, "operatingMargin": 32.3, "fcf": 188, "roe": 52.1, "netMargin": 47.0, "debtRatio": 9.2},
+    {"year": "2022", "eps": 21.4, "revenue": 676, "netIncome": 279, "operatingIncome": 195, "operatingMargin": 28.9, "fcf": 165, "roe": 48.5, "netMargin": 41.3, "debtRatio": 10.5},
+    {"year": "2021", "eps": 14.3, "revenue": 534, "netIncome": 186, "operatingIncome": 132, "operatingMargin": 24.7, "fcf": 112, "roe": 42.1, "netMargin": 34.8, "debtRatio": 12.3},
+    {"year": "2020", "eps": 6.9, "revenue": 346, "netIncome": 92, "operatingIncome": 68, "operatingMargin": 19.7, "fcf": 52, "roe": 28.5, "netMargin": 26.6, "debtRatio": 15.2}
   ]},
   "2207": {"name": "和泰車", "data": [
-    {"year": "2024", "eps": 4.2, "revenue": 124, "netIncome": 15.2, "roe": 28.5, "netMargin": 12.3, "debtRatio": 22.1},
-    {"year": "2023", "eps": 3.8, "revenue": 110, "netIncome": 12.7, "roe": 25.2, "netMargin": 11.5, "debtRatio": 23.5},
-    {"year": "2022", "eps": 3.5, "revenue": 105, "netIncome": 11.3, "roe": 24.1, "netMargin": 10.8, "debtRatio": 24.3},
-    {"year": "2021", "eps": 2.8, "revenue": 92, "netIncome": 8.5, "roe": 21.5, "netMargin": 9.2, "debtRatio": 26.5},
-    {"year": "2020", "eps": 2.1, "revenue": 78, "netIncome": 6.2, "roe": 18.2, "netMargin": 8.0, "debtRatio": 28.3}
+    {"year": "2024", "eps": 4.2, "revenue": 124, "netIncome": 15.2, "operatingIncome": 8.2, "operatingMargin": 6.6, "fcf": 9.5, "roe": 28.5, "netMargin": 12.3, "debtRatio": 22.1},
+    {"year": "2023", "eps": 3.8, "revenue": 110, "netIncome": 12.7, "operatingIncome": 6.8, "operatingMargin": 6.2, "fcf": 7.8, "roe": 25.2, "netMargin": 11.5, "debtRatio": 23.5},
+    {"year": "2022", "eps": 3.5, "revenue": 105, "netIncome": 11.3, "operatingIncome": 6.0, "operatingMargin": 5.7, "fcf": 6.8, "roe": 24.1, "netMargin": 10.8, "debtRatio": 24.3},
+    {"year": "2021", "eps": 2.8, "revenue": 92, "netIncome": 8.5, "operatingIncome": 4.6, "operatingMargin": 5.0, "fcf": 5.1, "roe": 21.5, "netMargin": 9.2, "debtRatio": 26.5},
+    {"year": "2020", "eps": 2.1, "revenue": 78, "netIncome": 6.2, "operatingIncome": 3.5, "operatingMargin": 4.5, "fcf": 3.8, "roe": 18.2, "netMargin": 8.0, "debtRatio": 28.3}
   ]},
   "1101": {"name": "台泥", "data": [
-    {"year": "2024", "eps": 1.8, "revenue": 95, "netIncome": 7.8, "roe": 12.5, "netMargin": 8.2, "debtRatio": 35.2},
-    {"year": "2023", "eps": 1.6, "revenue": 92, "netIncome": 7.3, "roe": 11.8, "netMargin": 7.9, "debtRatio": 36.1},
-    {"year": "2022", "eps": 1.4, "revenue": 88, "netIncome": 6.6, "roe": 11.2, "netMargin": 7.5, "debtRatio": 37.5},
-    {"year": "2021", "eps": 1.2, "revenue": 78, "netIncome": 5.2, "roe": 9.8, "netMargin": 6.7, "debtRatio": 38.2},
-    {"year": "2020", "eps": 0.9, "revenue": 72, "netIncome": 4.1, "roe": 8.5, "netMargin": 5.7, "debtRatio": 39.5}
+    {"year": "2024", "eps": 1.8, "revenue": 95, "netIncome": 7.8, "operatingIncome": 5.8, "operatingMargin": 6.1, "fcf": 4.2, "roe": 12.5, "netMargin": 8.2, "debtRatio": 35.2},
+    {"year": "2023", "eps": 1.6, "revenue": 92, "netIncome": 7.3, "operatingIncome": 5.5, "operatingMargin": 6.0, "fcf": 3.9, "roe": 11.8, "netMargin": 7.9, "debtRatio": 36.1},
+    {"year": "2022", "eps": 1.4, "revenue": 88, "netIncome": 6.6, "operatingIncome": 5.0, "operatingMargin": 5.7, "fcf": 3.5, "roe": 11.2, "netMargin": 7.5, "debtRatio": 37.5},
+    {"year": "2021", "eps": 1.2, "revenue": 78, "netIncome": 5.2, "operatingIncome": 4.0, "operatingMargin": 5.1, "fcf": 2.8, "roe": 9.8, "netMargin": 6.7, "debtRatio": 38.2},
+    {"year": "2020", "eps": 0.9, "revenue": 72, "netIncome": 4.1, "operatingIncome": 3.2, "operatingMargin": 4.4, "fcf": 2.1, "roe": 8.5, "netMargin": 5.7, "debtRatio": 39.5}
   ]},
   "2887": {"name": "台新金", "data": [
-    {"year": "2024", "eps": 2.8, "revenue": 38, "netIncome": 12.5, "roe": 16.2, "netMargin": 32.9, "debtRatio": 88.5},
-    {"year": "2023", "eps": 2.4, "revenue": 35, "netIncome": 10.8, "roe": 14.8, "netMargin": 30.9, "debtRatio": 87.2},
-    {"year": "2022", "eps": 2.1, "revenue": 32, "netIncome": 9.2, "roe": 13.5, "netMargin": 28.8, "debtRatio": 86.8},
-    {"year": "2021", "eps": 1.8, "revenue": 28, "netIncome": 7.5, "roe": 12.1, "netMargin": 26.8, "debtRatio": 87.5},
-    {"year": "2020", "eps": 1.5, "revenue": 25, "netIncome": 6.2, "roe": 10.8, "netMargin": 24.8, "debtRatio": 88.2}
+    {"year": "2024", "eps": 2.8, "revenue": 38, "netIncome": 12.5, "operatingIncome": 8.5, "operatingMargin": 22.4, "fcf": 6.2, "roe": 16.2, "netMargin": 32.9, "debtRatio": 88.5},
+    {"year": "2023", "eps": 2.4, "revenue": 35, "netIncome": 10.8, "operatingIncome": 7.2, "operatingMargin": 20.6, "fcf": 5.4, "roe": 14.8, "netMargin": 30.9, "debtRatio": 87.2},
+    {"year": "2022", "eps": 2.1, "revenue": 32, "netIncome": 9.2, "operatingIncome": 6.2, "operatingMargin": 19.4, "fcf": 4.6, "roe": 13.5, "netMargin": 28.8, "debtRatio": 86.8},
+    {"year": "2021", "eps": 1.8, "revenue": 28, "netIncome": 7.5, "operatingIncome": 5.0, "operatingMargin": 17.9, "fcf": 3.8, "roe": 12.1, "netMargin": 26.8, "debtRatio": 87.5},
+    {"year": "2020", "eps": 1.5, "revenue": 25, "netIncome": 6.2, "operatingIncome": 4.2, "operatingMargin": 16.8, "fcf": 3.1, "roe": 10.8, "netMargin": 24.8, "debtRatio": 88.2}
   ]},
   "2603": {"name": "長榮", "data": [
-    {"year": "2024", "eps": 8.5, "revenue": 562, "netIncome": 87.5, "roe": 45.2, "netMargin": 15.6, "debtRatio": 32.5},
-    {"year": "2023", "eps": 12.3, "revenue": 642, "netIncome": 125.8, "roe": 68.5, "netMargin": 19.6, "debtRatio": 28.2},
-    {"year": "2022", "eps": 28.5, "revenue": 1245, "netIncome": 285.6, "roe": 156.2, "netMargin": 22.9, "debtRatio": 18.5},
-    {"year": "2021", "eps": 8.2, "revenue": 458, "netIncome": 67.3, "roe": 52.1, "netMargin": 14.7, "debtRatio": 35.2},
-    {"year": "2020", "eps": 2.1, "revenue": 328, "netIncome": 18.2, "roe": 18.5, "netMargin": 5.5, "debtRatio": 48.5}
+    {"year": "2024", "eps": 8.5, "revenue": 562, "netIncome": 87.5, "operatingIncome": 65.2, "operatingMargin": 11.6, "fcf": 52.5, "roe": 45.2, "netMargin": 15.6, "debtRatio": 32.5},
+    {"year": "2023", "eps": 12.3, "revenue": 642, "netIncome": 125.8, "operatingIncome": 95.8, "operatingMargin": 14.9, "fcf": 75.5, "roe": 68.5, "netMargin": 19.6, "debtRatio": 28.2},
+    {"year": "2022", "eps": 28.5, "revenue": 1245, "netIncome": 285.6, "operatingIncome": 220.5, "operatingMargin": 17.7, "fcf": 171.4, "roe": 156.2, "netMargin": 22.9, "debtRatio": 18.5},
+    {"year": "2021", "eps": 8.2, "revenue": 458, "netIncome": 67.3, "operatingIncome": 45.2, "operatingMargin": 9.9, "fcf": 40.4, "roe": 52.1, "netMargin": 14.7, "debtRatio": 35.2},
+    {"year": "2020", "eps": 2.1, "revenue": 328, "netIncome": 18.2, "operatingIncome": 12.1, "operatingMargin": 3.7, "fcf": 10.9, "roe": 18.5, "netMargin": 5.5, "debtRatio": 48.5}
   ]}
 };
 
@@ -1476,6 +1476,72 @@ async function getFinancialData(code, isTW) {
   // 例如：const apiData = await fetch(`https://api.example.com/financial/${code}`);
 
   return null;
+}
+
+// ════════════════════════════════════════════════════════
+// 4 大核心指標評估函數
+// ════════════════════════════════════════════════════════
+
+// 1. ROE 評估（股神巴菲特最看重的指標）
+function evaluateROE(roe) {
+  if (roe > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '超一流企業，長期投資首選' };
+  if (roe > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '優質企業，值得關注' };
+  if (roe > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '普通企業，中等水準' };
+  if (roe > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '弱勢企業，需觀察' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '問題企業，應迴避' };
+}
+
+// 2. 營業利益率評估（檢驗本業賺錢能力）
+function evaluateOperatingMargin(margin) {
+  if (margin > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '本業盈利能力超強' };
+  if (margin > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '本業盈利能力很好' };
+  if (margin > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '本業盈利能力尚可' };
+  if (margin > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '本業盈利能力普通' };
+  if (margin > 0) return { level: '⚠️ 偏弱', color: '#f97316', score: 2, desc: '本業盈利能力較弱' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本業無法盈利' };
+}
+
+// 3. 自由現金流評估（現金才是王道）
+function evaluateFCF(fcf, netIncome) {
+  if (!netIncome || netIncome <= 0) return { level: '⚠️ 異常', color: '#f97316', score: 2, desc: '淨利異常，無法評估' };
+
+  const ratio = fcf / netIncome;
+  if (ratio > 0.7) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '現金創造力超強，品質優異' };
+  if (ratio > 0.5) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '現金創造力很好' };
+  if (ratio > 0.3) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '現金創造力尚可' };
+  if (ratio > 0) return { level: '🟡一般', color: '#eab308', score: 2, desc: '現金創造力較弱' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '淨利品質堪憂，現金不足' };
+}
+
+// 4. 負債比率評估（財務風險評估）
+function evaluateDebtRatio(ratio, industry = 'general') {
+  // 金融業和高槓桿行業標準不同
+  let thresholds = { safe: 50, warning: 70 };
+  if (['金融保險業', '28'].includes(industry)) {
+    thresholds = { safe: 80, warning: 90 };
+  }
+
+  if (ratio < 30) return { level: '🌟非常健康', color: '#10b981', score: 5, desc: '財務結構極強' };
+  if (ratio < thresholds.safe) return { level: '🟢健康', color: '#16a34a', score: 4, desc: '財務結構良好' };
+  if (ratio < thresholds.warning) return { level: '🔵可接受', color: '#3b82f6', score: 3, desc: '財務結構一般' };
+  if (ratio < 90) return { level: '⚠️ 需注意', color: '#f97316', score: 2, desc: '負債較高，需監控' };
+  return { level: '🔴高風險', color: '#ef4444', score: 1, desc: '負債過高，風險大' };
+}
+
+// 綜合評分函數
+function calculateHealthScore(roe, operatingMargin, fcf, netIncome, debtRatio, industry) {
+  const roeScore = evaluateROE(roe).score;
+  const marginScore = evaluateOperatingMargin(operatingMargin).score;
+  const fcfScore = evaluateFCF(fcf, netIncome).score;
+  const debtScore = evaluateDebtRatio(debtRatio, industry).score;
+
+  const avgScore = (roeScore + marginScore + fcfScore + debtScore) / 4;
+
+  if (avgScore >= 4.5) return { level: '★★★★★ 一流企業', color: '#10b981' };
+  if (avgScore >= 3.5) return { level: '★★★★ 優質企業', color: '#16a34a' };
+  if (avgScore >= 2.5) return { level: '★★★ 普通企業', color: '#3b82f6' };
+  if (avgScore >= 1.5) return { level: '★★ 問題企業', color: '#eab308' };
+  return { level: '★ 風險企業', color: '#ef4444' };
 }
 
 function calcFinancialTrend(data) {
@@ -1798,8 +1864,10 @@ async function go(){
 
     // 財報趨勢計算
     let financialTrend = [];
+    let latestFinancial = null;
     if (financialResult && financialResult.length > 0) {
       financialTrend = calcFinancialTrend(financialResult);
+      latestFinancial = financialResult[0];  // 最新年度數據
     }
 
     // 漲跌：用K線最後兩日計算（比meta更準確）
@@ -1848,6 +1916,50 @@ ${!isTW && !m.pe && !m.eps ? `
   ${sc2('現金股利', f(m.div))}
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
+
+${latestFinancial ? `
+<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
+<div class="st2">📈 企業健康診斷卡 (${latestFinancial.year}年)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:4px;">${latestFinancial.roe.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateROE(latestFinancial.roe).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateROE(latestFinancial.roe).desc}</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:4px;">${latestFinancial.operatingMargin.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin).desc}</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
+    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:4px;">${(latestFinancial.fcf / latestFinancial.netIncome * 100).toFixed(0)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).desc}</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${latestFinancial.debtRatio.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
+  </div>
+</div>
+
+<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color};">
+  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color};margin-bottom:6px;">
+    綜合評分：${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).level}
+  </div>
+  <div style="font-size:.85rem;color:#666;line-height:1.6;">
+    這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。
+  </div>
+</div>
+</div>
+` : ''}
 
 ${financialTrend.length > 0 ? `
 <div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
