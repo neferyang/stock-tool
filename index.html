@@ -1403,7 +1403,7 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
   if (m.news && m.news.length > 0) {
     const latestNews = m.news[0].title;
     const newsPreview = latestNews.length > 40 ? latestNews.substring(0, 40) + '...' : latestNews;
-    newsSummary = `\n📰 最新公告 (${m.lastNewsDate})：${newsPreview}`;
+    // newsSummary = `\n📰 最新公告 (${m.lastNewsDate})：${newsPreview}`;
 
     // 重大訊息警示
     if (m.majorNewsCount > 0) {
