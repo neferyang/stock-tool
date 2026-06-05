@@ -1489,18 +1489,18 @@ function calcFinancialTrend(data) {
     const curr = data[i];
     const prev = data[i + 1] || null;  // 上一年（如果存在）
 
-    // 計算各項年增率（與前一年比較）
+    // 計算各項年增率（與前一年比較）- 返回數值而非字符串
     let epsGrowth = null, netMarginGrowth = null, roeGrowth = null;
 
     if (prev) {
       if (curr.eps !== null && prev.eps !== null && prev.eps !== 0) {
-        epsGrowth = ((curr.eps - prev.eps) / Math.abs(prev.eps) * 100).toFixed(1);
+        epsGrowth = ((curr.eps - prev.eps) / Math.abs(prev.eps) * 100);
       }
       if (curr.netMargin !== null && prev.netMargin !== null) {
-        netMarginGrowth = (curr.netMargin - prev.netMargin).toFixed(1);
+        netMarginGrowth = (curr.netMargin - prev.netMargin);
       }
       if (curr.roe !== null && prev.roe !== null) {
-        roeGrowth = (curr.roe - prev.roe).toFixed(1);
+        roeGrowth = (curr.roe - prev.roe);
       }
     }
 
