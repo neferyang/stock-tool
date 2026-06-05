@@ -1415,24 +1415,126 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
   const newsAdjustment = (m.majorNewsCount > 0) ? ' (🔴有重大訊息，建議謹慎)' : '';
 
   if(bull>=2&&bull>bear) {
-    const buyWarn = m.majorNewsCount > 0 ? ' 但請先確認重大訊息內容。' : '';
-    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
+    // 技術分析建議（短期進場參考）
+    let techEntry = '';
+    if (tech.rsi < 30) {
+      techEntry = `RSI ${tech.rsi.toFixed(0)} 呈嚴重超賣，短期反彈機會高`;
+    } else if (tech.rsi < 40) {
+      techEntry = `RSI ${tech.rsi.toFixed(0)} 超賣區，適合逢低布局`;
+    } else {
+      techEntry = `技術指標出現買進訊號，基本面低估`;
+    }
+
+    let maEntry = '';
+    if (tech.ma20) {
+      maEntry = `建議等待股價反彈至 MA20 ${tech.ma20.toFixed(2)} 附近時逢低加碼`;
+    }
+
+    let supportLevel = tech.bollL ? `布林下軌 ${tech.bollL.toFixed(2)} 為極限支撐，跌破此價風險大幅增加` : '';
+
+    const buyWarn = m.majorNewsCount > 0 ? '但請先確認重大訊息內容。' : '';
+    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`【基本面】
+• 多個估值模型顯示股價低於合理價值
+
+【技術面】
+• ${techEntry}
+• 均線結構：${maEntry}
+${supportLevel ? `• 支撐位：${supportLevel}` : ''}
+
+【進場建議】
+
+  激進者
+  → 現價可小額布局，但應設好停損（跌破布林下軌或 MA60 時減碼）
+
+  穩健者
+  → 等待 RSI 回升至 40-50 區間時分批建倉${indKey==='etf'?'（定期定額最佳）':''}
+
+  保守者
+  → 等待技術面完全確認（MACD 金叉，K值>20）再進場
+
+【停損建議】
+${supportLevel ? '跳破布林下軌為關鍵止損點' : 'MA60 為重要支撐'} ${buyWarn}${newsSummary}${majorNewsWarning}`};
   }
   if(bear>=2&&bear>bull) {
-    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`估值分析：P/E 已超過合理倍數，股價溢價 15-20%
-技術面：相對位置 70% 以上，呈超買訊號
-現金流：FCF 與股價的比值下降，支撐力減弱
+    // 技術分析建議（短期參考）
+    let techAdvice = '';
+    if (tech.rsi > 70) {
+      techAdvice = `RSI ${tech.rsi.toFixed(0)} 呈嚴重超買，短期反彈壓力大`;
+    } else if (tech.rsi > 60) {
+      techAdvice = `RSI ${tech.rsi.toFixed(0)} 超買區，需警惕回檔`;
+    } else {
+      techAdvice = `相對位置偏高，已脫離短期均線`;
+    }
+
+    let maAdvice = '';
+    if (tech.ma20) {
+      maAdvice = `股價${price > tech.ma20 ? '>' : '<'} MA20 ${tech.ma20.toFixed(2)}`;
+      if (price > tech.ma20 * 1.05) {
+        maAdvice += `，${(((price - tech.ma20) / tech.ma20 * 100).toFixed(1))}% 高於月線`;
+      }
+    }
+
+    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`【估值分析】
+• P/E 已超過合理倍數
+• 股價溢價 15-20%
+• FCF 與股價的比值下降，支撐力減弱
+
+【技術面】
+• ${techAdvice}
+• 均線結構：${maAdvice}
 
 【行動建議】
-  • 持有者：分批減碼 1/3-1/2，在 52 週高點 ${hi} 設停利
 
-  • 觀望者：等待股價回檔至 52 週低點 + 15% 後再進場
+  持有者
+  → 密切觀察 RSI 回檔至 50 以下，或跌破 MA20 時分批減碼 1/3-1/2
 
-  • 交易者：短期空頭訊號，設停損在 ${hi}，利潤目標 ${lo}
+  觀望者
+  → 等待技術面確認止跌（RSI<40，K值<30），或股價回到 MA60 附近再進場
 
-風險評級：中等（可能回檔 10-15%）${newsSummary}${majorNewsWarning}`};
+  交易者
+  → 短期高風險區，建議先空觀，MACD 死亡交叉或 K 值跌破 80 時可考慮短空
+
+【風險評級】
+中等到高風險｜技術面已過熱，可能迎來調整${newsSummary}${majorNewsWarning}`};
   }
-  return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
+  // 持有觀望模式
+  let neutralTech = '';
+  let techStatus = 'RSI 中性區';
+  if (tech.ma20 && tech.ma60) {
+    if (price > tech.ma60 && price > tech.ma20) {
+      neutralTech = `多頭排列（股價 > MA20 > MA60）`;
+      techStatus = '持有為佳';
+    } else if (price < tech.ma20 && price < tech.ma60) {
+      neutralTech = `空頭排列（股價 < MA20 < MA60）`;
+      techStatus = '需等待回升';
+    } else {
+      neutralTech = `多空膠著，區間整理中`;
+      techStatus = '等待突破';
+    }
+  }
+
+  if (tech.rsi > 55 && tech.rsi < 65) {
+    techStatus += ` | RSI ${tech.rsi.toFixed(0)} 中性區`;
+  }
+
+  return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`【估值狀況】
+股價處於合理估值區間，多空訊號混合
+
+【技術面結構】
+• 均線排列：${neutralTech}
+• 技術狀態：${techStatus}
+
+【關鍵價位】
+
+  支撐位
+  → MA20 ${tech.ma20?.toFixed(2) || 'N/A'}
+  → MA60 ${tech.ma60?.toFixed(2) || 'N/A'}${tech.bollL ? `\n  → 布林下軌 ${tech.bollL.toFixed(2)}` : ''}
+
+  壓力位
+  → MA240 ${tech.ma240?.toFixed(2) || 'N/A'}${tech.bollU ? `\n  → 布林上軌 ${tech.bollU.toFixed(2)}` : ''}
+
+【建議行動】
+繼續持有並觀察技術面突破，注意 MA20 或 MA60 是否被有效跌破。同時關注下次財報及產業動向。${newsSummary}${majorNewsWarning}`};
 }
 
 // ════════════════════════════════════════════════════════
