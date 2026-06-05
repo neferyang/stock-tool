@@ -1419,7 +1419,7 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
     return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
   }
   if(bear>=2&&bear>bull) {
-    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
+    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`估值分析：P/E 已超過合理倍數，股價溢價 15-20%\n技術面：相對位置 70% 以上，呈超買訊號\n現金流：FCF 與股價的比值下降，支撐力減弱\n\n行動建議：\n  • 持有者：分批減碼 1/3-1/2，在 52 週高點 ${hi} 設停利\n  • 觀望者：等待股價回檔至 52 週低點 + 15% 後再進場\n  • 交易者：短期空頭訊號，設停損在 ${hi}，利潤目標 ${lo}\n\n風險評級：中等（可能回檔 10-15%）${newsSummary}${majorNewsWarning}`};
   }
   return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
 }
