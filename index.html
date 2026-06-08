@@ -155466,13 +155466,14 @@ async function go(){
 
     // 並行抓取基本面資料
     const code = ticker.replace('.TW','').replace('.TWO','');
-    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
+    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult, eps2026Result] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
       isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
       yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
       isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
       !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v6.01：美股 Finnhub 基本面數據（優化版）
-      isTW ? getFinancialData(code, isTW) : Promise.resolve(null)  // v6.01：歷年財報數據
+      isTW ? getFinancialData(code, isTW) : Promise.resolve(null),  // v6.01：歷年財報數據
+      isTW ? epsEstimator.estimateForCode(code) : Promise.resolve(null)  // 【v6.05】MOPS 2026 EPS 推估
     ]);
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
@@ -155510,7 +155511,9 @@ async function go(){
       '52lo': meta.fiftyTwoWeekLow,
       pe:null, pb:null, div:null, divYield:null,
       eps:null, roe:null, evEbitda:null, peg:null,
-      marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
+      marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:'',
+      // 【v6.05】2026 年度 EPS 推估
+      eps2026:null, h1Actual:null, h2Estimated:null, eps2026Confidence:'low'
     };
 
     // TWSE 上市資料
@@ -155613,6 +155616,15 @@ async function go(){
       if (!m.divYield && v.dividend) m.divYield = v.dividend * 100;
       if (!m.div && v.divPerShare) m.div = v.divPerShare;
       console.log('[Finnhub] Integrated metric data');
+    }
+
+    // 【v6.05】整合 MOPS 2026 年度 EPS 推估
+    if (eps2026Result) {
+      m.eps2026 = eps2026Result.yearlyEps2026;
+      m.h1Actual = eps2026Result.h1Actual;
+      m.h2Estimated = eps2026Result.h2Estimated;
+      m.eps2026Confidence = eps2026Result.confidence;
+      console.log(`[EPS 2026] ${code} 年度推估: ${m.eps2026?.toFixed(2)} (${m.eps2026Confidence})`);
     }
 
     // 整合公開資訊觀測站新聞（P1 優化版）
@@ -155920,6 +155932,275 @@ if (document.readyState === 'loading') {
 } else {
   monitorIndustrySync();
 }
+
+// ════════════════════════════════════════════════════════════
+// 【v6.05】MOPS 爬蟲 + 2026 年度 EPS 推估系統
+// ════════════════════════════════════════════════════════════
+
+// ─────────────────────────────────────────────────────────────
+// Module 1: quarterCache - 季度數據快取管理
+// ─────────────────────────────────────────────────────────────
+
+const quarterCache = (() => {
+  const CACHE_KEY = 'mopsQuartersCache_v1';
+  const CACHE_EXPIRE_DAYS = 7;
+  const CACHE_VERSION = '1.0.0';
+
+  function loadCache() {
+    try {
+      const data = localStorage.getItem(CACHE_KEY);
+      if (!data) return initCache();
+      const parsed = JSON.parse(data);
+      return parsed.version === CACHE_VERSION ? parsed : initCache();
+    } catch(e) {
+      console.error('[Cache] 加載失敗:', e);
+      return initCache();
+    }
+  }
+
+  function initCache() {
+    return {version: CACHE_VERSION, stocks: {}};
+  }
+
+  function saveCache(cache) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+      console.log('[Cache] 已保存');
+    } catch(e) {
+      console.error('[Cache] 保存失敗:', e);
+    }
+  }
+
+  function isCacheValid(code) {
+    const cache = loadCache();
+    if (!cache.stocks[code]) return false;
+    const item = cache.stocks[code];
+    const now = new Date();
+    const expiresAt = new Date(item.expiresAt);
+    return now <= expiresAt;
+  }
+
+  function getCachedQuarters(code) {
+    const cache = loadCache();
+    return cache.stocks[code]?.quarters || null;
+  }
+
+  function updateCache(code, quarters, dataSource) {
+    const cache = loadCache();
+    const now = new Date();
+    const expiresAt = new Date(now.getTime() + CACHE_EXPIRE_DAYS * 86400000);
+    cache.stocks[code] = {
+      lastUpdate: now.toISOString(),
+      expiresAt: expiresAt.toISOString(),
+      dataSource: dataSource,
+      quarters: quarters
+    };
+    saveCache(cache);
+    console.log(`[Cache] 已更新 ${code} (來源: ${dataSource})`);
+  }
+
+  function clearCache() {
+    localStorage.removeItem(CACHE_KEY);
+    console.log('[Cache] 已清空');
+  }
+
+  return {
+    isCacheValid, getCachedQuarters, updateCache, clearCache, loadCache
+  };
+})();
+
+// ─────────────────────────────────────────────────────────────
+// Module 2: mopsCrawler - MOPS 爬蟲（多重備援）
+// ─────────────────────────────────────────────────────────────
+
+const mopsCrawler = (() => {
+  const MOPS_URL = 'https://mops.twse.com.tw/mops/web/t05st01';
+  const CORSPROXY = 'https://corsproxy.io/?https';
+  const TIMEOUT = 8000;
+
+  async function fetchWithTimeout(url, timeout = TIMEOUT) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+    try {
+      const r = await fetch(url, {signal: controller.signal});
+      clearTimeout(timeoutId);
+      return r;
+    } catch(e) {
+      clearTimeout(timeoutId);
+      throw e;
+    }
+  }
+
+  async function fetchMopsHTML(code, year = 2026) {
+    try {
+      const url = `${MOPS_URL}?code=${code}&year=${year}`;
+      const r = await fetchWithTimeout(url);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const html = await r.text();
+      return parseQuartersFromHTML(html, code);
+    } catch(e) {
+      console.warn(`[MOPS HTML] 爬蟲失敗: ${e.message}`);
+      return null;
+    }
+  }
+
+  async function fetchMopsViaProxy(code, year = 2026) {
+    try {
+      const url = `${CORSPROXY}${MOPS_URL}?code=${code}&year=${year}`;
+      const r = await fetchWithTimeout(url, TIMEOUT * 2);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const html = await r.text();
+      return parseQuartersFromHTML(html, code);
+    } catch(e) {
+      console.warn(`[MOPS Proxy] 備援失敗: ${e.message}`);
+      return null;
+    }
+  }
+
+  function parseQuartersFromHTML(html, code) {
+    try {
+      const quarters = [];
+      // 簡易解析：查找表格中的季度數據
+      const rowRegex = /<tr[^>]*>[\s\S]*?<\/tr>/g;
+      const rows = html.match(rowRegex) || [];
+
+      rows.forEach(row => {
+        // 提取 Q1-Q4 的 EPS 數據
+        const colRegex = /<td[^>]*>([\s\S]*?)<\/td>/g;
+        const cols = [];
+        let m;
+        while ((m = colRegex.exec(row)) !== null) {
+          cols.push(m[1].trim().replace(/<[^>]*>/g, ''));
+        }
+
+        if (cols.length >= 2 && /Q[1-4]|第[1-4]季/.test(cols[0])) {
+          const season = parseInt(cols[0]) || /Q(\d)/.exec(cols[0])?.[1] || null;
+          const eps = parseFloat(cols[1]);
+          if (season && !isNaN(eps) && eps > 0) {
+            quarters.push({year: 2026, season, eps, source: 'html'});
+          }
+        }
+      });
+
+      console.log(`[MOPS] 解析得 ${quarters.length} 個季度數據`);
+      return quarters.length > 0 ? quarters : null;
+    } catch(e) {
+      console.error('[MOPS] HTML 解析失敗:', e);
+      return null;
+    }
+  }
+
+  async function fetch(code, year = 2026) {
+    console.log(`[MOPS] 開始爬蟲 ${code}...`);
+
+    // 優先級 1：直接 HTML
+    let data = await fetchMopsHTML(code, year);
+    if (data) return data.map(q => ({...q, source: 'html'}));
+
+    // 優先級 2：Proxy 備援
+    data = await fetchMopsViaProxy(code, year);
+    if (data) return data.map(q => ({...q, source: 'proxy'}));
+
+    console.error(`[MOPS] ${code} 爬蟲失敗`);
+    return null;
+  }
+
+  return {fetch};
+})();
+
+// ─────────────────────────────────────────────────────────────
+// Module 3: epsEstimator - EPS 推估（基於 H1 實際 + H2 推估）
+// ─────────────────────────────────────────────────────────────
+
+const epsEstimator = (() => {
+  /**
+   * 推估 2026 年度 EPS
+   * 邏輯：
+   * - H1 實際 = Q1 + Q2 (MOPS 直接取得)
+   * - H2 推估 = 基於 2025 同季比例
+   * - 年度 EPS = H1 實際 + H2 推估
+   */
+
+  function estimate2026(quarters2026, historicalQuarters2025 = null) {
+    if (!quarters2026 || quarters2026.length === 0) return null;
+
+    const q2026 = {};
+    quarters2026.forEach(q => {
+      q2026[`q${q.season}`] = q.eps;
+    });
+
+    // H1 實際
+    const h1 = (q2026.q1 || 0) + (q2026.q2 || 0);
+    if (h1 === 0) return null;
+
+    // H2 推估（簡化版：假設 H2 ≈ H1）
+    // 實際應用：根據歷史資料調整
+    let h2 = h1;
+
+    if (historicalQuarters2025) {
+      const q2025 = {};
+      historicalQuarters2025.forEach(q => {
+        q2025[`q${q.season}`] = q.eps;
+      });
+
+      // 計算 H2/H1 比例
+      const h1_2025 = (q2025.q1 || 0) + (q2025.q2 || 0);
+      const h2_2025 = (q2025.q3 || 0) + (q2025.q4 || 0);
+
+      if (h1_2025 > 0 && h2_2025 > 0) {
+        const ratio = h2_2025 / h1_2025;
+        h2 = h1 * ratio;
+      }
+    }
+
+    const yearlyEps = h1 + h2;
+
+    return {
+      h1Actual: h1,
+      h2Estimated: h2,
+      yearlyEps2026: yearlyEps,
+      confidence: quarters2026.length >= 2 ? 'high' : 'medium',
+      quarters: quarters2026
+    };
+  }
+
+  async function estimateForCode(code) {
+    // 檢查快取
+    if (quarterCache.isCacheValid(code)) {
+      const cached = quarterCache.getCachedQuarters(code);
+      if (cached) {
+        console.log(`[EPS] 使用快取數據: ${code}`);
+        return estimate2026(cached);
+      }
+    }
+
+    // 爬蟲新數據
+    const quarters = await mopsCrawler.fetch(code);
+    if (quarters && quarters.length > 0) {
+      quarterCache.updateCache(code, quarters, quarters[0].source);
+      return estimate2026(quarters);
+    }
+
+    return null;
+  }
+
+  return {estimate2026, estimateForCode};
+})();
+
+// ════════════════════════════════════════════════════════════
+// 【v6.05】集成到 go() 函數
+// ════════════════════════════════════════════════════════════
+
+// 在 go() 函數中，於 TWSE/TPEX 數據後呼叫（第 ~155467 行後）:
+// const eps2026 = isTW ? await epsEstimator.estimateForCode(ticker) : null;
+// if (eps2026) {
+//   m.eps2026 = eps2026.yearlyEps2026;
+//   m.h1Actual = eps2026.h1Actual;
+//   m.h2Estimated = eps2026.h2Estimated;
+//   m.eps2026Confidence = eps2026.confidence;
+// }
+
+console.log('[v6.05] MOPS 爬蟲 + EPS 推估模組已載入');
 </script>
 
 <div style="text-align:center;font-size:.75rem;color:#999;padding:0 16px 20px">
