@@ -111,7 +111,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v6.03 (2327股)</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v6.04 (2327股)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -155521,9 +155521,10 @@ async function go(){
         if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
         if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
         if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
-        // 【修正】台股不直接計算 EPS = price / PE，避免 ADR 價格混淆
-        // 將在後面從 FINANCIAL_DB 獲得正確的 EPS
-        // if (m.pe && m.pe>0) m.eps = price / m.pe;
+        // 【v6.04】混合方案：TWSE PE + 實時計算 EPS
+        // EPS = Price / PE （確保 EPS 與 TWSE PE 一致性）
+        // FINANCIAL_DB 的 EPS 將逐步廢棄，改用實時計算
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (row.Name) m.name = row.Name;
         // TWSE 額外財務數據（如果提供）
@@ -155555,8 +155556,8 @@ async function go(){
         if (pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
         if (pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
         if (dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
-        // 【修正】上櫃股票同樣跳過 EPS = price / PE 計算，使用 FINANCIAL_DB 數據
-        // if (m.pe && m.pe>0) m.eps = price / m.pe;
+        // 【v6.04】混合方案：TPEX PE + 實時計算 EPS
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
         if (m.divYield) m.div = price * m.divYield / 100;
         if (nm) m.name = nm;
         // TPEX 額外財務數據
@@ -155685,15 +155686,10 @@ async function go(){
       financialTrend = calcFinancialTrend(financialResult);
       latestFinancial = financialResult[0];  // 最新年度數據
 
-      // 【修正】台股 EPS 數據一致性：用 FINANCIAL_DB 的 EPS 覆蓋可能混亂的 Yahoo Finance 計算值
-      // 原因：Yahoo Finance 對台股可能返回 ADR 價格，導致計算的 EPS 不準確
-      if (isTW && latestFinancial && latestFinancial.eps !== null) {
-        const fbEps = latestFinancial.eps;
-        if (m.eps !== fbEps) {
-          console.log(`[EPS 修正] 用 FINANCIAL_DB 覆蓋：${m.eps} → ${fbEps}`);
-          m.eps = fbEps;
-        }
-      }
+      // 【v6.04】混合方案：TWSE PE + 實時計算 EPS
+      // 不再覆蓋 TWSE PE 計算的 EPS，而是用於驗證和歷史趨勢
+      // FINANCIAL_DB 的 EPS 數據逐步廢棄，未來改用 MOPS 爬蟲定期更新
+      // 當前：優先使用 m.eps（TWSE PE 計算），FINANCIAL_DB 僅供參考
     }
 
     // 漲跌：用K線最後兩日計算（比meta更準確）
