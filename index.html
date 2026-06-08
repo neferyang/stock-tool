@@ -1397,6 +1397,19 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
   const lo=f(m['52lo']), hi=f(m['52hi']);
   const indName = indObj ? indObj.name : getIndustryParams(indKey).name;
 
+  // 【v6.05】融合 2026 年度 EPS 推估信息
+  let eps2026Info = '';
+  if (m.eps2026 && price) {
+    const pe2026 = price / m.eps2026;
+    const eps2026Label = m.eps2026Confidence === 'high' ? '✓ 2026 推估 EPS' : '~ 2026 推估 EPS';
+    eps2026Info = `\n📊 ${eps2026Label}：${m.eps2026.toFixed(2)} 元，本年 P/E：${pe2026.toFixed(2)} 倍 (${m.eps2026Confidence})`;
+
+    // 基於 2026 推估的買賣判斷
+    if (pe2026 < 15 && m.eps2026Confidence === 'high') {
+      bull++;  // 基於 2026 推估的額外買進信號
+    }
+  }
+
   // 融合公告信號（P1 優化版）
   let newsSummary = '';
   let majorNewsWarning = '';
@@ -1434,7 +1447,7 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
 
     const buyWarn = m.majorNewsCount > 0 ? '但請先確認重大訊息內容。' : '';
     return{t:'buy',ti:'🟢 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`【基本面】
-• 多個估值模型顯示股價低於合理價值
+• 多個估值模型顯示股價低於合理價值${eps2026Info}
 【技術面】
 • ${techEntry}
 • 均線結構：${maEntry}
@@ -1472,7 +1485,7 @@ ${newsSummary}${majorNewsWarning}`};
     return{t:'sell',ti:'🔴 估值偏高，建議謹慎或考慮減碼',bo:`【估值分析】
 • P/E 已超過合理倍數
 • 股價溢價 15-20%
-• FCF 與股價的比值下降，支撐力減弱
+• FCF 與股價的比值下降，支撐力減弱${eps2026Info}
 【技術面】
 • ${techAdvice}
 • 均線結構：${maAdvice}
@@ -1508,7 +1521,7 @@ ${newsSummary}${majorNewsWarning}`};
   }
 
   return{t:'hold',ti:'🔵 估值合理，持有觀望'+newsAdjustment,bo:`【估值狀況】
-股價處於合理估值區間，多空訊號混合
+股價處於合理估值區間，多空訊號混合${eps2026Info}
 【技術面結構】
 • 均線排列：${neutralTech}
 • 技術狀態：${techStatus}
@@ -155750,6 +155763,17 @@ ${!isTW && !m.pe && !m.eps ? `
   ${sc2('現金股利', f(m.div))}
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
+
+${m.eps2026 ? `
+<div class="sec" style="background:linear-gradient(135deg, rgba(59,130,246,0.05), transparent); border-left:4px solid #3b82f6;">
+<div class="st2">📊 2026 年度推估</div><div class="grid">
+  ${sc2('H1 實際 EPS', f(m.h1Actual, 2))}
+  ${sc2('H2 推估 EPS', f(m.h2Estimated, 2))}
+  ${sc2('2026 年度 EPS', f(m.eps2026, 2) + ` <span style="color:#999;font-size:.8rem;">(${m.eps2026Confidence})</span>`)}
+  ${sc2('2026 本年 P/E', price && m.eps2026 ? f(price/m.eps2026, 2) : 'N/A')}
+</div>
+</div>
+` : ''}
 
 ${latestFinancial ? `
 <div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
