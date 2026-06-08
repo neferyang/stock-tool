@@ -155499,7 +155499,7 @@ async function go(){
       isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
       !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v6.01：美股 Finnhub 基本面數據（優化版）
       isTW ? getFinancialData(code, isTW) : Promise.resolve(null),  // v6.01：歷年財報數據
-      isTW ? epsEstimator.estimateForCode(code) : Promise.resolve(null)  // 【v6.05】MOPS 2026 EPS 推估
+      Promise.resolve(null)  // 【v6.05】MOPS 2026 EPS 推估已禁用 (CORS 問題)
     ]);
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
