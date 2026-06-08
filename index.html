@@ -155585,7 +155585,8 @@ async function go(){
       if (!m.pb) m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
       if (!m.divYield && raw2(sd.dividendYield)) m.divYield = raw2(sd.dividendYield)*100;
       if (!m.div) m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
-      if (!m.eps) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
+      // 【修正】台股 EPS 只用 FINANCIAL_DB，不用 Yahoo Finance 的數據（避免 ADR 混淆）
+      if (!m.eps && !isTW) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
       // 以下只有 summary 有，直接填入
       m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
       m.beta = m.beta||raw2(ks.beta);
@@ -155745,33 +155746,33 @@ ${!isTW && !m.pe && !m.eps ? `
 ${latestFinancial ? `
 <div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
 <div class="st2">📈 企業健康診斷卡 (${latestFinancial.year}年)</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:4px;">${latestFinancial.roe.toFixed(1)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateROE(latestFinancial.roe).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateROE(latestFinancial.roe).desc}</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;">
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+    <div style="font-size:.85rem;color:#666;margin-bottom:3px;">股東權益報酬率 (ROE)</div>
+    <div style="font-size:1.6rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:2px;">${latestFinancial.roe.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;margin-bottom:4px;">${evaluateROE(latestFinancial.roe).level}</div>
+    <div style="font-size:.7rem;color:#999;">💡 ${evaluateROE(latestFinancial.roe).desc}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:4px;">${latestFinancial.operatingMargin.toFixed(1)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin).desc}</div>
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+    <div style="font-size:.85rem;color:#666;margin-bottom:3px;">營業利益率</div>
+    <div style="font-size:1.6rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:2px;">${latestFinancial.operatingMargin.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;margin-bottom:4px;">${evaluateOperatingMargin(latestFinancial.operatingMargin).level}</div>
+    <div style="font-size:.7rem;color:#999;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin).desc}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
-    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:4px;">${(latestFinancial.fcf / latestFinancial.netIncome * 100).toFixed(0)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).desc}</div>
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+    <div style="font-size:.85rem;color:#666;margin-bottom:3px;">自由現金流 (FCF)</div>
+    <div style="font-size:1.6rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:2px;">${(latestFinancial.fcf / latestFinancial.netIncome * 100).toFixed(0)}%</div>
+    <div style="font-size:.8rem;color:#666;margin-bottom:4px;">${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).level}</div>
+    <div style="font-size:.7rem;color:#999;">💡 ${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).desc}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${latestFinancial.debtRatio.toFixed(1)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px;">
+    <div style="font-size:.85rem;color:#666;margin-bottom:3px;">負債佔資產比率</div>
+    <div style="font-size:1.6rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:2px;">${latestFinancial.debtRatio.toFixed(1)}%</div>
+    <div style="font-size:.8rem;color:#666;margin-bottom:4px;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
+    <div style="font-size:.7rem;color:#999;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
   </div>
 </div>
 
