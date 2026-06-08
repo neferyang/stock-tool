@@ -156039,14 +156039,27 @@ const quarterCache = (() => {
 
 const mopsCrawler = (() => {
   const MOPS_URL = 'https://mops.twse.com.tw/mops/web/t05st01';
-  const CORSPROXY = 'https://corsproxy.io/?https';
+  const CORSPROXY_URLS = [
+    'https://corsproxy.io/?',
+    'https://cors-anywhere.herokuapp.com/',
+    'https://api.allorigins.win/raw?url='
+  ];
   const TIMEOUT = 8000;
+  const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
 
-  async function fetchWithTimeout(url, timeout = TIMEOUT) {
+  async function fetchWithTimeout(url, timeout = TIMEOUT, headers = {}) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeout);
     try {
-      const r = await fetch(url, {signal: controller.signal});
+      const r = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          'User-Agent': USER_AGENT,
+          'Accept': 'text/html,application/xhtml+xml',
+          'Accept-Language': 'zh-TW,zh;q=0.9',
+          ...headers
+        }
+      });
       clearTimeout(timeoutId);
       return r;
     } catch(e) {
@@ -156069,16 +156082,26 @@ const mopsCrawler = (() => {
   }
 
   async function fetchMopsViaProxy(code, year = 2026) {
-    try {
-      const url = `${CORSPROXY}${MOPS_URL}?code=${code}&year=${year}`;
-      const r = await fetchWithTimeout(url, TIMEOUT * 2);
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      const html = await r.text();
-      return parseQuartersFromHTML(html, code);
-    } catch(e) {
-      console.warn(`[MOPS Proxy] 備援失敗: ${e.message}`);
-      return null;
+    const baseUrl = `${MOPS_URL}?code=${code}&year=${year}`;
+
+    for (let proxyUrl of CORSPROXY_URLS) {
+      try {
+        const fullUrl = proxyUrl + encodeURIComponent(baseUrl);
+        console.log(`[MOPS] 嘗試代理: ${proxyUrl.substring(0, 30)}...`);
+        const r = await fetchWithTimeout(fullUrl, TIMEOUT * 2);
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const html = await r.text();
+        const result = parseQuartersFromHTML(html, code);
+        if (result && result.length > 0) {
+          console.log(`[MOPS Proxy] ✓ 通過代理成功: ${proxyUrl}`);
+          return result;
+        }
+      } catch(e) {
+        console.warn(`[MOPS Proxy] ${proxyUrl.substring(0, 30)}... 失敗: ${e.message}`);
+      }
     }
+
+    return null;
   }
 
   function parseQuartersFromHTML(html, code) {
@@ -156173,14 +156196,59 @@ const mopsCrawler = (() => {
 
     // 優先級 1：直接 HTML
     let data = await fetchMopsHTML(code, year);
-    if (data) return data.map(q => ({...q, source: 'html'}));
+    if (data && data.length > 0) {
+      console.log(`[MOPS] ✓ 直接爬蟲成功: ${data.length} 個季度`);
+      return data.map(q => ({...q, source: 'html'}));
+    }
 
     // 優先級 2：Proxy 備援
     data = await fetchMopsViaProxy(code, year);
-    if (data) return data.map(q => ({...q, source: 'proxy'}));
+    if (data && data.length > 0) {
+      console.log(`[MOPS] ✓ Proxy 備援成功: ${data.length} 個季度`);
+      return data.map(q => ({...q, source: 'proxy'}));
+    }
 
-    console.error(`[MOPS] ${code} 爬蟲失敗`);
+    // 優先級 3：使用 FINANCIAL_DB 推估（如果爬蟲全部失敗）
+    console.warn(`[MOPS] 爬蟲失敗，嘗試使用 FINANCIAL_DB 推估...`);
+    const estimated = estimateFrom2025(code);
+    if (estimated && estimated.length > 0) {
+      console.log(`[MOPS] ✓ FINANCIAL_DB 推估成功: ${estimated.length} 個季度`);
+      return estimated.map(q => ({...q, source: 'estimated'}));
+    }
+
+    console.error(`[MOPS] ${code} 所有方式都失敗`);
     return null;
+  }
+
+  /**
+   * 備選方案：基於 FINANCIAL_DB 的 2025 資料推估 2026 年度季度 EPS
+   */
+  function estimateFrom2025(code) {
+    const db = FINANCIAL_DB[code];
+    if (!db || !db.data) return null;
+
+    // 取得最後一年（應該是 2025）的資料
+    const latestYear = Object.keys(db.data).sort().pop();
+    if (!latestYear || !db.data[latestYear]) return null;
+
+    const latest = db.data[latestYear];
+    const eps2025 = latest.eps;
+
+    if (!eps2025 || eps2025 <= 0) return null;
+
+    // 簡單推估：假設 2026 與 2025 成長率為 5% - 15%（保守估計）
+    const growthRate = 0.10;  // 10% 成長
+    const eps2026Annual = eps2025 * (1 + growthRate);
+
+    // 分配為四個季度（簡單均分）
+    const quarterlyEps = eps2026Annual / 4;
+
+    return [
+      {year: 2026, season: 1, eps: quarterlyEps, source: 'estimated_db'},
+      {year: 2026, season: 2, eps: quarterlyEps, source: 'estimated_db'},
+      {year: 2026, season: 3, eps: quarterlyEps, source: 'estimated_db'},
+      {year: 2026, season: 4, eps: quarterlyEps, source: 'estimated_db'}
+    ];
   }
 
   return {fetch};
@@ -156197,14 +156265,17 @@ const epsEstimator = (() => {
    * - H1 實際 = Q1 + Q2 (MOPS 直接取得)
    * - H2 推估 = 基於 2025 同季比例
    * - 年度 EPS = H1 實際 + H2 推估
+   * - 置信度基於數據來源
    */
 
   function estimate2026(quarters2026, historicalQuarters2025 = null) {
     if (!quarters2026 || quarters2026.length === 0) return null;
 
     const q2026 = {};
+    let dataSource = 'unknown';
     quarters2026.forEach(q => {
       q2026[`q${q.season}`] = q.eps;
+      if (q.source) dataSource = q.source;  // 記錄來源
     });
 
     // H1 實際
@@ -156233,11 +156304,20 @@ const epsEstimator = (() => {
 
     const yearlyEps = h1 + h2;
 
+    // 基於資料來源評估置信度
+    let confidence = 'low';
+    if (dataSource === 'html' || dataSource === 'proxy') {
+      confidence = quarters2026.length >= 2 ? 'high' : 'medium';  // 實際爬蟲資料
+    } else if (dataSource === 'estimated' || dataSource === 'estimated_db') {
+      confidence = 'medium';  // 推估資料
+    }
+
     return {
       h1Actual: h1,
       h2Estimated: h2,
       yearlyEps2026: yearlyEps,
-      confidence: quarters2026.length >= 2 ? 'high' : 'medium',
+      confidence: confidence,
+      dataSource: dataSource,
       quarters: quarters2026
     };
   }
