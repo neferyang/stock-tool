@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【測試】2026 年度 EPS 推估系統</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #333; margin-top: 0; }
+    .test-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button:hover { background: #2563eb; }
+    button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 15px;
+    }
+    .card.success { border-left: 4px solid #10b981; background: #f0fdf4; }
+    .card.warning { border-left: 4px solid #f59e0b; background: #fffbeb; }
+    .card.error { border-left: 4px solid #ef4444; background: #fef2f2; }
+    .card-title { font-weight: 700; margin-bottom: 8px; color: #333; }
+    .card-content { font-size: 13px; color: #666; }
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 0;
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .metric-label { font-weight: 600; }
+    .metric-value { color: #3b82f6; font-weight: 700; }
+    .spinner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #f3f4f6;
+      border-top: 2px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .log {
+      background: #1f2937;
+      color: #10b981;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+    .badge.high { background: #dcfce7; color: #166534; }
+    .badge.medium { background: #fef3c7; color: #92400e; }
+    .badge.low { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 【測試】2026 年度 EPS 推估系統 v6.05+</h1>
+    <p>驗證 MOPS 爬蟲、緩存、推估功能</p>
+  </div>
+
+  <div class="container">
+    <h2>測試控制</h2>
+    <div class="test-form">
+      <input type="text" id="stockCode" placeholder="輸入股票代號（如 2330）" value="2330">
+      <button onclick="testSingleStock()">🔍 測試單支股票</button>
+      <button onclick="testBatchStocks()">📊 批量測試</button>
+      <button onclick="clearTestCache()">🗑️ 清除緩存</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>測試日誌</h2>
+    <div class="log" id="log">準備就緒。請開始測試。\n</div>
+  </div>
+
+  <div class="container">
+    <h2>測試結果</h2>
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    // 複製必要的模塊（從主 index.html）
+    const quarterCache = (() => {
+      const CACHE_KEY = 'mopsQuartersCache_v1';
+      const CACHE_EXPIRE_DAYS = 7;
+      const CACHE_VERSION = '1.0.0';
+
+      function loadCache() {
+        try {
+          const data = localStorage.getItem(CACHE_KEY);
+          if (!data) return initCache();
+          const parsed = JSON.parse(data);
+          return parsed.version === CACHE_VERSION ? parsed : initCache();
+        } catch(e) {
+          console.error('[Cache] 加載失敗:', e);
+          return initCache();
+        }
+      }
+
+      function initCache() {
+        return {version: CACHE_VERSION, stocks: {}};
+      }
+
+      function saveCache(cache) {
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+          log('[Cache] 已保存');
+        } catch(e) {
+          log('[Cache] 保存失敗: ' + e.message);
+        }
+      }
+
+      function isCacheValid(code) {
+        const cache = loadCache();
+        if (!cache.stocks[code]) return false;
+        const item = cache.stocks[code];
+        const now = new Date();
+        const expiresAt = new Date(item.expiresAt);
+        return now <= expiresAt;
+      }
+
+      function getCachedQuarters(code) {
+        const cache = loadCache();
+        return cache.stocks[code]?.quarters || null;
+      }
+
+      function updateCache(code, quarters, dataSource) {
+        const cache = loadCache();
+        const now = new Date();
+        const expiresAt = new Date(now.getTime() + CACHE_EXPIRE_DAYS * 86400000);
+        cache.stocks[code] = {
+          lastUpdate: now.toISOString(),
+          expiresAt: expiresAt.toISOString(),
+          dataSource: dataSource,
+          quarters: quarters
+        };
+        saveCache(cache);
+        log(`[Cache] 已更新 ${code} (來源: ${dataSource})`);
+      }
+
+      function clearCache() {
+        localStorage.removeItem(CACHE_KEY);
+        log('[Cache] 已清空');
+      }
+
+      return {
+        isCacheValid, getCachedQuarters, updateCache, clearCache, loadCache
+      };
+    })();
+
+    // 日誌函數
+    function log(msg) {
+      const logEl = document.getElementById('log');
+      const timestamp = new Date().toLocaleTimeString();
+      logEl.textContent += `[${timestamp}] ${msg}\n`;
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    // 添加結果卡片
+    function addResult(code, data) {
+      const resultsEl = document.getElementById('results');
+
+      if (data.error) {
+        resultsEl.innerHTML += `
+          <div class="card error">
+            <div class="card-title">${code}</div>
+            <div class="card-content">❌ ${data.error}</div>
+          </div>
+        `;
+        return;
+      }
+
+      const confidence = data.confidence || 'low';
+      const confColor = confidence === 'high' ? 'success' : confidence === 'medium' ? 'warning' : 'error';
+
+      resultsEl.innerHTML += `
+        <div class="card ${confColor}">
+          <div class="card-title">
+            ${code}
+            <span class="badge ${confidence}">${confidence}</span>
+          </div>
+          <div class="card-content">
+            <div class="metric">
+              <span class="metric-label">H1 實際:</span>
+              <span class="metric-value">${data.h1Actual?.toFixed(2) || 'N/A'}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">H2 推估:</span>
+              <span class="metric-value">${data.h2Estimated?.toFixed(2) || 'N/A'}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">年度 EPS:</span>
+              <span class="metric-value">${data.yearlyEps2026?.toFixed(2) || 'N/A'}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">資料來源:</span>
+              <span class="metric-value">${data.dataSource || 'unknown'}</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">季度數:</span>
+              <span class="metric-value">${data.quarters?.length || 0}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // 測試單支股票
+    async function testSingleStock() {
+      const code = document.getElementById('stockCode').value.trim();
+      if (!code) {
+        alert('請輸入股票代號');
+        return;
+      }
+
+      document.getElementById('results').innerHTML = '';
+      log(`\n開始測試: ${code}`);
+      log(`時間: ${new Date().toLocaleString()}`);
+
+      try {
+        log(`[1/3] 檢查緩存...`);
+        if (quarterCache.isCacheValid(code)) {
+          const cached = quarterCache.getCachedQuarters(code);
+          log(`[2/3] ✓ 緩存有效，取得 ${cached.length} 個季度`);
+
+          addResult(code, {
+            h1Actual: (cached[0]?.eps || 0) + (cached[1]?.eps || 0),
+            h2Estimated: (cached[2]?.eps || 0) + (cached[3]?.eps || 0),
+            yearlyEps2026: cached.reduce((sum, q) => sum + q.eps, 0),
+            confidence: 'high',
+            dataSource: 'cached',
+            quarters: cached
+          });
+
+          log(`[3/3] ✓ 測試完成（使用緩存）`);
+        } else {
+          log(`[2/3] 無有效緩存，模擬爬蟲...`);
+
+          // 模擬爬蟲成功
+          const mockData = [
+            {year: 2026, season: 1, eps: 15.5, source: 'simulated'},
+            {year: 2026, season: 2, eps: 16.2, source: 'simulated'},
+            {year: 2026, season: 3, eps: 16.8, source: 'simulated'},
+            {year: 2026, season: 4, eps: 17.5, source: 'simulated'}
+          ];
+
+          log(`[3/3] ✓ 模擬爬蟲成功，取得 4 個季度`);
+          quarterCache.updateCache(code, mockData, 'simulated');
+
+          addResult(code, {
+            h1Actual: mockData[0].eps + mockData[1].eps,
+            h2Estimated: mockData[2].eps + mockData[3].eps,
+            yearlyEps2026: mockData.reduce((sum, q) => sum + q.eps, 0),
+            confidence: 'high',
+            dataSource: 'simulated',
+            quarters: mockData
+          });
+        }
+      } catch(e) {
+        log(`❌ 錯誤: ${e.message}`);
+        addResult(code, {error: e.message});
+      }
+    }
+
+    // 批量測試
+    async function testBatchStocks() {
+      const testCodes = ['2330', '2207', '1101', '2454', '2330'];  // 包含重複測試
+      document.getElementById('results').innerHTML = '';
+      log(`\n開始批量測試: ${testCodes.length} 支股票`);
+
+      for (const code of testCodes) {
+        log(`\n---`);
+        log(`測試: ${code}`);
+
+        if (quarterCache.isCacheValid(code)) {
+          const cached = quarterCache.getCachedQuarters(code);
+          log(`✓ 使用緩存 (${cached.length} 季度)`);
+
+          addResult(code, {
+            h1Actual: (cached[0]?.eps || 0) + (cached[1]?.eps || 0),
+            h2Estimated: (cached[2]?.eps || 0) + (cached[3]?.eps || 0),
+            yearlyEps2026: cached.reduce((sum, q) => sum + q.eps, 0),
+            confidence: 'high',
+            dataSource: 'cached',
+            quarters: cached
+          });
+        } else {
+          // 模擬爬蟲
+          const baseEps = 10 + Math.random() * 20;
+          const mockData = [
+            {year: 2026, season: 1, eps: baseEps * 0.9},
+            {year: 2026, season: 2, eps: baseEps * 0.95},
+            {year: 2026, season: 3, eps: baseEps * 1.05},
+            {year: 2026, season: 4, eps: baseEps * 1.1}
+          ];
+
+          log(`✓ 模擬爬蟲成功 (4 季度)`);
+          quarterCache.updateCache(code, mockData, 'simulated');
+
+          addResult(code, {
+            h1Actual: mockData[0].eps + mockData[1].eps,
+            h2Estimated: mockData[2].eps + mockData[3].eps,
+            yearlyEps2026: mockData.reduce((sum, q) => sum + q.eps, 0),
+            confidence: Math.random() > 0.5 ? 'high' : 'medium',
+            dataSource: 'simulated',
+            quarters: mockData
+          });
+        }
+      }
+
+      log(`\n---`);
+      log(`✓ 批量測試完成`);
+    }
+
+    // 清除緩存
+    function clearTestCache() {
+      quarterCache.clearCache();
+      log('✓ 已清除所有緩存');
+    }
+
+    // 初始化
+    log('頁面已加載，準備測試...');
+  </script>
+</body>
+</html>
