@@ -486,10 +486,23 @@ async function safeFetch(url) {
     const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
     if (r.ok) return await r.json();
   } catch(e) {}
+
+  // 備援 1：嘗試 allorigins (更穩定)
+  try {
+    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(12000)});
+    if (r.ok) {
+      const data = await r.json();
+      if (data.contents) return JSON.parse(data.contents);
+    }
+  } catch(e) {}
+
+  // 備援 2：嘗試 corsproxy (如果檔案不會太大)
   try {
     const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
     if (r.ok) return await r.json();
   } catch(e) {}
+
   return null;
 }
 
