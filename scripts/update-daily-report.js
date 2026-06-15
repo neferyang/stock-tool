@@ -87,10 +87,27 @@ async function updateDailyReport() {
     const twhTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
 
     reportData.lastUpdated = utcTime;
-    reportData.version = '1.0.1';
+    reportData.lastForcedUpdate = utcTime;
+    reportData.updateSource = 'GitHub Actions 自動更新';
 
-    // 嘗試獲取市場數據
-    console.log('📊 正在獲取市場數據...');
+    // 版本遞增
+    const currentVersion = reportData.version || '1.0.0';
+    const [major, minor, patch] = currentVersion.split('.').map(Number);
+    const newVersion = `${major}.${minor}.${patch + 1}`;
+    reportData.version = newVersion;
+
+    // 添加版本歷史
+    if (!reportData.versionHistory) {
+      reportData.versionHistory = [];
+    }
+    reportData.versionHistory.unshift({
+      version: newVersion,
+      date: twhTime.toLocaleString('zh-TW'),
+      status: '自動更新 - 市場數據已刷新'
+    });
+
+    // 嘗試獲取最新市場數據
+    console.log('📊 正在從 Yahoo Finance 獲取最新市場數據...');
     const marketSymbols = {
       '^DJI': '道瓊',
       '^GSPC': 'S&P 500',
@@ -103,18 +120,52 @@ async function updateDailyReport() {
     };
 
     const marketData = await fetchYahooFinanceData(marketSymbols);
-    console.log(`\n✅ 獲取 ${Object.keys(marketData).length} 個市場數據\n`);
+    console.log(`\n✅ 成功獲取 ${Object.keys(marketData).length} 個市場數據\n`);
 
-    // 注：實際應用中應根據獲取的數據動態更新 markets 數組
-    // 這裡簡化為保持現有數據，但更新時間戳
+    // 【重要】動態更新市場數據
+    if (Object.keys(marketData).length > 0) {
+      console.log('🔄 更新市場指數數據...');
+
+      // 更新 markets 數組中的數據（根據獲取的最新數據）
+      reportData.markets = reportData.markets.map(market => {
+        const symbolMap = {
+          '🇺🇸 美國股市': ['^DJI', '^GSPC', '^IXIC'],
+          '🇯🇵 日經225': ['^N225'],
+          '🇮🇳 印度': ['^NSEI'],
+          '🇻🇳 越南 VN-Index': ['^VN'],
+          '🥇 黃金': ['GC=F']
+        };
+
+        // 尋找對應的市場符號
+        for (const [marketName, symbols] of Object.entries(symbolMap)) {
+          if (market.name.includes(marketName.split(' ')[1] || marketName)) {
+            market.items = symbols
+              .filter(sym => marketData[sym])
+              .map(sym => {
+                const data = marketData[sym];
+                const change = data.changePct >= 0 ? '▲' : '▼';
+                return `${data.name}：${data.price}（${change}${Math.abs(data.changePct).toFixed(2)}%）`;
+              });
+            break;
+          }
+        }
+        return market;
+      });
+
+      console.log('✅ 市場數據已動態更新');
+    } else {
+      console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
+    }
 
     // 保存更新後的數據
     fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
 
-    console.log('✅ 每日財金早報已更新');
+    console.log('\n✅ 每日財金早報已更新');
     console.log(`   版本: v${reportData.version}`);
     console.log(`   更新時間: ${utcTime}`);
     console.log(`   台北時間: ${twhTime.toLocaleString('zh-TW')}`);
+    console.log(`   更新來源: ${reportData.updateSource}`);
+    console.log(`   資料源: Yahoo Finance API`);
 
     return true;
   } catch (error) {
