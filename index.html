@@ -111,10 +111,19 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v6.04 (2327股)</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v6.1.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
+
+<!-- ═══════════════ Tab 導航 ═══════════════ -->
+<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px;cursor:pointer;flex-wrap:wrap">
+  <button style="padding:12px 20px;background:none;border:none;color:var(--muted);font-size:.95rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:.2s;color:var(--accent);border-bottom-color:var(--accent)" id="tab-stock" onclick="switchTab('stock',this)">📈 股票估價工具</button>
+  <button style="padding:12px 20px;background:none;border:none;color:var(--muted);font-size:.95rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:.2s" id="tab-report" onclick="switchTab('report',this)">📡 財金早報</button>
+</div>
+
+<!-- ═══════════════ 股票估價分頁 ═══════════════ -->
+<div id="stock-tab">
 
 <!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
@@ -134,9 +143,159 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 </p>
 <div id="st"></div>
 <div id="res" class="hidden"></div>
+
+</div><!-- 結束 stock-tab -->
+
+<!-- ═══════════════ 財金早報分頁 ═══════════════ -->
+<div id="report-tab" class="hidden">
+  <p style="color:var(--muted);font-size:.875rem;margin-bottom:24px">📊 2026年6月15日 市場風險指標儀表板</p>
+  <div id="report-content" style="overflow-y:auto;max-height:80vh"></div>
 </div>
 
+</div><!-- 結束 wrap -->
+
 <script>
+// ════════════════════════════════════════════════════════
+// v6.1.0：Tab 切換和財金早報功能
+// ════════════════════════════════════════════════════════
+function switchTab(tabName, btn) {
+  document.getElementById('stock-tab').classList.toggle('hidden', tabName !== 'stock');
+  document.getElementById('report-tab').classList.toggle('hidden', tabName !== 'report');
+  document.getElementById('tab-stock').style.color = tabName === 'stock' ? 'var(--accent)' : 'var(--muted)';
+  document.getElementById('tab-stock').style.borderBottomColor = tabName === 'stock' ? 'var(--accent)' : 'transparent';
+  document.getElementById('tab-report').style.color = tabName === 'report' ? 'var(--accent)' : 'var(--muted)';
+  document.getElementById('tab-report').style.borderBottomColor = tabName === 'report' ? 'var(--accent)' : 'transparent';
+  if (tabName === 'report') renderFinancialReport();
+}
+
+function renderFinancialReport() {
+  const reportData = {
+    date: '2026年6月15日（星期一）',
+    basedOn: '2026年6月12日（前一交易日）',
+    markets: [
+      { name: '🇺🇸 美國股市', items: ['道瓊：49,711（▼0.42%）', 'S&P 500：7,251（▼0.22%）', '那斯達克：25,068（▼0.41%）'], reason: '美股週五受益川普取消伊朗空襲訊號止跌反彈；但升息預期與新任Fed主席Warsh的鷹派姿態仍支撑避險情緒。' },
+      { name: '🇯🇵 日經225', items: ['64,261（▲0.13%）'], reason: '日股溫和反彈；避險資金回流與日圓走軟提供支撑。' },
+      { name: '🇮🇳 印度', items: ['NIFTY 50：24,825（▼1.96%）', 'SENSEX：80,723（▼1.88%）'], reason: '印度預算日帶動調整，創六年最差表現；但基本面仍具韌性。' },
+      { name: '🇻🇳 越南 VN-Index', items: ['1,791（▼1.61%）'], reason: '東南亞市場延續下行，受全球升息預期拖累。' },
+      { name: '🇹🇼 台灣加權指數', items: ['23,198（6月12日，▼0.65%）'], reason: '台股從高點調整，技術面從量向質轉變；週一見外資大賣超935億元的新低，後勢值得警戒。' },
+      { name: '🥇 黃金', items: ['$4,137 USD/盎司（6月11日）'], reason: '金價小幅反彈0.25%；升息預期與避險情緒拉鋸，地緣紛擾提供底部支撑。' }
+    ],
+    indicators: [
+      { layer: '【第一層】結構性估值', items: [
+        { name: 'CAPE 席勒本益比', value: '39~40', signal: '🔴', status: '達歷史第二高，僅次2000年網路泡沫；結構性泡沫風險最強' },
+        { name: '巴菲特指標（市值/GDP）', value: '231.7%', signal: '🔴', status: '突破歷史最高記錄，遠超警戒（>200%），股市嚴重高估' },
+        { name: 'S&P 500 自由現金流殖利率', value: '約2.4~3.0%', signal: '🟠', status: '已觸及或跌破警戒（<3.0%），處歷史低點，高利率環境下買點困難' },
+        { name: '台股年乖離率', value: '約42~45%', signal: '🔴', status: '已進警戒區（>45%），外資賣超帶動技術面調整，過熱訊號未消' }
+      ]},
+      { layer: '【第二層】總體貨幣環境', items: [
+        { name: '美10年期公債殖利率', value: '4.47%', signal: '🟠', status: '距警戒（>4.80%）約0.33%；升息預期與Fed新主席Warsh的鷹派立場支撑殖利率' },
+        { name: 'Fed 全年降息預期', value: '<1次', signal: '🔴', status: '深度觸發警戒（<2次），Kevin Warsh 6/16-17首次會議將傳遞升息或按兵不動訊號' },
+        { name: 'DXY 美元指數', value: '99.48', signal: '🟡', status: '逼近100大關，升勢持續，距警戒（>105）仍有空間但強勢態勢明確' },
+        { name: '美元兌台幣 USD/TWD', value: '31.60~31.70', signal: '🟠', status: '低於警戒（>32.50），但升勢明顯，外資賣超導致新台幣連五日走貶' }
+      ]},
+      { layer: '【第三層】市場情緒', items: [
+        { name: 'VIX 恐慌指數', value: '20.0+', signal: '🟡', status: '逼近警戒下緣（20~30），科技股調整與Fed會議預期推升波動率，隨時可能加速上升' },
+        { name: '美債10Y－2Y利差', value: '+0.37%', signal: '🟡', status: '正值擴張但幅度仍小，遠低於健康擴張期100bps，曲線仍顯控制' },
+        { name: '高收益債信用利差', value: '275 bps', signal: '🟢', status: '遠低於警戒（>5.0%），處寬鬆狀態；與股市估值脫鉤，風險定價不足' }
+      ]},
+      { layer: '【第四層】實體經濟', items: [
+        { name: 'Sahm 法則指標', value: '0.13', signal: '🟡', status: '未達警戒（≥0.50），但失業率持續攀升，衰退預警升溫；6月數據待7月初公布' },
+        { name: 'Conference Board LEI', value: '97.4', signal: '🟡', status: '六個月環比仍為負，領先指標疲軟；5月+6月數據待18日發布' },
+        { name: 'WTI 原油', value: '$86', signal: '🟡', status: '距警戒（>$100）有距離；川普取消對伊空襲暫緩地緣風險，但供應鏈脆弱性存在' },
+        { name: '初領失業救濟金', value: '22.9萬/週', signal: '🟢', status: '低於警戒（>25萬），但升勢明顯逼近警戒，距警戒僅2~3萬人；失業惡化趨勢清晰' }
+      ]}
+    ],
+    verdict: {
+      rating: '🔴 高度警戒',
+      redCount: 4, orangeCount: 4, yellowCount: 5, greenCount: 2,
+      summary: '估值泡沫與衰退信號並存、Fed鷹派新主席掌舵成關鍵轉折點：CAPE 39~40、巴菲特指標231.7%雙雙創歷史新高，結構性高估延續。同時初領22.9萬逼近警戒、Sahm持續上升，景氣衰退預警升溫。Kevin Warsh取代Powell成為新任Fed主席，6/16-17首次會議預期釋放升息或按兵不動訊號，市場已完全放棄降息預期（零降息定價96%+）。台股週一外資賣超935億創八大單日紀錄，新台幣連五日走貶至31.7元，技術面從量向質轉變風險升高。高收益債利差275bps與股市估值脫鉤，市場風險定價嚴重不足。'
+    },
+    news: [
+      'Kevin Warsh接任Fed主席、升息預期成市場共識：新任主席於6/16-17首次FOMC會議將傳遞政策立場，高盛已正式放棄2026年降息預期、轉向升息預期；市場零降息定價達96%。',
+      '外資在台股出現大賣超、創歷史紀錄：6月10日單日賣超935.73億元，創台股史上第八大單日賣超；外資同步將資金匯出台灣，新台幣盤中貶至31.698元創近兩月新低。',
+      '印度預算日帶動股市大幅調整：NIFTY跌1.96%、SENSEX跌1.88%，創六年最差預算日表現；金屬與房產股承壓最重。'
+    ],
+    observations: [
+      '估值泡沫與衰退警訊並存、Fed鷹派新主席將成轉折點：CAPE 39~40、巴菲特指標231.7%雙雙創歷史新高；同步初領22.9萬逼近警戒、Sahm 0.13持續上升。Kevin Warsh上任後的升息訊號將成為估值重估的觸發點。',
+      '台股外資大賣超創紀錄、技術面從量向質轉變：6月10日單日賣超935億、外資匯出推低台幣至31.7元，年乖離率45%+過熱訊號仍存。美股高估値與衰退預警並存的環境下，台股面臨重大調整壓力。',
+      '升息預期已成市場共識、高收益債利差與股市估值脫鉤為隱憂：高收益債利差275bps遠低於警戒值（>5%），風險定價嚴重不足；一旦Fed升息或經濟數據惡化，流動性的快速收縮將衝擊高估值資產與信用債。建議逢高減碼、提高現金部位應對波動。'
+    ]
+  };
+
+  let html = ``;
+
+  // 市場行情
+  html += `<div style="margin-bottom:24px"><div style="font-weight:700;margin-bottom:12px;font-size:1rem;border-left:3px solid var(--accent);padding-left:10px">📊 全球市場行情</div>
+    <div style="font-size:.85rem;color:var(--muted);margin-bottom:12px">資料基準：${reportData.basedOn}</div>`;
+  reportData.markets.forEach(m => {
+    html += `<div style="background:var(--sbg);border-left:3px solid var(--accent);padding:12px;margin-bottom:8px;border-radius:4px">
+      <strong>${m.name}</strong><br>
+      ${m.items.map(i => `<span style="font-size:.9rem">${i}</span><br>`).join('')}
+      <span style="font-size:.85rem;color:var(--muted);margin-top:4px;display:block">→ ${m.reason}</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // 綜合評級
+  html += `<div style="background:linear-gradient(135deg,#fee2e2,#fef9c3);border:1px solid #fcd34d;border-radius:8px;padding:16px;margin-bottom:24px">
+    <div style="font-weight:700;font-size:1.1rem;margin-bottom:8px">⚠️ 綜合評級：${reportData.verdict.rating}</div>
+    <div style="display:flex;gap:8px;margin-bottom:12px;font-size:.9rem">
+      <span>🔴×${reportData.verdict.redCount}</span>
+      <span>🟠×${reportData.verdict.orangeCount}</span>
+      <span>🟡×${reportData.verdict.yellowCount}</span>
+      <span>🟢×${reportData.verdict.greenCount}</span>
+    </div>
+    <div style="font-size:.9rem;line-height:1.8">${reportData.verdict.summary}</div>
+  </div>`;
+
+  // 風險指標
+  html += `<div style="margin-bottom:24px"><div style="font-weight:700;margin-bottom:12px;font-size:1rem;border-left:3px solid var(--accent);padding-left:10px">📡 市場風險指標（15項）</div>`;
+  reportData.indicators.forEach(layer => {
+    html += `<div style="margin-bottom:16px"><div style="font-weight:700;color:var(--accent);margin-bottom:8px">${layer.layer}</div>`;
+    layer.items.forEach(ind => {
+      html += `<div style="background:#f3f4f6;padding:10px;margin-bottom:6px;border-radius:4px;border-left:3px solid var(--accent)">
+        <div style="display:flex;justify-content:space-between;align-items:start">
+          <div>
+            <strong style="font-size:.95rem">${ind.name}</strong><br>
+            <span style="color:var(--muted);font-size:.85rem">${ind.status}</span>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:1.2rem">${ind.signal}</div>
+            <div style="font-weight:700;color:var(--accent)">${ind.value}</div>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += `</div>`;
+  });
+  html += `</div>`;
+
+  // 重要新聞
+  html += `<div style="margin-bottom:24px"><div style="font-weight:700;margin-bottom:12px;font-size:1rem;border-left:3px solid var(--accent);padding-left:10px">📰 重要新聞</div>`;
+  reportData.news.forEach(n => {
+    html += `<div style="background:var(--sbg);padding:10px;margin-bottom:8px;border-left:3px solid var(--yel);border-radius:4px">
+      <span style="font-size:.9rem">・ ${n}</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // 今日觀察
+  html += `<div style="margin-bottom:24px"><div style="font-weight:700;margin-bottom:12px;font-size:1rem;border-left:3px solid var(--accent);padding-left:10px">💡 今日觀察</div>`;
+  reportData.observations.forEach((obs, i) => {
+    html += `<div style="background:var(--sbg);padding:12px;margin-bottom:8px;border-left:3px solid var(--green);border-radius:4px">
+      <strong style="color:var(--accent)">${i+1}️⃣</strong> <span style="font-size:.9rem">${obs}</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // 免責聲明
+  html += `<div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:12px;font-size:.8rem;color:#78350f">
+    ⚠️ 本資訊僅供參考，不構成投資建議。風險指標基於 2026年6月12日收盤數據。市場瞬息萬變，請搭配其他資訊來源做決策。
+  </div>`;
+
+  document.getElementById('report-content').innerHTML = html;
+}
+
 // ════════════════════════════════════════════════════════
 // v6.01：中文股票名稱搜尋（TWSE 動態加載）
 // v6.01：美股模糊搜尋（US 股票列表）
