@@ -168,8 +168,23 @@ function switchTab(tabName, btn) {
   if (tabName === 'report') renderFinancialReport();
 }
 
-function renderFinancialReport() {
-  const reportData = {
+async function renderFinancialReport() {
+  let reportData = null;
+
+  // 優先從網路 JSON 加載數據
+  try {
+    const resp = await fetch('daily-report.json?t=' + new Date().getTime(), {signal: AbortSignal.timeout(5000)});
+    if (resp.ok) {
+      reportData = await resp.json();
+      console.log('✅ 從 JSON 加載財金早報數據成功');
+    }
+  } catch(e) {
+    console.warn('⚠️ 無法加載 JSON，使用預設數據:', e.message);
+  }
+
+  // 如果加載失敗，使用預設硬編碼數據
+  if (!reportData) {
+    reportData = {
     date: '2026年6月15日（星期一）',
     basedOn: '2026年6月12日（前一交易日）',
     markets: [
@@ -223,6 +238,13 @@ function renderFinancialReport() {
   };
 
   let html = ``;
+
+  // 顯示更新時間和版本
+  const lastUpdated = reportData.lastUpdated ? new Date(reportData.lastUpdated).toLocaleString('zh-TW') : '資料加載中...';
+  html += `<div style="background:#f0f7ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 14px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;font-size:.85rem">
+    <span>📊 <strong>最後更新：</strong>${lastUpdated}</span>
+    <span style="color:var(--muted)">v${reportData.version || '1.0.0'}</span>
+  </div>`;
 
   // 市場行情
   html += `<div style="margin-bottom:24px"><div style="font-weight:700;margin-bottom:12px;font-size:1rem;border-left:3px solid var(--accent);padding-left:10px">📊 全球市場行情</div>
