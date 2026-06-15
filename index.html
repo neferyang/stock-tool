@@ -1583,6 +1583,17 @@ function calcVals(price, m, indKey, indObj) {
   const params = getIndustryParams(indKey);
   const indName = indObj ? indObj.name : params.name;
 
+  // 【v6.3】虧損企業警告（優先顯示）
+  if (eps !== null && eps !== undefined && eps <= 0) {
+    const fairPB = params.fairPB || 2.5;
+    res.push({
+      m:'⚠️ 虧損企業警告',
+      d:`此企業目前無盈利（EPS ≤ 0），無法進行傳統 P/E 估值。建議改用 P/B 淨值法估值，或等待企業恢復盈利。${indName} 的合理 P/B 上限為 ${fairPB}x`,
+      t:'EPS ≤ 0',
+      b:'<span class="badge bh">注意</span>'
+    });
+  }
+
   // ── 1. P/E 評估 ──────────────────────────────────────────
   if (pe && pe > 0 && pe < 500) {
     const fairPE = params.fairPE || 16;
