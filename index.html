@@ -1620,6 +1620,19 @@ function calcVals(price, m, indKey, indObj) {
     }
   }
 
+  // 【v6.3】EPS 衝突檢測：實時 EPS vs FINANCIAL_DB 歷史 EPS
+  if (m.epsConflict) {
+    const diff = Math.abs(m.epsConflict.current - m.epsConflict.historical) / m.epsConflict.historical * 100;
+    if (diff > 15) {  // EPS 容許差異稍高（因為來自不同報告期）
+      res.push({
+        m:'⚠️ EPS 數據來源衝突',
+        d:`即時 EPS: ${f(m.epsConflict.current,2)} vs 歷史 EPS: ${f(m.epsConflict.historical,2)} (差異 ${f(diff,1)}%)。可能因報告期不同、季度預估 vs 年度決算。`,
+        t:`差異 ${f(diff,1)}%`,
+        b:'<span class="badge bn">需注意</span>'
+      });
+    }
+  }
+
   // ── 1. P/E 評估 ──────────────────────────────────────────
   if (pe && pe > 0 && pe < 500) {
     const fairPE = params.fairPE || 16;
@@ -156232,6 +156245,19 @@ async function go(){
     if (financialResult && financialResult.length > 0) {
       financialTrend = calcFinancialTrend(financialResult);
       latestFinancial = financialResult[0];  // 最新年度數據
+
+      // 【v6.3】EPS 衝突檢測：實時 EPS vs 歷史年度 EPS
+      if (m.eps && latestFinancial.eps && latestFinancial.eps > 0) {
+        const histEps = latestFinancial.eps;
+        const currentEps = m.eps;
+        const epsDiff = Math.abs(currentEps - histEps) / histEps * 100;
+
+        // EPS 來自不同報告期（季度推估 vs 年度決算），容許 15% 的差異
+        if (epsDiff > 15) {
+          m.epsConflict = { current: currentEps, historical: histEps };
+          console.log(`[EPS 衝突] ${code}: 實時 ${currentEps.toFixed(2)} vs 歷史 ${histEps.toFixed(2)} (差異 ${epsDiff.toFixed(1)}%)`);
+        }
+      }
 
       // 【v6.04】混合方案：TWSE PE + 實時計算 EPS
       // 不再覆蓋 TWSE PE 計算的 EPS，而是用於驗證和歷史趨勢
