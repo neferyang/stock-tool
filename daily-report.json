@@ -1,6 +1,13 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2026-06-15T06:00:00+08:00",
+  "version": "1.0.1",
+  "versionHistory": [
+    {"version": "1.0.0", "date": "2026-06-15 06:00:00", "status": "首次發佈"},
+    {"version": "1.0.1", "date": "2026-06-15 06:15:00", "status": "數據更新"}
+  ],
+  "lastUpdated": "2026-06-15T06:15:00+08:00",
+  "lastForcedUpdate": "2026-06-15T06:15:00+08:00",
+  "autoUpdateSchedule": "每日 06:00 (台北時間)",
+  "updateSource": "手動強制更新",
   "date": "2026年6月15日（星期一）",
   "basedOn": "2026年6月12日（前一交易日）",
   "markets": [

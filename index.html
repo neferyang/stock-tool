@@ -148,7 +148,12 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 
 <!-- ═══════════════ 財金早報分頁 ═══════════════ -->
 <div id="report-tab" class="hidden">
-  <p style="color:var(--muted);font-size:.875rem;margin-bottom:24px">📊 2026年6月15日 市場風險指標儀表板</p>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+    <p style="color:var(--muted);font-size:.875rem;margin:0">📊 2026年6月15日 市場風險指標儀表板</p>
+    <button id="force-update-btn" onclick="forceUpdateReport()" style="background:var(--accent);color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:all 0.3s">
+      🔄 強制更新
+    </button>
+  </div>
   <div id="report-content" style="overflow-y:auto;max-height:80vh"></div>
 </div>
 
@@ -166,6 +171,53 @@ function switchTab(tabName, btn) {
   document.getElementById('tab-report').style.color = tabName === 'report' ? 'var(--accent)' : 'var(--muted)';
   document.getElementById('tab-report').style.borderBottomColor = tabName === 'report' ? 'var(--accent)' : 'transparent';
   if (tabName === 'report') renderFinancialReport();
+}
+
+async function forceUpdateReport() {
+  const btn = document.getElementById('force-update-btn');
+  const originalText = btn.innerHTML;
+
+  try {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin"></span>更新中...';
+
+    // 帶時間戳強制刷新（繞過快取）
+    const timestamp = new Date().getTime();
+    const response = await fetch(`daily-report.json?t=${timestamp}`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+
+    // 更新成功
+    btn.innerHTML = '✅ 已更新';
+    btn.style.background = '#10b981';
+
+    // 重新渲染報告
+    setTimeout(() => {
+      renderFinancialReport();
+      // 2秒後恢復按鈕
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        btn.style.background = 'var(--accent)';
+      }, 2000);
+    }, 500);
+
+  } catch(error) {
+    btn.innerHTML = '❌ 更新失敗';
+    btn.style.background = '#ef4444';
+    console.error('強制更新失敗:', error);
+
+    // 3秒後恢復按鈕
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+      btn.style.background = 'var(--accent)';
+    }, 3000);
+  }
 }
 
 async function renderFinancialReport() {
@@ -242,9 +294,21 @@ async function renderFinancialReport() {
 
   // 顯示更新時間和版本
   const lastUpdated = reportData.lastUpdated ? new Date(reportData.lastUpdated).toLocaleString('zh-TW') : '資料加載中...';
+  const autoUpdate = reportData.autoUpdateSchedule || '每日 06:00 (台北時間)';
+  const updateSource = reportData.updateSource || 'GitHub Actions 自動更新';
+
   html += `<div style="background:#f0f7ff;border:1px solid #93c5fd;border-radius:8px;padding:10px 14px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;font-size:.85rem">
-    <span>📊 <strong>最後更新：</strong>${lastUpdated}</span>
-    <span style="color:var(--muted)">v${reportData.version || '1.0.0'}</span>
+    <div>
+      <div>📊 <strong>最後更新：</strong>${lastUpdated}</div>
+      <div style="font-size:.75rem;color:var(--muted);margin-top:3px">
+        🔄 ${updateSource} | ⏰ ${autoUpdate}
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div>v${reportData.version || '1.0.0'}</div>
+      ${reportData.versionHistory && reportData.versionHistory.length > 1 ?
+        `<div style="font-size:.7rem;color:var(--muted);margin-top:2px">${reportData.versionHistory.length} 版本歷史</div>` : ''}
+    </div>
   </div>`;
 
   // 市場行情
