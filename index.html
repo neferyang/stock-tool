@@ -151,7 +151,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
     <p style="color:var(--muted);font-size:.875rem;margin:0">📊 2026年6月15日 市場風險指標儀表板</p>
     <button id="force-update-btn" onclick="forceUpdateReport()" style="background:var(--accent);color:white;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:6px;transition:all 0.3s">
-      🔄 強制更新
+      🔄 更新
     </button>
   </div>
   <div id="report-content" style="overflow-y:auto;max-height:80vh"></div>
@@ -1592,6 +1592,32 @@ function calcVals(price, m, indKey, indObj) {
       t:'EPS ≤ 0',
       b:'<span class="badge bh">注意</span>'
     });
+  }
+
+  // 【v6.3】數據衝突警告（Step 4）
+  // 檢測多個數據源的差異
+  if (m.peConflict) {
+    const diff = Math.abs(m.peConflict.twse - m.peConflict.yahoo) / m.peConflict.twse * 100;
+    if (diff > 10) {  // 差異 > 10% 才警告
+      res.push({
+        m:'⚠️ P/E 數據來源衝突',
+        d:`TWSE P/E: ${f(m.peConflict.twse,1)}x vs Yahoo P/E: ${f(m.peConflict.yahoo,1)}x (差異 ${f(diff,1)}%)。優先參考 TWSE 官方數據。`,
+        t:`差異 ${f(diff,1)}%`,
+        b:'<span class="badge bn">需注意</span>'
+      });
+    }
+  }
+
+  if (m.pbConflict) {
+    const diff = Math.abs(m.pbConflict.twse - m.pbConflict.yahoo) / m.pbConflict.twse * 100;
+    if (diff > 10) {  // 差異 > 10% 才警告
+      res.push({
+        m:'⚠️ P/B 數據來源衝突',
+        d:`TWSE P/B: ${f(m.pbConflict.twse,1)}x vs Yahoo P/B: ${f(m.pbConflict.yahoo,1)}x (差異 ${f(diff,1)}%)。優先參考 TWSE 官方數據。`,
+        t:`差異 ${f(diff,1)}%`,
+        b:'<span class="badge bn">需注意</span>'
+      });
+    }
   }
 
   // ── 1. P/E 評估 ──────────────────────────────────────────
@@ -155978,32 +156004,33 @@ async function go(){
     };
 
     // TWSE 上市資料
+    // 【v6.3】優先級邏輯：TWSE (Priority 1) > Yahoo (Priority 2) > 計算值 (Priority 3)
     if (twseArr) {
       const no = ticker.replace('.TW','').replace('.TWO','');
       const row = twseArr.find(r=>r.Code===no);
       if (row) {
         if (row.PEratio && row.PEratio!=='-') {
           m.pe = parseFloat(row.PEratio);
-          m.peSource = 'TWSE ✓';  // 【v6.3】標記 TWSE 官方來源
+          m.peSource = 'TWSE ✓';  // 優先級 1：官方最可靠
         }
         if (row.PBratio && row.PBratio!=='-') {
           m.pb = parseFloat(row.PBratio);
-          m.pbSource = 'TWSE ✓';
+          m.pbSource = 'TWSE ✓';  // 優先級 1
         }
         if (row.DividendYield && row.DividendYield!=='-') {
           m.divYield = parseFloat(row.DividendYield);
-          // divSource 在計算時設置
+          m.divSource = 'TWSE ✓';  // 優先級 1
         }
         // 【v6.04】混合方案：TWSE PE + 實時計算 EPS
         // EPS = Price / PE （確保 EPS 與 TWSE PE 一致性）
         // FINANCIAL_DB 的 EPS 將逐步廢棄，改用實時計算
         if (m.pe && m.pe>0) {
           m.eps = price / m.pe;
-          m.epsSource = '計算值 (TWSE PE)';  // 【v6.3】標記 EPS 是由 TWSE PE 計算的
+          m.epsSource = '計算值 (TWSE PE)';  // 優先級 3：來自 TWSE PE 計算
         }
         if (m.divYield) {
           m.div = price * m.divYield / 100;
-          m.divSource = 'TWSE ✓';
+          m.divSource = 'TWSE ✓';  // 優先級 1
         }
         if (row.Name) m.name = row.Name;
         // TWSE 額外財務數據（如果提供）
@@ -156060,22 +156087,33 @@ async function go(){
       if (!m.sector) m.sector = raw2(pr.sector) || raw2(pr.quoteType) || raw2(sd.sector) || '';
       if (!m.industry) m.industry = raw2(pr.industry) || raw2(sd.industry) || '';
       m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
+      // 【v6.3】優先級邏輯：只在 TWSE/TPEX 沒有時才用 Yahoo（優先級 2）
       // 財務資料：TWSE/TPEX 已有的不覆蓋
       if (!m.pe) {
         m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
-        if (m.pe) m.peSource = 'Yahoo ⓘ';  // 【v6.3】標記 Yahoo 來源
+        if (m.pe) m.peSource = 'Yahoo ⓘ';  // 優先級 2：備用來源
+      } else if (m.pe && m.peSource !== 'TWSE ✓') {
+        // 【v6.3】記錄 Yahoo P/E 用於衝突檢測
+        const pe_yahoo = raw2(sd.trailingPE)||raw2(pr.trailingPE);
+        if (pe_yahoo) m.peConflict = { twse: m.pe, yahoo: pe_yahoo };
       }
+
       if (!m.pb) {
         m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
-        if (m.pb) m.pbSource = 'Yahoo ⓘ';
+        if (m.pb) m.pbSource = 'Yahoo ⓘ';  // 優先級 2：備用來源
+      } else if (m.pb && m.pbSource !== 'TWSE ✓') {
+        // 【v6.3】記錄 Yahoo P/B 用於衝突檢測
+        const pb_yahoo = raw2(sd.priceToBook)||raw2(ks.priceToBook);
+        if (pb_yahoo) m.pbConflict = { twse: m.pb, yahoo: pb_yahoo };
       }
+
       if (!m.divYield && raw2(sd.dividendYield)) {
         m.divYield = raw2(sd.dividendYield)*100;
-        m.divSource = 'Yahoo ⓘ';
+        m.divSource = 'Yahoo ⓘ';  // 優先級 2：備用來源
       }
       if (!m.div) {
         m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
-        if (m.div) m.divSource = 'Yahoo ⓘ';
+        if (m.div) m.divSource = 'Yahoo ⓘ';  // 優先級 2：備用來源
       }
       // 【修正】台股 EPS 只用 FINANCIAL_DB，不用 Yahoo Finance 的數據（避免 ADR 混淆）
       if (!m.eps && !isTW) {
