@@ -1601,10 +1601,13 @@ function calcVals(price, m, indKey, indObj) {
             '<span class="badge bh">偏高 !</span>';
     }
 
-    const detail = `目前P/E=${f(pe,1)}${peWarning}（${indName}合理區間：${Math.round(fairPE*0.8)}~${Math.round(fairPE*1.3)}x，fairPE=${fairPE}x）`;
+    // 【v6.3】添加數據來源標籤
+    const peSourceLabel = m.peSource ? ` (${m.peSource})` : '';
+    const detail = `目前P/E=${f(pe,1)}${peSourceLabel}${peWarning}（${indName}合理區間：${Math.round(fairPE*0.8)}~${Math.round(fairPE*1.3)}x，fairPE=${fairPE}x）`;
     res.push({m:'P/E 本益比評估', d:detail, t:f(pe,1)+'x', b:sig});
   } else if (pe && pe >= 500) {
-    res.push({m:'P/E 本益比評估', d:`P/E=${f(pe,1)}x - 極端值（可能無盈利或數據異常）`, t:f(pe,1)+'x', b:'<span class="badge bn">異常 !</span>'});
+    const peSourceLabel = m.peSource ? ` (${m.peSource})` : '';
+    res.push({m:'P/E 本益比評估', d:`P/E=${f(pe,1)}${peSourceLabel} - 極端值（可能無盈利或數據異常）`, t:f(pe,1)+'x', b:'<span class="badge bn">異常 !</span>'});
   }
 
   // ── 2. P/B 淨值估價 ───────────────────────────────────────
@@ -1622,10 +1625,13 @@ function calcVals(price, m, indKey, indObj) {
       sig = '<span class="badge bh">偏高 !</span>';
     }
 
-    const detail = `每股淨值≈${f(bv)} × 合理P/B ${fairPB}x（目前P/B=${f(pb,1)}，${indName}合理上限${fairPB}x）`;
+    // 【v6.3】添加數據來源標籤
+    const pbSourceLabel = m.pbSource ? ` (${m.pbSource})` : '';
+    const detail = `每股淨值≈${f(bv)} × 合理P/B ${fairPB}x（目前P/B=${f(pb,1)}${pbSourceLabel}，${indName}合理上限${fairPB}x）`;
     res.push({m:'P/B 淨值估價', d:detail, t:f(tgt), b:sig});
   } else if (pb && pb >= 100) {
-    res.push({m:'P/B 淨值估價', d:`P/B=${f(pb,1)} - 極端值（可能負淨值或數據異常）`, t:'N/A', b:'<span class="badge bn">異常 !</span>'});
+    const pbSourceLabel = m.pbSource ? ` (${m.pbSource})` : '';
+    res.push({m:'P/B 淨值估價', d:`P/B=${f(pb,1)}${pbSourceLabel} - 極端值（可能負淨值或數據異常）`, t:'N/A', b:'<span class="badge bn">異常 !</span>'});
   }
 
   // ── 3. 殖利率防線 ─────────────────────────────────────────
@@ -1663,13 +1669,17 @@ function calcVals(price, m, indKey, indObj) {
       for(let i=1;i<=5;i++){cf*=(1+gHigh);dcf+=cf/Math.pow(1+wacc,i);}
       const tv=(cf*1.03)/(wacc-0.03); dcf+=tv/Math.pow(1+wacc,5);
 
+      // 【v6.3】添加數據來源標籤
+      const epsSourceLabel = m.epsSource ? ` (${m.epsSource})` : '';
+
       // DCF 合理範圍檢查
       const dcfWarning = dcf > price * 3 ? ' ⚠️ 高估' : dcf < price * 0.3 ? ' ⚠️ 低估' : '';
-      const detail = `WACC=${f(wacc*100,1)}%，EPS=${f(eps)}，${indName}成長率${f(gHigh*100,0)}%×5年後終值${dcfWarning}`;
+      const detail = `WACC=${f(wacc*100,1)}%，EPS=${f(eps)}${epsSourceLabel}，${indName}成長率${f(gHigh*100,0)}%×5年後終值${dcfWarning}`;
       res.push({m:'DCF 簡化估值', d:detail, t:f(dcf), b:bdg(f(dcf),price)});
     }
   } else if (eps !== null && eps !== undefined && eps <= 0) {
-    res.push({m:'DCF 簡化估值', d:`EPS=${f(eps)} - 虧損中，無法進行DCF估值`, t:'N/A', b:'<span class="badge bn">無盈利</span>'});
+    const epsSourceLabel = m.epsSource ? ` (${m.epsSource})` : '';
+    res.push({m:'DCF 簡化估值', d:`EPS=${f(eps)}${epsSourceLabel} - 虧損中，無法進行DCF估值`, t:'N/A', b:'<span class="badge bn">無盈利</span>'});
   }
 
   // ── 7. EV/EBITDA ─────────────────────────────────────────
@@ -155945,7 +155955,15 @@ async function go(){
       eps:null, roe:null, evEbitda:null, peg:null,
       marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:'',
       // 【v6.05】2026 年度 EPS 推估
-      eps2026:null, h1Actual:null, h2Estimated:null, eps2026Confidence:'low'
+      eps2026:null, h1Actual:null, h2Estimated:null, eps2026Confidence:'low',
+
+      // 【v6.3】數據來源追蹤（每個指標標記來源）
+      peSource: null,    // P/E 來源：TWSE / Yahoo / 計算值
+      pbSource: null,    // P/B 來源
+      epsSource: null,   // EPS 來源
+      divSource: null,   // 股利來源
+      roeSource: null,   // ROE 來源
+      betaSource: null   // Beta 來源
     };
 
     // TWSE 上市資料
@@ -155953,14 +155971,29 @@ async function go(){
       const no = ticker.replace('.TW','').replace('.TWO','');
       const row = twseArr.find(r=>r.Code===no);
       if (row) {
-        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
-        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
-        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
+        if (row.PEratio && row.PEratio!=='-') {
+          m.pe = parseFloat(row.PEratio);
+          m.peSource = 'TWSE ✓';  // 【v6.3】標記 TWSE 官方來源
+        }
+        if (row.PBratio && row.PBratio!=='-') {
+          m.pb = parseFloat(row.PBratio);
+          m.pbSource = 'TWSE ✓';
+        }
+        if (row.DividendYield && row.DividendYield!=='-') {
+          m.divYield = parseFloat(row.DividendYield);
+          // divSource 在計算時設置
+        }
         // 【v6.04】混合方案：TWSE PE + 實時計算 EPS
         // EPS = Price / PE （確保 EPS 與 TWSE PE 一致性）
         // FINANCIAL_DB 的 EPS 將逐步廢棄，改用實時計算
-        if (m.pe && m.pe>0) m.eps = price / m.pe;
-        if (m.divYield) m.div = price * m.divYield / 100;
+        if (m.pe && m.pe>0) {
+          m.eps = price / m.pe;
+          m.epsSource = '計算值 (TWSE PE)';  // 【v6.3】標記 EPS 是由 TWSE PE 計算的
+        }
+        if (m.divYield) {
+          m.div = price * m.divYield / 100;
+          m.divSource = 'TWSE ✓';
+        }
         if (row.Name) m.name = row.Name;
         // TWSE 額外財務數據（如果提供）
         if (row.OutstandingShares && !isNaN(row.OutstandingShares)) {
@@ -156017,15 +156050,36 @@ async function go(){
       if (!m.industry) m.industry = raw2(pr.industry) || raw2(sd.industry) || '';
       m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
       // 財務資料：TWSE/TPEX 已有的不覆蓋
-      if (!m.pe) m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
-      if (!m.pb) m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
-      if (!m.divYield && raw2(sd.dividendYield)) m.divYield = raw2(sd.dividendYield)*100;
-      if (!m.div) m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
+      if (!m.pe) {
+        m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
+        if (m.pe) m.peSource = 'Yahoo ⓘ';  // 【v6.3】標記 Yahoo 來源
+      }
+      if (!m.pb) {
+        m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
+        if (m.pb) m.pbSource = 'Yahoo ⓘ';
+      }
+      if (!m.divYield && raw2(sd.dividendYield)) {
+        m.divYield = raw2(sd.dividendYield)*100;
+        m.divSource = 'Yahoo ⓘ';
+      }
+      if (!m.div) {
+        m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
+        if (m.div) m.divSource = 'Yahoo ⓘ';
+      }
       // 【修正】台股 EPS 只用 FINANCIAL_DB，不用 Yahoo Finance 的數據（避免 ADR 混淆）
-      if (!m.eps && !isTW) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
+      if (!m.eps && !isTW) {
+        m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
+        if (m.eps) m.epsSource = 'Yahoo ⓘ';
+      }
       // 以下只有 summary 有，直接填入
-      m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
-      m.beta = m.beta||raw2(ks.beta);
+      if (!m.roe) {
+        m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
+        if (m.roe) m.roeSource = 'Yahoo ⓘ';
+      }
+      if (!m.beta) {
+        m.beta = raw2(ks.beta);
+        if (m.beta) m.betaSource = 'Yahoo ⓘ';
+      }
       m.evEbitda = m.evEbitda||raw2(ks.enterpriseToEbitda);
       m.peg = m.peg||raw2(ks.pegRatio)||raw2(ks.trailingPegRatio);
       m.marketCap = m.marketCap||raw2(pr.marketCap);
