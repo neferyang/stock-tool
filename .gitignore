@@ -1,6 +1,17 @@
-# GitHub Pages - 只保留必要的檔案
+﻿# GitHub Pages - 只保留必要的檔案
+
+# 忽略所有檔案
 *
 !.gitignore
 !README.md
+
+# 只允許 HTML 檔案
 !index.html
 !index_v6_ai.html
+
+# 允許財金早報文件
+!daily-report.json
+!update-daily-report.js
+!.github/
+!.github/workflows/
+!.github/workflows/daily-report-update.yml
