@@ -1,0 +1,27 @@
+﻿# 系統檔案
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 日誌和臨時文件
+*.log
+*.json
+!package.json
+
+# 第三方目錄
+node_modules/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.venv/
+
+# 只保留必要的輸出檔
+/outputs/github-pages/**
+!/outputs/github-pages/*.html
