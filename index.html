@@ -501,12 +501,17 @@ async function yfSummary(sym) {
   return null;
 }
 
-// 通用 fetch（直連 + corsproxy 備援）
+// 通用 fetch（Vercel 代理 + corsproxy 備援）
 async function safeFetch(url) {
+  // 代理 1：Vercel 後端（最穩定）
   try {
-    const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
+    const proxyUrl = 'https://stock-tool-neferyiangs-projects.vercel.app/api/proxy?url=' + encodeURIComponent(url);
+    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(10000)});
     if (r.ok) return await r.json();
-  } catch(e) {}
+  } catch(e) {
+    console.log('[safeFetch] Vercel 代理失敗:', e.message);
+  }
+  // 代理 2：corsproxy 備援
   try {
     const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
     if (r.ok) return await r.json();

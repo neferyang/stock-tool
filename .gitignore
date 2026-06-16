@@ -12,6 +12,13 @@
 # 允許財金早報文件
 !daily-report.json
 !update-daily-report.js
+
+# 允許 Vercel 部署配置
+!vercel.json
+!api/
+!api/proxy.js
+
+# 允許 GitHub 工作流
 !.github/
 !.github/workflows/
 !.github/workflows/daily-report-update.yml
