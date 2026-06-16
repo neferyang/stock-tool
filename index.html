@@ -513,7 +513,7 @@ async function safeFetch(url) {
   }
   // 代理 2：Vercel 後端（一旦部署完成）
   try {
-    const proxyUrl = 'https://stock-tool-neferyiangs-projects.vercel.app/api/proxy?url=' + encodeURIComponent(url);
+    const proxyUrl = 'https://stock-tool-24t64jk0i-neferyiangs-projects.vercel.app/api/proxy?url=' + encodeURIComponent(url);
     const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(10000)});
     if (r.ok) return await r.json();
   } catch(e) {}
