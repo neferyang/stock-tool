@@ -22,7 +22,7 @@ jobs:
           node-version: '18'
 
       - name: Run daily report update script
-        run: node scripts/update-daily-report.js
+        run: node update-daily-report.js
 
       - name: Commit and push changes
         run: |

@@ -1,24 +1,40 @@
-﻿# GitHub Pages - 只保留必要的檔案
+﻿# ════════════════════════════════════════════
+# GitHub Pages 白名單配置
+# 只推送核心生產文件，所有其他文件被忽略
+# ════════════════════════════════════════════
 
 # 忽略所有檔案
 *
-!.gitignore
-!README.md
 
-# 只允許 HTML 檔案
-!index.html
-!index_v6_ai.html
+# ════════════════════════════════════════════
+# 核心應用文件
+# ════════════════════════════════════════════
+!index.html                    # 主應用（股票估價工具）
+!index_v6_ai.html              # 財金早報分頁
 
-# 允許財金早報文件
-!daily-report.json
-!update-daily-report.js
+# ════════════════════════════════════════════
+# 配置文件
+# ════════════════════════════════════════════
+!.gitignore                    # Git 配置
+!README.md                     # 項目文檔
+!vercel.json                   # Vercel 配置
 
-# 允許 Vercel 部署配置
-!vercel.json
-!api/
-!api/proxy.js
+# ════════════════════════════════════════════
+# API 和後端
+# ════════════════════════════════════════════
+!api/                          # Vercel 函數目錄
+!api/proxy.js                  # 後端代理
 
-# 允許 GitHub 工作流
-!.github/
-!.github/workflows/
-!.github/workflows/daily-report-update.yml
+# ════════════════════════════════════════════
+# 自動化和數據
+# ════════════════════════════════════════════
+!update-daily-report.js        # 每日更新腳本
+!update-international-markets.js  # 國際市場更新
+!daily-report.json             # 每日報告數據
+
+# ════════════════════════════════════════════
+# GitHub Actions 工作流
+# ════════════════════════════════════════════
+!.github/                      # GitHub 配置目錄
+!.github/workflows/            # 工作流目錄
+!.github/workflows/daily-report-update.yml  # 每日更新工作流
