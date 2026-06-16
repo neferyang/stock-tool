@@ -26488,7 +26488,18 @@ async function go(){
     let latestFinancial = null;
     if (financialResult && financialResult.length > 0) {
       financialTrend = calcFinancialTrend(financialResult);
-      latestFinancial = financialResult[0];  // 最新年度數據
+      const raw = financialResult[0];
+      // 確保所有數值屬性都存在且有效
+      latestFinancial = {
+        year: raw.year || 0,
+        roe: (raw.roe !== null && raw.roe !== undefined && !isNaN(raw.roe)) ? raw.roe : 0,
+        operatingMargin: (raw.operatingMargin !== null && raw.operatingMargin !== undefined && !isNaN(raw.operatingMargin)) ? raw.operatingMargin : 0,
+        netIncome: (raw.netIncome !== null && raw.netIncome !== undefined && !isNaN(raw.netIncome)) ? raw.netIncome : 0,
+        fcf: (raw.fcf !== null && raw.fcf !== undefined && !isNaN(raw.fcf)) ? raw.fcf : 0,
+        debtRatio: (raw.debtRatio !== null && raw.debtRatio !== undefined && !isNaN(raw.debtRatio)) ? raw.debtRatio : 0,
+        eps: (raw.eps !== null && raw.eps !== undefined && !isNaN(raw.eps)) ? raw.eps : 0,
+        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : 0
+      };
     }
 
     // 漲跌：用K線最後兩日計算（比meta更準確）
