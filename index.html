@@ -109,13 +109,20 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <body>
 <div class="wrap">
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
-<div class="header" style="display:flex;justify-content:space-between;align-items:flex-start;">
-  <div class="header-content" style="flex:1;">
+<div class="header">
+  <div class="header-content">
     <h1>📊 股票估價分析工具 <span class="vsub">v6.4.0 (實時動態同步)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
-  <a href="index_v6_ai.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,0.2);padding:10px 16px;border-radius:8px;font-size:0.9rem;font-weight:600;border:1px solid rgba(255,255,255,0.3);transition:all .3s;white-space:nowrap;margin-left:16px;margin-top:4px;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
-    🤖 AI 分析報告
+</div>
+
+<!-- ═══════════════ 分頁標籤 ═══════════════ -->
+<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;">
+  <a href="index.html" style="flex:1;padding:14px 20px;text-decoration:none;color:var(--text);font-weight:600;border-bottom:3px solid var(--accent);background:#fff;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;">
+    📊 股票估價工具
+  </a>
+  <a href="index_v6_ai.html" style="flex:1;padding:14px 20px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;background:#f9fafb;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;" onmouseover="this.style.color='var(--text)';this.style.background='#fff'" onmouseout="this.style.color='var(--muted)';this.style.background='#f9fafb'">
+    🤖 財金早報
   </a>
 </div>
 
