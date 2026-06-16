@@ -147,6 +147,17 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 </div>
 
 <script>
+// 🛡️ 全局 toFixed 安全補丁（防止 undefined.toFixed() 崩潰）
+Number.prototype.toFixed = (function() {
+  const original = Number.prototype.toFixed;
+  return function(digits) {
+    if (this === null || this === undefined || isNaN(this)) {
+      return 'N/A';
+    }
+    return original.call(this, digits);
+  };
+})();
+
 // ════════════════════════════════════════════════════════
 // v4.15：中文股票名稱搜尋（TWSE 動態加載）
 // v4.17：美股模糊搜尋（US 股票列表）
