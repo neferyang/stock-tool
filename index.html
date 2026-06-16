@@ -26572,28 +26572,28 @@ ${latestFinancial ? `
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:4px;">${latestFinancial.roe.toFixed(1)}%</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:4px;">${f(latestFinancial.roe,1)}%</div>
     <div style="font-size:.8rem;color:#666;">${evaluateROE(latestFinancial.roe).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateROE(latestFinancial.roe).desc}</div>
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:4px;">${latestFinancial.operatingMargin.toFixed(1)}%</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:4px;">${f(latestFinancial.operatingMargin,1)}%</div>
     <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin).desc}</div>
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
-    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:4px;">${(latestFinancial.fcf / latestFinancial.netIncome * 100).toFixed(0)}%</div>
+    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:4px;">${f(latestFinancial.fcf / latestFinancial.netIncome * 100,0)}%</div>
     <div style="font-size:.8rem;color:#666;">${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).desc}</div>
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${latestFinancial.debtRatio.toFixed(1)}%</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${f(latestFinancial.debtRatio,1)}%</div>
     <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
   </div>
@@ -26631,7 +26631,7 @@ ${financialTrend.map(f => `<tr>
 ` : ''}
 
 ${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
-  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
+  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${f(m.institutionalHolding,1)}%</div></div>` : ''}
   ${m.institutionalTrend ? `<div class="card"><div class="cl">持股趨勢</div><div class="cv">${m.institutionalTrend==='up'?'📈 增加':m.institutionalTrend==='down'?'📉 減少':'→ 穩定'}</div></div>` : ''}
   ${m.institutionalDate ? `<div class="card"><div class="cl">數據日期</div><div class="cv" style="font-size:0.8rem">${m.institutionalDate}</div></div>` : ''}
   ${m.confDate ? `<div class="card"><div class="cl">法人說明會</div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}→</a></div></div>` : ''}
