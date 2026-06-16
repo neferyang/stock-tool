@@ -33,14 +33,26 @@ export default async function handler(req, res) {
     }
 
     // 轉發請求到目標 API
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         'Accept': 'application/json',
       },
-      timeout: 30000
+      signal: controller.signal
     });
+
+    clearTimeout(timeout);
+
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: `上游 API 返回 ${response.status}`,
+        url: url
+      });
+    }
 
     const data = await response.json();
 

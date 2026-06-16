@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/proxy.js": {
-      "memory": 1024,
+      "memory": 512,
       "maxDuration": 30
     }
   },
@@ -10,5 +10,7 @@
       "source": "/api/proxy",
       "destination": "/api/proxy.js"
     }
-  ]
+  ],
+  "buildCommand": "echo 'Build skipped for static site with serverless functions'",
+  "installCommand": "echo 'Install skipped - no dependencies'"
 }
