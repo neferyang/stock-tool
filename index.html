@@ -26195,6 +26195,7 @@ function renderFinancialChart(financialData){
             label: (ctx) => {
               const label = ctx.dataset.label || '';
               const value = ctx.parsed.y;
+              if (value == null || isNaN(value)) return label + ': N/A';
               if (label.includes('%') || label === 'ROE %' || label === '淨利率 %') {
                 return label + ': ' + value.toFixed(1) + '%';
               }
