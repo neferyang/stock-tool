@@ -26273,6 +26273,9 @@ async function go(){
   document.getElementById('res').classList.add('hidden');
 
   try{
+    // 初始化關鍵變數，防止 finally 塊出錯
+    let m = null, price = null, vals = null, vd = {}, tech = {}, indName = '未分類', indResult = {confidence:'low'};
+
     setSt('<span class="spin"></span>抓取資料中...',false);
 
     // 台股：先試 .TW，失敗再試 .TWO（上櫃股）
@@ -26711,7 +26714,9 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
     console.error(e);
   } finally {
     btn.disabled=false;
-    saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult);
+    if (typeof m !== 'undefined' && m) {
+      saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult);
+    }
   }
 }
 
