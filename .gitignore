@@ -1,19 +1,6 @@
-﻿# 系統檔案
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-
-# 日誌和臨時文件
-*.log
-
-# 第三方目錄
-node_modules/
-.env
-__pycache__/
-
-# 只保留根目錄的 HTML，忽略 outputs 目錄
-outputs/
+# GitHub Pages - 只保留必要的檔案
+*
+!.gitignore
+!README.md
+!index.html
+!index_v6_ai.html
