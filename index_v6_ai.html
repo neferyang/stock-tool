@@ -24697,7 +24697,16 @@ if (document.readyState === 'loading') {
 
 async function loadDailyReport() {
   try {
-    const response = await fetch('daily-report.json');
+    // 強制不使用快取：添加時間戳 + 禁用快取頭
+    const timestamp = new Date().getTime();
+    const response = await fetch(`daily-report.json?t=${timestamp}`, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+      }
+    });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const reportData = await response.json();
