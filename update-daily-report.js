@@ -77,8 +77,8 @@ async function updateDailyReport() {
   try {
     console.log('🚀 開始更新每日財金早報...\n');
 
-    // 讀取現有數據
-    const reportPath = path.join(__dirname, '../daily-report.json');
+    // 讀取現有數據（daily-report.json 與此腳本在同一目錄）
+    const reportPath = path.join(__dirname, 'daily-report.json');
     const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 
     // 更新時間戳
