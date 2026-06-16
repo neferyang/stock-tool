@@ -129,6 +129,12 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 </div>
 
 <div id="st"></div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- 財金早報 - 市場數據展示 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="market-report" style="margin-bottom:28px;"></div>
+
 <div id="result"></div>
 
 </div>
@@ -24681,6 +24687,58 @@ if (document.readyState === 'loading') {
 } else {
   loadLatestQueryFromStorage();
 }
+
+// ═══════════════════════════════════════════════════════════
+// 財金早報 - 市場數據加載與展示
+// ═══════════════════════════════════════════════════════════
+
+async function loadDailyReport() {
+  try {
+    const response = await fetch('daily-report.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const reportData = await response.json();
+    renderMarketReport(reportData);
+  } catch (error) {
+    console.warn('[財金早報] 載入失敗:', error.message);
+  }
+}
+
+function renderMarketReport(data) {
+  const container = document.getElementById('market-report');
+  if (!container) return;
+
+  const html = `
+    <div style="background:linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h2 style="margin:0;font-size:1.25rem;font-weight:700;color:#1a1a1a;">📊 今日市場概況</h2>
+        <div style="font-size:0.8rem;color:#666;">
+          更新於 ${data.date}<br>
+          基準日 ${data.basedOn}
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+        ${(data.markets || []).map(market => `
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+            <div style="font-weight:600;margin-bottom:8px;font-size:1rem;">${market.name}</div>
+            <div style="font-size:0.9rem;color:#444;margin-bottom:10px;line-height:1.6;">
+              ${(market.items || []).map(item => `<div>📈 ${item}</div>`).join('')}
+            </div>
+            <div style="font-size:0.85rem;color:#666;border-top:1px solid #f0f0f0;padding-top:8px;line-height:1.5;">
+              💡 ${market.reason}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+}
+
+// 頁面加載時自動載入財金早報
+document.addEventListener('DOMContentLoaded', loadDailyReport);
 </script>
 
 </body>
