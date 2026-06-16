@@ -107,7 +107,7 @@ async function updateDailyReport() {
     });
 
     // 嘗試獲取最新市場數據
-    console.log('📊 正在從 Yahoo Finance 獲取最新市場數據...');
+    console.log('📊 正在從 Yahoo Finance 和 TWSE 獲取最新市場數據...\n');
     const marketSymbols = {
       '^DJI': '道瓊',
       '^GSPC': 'S&P 500',
@@ -120,11 +120,22 @@ async function updateDailyReport() {
     };
 
     const marketData = await fetchYahooFinanceData(marketSymbols);
-    console.log(`\n✅ 成功獲取 ${Object.keys(marketData).length} 個市場數據\n`);
+    console.log(`✅ Yahoo Finance: ${Object.keys(marketData).length} 個市場數據已獲取`);
+
+    // TWSE 台股數據
+    console.log('📡 正在從 TWSE OpenAPI 獲取台股數據...');
+    const twseData = await fetchTWSEData();
+    if (twseData) {
+      console.log(`✅ TWSE 台股數據已獲取\n`);
+    } else {
+      console.log(`⚠️ TWSE 數據取得失敗\n`);
+    }
 
     // 【重要】動態更新市場數據
+    let updateCount = 0;
+
     if (Object.keys(marketData).length > 0) {
-      console.log('🔄 更新市場指數數據...');
+      console.log('🔄 更新 Yahoo Finance 市場數據...');
 
       // 更新 markets 數組中的數據（根據獲取的最新數據）
       reportData.markets = reportData.markets.map(market => {
@@ -152,8 +163,39 @@ async function updateDailyReport() {
         return market;
       });
 
-      console.log('✅ 市場數據已動態更新');
+      console.log(`✅ Yahoo Finance 市場數據已更新`);
+      updateCount++;
     } else {
+      console.warn('⚠️ Yahoo Finance 未能獲取新市場數據');
+    }
+
+    // 【新增】 TWSE 台股數據整合
+    if (twseData && Array.isArray(twseData)) {
+      console.log('🔄 更新 TWSE 台股數據...');
+
+      // 尋找台股市場項目
+      const taiwanMarket = reportData.markets.find(m => m.name.includes('台灣'));
+      if (taiwanMarket && twseData.length > 0) {
+        // 提取加權指數數據（通常第一筆記錄）
+        const indexData = twseData.find(d => d['name'] && d['name'].includes('加權'));
+        if (indexData) {
+          const price = indexData['price'] || indexData['close'] || '—';
+          const change = indexData['change'] || '—';
+          const changePct = indexData['changePct'] || '—';
+          const changeSymbol = (parseFloat(change) || 0) >= 0 ? '▲' : '▼';
+
+          taiwanMarket.items = [
+            `加權指數：${price}（${changeSymbol}${changePct}）`
+          ];
+          console.log(`✅ 台股加權指數已更新`);
+          updateCount++;
+        }
+      }
+    } else if (twseData === null) {
+      console.warn('⚠️ TWSE 台股數據暫時無法更新');
+    }
+
+    if (updateCount === 0) {
       console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
     }
 
