@@ -138,13 +138,19 @@ function handleTwStocks(res) {
 function handleSingleStock(res, code) {
   try {
     const stocks = loadStockData();
+    console.log('✅ 載入股票數據:', Object.keys(stocks).length, '支股票');
+    console.log('🔍 查詢代碼:', code);
 
     if (!stocks[code]) {
+      console.log('❌ 找不到股票:', code, '可用代碼:', Object.keys(stocks).slice(0, 5));
       return res.status(404).json({
         status: 'error',
-        message: `無法找到股票 ${code}`
+        message: `無法找到股票 ${code}`,
+        availableCodes: Object.keys(stocks).slice(0, 10)
       });
     }
+
+    console.log('✅ 找到股票:', code, stocks[code]);
 
     const info = stocks[code];
     const price = info.price;
