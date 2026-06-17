@@ -24711,34 +24711,57 @@ async function loadDailyReport() {
       throw new Error('market-report 容器不存在');
     }
 
-    // 強制不使用快取：添加時間戳 + 禁用快取頭
-    const timestamp = new Date().getTime();
-    // 使用絕對 URL 避免路徑問題
-    const baseUrl = window.location.href.includes('github.io')
-      ? 'https://raw.githubusercontent.com/neferyang/stock-tool/main/'
-      : '';
-    const response = await fetch(`${baseUrl}daily-report.json?t=${timestamp}`, {
-      cache: 'no-store',
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
-      }
-    });
+    // 嘗試多種路徑
+    const paths = [
+      'daily-report.json',                    // 相對路徑
+      '/stock-tool/daily-report.json',        // GitHub Pages 路徑
+      './daily-report.json'                   // 當前目錄
+    ];
 
-    console.log('[財金早報] HTTP 狀態:', response.status);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    let response = null;
+    let lastError = null;
+
+    for (const path of paths) {
+      try {
+        const timestamp = new Date().getTime();
+        console.log(`[財金早報] 嘗試路徑: ${path}`);
+        response = await Promise.race([
+          fetch(`${path}?t=${timestamp}`, {
+            cache: 'no-store',
+            headers: {
+              'Cache-Control': 'no-cache, no-store, must-revalidate',
+              'Pragma': 'no-cache',
+              'Expires': '0'
+            }
+          }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000))
+        ]);
+
+        if (response.ok) {
+          console.log(`[財金早報] 成功從 ${path} 加載`);
+          break;
+        }
+      } catch (err) {
+        lastError = err;
+        console.warn(`[財金早報] ${path} 失敗:`, err.message);
+        continue;
+      }
+    }
+
+    if (!response || !response.ok) {
+      throw new Error(`無法加載 daily-report.json: ${lastError?.message || '未知錯誤'}`);
+    }
 
     const reportData = await response.json();
     console.log('[財金早報] 數據已取得，版本:', reportData.version);
     renderMarketReport(reportData);
     console.log('[財金早報] 數據載入成功');
   } catch (error) {
-    console.error('[財金早報] 載入失敗:', error.message, error.stack);
-    // 顯示錯誤提示
+    console.error('[財金早報] 載入失敗:', error.message);
+    // 顯示詳細錯誤提示
     const container = document.getElementById('market-report');
     if (container) {
-      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${error.message}</span><br><span style="font-size:0.75rem;">詳見瀏覽器控制台</span></div>`;
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${error.message}</span><br><span style="font-size:0.75rem;">請稍候或刷新頁面重試</span></div>`;
     }
   }
 }
@@ -24759,10 +24782,7 @@ async function refreshMarketReport(evt) {
   try {
     // 強制重新加載（加上時間戳避免快取）
     const timestamp = new Date().getTime();
-    const baseUrl = window.location.href.includes('github.io')
-      ? 'https://raw.githubusercontent.com/neferyang/stock-tool/main/'
-      : '';
-    const response = await fetch(`${baseUrl}daily-report.json?t=${timestamp}`);
+    const response = await fetch(`daily-report.json?t=${timestamp}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const reportData = await response.json();
