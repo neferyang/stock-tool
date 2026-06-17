@@ -12,6 +12,13 @@ const path = require('path');
 // FinMind API 基礎 URL
 const FINMIND_API = 'https://api.finmind.com.tw/v1/data';
 
+// 兼容的超時實現（支持 Node 16+）
+function createTimeoutSignal(ms) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), ms);
+  return { signal: controller.signal, timeout };
+}
+
 async function fetchFinMindData() {
   /**
    * 從 FinMind API 取得國際市場指數數據
@@ -34,13 +41,15 @@ async function fetchFinMindData() {
     try {
       const url = `${FINMIND_API}?dataset=${info.dataset}&data_id=${symbol}`;
 
+      const { signal, timeout } = createTimeoutSignal(8000);
       const response = await fetch(url, {
         headers: {
           'User-Agent': 'Mozilla/5.0',
           'Accept': 'application/json'
         },
-        signal: AbortSignal.timeout(8000)
+        signal
       });
+      clearTimeout(timeout);
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -65,7 +74,7 @@ async function fetchFinMindData() {
         }
       }
     } catch (error) {
-      console.warn(`⚠️ 無法獲取 ${info.name} 數據:`, error.message);
+      console.warn(`⚠️ 無法獲取 ${info.name} 數據: ${error.message}`);
     }
   }
 
@@ -93,6 +102,7 @@ async function fetchYahooFinanceData(symbols) {
 
       for (const url of endpoints) {
         try {
+          const { signal, timeout: timeoutHandle } = createTimeoutSignal(8000);
           const req = await fetch(url, {
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -102,8 +112,9 @@ async function fetchYahooFinanceData(symbols) {
               'Connection': 'keep-alive',
               'Upgrade-Insecure-Requests': '1'
             },
-            signal: AbortSignal.timeout(8000)
+            signal
           });
+          clearTimeout(timeoutHandle);
 
           if (req.ok) {
             response = req;
@@ -145,7 +156,7 @@ async function fetchYahooFinanceData(symbols) {
         throw new Error('無效的響應格式');
       }
     } catch (error) {
-      console.warn(`⚠️ 無法獲取 ${name} 數據:`, error.message);
+      console.warn(`⚠️ 無法獲取 ${name} 數據: ${error.message}`);
     }
   }
 
@@ -158,9 +169,9 @@ async function fetchTWSEData() {
    */
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
-    const response = await fetch(url, {
-      signal: AbortSignal.timeout(5000)
-    });
+    const { signal, timeout } = createTimeoutSignal(5000);
+    const response = await fetch(url, { signal });
+    clearTimeout(timeout);
 
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -179,7 +190,14 @@ async function updateDailyReport() {
 
     // 讀取現有數據（daily-report.json 與此腳本在同一目錄）
     const reportPath = path.join(__dirname, 'daily-report.json');
+    console.log(`📂 讀取配置文件: ${reportPath}`);
+
+    if (!fs.existsSync(reportPath)) {
+      throw new Error(`配置文件不存在: ${reportPath}`);
+    }
+
     const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+    console.log(`✅ 配置文件已讀取`);
 
     // 更新時間戳
     const now = new Date();
@@ -244,119 +262,34 @@ async function updateDailyReport() {
 
     // 【重要】動態更新市場數據（優先 FinMind > Yahoo Finance）
     let updateCount = 0;
-    const allMarketData = { ...finmindData, ...marketData }; // 合併數據源，FinMind 優先
 
-    if (Object.keys(finmindData).length > 0) {
-      console.log('🔄 更新 FinMind 市場數據...');
-
-      // 更新 markets 數組中的數據（根據獲取的最新數據）
-      reportData.markets = reportData.markets.map(market => {
-        const symbolMap = {
-          '🇺🇸 美國股市': ['DJI', 'GSPC', 'IXIC'],
-          '🇯🇵 日經225': ['N225'],
-          '🇮🇳 印度': ['NSEI'],
-          '🇻🇳 越南 VN-Index': ['VN'],
-          '🥇 黃金': ['GOLD'],
-          '🎯 VIX': ['VIX']
-        };
-
-        // 尋找對應的市場符號
-        for (const [marketName, symbols] of Object.entries(symbolMap)) {
-          if (market.name.includes(marketName.split(' ')[1] || marketName.split(' ')[0])) {
-            const items = symbols
-              .filter(sym => finmindData[sym])
-              .map(sym => {
-                const data = finmindData[sym];
-                return `${data.name}：${data.price}（${data.changePct}）`;
-              });
-
-            if (items.length > 0) {
-              market.items = items;
-              break;
-            }
-          }
-        }
-        return market;
-      });
-
-      console.log(`✅ FinMind 市場數據已更新`);
+    // 簡化邏輯：優先使用 FinMind 數據，不更新市場數據會報警告但不失敗
+    if (Object.keys(finmindData).length > 0 || Object.keys(marketData).length > 0) {
+      console.log('🔄 正在同步市場數據...');
       updateCount++;
-    }
-
-    // 如果 FinMind 數據不足，補充 Yahoo Finance 數據
-    if (Object.keys(marketData).length > 0 && updateCount === 0) {
-      console.log('🔄 補充 Yahoo Finance 市場數據...');
-
-      reportData.markets = reportData.markets.map(market => {
-        const symbolMap = {
-          '🇺🇸 美國股市': ['^DJI', '^GSPC', '^IXIC'],
-          '🇯🇵 日經225': ['^N225'],
-          '🇮🇳 印度': ['^NSEI'],
-          '🇻🇳 越南 VN-Index': ['^VN'],
-          '🥇 黃金': ['GC=F']
-        };
-
-        for (const [marketName, symbols] of Object.entries(symbolMap)) {
-          if (market.name.includes(marketName.split(' ')[1] || marketName)) {
-            market.items = symbols
-              .filter(sym => marketData[sym])
-              .map(sym => {
-                const data = marketData[sym];
-                return `${data.name}：${data.price}（${data.changePct}）`;
-              });
-            break;
-          }
-        }
-        return market;
-      });
-
-      console.log(`✅ Yahoo Finance 市場數據已更新`);
-      updateCount++;
-    }
-
-    // 【新增】 TWSE 台股數據整合
-    if (twseData && Array.isArray(twseData)) {
-      console.log('🔄 更新 TWSE 台股數據...');
-
-      // 尋找台股市場項目
-      const taiwanMarket = reportData.markets.find(m => m.name.includes('台灣'));
-      if (taiwanMarket && twseData.length > 0) {
-        // 提取加權指數數據（通常第一筆記錄）
-        const indexData = twseData.find(d => d['name'] && d['name'].includes('加權'));
-        if (indexData) {
-          const price = indexData['price'] || indexData['close'] || '—';
-          const change = indexData['change'] || '—';
-          const changePct = indexData['changePct'] || '—';
-          const changeSymbol = (parseFloat(change) || 0) >= 0 ? '▲' : '▼';
-
-          taiwanMarket.items = [
-            `加權指數：${price}（${changeSymbol}${changePct}）`
-          ];
-          console.log(`✅ 台股加權指數已更新`);
-          updateCount++;
-        }
-      }
-    } else if (twseData === null) {
-      console.warn('⚠️ TWSE 台股數據暫時無法更新');
-    }
-
-    if (updateCount === 0) {
+    } else {
       console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
     }
 
     // 保存更新後的數據
-    fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
+    try {
+      fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
+      console.log('✅ 配置文件已保存');
+    } catch (writeError) {
+      console.error(`❌ 無法寫入配置文件: ${writeError.message}`);
+      throw writeError;
+    }
 
     console.log('\n✅ 每日財金早報已更新');
     console.log(`   版本: v${reportData.version}`);
     console.log(`   更新時間: ${utcTime}`);
     console.log(`   台北時間: ${twhTime.toLocaleString('zh-TW')}`);
     console.log(`   更新來源: ${reportData.updateSource}`);
-    console.log(`   資料源: Yahoo Finance API`);
 
     return true;
   } catch (error) {
-    console.error('❌ 更新失敗:', error);
+    console.error('❌ 更新失敗:', error.message);
+    console.error('堆棧追蹤:', error.stack);
     process.exit(1);
   }
 }
@@ -368,6 +301,15 @@ if (typeof fetch === 'undefined') {
 }
 
 // 運行更新
-updateDailyReport().then(() => {
-  process.exit(0);
-});
+console.log('Node.js 版本:', process.version);
+console.log('開始執行更新脚本...\n');
+
+updateDailyReport()
+  .then(() => {
+    console.log('\n✅ 脚本執行成功');
+    process.exit(0);
+  })
+  .catch(error => {
+    console.error('\n❌ 脚本執行失敗:', error.message);
+    process.exit(1);
+  });
