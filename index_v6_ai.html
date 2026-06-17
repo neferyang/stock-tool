@@ -24697,6 +24697,20 @@ if (document.readyState === 'loading') {
 
 async function loadDailyReport() {
   try {
+    console.log('[財金早報] 開始載入數據...');
+
+    // 確保容器存在
+    let container = document.getElementById('market-report');
+    if (!container) {
+      console.warn('[財金早報] 容器不存在，等待 100ms 後重試');
+      await new Promise(resolve => setTimeout(resolve, 100));
+      container = document.getElementById('market-report');
+    }
+
+    if (!container) {
+      throw new Error('market-report 容器不存在');
+    }
+
     // 強制不使用快取：添加時間戳 + 禁用快取頭
     const timestamp = new Date().getTime();
     const response = await fetch(`daily-report.json?t=${timestamp}`, {
@@ -24707,17 +24721,20 @@ async function loadDailyReport() {
         'Expires': '0'
       }
     });
+
+    console.log('[財金早報] HTTP 狀態:', response.status);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const reportData = await response.json();
+    console.log('[財金早報] 數據已取得，版本:', reportData.version);
     renderMarketReport(reportData);
     console.log('[財金早報] 數據載入成功');
   } catch (error) {
-    console.error('[財金早報] 載入失敗:', error.message);
+    console.error('[財金早報] 載入失敗:', error.message, error.stack);
     // 顯示錯誤提示
     const container = document.getElementById('market-report');
     if (container) {
-      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">原因：${error.message}</span></div>`;
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${error.message}</span><br><span style="font-size:0.75rem;">詳見瀏覽器控制台</span></div>`;
     }
   }
 }
