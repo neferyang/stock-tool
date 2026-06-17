@@ -26467,10 +26467,10 @@ async function go(){
     m.confTitle = '';
 
     // 產業分類（新系統）
-    const indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
+    indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
     const indKey = indResult.industry;
     const indObj = INDUSTRY_DB[indKey];
-    const indName = indObj ? (indObj.name || indKey) : '未分類';
+    indName = indObj ? (indObj.name || indKey) : '未分類';
 
     // 技術指標（優化：快速計算 MA，延遲複雜指標）
     const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
