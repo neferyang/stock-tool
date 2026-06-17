@@ -485,12 +485,21 @@ async function yfSummary(sym) {
 // 直接 fetch（無代理備援 - 方案 A：台股優先）
 async function safeFetch(url) {
   try {
-    const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
-    if (r.ok) return await r.json();
+    console.log('[safeFetch] 開始抓取:', url);
+    const r = await fetch(url, {signal:AbortSignal.timeout(15000)});
+    console.log('[safeFetch] 狀態:', r.status);
+    if (r.ok) {
+      const d = await r.json();
+      console.log('[safeFetch] ✅ 成功，返回數據');
+      return d;
+    } else {
+      console.warn('[safeFetch] HTTP 錯誤:', r.status);
+      return null;
+    }
   } catch(e) {
     console.warn('[safeFetch] 直連失敗:', e.message);
+    return null;
   }
-  return null;
 }
 
 // TWSE（上市）：本益比/P/B/殖利率（BWIBBU_ALL 含更多資料，BWIBBU_d 備援）
