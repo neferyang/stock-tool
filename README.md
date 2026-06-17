@@ -76,8 +76,8 @@ open index.html
 
 ## 📝 版本
 
-- 當前版本：v6.6.4
-- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub Actions 穩定性改善、財金早報 GitHub Pages 相容性修復
+- 當前版本：v6.6.5
+- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub Actions 穩定性改善、財金早報多路徑加載優化
 
 ## 🤝 貢獻
 
