@@ -26006,10 +26006,14 @@ const FINANCIAL_DB = {
 
 // 獲取財報數據函數（優先從後端，備用本地數據庫）
 async function getFinancialData(code, isTW) {
-  // 優先從後端獲取實時數據
+  // 優先從後端獲取實時數據（支援 localhost 和 Vercel）
   if (isTW) {
     try {
-      const r = await fetch(`http://localhost:5000/api/stock/${code}`, {
+      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? `http://localhost:5000/api/stock/${code}`
+        : `/api/stock/${code}`;
+
+      const r = await fetch(apiUrl, {
         signal: AbortSignal.timeout(8000)
       });
       if (r.ok) {
@@ -26017,15 +26021,17 @@ async function getFinancialData(code, isTW) {
         if (json.data) {
           const data = json.data;
           // 轉換為財報格式
+          console.log('[getFinancialData] ✅ 後端數據成功:', data);
           return [{
             year: new Date().getFullYear(),
             pe: data.pe,
             pb: data.pb,
             eps: data.eps,
-            roe: data.roe ? data.roe * 100 : 0,  // 轉換為百分比
-            operatingMargin: data.operating_margin ? data.operating_margin * 100 : 0,
-            profitMargin: data.profit_margin ? data.profit_margin * 100 : 0,
-            fcf: data.fcf,
+            roe: data.roe ? parseFloat(data.roe) * 100 : 0,  // 轉換為百分比
+            operatingMargin: data.operating_margin ? parseFloat(data.operating_margin) * 100 : 0,
+            profitMargin: data.profit_margin ? parseFloat(data.profit_margin) * 100 : 0,
+            fcf: data.fcf ? parseFloat(data.fcf) : 0,
+            netIncome: data.dividend ? parseFloat(data.dividend) * 100 : 0,  // 估算淨收入
             dividend: data.dividend,
             dividendYield: data.dividend_yield,
             name: data.name
