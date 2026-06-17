@@ -1,25 +1,4 @@
 {
-  "outputDirectory": ".",
-  "functions": {
-    "api/stocks.js": {
-      "memory": 512,
-      "maxDuration": 30
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/tw-stocks",
-      "destination": "/api/stocks.js"
-    },
-    {
-      "source": "/api/stock/:code",
-      "destination": "/api/stocks.js"
-    },
-    {
-      "source": "/api/health",
-      "destination": "/api/stocks.js"
-    }
-  ],
   "buildCommand": "echo 'Build skipped for static site with serverless functions'",
   "installCommand": "echo 'Install skipped - no dependencies'"
 }

@@ -26016,7 +26016,7 @@ async function getFinancialData(code, isTW) {
         apiUrl = `http://localhost:5000/api/stock/${code}`;
       } else {
         // 公網環境：使用 Vercel API
-        apiUrl = `https://neferyang-stock-tool.vercel.app/api/stock/${code}`;
+        apiUrl = `https://stock-tool-neferyans-projects.vercel.app/api/stock/${code}`;
       }
 
       const r = await fetch(apiUrl, {
