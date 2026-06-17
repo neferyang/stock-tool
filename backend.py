@@ -5,6 +5,14 @@
 用途：讀取本地 tw-stocks.json，返回完整的估值數據
 """
 
+import sys
+import io
+
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if sys.stderr.encoding != 'utf-8':
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import json
@@ -66,7 +74,11 @@ def get_tw_stocks():
                 "52_week_high": high_52,
                 "52_week_low": low_52,
                 "roe": info.get('roe'),
+                "fcf": info.get('fcf'),
+                "operating_margin": info.get('operating_margin'),
+                "profit_margin": info.get('profit_margin'),
                 "market_cap": info.get('market_cap'),
+                "shares_outstanding": info.get('shares_outstanding'),
                 "updated": info.get('updated_at')
             }
 
@@ -134,7 +146,11 @@ def get_stock(code):
             "52_week_high": info.get('52_week_high'),
             "52_week_low": info.get('52_week_low'),
             "market_cap": info.get('market_cap'),
+            "shares_outstanding": info.get('shares_outstanding'),
             "roe": info.get('roe'),
+            "fcf": info.get('fcf'),
+            "operating_margin": info.get('operating_margin'),
+            "profit_margin": info.get('profit_margin'),
             "peg": peg,
             "updated": info.get('updated_at')
         }

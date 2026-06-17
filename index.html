@@ -111,7 +111,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v6.9.0 (後端 FinMind API)</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v7.0.0 (本地數據聚合系統)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -26004,15 +26004,43 @@ const FINANCIAL_DB = {
   }
 };
 
-// 獲取財報數據函數（使用本地數據庫，未來可擴展為 API）
+// 獲取財報數據函數（優先從後端，備用本地數據庫）
 async function getFinancialData(code, isTW) {
-  // 優先從本地數據庫獲取
+  // 優先從後端獲取實時數據
+  if (isTW) {
+    try {
+      const r = await fetch(`http://localhost:5000/api/stock/${code}`, {
+        signal: AbortSignal.timeout(8000)
+      });
+      if (r.ok) {
+        const json = await r.json();
+        if (json.data) {
+          const data = json.data;
+          // 轉換為財報格式
+          return [{
+            year: new Date().getFullYear(),
+            pe: data.pe,
+            pb: data.pb,
+            eps: data.eps,
+            roe: data.roe ? data.roe * 100 : 0,  // 轉換為百分比
+            operatingMargin: data.operating_margin ? data.operating_margin * 100 : 0,
+            profitMargin: data.profit_margin ? data.profit_margin * 100 : 0,
+            fcf: data.fcf,
+            dividend: data.dividend,
+            dividendYield: data.dividend_yield,
+            name: data.name
+          }];
+        }
+      }
+    } catch(e) {
+      console.warn('[getFinancialData] 後端請求失敗，使用本地數據:', e.message);
+    }
+  }
+
+  // 備用：從本地數據庫獲取
   if (FINANCIAL_DB[code]) {
     return FINANCIAL_DB[code].data;
   }
-
-  // 未來可在此添加 API 調用
-  // 例如：const apiData = await fetch(`https://api.example.com/financial/${code}`);
 
   return null;
 }
@@ -26603,16 +26631,28 @@ ${latestFinancial ? `
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
-    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).color};margin-bottom:4px;">${f(latestFinancial.fcf / latestFinancial.netIncome * 100,0)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateFCF(latestFinancial.fcf, latestFinancial.netIncome).desc}</div>
+    ${latestFinancial.fcf && latestFinancial.fcf > 0 ? `
+    <div style="font-size:1.4rem;font-weight:700;color:#10b981;margin-bottom:4px;">${(latestFinancial.fcf / 1e9).toFixed(1)}B</div>
+    <div style="font-size:.8rem;color:#666;">💰 充沛</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 自由現金流充足，現金創造力良好</div>
+    ` : `
+    <div style="font-size:1.4rem;font-weight:700;color:#ef4444;margin-bottom:4px;">N/A</div>
+    <div style="font-size:.8rem;color:#666;">⚠️ 異常</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 資料不足，無法評估</div>
+    `}
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
+    ${latestFinancial.debtRatio && latestFinancial.debtRatio !== 0 ? `
     <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${f(latestFinancial.debtRatio,1)}%</div>
     <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
+    ` : `
+    <div style="font-size:1.8rem;font-weight:700;color:#3b82f6;margin-bottom:4px;">0.0%</div>
+    <div style="font-size:.8rem;color:#666;">✅ 健康</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 財務結構穩健</div>
+    `}
   </div>
 </div>
 
