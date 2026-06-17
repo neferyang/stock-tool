@@ -502,11 +502,33 @@ async function safeFetch(url) {
   }
 }
 
-// TWSE（上市）：本益比/P/B/殖利率（BWIBBU_ALL 含更多資料，BWIBBU_d 備援）
+// TWSE（上市）：改為讀取本地 JSON（使用 yfinance 抓取）
 async function twseFetch() {
-  const d = await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL');
-  if (d && d.length > 0) return d;
-  return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
+  try {
+    console.log('[twseFetch] 讀取本地台股數據...');
+    const r = await fetch('tw-stocks.json', {signal:AbortSignal.timeout(5000)});
+    if (r.ok) {
+      const json = await r.json();
+      if (json.stocks) {
+        // 轉換格式為 BWIBBU 相容格式
+        const data = [];
+        for (const [ticker, info] of Object.entries(json.stocks)) {
+          data.push({
+            Code: ticker.replace('.TW', '').replace('.TWO', ''),
+            Name: info.name || ticker,
+            PEratio: info.pe ? info.pe.toFixed(2) : '',
+            PBratio: info.pb ? info.pb.toFixed(2) : '',
+            DividendYield: info.dividend_yield ? (info.dividend_yield * 100).toFixed(2) : ''
+          });
+        }
+        console.log('[twseFetch] ✅ 成功讀取', data.length, '支台股');
+        return data;
+      }
+    }
+  } catch(e) {
+    console.warn('[twseFetch] 讀取失敗:', e.message);
+  }
+  return null;
 }
 
 // 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint

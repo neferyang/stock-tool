@@ -31,6 +31,11 @@
 !update-daily-report.js        # 每日更新腳本
 !update-international-markets.js  # 國際市場更新
 !daily-report.json             # 每日報告數據
+!fetch-stock-data.py           # yfinance 數據抓取腳本（完整版）
+!fetch-stock-data-lite.py      # yfinance 數據抓取腳本（簡化版）
+!tw-stocks.json                # 台股數據（本地快照）
+!us-stocks.json                # 美股數據（本地快照）
+!test-stocks.json              # 測試數據
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流
