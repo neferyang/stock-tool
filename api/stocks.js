@@ -9,7 +9,28 @@ const path = require('path');
 // 讀取本地股票數據
 function loadStockData() {
   try {
-    const dataPath = path.join(process.cwd(), 'tw-stocks.json');
+    // 嘗試多個可能的路徑
+    const possiblePaths = [
+      path.join(process.cwd(), 'tw-stocks.json'),
+      path.join(__dirname, '..', 'tw-stocks.json'),
+      path.join(__dirname, '..', '..', 'tw-stocks.json'),
+      'tw-stocks.json'
+    ];
+
+    let dataPath;
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        dataPath = p;
+        console.log('✅ 找到 tw-stocks.json:', dataPath);
+        break;
+      }
+    }
+
+    if (!dataPath) {
+      console.error('❌ 找不到 tw-stocks.json，嘗試的路徑:', possiblePaths);
+      return {};
+    }
+
     const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
     return data.data || data.stocks || {};
   } catch (e) {
