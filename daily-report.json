@@ -1,6 +1,6 @@
 {
-  "version": "2.0.8",
-  "lastUpdated": "2026-06-17T02:35:25.821Z",
+  "version": "2.0.9",
+  "lastUpdated": "2026-06-17T02:36:13.456Z",
   "date": "2026年6月16日（星期二）",
   "basedOn": "2026年6月13日（前一交易日）",
   "updateSource": "GitHub Actions 自動更新",
@@ -228,8 +228,13 @@
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
-  "lastForcedUpdate": "2026-06-17T02:35:25.821Z",
+  "lastForcedUpdate": "2026-06-17T02:36:13.456Z",
   "versionHistory": [
+    {
+      "version": "2.0.9",
+      "date": "2026/6/17 下午6:36:13",
+      "status": "自動更新 - 市場數據已刷新"
+    },
     {
       "version": "2.0.8",
       "date": "2026/6/17 下午6:35:25",
