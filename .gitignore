@@ -36,6 +36,7 @@
 !tw-stocks.json                # 台股數據（本地快照）
 !us-stocks.json                # 美股數據（本地快照）
 !test-stocks.json              # 測試數據
+!backend.py                    # Flask 後端服務（FinMind API 代理）
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流
