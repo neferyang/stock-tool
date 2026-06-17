@@ -26009,9 +26009,15 @@ async function getFinancialData(code, isTW) {
   // 優先從後端獲取實時數據（支援 localhost 和 Vercel）
   if (isTW) {
     try {
-      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
-        ? `http://localhost:5000/api/stock/${code}`
-        : `/api/stock/${code}`;
+      // 判斷環境並選擇 API URL
+      let apiUrl;
+      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+        // 本地開發環境：使用 localhost:5000
+        apiUrl = `http://localhost:5000/api/stock/${code}`;
+      } else {
+        // 公網環境：使用 Vercel API
+        apiUrl = `https://neferyang-stock-tool.vercel.app/api/stock/${code}`;
+      }
 
       const r = await fetch(apiUrl, {
         signal: AbortSignal.timeout(8000)
