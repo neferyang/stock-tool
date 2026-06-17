@@ -24711,13 +24711,19 @@ async function loadDailyReport() {
 
     const reportData = await response.json();
     renderMarketReport(reportData);
+    console.log('[財金早報] 數據載入成功');
   } catch (error) {
-    console.warn('[財金早報] 載入失敗:', error.message);
+    console.error('[財金早報] 載入失敗:', error.message);
+    // 顯示錯誤提示
+    const container = document.getElementById('market-report');
+    if (container) {
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">原因：${error.message}</span></div>`;
+    }
   }
 }
 
-async function refreshMarketReport() {
-  const btn = event.target;
+async function refreshMarketReport(evt) {
+  const btn = evt ? evt.target : event.target;
   const statusEl = document.getElementById('refresh-status');
 
   // 禁用按鈕
