@@ -76,8 +76,8 @@ open index.html
 
 ## 📝 版本
 
-- 當前版本：v6.6.0
-- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub 工作流修復、檔案整理優化
+- 當前版本：v6.6.1
+- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub Actions 穩定性改善、檔案整理優化
 
 ## 🤝 貢獻
 
