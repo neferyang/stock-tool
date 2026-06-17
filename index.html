@@ -26312,7 +26312,7 @@ async function go(){
     if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
 
     const meta = chartResult.meta || {};
-    const price = meta.regularMarketPrice || meta.price;
+    price = meta.regularMarketPrice || meta.price;
     if (!price) throw new Error('無法取得股價，請稍後再試');
 
     // K線資料
@@ -26335,7 +26335,7 @@ async function go(){
 
     // 基本面資料整合
     function raw2(o){return(o&&typeof o==='object'&&'raw'in o)?o.raw:o;}
-    let m = {
+    m = {
       '52hi': meta.fiftyTwoWeekHigh,
       '52lo': meta.fiftyTwoWeekLow,
       pe:null, pb:null, div:null, divYield:null,
