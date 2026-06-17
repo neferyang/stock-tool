@@ -502,28 +502,34 @@ async function safeFetch(url) {
   }
 }
 
-// TWSE（上市）：改為調用後端 FinMind API
+// TWSE（上市）：調用改進的本地數據聚合後端
 async function twseFetch() {
   try {
-    console.log('[twseFetch] 調用後端 FinMind API...');
+    console.log('[twseFetch] 調用本地數據聚合後端...');
     const r = await fetch('http://localhost:5000/api/tw-stocks', {signal:AbortSignal.timeout(8000)});
     if (r.ok) {
       const json = await r.json();
       if (json.data) {
-        // 轉換格式為 BWIBBU 相容格式
+        console.log('[twseFetch] 📊 後端返回數據:', json.source);
+        // 轉換格式為 BWIBBU 相容格式，包含完整估值數據
         const data = [];
         for (const [code, info] of Object.entries(json.data)) {
           if (info.price) {
             data.push({
               Code: code,
-              Name: code,  // FinMind 沒有中文名稱，使用代碼
-              PEratio: '',  // FinMind TW_STOCK_DAY 不包含 PE，需要另外查詢
-              PBratio: '',
-              DividendYield: ''
+              Name: info.name || code,
+              PEratio: info.pe ? f(info.pe, 2) : '',
+              PBratio: info.pb ? f(info.pb, 2) : '',
+              DividendYield: info.dividend_yield ? f(info.dividend_yield, 2) : '',
+              EPS: info.eps || null,
+              Dividend: info.dividend || null,
+              ROE: info.roe || null,
+              High52: info['52_week_high'],
+              Low52: info['52_week_low']
             });
           }
         }
-        console.log('[twseFetch] ✅ 成功讀取', data.length, '支台股');
+        console.log('[twseFetch] ✅ 成功讀取', data.length, '支台股（含完整估值數據）');
         return data;
       }
     }
@@ -543,7 +549,9 @@ async function twseFetch() {
               Name: info.name || ticker,
               PEratio: info.pe ? info.pe.toFixed(2) : '',
               PBratio: info.pb ? info.pb.toFixed(2) : '',
-              DividendYield: info.dividend_yield ? (info.dividend_yield * 100).toFixed(2) : ''
+              DividendYield: info.dividend_yield ? (info.dividend_yield * 100).toFixed(2) : '',
+              EPS: info.eps || null,
+              Dividend: info.dividend || null
             });
           }
           console.log('[twseFetch] ✅ 使用本地 JSON，成功讀取', data.length, '支台股');
