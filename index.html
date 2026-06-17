@@ -552,9 +552,14 @@ async function finnhubFetch(symbol) {
 }
 
 // ════════════════════════════════════════════════════════
-// 公開資訊觀測站公告集成 (P1 優化版)
+// 公開資訊觀測站公告集成 (P1 優化版) - 已禁用（MOPS API CORS 限制）
 // ════════════════════════════════════════════════════════
 async function newsAnnouncementsFetch(code) {
+  // 方案 A：禁用公告（MOPS API 被 CORS 阻擋）
+  console.log('[公告] 公告功能已禁用（MOPS API 無法訪問）');
+  return null;
+
+  /* 原邏輯已禁用
   if (!code) return null;
   try {
     console.log(`[公告] 正在查詢 ${code} 的最新公告...`);
@@ -663,6 +668,7 @@ async function newsAnnouncementsFetch(code) {
     lastDate: '',
     source: 'FALLBACK'
   };
+  */
 }
 
 // ════════════════════════════════════════════════════════
