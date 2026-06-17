@@ -25,6 +25,8 @@
 !api/                          # Vercel 函數目錄
 !api/proxy.js                  # 後端代理
 !api/stocks.js                 # 台股數據 API（Vercel Serverless）
+!api/stock/                    # 動態路由目錄
+!api/stock/[code].js           # 單支股票 API（動態路由）
 
 # ════════════════════════════════════════════
 # 自動化和數據
