@@ -26013,10 +26013,10 @@ async function getFinancialData(code, isTW) {
       let apiUrl;
       if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
         // 本地開發環境：使用 localhost:5000
-        apiUrl = `http://localhost:5000/api/stock/${code}`;
+        apiUrl = `http://localhost:5000/api/stocks?code=${code}`;
       } else {
-        // 公網環境：使用 Vercel API
-        apiUrl = `https://stock-tool-neferyans-projects.vercel.app/api/stock/${code}`;
+        // 公網環境：使用 Vercel API（查詢參數方式）
+        apiUrl = `https://stock-tool-neferyans-projects.vercel.app/api/stocks?code=${code}`;
       }
 
       const r = await fetch(apiUrl, {

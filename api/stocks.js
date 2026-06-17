@@ -35,14 +35,18 @@ module.exports = (req, res) => {
     return;
   }
 
-  const { pathname, query } = new URL(req.url, `http://${req.headers.host}`);
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const pathname = url.pathname;
+  const code = url.searchParams.get('code');
 
   // 路由處理
-  if (pathname === '/api/tw-stocks' && req.method === 'GET') {
-    handleTwStocks(res);
-  } else if (pathname.startsWith('/api/stock/') && req.method === 'GET') {
-    const code = pathname.replace('/api/stock/', '').replace('.TW', '').replace('.TWO', '');
-    handleSingleStock(res, code);
+  if ((pathname === '/api/tw-stocks' || pathname === '/api/stocks') && req.method === 'GET') {
+    // 如果有 code 查詢參數，返回單支股票；否則返回所有股票
+    if (code) {
+      handleSingleStock(res, code);
+    } else {
+      handleTwStocks(res);
+    }
   } else if (pathname === '/api/health' && req.method === 'GET') {
     handleHealth(res);
   } else {
