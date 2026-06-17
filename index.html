@@ -111,7 +111,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v6.7.0 (核心功能恢復)</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v6.8.0 (台股優先方案)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -475,8 +475,13 @@ async function yfFetch(sym) {
   return null;
 }
 
-// quoteSummary：直連（美股）或 corsproxy（台股備援）
+// yfSummary：禁用（美股 API 受限）
 async function yfSummary(sym) {
+  // 方案 A：台股優先 - 禁用美股 API
+  console.log('[yfSummary] 美股 API 已禁用（網絡環境限制）');
+  return null;
+
+  /* 原邏輯已禁用
   const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
   const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
   const isTW = sym.endsWith('.TW') || sym.endsWith('.TWO');
@@ -501,22 +506,14 @@ async function yfSummary(sym) {
   return null;
 }
 
-// 通用 fetch（allorigins + Vercel 備援）
+// 直接 fetch（無代理備援 - 方案 A：台股優先）
 async function safeFetch(url) {
-  // 代理 1：allorigins（免費且穩定）
   try {
-    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(12000)});
+    const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
     if (r.ok) return await r.json();
   } catch(e) {
-    console.log('[safeFetch] allorigins 失敗:', e.message);
+    console.warn('[safeFetch] 直連失敗:', e.message);
   }
-  // 代理 2：Vercel 後端（一旦部署完成）
-  try {
-    const proxyUrl = 'https://stock-tool-24t64jk0i-neferyiangs-projects.vercel.app/api/proxy?url=' + encodeURIComponent(url);
-    const r = await fetch(proxyUrl, {signal:AbortSignal.timeout(10000)});
-    if (r.ok) return await r.json();
-  } catch(e) {}
   return null;
 }
 
@@ -564,6 +561,11 @@ async function tpexFetch() {
 // Finnhub API：美股基本面數據（P/E、EPS、ROE 等）
 // ════════════════════════════════════════════════════════
 async function finnhubFetch(symbol) {
+  // 方案 A：禁用美股基本面數據
+  console.log('[finnhubFetch] 美股基本面數據已禁用（網絡環境限制）');
+  return null;
+
+  /* 原邏輯已禁用
   if (!symbol) return null;
 
   const FINNHUB_KEY = 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
@@ -26268,6 +26270,13 @@ async function go(){
   if(!raw)return;
   const isNumeric = /^\d{4,6}$/.test(raw);
   let ticker = isNumeric ? raw+'.TW' : raw;
+
+  // 方案 A：台股優先 - 禁用美股
+  if (!isNumeric && !raw.endsWith('.TW') && !raw.endsWith('.TWO')) {
+    setSt('⚠️ 暫不支持美股查詢（網絡環境限制）。請輸入台股代號（數字）。', true);
+    return;
+  }
+
   const btn=document.getElementById('btn');btn.disabled=true;
   setSt('<span class="spin"></span>查詢 '+ticker+'...',false);
   document.getElementById('res').classList.add('hidden');
