@@ -1,4 +1,5 @@
 {
+  "outputDirectory": ".",
   "buildCommand": "echo 'Build skipped for static site with serverless functions'",
   "installCommand": "echo 'Install skipped - no dependencies'"
 }
