@@ -26474,7 +26474,7 @@ async function go(){
 
     // 技術指標（優化：快速計算 MA，延遲複雜指標）
     const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
-    const tech = {
+    tech = {
       rsi: 50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
       macdBull: false,
       macdBear: false,
@@ -26500,8 +26500,8 @@ async function go(){
     }, 500);
 
     // 估值 & 建議
-    const vals = calcVals(price, m, indKey, indObj);
-    const vd = mkVerdict(price, vals, tech, indKey, indObj, m);
+    vals = calcVals(price, m, indKey, indObj);
+    vd = mkVerdict(price, vals, tech, indKey, indObj, m);
     const ptRows = calcPriceTargets(price, m, tech, indKey);
 
     // 財報趨勢計算
