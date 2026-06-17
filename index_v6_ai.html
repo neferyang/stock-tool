@@ -24713,7 +24713,11 @@ async function loadDailyReport() {
 
     // 強制不使用快取：添加時間戳 + 禁用快取頭
     const timestamp = new Date().getTime();
-    const response = await fetch(`daily-report.json?t=${timestamp}`, {
+    // 使用絕對 URL 避免路徑問題
+    const baseUrl = window.location.href.includes('github.io')
+      ? 'https://raw.githubusercontent.com/neferyang/stock-tool/main/'
+      : '';
+    const response = await fetch(`${baseUrl}daily-report.json?t=${timestamp}`, {
       cache: 'no-store',
       headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -24755,7 +24759,10 @@ async function refreshMarketReport(evt) {
   try {
     // 強制重新加載（加上時間戳避免快取）
     const timestamp = new Date().getTime();
-    const response = await fetch(`daily-report.json?t=${timestamp}`);
+    const baseUrl = window.location.href.includes('github.io')
+      ? 'https://raw.githubusercontent.com/neferyang/stock-tool/main/'
+      : '';
+    const response = await fetch(`${baseUrl}daily-report.json?t=${timestamp}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const reportData = await response.json();
