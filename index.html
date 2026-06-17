@@ -480,30 +480,6 @@ async function yfSummary(sym) {
   // 方案 A：台股優先 - 禁用美股 API
   console.log('[yfSummary] 美股 API 已禁用（網絡環境限制）');
   return null;
-
-  /* 原邏輯已禁用
-  const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${sym}?modules=price,summaryDetail,defaultKeyStatistics,financialData`;
-  const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
-  const isTW = sym.endsWith('.TW') || sym.endsWith('.TWO');
-
-  // 直連 query1 + query2（美股成功率 >95%，台股 ~50%）
-  for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
-    try {
-      const u = url.replace('query1.finance.yahoo.com', base.replace('https://',''));
-      const r = await fetch(u, {headers:hdrs, signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
-    } catch(e) {}
-  }
-
-  // 僅台股使用 corsproxy 備援（美股直接返回以加快速度）
-  if (isTW) {
-    try {
-      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(10000)});
-      console.log('[yfSummary] 台股 corsproxy', r.status, sym);
-      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
-    } catch(e) { console.warn('[yfSummary] corsproxy 備援失敗'); }
-  }
-  return null;
 }
 
 // 直接 fetch（無代理備援 - 方案 A：台股優先）
@@ -563,47 +539,6 @@ async function tpexFetch() {
 async function finnhubFetch(symbol) {
   // 方案 A：禁用美股基本面數據
   console.log('[finnhubFetch] 美股基本面數據已禁用（網絡環境限制）');
-  return null;
-
-  /* 原邏輯已禁用
-  if (!symbol) return null;
-
-  const FINNHUB_KEY = 'd8f8m4hr01qub7kgc2j0d8f8m4hr01qub7kgc2jg';
-  console.log('[finnhubFetch] Optimized: Only fetching Metric for', symbol);
-
-  try {
-    // 優化：只取 Metric（Quote 和 Profile 由 yfSummary 提供）
-    const metricUrl = `https://finnhub.io/api/v1/stock/metric?symbol=${symbol}&metric=all&token=${FINNHUB_KEY}`;
-
-    const metricResp = await fetch(metricUrl, {signal: AbortSignal.timeout(6000)}).catch(e => {
-      console.warn('[finnhubFetch] Metric fetch timeout/error:', e.message);
-      return {ok: false, status: 0};
-    });
-
-    const metric = metricResp.ok ? await metricResp.json() : null;
-    console.log('[finnhubFetch] Metric response keys:', metric?.metric ? Object.keys(metric.metric).length : 0);
-
-    // 提取估值數據（Finnhub Metric API 的正確字段名）
-    let valuation = {};
-    if (metric && metric.metric) {
-      const m = metric.metric;
-      valuation = {
-        pe: m.peTTM || null,           // P/E Ratio TTM
-        pb: m.pb || m.pbAnnual || null, // P/B Ratio
-        roe: m.roeTTM || null,         // ROE TTM（已是百分比，無需轉換）
-        eps: m.epsTTM || null,          // EPS TTM
-        dividend: m.currentDividendYieldTTM || null, // Dividend Yield TTM
-        divPerShare: m.dividendPerShareTTM || null  // DPS TTM
-      };
-      console.log('[finnhubFetch] ✅ Got Finnhub Metric data for', symbol);
-      return {valuation: valuation};
-    } else {
-      console.warn('[finnhubFetch] ⚠️ Metric data unavailable for', symbol);
-    }
-  } catch(e) {
-    console.error('[finnhubFetch] Fatal error:', e.message, e.stack);
-  }
-
   return null;
 }
 
