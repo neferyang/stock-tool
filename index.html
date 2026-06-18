@@ -205,110 +205,73 @@ let STOCK_CACHE = null;  // 緩存 TWSE 上市公司列表
 let US_STOCK_CACHE = null;  // 緩存美股列表
 
 async function initStockCache() {
-  // 優先順序改為：本地 JSON → TWSE API → corsproxy → 示例數據
+  // 優先：tw-stocks.json（1972 支，含正確產業名稱）→ TWSE API → corsproxy
 
-  // 備援 1：優先從本地 JSON 檔案加載（最快最可靠）
+  // 第一優先：tw-stocks.json（本地完整清單）
   try {
-    const resp = await fetch('twse-stocks.json', {signal: AbortSignal.timeout(5000)});
+    const resp = await fetch('tw-stocks.json', {signal: AbortSignal.timeout(5000)});
     if (resp.ok) {
-      STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股數據已加載 (本地 JSON，${STOCK_CACHE.length} 支股票)`);
-      return;
+      const data = await resp.json();
+      // tw-stocks.json 格式：{ stocks: { "2330": {code, name, name_en, type, industry}, ... } }
+      if (data.stocks) {
+        STOCK_CACHE = Object.values(data.stocks).map(s => ({
+          Code: s.code,
+          CHName: s.name,
+          Name: s.name_en || '',
+          Type: s.type || '上市',
+          Industry: s.industry || ''
+        }));
+        console.log(`✅ 台股數據已加載 (tw-stocks.json，${STOCK_CACHE.length} 支)`);
+        return;
+      }
     }
   } catch(e) {
-    console.warn('⚠️ 本地 JSON 加載失敗:', e.message);
+    console.warn('⚠️ tw-stocks.json 加載失敗:', e.message);
   }
 
-  // 備援 2：使用 TWSE API 直連
+  // 備援：TWSE API 直連
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
     const resp = await fetch(url, {signal: AbortSignal.timeout(8000)});
     if (resp.ok) {
-      STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股名稱緩存已加載 (TWSE API，${STOCK_CACHE.length} 支上市公司)`);
+      const raw = await resp.json();
+      STOCK_CACHE = raw.map(c => ({
+        Code: c['公司代號'] || '',
+        CHName: c['公司名稱'] || '',
+        Name: c['英文簡稱'] || '',
+        Type: '上市',
+        Industry: c['產業別'] || ''
+      }));
+      console.log(`✅ 台股名稱緩存已加載 (TWSE API，${STOCK_CACHE.length} 支)`);
       return;
     }
   } catch(e) {
     console.warn('⚠️ TWSE API 直連失敗:', e.message);
   }
 
-  // 備援 3：使用 corsproxy
+  // 最後備援：corsproxy
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
     const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
     const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(10000)});
     if (resp.ok) {
-      STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股名稱緩存已加載 (corsproxy，${STOCK_CACHE.length} 支上市公司)`);
+      const raw = await resp.json();
+      STOCK_CACHE = raw.map(c => ({
+        Code: c['公司代號'] || c.Code || '',
+        CHName: c['公司名稱'] || c.CHName || '',
+        Name: c['英文簡稱'] || c.Name || '',
+        Type: '上市',
+        Industry: c['產業別'] || ''
+      }));
+      console.log(`✅ 台股名稱緩存已加載 (corsproxy，${STOCK_CACHE.length} 支)`);
       return;
     }
   } catch(e) {
     console.warn('⚠️ TWSE corsproxy 備援失敗:', e.message);
   }
 
-  // 最後備援：使用示例數據
-  console.warn('⚠️ 使用本地示例數據');
-  STOCK_CACHE = [
-    // 科技 - 半導體
-    {Code:'2330',CHName:'台積電',Name:'TSMC',Type:'上市'},
-    {Code:'2454',CHName:'聯發科',Name:'MTK',Type:'上市'},
-    {Code:'8299',CHName:'群聯',Name:'Phison',Type:'上市'},
-    {Code:'2308',CHName:'台達電',Name:'Delta',Type:'上市'},
-    {Code:'3529',CHName:'積威',Name:'',Type:'上市'},
-    {Code:'2303',CHName:'聯電',Name:'UMC',Type:'上市'},
-    {Code:'2388',CHName:'威盛',Name:'VIA',Type:'上市'},
-    {Code:'2379',CHName:'瑞昱',Name:'Realtek',Type:'上市'},
-    {Code:'2408',CHName:'南茂',Name:'Nanya',Type:'上市'},
-    {Code:'2407',CHName:'智磊',Name:'CHEMI',Type:'上市'},
-    // 汽車
-    {Code:'2207',CHName:'和泰',Name:'HotAI',Type:'上市'},
-    {Code:'2201',CHName:'裕隆',Name:'Yulon',Type:'上市'},
-    {Code:'2227',CHName:'裕日車',Name:'YRC',Type:'上市'},
-    // 電子
-    {Code:'2317',CHName:'鴻海',Name:'Hon Hai',Type:'上市'},
-    {Code:'2412',CHName:'中華電',Name:'CHT',Type:'上市'},
-    {Code:'3711',CHName:'日月光',Name:'ASE',Type:'上市'},
-    {Code:'2498',CHName:'宏達電',Name:'HTC',Type:'上市'},
-    {Code:'2371',CHName:'大同',Name:'Tatung',Type:'上市'},
-    {Code:'2448',CHName:'晶電',Name:'Epistar',Type:'上市'},
-    {Code:'2449',CHName:'京元電',Name:'Elite',Type:'上市'},
-    // 傳統
-    {Code:'1101',CHName:'台泥',Name:'TCC',Type:'上市'},
-    {Code:'1102',CHName:'亞泥',Name:'ACC',Type:'上市'},
-    {Code:'1110',CHName:'台糖',Name:'TSC',Type:'上市'},
-    {Code:'1605',CHName:'華新科',Name:'HSI',Type:'上市'},
-    {Code:'1707',CHName:'葡萄王',Name:'GrapeFruit',Type:'上市'},
-    {Code:'1210',CHName:'大成',Name:'TATUNG',Type:'上市'},
-    // 金融
-    {Code:'2887',CHName:'台新金',Name:'TSCB',Type:'上市'},
-    {Code:'2890',CHName:'永豐金',Name:'Sinopac',Type:'上市'},
-    {Code:'2892',CHName:'第一金',Name:'FUBON',Type:'上市'},
-    {Code:'2891',CHName:'中信金',Name:'CHINFIN',Type:'上市'},
-    {Code:'2884',CHName:'玉山金',Name:'ESUNBANK',Type:'上市'},
-    {Code:'2886',CHName:'兆豐金',Name:'MEGABANK',Type:'上市'},
-    {Code:'2889',CHName:'國泰金',Name:'CATHAYLIFE',Type:'上市'},
-    {Code:'2882',CHName:'國票金',Name:'NTB',Type:'上市'},
-    {Code:'2880',CHName:'華南金',Name:'HUANAN',Type:'上市'},
-    // 航運
-    {Code:'2603',CHName:'長榮',Name:'Evergreen',Type:'上市'},
-    {Code:'2609',CHName:'陽明',Name:'Yang Ming',Type:'上市'},
-    {Code:'2618',CHName:'長華',Name:'',Type:'上市'},
-    {Code:'2606',CHName:'裕民',Name:'TCI',Type:'上市'},
-    // ETF
-    {Code:'0050',CHName:'台灣50',Name:'ETF',Type:'上市'},
-    {Code:'0056',CHName:'高股息',Name:'ETF',Type:'上市'},
-    {Code:'006208',CHName:'富邦台灣',Name:'ETF',Type:'上市'},
-    // 其他
-    {Code:'2845',CHName:'元大金',Name:'YuantaFH',Type:'上市'},
-    {Code:'1217',CHName:'廣宇',Name:'',Type:'上市'},
-    {Code:'1713',CHName:'國化',Name:'',Type:'上市'},
-    {Code:'2888',CHName:'新光金',Name:'SinopacLife',Type:'上市'},
-    {Code:'1301',CHName:'台塑',Name:'Formosa',Type:'上市'},
-    {Code:'1326',CHName:'天傑',Name:'',Type:'上市'},
-    {Code:'2353',CHName:'鴻準',Name:'HHM',Type:'上市'},
-    {Code:'2405',CHName:'浩鼎',Name:'PCI',Type:'上市'}
-  ];
-  console.log(`⚠️ 示例數據加載 (${STOCK_CACHE.length} 支) - 完整數據需 TWSE API 可用`);
+  console.warn('⚠️ 台股搜尋清單載入失敗，搜尋功能受限');
+  STOCK_CACHE = [];
 }
 
 // 加載美股列表
@@ -776,74 +739,67 @@ let lastIndustrySync = null;           // 最後同步時間
 
 async function loadLatestIndustryData() {
   try {
-    console.log('[產業數據] 正在從 TWSE/TPEX 同步官方企業分類...');
+    console.log('[產業數據] 從 tw-stocks.json 建立企業分類映射...');
 
-    // 上市公司（TWSE - 代碼對應表）
+    // 第一優先：tw-stocks.json（已有正確中文產業名）
+    try {
+      const resp = await fetch('tw-stocks.json', {signal: AbortSignal.timeout(5000)});
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.stocks) {
+          COMPANY_INDUSTRY_MAP = new Map();
+          let count = 0;
+          for (const [code, s] of Object.entries(data.stocks)) {
+            if (s.industry && s.industry.trim()) {
+              COMPANY_INDUSTRY_MAP.set(code, s.industry.trim());
+              count++;
+            }
+          }
+          lastIndustrySync = new Date();
+          console.log(`✅ 企業分類從 tw-stocks.json 建立完成 (${count} 家), 時間：${lastIndustrySync.toLocaleString()}`);
+          return true;
+        }
+      }
+    } catch(e) {
+      console.warn('[產業數據] tw-stocks.json 載入失敗:', e.message);
+    }
+
+    // 備援：TWSE API 直連
+    console.log('[產業數據] 改從 TWSE API 同步...');
+    const TWSE_INDUSTRY_MAP = {
+      '01':'水泥工業','02':'食品工業','03':'塑膠工業','04':'紡織纖維',
+      '05':'電機機械','06':'電器電纜','07':'化學工業','08':'玻璃陶瓷',
+      '09':'造紙工業','10':'鋼鐵工業','11':'橡膠工業','12':'汽車工業',
+      '14':'建材營造','15':'航運業','16':'觀光餐旅','17':'金融保險業',
+      '18':'貿易百貨業','19':'綜合','20':'其他業','21':'化學生技醫療業',
+      '22':'食品工業','23':'油電燃氣業','24':'半導體業',
+      '25':'電腦及週邊設備業','26':'光電業','27':'通信網路業',
+      '28':'電子零組件業','29':'電子通路業','30':'資訊服務業',
+      '31':'其他電子業','32':'文化創意業','33':'農業科技業',
+      '34':'電子商務業','35':'綠能環保','36':'數位雲端',
+      '37':'運動休閒','38':'居家生活','39':'其他',
+    };
     const twseUrl = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L";
-    let twseData = [];
-    try {
-      const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
-      if (twseResp.ok) {
-        twseData = await twseResp.json();
-        console.log(`[TWSE] 獲得 ${twseData.length} 家上市公司`);
-      }
-    } catch(twseErr) {
-      console.warn('[TWSE] API 請求失敗:', twseErr.message);
+    const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
+    if (twseResp.ok) {
+      const twseData = await twseResp.json();
+      COMPANY_INDUSTRY_MAP = new Map();
+      let count = 0;
+      twseData.forEach(item => {
+        const code = (item['公司代號'] || '').trim();
+        if (!code) return;
+        const indCode = (item['產業別'] || '').trim().padStart(2, '0');
+        const indName = TWSE_INDUSTRY_MAP[indCode] || null;
+        if (indName) { COMPANY_INDUSTRY_MAP.set(code, indName); count++; }
+      });
+      lastIndustrySync = new Date();
+      console.log(`✅ 企業分類從 TWSE API 建立完成 (${count} 家)`);
+      return count > 100;
     }
 
-    // 上櫃公司（TPEX - 代碼對應表）
-    const tpexUrl = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O";
-    let tpexData = [];
-    try {
-      const tpexResp = await fetch(tpexUrl, {signal: AbortSignal.timeout(10000)});
-      if (tpexResp.ok) {
-        tpexData = await tpexResp.json();
-        console.log(`[TPEX] 獲得 ${tpexData.length} 家上櫃公司`);
-      }
-    } catch(tpexErr) {
-      console.warn('[TPEX] API 請求失敗:', tpexErr.message);
-    }
-
-    // 合併上市 + 上櫃數據
-    const allCompanies = [...twseData, ...tpexData];
-    console.log(`[產業數據] 獲得 ${allCompanies.length} 家企業資訊`);
-
-    // 建立快速查找表：公司代碼 → 產業名稱（中文）
-    COMPANY_INDUSTRY_MAP = new Map();
-    let successCount = 0;
-
-    allCompanies.forEach(item => {
-      // 兼容多種欄位名稱（TWSE 和 TPEX 格式可能不同）
-      let code = item.Code || item['公司代號'] || item['代號'] || item.symbol;
-      let industryCode = item.IndustryCode || item['產業代號'] || item['代碼'] || null;
-      let industryName = item['產業別'] || item.Industry || null;
-
-      if (!code) return;
-      code = code.toString().trim();
-
-      // 優先用產業名稱，次要用產業代碼轉換
-      let finalIndustry = null;
-      if (industryName && industryName.trim()) {
-        finalIndustry = industryName.trim();
-      } else if (industryCode) {
-        const codeStr = industryCode.toString().trim().padStart(2, '0');
-        finalIndustry = OFFICIAL_INDUSTRY_CODES[codeStr] || null;
-      }
-
-      if (finalIndustry) {
-        COMPANY_INDUSTRY_MAP.set(code, finalIndustry);
-        successCount++;
-      }
-    });
-
-    lastIndustrySync = new Date();
-    const successRate = allCompanies.length > 0 ? ((successCount / allCompanies.length) * 100).toFixed(1) : 0;
-    console.log(`✅ 官方企業分類已同步完成 (${successCount}/${allCompanies.length} = ${successRate}%), 時間：${lastIndustrySync.toLocaleString()}`);
-
-    // 成功率超過 80% 視為成功
-    return successCount > allCompanies.length * 0.8;
+    return false;
   } catch(e) {
-    console.warn('⚠️ 官方企業分類同步失敗:', e.message, '將使用備援方案');
+    console.warn('⚠️ 官方企業分類同步失敗:', e.message);
     lastIndustrySync = null;
     return false;
   }
