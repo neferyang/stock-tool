@@ -11,6 +11,7 @@ const path = require('path');
 
 // FinMind API 基礎 URL
 const FINMIND_API = 'https://api.finmind.com.tw/v1/data';
+const FINMIND_TOKEN = process.env.FINMIND_TOKEN || '';
 
 // 兼容的超時實現（支持 Node 16+）
 function createTimeoutSignal(ms) {
@@ -21,36 +22,117 @@ function createTimeoutSignal(ms) {
 
 async function fetchFinMindData() {
   /**
-   * 嘗試從 FinMind API 或 Vercel 代理獲取市場數據
-   * 如果兩者都失敗，返回空對象（保持現有數據）
+   * 使用 FinMind API + token 獲取市場數據
+   * 支援：台股加權指數、各國際指數
    */
   const data = {};
 
-  // 首先嘗試 Vercel 代理
-  try {
-    console.log('📡 嘗試從 Vercel 代理獲取數據...');
-    const { signal, timeout } = createTimeoutSignal(5000);
-    const response = await fetch('https://neferyang.github.io/stock-tool/api/stocks?code=2330', { signal });
-    clearTimeout(timeout);
-
-    if (response.ok) {
-      const proxyData = await response.json();
-      console.log(`✅ Vercel 代理響應成功`);
-      // 如果代理可用，返回成功信號
-      return { proxyAvailable: true };
-    }
-  } catch (error) {
-    console.warn(`⚠️ Vercel 代理不可用: ${error.message}`);
+  if (!FINMIND_TOKEN) {
+    console.warn('⚠️ 沒有 FINMIND_TOKEN，跳過 FinMind 數據獲取');
+    return data;
   }
 
-  // 備選：使用硬編碼的最新市場數據（上次成功的快照）
-  console.log('📊 使用備用市場數據快照...');
-  return {
-    DJI: { name: '道瓊', price: '49711', change: '▼210.56', changePct: '▼0.42%' },
-    GSPC: { name: 'S&P 500', price: '7251', change: '▼16.14', changePct: '▼0.22%' },
-    IXIC: { name: '那斯達克', price: '25068', change: '▼103.81', changePct: '▼0.41%' },
-    N225: { name: '日經225', price: '64261', change: '▲85.37', changePct: '▲0.13%' }
-  };
+  console.log('📡 使用 FinMind API (含 token) 獲取數據...');
+
+  // 今天日期和昨天日期（用於查詢）
+  const today = new Date();
+  const startDate = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000); // 往前7天確保有數據
+  const startStr = startDate.toISOString().split('T')[0];
+
+  // 台灣加權指數
+  try {
+    const url = `${FINMIND_API}?dataset=TaiwanStockPrice&data_id=TSE001&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+    const { signal, timeout } = createTimeoutSignal(10000);
+    const r = await fetch(url, { signal });
+    clearTimeout(timeout);
+    if (r.ok) {
+      const json = await r.json();
+      if (json.data && json.data.length > 0) {
+        const latest = json.data[json.data.length - 1];
+        const close = parseFloat(latest.close || 0);
+        const open = parseFloat(latest.open || close);
+        const change = close - open;
+        const changePct = (change / open * 100);
+        const arrow = change >= 0 ? '▲' : '▼';
+        data['TWII'] = {
+          name: '台灣加權指數',
+          price: close.toFixed(0),
+          displayStr: `${close.toFixed(0)}（${latest.date}，${arrow}${Math.abs(changePct).toFixed(2)}%）`
+        };
+        console.log(`✅ 台灣加權指數: ${close.toFixed(0)}`);
+      }
+    }
+  } catch (e) {
+    console.warn(`⚠️ 台灣加權指數獲取失敗: ${e.message}`);
+  }
+
+  // 美國道瓊、S&P500、那斯達克 - 使用 TaiwanStockPrice 的 ETF 替代
+  // 或直接使用 FinMind 的 USA 市場數據
+  const usaSymbols = [
+    { id: 'DJIA', name: '道瓊', key: 'DJI' },
+    { id: 'SPX', name: 'S&P 500', key: 'GSPC' },
+    { id: 'COMP', name: '那斯達克', key: 'IXIC' },
+  ];
+
+  for (const sym of usaSymbols) {
+    try {
+      const url = `${FINMIND_API}?dataset=StockMarket&data_id=${sym.id}&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+      const { signal, timeout } = createTimeoutSignal(10000);
+      const r = await fetch(url, { signal });
+      clearTimeout(timeout);
+      if (r.ok) {
+        const json = await r.json();
+        if (json.data && json.data.length > 0) {
+          const latest = json.data[json.data.length - 1];
+          const close = parseFloat(latest.close || 0);
+          const change = parseFloat(latest.Change || 0);
+          const changePct = parseFloat(latest.ChangePercent || 0);
+          if (close > 0) {
+            const arrow = change >= 0 ? '▲' : '▼';
+            data[sym.key] = {
+              name: sym.name,
+              price: close.toFixed(2),
+              displayStr: `${close.toFixed(0)}（${arrow}${Math.abs(changePct).toFixed(2)}%）`
+            };
+            console.log(`✅ ${sym.name}: ${close.toFixed(0)}`);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn(`⚠️ ${sym.name} 獲取失敗: ${e.message}`);
+    }
+  }
+
+  // 日本日經225
+  try {
+    const url = `${FINMIND_API}?dataset=StockMarket&data_id=N225&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+    const { signal, timeout } = createTimeoutSignal(10000);
+    const r = await fetch(url, { signal });
+    clearTimeout(timeout);
+    if (r.ok) {
+      const json = await r.json();
+      if (json.data && json.data.length > 0) {
+        const latest = json.data[json.data.length - 1];
+        const close = parseFloat(latest.close || 0);
+        const change = parseFloat(latest.Change || 0);
+        const changePct = parseFloat(latest.ChangePercent || 0);
+        if (close > 0) {
+          const arrow = change >= 0 ? '▲' : '▼';
+          data['N225'] = {
+            name: '日經225',
+            price: close.toFixed(0),
+            displayStr: `${close.toFixed(0)}（${arrow}${Math.abs(changePct).toFixed(2)}%）`
+          };
+          console.log(`✅ 日經225: ${close.toFixed(0)}`);
+        }
+      }
+    }
+  } catch (e) {
+    console.warn(`⚠️ 日經225 獲取失敗: ${e.message}`);
+  }
+
+  console.log(`📊 FinMind 獲取完成：${Object.keys(data).length} 個指數`);
+  return data;
 }
 
 async function fetchYahooFinanceData(symbols) {
@@ -236,73 +318,47 @@ async function updateDailyReport() {
     fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
     console.log(`✅ 版本已保存: v${reportData.version}\n`);
 
-    // 嘗試獲取最新市場數據（FinMind + TWSE 雙數據源）
+    // 獲取最新市場數據
     console.log('📊 正在獲取最新市場數據...\n');
 
-    // 【新優先】FinMind API - 國際市場 + 台股
-    console.log('📡 正在從 FinMind API 獲取國際市場數據...');
-    const finmindData = await fetchFinMindData();
-    console.log(`✅ FinMind: ${Object.keys(finmindData).length} 個市場數據已獲取`);
-
-    // TWSE 台股數據（備用或補充）
-    console.log('📡 正在從 TWSE OpenAPI 獲取台股數據...');
-    const twseData = await fetchTWSEData();
-    if (twseData) {
-      console.log(`✅ TWSE 台股數據已獲取\n`);
-    } else {
-      console.log(`⚠️ TWSE 數據取得失敗\n`);
-    }
-
-    // Yahoo Finance 數據（備用，但可能無法訪問）
-    console.log('📡 嘗試從 Yahoo Finance 獲取補充數據...');
-    const marketSymbols = {
-      '^DJI': '道瓊',
-      '^GSPC': 'S&P 500',
-      '^IXIC': '那斯達克',
-      '^N225': '日經225',
-      '^NSEI': 'NIFTY 50',
-      '^VN': '越南 VN-Index',
-      'Y001.F': '台灣加權指數',
-      'GC=F': '黃金'
-    };
-    const marketData = await fetchYahooFinanceData(marketSymbols);
-    if (Object.keys(marketData).length > 0) {
-      console.log(`✅ Yahoo Finance: ${Object.keys(marketData).length} 個市場數據已獲取\n`);
-    } else {
-      console.log(`⚠️ Yahoo Finance 無法訪問（使用 FinMind 數據）\n`);
-    }
-
-    // 【嘗試】獲取最新市場數據（失敗不會中斷更新）
-    console.log('📊 嘗試獲取最新市場數據...');
-
     try {
-      if (!Array.isArray(reportData.markets)) {
-        reportData.markets = [];
-      }
+      const finmindData = await fetchFinMindData();
 
-      // 優先使用 FinMind 或 Yahoo Finance 的數據
-      if (Object.keys(finmindData).length > 0 || Object.keys(marketData).length > 0) {
-        console.log('✅ 獲得市場數據，準備更新...');
+      if (Object.keys(finmindData).length > 0) {
+        console.log('✅ 獲得 FinMind 數據，更新 markets...');
 
-        // 合併所有獲取到的市場數據
-        const allMarketData = { ...finmindData, ...marketData };
+        if (!Array.isArray(reportData.markets)) reportData.markets = [];
 
-        // 更新 markets 陣列中對應的數據
         for (const market of reportData.markets) {
-          if (market.items && Array.isArray(market.items)) {
-            // 根據市場名稱更新對應的指數數據
-            if (market.name.includes('美國') && allMarketData['DJI']) {
-              market.items[0] = `道瓊：${allMarketData['DJI'].price}（${allMarketData['DJI'].changePct}）`;
+          if (!market.items) continue;
+
+          // 美國股市
+          if (market.name.includes('美國')) {
+            const items = [];
+            if (finmindData['DJI']) items.push(`道瓊：${finmindData['DJI'].displayStr}`);
+            if (finmindData['GSPC']) items.push(`S&P 500：${finmindData['GSPC'].displayStr}`);
+            if (finmindData['IXIC']) items.push(`那斯達克：${finmindData['IXIC'].displayStr}`);
+            if (items.length > 0) { market.items = items; console.log(`✅ 美國股市已更新`); }
+          }
+
+          // 日經225
+          if (market.name.includes('日經')) {
+            if (finmindData['N225']) {
+              market.items = [finmindData['N225'].displayStr];
+              console.log(`✅ 日經225已更新`);
             }
-            if (market.name.includes('日經') && allMarketData['N225']) {
-              market.items[0] = `${allMarketData['N225'].price}（${allMarketData['N225'].changePct}）`;
+          }
+
+          // 台灣加權指數
+          if (market.name.includes('台灣')) {
+            if (finmindData['TWII']) {
+              market.items = [finmindData['TWII'].displayStr];
+              console.log(`✅ 台灣加權指數已更新`);
             }
           }
         }
-
-        console.log(`✅ ${Object.keys(allMarketData).length} 個市場數據已更新`);
       } else {
-        console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
+        console.warn('⚠️ FinMind 未返回數據，保持現有市場數據');
       }
     } catch (dataError) {
       console.warn(`⚠️ 市場數據更新失敗（不影響版本更新）: ${dataError.message}`);

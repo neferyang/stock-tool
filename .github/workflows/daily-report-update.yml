@@ -24,6 +24,9 @@ jobs:
           node-version: '18'
 
       - name: Run update script
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node update-daily-report.js
 
       - name: Commit and Push via API
