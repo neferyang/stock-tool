@@ -241,24 +241,23 @@ async function updateDailyReport() {
     }
 
     const tradingDay = new Date(today.getTime() - tradingDayOffset * 24 * 60 * 60 * 1000);
-    const tradingDayStr = tradingDay.toLocaleDateString('zh-TW', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      weekday: 'short'
-    }).replace(/\//g, '年').replace(/年$/, '日') + '（' +
-    ['日', '一', '二', '三', '四', '五', '六'][tradingDay.getDay()] + '）';
+    const weekDayChars = ['日', '一', '二', '三', '四', '五', '六'];
 
-    const currentDayStr = today.toLocaleDateString('zh-TW', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      weekday: 'short'
-    }).replace(/\//g, '年').replace(/年$/, '日') + '（' +
-    ['日', '一', '二', '三', '四', '五', '六'][today.getDay()] + '）';
+    // 格式化日期字符串
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const weekday = weekDayChars[date.getDay()];
+      return `${year}年${month}月${day}日（星期${weekday}）`;
+    };
 
-    reportData.date = currentDayStr;
-    reportData.basedOn = '2026年6月' + tradingDay.getDate().toString().padStart(2, '0') + '日（前一交易日）';
+    reportData.date = formatDate(today);
+
+    // basedOn 格式：2026年6月17日（前一交易日）
+    const tradingDayFormatted = formatDate(tradingDay);
+    const basedOnDate = tradingDayFormatted.substring(0, tradingDayFormatted.indexOf('（'));
+    reportData.basedOn = basedOnDate + '（前一交易日）';
 
     // 【改進】先保存版本更新，再嘗試獲取市場數據
     console.log('💾 保存版本更新...');
