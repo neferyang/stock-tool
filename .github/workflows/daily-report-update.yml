@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,34 +24,53 @@ jobs:
           node-version: '18'
 
       - name: Run update script
-        run: |
-          echo "🚀 執行更新腳本..."
-          node update-daily-report.js
-          echo "✅ 腳本執行完成"
+        run: node update-daily-report.js
 
-      - name: Check changes
-        run: |
-          echo "📋 檢查文件狀態..."
-          git status
-          git diff daily-report.json | head -50
-
-      - name: Push changes
+      - name: Commit and Push via API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH: main
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          echo "🚀 檢查文件變更..."
 
-          if git diff --quiet daily-report.json; then
-            echo "✅ 沒有變更"
-            exit 0
+          # 獲取當前文件 SHA
+          CURRENT_SHA=$(git rev-parse HEAD:daily-report.json 2>/dev/null || echo "")
+          echo "Current SHA: $CURRENT_SHA"
+
+          # 獲取新文件內容（base64 編碼）
+          NEW_CONTENT=$(base64 -w 0 daily-report.json)
+
+          # 檢查是否有變更
+          if [ -z "$CURRENT_SHA" ]; then
+            echo "❌ 無法獲取文件 SHA"
+            exit 1
           fi
 
-          echo "📝 提交變更..."
-          git add daily-report.json
-          git commit -m "🔄 自動更新: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          # 使用 GitHub API 更新文件
+          echo "📝 使用 GitHub API 更新文件..."
 
-          echo "🚀 推送到 GitHub..."
-          git push https://github-actions[bot]:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          RESPONSE=$(curl -s -X PUT \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/$REPO/contents/daily-report.json" \
+            -d "{
+              \"message\": \"🔄 自動更新: $(date -u +'%Y-%m-%d %H:%M:%S UTC')\",
+              \"content\": \"$NEW_CONTENT\",
+              \"branch\": \"$BRANCH\",
+              \"sha\": \"$CURRENT_SHA\",
+              \"committer\": {
+                \"name\": \"github-actions[bot]\",
+                \"email\": \"github-actions[bot]@users.noreply.github.com\"
+              }
+            }")
 
-          echo "✅ 推送完成"
+          echo "API Response:"
+          echo "$RESPONSE" | jq '.' || echo "$RESPONSE"
+
+          # 檢查是否成功
+          if echo "$RESPONSE" | grep -q '"sha"'; then
+            echo "✅ 文件已成功更新"
+          else
+            echo "⚠️ API 響應異常，可能沒有變更或已經推送"
+          fi
