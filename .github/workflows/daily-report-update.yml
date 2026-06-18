@@ -29,6 +29,11 @@ jobs:
       - name: Fetch market indices
         run: python fetch-market-data.py
 
+      - name: Generate market analysis
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python generate-market-analysis.py
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

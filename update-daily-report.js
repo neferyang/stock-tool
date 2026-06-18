@@ -43,6 +43,22 @@ function loadMarketData() {
   }
 }
 
+function loadAnalysisData() {
+  const p = path.join(__dirname, 'market-analysis.json');
+  if (!fs.existsSync(p)) {
+    console.warn('⚠️ market-analysis.json 不存在，跳過分析文字更新');
+    return null;
+  }
+  try {
+    const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+    console.log(`✅ 讀取 market-analysis.json (${Object.keys(raw.markets || {}).length} 個市場)`);
+    return raw.markets || {};
+  } catch (e) {
+    console.warn(`⚠️ 讀取 market-analysis.json 失敗: ${e.message}`);
+    return null;
+  }
+}
+
 // 根據市場 name，從 market-data.json 的 indices 中找到對應資料
 function findIndexData(indices, groupOrNameHints) {
   for (const [symbol, data] of Object.entries(indices)) {
@@ -158,13 +174,39 @@ async function main() {
   console.log(`📅 日期: ${reportData.date}`);
   console.log(`📅 basedOn: ${reportData.basedOn}\n`);
 
-  // 載入市場數據並更新
+  // 載入市場數據並更新數字
   const indices = loadMarketData();
   if (indices && Object.keys(indices).length > 0) {
     updateMarkets(reportData.markets, indices);
   } else {
     console.warn('⚠️ 無市場數據，僅更新版本和日期');
   }
+
+  // 載入分析文字並更新 analysis 欄位
+  const analysisMap = loadAnalysisData();
+  if (analysisMap && reportData.markets) {
+    const groupKeyMap = {
+      '美國': 'US', '美股': 'US',
+      '日經': 'JP', '日本': 'JP',
+      '台灣': 'TW', '台股': 'TW',
+      '黃金': 'GOLD', '商品': 'GOLD',
+      '印度': 'IN',
+      '越南': 'VN', '東南亞': 'VN',
+    };
+    for (const market of reportData.markets) {
+      const name = market.name || '';
+      let groupKey = null;
+      for (const [keyword, key] of Object.entries(groupKeyMap)) {
+        if (name.includes(keyword)) { groupKey = key; break; }
+      }
+      if (groupKey && analysisMap[groupKey]?.analysis) {
+        market.analysis = analysisMap[groupKey].analysis;
+        console.log(`✅ ${name} 分析文字已更新`);
+      }
+    }
+  }
+
+  reportData.updateSource = 'GitHub Actions (yfinance + Claude)';
 
   // 儲存
   fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
