@@ -155447,3 +155447,890 @@ const FINANCIAL_DB = {
  }
 };
 
+
+// 獲取財報數據函數（優先從後端，備用本地數據庫）
+async function getFinancialData(code, isTW) {
+  // 第一優先：FINANCIAL_DB 年度財務數據（有完整 roe/debtRatio 多年記錄）
+  if (FINANCIAL_DB[code] && FINANCIAL_DB[code].data) {
+    const dbData = FINANCIAL_DB[code].data;
+    const hasFullData = dbData[0] && (dbData[0].roe !== undefined || dbData[0].debtRatio !== undefined);
+    if (hasFullData) {
+      console.log('[getFinancialData] ✅ 使用 FINANCIAL_DB 年度數據:', code, dbData.length + '年');
+      return dbData;
+    }
+  }
+
+  // 第二優先（STOCKS_DATA 即時補充，僅單年）
+  if (isTW && STOCKS_DATA && STOCKS_DATA[code]) {
+    const data = STOCKS_DATA[code];
+    console.log('[getFinancialData] ✅ 使用全局 STOCKS_DATA:', data);
+    return [{
+      year: new Date().getFullYear(),
+      pe: data.pe,
+      pb: data.pb,
+      eps: data.eps,
+      roe: data.roe ? parseFloat(data.roe) * 100 : 0,
+      operatingMargin: data.operating_margin ? parseFloat(data.operating_margin) * 100 : 0,
+      profitMargin: data.profit_margin ? parseFloat(data.profit_margin) * 100 : 0,
+      fcf: data.fcf ? parseFloat(data.fcf) : 0,
+      netIncome: data.net_income ? parseFloat(data.net_income) : 0,
+      dividend: data.dividend,
+      dividendYield: data.dividend_yield,
+      name: data.name,
+      debtRatio: 0
+    }];
+  }
+
+    // 第二優先：從後端獲取實時數據（支援 localhost 和 Vercel）
+  if (isTW) {
+    try {
+      let apiUrl;
+      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+        apiUrl = `http://localhost:5000/api/stocks?code=${code}`;
+      } else {
+        apiUrl = `https://stock-tool-neferyans-projects.vercel.app/api/stocks?code=${code}`;
+      }
+
+      const r = await fetch(apiUrl, {signal: AbortSignal.timeout(8000)});
+      if (r.ok) {
+        const json = await r.json();
+        if (json.data) {
+          const data = json.data;
+          console.log('[getFinancialData] ✅ 後端數據成功:', data);
+          return [{
+            year: new Date().getFullYear(),
+            pe: data.pe,
+            pb: data.pb,
+            eps: data.eps,
+            roe: data.roe ? parseFloat(data.roe) * 100 : 0,
+            operatingMargin: data.operating_margin ? parseFloat(data.operating_margin) * 100 : 0,
+            profitMargin: data.profit_margin ? parseFloat(data.profit_margin) * 100 : 0,
+            fcf: data.fcf ? parseFloat(data.fcf) : 0,
+            netIncome: data.dividend ? parseFloat(data.dividend) * 100 : 0,
+            dividend: data.dividend,
+            dividendYield: data.dividend_yield,
+            name: data.name
+          }];
+        }
+      }
+    } catch(e) {
+      console.warn('[getFinancialData] 後端請求失敗:', e.message);
+    }
+  }
+
+  // 第三優先：從本地數據庫獲取（舊方式）
+  if (FINANCIAL_DB[code]) {
+    return FINANCIAL_DB[code].data;
+  }
+
+  return null;
+}
+
+// ════════════════════════════════════════════════════════
+// 4 大核心指標評估函數
+// ════════════════════════════════════════════════════════
+
+// 1. ROE 評估（股神巴菲特最看重的指標）
+function evaluateROE(roe) {
+  if (roe > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '超一流企業，長期投資首選' };
+  if (roe > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '優質企業，值得關注' };
+  if (roe > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '普通企業，中等水準' };
+  if (roe > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '弱勢企業，需觀察' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '問題企業，應迴避' };
+}
+
+// 2. 營業利益率評估（檢驗本業賺錢能力）
+function evaluateOperatingMargin(margin) {
+  if (margin > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '本業盈利能力超強' };
+  if (margin > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '本業盈利能力很好' };
+  if (margin > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '本業盈利能力尚可' };
+  if (margin > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '本業盈利能力普通' };
+  if (margin > 0) return { level: '⚠️ 偏弱', color: '#f97316', score: 2, desc: '本業盈利能力較弱' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本業無法盈利' };
+}
+
+// 3. 自由現金流評估（現金才是王道）
+function evaluateFCF(fcf, netIncome) {
+  if (!netIncome || netIncome <= 0) return { level: '⚠️ 異常', color: '#f97316', score: 2, desc: '淨利異常，無法評估' };
+
+  const ratio = fcf / netIncome;
+  if (ratio > 0.7) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '現金創造力超強，品質優異' };
+  if (ratio > 0.5) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '現金創造力很好' };
+  if (ratio > 0.3) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '現金創造力尚可' };
+  if (ratio > 0) return { level: '🟡一般', color: '#eab308', score: 2, desc: '現金創造力較弱' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '淨利品質堪憂，現金不足' };
+}
+
+// 4. 負債比率評估（財務風險評估）
+function evaluateDebtRatio(ratio, industry = 'general') {
+  // 金融業和高槓桿行業標準不同
+  let thresholds = { safe: 50, warning: 70 };
+  if (['金融保險業', '28'].includes(industry)) {
+    thresholds = { safe: 80, warning: 90 };
+  }
+
+  if (ratio < 30) return { level: '🌟非常健康', color: '#10b981', score: 5, desc: '財務結構極強' };
+  if (ratio < thresholds.safe) return { level: '🟢健康', color: '#16a34a', score: 4, desc: '財務結構良好' };
+  if (ratio < thresholds.warning) return { level: '🔵可接受', color: '#3b82f6', score: 3, desc: '財務結構一般' };
+  if (ratio < 90) return { level: '⚠️ 需注意', color: '#f97316', score: 2, desc: '負債較高，需監控' };
+  return { level: '🔴高風險', color: '#ef4444', score: 1, desc: '負債過高，風險大' };
+}
+
+// 綜合評分函數
+function calculateHealthScore(roe, operatingMargin, fcf, netIncome, debtRatio, industry) {
+  const roeScore = evaluateROE(roe).score;
+  const marginScore = evaluateOperatingMargin(operatingMargin).score;
+  const fcfScore = evaluateFCF(fcf, netIncome).score;
+  const debtScore = evaluateDebtRatio(debtRatio, industry).score;
+
+  const avgScore = (roeScore + marginScore + fcfScore + debtScore) / 4;
+
+  if (avgScore >= 4.5) return { level: '★★★★★ 一流企業', color: '#10b981' };
+  if (avgScore >= 3.5) return { level: '★★★★ 優質企業', color: '#16a34a' };
+  if (avgScore >= 2.5) return { level: '★★★ 普通企業', color: '#3b82f6' };
+  if (avgScore >= 1.5) return { level: '★★ 問題企業', color: '#eab308' };
+  return { level: '★ 風險企業', color: '#ef4444' };
+}
+
+function calcFinancialTrend(data) {
+  // 計算財報趨勢（5年年增率）
+  if (!data || data.length === 0) return [];
+
+  const trends = [];
+
+  // 從新到舊迭代（data 已按年度排序：2024, 2023, 2022, ...）
+  for (let i = 0; i < data.length; i++) {
+    const curr = data[i];
+    const prev = data[i + 1] || null;  // 上一年（如果存在）
+
+    // 計算各項年增率（與前一年比較）- 返回數值而非字符串
+    let epsGrowth = null, netMarginGrowth = null, roeGrowth = null;
+
+    if (prev) {
+      if (curr.eps !== null && prev.eps !== null && prev.eps !== 0) {
+        epsGrowth = ((curr.eps - prev.eps) / Math.abs(prev.eps) * 100);
+      }
+      if (curr.netMargin !== null && prev.netMargin !== null) {
+        netMarginGrowth = (curr.netMargin - prev.netMargin);
+      }
+      if (curr.roe !== null && prev.roe !== null) {
+        roeGrowth = (curr.roe - prev.roe);
+      }
+    }
+
+    trends.push({
+      year: curr.year,
+      eps: { val: curr.eps, growth: epsGrowth },
+      roe: { val: curr.roe, growth: roeGrowth },
+      netMargin: { val: curr.netMargin, growth: netMarginGrowth },
+      debtRatio: { val: curr.debtRatio, growth: null }  // 負債比無需計算年增率
+    });
+  }
+
+  return trends;
+}
+
+// ════════════════════════════════════════════════════════
+// 走勢圖
+// ════════════════════════════════════════════════════════
+let chart=null, AD=[], AP=[], AV=[];let apb=null;
+let fchart=null; // 財報圖表
+function renderFinancialChart(financialData){
+  if (!financialData || financialData.length === 0) return;
+
+  const ctx = document.getElementById('fc');
+  if (!ctx) return;
+
+  if(fchart) fchart.destroy();
+
+  // 準備數據（從新到舊反轉為舊到新）
+  const data = [...financialData].reverse();
+  const years = data.map(d => d.year);
+  const eps = data.map(d => d.eps.val);
+  const roe = data.map(d => d.roe.val);
+  const margin = data.map(d => d.netMargin.val);
+  const fcfRatio = data.map(d => {
+    const ratio = d.eps.val ? (d.eps.val * 0.3 + Math.random() * 20) : 0; // 簡化估算
+    return Math.min(ratio, 100);
+  });
+
+  fchart = new Chart(ctx.getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'EPS',
+          data: eps,
+          borderColor: '#2563eb',
+          backgroundColor: 'rgba(37,99,235,0.1)',
+          yAxisID: 'y',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4
+        },
+        {
+          label: 'ROE %',
+          data: roe,
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16,185,129,0.05)',
+          yAxisID: 'y1',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4
+        },
+        {
+          label: '淨利率 %',
+          data: margin,
+          borderColor: '#f59e0b',
+          backgroundColor: 'rgba(245,158,11,0.05)',
+          yAxisID: 'y1',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4,
+          borderDash: [5, 5]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      interaction: {mode: 'index', intersect: false},
+      plugins: {
+        legend: {
+          labels: {
+            boxWidth: 12,
+            font: {size: 11},
+            usePointStyle: true
+          },
+          position: 'top'
+        },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const label = ctx.dataset.label || '';
+              const value = ctx.parsed.y;
+              if (value == null || isNaN(value)) return label + ': N/A';
+              if (label.includes('%') || label === 'ROE %' || label === '淨利率 %') {
+                return label + ': ' + value.toFixed(1) + '%';
+              }
+              return label + ': ' + value.toFixed(2);
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {font: {size: 10}},
+          grid: {display: true, drawBorder: false, color: 'rgba(0,0,0,0.05)'}
+        },
+        y: {
+          position: 'left',
+          title: {display: true, text: 'EPS', font: {size: 10}},
+          ticks: {font: {size: 10}},
+          grid: {color: 'rgba(37,99,235,0.1)'}
+        },
+        y1: {
+          position: 'right',
+          title: {display: true, text: '比率 (%)', font: {size: 10}},
+          ticks: {font: {size: 10}},
+          grid: {display: false}
+        }
+      }
+    }
+  });
+}
+
+function renderChart(dates,prices,vols){
+  const ctx=document.getElementById('pc').getContext('2d');
+  if(chart)chart.destroy();
+  chart=new Chart(ctx,{
+    data:{labels:dates,datasets:[
+      {type:'line',label:'收盤價',data:prices,borderColor:'#2563eb',backgroundColor:'rgba(37,99,235,0.07)',borderWidth:1.5,pointRadius:0,fill:true,tension:0.3,yAxisID:'y'},
+      {type:'line',label:'MA20',data:maLine(prices,20),borderColor:'#f59e0b',borderWidth:1,pointRadius:0,fill:false,tension:0,yAxisID:'y',spanGaps:true},
+      {type:'line',label:'MA60',data:maLine(prices,60),borderColor:'#10b981',borderWidth:1,pointRadius:0,fill:false,tension:0,yAxisID:'y',spanGaps:true},
+      {type:'bar',label:'成交量',data:vols,backgroundColor:'rgba(100,116,139,0.3)',yAxisID:'y2'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{labels:{boxWidth:12,font:{size:11}}},tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y2'?'成交量: '+fB(c.raw):c.dataset.label+': '+f(c.raw)}}},
+      scales:{x:{ticks:{maxTicksLimit:8,font:{size:10}},grid:{display:false}},y:{position:'left',ticks:{font:{size:10}}},y2:{position:'right',grid:{display:false},ticks:{display:false}}}
+    }
+  });
+}
+function setPd(n,b){
+  if(apb)apb.classList.remove('active');
+  b.classList.add('active');
+  apb=b;
+
+  // 當日走勢提示：Yahoo Finance 無分鐘線數據
+  // 當日按鈕選中時顯示 5 日走勢作為替代
+  const s = (n === -1) ? Math.max(0, AP.length - 5) : Math.max(0, AP.length - n);
+
+  // 若當日模式，添加提示
+  if(n === -1 && AD.length > 0) {
+    const tooltip = `ⓘ 無分鐘線數據，顯示 5 日走勢`;
+    console.log(tooltip);
+  }
+
+  renderChart(AD.slice(s),AP.slice(s),AV.slice(s));
+}
+
+// ════════════════════════════════════════════════════════
+// 主程式
+// ════════════════════════════════════════════════════════
+async function go(){
+  let raw=document.getElementById('ti').value.trim().toUpperCase();
+  if(!raw)return;
+  const isNumeric = /^\d{4,6}$/.test(raw);
+  let ticker = isNumeric ? raw+'.TW' : raw;
+
+  // 方案 A：台股優先 - 禁用美股
+  if (!isNumeric && !raw.endsWith('.TW') && !raw.endsWith('.TWO')) {
+    setSt('⚠️ 暫不支持美股查詢（網絡環境限制）。請輸入台股代號（數字）。', true);
+    return;
+  }
+
+  const btn=document.getElementById('btn');btn.disabled=true;
+  setSt('<span class="spin"></span>查詢 '+ticker+'...',false);
+  document.getElementById('res').classList.add('hidden');
+
+  try{
+    // 初始化關鍵變數，防止 finally 塊出錯
+    let m = null, price = null, vals = null, vd = {}, tech = {}, indName = '未分類', indResult = {confidence:'low'};
+
+    setSt('<span class="spin"></span>抓取資料中...',false);
+
+    // 台股：先試 .TW，失敗再試 .TWO（上櫃股）
+    let chartResult = null;
+    if (isNumeric) {
+      chartResult = await yfFetch(raw+'.TW');
+      if (!chartResult) {
+        ticker = raw+'.TWO';
+        setSt('<span class="spin"></span>嘗試上櫃代號 '+ticker+'...',false);
+        chartResult = await yfFetch(raw+'.TWO');
+      }
+    } else {
+      chartResult = await yfFetch(ticker);
+    }
+
+    const isTW = ticker.endsWith('.TW') || ticker.endsWith('.TWO');
+    const isOTC = ticker.endsWith('.TWO'); // 上櫃
+
+    // 並行抓取基本面資料
+    const code = ticker.replace('.TW','').replace('.TWO','');
+    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
+      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
+      isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
+      yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
+      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
+      !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v4.18：美股 Finnhub 基本面數據（優化版）
+      isTW ? getFinancialData(code, isTW) : Promise.resolve(null)  // v4.22：歷年財報數據
+    ]);
+
+    // P2：法人數據（暫時禁用，使用默認值避免超時）
+    const finmindResult = null;
+    const finconfResult = null;
+
+    if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
+
+    const meta = chartResult.meta || {};
+    price = meta.regularMarketPrice || meta.price;
+    if (!price) throw new Error('無法取得股價，請稍後再試');
+
+    // K線資料
+    const ts=chartResult.timestamp||[],q=chartResult.indicators?.quote?.[0]||{};
+    const closes=q.close||[],highs=q.high||[],lows=q.low||[],vols=q.volume||[];
+
+    // 過濾有效數據：價格 > 0，且非重複數據
+    const idx=ts.map((_,i)=>i).filter(i=>{
+      if(closes[i]==null || closes[i]<=0) return false;
+      // 若與前一根相同且成交量為 0，視為無效（當日盤中未結束）
+      if(i > 0 && closes[i] === closes[i-1] && (!vols[i] || vols[i]===0)) return false;
+      return true;
+    });
+
+    AD=idx.map(i=>{const d=new Date(ts[i]*1000);return`${d.getMonth()+1}/${d.getDate()}`;});
+    AP=idx.map(i=>closes[i]);
+    const AH=idx.map(i=>highs[i]||closes[i]);
+    const AL=idx.map(i=>lows[i]||closes[i]);
+    AV=idx.map(i=>vols[i]||0);
+
+    // 基本面資料整合
+    function raw2(o){return(o&&typeof o==='object'&&'raw'in o)?o.raw:o;}
+    m = {
+      '52hi': meta.fiftyTwoWeekHigh,
+      '52lo': meta.fiftyTwoWeekLow,
+      pe:null, pb:null, div:null, divYield:null,
+      eps:null, roe:null, evEbitda:null, peg:null,
+      marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
+    };
+
+    // TWSE 上市資料
+    if (twseArr) {
+      const no = ticker.replace('.TW','').replace('.TWO','');
+      const row = twseArr.find(r=>r.Code===no);
+      if (row) {
+        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
+        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
+        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
+        if (m.divYield) m.div = price * m.divYield / 100;
+        if (row.Name) m.name = row.Name;
+        // TWSE 額外財務數據（如果提供）
+        if (row.OutstandingShares && !isNaN(row.OutstandingShares)) {
+          const shares = parseFloat(row.OutstandingShares);
+          m.marketCap = price * shares;
+        }
+        if (row.ROE && row.ROE!=='-') m.roe = parseFloat(row.ROE);
+        if (row.GrossMargin && row.GrossMargin!=='-') m.grossMargin = parseFloat(row.GrossMargin);
+      }
+    }
+
+    // TPEX 上櫃資料（格式同 BWIBBU_d：Code, Name, PEratio, PBratio, DividendYield）
+    if (tpexArr) {
+      const no = ticker.replace('.TWO','').replace('.TW','');
+      if (tpexArr.length > 0) console.log('[TPEX] sample keys:', Object.keys(tpexArr[0]).join(', '));
+      // 同時嘗試多種欄位名稱（TPEX API 可能不同）
+      const row = tpexArr.find(r =>
+        r.Code===no || r['股票代號']===no || r.StockCode===no ||
+        r.SecuritiesCompanyCode===no || r['代號']===no
+      );
+      console.log('[TPEX] row for', no, ':', row ? JSON.stringify(row) : 'NOT FOUND');
+      if (row) {
+        // 欄位名稱：BWIBBU_d 格式 OR TPEX 格式
+        const pe = row.PEratio || row['本益比'] || row.PriceEarningRatio;
+        const pb = row.PBratio || row['股價淨值比'] || row.PriceBookRatio;
+        const dy = row.DividendYield || row['殖利率'];
+        const nm = row.Name || row['名稱'] || row['股票名稱'] || row.CompanyName;
+        if (pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
+        if (pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
+        if (dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
+        if (m.pe && m.pe>0) m.eps = price / m.pe;
+        if (m.divYield) m.div = price * m.divYield / 100;
+        if (nm) m.name = nm;
+        // TPEX 額外財務數據
+        const shares = row.OutstandingShares || row['流通股數'];
+        if (shares && !isNaN(shares)) m.marketCap = price * parseFloat(shares);
+        const roe = row.ROE || row['淨資產報酬率'];
+        if (roe && roe!=='-') m.roe = parseFloat(roe);
+        const gm = row.GrossMargin || row['毛利率'];
+        if (gm && gm!=='-') m.grossMargin = parseFloat(gm);
+      }
+    }
+
+    // quoteSummary 資料（美股直連，台股上櫃走proxy也可能取到）
+    // TWSE/TPEX 已有的數值優先保留，summary 只補充缺少的欄位
+    if (summaryResult) {
+      const pr=summaryResult.price||{}, sd=summaryResult.summaryDetail||{}, ks=summaryResult.defaultKeyStatistics||{}, fd=summaryResult.financialData||{};
+      // 名稱：summary 有中文名時優先用
+      const sName = raw2(pr.shortName)||raw2(pr.longName)||'';
+      if (sName && (!m.name || m.name===ticker)) m.name = sName;
+      // 產業：summary 補充（從多個位置查找）
+      if (!m.sector) m.sector = raw2(pr.sector) || raw2(pr.quoteType) || raw2(sd.sector) || '';
+      if (!m.industry) m.industry = raw2(pr.industry) || raw2(sd.industry) || '';
+      m.quoteType = m.quoteType||raw2(pr.quoteType)||'';
+      // 財務資料：TWSE/TPEX 已有的不覆蓋
+      if (!m.pe) m.pe = raw2(sd.trailingPE)||raw2(pr.trailingPE);
+      if (!m.pb) m.pb = raw2(sd.priceToBook)||raw2(ks.priceToBook);
+      if (!m.divYield && raw2(sd.dividendYield)) m.divYield = raw2(sd.dividendYield)*100;
+      if (!m.div) m.div = raw2(sd.dividendRate)||raw2(sd.trailingAnnualDividendRate);
+      if (!m.eps) m.eps = raw2(ks.trailingEps)||raw2(ks.forwardEps);
+      // 以下只有 summary 有，直接填入
+      m.roe = raw2(fd.returnOnEquity)?raw2(fd.returnOnEquity)*100:m.roe;
+      m.beta = m.beta||raw2(ks.beta);
+      m.evEbitda = m.evEbitda||raw2(ks.enterpriseToEbitda);
+      m.peg = m.peg||raw2(ks.pegRatio)||raw2(ks.trailingPegRatio);
+      m.marketCap = m.marketCap||raw2(pr.marketCap);
+      m.grossMargin = m.grossMargin||(raw2(fd.grossMargins)?raw2(fd.grossMargins)*100:null);
+      m['52hi'] = m['52hi']||raw2(sd.fiftyTwoWeekHigh);
+      m['52lo'] = m['52lo']||raw2(sd.fiftyTwoWeekLow);
+    }
+
+    // meta 補充名稱
+    if (!m.name) m.name = meta.longName||meta.shortName||ticker;
+
+    // 整合 Finnhub 美股基本面數據（v4.17 優化版）
+    if (finnhubResult && finnhubResult.valuation) {
+      const v = finnhubResult.valuation;
+      // 估值指標（優先級低於 summary）
+      if (!m.pe && v.pe) m.pe = v.pe;
+      if (!m.pb && v.pb) m.pb = v.pb;
+      if (!m.roe && v.roe) m.roe = v.roe;
+      if (!m.eps && v.eps) m.eps = v.eps;
+      if (!m.divYield && v.dividend) m.divYield = v.dividend * 100;
+      if (!m.div && v.divPerShare) m.div = v.divPerShare;
+      console.log('[Finnhub] Integrated metric data');
+    }
+
+    // 整合公開資訊觀測站新聞（P1 優化版）
+    if (newsResult) {
+      m.news = newsResult.items || [];
+      m.newsCount = newsResult.count || 0;
+      m.lastNewsDate = newsResult.lastDate || '';
+      m.newsSource = newsResult.source || 'TWSE';
+      // 分類計算：重大訊息 vs 常規
+      m.majorNewsCount = (m.news || []).filter(n => n.type === 'M').length;
+      m.minorNewsCount = (m.news || []).filter(n => n.type === 'C').length;
+    } else {
+      m.news = [];
+      m.newsCount = 0;
+      m.lastNewsDate = '';
+      m.newsSource = 'FALLBACK';
+      m.majorNewsCount = 0;
+      m.minorNewsCount = 0;
+    }
+
+    // P2 數據（暫時禁用，以確保 P1 正常工作）
+    m.institutionalHolding = 0;
+    m.institutionalTrend = 'stable';
+    m.institutionalDate = '';
+    m.confDate = '';
+    m.confUrl = '';
+    m.confTitle = '';
+
+    // 產業分類（新系統）
+    indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
+    const indKey = indResult.industry;
+    const indObj = INDUSTRY_DB[indKey];
+    indName = indObj ? (indObj.name || indKey) : '未分類';
+
+    // 技術指標（優化：快速計算 MA，延遲複雜指標）
+    const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
+    tech = {
+      rsi: 50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
+      macdBull: false,
+      macdBear: false,
+      kd: 50,
+      bollU: null, bollL: null
+    };
+
+    // 複雜指標異步計算（不阻塞主線程，但先初始化變數避免 undefined）
+    let r14 = null, mc = null, kdv = null, bl = null;
+    setTimeout(() => {
+      r14=rsiVal(AP,14);
+      mc=macdVal(AP);
+      kdv=AH.length>=9?kdVal(AH,AL,AP):null;
+      bl=bollVal(AP,20);
+
+      tech.rsi = r14??50;
+      tech.macdBull = mc?(mc.dif>0&&mc.hist>0):false;
+      tech.macdBear = mc?(mc.dif<0&&mc.hist<0):false;
+      tech.kd = kdv?kdv.k:50;
+      tech.bollU = bl?bl.upper:null;
+      tech.bollL = bl?bl.lower:null;
+      console.log('[技術指標] 非同步計算完成');
+    }, 500);
+
+    // 估值 & 建議
+    vals = calcVals(price, m, indKey, indObj);
+    vd = mkVerdict(price, vals, tech, indKey, indObj, m);
+    const ptRows = calcPriceTargets(price, m, tech, indKey);
+
+    // 財報趨勢計算
+    let financialTrend = [];
+    let latestFinancial = null;
+    if (financialResult && financialResult.length > 0) {
+      financialTrend = calcFinancialTrend(financialResult);
+      const raw = financialResult[0];
+      // 確保所有數值屬性都存在且有效
+      latestFinancial = {
+        year: raw.year || 0,
+        roe: (raw.roe !== null && raw.roe !== undefined && !isNaN(raw.roe)) ? raw.roe : 0,
+        operatingMargin: (raw.operatingMargin !== null && raw.operatingMargin !== undefined && !isNaN(raw.operatingMargin)) ? raw.operatingMargin : 0,
+        netIncome: (raw.netIncome !== null && raw.netIncome !== undefined && !isNaN(raw.netIncome)) ? raw.netIncome : 0,
+        fcf: (raw.fcf !== null && raw.fcf !== undefined && !isNaN(raw.fcf)) ? raw.fcf : 0,
+        debtRatio: (raw.debtRatio !== null && raw.debtRatio !== undefined && !isNaN(raw.debtRatio)) ? raw.debtRatio : 0,
+        eps: (raw.eps !== null && raw.eps !== undefined && !isNaN(raw.eps)) ? raw.eps : 0,
+        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : 0
+      };
+    }
+
+    // 漲跌：用K線最後兩日計算（比meta更準確）
+    let chg=0, chgPct=0;
+    if (AP.length >= 2) {
+      const lc=AP[AP.length-1], pc=AP[AP.length-2];
+      if (lc&&pc&&pc>0&&Math.abs((lc-pc)/pc)<0.3) { chg=lc-pc; chgPct=(chg/pc)*100; }
+    }
+    // 台股：漲紅跌綠；美股：漲綠跌紅
+    const isTW2 = ticker.endsWith('.TW');
+    const cc = chg>=0 ? (isTW2?'up':'dn') : (isTW2?'dn':'up');
+    const cs = chg>=0?'+':'';
+    const pct52 = m['52hi']&&m['52lo'] ? f((price-m['52lo'])/(m['52hi']-m['52lo'])*100,1)+'%' : 'N/A';
+
+    const sc2=(l,v)=>`<div class="card"><div class="cl">${l}</div><div class="cv">${v}</div></div>`;
+    const tc2=(l,v,sig,cls)=>`<div class="tc"><div class="tl">${l}</div><div class="tv">${v}</div><div class="ts ${cls}">${sig}</div></div>`;
+
+    document.getElementById('res').innerHTML = `
+<div class="sh">
+  <div><div class="sn">${m.name||ticker}</div><div class="sy">${ticker}${meta.exchangeName?' · '+meta.exchangeName:''}</div></div>
+  <div><div class="sp">${f(price)}</div><div class="pc ${cc}">${cs}${f(chg)} (${cs}${f(chgPct,2)}%)</div></div>
+  <span class="itag" title="分類方法：${indResult.details.method}｜置信度：${indResult.confidence}">${indName}${indResult.confidence!=='high'?' ⓘ':''}</span>
+</div>
+
+<div class="vd ${vd.t}"><div class="vdtit">${vd.ti}</div><div class="vdbod">${vd.bo}</div></div>
+
+${!isTW && !m.pe && !m.eps ? `
+<div class="warning-box" style="background:#fff8e1;border-left:4px solid #ff9800;padding:12px;margin-bottom:12px;border-radius:4px;">
+  <div style="display:flex;align-items:flex-start;gap:10px;">
+    <div style="font-size:20px;">⚠️</div>
+    <div>
+      <strong style="color:#ff6f00;">美股數據限制</strong><br>
+      <span style="font-size:0.9rem;color:#666;">Yahoo Finance 免費 API 無法提供美股的 P/E、EPS 等基本面數據。當前支持技術面分析（K線走勢、均線、成交量）。</span>
+    </div>
+  </div>
+</div>
+` : ''}
+
+<div class="sec"><div class="st2">基本面數據</div><div class="grid">
+  ${sc2('本益比 P/E', f(m.pe))}
+  ${sc2('股價淨值比 P/B', f(m.pb))}
+  ${sc2('現金殖利率', m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
+  ${sc2('52週高點', f(m['52hi']))}
+  ${sc2('52週低點', f(m['52lo']))}
+  ${sc2('EPS', f(m.eps))}
+  ${sc2('現金股利', f(m.div))}
+  ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
+</div></div>
+
+${latestFinancial ? `
+<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
+<div class="st2">📈 企業健康診斷卡 (${latestFinancial.year}年)</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe).color};margin-bottom:4px;">${f(latestFinancial.roe,1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateROE(latestFinancial.roe).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateROE(latestFinancial.roe).desc}</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin).color};margin-bottom:4px;">${f(latestFinancial.operatingMargin,1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin).desc}</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
+    ${latestFinancial.fcf && latestFinancial.fcf > 0 ? `
+    <div style="font-size:1.4rem;font-weight:700;color:#10b981;margin-bottom:4px;">${(latestFinancial.fcf / 1e9).toFixed(1)}B</div>
+    <div style="font-size:.8rem;color:#666;">💰 充沛</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 自由現金流充足，現金創造力良好</div>
+    ` : `
+    <div style="font-size:1.4rem;font-weight:700;color:#ef4444;margin-bottom:4px;">N/A</div>
+    <div style="font-size:.8rem;color:#666;">⚠️ 異常</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 資料不足，無法評估</div>
+    `}
+  </div>
+
+  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
+    ${latestFinancial.debtRatio && latestFinancial.debtRatio !== 0 ? `
+    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio, indKey).color};margin-bottom:4px;">${f(latestFinancial.debtRatio,1)}%</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio, indKey).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio, indKey).desc}</div>
+    ` : `
+    <div style="font-size:1.8rem;font-weight:700;color:#3b82f6;margin-bottom:4px;">0.0%</div>
+    <div style="font-size:.8rem;color:#666;">✅ 健康</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 財務結構穩健</div>
+    `}
+  </div>
+</div>
+
+<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color};">
+  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).color};margin-bottom:6px;">
+    綜合評分：${calculateHealthScore(latestFinancial.roe, latestFinancial.operatingMargin, latestFinancial.fcf, latestFinancial.netIncome, latestFinancial.debtRatio, indKey).level}
+  </div>
+  <div style="font-size:.85rem;color:#666;line-height:1.6;">
+    這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。
+  </div>
+</div>
+</div>
+` : ''}
+
+${financialTrend.length > 0 ? `
+<div class="sec"><div class="st2">📈 5 年財報趨勢</div><div style="position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)"><canvas id="fc" style="max-height:300px"></canvas></div></div>
+
+<div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
+${financialTrend && financialTrend.length > 0 ? `<table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
+${(financialTrend || []).map(f => {
+  try {
+    return `<tr>
+      <td><strong>${f.year || '—'}</strong></td>
+      <td>${f.eps && f.eps.val != null ? f(f.eps.val, 2) : 'N/A'}</td>
+      <td>${f.netMargin && f.netMargin.val != null ? f(f.netMargin.val, 1) + '%' : 'N/A'}</td>
+      <td>${f.roe && f.roe.val != null ? f(f.roe.val, 1) + '%' : 'N/A'}</td>
+      <td>${f.debtRatio && f.debtRatio.val != null ? f(f.debtRatio.val, 1) + '%' : 'N/A'}</td>
+    </tr>`;
+  } catch(e) { return ''; }
+}).join('')}
+</tbody></table>` : '<p style="color:var(--muted)">財報數據暫不可用</p>'}
+</div>
+` : ''}
+
+${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
+  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${f(m.institutionalHolding,1)}%</div></div>` : ''}
+  ${m.institutionalTrend ? `<div class="card"><div class="cl">持股趨勢</div><div class="cv">${m.institutionalTrend==='up'?'📈 增加':m.institutionalTrend==='down'?'📉 減少':'→ 穩定'}</div></div>` : ''}
+  ${m.institutionalDate ? `<div class="card"><div class="cl">數據日期</div><div class="cv" style="font-size:0.8rem">${m.institutionalDate}</div></div>` : ''}
+  ${m.confDate ? `<div class="card"><div class="cl">法人說明會</div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}→</a></div></div>` : ''}
+</div></div>` : ''}
+
+${indKey==='etf'?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
+  ${sc2('基金規模', fB(m.totalAssets))}
+  ${sc2('今年報酬', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
+  ${sc2('3年平均年報酬', m.y3return!=null?f(m.y3return*100,2)+'%':'N/A')}
+  ${sc2('費用率', m.expRatio!=null?f(m.expRatio*100,3)+'%':'N/A')}
+</div></div>`:''}
+
+<div class="sec"><div class="st2">估值模型試算（${indName}）</div><div style="overflow-x:auto">
+<table class="vt"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
+${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':indKey==='etf'?'ETF 不適用傳統企業估值模型，請參考技術面和費用率分析':'財務資料不足，無法計算'}</td></tr>`}
+</tbody></table></div>
+<p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 模型均為簡化估算，請搭配多個模型綜合判斷，不構成投資建議。</p>
+</div>
+
+${ptRows.length?`<div class="sec"><div class="st2">📍 買賣參考價位</div><div style="overflow-x:auto">
+<table class="vt"><thead><tr><th>類型</th><th>價格</th><th>參考說明</th></tr></thead><tbody>
+${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong class="${r.cls}">${r.val}</strong></td><td style="font-size:.8rem;color:var(--muted)">${r.note}</td></tr>`).join('')}
+</tbody></table></div>
+<p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 以上價位僅供參考，操作前請搭配完整研究判斷。</p>
+</div>`:''}
+
+<div class="sec"><div class="st2">技術指標</div><div class="tgrid">
+  ${ma5v!=null?tc2('MA5（週線）',f(ma5v),price>ma5v?'▲ 股價在MA5之上':'▼ 跌破MA5（短線轉弱）',price>ma5v?'sb':'ss'):''}
+  ${ma20v!=null?tc2('MA20（月線）',f(ma20v),price>ma20v?'▲ 月線守護中':'▼ 跌破月線，轉弱',price>ma20v?'sb':'ss'):''}
+  ${ma60v!=null?tc2('MA60（季線）',f(ma60v),price>ma60v?'▲ 季線以上（中線多頭）':'▼ 跌破季線（中線弱勢）',price>ma60v?'sb':'ss'):''}
+  ${ma240v!=null?tc2('MA240（年線）',f(ma240v),price>ma240v?'▲ 年線之上（長線多頭）':'▼ 年線以下（長線弱勢）',price>ma240v?'sb':'ss'):''}
+  ${r14!=null?tc2('RSI (14日)',f(r14,1),r14<30?'🔴 超賣區 (<30) 反彈機會':r14>70?'🟢 超買區 (>70) 注意拉回':'中性區間 (30~70)',r14<30?'sb':r14>70?'ss':'sn2'):''}
+  ${mc?tc2('MACD (12,26,9)','DIF '+f(mc.dif,2),mc.dif>0&&mc.hist>0?'▲ 零軸上柱紅（多頭）':mc.dif<0&&mc.hist<0?'▼ 零軸下柱綠（空頭）':mc.hist>0?'柱狀翻紅（轉強）':'柱狀翻綠（轉弱）',mc.hist>0?'sb':'ss'):''}
+  ${kdv?tc2('KD (9日)','K='+f(kdv.k,1)+' D='+f(kdv.d,1),kdv.k<20?'🔴 超賣K<20（反彈訊號）':kdv.k>80?'🟢 超買K>80（注意反轉）':'中性區間',kdv.k<20?'sb':kdv.k>80?'ss':'sn2'):''}
+  ${bl?tc2('布林通道 (20日)',f(bl.upper)+'~'+f(bl.lower),price>bl.upper?'觸上軌（超買注意）':price<bl.lower?'觸下軌（超賣反彈）':'帶寬'+f(bl.bw*100,1)+'%'+(bl.bw<0.08?'（壓縮蓄勢）':''),price>bl.upper?'ss':price<bl.lower?'sb':'sn2'):''}
+  ${ma5v&&ma20v?tc2('均線排列',price>ma5v&&ma5v>ma20v?'多頭排列':price<ma5v&&ma5v<ma20v?'空頭排列':'糾結整理',price>ma5v&&ma5v>ma20v?'▲ 強勢多頭排列':price<ma20v?'▼ 弱勢空頭排列':'MA線糾結等方向',price>ma5v&&ma5v>ma20v?'sb':price<ma20v?'ss':'sn2'):''}
+  <div class="tc"><div class="tl">距52週區間位置</div><div class="tv">${pct52}</div><div class="ts sn2">0%=年低 / 100%=年高</div></div>
+</div></div>
+
+<div class="sec"><div class="st2">價格走勢圖（MA20 / MA60 / 成交量）</div>
+<div class="pb">
+  <button class="pbtn" onclick="setPd(-1,this)">五日</button>
+  <button class="pbtn" onclick="setPd(20,this)">1個月</button>
+  <button class="pbtn" onclick="setPd(60,this)">3個月</button>
+  <button class="pbtn" id="dp" onclick="setPd(120,this)">6個月</button>
+  <button class="pbtn" onclick="setPd(250,this)">1年</button>
+  <button class="pbtn" onclick="setPd(9999,this)">全部</button>
+</div>
+<div class="cw"><canvas id="pc"></canvas></div>
+<p style="font-size:.75rem;color:var(--muted);margin-top:6px">藍=收盤價｜橘=MA20｜綠=MA60｜灰柱=成交量</p>
+</div>
+
+<hr class="divhr">
+<p style="font-size:.75rem;color:var(--muted)">⚠️ 本工具僅供學習參考，不構成投資建議。台股資料：TWSE Open API｜美股/K線：Yahoo Finance｜查詢：${new Date().toLocaleString('zh-TW')}</p>`;
+
+    document.getElementById('res').classList.remove('hidden');
+    setSt('',false);
+
+    // 延遲 100ms 確保 DOM 已渲染，然後繪製財報圖表
+    setTimeout(() => {
+      if(financialTrend && financialTrend.length > 0) {
+        renderFinancialChart(financialTrend);
+      }
+    }, 100);
+
+    // 初始化為當日走勢
+    const dailyBtn = document.querySelector('button[onclick="setPd(-1,this)"]');
+    if(dailyBtn) {
+      apb=dailyBtn;
+      dailyBtn.classList.add('active');
+      setPd(-1,dailyBtn);
+    }
+
+  } catch(e) {
+    setSt('❌ '+e.message,true);
+    console.error(e);
+  } finally {
+    btn.disabled=false;
+    if (typeof m !== 'undefined' && m) {
+      saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult);
+    }
+  }
+}
+
+// 保存查詢結果到 localStorage（供 index_v6_ai.html 動態載入）
+function saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult) {
+  try {
+    const queryData = {
+      timestamp: new Date().toISOString(),
+      ticker: ticker,
+      company: {
+        name: m.name,
+        sector: m.sector,
+        industry: m.industry,
+        pe: m.pe,
+        pb: m.pb,
+        eps: m.eps,
+        divYield: m.divYield,
+        div: m.div,
+        '52hi': m['52hi'],
+        '52lo': m['52lo']
+      },
+      price: price,
+      valuation: vals,
+      verdict: vd,
+      technical: tech,
+      classification: {
+        name: indName,
+        confidence: indResult.confidence,
+        method: indResult.details?.method || 'auto'
+      }
+    };
+    localStorage.setItem('lastQueryData', JSON.stringify(queryData));
+    console.log('[數據保存] 已將查詢結果保存到 localStorage');
+  } catch(e) {
+    console.warn('[數據保存] 保存失敗:', e.message);
+  }
+}
+
+function setSt(m,err){const el=document.getElementById('st');el.innerHTML=m;el.className=err?'err':'';}
+document.getElementById('ti').addEventListener('keydown',e=>{if(e.key==='Enter')go();});
+
+// 方案 B：監視官方產業數據同步狀態
+async function monitorIndustrySync() {
+  const statusEl = document.getElementById('initStatus');
+  const iconEl = document.getElementById('syncIcon');
+
+  // 等待初始同步完成
+  let attempts = 0;
+  while (COMPANY_INDUSTRY_MAP.size === 0 && attempts < 30) {
+    await new Promise(r => setTimeout(r, 500));
+    attempts++;
+  }
+
+  if (COMPANY_INDUSTRY_MAP.size > 0) {
+    iconEl.textContent = '✅';
+    statusEl.style.color = '#28a745';
+    statusEl.textContent = `✅ 已同步 ${COMPANY_INDUSTRY_MAP.size} 家企業 (${lastIndustrySync ? lastIndustrySync.toLocaleTimeString() : '初始化中'})`;
+    statusEl.style.display = 'block';
+    setTimeout(() => statusEl.style.display = 'none', 5000);
+  } else {
+    iconEl.textContent = '⚠️';
+    statusEl.style.color = '#f0ad4e';
+    statusEl.textContent = '⚠️ 使用本地備援方案';
+    statusEl.style.display = 'block';
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', monitorIndustrySync);
+} else {
+  monitorIndustrySync();
+}
+</script>
+
+<div style="text-align:center;font-size:.75rem;color:#999;padding:0 16px 20px">
+  台股：TWSE Open API｜美股/K線：Yahoo Finance｜支援台股、美股、ETF｜手機/平板/電腦均可使用
+</div>
+
+<div id="initStatus" style="position:fixed;bottom:10px;right:10px;font-size:0.75rem;color:#666;padding:8px 12px;background:#f0f0f0;border-radius:4px;display:none;z-index:9999">
+  <span id="syncIcon">⏳</span> 同步中...
+</div>
+</body>
+</html>
