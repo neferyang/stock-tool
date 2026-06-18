@@ -1,19 +1,12 @@
 name: Daily Financial Report Update
 
 on:
-  # 每日 UTC 22:00 觸發 (台北時間 06:00)
   schedule:
     - cron: '0 22 * * *'
-    # 備用：每日 UTC 14:00 (台北時間 22:00)
     - cron: '0 14 * * *'
-
-  # 允許手動觸發
   workflow_dispatch:
-
-  # 允許從其他工作流觸發
   workflow_call:
 
-# 【關鍵】賦予工作流推送權限
 permissions:
   contents: write
 
@@ -22,40 +15,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Run daily report update script
-        run: node update-daily-report.js
-        continue-on-error: true
-        timeout-minutes: 5
-
-      - name: Validate daily-report.json
+      - name: Run update script
         run: |
-          if [ ! -f daily-report.json ]; then
-            echo "❌ daily-report.json 不存在！"
-            exit 1
+          echo "🚀 執行更新腳本..."
+          node update-daily-report.js
+          echo "✅ 腳本執行完成"
+
+      - name: Check changes
+        run: |
+          echo "📋 檢查文件狀態..."
+          git status
+          git diff daily-report.json | head -50
+
+      - name: Push changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+          if git diff --quiet daily-report.json; then
+            echo "✅ 沒有變更"
+            exit 0
           fi
 
-          if ! python3 -m json.tool daily-report.json > /dev/null 2>&1; then
-            echo "❌ daily-report.json JSON 格式錯誤！"
-            exit 1
-          fi
+          echo "📝 提交變更..."
+          git add daily-report.json
+          git commit -m "🔄 自動更新: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
 
-          echo "✅ JSON 驗證成功"
+          echo "🚀 推送到 GitHub..."
+          git push
 
-      - name: Auto commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "🔄 財金早報自動更新: ${{ github.event.head_commit.timestamp }}"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
-          file_pattern: daily-report.json
-          status_options: '--porcelain'
-          skip_dirty_check: false
-          create_branch: false
+          echo "✅ 推送完成"
