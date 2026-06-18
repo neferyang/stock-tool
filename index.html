@@ -155917,6 +155917,18 @@ async function go(){
       }
     }
 
+    // 整合 FINANCIAL_DB 年度數據（台股補充 eps/roe/debtRatio/div）
+    if (financialResult && financialResult.length > 0) {
+      const latest = financialResult[0]; // 最新年度
+      if (!m.eps && latest.eps) m.eps = latest.eps;
+      if (!m.roe && latest.roe) m.roe = latest.roe;
+      // PE = price / eps（若 TWSE 未提供）
+      if (!m.pe && m.eps && price > 0) m.pe = parseFloat((price / m.eps).toFixed(1));
+      // 殖利率 / 現金股利（若 TWSE 未提供）
+      if (!m.divYield && latest.dividendYield) m.divYield = latest.dividendYield;
+      if (!m.div && latest.cashDividend) m.div = latest.cashDividend;
+    }
+
     // 整合 Finnhub 美股基本面數據（v4.17 優化版）
     if (finnhubResult && finnhubResult.valuation) {
       const v = finnhubResult.valuation;
