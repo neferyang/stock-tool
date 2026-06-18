@@ -142,16 +142,50 @@ def generate_analysis(market_key, headlines, price_data=None, ai_func=None):
         return None
 
 
+RULE_TEMPLATES = {
+    'US': {
+        'up':   '美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。',
+        'down': '美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。',
+        'flat': '美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。',
+    },
+    'JP': {
+        'up':   '日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。',
+        'down': '日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。',
+        'flat': '日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。',
+    },
+    'TW': {
+        'up':   '台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。',
+        'down': '台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。',
+        'flat': '台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。',
+    },
+    'GOLD': {
+        'up':   '金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。',
+        'down': '金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。',
+        'flat': '金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。',
+    },
+    'IN': {
+        'up':   '印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。',
+        'down': '印度股市回落，全球資金緊縮預期壓抑新興市場表現。',
+        'flat': '印度股市持平，投資人觀望政策動向，市場整體偏謹慎。',
+    },
+    'VN': {
+        'up':   '越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。',
+        'down': '越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。',
+        'flat': '越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。',
+    },
+}
+
 def rule_based_analysis(market_key, price_data):
-    """無 Claude key 時的規則式備援"""
-    if not price_data:
+    """Gemini 失敗時的規則式備援文字"""
+    templates = RULE_TEMPLATES.get(market_key)
+    if not templates:
         return None
-    config = MARKET_QUERIES[market_key]
-    arrow = price_data.get('arrow', '')
-    pct = abs(price_data.get('changePct', 0))
-    direction = '上漲' if arrow == '▲' else '下跌'
-    label = config['label']
-    return f'{label}{direction} {pct:.2f}%，市場持續追蹤中。'
+    if price_data:
+        pct = price_data.get('changePct', 0)
+        key = 'up' if pct > 0.1 else ('down' if pct < -0.1 else 'flat')
+    else:
+        key = 'flat'
+    return templates[key]
 
 
 def load_market_data():
@@ -189,8 +223,11 @@ def main():
         price_data = find_price_for_market(indices, market_key)
 
         if GEMINI_API_KEY and headlines:
-            print(f'   🤖 Claude 生成分析...')
+            print(f'   🤖 Gemini 生成分析...')
             analysis = generate_analysis(market_key, headlines, price_data, call_gemini)
+            if not analysis:
+                print(f'   ⚠️  Gemini 失敗，改用規則式備援')
+                analysis = rule_based_analysis(market_key, price_data)
         else:
             analysis = rule_based_analysis(market_key, price_data)
 
