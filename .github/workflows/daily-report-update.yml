@@ -18,40 +18,38 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yfinance
+        run: pip install yfinance
+
+      - name: Fetch market indices
+        run: python fetch-market-data.py
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
 
-      - name: Run update script
-        env:
-          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
-          TWSE_API_KEY: ${{ secrets.TWSE_API_KEY }}
+      - name: Update daily report
         run: node update-daily-report.js
 
-      - name: Commit and Push via API
+      - name: Push via GitHub API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           BRANCH: main
         run: |
-          echo "🚀 檢查文件變更..."
-
-          # 獲取當前文件 SHA
           CURRENT_SHA=$(git rev-parse HEAD:daily-report.json 2>/dev/null || echo "")
-          echo "Current SHA: $CURRENT_SHA"
-
-          # 獲取新文件內容（base64 編碼）
-          NEW_CONTENT=$(base64 -w 0 daily-report.json)
-
-          # 檢查是否有變更
           if [ -z "$CURRENT_SHA" ]; then
-            echo "❌ 無法獲取文件 SHA"
+            echo "❌ 無法獲取 SHA"
             exit 1
           fi
 
-          # 使用 GitHub API 更新文件
-          echo "📝 使用 GitHub API 更新文件..."
+          NEW_CONTENT=$(base64 -w 0 daily-report.json)
 
           RESPONSE=$(curl -s -X PUT \
             -H "Authorization: token $GITHUB_TOKEN" \
@@ -68,12 +66,4 @@ jobs:
               }
             }")
 
-          echo "API Response:"
-          echo "$RESPONSE" | jq '.' || echo "$RESPONSE"
-
-          # 檢查是否成功
-          if echo "$RESPONSE" | grep -q '"sha"'; then
-            echo "✅ 文件已成功更新"
-          else
-            echo "⚠️ API 響應異常，可能沒有變更或已經推送"
-          fi
+          echo "$RESPONSE" | python3 -c "import json,sys; r=json.load(sys.stdin); print('✅ 已更新:', r.get('content',{}).get('sha','?')[:8])" 2>/dev/null || echo "$RESPONSE"
