@@ -226,6 +226,40 @@ async function updateDailyReport() {
       status: '自動更新 - 市場數據已刷新'
     });
 
+    // 【改進】更新日期（基於當前時間的前一交易日）
+    const today = new Date(twhTime);
+    const dayOfWeek = today.getDay();
+    let tradingDayOffset = 0;
+
+    // 計算前一交易日（跳過週末）
+    if (dayOfWeek === 0) {
+      tradingDayOffset = 2; // 週日往回推2天（到週五）
+    } else if (dayOfWeek === 1) {
+      tradingDayOffset = 3; // 週一往回推3天（到週五）
+    } else {
+      tradingDayOffset = 1; // 其他日期往回推1天
+    }
+
+    const tradingDay = new Date(today.getTime() - tradingDayOffset * 24 * 60 * 60 * 1000);
+    const tradingDayStr = tradingDay.toLocaleDateString('zh-TW', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      weekday: 'short'
+    }).replace(/\//g, '年').replace(/年$/, '日') + '（' +
+    ['日', '一', '二', '三', '四', '五', '六'][tradingDay.getDay()] + '）';
+
+    const currentDayStr = today.toLocaleDateString('zh-TW', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      weekday: 'short'
+    }).replace(/\//g, '年').replace(/年$/, '日') + '（' +
+    ['日', '一', '二', '三', '四', '五', '六'][today.getDay()] + '）';
+
+    reportData.date = currentDayStr;
+    reportData.basedOn = '2026年6月' + tradingDay.getDate().toString().padStart(2, '0') + '日（前一交易日）';
+
     // 【改進】先保存版本更新，再嘗試獲取市場數據
     console.log('💾 保存版本更新...');
     fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
