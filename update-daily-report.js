@@ -185,21 +185,20 @@ async function fetchTWSEData() {
 }
 
 async function updateDailyReport() {
+  const reportPath = path.join(__dirname, 'daily-report.json');
+  console.log('🚀 開始更新每日財金早報...\n');
+  console.log(`📂 配置文件: ${reportPath}`);
+
   try {
-    console.log('🚀 開始更新每日財金早報...\n');
-
-    // 讀取現有數據（daily-report.json 與此腳本在同一目錄）
-    const reportPath = path.join(__dirname, 'daily-report.json');
-    console.log(`📂 讀取配置文件: ${reportPath}`);
-
+    // 讀取現有數據
     if (!fs.existsSync(reportPath)) {
       throw new Error(`配置文件不存在: ${reportPath}`);
     }
 
     const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-    console.log(`✅ 配置文件已讀取`);
+    console.log(`✅ 配置文件已讀取\n`);
 
-    // 更新時間戳
+    // 【關鍵】先更新版本號和時間戳，即使後續 API 調用失敗
     const now = new Date();
     const utcTime = now.toISOString();
     const twhTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
@@ -209,10 +208,13 @@ async function updateDailyReport() {
     reportData.updateSource = 'GitHub Actions 自動更新';
 
     // 版本遞增
-    const currentVersion = reportData.version || '1.0.0';
+    const currentVersion = reportData.version || '2.0.0';
     const [major, minor, patch] = currentVersion.split('.').map(Number);
     const newVersion = `${major}.${minor}.${patch + 1}`;
     reportData.version = newVersion;
+
+    console.log(`📝 版本更新: v${newVersion}`);
+    console.log(`⏰ 更新時間: ${twhTime.toLocaleString('zh-TW')}\n`);
 
     // 添加版本歷史
     if (!reportData.versionHistory) {
@@ -223,6 +225,11 @@ async function updateDailyReport() {
       date: twhTime.toLocaleString('zh-TW'),
       status: '自動更新 - 市場數據已刷新'
     });
+
+    // 【改進】先保存版本更新，再嘗試獲取市場數據
+    console.log('💾 保存版本更新...');
+    fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
+    console.log(`✅ 版本已保存: v${reportData.version}\n`);
 
     // 嘗試獲取最新市場數據（FinMind + TWSE 雙數據源）
     console.log('📊 正在獲取最新市場數據...\n');
@@ -260,41 +267,46 @@ async function updateDailyReport() {
       console.log(`⚠️ Yahoo Finance 無法訪問（使用 FinMind 數據）\n`);
     }
 
-    // 【重要】動態更新市場數據到 markets 陣列
-    if (!Array.isArray(reportData.markets)) {
-      reportData.markets = [];
-    }
+    // 【嘗試】獲取最新市場數據（失敗不會中斷更新）
+    console.log('📊 嘗試獲取最新市場數據...');
 
-    // 優先使用 FinMind 或 Yahoo Finance 的數據
-    if (Object.keys(finmindData).length > 0 || Object.keys(marketData).length > 0) {
-      console.log('🔄 正在同步市場數據到 JSON...');
-
-      // 合併所有獲取到的市場數據
-      const allMarketData = { ...finmindData, ...marketData };
-
-      // 更新 markets 陣列中對應的數據
-      for (const market of reportData.markets) {
-        if (market.items && Array.isArray(market.items)) {
-          // 根據市場名稱更新對應的指數數據
-          if (market.name.includes('美國') && allMarketData['DJI']) {
-            market.items[0] = `道瓊：${allMarketData['DJI'].price}（${allMarketData['DJI'].changePct}）`;
-          }
-          if (market.name.includes('日經') && allMarketData['N225']) {
-            market.items[0] = `${allMarketData['N225'].price}（${allMarketData['N225'].changePct}）`;
-          }
-          // 可以添加更多市場的邏輯
-        }
+    try {
+      if (!Array.isArray(reportData.markets)) {
+        reportData.markets = [];
       }
 
-      console.log(`✅ ${Object.keys(allMarketData).length} 個市場數據已更新`);
-    } else {
-      console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
+      // 優先使用 FinMind 或 Yahoo Finance 的數據
+      if (Object.keys(finmindData).length > 0 || Object.keys(marketData).length > 0) {
+        console.log('✅ 獲得市場數據，準備更新...');
+
+        // 合併所有獲取到的市場數據
+        const allMarketData = { ...finmindData, ...marketData };
+
+        // 更新 markets 陣列中對應的數據
+        for (const market of reportData.markets) {
+          if (market.items && Array.isArray(market.items)) {
+            // 根據市場名稱更新對應的指數數據
+            if (market.name.includes('美國') && allMarketData['DJI']) {
+              market.items[0] = `道瓊：${allMarketData['DJI'].price}（${allMarketData['DJI'].changePct}）`;
+            }
+            if (market.name.includes('日經') && allMarketData['N225']) {
+              market.items[0] = `${allMarketData['N225'].price}（${allMarketData['N225'].changePct}）`;
+            }
+          }
+        }
+
+        console.log(`✅ ${Object.keys(allMarketData).length} 個市場數據已更新`);
+      } else {
+        console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
+      }
+    } catch (dataError) {
+      console.warn(`⚠️ 市場數據更新失敗（不影響版本更新）: ${dataError.message}`);
     }
 
-    // 保存更新後的數據
+    // 【關鍵】最終保存 - 即使 API 失敗也要保存版本號更新
     try {
       fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
-      console.log('✅ 配置文件已保存');
+      console.log('\n✅ 配置文件已保存');
     } catch (writeError) {
       console.error(`❌ 無法寫入配置文件: ${writeError.message}`);
       throw writeError;
