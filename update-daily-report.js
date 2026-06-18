@@ -12,6 +12,48 @@ const path = require('path');
 // FinMind API 基礎 URL
 const FINMIND_API = 'https://api.finmind.com.tw/v1/data';
 const FINMIND_TOKEN = process.env.FINMIND_TOKEN || '';
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY || '';
+
+// 使用 OpenAI 生成市場分析文字
+async function generateMarketAnalysis(marketName, data) {
+  if (!OPENAI_API_KEY) {
+    console.warn('⚠️ 沒有 OPENAI_API_KEY，跳過 AI 分析生成');
+    return null;
+  }
+
+  try {
+    const prompt = `你是一位專業的金融分析師。根據以下 ${marketName} 的最新數據，用繁體中文寫一句簡短的市場分析（50字以內），描述當前走勢和主要影響因素：\n數據：${JSON.stringify(data)}`;
+
+    const { signal, timeout } = createTimeoutSignal(15000);
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 100,
+        temperature: 0.7
+      }),
+      signal
+    });
+    clearTimeout(timeout);
+
+    if (response.ok) {
+      const json = await response.json();
+      const analysis = json.choices?.[0]?.message?.content?.trim();
+      if (analysis) {
+        console.log(`✅ AI 分析生成：${marketName}`);
+        return analysis;
+      }
+    }
+  } catch (e) {
+    console.warn(`⚠️ AI 分析生成失敗 (${marketName}): ${e.message}`);
+  }
+  return null;
+}
 
 // 兼容的超時實現（支持 Node 16+）
 function createTimeoutSignal(ms) {
@@ -338,13 +380,20 @@ async function updateDailyReport() {
             if (finmindData['DJI']) items.push(`道瓊：${finmindData['DJI'].displayStr}`);
             if (finmindData['GSPC']) items.push(`S&P 500：${finmindData['GSPC'].displayStr}`);
             if (finmindData['IXIC']) items.push(`那斯達克：${finmindData['IXIC'].displayStr}`);
-            if (items.length > 0) { market.items = items; console.log(`✅ 美國股市已更新`); }
+            if (items.length > 0) {
+              market.items = items;
+              const analysis = await generateMarketAnalysis('美國股市', finmindData['DJI'] || {});
+              if (analysis) market.analysis = analysis;
+              console.log(`✅ 美國股市已更新`);
+            }
           }
 
           // 日經225
           if (market.name.includes('日經')) {
             if (finmindData['N225']) {
               market.items = [finmindData['N225'].displayStr];
+              const analysis = await generateMarketAnalysis('日經225', finmindData['N225']);
+              if (analysis) market.analysis = analysis;
               console.log(`✅ 日經225已更新`);
             }
           }
@@ -353,6 +402,8 @@ async function updateDailyReport() {
           if (market.name.includes('台灣')) {
             if (finmindData['TWII']) {
               market.items = [finmindData['TWII'].displayStr];
+              const analysis = await generateMarketAnalysis('台灣加權指數', finmindData['TWII']);
+              if (analysis) market.analysis = analysis;
               console.log(`✅ 台灣加權指數已更新`);
             }
           }
