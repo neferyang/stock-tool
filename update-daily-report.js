@@ -40,14 +40,21 @@ async function fetchFinMindData() {
   const startStr = startDate.toISOString().split('T')[0];
   console.log(`📅 查詢區間：${startStr} ~ 今天`);
 
-  // 先測試 API 是否可用
+  // 先測試 API 是否可用（用小數據集測試）
   try {
-    const testUrl = `${FINMIND_API}?dataset=TaiwanStockInfo&token=${FINMIND_TOKEN}`;
-    const { signal, timeout } = createTimeoutSignal(10000);
+    const today2 = new Date();
+    const yday = new Date(today2.getTime() - 3 * 24 * 60 * 60 * 1000);
+    const ydayStr = yday.toISOString().split('T')[0];
+    const testUrl = `${FINMIND_API}?dataset=TaiwanStockPrice&data_id=2330&start_date=${ydayStr}&token=${FINMIND_TOKEN}`;
+    const { signal, timeout } = createTimeoutSignal(8000);
     const r = await fetch(testUrl, { signal });
     clearTimeout(timeout);
     const testJson = await r.json();
-    console.log(`📡 FinMind API 測試: status=${r.status}, msg=${testJson.msg || 'ok'}, data_count=${testJson.data?.length || 0}`);
+    console.log(`📡 FinMind API 測試 (2330): status=${r.status}, msg=${testJson.msg || 'ok'}, data_count=${testJson.data?.length || 0}`);
+    if (!r.ok || testJson.msg === 'error') {
+      console.warn('⚠️ FinMind token 無效或 API 不可用');
+      return data;
+    }
   } catch (e) {
     console.warn(`⚠️ FinMind API 測試失敗: ${e.message}`);
     return data;
