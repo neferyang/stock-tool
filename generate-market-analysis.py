@@ -122,18 +122,21 @@ def generate_analysis(market_key, headlines, price_data=None, ai_func=None):
     if price_data:
         arrow = price_data.get('arrow', '')
         pct = abs(price_data.get('changePct', 0))
-        price_info = f'今日漲跌：{arrow}{pct:.2f}%。'
+        direction = '上漲' if arrow == '▲' else '下跌'
+        price_info = f'今日{direction} {pct:.2f}%。'
 
-    headlines_text = '\n'.join(f'- {h}' for h in headlines) if headlines else '（無最新新聞）'
+    headlines_text = '\n'.join(f'- {h}' for h in headlines) if headlines else ''
+    news_section = f'\n相關新聞：\n{headlines_text}' if headlines_text else ''
 
-    prompt = f"""根據以下{label}最新新聞標題，用繁體中文寫一段50字內的市場分析摘要。
-要求：客觀簡潔，說明主要驅動因素，不加標題，直接輸出內文。
+    prompt = f"""你是財經分析師，請用繁體中文為「{label}」寫一段市場分析摘要。
 
-{price_info}
-相關新聞：
-{headlines_text}
+數據：{price_info if price_info else '今日行情平穩。'}{news_section}
 
-輸出格式：直接寫分析文字，50字以內。"""
+要求：
+- 50字以內
+- 說明可能的市場驅動因素
+- 客觀簡潔，不加標題
+- 直接輸出分析文字"""
 
     try:
         return ai_func(prompt)
@@ -222,8 +225,8 @@ def main():
 
         price_data = find_price_for_market(indices, market_key)
 
-        if GEMINI_API_KEY and headlines:
-            print(f'   🤖 Gemini 生成分析...')
+        if GEMINI_API_KEY:
+            print(f'   🤖 Gemini 生成分析（{len(headlines)} 則新聞）...')
             analysis = generate_analysis(market_key, headlines, price_data, call_gemini)
             if not analysis:
                 print(f'   ⚠️  Gemini 失敗，改用規則式備援')
