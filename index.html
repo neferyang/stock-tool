@@ -155799,16 +155799,15 @@ async function go(){
 
     // 並行抓取基本面資料
     const code = ticker.replace('.TW','').replace('.TWO','');
-    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
-      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
-      isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
-      yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
-      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
-      !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v4.18：美股 Finnhub 基本面數據（優化版）
-      isTW ? getFinancialData(code, isTW) : Promise.resolve(null)  // v4.22：歷年財報數據
+    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult, finmindPERResult] = await Promise.all([
+      (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),       // 上市 TWSE
+      isOTC ? tpexFetch() : Promise.resolve(null),                   // 上櫃 TPEX
+      yfSummary(ticker),                                             // 所有股票都試
+      isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站
+      !isTW ? finnhubFetch(ticker) : Promise.resolve(null),         // 美股 Finnhub
+      isTW ? getFinancialData(code, isTW) : Promise.resolve(null),  // FINANCIAL_DB 年度財報
+      isTW ? finmindPERFetch(code) : Promise.resolve(null)          // FinMind PE/PB/殖利率（主要來源）
     ]);
-    // FinMind PER：補充 PE/PB/殖利率（非阻塞，TWSE 缺漏時才用）
-    const finmindPERResult = isTW ? await finmindPERFetch(code) : null;
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
     const finmindResult = null;
@@ -155848,16 +155847,26 @@ async function go(){
       marketCap:null, grossMargin:null, name:'', sector:'', industry:'', quoteType:''
     };
 
-    // TWSE 上市資料
+    // FinMind TaiwanStockPER（主要來源：PE/PB/殖利率）
+    if (finmindPERResult) {
+      if (finmindPERResult.pe)       m.pe       = finmindPERResult.pe;
+      if (finmindPERResult.pb)       m.pb       = finmindPERResult.pb;
+      if (finmindPERResult.divYield) m.divYield = finmindPERResult.divYield;
+      if (m.divYield && price > 0)   m.div      = parseFloat((price * m.divYield / 100).toFixed(2));
+      if (m.pe && price > 0)         m.eps      = parseFloat((price / m.pe).toFixed(2));
+      console.log('[FinMind PER] PE:', m.pe, 'PB:', m.pb, 'DY:', m.divYield);
+    }
+
+    // TWSE 上市資料（補充 FinMind 未提供的欄位：名稱、marketCap、ROE 等）
     if (twseArr) {
       const no = ticker.replace('.TW','').replace('.TWO','');
       const row = twseArr.find(r=>r.Code===no);
       if (row) {
-        if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
-        if (row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
-        if (row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
-        if (m.pe && m.pe>0) m.eps = price / m.pe;
-        if (m.divYield) m.div = price * m.divYield / 100;
+        if (!m.pe && row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
+        if (!m.pb && row.PBratio && row.PBratio!=='-') m.pb = parseFloat(row.PBratio);
+        if (!m.divYield && row.DividendYield && row.DividendYield!=='-') m.divYield = parseFloat(row.DividendYield);
+        if (!m.eps && m.pe && m.pe>0) m.eps = price / m.pe;
+        if (!m.div && m.divYield) m.div = price * m.divYield / 100;
         if (row.Name) m.name = row.Name;
         // TWSE 額外財務數據（如果提供）
         if (row.OutstandingShares && !isNaN(row.OutstandingShares)) {
@@ -155885,11 +155894,11 @@ async function go(){
         const pb = row.PBratio || row['股價淨值比'] || row.PriceBookRatio;
         const dy = row.DividendYield || row['殖利率'];
         const nm = row.Name || row['名稱'] || row['股票名稱'] || row.CompanyName;
-        if (pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
-        if (pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
-        if (dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
-        if (m.pe && m.pe>0) m.eps = price / m.pe;
-        if (m.divYield) m.div = price * m.divYield / 100;
+        if (!m.pe && pe && pe!=='-' && pe!=='--') m.pe = parseFloat(pe);
+        if (!m.pb && pb && pb!=='-' && pb!=='--') m.pb = parseFloat(pb);
+        if (!m.divYield && dy && dy!=='-' && dy!=='--') m.divYield = parseFloat(dy);
+        if (!m.eps && m.pe && m.pe>0) m.eps = price / m.pe;
+        if (!m.div && m.divYield) m.div = price * m.divYield / 100;
         if (nm) m.name = nm;
         // TPEX 額外財務數據
         const shares = row.OutstandingShares || row['流通股數'];
@@ -155947,16 +155956,6 @@ async function go(){
       const latest = financialResult[0]; // 最新年度
       if (!m.eps && latest.eps) m.eps = latest.eps;
       if (!m.roe && latest.roe) m.roe = latest.roe;
-    }
-
-    // 整合 FinMind TaiwanStockPER（補充 PE/PB/殖利率，優先於估算值）
-    if (finmindPERResult) {
-      if (!m.pe && finmindPERResult.pe) m.pe = finmindPERResult.pe;
-      if (!m.pb && finmindPERResult.pb) m.pb = finmindPERResult.pb;
-      if (!m.divYield && finmindPERResult.divYield) m.divYield = finmindPERResult.divYield;
-      if (!m.div && m.divYield && price > 0) m.div = parseFloat((price * m.divYield / 100).toFixed(2));
-      if (!m.eps && m.pe && price > 0) m.eps = parseFloat((price / m.pe).toFixed(2));
-      console.log('[FinMind PER] PE:', finmindPERResult.pe, 'PB:', finmindPERResult.pb, 'DY:', finmindPERResult.divYield);
     }
 
     // PE 最終兜底：price / eps
