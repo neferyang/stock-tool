@@ -260,13 +260,33 @@ async function updateDailyReport() {
       console.log(`⚠️ Yahoo Finance 無法訪問（使用 FinMind 數據）\n`);
     }
 
-    // 【重要】動態更新市場數據（優先 FinMind > Yahoo Finance）
-    let updateCount = 0;
+    // 【重要】動態更新市場數據到 markets 陣列
+    if (!Array.isArray(reportData.markets)) {
+      reportData.markets = [];
+    }
 
-    // 簡化邏輯：優先使用 FinMind 數據，不更新市場數據會報警告但不失敗
+    // 優先使用 FinMind 或 Yahoo Finance 的數據
     if (Object.keys(finmindData).length > 0 || Object.keys(marketData).length > 0) {
-      console.log('🔄 正在同步市場數據...');
-      updateCount++;
+      console.log('🔄 正在同步市場數據到 JSON...');
+
+      // 合併所有獲取到的市場數據
+      const allMarketData = { ...finmindData, ...marketData };
+
+      // 更新 markets 陣列中對應的數據
+      for (const market of reportData.markets) {
+        if (market.items && Array.isArray(market.items)) {
+          // 根據市場名稱更新對應的指數數據
+          if (market.name.includes('美國') && allMarketData['DJI']) {
+            market.items[0] = `道瓊：${allMarketData['DJI'].price}（${allMarketData['DJI'].changePct}）`;
+          }
+          if (market.name.includes('日經') && allMarketData['N225']) {
+            market.items[0] = `${allMarketData['N225'].price}（${allMarketData['N225'].changePct}）`;
+          }
+          // 可以添加更多市場的邏輯
+        }
+      }
+
+      console.log(`✅ ${Object.keys(allMarketData).length} 個市場數據已更新`);
     } else {
       console.warn('⚠️ 未能獲取新市場數據，保持現有數據');
     }
