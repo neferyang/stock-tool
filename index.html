@@ -105,13 +105,52 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .hint{font-size:.7rem;padding:8px 10px;margin-bottom:16px}
 }
 </style>
+<script>
+// 全局加載 tw-stocks.json 數據
+let STOCKS_DATA = {};
+(async () => {
+  console.log('🔄 開始全局加載 tw-stocks.json...');
+
+  // 根據當前位置構建多個可能的 URL
+  const baseUrl = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+  const urls = [
+    baseUrl + '/tw-stocks.json',           // 當前目錄下
+    './tw-stocks.json',                   // 相對路徑
+    '/stock-tool/tw-stocks.json',         // GitHub Pages 子目錄
+    '/tw-stocks.json',                    // 根目錄
+    'tw-stocks.json'                      // 簡單相對路徑
+  ];
+
+  console.log('🔍 嘗試 URL:', urls);
+
+  for (const url of urls) {
+    try {
+      console.log('📡 嘗試:', url);
+      const res = await fetch(url, {signal: AbortSignal.timeout(3000)});
+      if (res.ok) {
+        const data = await res.json();
+        STOCKS_DATA = data.stocks || data.data || {};
+        console.log('✅ 全局加載成功 (' + url + '):', Object.keys(STOCKS_DATA).length, '支股票');
+        console.log('📦 樣本數據:', Object.keys(STOCKS_DATA).slice(0, 3));
+        break;
+      }
+    } catch(e) {
+      console.warn('❌ URL 失敗 (' + url + '):', e.message);
+    }
+  }
+
+  if (Object.keys(STOCKS_DATA).length === 0) {
+    console.error('⚠️ 警告：無法加載 tw-stocks.json，診斷卡將顯示 0.0%');
+  }
+})();
+</script>
 </head>
 <body>
 <div class="wrap">
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v7.0.0 (本地數據聚合系統)</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v7.1.0 (全局數據加載修復)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
   </div>
 </div>
@@ -26006,38 +26045,53 @@ const FINANCIAL_DB = {
 
 // 獲取財報數據函數（優先從後端，備用本地數據庫）
 async function getFinancialData(code, isTW) {
-  // 優先從後端獲取實時數據（支援 localhost 和 Vercel）
+  // 第一優先：使用全局加載的 STOCKS_DATA
+  if (isTW && STOCKS_DATA && STOCKS_DATA[code]) {
+    const data = STOCKS_DATA[code];
+    console.log('[getFinancialData] ✅ 使用全局 STOCKS_DATA:', data);
+    return [{
+      year: new Date().getFullYear(),
+      pe: data.pe,
+      pb: data.pb,
+      eps: data.eps,
+      roe: data.roe ? parseFloat(data.roe) * 100 : 0,
+      operatingMargin: data.operating_margin ? parseFloat(data.operating_margin) * 100 : 0,
+      profitMargin: data.profit_margin ? parseFloat(data.profit_margin) * 100 : 0,
+      fcf: data.fcf ? parseFloat(data.fcf) : 0,
+      netIncome: data.dividend ? parseFloat(data.dividend) * 100 : 0,
+      dividend: data.dividend,
+      dividendYield: data.dividend_yield,
+      name: data.name,
+      debtRatio: 0  // 預留字段
+    }];
+  }
+
+  // 第二優先：從後端獲取實時數據（支援 localhost 和 Vercel）
   if (isTW) {
     try {
-      // 判斷環境並選擇 API URL
       let apiUrl;
       if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-        // 本地開發環境：使用 localhost:5000
         apiUrl = `http://localhost:5000/api/stocks?code=${code}`;
       } else {
-        // 公網環境：使用 Vercel API（查詢參數方式）
         apiUrl = `https://stock-tool-neferyans-projects.vercel.app/api/stocks?code=${code}`;
       }
 
-      const r = await fetch(apiUrl, {
-        signal: AbortSignal.timeout(8000)
-      });
+      const r = await fetch(apiUrl, {signal: AbortSignal.timeout(8000)});
       if (r.ok) {
         const json = await r.json();
         if (json.data) {
           const data = json.data;
-          // 轉換為財報格式
           console.log('[getFinancialData] ✅ 後端數據成功:', data);
           return [{
             year: new Date().getFullYear(),
             pe: data.pe,
             pb: data.pb,
             eps: data.eps,
-            roe: data.roe ? parseFloat(data.roe) * 100 : 0,  // 轉換為百分比
+            roe: data.roe ? parseFloat(data.roe) * 100 : 0,
             operatingMargin: data.operating_margin ? parseFloat(data.operating_margin) * 100 : 0,
             profitMargin: data.profit_margin ? parseFloat(data.profit_margin) * 100 : 0,
             fcf: data.fcf ? parseFloat(data.fcf) : 0,
-            netIncome: data.dividend ? parseFloat(data.dividend) * 100 : 0,  // 估算淨收入
+            netIncome: data.dividend ? parseFloat(data.dividend) * 100 : 0,
             dividend: data.dividend,
             dividendYield: data.dividend_yield,
             name: data.name
@@ -26045,11 +26099,11 @@ async function getFinancialData(code, isTW) {
         }
       }
     } catch(e) {
-      console.warn('[getFinancialData] 後端請求失敗，使用本地數據:', e.message);
+      console.warn('[getFinancialData] 後端請求失敗:', e.message);
     }
   }
 
-  // 備用：從本地數據庫獲取
+  // 第三優先：從本地數據庫獲取（舊方式）
   if (FINANCIAL_DB[code]) {
     return FINANCIAL_DB[code].data;
   }
