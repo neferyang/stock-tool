@@ -1,12 +1,17 @@
 name: Daily Financial Report Update
 
 on:
-  # 每日台北時間 06:00 (UTC 22:00)
+  # 每日 UTC 22:00 觸發 (台北時間 06:00)
   schedule:
     - cron: '0 22 * * *'
+    # 備用：每日 UTC 14:00 (台北時間 22:00)
+    - cron: '0 14 * * *'
 
   # 允許手動觸發
   workflow_dispatch:
+
+  # 允許從其他工作流觸發
+  workflow_call:
 
 jobs:
   update-report:
@@ -23,17 +28,46 @@ jobs:
 
       - name: Run daily report update script
         run: node update-daily-report.js
+        continue-on-error: true
+        timeout-minutes: 5
 
-      - name: Commit and push changes
+      - name: Check and commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
+          # 確保文件存在且有效
+          if [ ! -f daily-report.json ]; then
+            echo "❌ daily-report.json 不存在！"
+            exit 1
+          fi
+
+          # 驗證 JSON 格式
+          if ! python3 -m json.tool daily-report.json > /dev/null 2>&1; then
+            echo "❌ daily-report.json JSON 格式錯誤！"
+            exit 1
+          fi
+
           # 檢查是否有更改
           if git diff --quiet daily-report.json; then
-            echo "No changes to commit"
-          else
-            git add daily-report.json
-            git commit -m "🔄 Daily report auto-update: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-            git push
+            echo "✅ 沒有新的更改，跳過提交"
+            exit 0
           fi
+
+          # 有更改則提交
+          git add daily-report.json
+          git commit -m "🔄 財金早報自動更新: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+
+          # 重試推送（防止網絡暫時性問題）
+          for i in {1..3}; do
+            if git push; then
+              echo "✅ 推送成功"
+              exit 0
+            fi
+            echo "⚠️ 推送失敗，重試 ($i/3)..."
+            sleep 2
+          done
+
+          echo "❌ 推送失敗"
+          exit 1
+        continue-on-error: false
