@@ -569,6 +569,29 @@ async function twseFetch() {
 
 // 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
 // 或嘗試 BWIBBU_ALL（合併版）
+// FinMind TaiwanStockPER：補充台股 PE/PB/殖利率（TWSE BWIBBU_d 缺漏時使用）
+async function finmindPERFetch(stockCode) {
+  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibmVmZXIueWFuZ0BnbWFpbC5jb20iLCJlbWFpbCI6Im5lZmVyLnlhbmdAZ21haWwuY29tIiwidG9rZW5fdmVyc2lvbiI6MH0.okL1XmB0OEXbbfIcTTi6R6uctugnRlaSK8uFL5aaRvs';
+  const today = new Date(); today.setDate(today.getDate() - 7);
+  const startDate = today.toISOString().slice(0,10);
+  const url = `https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPER&data_id=${stockCode}&start_date=${startDate}&token=${token}`;
+  try {
+    const r = await fetch(url, {signal: AbortSignal.timeout(8000)});
+    if (!r.ok) return null;
+    const data = await r.json();
+    if (data.status !== 200 || !data.data?.length) return null;
+    const latest = data.data[data.data.length - 1];
+    return {
+      pe:  latest.PER            ? parseFloat(latest.PER)            : null,
+      pb:  latest.PBR            ? parseFloat(latest.PBR)            : null,
+      divYield: latest.dividend_yield ? parseFloat(latest.dividend_yield) : null,
+    };
+  } catch(e) {
+    console.warn('[finmindPER] 失敗:', e.message);
+    return null;
+  }
+}
+
 async function tpexFetch() {
   // 上櫃股：目前公開API無法直接取得，回傳 null（顯示 N/A）
   // 僅做嘗試，若未來 API 支援則自動生效
@@ -155784,6 +155807,8 @@ async function go(){
       !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v4.18：美股 Finnhub 基本面數據（優化版）
       isTW ? getFinancialData(code, isTW) : Promise.resolve(null)  // v4.22：歷年財報數據
     ]);
+    // FinMind PER：補充 PE/PB/殖利率（非阻塞，TWSE 缺漏時才用）
+    const finmindPERResult = isTW ? await finmindPERFetch(code) : null;
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
     const finmindResult = null;
@@ -155917,17 +155942,25 @@ async function go(){
       }
     }
 
-    // 整合 FINANCIAL_DB 年度數據（台股補充 eps/roe/debtRatio/div）
+    // 整合 FINANCIAL_DB 年度數據（台股補充 eps/roe）
     if (financialResult && financialResult.length > 0) {
       const latest = financialResult[0]; // 最新年度
       if (!m.eps && latest.eps) m.eps = latest.eps;
       if (!m.roe && latest.roe) m.roe = latest.roe;
-      // PE = price / eps（若 TWSE 未提供）
-      if (!m.pe && m.eps && price > 0) m.pe = parseFloat((price / m.eps).toFixed(1));
-      // 殖利率 / 現金股利（若 TWSE 未提供）
-      if (!m.divYield && latest.dividendYield) m.divYield = latest.dividendYield;
-      if (!m.div && latest.cashDividend) m.div = latest.cashDividend;
     }
+
+    // 整合 FinMind TaiwanStockPER（補充 PE/PB/殖利率，優先於估算值）
+    if (finmindPERResult) {
+      if (!m.pe && finmindPERResult.pe) m.pe = finmindPERResult.pe;
+      if (!m.pb && finmindPERResult.pb) m.pb = finmindPERResult.pb;
+      if (!m.divYield && finmindPERResult.divYield) m.divYield = finmindPERResult.divYield;
+      if (!m.div && m.divYield && price > 0) m.div = parseFloat((price * m.divYield / 100).toFixed(2));
+      if (!m.eps && m.pe && price > 0) m.eps = parseFloat((price / m.pe).toFixed(2));
+      console.log('[FinMind PER] PE:', finmindPERResult.pe, 'PB:', finmindPERResult.pb, 'DY:', finmindPERResult.divYield);
+    }
+
+    // PE 最終兜底：price / eps
+    if (!m.pe && m.eps && price > 0) m.pe = parseFloat((price / m.eps).toFixed(1));
 
     // 整合 Finnhub 美股基本面數據（v4.17 優化版）
     if (finnhubResult && finnhubResult.valuation) {
