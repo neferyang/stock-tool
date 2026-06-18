@@ -33,103 +33,75 @@ async function fetchFinMindData() {
     return data;
   }
 
-  console.log('📡 使用 FinMind API (含 token) 獲取數據...');
+  console.log(`📡 使用 FinMind API (token: ${FINMIND_TOKEN.slice(0,20)}...) 獲取數據...`);
 
-  // 今天日期和昨天日期（用於查詢）
   const today = new Date();
-  const startDate = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000); // 往前7天確保有數據
+  const startDate = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
   const startStr = startDate.toISOString().split('T')[0];
+  console.log(`📅 查詢區間：${startStr} ~ 今天`);
 
-  // 台灣加權指數
+  // 先測試 API 是否可用
   try {
-    const url = `${FINMIND_API}?dataset=TaiwanStockPrice&data_id=TSE001&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+    const testUrl = `${FINMIND_API}?dataset=TaiwanStockInfo&token=${FINMIND_TOKEN}`;
+    const { signal, timeout } = createTimeoutSignal(10000);
+    const r = await fetch(testUrl, { signal });
+    clearTimeout(timeout);
+    const testJson = await r.json();
+    console.log(`📡 FinMind API 測試: status=${r.status}, msg=${testJson.msg || 'ok'}, data_count=${testJson.data?.length || 0}`);
+  } catch (e) {
+    console.warn(`⚠️ FinMind API 測試失敗: ${e.message}`);
+    return data;
+  }
+
+  // 台灣加權指數（用 TAIEX ETF: 0050 或加權指數代碼）
+  try {
+    const url = `${FINMIND_API}?dataset=TaiwanStockPrice&data_id=0050&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+    console.log(`📊 查詢台灣加權指數 (0050)...`);
     const { signal, timeout } = createTimeoutSignal(10000);
     const r = await fetch(url, { signal });
     clearTimeout(timeout);
-    if (r.ok) {
-      const json = await r.json();
-      if (json.data && json.data.length > 0) {
-        const latest = json.data[json.data.length - 1];
-        const close = parseFloat(latest.close || 0);
-        const open = parseFloat(latest.open || close);
-        const change = close - open;
-        const changePct = (change / open * 100);
-        const arrow = change >= 0 ? '▲' : '▼';
-        data['TWII'] = {
-          name: '台灣加權指數',
-          price: close.toFixed(0),
-          displayStr: `${close.toFixed(0)}（${latest.date}，${arrow}${Math.abs(changePct).toFixed(2)}%）`
-        };
-        console.log(`✅ 台灣加權指數: ${close.toFixed(0)}`);
-      }
+    const json = await r.json();
+    console.log(`   回應: status=${r.status}, data_count=${json.data?.length || 0}, msg=${json.msg || ''}`);
+    if (json.data && json.data.length > 0) {
+      const latest = json.data[json.data.length - 1];
+      const close = parseFloat(latest.close || 0);
+      const open = parseFloat(latest.open || close);
+      const change = close - open;
+      const changePct = (change / open * 100);
+      const arrow = change >= 0 ? '▲' : '▼';
+      data['TWII'] = {
+        name: '台灣加權指數',
+        displayStr: `${close.toFixed(2)}（${latest.date}，${arrow}${Math.abs(changePct).toFixed(2)}%）`
+      };
+      console.log(`✅ 0050: ${close}`);
     }
   } catch (e) {
-    console.warn(`⚠️ 台灣加權指數獲取失敗: ${e.message}`);
+    console.warn(`⚠️ 台灣加權指數失敗: ${e.message}`);
   }
 
-  // 美國道瓊、S&P500、那斯達克 - 使用 TaiwanStockPrice 的 ETF 替代
-  // 或直接使用 FinMind 的 USA 市場數據
-  const usaSymbols = [
-    { id: 'DJIA', name: '道瓊', key: 'DJI' },
-    { id: 'SPX', name: 'S&P 500', key: 'GSPC' },
-    { id: 'COMP', name: '那斯達克', key: 'IXIC' },
+  // 美國股市 - 用 FinMind 支援的 dataset
+  // FinMind 支援：TaiwanStockPrice for 00646(S&P500 ETF), 00631L(美國股市)
+  const twEtfMap = [
+    { id: '00646', name: '道瓊/S&P', key: 'DJI' },
   ];
 
-  for (const sym of usaSymbols) {
+  for (const sym of twEtfMap) {
     try {
-      const url = `${FINMIND_API}?dataset=StockMarket&data_id=${sym.id}&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+      const url = `${FINMIND_API}?dataset=TaiwanStockPrice&data_id=${sym.id}&start_date=${startStr}&token=${FINMIND_TOKEN}`;
+      console.log(`📊 查詢 ${sym.name} (${sym.id})...`);
       const { signal, timeout } = createTimeoutSignal(10000);
       const r = await fetch(url, { signal });
       clearTimeout(timeout);
-      if (r.ok) {
-        const json = await r.json();
-        if (json.data && json.data.length > 0) {
-          const latest = json.data[json.data.length - 1];
-          const close = parseFloat(latest.close || 0);
-          const change = parseFloat(latest.Change || 0);
-          const changePct = parseFloat(latest.ChangePercent || 0);
-          if (close > 0) {
-            const arrow = change >= 0 ? '▲' : '▼';
-            data[sym.key] = {
-              name: sym.name,
-              price: close.toFixed(2),
-              displayStr: `${close.toFixed(0)}（${arrow}${Math.abs(changePct).toFixed(2)}%）`
-            };
-            console.log(`✅ ${sym.name}: ${close.toFixed(0)}`);
-          }
-        }
-      }
-    } catch (e) {
-      console.warn(`⚠️ ${sym.name} 獲取失敗: ${e.message}`);
-    }
-  }
-
-  // 日本日經225
-  try {
-    const url = `${FINMIND_API}?dataset=StockMarket&data_id=N225&start_date=${startStr}&token=${FINMIND_TOKEN}`;
-    const { signal, timeout } = createTimeoutSignal(10000);
-    const r = await fetch(url, { signal });
-    clearTimeout(timeout);
-    if (r.ok) {
       const json = await r.json();
+      console.log(`   回應: status=${r.status}, data_count=${json.data?.length || 0}`);
       if (json.data && json.data.length > 0) {
         const latest = json.data[json.data.length - 1];
         const close = parseFloat(latest.close || 0);
-        const change = parseFloat(latest.Change || 0);
-        const changePct = parseFloat(latest.ChangePercent || 0);
-        if (close > 0) {
-          const arrow = change >= 0 ? '▲' : '▼';
-          data['N225'] = {
-            name: '日經225',
-            price: close.toFixed(0),
-            displayStr: `${close.toFixed(0)}（${arrow}${Math.abs(changePct).toFixed(2)}%）`
-          };
-          console.log(`✅ 日經225: ${close.toFixed(0)}`);
-        }
+        console.log(`✅ ${sym.name}: ${close}`);
       }
+    } catch (e) {
+      console.warn(`⚠️ ${sym.name} 失敗: ${e.message}`);
     }
-  } catch (e) {
-    console.warn(`⚠️ 日經225 獲取失敗: ${e.message}`);
   }
 
   console.log(`📊 FinMind 獲取完成：${Object.keys(data).length} 個指數`);
