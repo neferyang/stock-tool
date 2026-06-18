@@ -25,6 +25,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -52,6 +55,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          echo "📋 檢查 git 狀態..."
+          git status
+          echo ""
+
           # 檢查是否有更改
           if git diff --quiet daily-report.json; then
             echo "✅ 沒有新的更改，跳過提交"
@@ -59,16 +66,27 @@ jobs:
           fi
 
           echo "📝 發現更改，準備提交..."
+          git diff daily-report.json | head -20
 
           # 配置 git
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+          echo "✅ Git 已配置"
 
+          # 添加並提交
           git add daily-report.json
+          echo "✅ 文件已添加"
+
           git commit -m "🔄 財金早報自動更新: $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          echo "✅ 提交已創建"
 
-          # 直接推送（使用工作流的默認 token）
-          git push origin main
+          # 檢查遠程配置
+          echo "🔗 遠程配置："
+          git remote -v
 
-          echo "✅ 推送成功"
+          # 推送
+          echo "🚀 準備推送..."
+          git push -v origin HEAD:main 2>&1
+
+          echo "✅ 推送完成"
         continue-on-error: false
