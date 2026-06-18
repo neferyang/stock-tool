@@ -155907,6 +155907,16 @@ async function go(){
     // meta 補充名稱
     if (!m.name) m.name = meta.longName||meta.shortName||ticker;
 
+    // 台股：優先用 tw-stocks.json 的中文名（去掉法人後綴）
+    if (isTW && STOCK_CACHE && STOCK_CACHE.length > 0) {
+      const cleanCode = ticker.replace('.TW','').replace('.TWO','');
+      const entry = STOCK_CACHE.find(s => s.Code === cleanCode);
+      if (entry && entry.CHName) {
+        const chName = entry.CHName.replace(/股份有限公司|有限公司|股份公司|控股集團|控股|集團|公司/g,'').trim();
+        if (chName) m.name = chName;
+      }
+    }
+
     // 整合 Finnhub 美股基本面數據（v4.17 優化版）
     if (finnhubResult && finnhubResult.valuation) {
       const v = finnhubResult.valuation;
