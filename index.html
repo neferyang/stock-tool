@@ -345,9 +345,11 @@ function displaySearchResults(results) {
     return;
   }
 
+  const shortName = n => n.replace(/股份有限公司|有限公司|股份公司|控股集團|控股|集團|公司/g, '').trim();
   resultsList.innerHTML = results.map((r, idx) => {
     const isTW = r.Type && (r.Type.includes('上市') || r.Type.includes('上櫃') || r.Type.includes('興櫃'));
-    const displayName = r.CHName || r.Name || r.Code;
+    const fullName = r.CHName || r.Name || r.Code;
+    const displayName = isTW ? shortName(fullName) : fullName;
     const typeLabel = isTW ? `<span style="color:#16a34a">🟢 ${r.Type || '上市'}</span>` : `<span style="color:#2563eb">🔵 美股</span>`;
     return `<li class="result-item" data-code="${r.Code}" data-name="${displayName}" data-idx="${idx}">\
       <div>\
