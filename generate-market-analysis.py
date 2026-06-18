@@ -16,7 +16,7 @@ from datetime import datetime
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
-ANTHROPIC_API_KEY = os.environ.get('ANTHROPIC_API_KEY', '')
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
 MARKET_QUERIES = {
     'US': {
@@ -93,35 +93,27 @@ def gather_headlines(market_key):
     return unique[:8]
 
 
-def call_claude(prompt):
-    """呼叫 Claude API (claude-haiku-4-5)"""
-    if not ANTHROPIC_API_KEY:
-        raise ValueError('ANTHROPIC_API_KEY 未設定')
+def call_gemini(prompt):
+    """呼叫 Google Gemini API (gemini-2.0-flash，免費層)"""
+    if not GEMINI_API_KEY:
+        raise ValueError('GEMINI_API_KEY 未設定')
 
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
     body = json.dumps({
-        'model': 'claude-haiku-4-5-20251001',
-        'max_tokens': 200,
-        'messages': [{'role': 'user', 'content': prompt}]
+        'contents': [{'parts': [{'text': prompt}]}],
+        'generationConfig': {'maxOutputTokens': 200, 'temperature': 0.3}
     }).encode('utf-8')
 
-    req = urllib.request.Request(
-        'https://api.anthropic.com/v1/messages',
-        data=body,
-        headers={
-            'x-api-key': ANTHROPIC_API_KEY,
-            'anthropic-version': '2023-06-01',
-            'content-type': 'application/json',
-        },
-        method='POST'
-    )
+    req = urllib.request.Request(url, data=body,
+        headers={'content-type': 'application/json'}, method='POST')
 
     with urllib.request.urlopen(req, timeout=20) as resp:
         result = json.loads(resp.read().decode('utf-8'))
 
-    return result['content'][0]['text'].strip()
+    return result['candidates'][0]['content']['parts'][0]['text'].strip()
 
 
-def generate_analysis(market_key, headlines, price_data=None):
+def generate_analysis(market_key, headlines, price_data=None, ai_func=None):
     """用 Claude 生成市場分析"""
     config = MARKET_QUERIES[market_key]
     label = config['label']
@@ -144,9 +136,9 @@ def generate_analysis(market_key, headlines, price_data=None):
 輸出格式：直接寫分析文字，50字以內。"""
 
     try:
-        return call_claude(prompt)
+        return ai_func(prompt)
     except Exception as e:
-        print(f'[Claude WARN] {label}: {e}')
+        print(f'[AI WARN] {label}: {e}')
         return None
 
 
@@ -181,8 +173,8 @@ def find_price_for_market(indices, market_key):
 def main():
     print('\n=== 財金早報市場分析生成 ===\n')
 
-    if not ANTHROPIC_API_KEY:
-        print('⚠️  ANTHROPIC_API_KEY 未設定，將使用規則式備援文字')
+    if not GEMINI_API_KEY:
+        print('⚠️  GEMINI_API_KEY 未設定，將使用規則式備援文字')
 
     indices = load_market_data()
     results = {}
@@ -196,9 +188,9 @@ def main():
 
         price_data = find_price_for_market(indices, market_key)
 
-        if ANTHROPIC_API_KEY and headlines:
+        if GEMINI_API_KEY and headlines:
             print(f'   🤖 Claude 生成分析...')
-            analysis = generate_analysis(market_key, headlines, price_data)
+            analysis = generate_analysis(market_key, headlines, price_data, call_gemini)
         else:
             analysis = rule_based_analysis(market_key, price_data)
 
