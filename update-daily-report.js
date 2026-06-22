@@ -146,9 +146,8 @@ async function main() {
 
   const reportData = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 
-  // 版本遞增
-  const [major, minor, patch] = (reportData.version || '2.0.0').split('.').map(Number);
-  reportData.version = `${major}.${minor}.${patch + 1}`;
+  // 版本號保持不變（自動執行不遞增，只在功能更新時手動改）
+  // reportData.version = '2.0.0';  // 保留此行供手動編輯
 
   // 時間更新（UTC+8 台北）
   const now = new Date();
@@ -158,9 +157,23 @@ async function main() {
 
   // 日期更新
   reportData.date = formatDate(twhTime);
-  const tradingDay = getPreviousTradingDay(twhTime);
-  const tradingDayStr = formatDate(tradingDay);
-  reportData.basedOn = tradingDayStr.substring(0, tradingDayStr.indexOf('（')) + '（前一交易日）';
+
+  // basedOn：優先從美股實際交易日提取，否則用前一交易日估算
+  let basedOnDate = null;
+  const indices = marketData || {};
+  const djiData = findIndexData(indices, ['道瓊', 'DJI']);
+  if (djiData && djiData.date) {
+    // 美股實際交易日：如 "06/20" → 構造完整日期
+    const [month, day] = djiData.date.split('/');
+    basedOnDate = new Date(twhTime.getFullYear(), parseInt(month) - 1, parseInt(day));
+    console.log(`✅ 使用美股實際交易日: ${djiData.date}`);
+  } else {
+    // 無美股數據時，用估算
+    basedOnDate = getPreviousTradingDay(twhTime);
+    console.log(`⚠️ 使用估算交易日`);
+  }
+  const basedOnStr = formatDate(basedOnDate);
+  reportData.basedOn = basedOnStr.substring(0, basedOnStr.indexOf('（')) + '（前一交易日）';
 
   // 版本歷史
   if (!reportData.versionHistory) reportData.versionHistory = [];
