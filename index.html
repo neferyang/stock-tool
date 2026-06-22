@@ -155624,8 +155624,8 @@ function renderFinancialChart(financialData){
 
   if(fchart) fchart.destroy();
 
-  // 準備數據（從新到舊反轉為舊到新）
-  const data = [...financialData].reverse();
+  // 準備數據（按年份升序：2021 → 2025）
+  const data = [...financialData];
   const years = data.map(d => d.year);
   const eps = data.map(d => d.eps.val);
   const roe = data.map(d => d.roe.val);
