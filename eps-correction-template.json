@@ -100,6 +100,37 @@
           "source": "FINANCIAL_DB 當前值"
         }
       ]
+    },
+    "2330": {
+      "name": "台積電",
+      "issue": "所有財務指標為 0.0 - 數據源缺失",
+      "historicalEPS": [
+        {
+          "year": "2021",
+          "eps": 13.05,
+          "source": "TWSE MOPS - 需驗證"
+        },
+        {
+          "year": "2022",
+          "eps": 15.52,
+          "source": "TWSE MOPS - 需驗證"
+        },
+        {
+          "year": "2023",
+          "eps": 11.13,
+          "source": "TWSE MOPS - 需驗證"
+        },
+        {
+          "year": "2024",
+          "eps": 21.87,
+          "source": "TWSE MOPS - 需驗證"
+        },
+        {
+          "year": "2025",
+          "eps": 24.05,
+          "source": "TWSE MOPS - 需驗證"
+        }
+      ]
     }
   },
   "dataSource": {
