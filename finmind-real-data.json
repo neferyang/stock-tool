@@ -1,0 +1,1402 @@
+{
+  "description": "FinMind 真實台股財務數據（含模擬數據）",
+  "source": "FinMind API + Mock Data",
+  "updated_at": "2026-06-22T16:39:19.218285",
+  "stocks": {
+    "2330": {
+      "name": "台積電",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 13.05,
+          "roe": 25.3,
+          "netMargin": 18.5,
+          "operatingMargin": 22.1,
+          "debtRatio": 8.5
+        },
+        {
+          "year": 2022,
+          "eps": 15.52,
+          "roe": 28.7,
+          "netMargin": 22.3,
+          "operatingMargin": 26.8,
+          "debtRatio": 10.2
+        },
+        {
+          "year": 2023,
+          "eps": 11.13,
+          "roe": 18.5,
+          "netMargin": 15.2,
+          "operatingMargin": 18.9,
+          "debtRatio": 12.1
+        },
+        {
+          "year": 2024,
+          "eps": 21.87,
+          "roe": 35.2,
+          "netMargin": 28.5,
+          "operatingMargin": 32.4,
+          "debtRatio": 9.3
+        },
+        {
+          "year": 2025,
+          "eps": 24.05,
+          "roe": 38.1,
+          "netMargin": 30.2,
+          "operatingMargin": 34.8,
+          "debtRatio": 8.8
+        }
+      ]
+    },
+    "2207": {
+      "name": "和泰車",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 5.12,
+          "roe": 12.1,
+          "netMargin": 2.8,
+          "operatingMargin": 3.5,
+          "debtRatio": 35.2
+        },
+        {
+          "year": 2022,
+          "eps": 6.85,
+          "roe": 14.3,
+          "netMargin": 3.2,
+          "operatingMargin": 4.1,
+          "debtRatio": 38.1
+        },
+        {
+          "year": 2023,
+          "eps": 4.92,
+          "roe": 9.8,
+          "netMargin": 2.1,
+          "operatingMargin": 2.8,
+          "debtRatio": 42.3
+        },
+        {
+          "year": 2024,
+          "eps": 8.23,
+          "roe": 16.5,
+          "netMargin": 3.8,
+          "operatingMargin": 4.9,
+          "debtRatio": 36.5
+        },
+        {
+          "year": 2025,
+          "eps": 9.15,
+          "roe": 18.2,
+          "netMargin": 4.2,
+          "operatingMargin": 5.3,
+          "debtRatio": 34.8
+        }
+      ]
+    },
+    "3030": {
+      "name": "股票 3030",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 22.1,
+          "roe": 15,
+          "netMargin": 7.5,
+          "operatingMargin": 10.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 24.7,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 20.8,
+          "roe": 13,
+          "netMargin": 6.5,
+          "operatingMargin": 8.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 29.9,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 32.5,
+          "roe": 22,
+          "netMargin": 11.0,
+          "operatingMargin": 14.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2454": {
+      "name": "聯發科",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 19.52,
+          "roe": 32.5,
+          "netMargin": 25.3,
+          "operatingMargin": 28.5,
+          "debtRatio": 5.2
+        },
+        {
+          "year": 2022,
+          "eps": 21.38,
+          "roe": 35.2,
+          "netMargin": 28.1,
+          "operatingMargin": 31.2,
+          "debtRatio": 6.1
+        },
+        {
+          "year": 2023,
+          "eps": 15.85,
+          "roe": 24.8,
+          "netMargin": 19.5,
+          "operatingMargin": 22.3,
+          "debtRatio": 8.5
+        },
+        {
+          "year": 2024,
+          "eps": 26.47,
+          "roe": 42.1,
+          "netMargin": 32.8,
+          "operatingMargin": 36.5,
+          "debtRatio": 4.2
+        },
+        {
+          "year": 2025,
+          "eps": 29.12,
+          "roe": 45.3,
+          "netMargin": 35.2,
+          "operatingMargin": 38.9,
+          "debtRatio": 3.8
+        }
+      ]
+    },
+    "2317": {
+      "name": "股票 2317",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 17.0,
+          "roe": 9,
+          "netMargin": 4.5,
+          "operatingMargin": 6.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 19.0,
+          "roe": 11,
+          "netMargin": 5.5,
+          "operatingMargin": 7.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 16.0,
+          "roe": 7,
+          "netMargin": 3.5,
+          "operatingMargin": 4.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 23.0,
+          "roe": 14,
+          "netMargin": 7.0,
+          "operatingMargin": 9.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 25.0,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "1216": {
+      "name": "股票 1216",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 9.35,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 10.45,
+          "roe": 32,
+          "netMargin": 16.0,
+          "operatingMargin": 21.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 8.8,
+          "roe": 28,
+          "netMargin": 14.0,
+          "operatingMargin": 18.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 12.65,
+          "roe": 35,
+          "netMargin": 17.5,
+          "operatingMargin": 23.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 13.75,
+          "roe": 37,
+          "netMargin": 18.5,
+          "operatingMargin": 24.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2308": {
+      "name": "股票 2308",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 9.35,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 10.45,
+          "roe": 27,
+          "netMargin": 13.5,
+          "operatingMargin": 18.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 8.8,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 12.65,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 13.75,
+          "roe": 32,
+          "netMargin": 16.0,
+          "operatingMargin": 21.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "1102": {
+      "name": "股票 1102",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 9.35,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 10.45,
+          "roe": 27,
+          "netMargin": 13.5,
+          "operatingMargin": 18.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 8.8,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 12.65,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 13.75,
+          "roe": 32,
+          "netMargin": 16.0,
+          "operatingMargin": 21.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "1109": {
+      "name": "股票 1109",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 18.7,
+          "roe": 11,
+          "netMargin": 5.5,
+          "operatingMargin": 7.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 20.9,
+          "roe": 13,
+          "netMargin": 6.5,
+          "operatingMargin": 8.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 17.6,
+          "roe": 9,
+          "netMargin": 4.5,
+          "operatingMargin": 6.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 25.3,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 27.5,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "1108": {
+      "name": "股票 1108",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 12.75,
+          "roe": 19,
+          "netMargin": 9.5,
+          "operatingMargin": 12.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 14.25,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 12.0,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 17.25,
+          "roe": 24,
+          "netMargin": 12.0,
+          "operatingMargin": 16.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 18.75,
+          "roe": 26,
+          "netMargin": 13.0,
+          "operatingMargin": 17.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2409": {
+      "name": "股票 2409",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 11.05,
+          "roe": 32,
+          "netMargin": 16.0,
+          "operatingMargin": 21.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 12.35,
+          "roe": 34,
+          "netMargin": 17.0,
+          "operatingMargin": 22.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 10.4,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 14.95,
+          "roe": 37,
+          "netMargin": 18.5,
+          "operatingMargin": 24.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 16.25,
+          "roe": 39,
+          "netMargin": 19.5,
+          "operatingMargin": 26.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2412": {
+      "name": "股票 2412",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 17.0,
+          "roe": 19,
+          "netMargin": 9.5,
+          "operatingMargin": 12.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 19.0,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 16.0,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 23.0,
+          "roe": 24,
+          "netMargin": 12.0,
+          "operatingMargin": 16.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 25.0,
+          "roe": 26,
+          "netMargin": 13.0,
+          "operatingMargin": 17.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "1101": {
+      "name": "台泥",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 2.15,
+          "roe": 6.8,
+          "netMargin": 1.2,
+          "operatingMargin": 2.1,
+          "debtRatio": 45.8
+        },
+        {
+          "year": 2022,
+          "eps": 2.85,
+          "roe": 8.5,
+          "netMargin": 1.8,
+          "operatingMargin": 2.8,
+          "debtRatio": 48.2
+        },
+        {
+          "year": 2023,
+          "eps": 1.95,
+          "roe": 5.2,
+          "netMargin": 0.8,
+          "operatingMargin": 1.5,
+          "debtRatio": 52.1
+        },
+        {
+          "year": 2024,
+          "eps": 3.52,
+          "roe": 10.1,
+          "netMargin": 2.5,
+          "operatingMargin": 3.8,
+          "debtRatio": 46.3
+        },
+        {
+          "year": 2025,
+          "eps": 3.95,
+          "roe": 11.5,
+          "netMargin": 3.1,
+          "operatingMargin": 4.5,
+          "debtRatio": 44.5
+        }
+      ]
+    },
+    "2603": {
+      "name": "長榮",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 8.25,
+          "roe": 15.2,
+          "netMargin": 5.8,
+          "operatingMargin": 8.2,
+          "debtRatio": 28.5
+        },
+        {
+          "year": 2022,
+          "eps": 18.52,
+          "roe": 35.8,
+          "netMargin": 18.5,
+          "operatingMargin": 22.1,
+          "debtRatio": 25.3
+        },
+        {
+          "year": 2023,
+          "eps": 12.35,
+          "roe": 22.5,
+          "netMargin": 10.2,
+          "operatingMargin": 13.5,
+          "debtRatio": 32.1
+        },
+        {
+          "year": 2024,
+          "eps": 21.68,
+          "roe": 42.3,
+          "netMargin": 22.8,
+          "operatingMargin": 26.5,
+          "debtRatio": 26.8
+        },
+        {
+          "year": 2025,
+          "eps": 25.83,
+          "roe": 50.2,
+          "netMargin": 26.5,
+          "operatingMargin": 30.2,
+          "debtRatio": 24.2
+        }
+      ]
+    },
+    "2201": {
+      "name": "股票 2201",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 24.65,
+          "roe": 28,
+          "netMargin": 14.0,
+          "operatingMargin": 18.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 27.55,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 23.2,
+          "roe": 26,
+          "netMargin": 13.0,
+          "operatingMargin": 17.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 33.35,
+          "roe": 33,
+          "netMargin": 16.5,
+          "operatingMargin": 22.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 36.25,
+          "roe": 35,
+          "netMargin": 17.5,
+          "operatingMargin": 23.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2344": {
+      "name": "股票 2344",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 10.2,
+          "roe": 31,
+          "netMargin": 15.5,
+          "operatingMargin": 20.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 11.4,
+          "roe": 33,
+          "netMargin": 16.5,
+          "operatingMargin": 22.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 9.6,
+          "roe": 29,
+          "netMargin": 14.5,
+          "operatingMargin": 19.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 13.8,
+          "roe": 36,
+          "netMargin": 18.0,
+          "operatingMargin": 24.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 15.0,
+          "roe": 38,
+          "netMargin": 19.0,
+          "operatingMargin": 25.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2357": {
+      "name": "股票 2357",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 10.2,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 11.4,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 9.6,
+          "roe": 14,
+          "netMargin": 7.0,
+          "operatingMargin": 9.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 13.8,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 15.0,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2382": {
+      "name": "股票 2382",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 9.35,
+          "roe": 15,
+          "netMargin": 7.5,
+          "operatingMargin": 10.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 10.45,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 8.8,
+          "roe": 13,
+          "netMargin": 6.5,
+          "operatingMargin": 8.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 12.65,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 13.75,
+          "roe": 22,
+          "netMargin": 11.0,
+          "operatingMargin": 14.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2390": {
+      "name": "股票 2390",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 18.7,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 20.9,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 17.6,
+          "roe": 14,
+          "netMargin": 7.0,
+          "operatingMargin": 9.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 25.3,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 27.5,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2392": {
+      "name": "股票 2392",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 24.65,
+          "roe": 13,
+          "netMargin": 6.5,
+          "operatingMargin": 8.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 27.55,
+          "roe": 15,
+          "netMargin": 7.5,
+          "operatingMargin": 10.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 23.2,
+          "roe": 11,
+          "netMargin": 5.5,
+          "operatingMargin": 7.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 33.35,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 36.25,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2395": {
+      "name": "股票 2395",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 17.85,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 19.95,
+          "roe": 22,
+          "netMargin": 11.0,
+          "operatingMargin": 14.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 16.8,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 24.15,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 26.25,
+          "roe": 27,
+          "netMargin": 13.5,
+          "operatingMargin": 18.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2408": {
+      "name": "股票 2408",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 10.2,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 11.4,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 9.6,
+          "roe": 14,
+          "netMargin": 7.0,
+          "operatingMargin": 9.3,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 13.8,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 15.0,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2419": {
+      "name": "股票 2419",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 24.65,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 27.55,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 23.2,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 33.35,
+          "roe": 28,
+          "netMargin": 14.0,
+          "operatingMargin": 18.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 36.25,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2421": {
+      "name": "股票 2421",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 11.9,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 13.3,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 11.2,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 16.1,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 17.5,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2423": {
+      "name": "股票 2423",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 11.05,
+          "roe": 32,
+          "netMargin": 16.0,
+          "operatingMargin": 21.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 12.35,
+          "roe": 34,
+          "netMargin": 17.0,
+          "operatingMargin": 22.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 10.4,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 14.95,
+          "roe": 37,
+          "netMargin": 18.5,
+          "operatingMargin": 24.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 16.25,
+          "roe": 39,
+          "netMargin": 19.5,
+          "operatingMargin": 26.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2424": {
+      "name": "股票 2424",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 10.2,
+          "roe": 11,
+          "netMargin": 5.5,
+          "operatingMargin": 7.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 11.4,
+          "roe": 13,
+          "netMargin": 6.5,
+          "operatingMargin": 8.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 9.6,
+          "roe": 9,
+          "netMargin": 4.5,
+          "operatingMargin": 6.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 13.8,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 15.0,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2425": {
+      "name": "股票 2425",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 24.65,
+          "roe": 18,
+          "netMargin": 9.0,
+          "operatingMargin": 12.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 27.55,
+          "roe": 20,
+          "netMargin": 10.0,
+          "operatingMargin": 13.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 23.2,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 33.35,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 36.25,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2427": {
+      "name": "股票 2427",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 12.75,
+          "roe": 9,
+          "netMargin": 4.5,
+          "operatingMargin": 6.0,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 14.25,
+          "roe": 11,
+          "netMargin": 5.5,
+          "operatingMargin": 7.3,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 12.0,
+          "roe": 7,
+          "netMargin": 3.5,
+          "operatingMargin": 4.7,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 17.25,
+          "roe": 14,
+          "netMargin": 7.0,
+          "operatingMargin": 9.3,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 18.75,
+          "roe": 16,
+          "netMargin": 8.0,
+          "operatingMargin": 10.7,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2428": {
+      "name": "股票 2428",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 20.4,
+          "roe": 23,
+          "netMargin": 11.5,
+          "operatingMargin": 15.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 22.8,
+          "roe": 25,
+          "netMargin": 12.5,
+          "operatingMargin": 16.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 19.2,
+          "roe": 21,
+          "netMargin": 10.5,
+          "operatingMargin": 14.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 27.6,
+          "roe": 28,
+          "netMargin": 14.0,
+          "operatingMargin": 18.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 30.0,
+          "roe": 30,
+          "netMargin": 15.0,
+          "operatingMargin": 20.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2430": {
+      "name": "股票 2430",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 23.8,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 26.6,
+          "roe": 19,
+          "netMargin": 9.5,
+          "operatingMargin": 12.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 22.4,
+          "roe": 15,
+          "netMargin": 7.5,
+          "operatingMargin": 10.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 32.2,
+          "roe": 22,
+          "netMargin": 11.0,
+          "operatingMargin": 14.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 35.0,
+          "roe": 24,
+          "netMargin": 12.0,
+          "operatingMargin": 16.0,
+          "debtRatio": 30.0
+        }
+      ]
+    },
+    "2436": {
+      "name": "股票 2436",
+      "data": [
+        {
+          "year": 2021,
+          "eps": 15.3,
+          "roe": 17,
+          "netMargin": 8.5,
+          "operatingMargin": 11.3,
+          "debtRatio": 35.0
+        },
+        {
+          "year": 2022,
+          "eps": 17.1,
+          "roe": 19,
+          "netMargin": 9.5,
+          "operatingMargin": 12.7,
+          "debtRatio": 33.0
+        },
+        {
+          "year": 2023,
+          "eps": 14.4,
+          "roe": 15,
+          "netMargin": 7.5,
+          "operatingMargin": 10.0,
+          "debtRatio": 38.0
+        },
+        {
+          "year": 2024,
+          "eps": 20.7,
+          "roe": 22,
+          "netMargin": 11.0,
+          "operatingMargin": 14.7,
+          "debtRatio": 32.0
+        },
+        {
+          "year": 2025,
+          "eps": 22.5,
+          "roe": 24,
+          "netMargin": 12.0,
+          "operatingMargin": 16.0,
+          "debtRatio": 30.0
+        }
+      ]
+    }
+  }
+}
