@@ -158,10 +158,13 @@ async function main() {
   // 日期更新
   reportData.date = formatDate(twhTime);
 
+  // 先載入市場數據
+  const indices = loadMarketData();
+
   // basedOn：優先從美股實際交易日提取，否則用前一交易日估算
   let basedOnDate = null;
-  const indices = marketData || {};
-  const djiData = findIndexData(indices, ['道瓊', 'DJI']);
+  const marketIndices = indices || {};
+  const djiData = findIndexData(marketIndices, ['道瓊', 'DJI']);
   if (djiData && djiData.date) {
     // 美股實際交易日：如 "06/20" → 構造完整日期
     const [month, day] = djiData.date.split('/');
@@ -187,8 +190,7 @@ async function main() {
   console.log(`📅 日期: ${reportData.date}`);
   console.log(`📅 basedOn: ${reportData.basedOn}\n`);
 
-  // 載入市場數據並更新數字
-  const indices = loadMarketData();
+  // 更新市場數據（indices 已在前面加載）
   if (indices && Object.keys(indices).length > 0) {
     updateMarkets(reportData.markets, indices);
   } else {
