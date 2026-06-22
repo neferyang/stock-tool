@@ -1,0 +1,124 @@
+{
+  "description": "5 年 EPS 數據修正表 - 只修正 EPS 趨勢異常的股票",
+  "source": "TWSE MOPS 公開資訊觀測站 或 公司年報",
+  "updatedAt": "2026-06-22",
+  "corrections": {
+    "1101": {
+      "name": "台泥",
+      "issue": "5年EPS呈完美直線增長，方差1.6%（異常規則）",
+      "historicalEPS": [
+        {
+          "year": "2021",
+          "eps": 0.0,
+          "source": "待補充",
+          "note": "需從 TWSE MOPS 獲取實際數據"
+        },
+        {
+          "year": "2022",
+          "eps": 0.0,
+          "source": "待補充",
+          "note": "可查詢：https://mops.twse.com.tw"
+        },
+        {
+          "year": "2023",
+          "eps": 0.0,
+          "source": "待補充",
+          "note": ""
+        },
+        {
+          "year": "2024",
+          "eps": 0.0,
+          "source": "待補充",
+          "note": ""
+        },
+        {
+          "year": "2025",
+          "eps": 5.87,
+          "source": "FINANCIAL_DB 當前值",
+          "note": "保留（非異常直線）"
+        }
+      ]
+    },
+    "2603": {
+      "name": "長榮",
+      "issue": "5年EPS呈完美直線增長，方差1.6%（異常規則）",
+      "historicalEPS": [
+        {
+          "year": "2021",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2022",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2023",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2024",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2025",
+          "eps": 18.74,
+          "source": "FINANCIAL_DB 當前值"
+        }
+      ]
+    },
+    "2201": {
+      "name": "裕隆",
+      "issue": "5年EPS呈完美直線增長，方差1.6%（異常規則）",
+      "historicalEPS": [
+        {
+          "year": "2021",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2022",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2023",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2024",
+          "eps": 0.0,
+          "source": "待補充"
+        },
+        {
+          "year": "2025",
+          "eps": 21.27,
+          "source": "FINANCIAL_DB 當前值"
+        }
+      ]
+    }
+  },
+  "dataSource": {
+    "recommended": [
+      {
+        "name": "TWSE 公開資訊觀測站",
+        "url": "https://mops.twse.com.tw/mops/web/t05_query",
+        "method": "輸入股票代號 → 查詢財務報表 → 提取年度 EPS"
+      },
+      {
+        "name": "公司官網投資人關係",
+        "method": "下載年度報告 PDF → 查找 EPS 數據"
+      },
+      {
+        "name": "證交所公開資訊平台",
+        "url": "https://opendata.twse.com.tw/",
+        "method": "查詢年度財務數據"
+      }
+    ]
+  },
+  "instructions": "1. 填入實際的 5 年 EPS 數據 (2021-2025)\n2. 運行 apply-eps-correction.py 將修正合併到 FINANCIAL_DB\n3. 只修正 EPS 趨勢，保留其他診斷卡數據不變"
+}

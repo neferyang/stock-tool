@@ -71,13 +71,26 @@ def merge_financial_data(html_path, json_path):
             continue
 
         # 找到 ] 的位置（關閉 data 陣列）
-        data_array_end = html.find(']', data_array_start) + 1
+        # 需要找到對應的 ] （配對的括號）
+        bracket_count = 0
+        pos = data_array_start + len('"data": [')
+        while pos < len(html):
+            if html[pos] == '[':
+                bracket_count += 1
+            elif html[pos] == ']':
+                if bracket_count == 0:
+                    data_array_end = pos + 1
+                    break
+                bracket_count -= 1
+            pos += 1
+        else:
+            print(f"{stock_code}: ⚠️ 找不到 data 陣列結尾")
+            continue
 
         # 生成新的 data 陣列 JSON
         new_data_json = json.dumps(stock_info['data'], ensure_ascii=False, indent=3)
 
         # 替換
-        old_data = html[data_array_start:data_array_end]
         new_data = f'"data": {new_data_json}'
 
         html = html[:data_array_start] + new_data + html[data_array_end:]
@@ -87,7 +100,8 @@ def merge_financial_data(html_path, json_path):
         latest_year = stock_info['data'][0]['year']
         latest_eps = stock_info['data'][0]['eps']
         latest_roe = stock_info['data'][0]['roe']
-        print(f"{stock_code}: ✅ 已更新 ({latest_year} EPS={latest_eps}, ROE={latest_roe}%)")
+        data_years = len(stock_info['data'])
+        print(f"{stock_code}: ✅ 已更新 ({latest_year} EPS={latest_eps}, ROE={latest_roe}%, {data_years}年數據)")
 
     if updated_count == 0:
         print("❌ 沒有任何更新")
