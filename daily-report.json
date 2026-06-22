@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-06-22T01:50:25.552Z",
+  "lastUpdated": "2026-06-22T06:05:00.032Z",
   "date": "2026年06月22日（星期一）",
   "basedOn": "2026年06月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude)",
@@ -230,6 +230,16 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/6/22 下午2:05:00",
+      "status": "自動更新 - yfinance 市場數據"
+    },
+    {
+      "version": "2.0.28",
+      "date": "2026/6/22 上午10:10:31",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/6/22 下午5:50:25",
