@@ -156165,14 +156165,14 @@ ${financialTrend.length > 0 ? `
 
 <div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
 ${financialTrend && financialTrend.length > 0 ? `<table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
-${(financialTrend || []).map(f => {
+${(financialTrend || []).map(item => {
   try {
     return `<tr>
-      <td><strong>${f.year || '—'}</strong></td>
-      <td>${f.eps && f.eps.val != null ? f(f.eps.val, 2) : 'N/A'}</td>
-      <td>${f.netMargin && f.netMargin.val != null ? f(f.netMargin.val, 1) + '%' : 'N/A'}</td>
-      <td>${f.roe && f.roe.val != null ? f(f.roe.val, 1) + '%' : 'N/A'}</td>
-      <td>${f.debtRatio && f.debtRatio.val != null ? f(f.debtRatio.val, 1) + '%' : 'N/A'}</td>
+      <td><strong>${item.year || '—'}</strong></td>
+      <td>${item.eps && item.eps.val != null ? f(item.eps.val, 2) : 'N/A'}</td>
+      <td>${item.netMargin && item.netMargin.val != null ? f(item.netMargin.val, 1) + '%' : 'N/A'}</td>
+      <td>${item.roe && item.roe.val != null ? f(item.roe.val, 1) + '%' : 'N/A'}</td>
+      <td>${item.debtRatio && item.debtRatio.val != null ? f(item.debtRatio.val, 1) + '%' : 'N/A'}</td>
     </tr>`;
   } catch(e) { return ''; }
 }).join('')}
