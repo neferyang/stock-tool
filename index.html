@@ -156125,7 +156125,7 @@ ${latestFinancial ? `
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
     ${latestFinancial.fcf && latestFinancial.fcf > 0 ? `
-    <div style="font-size:1.4rem;font-weight:700;color:#10b981;margin-bottom:4px;">${(latestFinancial.fcf / 1e9).toFixed(1)}B</div>
+    <div style="font-size:1.4rem;font-weight:700;color:#10b981;margin-bottom:4px;">${f(latestFinancial.fcf, 1)}B</div>
     <div style="font-size:.8rem;color:#666;">💰 充沛</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 自由現金流充足，現金創造力良好</div>
     ` : `
