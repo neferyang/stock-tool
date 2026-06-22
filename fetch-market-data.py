@@ -41,14 +41,20 @@ def fetch_index(symbol, info):
         # 用交易所本地時區判斷最後一筆是否為「已收盤交易日」
         tz_name = info.get('tz', 'UTC')
         local_tz = pytz.timezone(tz_name)
-        now_local = datetime.now(local_tz)
+        # pytz 的 datetime.now(tz) 有陷阱，改用 UTC 轉換
+        now_local = datetime.now(pytz.UTC).astimezone(local_tz)
 
-        # hist.index 可能是 tz-aware（UTC）或 tz-naive（date only）
-        # 統一轉成本地 date 比對
-        def to_local_date(idx_val):
-            if hasattr(idx_val, 'tzinfo') and idx_val.tzinfo:
-                return idx_val.astimezone(local_tz).date()
-            return idx_val.date() if hasattr(idx_val, 'date') else idx_val
+        # hist.index 是 DatetimeIndex（yfinance 通常返回 UTC aware）
+        # 統一轉成本地交易所的 date
+        def to_local_date(ts):
+            # 若是 UTC aware，轉到本地時區；否則假設已是本地日期
+            if hasattr(ts, 'tz_convert'):  # pandas Timestamp
+                return ts.tz_convert(local_tz).date()
+            elif hasattr(ts, 'astimezone') and ts.tzinfo:  # datetime with tzinfo
+                return ts.astimezone(local_tz).date()
+            elif hasattr(ts, 'date'):
+                return ts.date()
+            return ts  # 已是 date 對象
 
         today_local = now_local.date()
         # 若最後一筆是今天且尚未過收盤時間，排除（用前一筆）
