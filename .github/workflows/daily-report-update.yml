@@ -2,8 +2,8 @@ name: Daily Financial Report Update
 
 on:
   schedule:
-    - cron: '0 22 * * *'
-    - cron: '0 14 * * *'
+    - cron: '0 22 * * *'   # 台北 06:00（美股收盤後 2hr，亞洲開盤前）
+    - cron: '0 21 * * *'   # 台北 05:00（美股收盤後 1hr = 最早可拿到當日美股收盤）
   workflow_dispatch:
   workflow_call:
 
@@ -23,8 +23,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install yfinance
-        run: pip install yfinance
+      - name: Install dependencies
+        run: pip install yfinance pytz
 
       - name: Fetch market indices
         run: python fetch-market-data.py

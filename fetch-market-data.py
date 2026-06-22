@@ -8,22 +8,24 @@
 import yfinance as yf
 import json
 from datetime import datetime, timedelta
+import pytz
 import sys
 
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
 # 需要抓取的市場指數
+# tz: 各交易所本地時區（用於正確顯示交易日期）
 INDICES = {
-    '^DJI':    {'name': '道瓊',          'group': 'US'},
-    '^GSPC':   {'name': 'S&P 500',       'group': 'US'},
-    '^IXIC':   {'name': '那斯達克',       'group': 'US'},
-    '^N225':   {'name': '日經225',        'group': 'JP'},
-    '^BSESN':  {'name': 'SENSEX',        'group': 'IN'},
-    '^NSEI':   {'name': 'NIFTY 50',      'group': 'IN'},
-    '^TWII':   {'name': '台灣加權指數',   'group': 'TW'},
-    'GC=F':    {'name': '黃金',          'group': 'GOLD'},
-    'VNI':     {'name': '越南 VN-Index', 'group': 'VN'},
+    '^DJI':    {'name': '道瓊',          'group': 'US',   'tz': 'America/New_York'},
+    '^GSPC':   {'name': 'S&P 500',       'group': 'US',   'tz': 'America/New_York'},
+    '^IXIC':   {'name': '那斯達克',       'group': 'US',   'tz': 'America/New_York'},
+    '^N225':   {'name': '日經225',        'group': 'JP',   'tz': 'Asia/Tokyo'},
+    '^BSESN':  {'name': 'SENSEX',        'group': 'IN',   'tz': 'Asia/Kolkata'},
+    '^NSEI':   {'name': 'NIFTY 50',      'group': 'IN',   'tz': 'Asia/Kolkata'},
+    '^TWII':   {'name': '台灣加權指數',   'group': 'TW',   'tz': 'Asia/Taipei'},
+    'GC=F':    {'name': '黃金',          'group': 'GOLD', 'tz': 'America/New_York'},
+    'VNI':     {'name': '越南 VN-Index', 'group': 'VN',   'tz': 'Asia/Ho_Chi_Minh'},
 }
 
 def fetch_index(symbol, info):
@@ -35,6 +37,28 @@ def fetch_index(symbol, info):
             print(f'[WARN] {info["name"]} ({symbol}): 無數據')
             return None
 
+        # 過濾掉今天尚未收盤的資料：
+        # 用交易所本地時區判斷最後一筆是否為「已收盤交易日」
+        tz_name = info.get('tz', 'UTC')
+        local_tz = pytz.timezone(tz_name)
+        now_local = datetime.now(local_tz)
+
+        # hist.index 可能是 tz-aware（UTC）或 tz-naive（date only）
+        # 統一轉成本地 date 比對
+        def to_local_date(idx_val):
+            if hasattr(idx_val, 'tzinfo') and idx_val.tzinfo:
+                return idx_val.astimezone(local_tz).date()
+            return idx_val.date() if hasattr(idx_val, 'date') else idx_val
+
+        today_local = now_local.date()
+        # 若最後一筆是今天且尚未過收盤時間，排除（用前一筆）
+        last_date = to_local_date(hist.index[-1])
+        if last_date == today_local:
+            hist = hist.iloc[:-1]  # 排除今天未收盤數據
+            if hist.empty:
+                print(f'[WARN] {info["name"]} ({symbol}): 排除今日後無數據')
+                return None
+
         latest = hist.iloc[-1]
         prev = hist.iloc[-2] if len(hist) >= 2 else latest
 
@@ -43,7 +67,8 @@ def fetch_index(symbol, info):
         change = close - prev_close
         change_pct = (change / prev_close * 100) if prev_close != 0 else 0
         arrow = '▲' if change >= 0 else '▼'
-        date_str = hist.index[-1].strftime('%m/%d')
+        # 用交易所本地時區顯示日期
+        date_str = to_local_date(hist.index[-1]).strftime('%m/%d')
 
         result = {
             'name': info['name'],
