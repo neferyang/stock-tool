@@ -31,7 +31,8 @@ INDICES = {
 def fetch_index(symbol, info):
     try:
         ticker = yf.Ticker(symbol)
-        hist = ticker.history(period='5d')
+        # 取 10 天以確保拿到最新交易日（有時 5 天不足，尤其是非美股時區）
+        hist = ticker.history(period='10d')
 
         if hist.empty:
             print(f'[WARN] {info["name"]} ({symbol}): 無數據')
