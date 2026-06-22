@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-06-21T22:58:13.193Z",
+  "lastUpdated": "2026-06-22T01:50:25.552Z",
   "date": "2026年06月22日（星期一）",
-  "basedOn": "2026年06月19日（前一交易日）",
+  "basedOn": "2026年06月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -47,7 +47,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,171（06/21，▼1.26%）"
+        "黃金：4,224（06/18，▼3.09%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     }
@@ -230,6 +230,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/6/22 下午5:50:25",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/6/22 上午6:58:13",
