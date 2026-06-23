@@ -6,11 +6,26 @@
 <title>股票估價分析工具</title>
 <script>
 // 全局修補：安全地處理 toFixed
-const _origToFixed = Number.prototype.toFixed;
-Number.prototype.toFixed = function(digits) {
-  if (this === null || this === undefined || isNaN(this)) return 'N/A';
-  return _origToFixed.call(this, digits);
-};
+if (Number.prototype.toFixed) {
+  const _origToFixed = Number.prototype.toFixed;
+  Number.prototype.toFixed = function(digits) {
+    try {
+      if (this === null || this === undefined || isNaN(this) || !isFinite(this)) return 'N/A';
+      return _origToFixed.call(this, digits);
+    } catch(e) {
+      console.warn('toFixed error:', this, e);
+      return 'N/A';
+    }
+  };
+}
+
+// 全局錯誤處理
+window.addEventListener('error', function(event) {
+  console.error('Global error caught:', event.message, event.filename, event.lineno);
+  if (event.message.includes('toFixed')) {
+    event.preventDefault();
+  }
+});
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
