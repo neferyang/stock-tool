@@ -122,10 +122,10 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
     <h1>📊 股票估價分析工具 <span class="vsub">v6.4.0 (實時動態同步)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-      <span>📊 財務數據更新進度：</span>
+      <span>📊 財務數據更新進度 (TWSE 全市場)：</span>
       <span style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:8px;font-weight:600;">
-        <span id="update-count">9</span>/<span id="total-count">29</span>
-        (<span id="update-pct">31</span>%)
+        <span id="update-count">9</span>/<span id="total-count">4,265</span>
+        (<span id="update-pct">0.2</span>%)
       </span>
       <span style="display:inline-block;width:80px;height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;">
         <div id="progress-bar" style="height:100%;width:31%;background:rgba(255,255,255,0.9);transition:width 0.3s ease;"></div>
@@ -166,10 +166,12 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 
 <script>
 // ════════════════════════════════════════════════════════
-// 財務數據更新進度顯示
+// 財務數據更新進度顯示 (基於 TWSE 4,265 支全市場股票)
 // ════════════════════════════════════════════════════════
 async function updateProgressDisplay() {
   try {
+    const TWSE_TOTAL = 4265;  // TWSE 全市場股票總數
+
     // 嘗試從GitHub Pages加載
     let dataUrl = 'financial-data-complete.json';
     const response = await fetch(dataUrl, {signal: AbortSignal.timeout(3000)});
@@ -186,17 +188,20 @@ async function updateProgressDisplay() {
         }
       });
 
-      const total = Object.keys(stocks).length;
-      const pct = Math.round(updated / total * 100);
+      // 基於 TWSE 全市場總數計算百分比
+      const pct = (updated / TWSE_TOTAL * 100).toFixed(1);
 
       // 更新表頭顯示
       document.getElementById('update-count').textContent = updated;
-      document.getElementById('total-count').textContent = total;
+      document.getElementById('total-count').textContent = TWSE_TOTAL.toLocaleString();
       document.getElementById('update-pct').textContent = pct;
-      document.getElementById('progress-bar').style.width = pct + '%';
+
+      // 進度條最大顯示 5%（避免條形太小看不見）
+      const barWidth = Math.max(pct, 0.5);
+      document.getElementById('progress-bar').style.width = Math.min(barWidth, 100) + '%';
     }
   } catch (e) {
-    console.warn('⚠️ 進度更新失敗:', e.message);
+    console.warn('進度更新失敗:', e.message);
   }
 }
 
