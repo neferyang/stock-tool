@@ -26635,9 +26635,9 @@ ${latestFinancial && latestFinancial.roe !== undefined ? `
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateROE(latestFinancial.roe || 0).color};margin-bottom:4px;">${(latestFinancial.roe || 0).toFixed(1)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateROE(latestFinancial.roe || 0).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateROE(latestFinancial.roe || 0).desc}</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).color : '#999'};margin-bottom:4px;">${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? latestFinancial.roe.toFixed(1) + '%' : 'N/A'}</div>
+    <div style="font-size:.8rem;color:#666;">${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).level : '無資料'}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).desc : '—'}</div>
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
