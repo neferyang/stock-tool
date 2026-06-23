@@ -26631,7 +26631,7 @@ ${!isTW && !m.pe && !m.eps ? `
 </div></div>
 
 ${latestFinancial && latestFinancial.roe !== undefined ? `
-<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe || 0, latestFinancial.operatingMargin || 0, latestFinancial.fcf || 0, latestFinancial.netIncome || 1, latestFinancial.debtRatio || 0, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe || 0, latestFinancial.operatingMargin || 0, latestFinancial.fcf || 0, latestFinancial.netIncome || 1, latestFinancial.debtRatio || 0, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
+<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
 <div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年)</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
@@ -26643,7 +26643,7 @@ ${latestFinancial && latestFinancial.roe !== undefined ? `
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateOperatingMargin(latestFinancial.operatingMargin || 0).color};margin-bottom:4px;">${(latestFinancial.operatingMargin || 0).toFixed(1)}%</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.operatingMargin !== null && latestFinancial.operatingMargin !== undefined ? evaluateOperatingMargin(latestFinancial.operatingMargin).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.operatingMargin)}</div>
     <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin || 0).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin || 0).desc}</div>
   </div>
@@ -26657,15 +26657,15 @@ ${latestFinancial && latestFinancial.roe !== undefined ? `
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
     <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey).color};margin-bottom:4px;">${(latestFinancial.debtRatio || 0).toFixed(1)}%</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.debtRatio !== null && latestFinancial.debtRatio !== undefined ? evaluateDebtRatio(latestFinancial.debtRatio, indKey).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.debtRatio)}</div>
     <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey).level}</div>
     <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey).desc}</div>
   </div>
 </div>
 
-<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe || 0, latestFinancial.operatingMargin || 0, latestFinancial.fcf || 0, latestFinancial.netIncome || 1, latestFinancial.debtRatio || 0, indKey).color};">
-  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe || 0, latestFinancial.operatingMargin || 0, latestFinancial.fcf || 0, latestFinancial.netIncome || 1, latestFinancial.debtRatio || 0, indKey).color};margin-bottom:6px;">
-    綜合評分：${calculateHealthScore(latestFinancial.roe || 0, latestFinancial.operatingMargin || 0, latestFinancial.fcf || 0, latestFinancial.netIncome || 1, latestFinancial.debtRatio || 0, indKey).level}
+<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color};">
+  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color};margin-bottom:6px;">
+    綜合評分：${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).level}
   </div>
   <div style="font-size:.85rem;color:#666;line-height:1.6;">
     這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。
