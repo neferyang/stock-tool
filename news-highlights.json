@@ -1,0 +1,48 @@
+{
+  "updatedAt": "2026-06-23T01:32:30.961974Z",
+  "news": [
+    {
+      "title": "\"美國股市 S&amp;P 500 NASDAQ\" - Google 新聞",
+      "description": "Google 新聞"
+    },
+    {
+      "title": "\"台灣股市加權指數\" - Google 新聞",
+      "description": "Google 新聞"
+    },
+    {
+      "title": "\"全球經濟 央行\" - Google 新聞",
+      "description": "Google 新聞"
+    }
+  ],
+  "observations": [
+    {
+      "emoji": "📉",
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+    },
+    {
+      "emoji": "🌏",
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+    },
+    {
+      "emoji": "💰",
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+    }
+  ],
+  "keyObservations": [
+    {
+      "number": 1,
+      "title": "市場波動性增加"
+    },
+    {
+      "number": 2,
+      "title": "美元指數堅挺"
+    },
+    {
+      "number": 3,
+      "title": "科技股領漲"
+    }
+  ]
+}
