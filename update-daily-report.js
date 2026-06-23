@@ -59,6 +59,22 @@ function loadAnalysisData() {
   }
 }
 
+function loadNewsHighlights() {
+  const p = path.join(__dirname, 'news-highlights.json');
+  if (!fs.existsSync(p)) {
+    console.warn('⚠️ news-highlights.json 不存在，跳過新聞更新');
+    return null;
+  }
+  try {
+    const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+    console.log(`✅ 讀取 news-highlights.json (${raw.news?.length || 0} 則新聞，${raw.observations?.length || 0} 個觀察)`);
+    return raw;
+  } catch (e) {
+    console.warn(`⚠️ 讀取 news-highlights.json 失敗: ${e.message}`);
+    return null;
+  }
+}
+
 // 根據市場 name，從 market-data.json 的 indices 中找到對應資料
 function findIndexData(indices, groupOrNameHints) {
   for (const [symbol, data] of Object.entries(indices)) {
@@ -221,7 +237,24 @@ async function main() {
     }
   }
 
-  reportData.updateSource = 'GitHub Actions (yfinance + Claude)';
+  // 載入新聞和重點並更新
+  const newsData = loadNewsHighlights();
+  if (newsData) {
+    if (newsData.news && newsData.news.length > 0) {
+      reportData.news = newsData.news;
+      console.log(`✅ 新聞已更新 (${newsData.news.length} 則)`);
+    }
+    if (newsData.observations && newsData.observations.length > 0) {
+      reportData.observations = newsData.observations;
+      console.log(`✅ 今日觀察已更新 (${newsData.observations.length} 個)`);
+    }
+    if (newsData.keyObservations && newsData.keyObservations.length > 0) {
+      reportData.keyObservations = newsData.keyObservations;
+      console.log(`✅ 每日重點已更新 (${newsData.keyObservations.length} 項)`);
+    }
+  }
+
+  reportData.updateSource = 'GitHub Actions (yfinance + Claude + News)';
 
   // 儲存
   fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
