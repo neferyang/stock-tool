@@ -47,14 +47,14 @@ jobs:
 
       - name: Generate config with token
         env:
-          GITHUB_TOKEN_CONFIG: ${{ secrets.GITHUB_TOKEN_CONFIG }}
+          STOCK_TOOL_TOKEN: ${{ secrets.STOCK_TOOL_TOKEN }}
         run: |
           python3 << 'EOF'
           import json
           from datetime import datetime
 
           config = {
-            "token": """${{ secrets.GITHUB_TOKEN_CONFIG }}""",
+            "token": """${{ secrets.STOCK_TOOL_TOKEN }}""",
             "generatedAt": datetime.utcnow().isoformat() + "Z",
             "source": "github-actions"
           }

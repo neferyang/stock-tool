@@ -16,7 +16,7 @@
 2. 點擊 **「New repository secret」**
 
 3. 填入以下信息：
-   - **Name**: `GITHUB_TOKEN_CONFIG`
+   - **Name**: `STOCK_TOOL_TOKEN`
    - **Value**: 你的 GitHub Personal Access Token
 
 4. 點擊 **「Add secret」**
@@ -129,7 +129,7 @@
 ### Q: 點擊按鈕后沒有任何反應
 **A**: 
 - 檢查瀏覽器控制台（F12 → Console）中是否有錯誤信息
-- 確認已在 GitHub Secrets 中添加 `GITHUB_TOKEN_CONFIG`
+- 確認已在 GitHub Secrets 中添加 `STOCK_TOOL_TOKEN`
 - 刷新頁面重試
 
 ### Q: 顯示 "Token 無效或已過期"
@@ -166,7 +166,7 @@
 
 1. **第一步**：確認 Secrets 已添加
    - 訪問 GitHub Secrets 管理頁面
-   - 應顯示 `GITHUB_TOKEN_CONFIG`（值隱藏）
+   - 應顯示 `STOCK_TOOL_TOKEN`（值隱藏）
 
 2. **第二步**：工作流運行
    - 訪問 GitHub Actions 頁面
