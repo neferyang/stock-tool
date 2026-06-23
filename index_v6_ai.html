@@ -24749,6 +24749,44 @@ async function loadDailyReport() {
   }
 }
 
+async function loadGitHubToken() {
+  // 優先順序：
+  // 1. localStorage 中已保存的 token
+  // 2. github-config.json 中的 token（自動生成）
+  // 3. 提示用戶輸入
+
+  let token = localStorage.getItem('github_token');
+
+  if (!token) {
+    try {
+      // 嘗試從自動生成的配置文件讀取
+      const response = await fetch('github-config.json?t=' + Date.now());
+      if (response.ok) {
+        const config = await response.json();
+        if (config.token) {
+          token = config.token;
+          // 保存到 localStorage 以供後續使用
+          localStorage.setItem('github_token', token);
+          console.log('✅ 已從 github-config.json 讀取 token');
+        }
+      }
+    } catch (e) {
+      console.warn('⚠️ 無法讀取 github-config.json:', e.message);
+    }
+  }
+
+  // 如果仍未獲得 token，提示用戶輸入
+  if (!token) {
+    token = prompt('🔐 需要 GitHub Token\n\n請輸入 GitHub Personal Access Token：\n\n1. 訪問: https://github.com/settings/tokens\n2. 點「Generate new token (classic)」\n3. 選擇 \"repo\" 和 \"workflow\" 權限\n4. 複製 token 貼到下方\n\n（Token 將保存到瀏覽器，不會發送到任何伺服器）');
+
+    if (token) {
+      localStorage.setItem('github_token', token);
+    }
+  }
+
+  return token;
+}
+
 async function refreshMarketReport(evt) {
   const btn = evt ? evt.target : event.target;
   const statusEl = document.getElementById('refresh-status');
@@ -24759,24 +24797,18 @@ async function refreshMarketReport(evt) {
   btn.textContent = '⏳ 更新中...';
 
   // 顯示狀態提示
-  statusEl.textContent = '正在觸發 GitHub Actions 生成新數據...';
+  statusEl.textContent = '正在載入 GitHub 配置...';
   statusEl.style.opacity = '1';
 
   try {
-    // 嘗試從 localStorage 讀取已保存的 token
-    let token = localStorage.getItem('github_token');
+    // 自動載入 token（優先使用自動生成的）
+    const token = await loadGitHubToken();
 
     if (!token) {
-      // 首次或 token 過期，提示用戶輸入
-      token = prompt('🔐 首次更新\n\n請輸入 GitHub Personal Access Token：\n\n1. 訪問: https://github.com/settings/tokens\n2. 點「Generate new token (classic)」\n3. 選擇 \"repo\" 和 \"workflow\" 權限\n4. 複製 token 貼到下方\n\n（Token 將保存到瀏覽器，不會發送到任何伺服器）');
-
-      if (!token) {
-        throw new Error('已取消更新 - 未提供 token');
-      }
-
-      // 保存 token
-      localStorage.setItem('github_token', token);
+      throw new Error('已取消更新 - 未提供 token');
     }
+
+    statusEl.textContent = '正在觸發 GitHub Actions 生成新數據...';
 
     // 觸發 GitHub Actions 工作流
     const response = await fetch(
