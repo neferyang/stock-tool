@@ -1342,7 +1342,8 @@ function bollVal(a,n=20){ const c=a.filter(v=>v!=null); if(c.length<n)return nul
 // ════════════════════════════════════════════════════════
 // 估值模型
 // ════════════════════════════════════════════════════════
-const f = (n,d=2) => (n==null||isNaN(n)||!isFinite(n))?'N/A':Number(n).toFixed(d);
+const f = (n,d=2) => {try{if(n==null||isNaN(n)||!isFinite(n))return'N/A';return Number(n).toFixed(d);}catch(e){return'N/A';}};
+const fp = (n,d=1) => {try{if(n==null||isNaN(n)||!isFinite(n))return'N/A';return Number(n).toFixed(d)+'%';}catch(e){return'N/A';}};
 function fB(n){if(!n||isNaN(n))return'N/A';const a=Math.abs(n);if(a>=1e12)return(n/1e12).toFixed(2)+' T';if(a>=1e9)return(n/1e9).toFixed(2)+' B';if(a>=1e6)return(n/1e6).toFixed(2)+' M';return n.toFixed(0);}
 function bdg(est,cur){ if(est==='N/A'||!cur||isNaN(parseFloat(est)))return'<span class="badge bn">資料不足</span>'; const r=cur/parseFloat(est); if(r<0.88)return'<span class="badge bl">偏低 ✓</span>'; if(r>1.15)return'<span class="badge bh">偏高 !</span>'; return'<span class="badge bf">合理</span>'; }
 
