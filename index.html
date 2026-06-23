@@ -26567,13 +26567,13 @@ async function go(){
       // 確保所有數值屬性都存在且有效
       latestFinancial = {
         year: raw.year || 0,
-        roe: (raw.roe !== null && raw.roe !== undefined && !isNaN(raw.roe)) ? raw.roe : 0,
-        operatingMargin: (raw.operatingMargin !== null && raw.operatingMargin !== undefined && !isNaN(raw.operatingMargin)) ? raw.operatingMargin : 0,
-        netIncome: (raw.netIncome !== null && raw.netIncome !== undefined && !isNaN(raw.netIncome)) ? raw.netIncome : 0,
-        fcf: (raw.fcf !== null && raw.fcf !== undefined && !isNaN(raw.fcf)) ? raw.fcf : 0,
-        debtRatio: (raw.debtRatio !== null && raw.debtRatio !== undefined && !isNaN(raw.debtRatio)) ? raw.debtRatio : 0,
-        eps: (raw.eps !== null && raw.eps !== undefined && !isNaN(raw.eps)) ? raw.eps : 0,
-        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : 0
+        roe: (raw.roe !== null && raw.roe !== undefined && !isNaN(raw.roe)) ? raw.roe : null,
+        operatingMargin: (raw.operatingMargin !== null && raw.operatingMargin !== undefined && !isNaN(raw.operatingMargin)) ? raw.operatingMargin : null,
+        netIncome: (raw.netIncome !== null && raw.netIncome !== undefined && !isNaN(raw.netIncome)) ? raw.netIncome : null,
+        fcf: (raw.fcf !== null && raw.fcf !== undefined && !isNaN(raw.fcf)) ? raw.fcf : null,
+        debtRatio: (raw.debtRatio !== null && raw.debtRatio !== undefined && !isNaN(raw.debtRatio)) ? raw.debtRatio : null,
+        eps: (raw.eps !== null && raw.eps !== undefined && !isNaN(raw.eps)) ? raw.eps : null,
+        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : null
       };
     }
 
