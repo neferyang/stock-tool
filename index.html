@@ -26151,27 +26151,21 @@ function calcFinancialTrend(data) {
     const curr = data[i];
     const prev = data[i + 1] || null;  // 上一年（如果存在）
 
-    // 計算各項年增率（與前一年比較）- 返回數值而非字符串
-    let epsGrowth = null, netMarginGrowth = null, roeGrowth = null;
+    // 計算各項年增率（與前一年比較）- 只計算 EPS 年增率
+    let epsGrowth = null;
 
     if (prev) {
       if (curr.eps !== null && prev.eps !== null && prev.eps !== 0) {
         epsGrowth = ((curr.eps - prev.eps) / Math.abs(prev.eps) * 100);
-      }
-      if (curr.netMargin !== null && prev.netMargin !== null) {
-        netMarginGrowth = (curr.netMargin - prev.netMargin);
-      }
-      if (curr.roe !== null && prev.roe !== null) {
-        roeGrowth = (curr.roe - prev.roe);
       }
     }
 
     trends.push({
       year: curr.year,
       eps: { val: curr.eps, growth: epsGrowth },
-      roe: { val: curr.roe, growth: roeGrowth },
-      netMargin: { val: curr.netMargin, growth: netMarginGrowth },
-      debtRatio: { val: curr.debtRatio, growth: null }  // 負債比無需計算年增率
+      roe: { val: curr.roe },  // 只顯示值，不顯示年增率（已是百分比）
+      netMargin: { val: curr.netMargin },  // 只顯示值，不顯示年增率（已是百分比）
+      debtRatio: { val: curr.debtRatio }   // 只顯示值
     });
   }
 
@@ -26678,19 +26672,17 @@ ${financialTrend.length > 0 ? `
 <div class="sec"><div class="st2">📈 5 年財報趨勢</div><div style="position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)"><canvas id="fc" style="max-height:300px"></canvas></div></div>
 
 <div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>年增率</th><th>淨利率</th><th>年增率</th><th>ROE</th><th>年增率</th><th>負債比</th></tr></thead><tbody>
+<table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
 ${financialTrend.map(f => `<tr>
   <td><strong>${f.year}</strong></td>
   <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}</td>
   <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
   <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>
-  <td style="color:${f.netMargin && f.netMargin.growth === null ? 'var(--muted)' : f.netMargin && f.netMargin.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.netMargin && f.netMargin.growth === null ? '—' : f.netMargin && f.netMargin.growth !== null && f.netMargin.growth !== undefined ? (f.netMargin.growth >= 0 ? '+' : '') + parseFloat(f.netMargin.growth).toFixed(1) + 'ppt' : '—'}</strong></td>
   <td>${f.roe && f.roe.val !== null ? parseFloat(f.roe.val).toFixed(1) + '%' : 'N/A'}</td>
-  <td style="color:${f.roe && f.roe.growth === null ? 'var(--muted)' : f.roe && f.roe.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.roe && f.roe.growth === null ? '—' : f.roe && f.roe.growth !== null && f.roe.growth !== undefined ? (f.roe.growth >= 0 ? '+' : '') + parseFloat(f.roe.growth).toFixed(1) + 'ppt' : '—'}</strong></td>
   <td>${f.debtRatio && f.debtRatio.val !== null ? parseFloat(f.debtRatio.val).toFixed(1) + '%' : 'N/A'}</td>
 </tr>`).join('')}
 </tbody></table></div>
-<p style="font-size:.75rem;color:var(--muted);margin-top:8px">✓ EPS年增率：同比增長百分比 | 淨利率：稅後淨利÷營收 | ROE：稅後淨利÷股東權益 | 負債比：負債÷總資產 | ppt=百分點</p>
+<p style="font-size:.75rem;color:var(--muted);margin-top:8px">✓ EPS年增率：同比增長百分比 | 淨利率：稅後淨利÷營收 | ROE：稅後淨利÷股東權益 | 負債比：負債÷總資產</p>
 </div>
 ` : ''}
 
