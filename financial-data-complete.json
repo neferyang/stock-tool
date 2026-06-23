@@ -27,8 +27,10 @@
           "roe": 28.5,
           "netMargin": 16.9,
           "debtRatio": 18.2,
-          "updatedAt": "2026-06-23T12:30:01.651921Z",
-          "source": "MOPS"
+          "updatedAt": "2026-06-23T12:31:44.284108Z",
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -42,7 +44,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q2財報"
@@ -64,8 +68,10 @@
           "roe": 22.1,
           "netMargin": 12.3,
           "debtRatio": 35.4,
-          "updatedAt": "2026-06-23T12:30:01.651996Z",
-          "source": "MOPS"
+          "updatedAt": "2026-06-23T12:31:44.183731Z",
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -79,7 +85,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q2財報"
@@ -102,7 +110,9 @@
           "netMargin": 9.2,
           "debtRatio": 42.1,
           "updatedAt": "2026-06-23T12:30:01.652010Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -116,7 +126,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q2財報"
@@ -139,7 +151,9 @@
           "netMargin": 8.7,
           "debtRatio": 48.5,
           "updatedAt": "2026-06-23T12:30:01.652020Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -153,7 +167,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q2財報"
@@ -176,7 +192,9 @@
           "netMargin": 7.8,
           "debtRatio": 38.6,
           "updatedAt": "2026-06-23T12:30:01.652028Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -190,7 +208,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q1財報"
@@ -213,7 +233,9 @@
           "netMargin": 22.4,
           "debtRatio": 12.4,
           "updatedAt": "2026-06-23T12:30:01.652036Z",
-          "source": "FinMind"
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -227,7 +249,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q1財報"
@@ -250,7 +274,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -264,7 +290,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -287,7 +315,9 @@
           "netMargin": 5.3,
           "debtRatio": 45.2,
           "updatedAt": "2026-06-23T12:30:01.652043Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -301,7 +331,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q1財報"
@@ -324,7 +356,9 @@
           "netMargin": 7.6,
           "debtRatio": 82.3,
           "updatedAt": "2026-06-23T12:30:01.652050Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -338,7 +372,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q1財報"
@@ -361,7 +397,9 @@
           "netMargin": 6.9,
           "debtRatio": 79.8,
           "updatedAt": "2026-06-23T12:30:01.652057Z",
-          "source": "MOPS"
+          "source": "MOPS",
+          "isEstimate": false,
+          "dataType": "真實"
         },
         {
           "year": "2024",
@@ -375,7 +413,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "2025Q1財報"
@@ -398,7 +438,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -412,7 +454,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -435,7 +479,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -449,7 +495,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -472,7 +520,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -486,7 +536,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -509,7 +561,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -523,7 +577,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -546,7 +602,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -560,7 +618,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -583,7 +643,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -597,7 +659,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -620,7 +684,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -634,7 +700,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -657,7 +725,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -671,7 +741,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -694,7 +766,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -708,7 +782,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -731,7 +807,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -745,7 +823,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -768,7 +848,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -782,7 +864,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -805,7 +889,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -819,7 +905,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -842,7 +930,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -856,7 +946,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -879,7 +971,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -893,7 +987,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -916,7 +1012,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -930,7 +1028,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -953,7 +1053,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -967,7 +1069,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -990,7 +1094,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -1004,7 +1110,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -1027,7 +1135,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -1041,7 +1151,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
@@ -1064,7 +1176,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         },
         {
           "year": "2024",
@@ -1078,7 +1192,9 @@
           "netMargin": null,
           "debtRatio": null,
           "updatedAt": null,
-          "source": null
+          "source": null,
+          "isEstimate": false,
+          "dataType": "待更新"
         }
       ],
       "note": "待更新"
