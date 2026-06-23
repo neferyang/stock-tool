@@ -23,33 +23,73 @@ def fetch_news_from_google(query, max_items=5):
         response = requests.get(url, timeout=10)
         response.encoding = 'utf-8'
 
-        # 簡單的 XML 解析
-        headlines = []
-        lines = response.text.split('\n')
+        # 使用 XML 解析（更可靠）
+        try:
+            import xml.etree.ElementTree as ET
+            root = ET.fromstring(response.content)
 
-        current_title = None
-        current_desc = None
+            headlines = []
+            # 遍歷所有 item 元素
+            for item in root.findall('.//item')[:max_items]:
+                title_elem = item.find('title')
+                desc_elem = item.find('description')
 
-        for line in lines:
-            if '<title>' in line and '</title>' in line:
-                title = line.split('<title>')[1].split('</title>')[0].strip()
-                if title and title != query:  # 跳過查詢詞本身
-                    current_title = title
+                if title_elem is not None and title_elem.text:
+                    title = title_elem.text.strip()
+                    # 去除 HTML 標籤
+                    if '<' in title:
+                        title = title.split('<')[0].strip()
 
-            if '<description>' in line and '</description>' in line:
-                desc = line.split('<description>')[1].split('</description>')[0].strip()
-                if desc and current_title:
-                    headlines.append({
-                        'title': current_title[:80],
-                        'description': desc[:150]
-                    })
-                    current_title = None
-                    current_desc = None
+                    desc = ''
+                    if desc_elem is not None and desc_elem.text:
+                        desc = desc_elem.text.strip()
+                        # 去除 HTML 標籤和實體
+                        import re
+                        desc = re.sub(r'<[^>]+>', '', desc)  # 移除 HTML 標籤
+                        desc = desc.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&quot;', '"')
 
-            if len(headlines) >= max_items:
-                break
+                    if not desc:
+                        desc = f"更新於 {datetime.now().strftime('%Y-%m-%d')}"
 
-        return headlines[:max_items]
+                    if title and len(title) > 5:  # 跳過過短的標題
+                        headlines.append({
+                            'title': title[:100],
+                            'description': desc[:200]
+                        })
+
+            return headlines
+
+        except Exception as xml_error:
+            print(f'⚠️ XML 解析失敗，嘗試文本解析: {xml_error}')
+            # 備援：文本解析
+            headlines = []
+            lines = response.text.split('\n')
+
+            for i, line in enumerate(lines):
+                if '<title>' in line and '</title>' in line:
+                    title = line.split('<title>')[1].split('</title>')[0].strip()
+                    title = title.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+
+                    # 嘗試找下一行的 description
+                    desc = ''
+                    for j in range(i+1, min(i+10, len(lines))):
+                        if '<description>' in lines[j]:
+                            desc = lines[j].split('<description>')[1].split('</description>')[0].strip()
+                            desc = desc.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+                            break
+
+                    if title and len(title) > 5 and title not in [h['title'] for h in headlines]:
+                        if not desc:
+                            desc = f"查詢: {query}"
+                        headlines.append({
+                            'title': title[:100],
+                            'description': desc[:200]
+                        })
+
+                    if len(headlines) >= max_items:
+                        break
+
+            return headlines
 
     except Exception as e:
         print(f'⚠️ 新聞抓取失敗 ({query}): {e}')
