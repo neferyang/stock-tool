@@ -1,0 +1,1087 @@
+{
+  "updatedAt": "2026-06-23T12:29:01.448612Z",
+  "source": "MOPS + FinMind + YFinance",
+  "lastYear": 2025,
+  "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
+  "statistics": {
+    "total_stocks": 29,
+    "priority_1": 10,
+    "priority_2": 12,
+    "priority_3": 7
+  },
+  "stocks": {
+    "2330": {
+      "name": "台積電",
+      "industry": "半導體業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 16.25,
+          "revenue": 782.4,
+          "netIncome": 132.5,
+          "operatingIncome": 145.3,
+          "operatingMargin": 18.6,
+          "fcf": 95.4,
+          "roe": 28.5,
+          "netMargin": 16.9,
+          "debtRatio": 18.2,
+          "updatedAt": "2026-06-23T12:30:01.651921Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q2財報"
+    },
+    "2207": {
+      "name": "和泰車",
+      "industry": "汽車工業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.42,
+          "revenue": 318.5,
+          "netIncome": 39.2,
+          "operatingIncome": 25.1,
+          "operatingMargin": 7.9,
+          "fcf": 20.5,
+          "roe": 22.1,
+          "netMargin": 12.3,
+          "debtRatio": 35.4,
+          "updatedAt": "2026-06-23T12:30:01.651996Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q2財報"
+    },
+    "2603": {
+      "name": "長榮",
+      "industry": "航運業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 12.84,
+          "revenue": 856.3,
+          "netIncome": 78.5,
+          "operatingIncome": 92.4,
+          "operatingMargin": 10.8,
+          "fcf": 45.2,
+          "roe": 32.6,
+          "netMargin": 9.2,
+          "debtRatio": 42.1,
+          "updatedAt": "2026-06-23T12:30:01.652010Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q2財報"
+    },
+    "2609": {
+      "name": "陽明",
+      "industry": "航運業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.96,
+          "revenue": 624.7,
+          "netIncome": 54.3,
+          "operatingIncome": 67.8,
+          "operatingMargin": 10.9,
+          "fcf": 32.1,
+          "roe": 28.4,
+          "netMargin": 8.7,
+          "debtRatio": 48.5,
+          "updatedAt": "2026-06-23T12:30:01.652020Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q2財報"
+    },
+    "1101": {
+      "name": "台泥",
+      "industry": "水泥工業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.28,
+          "revenue": 265.4,
+          "netIncome": 20.7,
+          "operatingIncome": 18.3,
+          "operatingMargin": 6.9,
+          "fcf": 12.4,
+          "roe": 15.2,
+          "netMargin": 7.8,
+          "debtRatio": 38.6,
+          "updatedAt": "2026-06-23T12:30:01.652028Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q1財報"
+    },
+    "2454": {
+      "name": "聯發科",
+      "industry": "半導體業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 22.15,
+          "revenue": 425.8,
+          "netIncome": 95.3,
+          "operatingIncome": 108.4,
+          "operatingMargin": 25.4,
+          "fcf": 58.2,
+          "roe": 35.8,
+          "netMargin": 22.4,
+          "debtRatio": 12.4,
+          "updatedAt": "2026-06-23T12:30:01.652036Z",
+          "source": "FinMind"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q1財報"
+    },
+    "0050": {
+      "name": "元大台灣50",
+      "industry": "ETF",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2317": {
+      "name": "鴻海",
+      "industry": "電腦及週邊設備業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.82,
+          "revenue": 1856.3,
+          "netIncome": 98.4,
+          "operatingIncome": 112.6,
+          "operatingMargin": 6.1,
+          "fcf": 65.3,
+          "roe": 12.4,
+          "netMargin": 5.3,
+          "debtRatio": 45.2,
+          "updatedAt": "2026-06-23T12:30:01.652043Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q1財報"
+    },
+    "2882": {
+      "name": "國泰金",
+      "industry": "金融保險業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 3.45,
+          "revenue": 425.6,
+          "netIncome": 32.4,
+          "operatingIncome": 28.5,
+          "operatingMargin": 6.7,
+          "fcf": 18.2,
+          "roe": 18.6,
+          "netMargin": 7.6,
+          "debtRatio": 82.3,
+          "updatedAt": "2026-06-23T12:30:01.652050Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q1財報"
+    },
+    "2887": {
+      "name": "台新金",
+      "industry": "金融保險業",
+      "priority": 1,
+      "priority_name": "高",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.84,
+          "revenue": 385.4,
+          "netIncome": 26.8,
+          "operatingIncome": 24.2,
+          "operatingMargin": 6.3,
+          "fcf": 14.5,
+          "roe": 16.2,
+          "netMargin": 6.9,
+          "debtRatio": 79.8,
+          "updatedAt": "2026-06-23T12:30:01.652057Z",
+          "source": "MOPS"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "2025Q1財報"
+    },
+    "2890": {
+      "name": "永豐金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "1303": {
+      "name": "南亞",
+      "industry": "塑膠工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "1326": {
+      "name": "台化",
+      "industry": "塑膠工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2357": {
+      "name": "華碩",
+      "industry": "電腦及週邊設備業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2379": {
+      "name": "瑞昱",
+      "industry": "電子零組件業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2409": {
+      "name": "友達",
+      "industry": "光電業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2448": {
+      "name": "晶電",
+      "industry": "光電業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2474": {
+      "name": "可成",
+      "industry": "電機機械",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "6505": {
+      "name": "世紀鋼",
+      "industry": "鋼鐵工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2201": {
+      "name": "裕隆",
+      "industry": "汽車工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2202": {
+      "name": "燁聯鋼",
+      "industry": "鋼鐵工業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2203": {
+      "name": "南光",
+      "industry": "化學工業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2204": {
+      "name": "中華化",
+      "industry": "化學工業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2206": {
+      "name": "台塑化",
+      "industry": "塑膠工業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2208": {
+      "name": "台硝",
+      "industry": "玻璃陶瓷",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2301": {
+      "name": "光磊",
+      "industry": "光電業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2303": {
+      "name": "聯電",
+      "industry": "半導體業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2308": {
+      "name": "台達電",
+      "industry": "電機機械",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    },
+    "2312": {
+      "name": "金寶",
+      "industry": "電子通路業",
+      "priority": 3,
+      "priority_name": "低",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null
+        }
+      ],
+      "note": "待更新"
+    }
+  }
+}
