@@ -8,13 +8,25 @@
 import requests
 import json
 import time
+import sys
 from datetime import datetime
+
+# 修復 Windows 編碼問題
+if sys.platform.startswith('win'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 class FinMindFetcher:
     def __init__(self):
         self.base_url = "https://api.finmind.com.tw/v1/data"
         self.timeout = 10
         self.rate_limit_delay = 0.2  # 請求間隔（秒）
+
+        # 從環境變數或 .env 讀取 token
+        import os
+        from dotenv import load_dotenv
+        load_dotenv()
+        self.token = os.getenv('FINMIND_TOKEN', '')
+        self.headers = {'Authorization': f'Bearer {self.token}'} if self.token else {}
 
     def fetch_stock_data(self, stock_code, years=5):
         """
@@ -56,7 +68,7 @@ class FinMindFetcher:
                 "end_date": datetime.now().strftime("%Y-%m-%d")
             }
 
-            response = requests.get(self.base_url, params=params, timeout=self.timeout)
+            response = requests.get(self.base_url, params=params, timeout=self.timeout, headers=self.headers)
             response.raise_for_status()
 
             data = response.json()
@@ -78,7 +90,7 @@ class FinMindFetcher:
                 "end_date": datetime.now().strftime("%Y-%m-%d")
             }
 
-            response = requests.get(self.base_url, params=params, timeout=self.timeout)
+            response = requests.get(self.base_url, params=params, timeout=self.timeout, headers=self.headers)
             response.raise_for_status()
 
             data = response.json()
@@ -98,7 +110,7 @@ class FinMindFetcher:
         # 處理月度報告中的 EPS
         for item in monthly_data:
             year = item.get('year')
-            if year and year >= 2020:
+            if year and year >= 2021:  # 改為 2021-2025 年
                 if year not in years_dict:
                     years_dict[year] = {'year': year}
 
@@ -109,7 +121,7 @@ class FinMindFetcher:
         # 處理財務報表中的其他指標
         for item in financial_data:
             year = item.get('year')
-            if year and year >= 2020:
+            if year and year >= 2021:  # 改為 2021-2025 年
                 if year not in years_dict:
                     years_dict[year] = {'year': year}
 
@@ -131,12 +143,31 @@ class FinMindFetcher:
                 if 'debt_ratio' in item and item['debt_ratio']:
                     years_dict[year]['debtRatio'] = float(item['debt_ratio']) * 100
 
-        # 按年份排序（升序）
-        sorted_years = sorted(years_dict.items(), key=lambda x: x[0])
+                # 收益相關數據
+                if 'revenue' in item and item['revenue']:
+                    years_dict[year]['revenue'] = float(item['revenue'])
+
+                if 'net_income' in item and item['net_income']:
+                    years_dict[year]['netIncome'] = float(item['net_income'])
+
+                if 'operating_income' in item and item['operating_income']:
+                    years_dict[year]['operatingIncome'] = float(item['operating_income'])
+
+        # 按年份排序（降序 - 最新年份在前）
+        sorted_years = sorted(years_dict.items(), key=lambda x: x[0], reverse=True)
+
+        # 為每筆數據添加元數據
+        result_data = []
+        for year, data in sorted_years:
+            data['updatedAt'] = datetime.now().isoformat()
+            data['source'] = 'FinMind'
+            data['isEstimate'] = False
+            data['dataType'] = '真實'
+            result_data.append(data)
 
         return {
             'code': stock_code,
-            'data': [item[1] for item in sorted_years]
+            'data': result_data
         }
 
     def fetch_multiple_stocks(self, stock_codes, years=5):
