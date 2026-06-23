@@ -58,12 +58,15 @@ def fetch_index(symbol, info):
             return ts  # 已是 date 對象
 
         today_local = now_local.date()
-        # 若最後一筆是今天且尚未過收盤時間，排除（用前一筆）
+        # 改進：檢查最後一筆是否為「未來日期」（如果時區差異導致顯示未來日），而不是「今天」
+        # 因為 yfinance 返回的是已完成的交易日，不應該排除
         last_date = to_local_date(hist.index[-1])
-        if last_date == today_local:
-            hist = hist.iloc[:-1]  # 排除今天未收盤數據
+        # 只有當最後一筆日期 > 今日時才排除（表示跨越時區邊界獲取到未來數據）
+        if last_date > today_local:
+            print(f'[DEBUG] {info["name"]}: 排除未來日期 {last_date}')
+            hist = hist.iloc[:-1]  # 排除未來數據
             if hist.empty:
-                print(f'[WARN] {info["name"]} ({symbol}): 排除今日後無數據')
+                print(f'[WARN] {info["name"]} ({symbol}): 排除未來日期後無數據')
                 return None
 
         latest = hist.iloc[-1]
