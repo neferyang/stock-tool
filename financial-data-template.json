@@ -43,15 +43,16 @@
       "data": [
         {
           "year": "2025",
-          "eps": 0.0,
-          "revenue": 0.0,
-          "netIncome": 0.0,
-          "operatingIncome": 0.0,
-          "operatingMargin": 0.0,
-          "fcf": 0.0,
-          "roe": 0.0,
-          "netMargin": 0.0,
-          "debtRatio": 0.0
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "note": "財務數據待更新"
         }
       ]
     }
