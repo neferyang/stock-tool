@@ -26062,14 +26062,31 @@ const FINANCIAL_DB = {
 };
 
 // 獲取財報數據函數（使用本地數據庫，未來可擴展為 API）
+// 全局財務數據快取
+let FINANCIAL_DATA_CACHE = null;
+
 async function getFinancialData(code, isTW) {
-  // 優先從本地數據庫獲取
+  // 首次加載時，從 financial-data-complete.json 讀取
+  if (!FINANCIAL_DATA_CACHE) {
+    try {
+      const response = await fetch('financial-data-complete.json');
+      const data = await response.json();
+      FINANCIAL_DATA_CACHE = data.stocks || {};
+    } catch (e) {
+      console.warn('無法加載財務數據文件:', e);
+      return null;
+    }
+  }
+
+  // 從快取中獲取該股票的數據
+  if (FINANCIAL_DATA_CACHE[code]) {
+    return FINANCIAL_DATA_CACHE[code].data;
+  }
+
+  // 備援：嘗試從硬編碼 FINANCIAL_DB 獲取
   if (FINANCIAL_DB[code]) {
     return FINANCIAL_DB[code].data;
   }
-
-  // 未來可在此添加 API 調用
-  // 例如：const apiData = await fetch(`https://api.example.com/financial/${code}`);
 
   return null;
 }
