@@ -26682,11 +26682,11 @@ ${financialTrend.length > 0 ? `
 ${financialTrend.map(f => `<tr>
   <td><strong>${f.year}</strong></td>
   <td>${f.eps && f.eps.val !== null ? f.eps.val.toFixed(2) : 'N/A'}</td>
-  <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth ? (f.eps.growth >= 0 ? '+' : '') + f.eps.growth.toFixed(1) + '%' : '—'}</strong></td>
-  <td>${f.netMargin && f.netMargin.val !== null ? f.netMargin.val.toFixed(1) + '%' : 'N/A'}</td>
-  <td style="color:${f.netMargin && f.netMargin.growth === null ? 'var(--muted)' : f.netMargin && f.netMargin.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.netMargin && f.netMargin.growth === null ? '—' : f.netMargin && f.netMargin.growth ? (f.netMargin.growth >= 0 ? '+' : '') + f.netMargin.growth.toFixed(1) + 'ppt' : '—'}</strong></td>
-  <td>${f.roe && f.roe.val !== null ? f.roe.val.toFixed(1) + '%' : 'N/A'}</td>
-  <td style="color:${f.roe && f.roe.growth === null ? 'var(--muted)' : f.roe && f.roe.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.roe && f.roe.growth === null ? '—' : f.roe && f.roe.growth ? (f.roe.growth >= 0 ? '+' : '') + f.roe.growth.toFixed(1) + 'ppt' : '—'}</strong></td>
+  <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
+  <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>
+  <td style="color:${f.netMargin && f.netMargin.growth === null ? 'var(--muted)' : f.netMargin && f.netMargin.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.netMargin && f.netMargin.growth === null ? '—' : f.netMargin && f.netMargin.growth !== null && f.netMargin.growth !== undefined ? (f.netMargin.growth >= 0 ? '+' : '') + parseFloat(f.netMargin.growth).toFixed(1) + 'ppt' : '—'}</strong></td>
+  <td>${f.roe && f.roe.val !== null ? parseFloat(f.roe.val).toFixed(1) + '%' : 'N/A'}</td>
+  <td style="color:${f.roe && f.roe.growth === null ? 'var(--muted)' : f.roe && f.roe.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.roe && f.roe.growth === null ? '—' : f.roe && f.roe.growth !== null && f.roe.growth !== undefined ? (f.roe.growth >= 0 ? '+' : '') + parseFloat(f.roe.growth).toFixed(1) + 'ppt' : '—'}</strong></td>
   <td>${f.debtRatio && f.debtRatio.val !== null ? f.debtRatio.val.toFixed(1) + '%' : 'N/A'}</td>
 </tr>`).join('')}
 </tbody></table></div>
