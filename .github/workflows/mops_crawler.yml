@@ -28,28 +28,34 @@ jobs:
 
       - name: 運行 MOPS 爬蟲
         run: |
-          cd crawler
-          python mops_crawler.py
-          ls -lah mops_2026_data.json
+          python fetch-mops-financials.py
 
       - name: 驗證數據
         run: |
-          cd crawler
-          python -c "
-          import json
-          with open('mops_2026_data.json', 'r') as f:
+          if [ -f mops_2026_data.json ]; then
+            echo "✓ MOPS 數據文件已生成"
+            python -c "
+            import json
+            with open('mops_2026_data.json', 'r') as f:
               data = json.load(f)
-          success = sum(1 for r in data.values() if not r.get('error'))
-          print(f'✓ 爬蟲成功: {success}/{len(data)}')
-          "
+            total = len(data)
+            success = sum(1 for r in data.values() if not r.get('error'))
+            print(f'✓ 爬蟲成功: {success}/{total}')
+            "
+          else
+            echo "⚠ 未生成 MOPS 數據文件"
+          fi
 
       - name: 提交數據
+        if: always()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add crawler/mops_2026_data.json
-          git commit -m "更新：MOPS 2026 年度 EPS 數據 ($(date '+%Y-%m-%d %H:%M:%S'))" || true
-          git push
+          if [ -f mops_2026_data.json ]; then
+            git add mops_2026_data.json
+            git commit -m "chore: MOPS 數據更新 ($(date '+%Y-%m-%d %H:%M:%S'))" || true
+            git push || true
+          fi
 
       - name: 發送通知
         if: always()
