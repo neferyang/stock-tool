@@ -28,9 +28,10 @@ jobs:
 
       - name: Fetch Financial Data from FinMind API
         run: |
-          python update_financial_data.py
+          python finmind-data-fetcher.py
         env:
           PYTHONIOENCODING: utf-8
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
 
       - name: Check if Data Changed
         id: check_changes
