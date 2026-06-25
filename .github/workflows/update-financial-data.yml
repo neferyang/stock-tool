@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -36,7 +36,7 @@ jobs:
       - name: Check if Data Changed
         id: check_changes
         run: |
-          if git diff --quiet finmind-real-data.json; then
+          if git diff --quiet financial-data-complete.json; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes detected"
           else
@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add finmind-real-data.json
+          git add financial-data-complete.json
           git commit -m "chore: auto update financial data from FinMind API ($(date '+%Y-%m-%d %H:%M:%S'))"
           git push origin main
         env:
@@ -60,7 +60,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: financial-data-output
-          path: finmind-real-data.json
+          path: financial-data-complete.json
           retention-days: 7
 
       - name: Create Workflow Summary
@@ -71,7 +71,7 @@ jobs:
           echo "**Date**: $(date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
           echo "**Status**: ✅ Completed" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          if [ -f finmind-real-data.json ]; then
-            STOCK_COUNT=$(grep -o '"[0-9]\{4\}":' finmind-real-data.json | wc -l)
-            echo "**Stocks Updated**: $STOCK_COUNT" >> $GITHUB_STEP_SUMMARY
+          if [ -f financial-data-complete.json ]; then
+            STOCK_COUNT=$(grep -o '"[0-9]\{4\}":' financial-data-complete.json | wc -l)
+            echo "**Stocks in DB**: $STOCK_COUNT" >> $GITHUB_STEP_SUMMARY
           fi
