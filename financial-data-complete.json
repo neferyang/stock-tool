@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-14T05:04:59.148103",
+  "updatedAt": "2026-07-14T14:51:46.697154",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
   "statistics": {
-    "total_stocks": 29,
+    "total_stocks": 49,
     "priority_1": 10,
-    "priority_2": 12,
+    "priority_2": 32,
     "priority_3": 7
   },
   "stocks": {
@@ -27,7 +27,7 @@
           "roe": 31.4,
           "netMargin": 45.0,
           "debtRatio": 31.2,
-          "updatedAt": "2026-07-14T10:35:41.094519",
+          "updatedAt": "2026-07-14T14:49:57.855193",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -43,7 +43,7 @@
           "roe": 27.1,
           "netMargin": 40.5,
           "debtRatio": 35.4,
-          "updatedAt": "2026-07-14T10:35:41.094519",
+          "updatedAt": "2026-07-14T14:49:57.855193",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -68,7 +68,7 @@
           "roe": 18.0,
           "netMargin": 8.0,
           "debtRatio": 67.2,
-          "updatedAt": "2026-07-14T10:35:43.264747",
+          "updatedAt": "2026-07-14T14:49:59.917942",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -84,7 +84,7 @@
           "roe": 21.0,
           "netMargin": 8.5,
           "debtRatio": 70.7,
-          "updatedAt": "2026-07-14T10:35:43.264747",
+          "updatedAt": "2026-07-14T14:49:59.917942",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -109,7 +109,7 @@
           "roe": 12.0,
           "netMargin": 18.5,
           "debtRatio": 34.5,
-          "updatedAt": "2026-07-14T10:35:45.508996",
+          "updatedAt": "2026-07-14T14:50:01.991463",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -125,7 +125,7 @@
           "roe": 23.9,
           "netMargin": 31.1,
           "debtRatio": 34.1,
-          "updatedAt": "2026-07-14T10:35:45.508996",
+          "updatedAt": "2026-07-14T14:50:01.991463",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -150,7 +150,7 @@
           "roe": 5.3,
           "netMargin": 10.6,
           "debtRatio": 28.1,
-          "updatedAt": "2026-07-14T10:35:48.139617",
+          "updatedAt": "2026-07-14T14:50:04.196265",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -166,7 +166,7 @@
           "roe": 18.9,
           "netMargin": 28.9,
           "debtRatio": 29.5,
-          "updatedAt": "2026-07-14T10:35:48.139617",
+          "updatedAt": "2026-07-14T14:50:04.196265",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -191,7 +191,7 @@
           "roe": -4.1,
           "netMargin": -7.9,
           "debtRatio": 50.3,
-          "updatedAt": "2026-07-14T10:35:50.963948",
+          "updatedAt": "2026-07-14T14:50:09.209092",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -207,7 +207,7 @@
           "roe": 5.1,
           "netMargin": 10.1,
           "debtRatio": 48.1,
-          "updatedAt": "2026-07-14T10:35:50.963948",
+          "updatedAt": "2026-07-14T14:50:09.209092",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -232,7 +232,7 @@
           "roe": 25.9,
           "netMargin": 17.8,
           "debtRatio": 45.0,
-          "updatedAt": "2026-07-14T10:35:53.073966",
+          "updatedAt": "2026-07-14T14:50:11.490400",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -248,7 +248,7 @@
           "roe": 26.5,
           "netMargin": 20.2,
           "debtRatio": 42.0,
-          "updatedAt": "2026-07-14T10:35:53.073966",
+          "updatedAt": "2026-07-14T14:50:11.490400",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -314,7 +314,7 @@
           "roe": 10.9,
           "netMargin": 2.7,
           "debtRatio": 61.4,
-          "updatedAt": "2026-07-14T10:35:57.097243",
+          "updatedAt": "2026-07-14T14:50:15.434106",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -330,7 +330,7 @@
           "roe": 9.3,
           "netMargin": 2.5,
           "debtRatio": 57.9,
-          "updatedAt": "2026-07-14T10:35:57.097243",
+          "updatedAt": "2026-07-14T14:50:15.434106",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -355,7 +355,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 93.9,
-          "updatedAt": "2026-07-14T10:35:59.131130",
+          "updatedAt": "2026-07-14T14:50:17.441550",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -371,7 +371,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 93.4,
-          "updatedAt": "2026-07-14T10:35:59.131130",
+          "updatedAt": "2026-07-14T14:50:17.441550",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -396,7 +396,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 94.1,
-          "updatedAt": "2026-07-14T10:36:01.414679",
+          "updatedAt": "2026-07-14T14:50:19.840134",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -412,7 +412,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 93.0,
-          "updatedAt": "2026-07-14T10:36:01.414679",
+          "updatedAt": "2026-07-14T14:50:19.840134",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -437,7 +437,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 93.0,
-          "updatedAt": "2026-07-14T10:36:03.780212",
+          "updatedAt": "2026-07-14T14:50:22.119212",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -453,7 +453,7 @@
           "roe": null,
           "netMargin": null,
           "debtRatio": 93.3,
-          "updatedAt": "2026-07-14T10:36:03.780212",
+          "updatedAt": "2026-07-14T14:50:22.119212",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -478,7 +478,7 @@
           "roe": 1.4,
           "netMargin": 1.9,
           "debtRatio": 39.1,
-          "updatedAt": "2026-07-14T10:36:05.748151",
+          "updatedAt": "2026-07-14T14:50:24.100425",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -494,7 +494,7 @@
           "roe": 0.9,
           "netMargin": 1.3,
           "debtRatio": 41.3,
-          "updatedAt": "2026-07-14T10:36:05.748151",
+          "updatedAt": "2026-07-14T14:50:24.100425",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -519,7 +519,7 @@
           "roe": -1.5,
           "netMargin": -2.0,
           "debtRatio": 29.3,
-          "updatedAt": "2026-07-14T10:36:07.892310",
+          "updatedAt": "2026-07-14T14:50:26.074366",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -535,7 +535,7 @@
           "roe": 0.4,
           "netMargin": 0.3,
           "debtRatio": 37.8,
-          "updatedAt": "2026-07-14T10:36:07.892310",
+          "updatedAt": "2026-07-14T14:50:26.074366",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -560,7 +560,7 @@
           "roe": 16.2,
           "netMargin": 6.5,
           "debtRatio": 52.9,
-          "updatedAt": "2026-07-14T10:36:09.916309",
+          "updatedAt": "2026-07-14T14:50:28.209946",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -576,7 +576,7 @@
           "roe": 11.5,
           "netMargin": 5.8,
           "debtRatio": 46.6,
-          "updatedAt": "2026-07-14T10:36:09.916309",
+          "updatedAt": "2026-07-14T14:50:28.209946",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -601,7 +601,7 @@
           "roe": 28.3,
           "netMargin": 12.0,
           "debtRatio": 59.8,
-          "updatedAt": "2026-07-14T10:36:12.048534",
+          "updatedAt": "2026-07-14T14:50:30.437241",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -617,7 +617,7 @@
           "roe": 28.9,
           "netMargin": 13.5,
           "debtRatio": 53.5,
-          "updatedAt": "2026-07-14T10:36:12.048534",
+          "updatedAt": "2026-07-14T14:50:30.437241",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -642,7 +642,7 @@
           "roe": 4.3,
           "netMargin": 2.5,
           "debtRatio": 57.1,
-          "updatedAt": "2026-07-14T10:36:14.284093",
+          "updatedAt": "2026-07-14T14:50:32.538866",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -658,7 +658,7 @@
           "roe": -1.8,
           "netMargin": -1.1,
           "debtRatio": 59.3,
-          "updatedAt": "2026-07-14T10:36:14.284093",
+          "updatedAt": "2026-07-14T14:50:32.538866",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -724,7 +724,7 @@
           "roe": 5.0,
           "netMargin": 39.3,
           "debtRatio": 35.9,
-          "updatedAt": "2026-07-14T10:36:18.763745",
+          "updatedAt": "2026-07-14T14:50:37.325187",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -740,7 +740,7 @@
           "roe": 8.0,
           "netMargin": 73.0,
           "debtRatio": 29.6,
-          "updatedAt": "2026-07-14T10:36:18.763745",
+          "updatedAt": "2026-07-14T14:50:37.325187",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -765,7 +765,7 @@
           "roe": 2.7,
           "netMargin": 1.6,
           "debtRatio": 13.3,
-          "updatedAt": "2026-07-14T10:36:21.290091",
+          "updatedAt": "2026-07-14T14:50:39.383170",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -781,7 +781,7 @@
           "roe": 1.9,
           "netMargin": 0.9,
           "debtRatio": 18.6,
-          "updatedAt": "2026-07-14T10:36:21.290091",
+          "updatedAt": "2026-07-14T14:50:39.383170",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -806,7 +806,7 @@
           "roe": 3.8,
           "netMargin": 5.0,
           "debtRatio": 74.4,
-          "updatedAt": "2026-07-14T10:36:23.421534",
+          "updatedAt": "2026-07-14T14:50:41.617084",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -822,7 +822,7 @@
           "roe": 7.4,
           "netMargin": 8.1,
           "debtRatio": 75.1,
-          "updatedAt": "2026-07-14T10:36:23.421534",
+          "updatedAt": "2026-07-14T14:50:41.617084",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -929,7 +929,7 @@
           "roe": 7.6,
           "netMargin": 9.9,
           "debtRatio": 22.7,
-          "updatedAt": "2026-07-14T10:36:30.523499",
+          "updatedAt": "2026-07-14T14:50:48.550901",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -945,7 +945,7 @@
           "roe": 10.4,
           "netMargin": 10.8,
           "debtRatio": 23.7,
-          "updatedAt": "2026-07-14T10:36:30.523499",
+          "updatedAt": "2026-07-14T14:50:48.550901",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -970,7 +970,7 @@
           "roe": 11.6,
           "netMargin": 7.8,
           "debtRatio": 56.5,
-          "updatedAt": "2026-07-14T10:36:33.105953",
+          "updatedAt": "2026-07-14T14:50:51.295319",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -986,7 +986,7 @@
           "roe": 18.0,
           "netMargin": 7.8,
           "debtRatio": 58.1,
-          "updatedAt": "2026-07-14T10:36:33.105953",
+          "updatedAt": "2026-07-14T14:50:51.295319",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1011,7 +1011,7 @@
           "roe": -31.8,
           "netMargin": -10.4,
           "debtRatio": 84.6,
-          "updatedAt": "2026-07-14T10:36:35.269285",
+          "updatedAt": "2026-07-14T14:50:53.493306",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1027,7 +1027,7 @@
           "roe": -30.8,
           "netMargin": -19.3,
           "debtRatio": 73.3,
-          "updatedAt": "2026-07-14T10:36:35.269285",
+          "updatedAt": "2026-07-14T14:50:53.493306",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1052,7 +1052,7 @@
           "roe": 16.8,
           "netMargin": 9.1,
           "debtRatio": 56.3,
-          "updatedAt": "2026-07-14T10:36:37.451425",
+          "updatedAt": "2026-07-14T14:50:55.631566",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1068,7 +1068,7 @@
           "roe": 13.2,
           "netMargin": 8.7,
           "debtRatio": 55.6,
-          "updatedAt": "2026-07-14T10:36:37.451425",
+          "updatedAt": "2026-07-14T14:50:55.631566",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1093,7 +1093,7 @@
           "roe": 10.9,
           "netMargin": 17.5,
           "debtRatio": 34.4,
-          "updatedAt": "2026-07-14T10:36:39.508586",
+          "updatedAt": "2026-07-14T14:50:57.737947",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1109,7 +1109,7 @@
           "roe": 12.5,
           "netMargin": 20.3,
           "debtRatio": 33.7,
-          "updatedAt": "2026-07-14T10:36:39.508586",
+          "updatedAt": "2026-07-14T14:50:57.737947",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1134,7 +1134,7 @@
           "roe": 20.9,
           "netMargin": 12.2,
           "debtRatio": 49.1,
-          "updatedAt": "2026-07-14T10:36:41.494371",
+          "updatedAt": "2026-07-14T14:50:59.598804",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1150,7 +1150,7 @@
           "roe": 14.4,
           "netMargin": 9.6,
           "debtRatio": 47.4,
-          "updatedAt": "2026-07-14T10:36:41.494371",
+          "updatedAt": "2026-07-14T14:50:59.598804",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1175,7 +1175,7 @@
           "roe": 5.9,
           "netMargin": 1.3,
           "debtRatio": 69.0,
-          "updatedAt": "2026-07-14T10:36:43.662987",
+          "updatedAt": "2026-07-14T14:51:02.831004",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
@@ -1191,13 +1191,813 @@
           "roe": 6.4,
           "netMargin": 1.5,
           "debtRatio": 67.9,
-          "updatedAt": "2026-07-14T10:36:43.662987",
+          "updatedAt": "2026-07-14T14:51:02.831004",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實"
         }
       ],
       "note": "待更新"
+    },
+    "2412": {
+      "name": "中華電",
+      "industry": "通信網路業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.99,
+          "revenue": 2361.1,
+          "netIncome": 405.2,
+          "operatingIncome": 485.5,
+          "operatingMargin": 20.6,
+          "fcf": 497.5,
+          "roe": 10.1,
+          "netMargin": 17.2,
+          "debtRatio": 25.2,
+          "updatedAt": "2026-07-14T14:51:04.763171",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.8,
+          "revenue": 2299.7,
+          "netIncome": 385.4,
+          "operatingIncome": 468.7,
+          "operatingMargin": 20.4,
+          "fcf": 504.9,
+          "roe": 9.7,
+          "netMargin": 16.8,
+          "debtRatio": 25.5,
+          "updatedAt": "2026-07-14T14:51:04.763171",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3045": {
+      "name": "台灣大",
+      "industry": "通信網路業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.77,
+          "revenue": 1987.6,
+          "netIncome": 162.1,
+          "operatingIncome": 214.5,
+          "operatingMargin": 10.8,
+          "fcf": 271.2,
+          "roe": 17.1,
+          "netMargin": 8.2,
+          "debtRatio": 59.7,
+          "updatedAt": "2026-07-14T14:51:07.049099",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.57,
+          "revenue": 1993.7,
+          "netIncome": 158.0,
+          "operatingIncome": 202.5,
+          "operatingMargin": 10.2,
+          "fcf": 250.1,
+          "roe": 16.8,
+          "netMargin": 7.9,
+          "debtRatio": 61.1,
+          "updatedAt": "2026-07-14T14:51:07.049099",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2881": {
+      "name": "富邦金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.37,
+          "revenue": 3813.1,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 92.4,
+          "updatedAt": "2026-07-14T14:51:08.985431",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 10.77,
+          "revenue": 3474.6,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 92.0,
+          "updatedAt": "2026-07-14T14:51:08.985431",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2884": {
+      "name": "玉山金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.12,
+          "revenue": 917.1,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 94.0,
+          "updatedAt": "2026-07-14T14:51:11.434623",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.63,
+          "revenue": 761.4,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 93.8,
+          "updatedAt": "2026-07-14T14:51:11.434623",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2886": {
+      "name": "兆豐金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.36,
+          "revenue": 820.1,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 92.3,
+          "updatedAt": "2026-07-14T14:51:14.164997",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.35,
+          "revenue": 834.9,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 92.2,
+          "updatedAt": "2026-07-14T14:51:14.164997",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2891": {
+      "name": "中信金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.08,
+          "revenue": 2448.9,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 94.1,
+          "updatedAt": "2026-07-14T14:51:16.243843",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.64,
+          "revenue": 1894.1,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 94.2,
+          "updatedAt": "2026-07-14T14:51:16.243843",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1216": {
+      "name": "統一",
+      "industry": "食品工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 3.46,
+          "revenue": 6728.6,
+          "netIncome": 312.2,
+          "operatingIncome": 348.7,
+          "operatingMargin": 5.2,
+          "fcf": 463.5,
+          "roe": 14.8,
+          "netMargin": 4.6,
+          "debtRatio": 71.4,
+          "updatedAt": "2026-07-14T14:51:18.179103",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.63,
+          "revenue": 6576.4,
+          "netIncome": 323.3,
+          "operatingIncome": 338.3,
+          "operatingMargin": 5.1,
+          "fcf": 495.8,
+          "roe": 15.4,
+          "netMargin": 4.9,
+          "debtRatio": 70.5,
+          "updatedAt": "2026-07-14T14:51:18.179103",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1301": {
+      "name": "台塑",
+      "industry": "塑膠工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -1.57,
+          "revenue": 1754.1,
+          "netIncome": -100.5,
+          "operatingIncome": -75.1,
+          "operatingMargin": -4.3,
+          "fcf": -79.3,
+          "roe": -2.8,
+          "netMargin": -5.7,
+          "debtRatio": 34.8,
+          "updatedAt": "2026-07-14T14:51:21.000484",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": -0.2,
+          "revenue": 2000.4,
+          "netIncome": -12.3,
+          "operatingIncome": -41.6,
+          "operatingMargin": -2.1,
+          "fcf": -46.7,
+          "roe": -0.4,
+          "netMargin": -0.6,
+          "debtRatio": 41.8,
+          "updatedAt": "2026-07-14T14:51:21.000484",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1102": {
+      "name": "亞泥",
+      "industry": "水泥工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 3.0,
+          "revenue": 710.4,
+          "netIncome": 102.2,
+          "operatingIncome": 84.1,
+          "operatingMargin": 11.8,
+          "fcf": 128.0,
+          "roe": 5.0,
+          "netMargin": 14.4,
+          "debtRatio": 37.2,
+          "updatedAt": "2026-07-14T14:51:22.953396",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.87,
+          "revenue": 763.0,
+          "netIncome": 126.5,
+          "operatingIncome": 79.6,
+          "operatingMargin": 10.4,
+          "fcf": 208.0,
+          "roe": 6.2,
+          "netMargin": 16.6,
+          "debtRatio": 38.3,
+          "updatedAt": "2026-07-14T14:51:22.953396",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2002": {
+      "name": "中鋼",
+      "industry": "鋼鐵工業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -0.28,
+          "revenue": 3171.6,
+          "netIncome": -35.1,
+          "operatingIncome": -39.0,
+          "operatingMargin": -1.2,
+          "fcf": 171.4,
+          "roe": -1.1,
+          "netMargin": -1.1,
+          "debtRatio": 51.0,
+          "updatedAt": "2026-07-14T14:51:24.890242",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.13,
+          "revenue": 3605.4,
+          "netIncome": 38.8,
+          "operatingIncome": 17.9,
+          "operatingMargin": 0.5,
+          "fcf": -4.8,
+          "roe": 1.1,
+          "netMargin": 1.1,
+          "debtRatio": 50.9,
+          "updatedAt": "2026-07-14T14:51:24.890242",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3008": {
+      "name": "大立光",
+      "industry": "光電業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 159.41,
+          "revenue": 611.5,
+          "netIncome": 215.6,
+          "operatingIncome": 235.6,
+          "operatingMargin": 38.5,
+          "fcf": 137.4,
+          "roe": 11.3,
+          "netMargin": 35.3,
+          "debtRatio": 13.6,
+          "updatedAt": "2026-07-14T14:51:27.032972",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 194.17,
+          "revenue": 594.6,
+          "netIncome": 262.1,
+          "operatingIncome": 240.3,
+          "operatingMargin": 40.4,
+          "fcf": 204.5,
+          "roe": 14.1,
+          "netMargin": 44.1,
+          "debtRatio": 14.4,
+          "updatedAt": "2026-07-14T14:51:27.032972",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2382": {
+      "name": "廣達",
+      "industry": "電腦及週邊設備業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 19.44,
+          "revenue": 21236.9,
+          "netIncome": 757.9,
+          "operatingIncome": 874.0,
+          "operatingMargin": 4.1,
+          "fcf": -251.2,
+          "roe": 29.6,
+          "netMargin": 3.6,
+          "debtRatio": 81.0,
+          "updatedAt": "2026-07-14T14:51:29.124576",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 15.49,
+          "revenue": 14107.6,
+          "netIncome": 602.8,
+          "operatingIncome": 616.2,
+          "operatingMargin": 4.4,
+          "fcf": -526.5,
+          "roe": 26.2,
+          "netMargin": 4.3,
+          "debtRatio": 75.3,
+          "updatedAt": "2026-07-14T14:51:29.124576",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2395": {
+      "name": "研華",
+      "industry": "電腦及週邊設備業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 12.25,
+          "revenue": 708.8,
+          "netIncome": 105.0,
+          "operatingIncome": 115.7,
+          "operatingMargin": 16.3,
+          "fcf": 70.8,
+          "roe": 19.1,
+          "netMargin": 14.8,
+          "debtRatio": 27.3,
+          "updatedAt": "2026-07-14T14:51:31.374790",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 10.45,
+          "revenue": 597.9,
+          "netIncome": 88.9,
+          "operatingIncome": 90.5,
+          "operatingMargin": 15.1,
+          "fcf": 90.4,
+          "roe": 17.2,
+          "netMargin": 14.9,
+          "debtRatio": 27.8,
+          "updatedAt": "2026-07-14T14:51:31.374790",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3711": {
+      "name": "日月光投控",
+      "industry": "半導體業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.37,
+          "revenue": 6453.9,
+          "netIncome": 418.4,
+          "operatingIncome": 507.6,
+          "operatingMargin": 7.9,
+          "fcf": -223.9,
+          "roe": 11.2,
+          "netMargin": 6.5,
+          "debtRatio": 58.0,
+          "updatedAt": "2026-07-14T14:51:33.470252",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.53,
+          "revenue": 5954.1,
+          "netIncome": 339.3,
+          "operatingIncome": 391.7,
+          "operatingMargin": 6.6,
+          "fcf": 112.7,
+          "roe": 9.8,
+          "netMargin": 5.7,
+          "debtRatio": 53.3,
+          "updatedAt": "2026-07-14T14:51:33.470252",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2327": {
+      "name": "國巨",
+      "industry": "電子零組件業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 26.9,
+          "revenue": 1329.3,
+          "netIncome": 237.8,
+          "operatingIncome": 298.0,
+          "operatingMargin": 22.4,
+          "fcf": 248.1,
+          "roe": 13.7,
+          "netMargin": 17.9,
+          "debtRatio": 55.5,
+          "updatedAt": "2026-07-14T14:51:35.766798",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 42.12,
+          "revenue": 1216.7,
+          "netIncome": 194.9,
+          "operatingIncome": 233.9,
+          "operatingMargin": 19.2,
+          "fcf": 245.2,
+          "roe": 12.0,
+          "netMargin": 16.0,
+          "debtRatio": 55.7,
+          "updatedAt": "2026-07-14T14:51:35.766798",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3034": {
+      "name": "聯詠",
+      "industry": "半導體業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 26.87,
+          "revenue": 1006.6,
+          "netIncome": 163.5,
+          "operatingIncome": 182.4,
+          "operatingMargin": 18.1,
+          "fcf": 125.3,
+          "roe": 24.1,
+          "netMargin": 16.2,
+          "debtRatio": 30.4,
+          "updatedAt": "2026-07-14T14:51:37.775340",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 33.43,
+          "revenue": 1027.9,
+          "netIncome": 203.4,
+          "operatingIncome": 218.1,
+          "operatingMargin": 21.2,
+          "fcf": 154.8,
+          "roe": 29.9,
+          "netMargin": 19.8,
+          "debtRatio": 33.7,
+          "updatedAt": "2026-07-14T14:51:37.775340",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2912": {
+      "name": "統一超",
+      "industry": "貿易百貨業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 10.78,
+          "revenue": 3507.3,
+          "netIncome": 133.3,
+          "operatingIncome": 139.3,
+          "operatingMargin": 4.0,
+          "fcf": 194.5,
+          "roe": 25.2,
+          "netMargin": 3.8,
+          "debtRatio": 81.9,
+          "updatedAt": "2026-07-14T14:51:39.693400",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 11.1,
+          "revenue": 3379.3,
+          "netIncome": 137.4,
+          "operatingIncome": 139.7,
+          "operatingMargin": 4.1,
+          "fcf": 221.1,
+          "roe": 26.4,
+          "netMargin": 4.1,
+          "debtRatio": 80.7,
+          "updatedAt": "2026-07-14T14:51:39.693400",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "5880": {
+      "name": "合庫金",
+      "industry": "金融保險業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.36,
+          "revenue": 743.9,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 94.7,
+          "updatedAt": "2026-07-14T14:51:41.656393",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.26,
+          "revenue": 658.2,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 95.0,
+          "updatedAt": "2026-07-14T14:51:41.656393",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "9910": {
+      "name": "豐泰",
+      "industry": "運動休閒",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.1,
+          "revenue": 835.1,
+          "netIncome": 54.2,
+          "operatingIncome": 74.4,
+          "operatingMargin": 8.9,
+          "fcf": 56.9,
+          "roe": 19.5,
+          "netMargin": 6.5,
+          "debtRatio": 47.2,
+          "updatedAt": "2026-07-14T14:51:44.010036",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.94,
+          "revenue": 874.9,
+          "netIncome": 62.7,
+          "operatingIncome": 73.9,
+          "operatingMargin": 8.4,
+          "fcf": 51.6,
+          "roe": 21.7,
+          "netMargin": 7.2,
+          "debtRatio": 47.0,
+          "updatedAt": "2026-07-14T14:51:44.010036",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "5871": {
+      "name": "中租-KY",
+      "industry": "其他業",
+      "priority": 2,
+      "priority_name": "中",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 11.24,
+          "revenue": 975.7,
+          "netIncome": 208.0,
+          "operatingIncome": 272.2,
+          "operatingMargin": 27.9,
+          "fcf": 196.4,
+          "roe": 10.6,
+          "netMargin": 21.3,
+          "debtRatio": 80.0,
+          "updatedAt": "2026-07-14T14:51:46.296709",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 13.31,
+          "revenue": 1022.9,
+          "netIncome": 234.4,
+          "operatingIncome": 299.1,
+          "operatingMargin": 29.2,
+          "fcf": 191.4,
+          "roe": 12.7,
+          "netMargin": 22.9,
+          "debtRatio": 81.3,
+          "updatedAt": "2026-07-14T14:51:46.296709",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
     }
   }
 }
