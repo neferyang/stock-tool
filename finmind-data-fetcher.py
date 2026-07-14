@@ -137,13 +137,29 @@ FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
               'operatingMargin', 'netMargin', 'roe', 'debtRatio', 'fcf']
 
 
+BATCH_SIZE = 180  # 每支3次API呼叫，180支=540次，留餘裕給同小時的其他工作流程
+
+
+def _missing_score(stock):
+    """缺值分數：data陣列中沒有真實eps的年份數，越大越優先處理"""
+    return sum(1 for e in stock.get('data', []) if e.get('eps') is None)
+
+
 def update_data_file(fetcher):
     with open(DATA_FILE, 'r', encoding='utf-8-sig') as f:
         db = json.load(f)
 
     stocks = db.get('stocks', {})
-    codes = list(stocks.keys())
-    print(f"\n開始更新 {len(codes)} 支股票（FinMind 全覆蓋）...\n")
+    all_codes = list(stocks.keys())
+
+    # 優先處理缺值最多的股票；缺值相同時，越久沒更新的越優先
+    def sort_key(code):
+        s = stocks[code]
+        last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
+        return (-_missing_score(s), last_updated)
+
+    codes = sorted(all_codes, key=sort_key)[:BATCH_SIZE]
+    print(f"\n共 {len(all_codes)} 支，本次處理優先度最高的 {len(codes)} 支（缺值最多/最久未更新優先）...\n")
 
     updated_stocks = 0
     failed = 0
@@ -169,7 +185,7 @@ def update_data_file(fetcher):
                 yr = str(entry.get('year'))
                 src = annual.get(yr)
                 if src:
-                    # 全覆蓋：用 FinMind 真實值取代所有財務欄位
+                    # 用 FinMind 真實值取代所有財務欄位
                     for k in FIN_FIELDS:
                         entry[k] = src.get(k)
                     entry['updatedAt'] = now
@@ -177,12 +193,10 @@ def update_data_file(fetcher):
                     entry['isEstimate'] = False
                     entry['dataType'] = '真實'
                     changed = True
-                else:
-                    # 該年度無完整真實資料 → 全部設為 null（不留佔位）
-                    for k in FIN_FIELDS:
-                        entry[k] = None
-                    entry['source'] = None
+                elif entry.get('eps') is None:
+                    # 該年度本來就無資料 → 標記為無資料（不影響已有真實值的欄位，因為本來就是None）
                     entry['dataType'] = '無資料'
+                # 若該年度annual缺漏但entry已有真實值 → 保留原值，不清空(避免暫時性API缺漏造成資料退步)
 
             if changed:
                 updated_stocks += 1
@@ -204,7 +218,7 @@ def update_data_file(fetcher):
         json.dump(db, f, ensure_ascii=False, indent=2)
 
     print(f"\n{'='*60}")
-    print(f"完成！更新股票: {updated_stocks}, 失敗: {failed}")
+    print(f"完成！更新股票: {updated_stocks}, 失敗: {failed}（未處理: {len(all_codes)-len(codes)}支留待下次）")
     print(f"{'='*60}")
 
 
