@@ -4038,6 +4038,4006 @@
           "dataType": "真實"
         }
       ]
+    },
+    "2834": {
+      "name": "臺企銀",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "6789": {
+      "name": "采鈺",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.01,
+          "revenue": 89.4,
+          "netIncome": 12.7,
+          "operatingIncome": 13.3,
+          "operatingMargin": 14.9,
+          "fcf": 18.6,
+          "roe": 6.9,
+          "netMargin": 14.3,
+          "debtRatio": 17.5,
+          "updatedAt": "2026-07-14T16:03:52.606670",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.49,
+          "revenue": 100.0,
+          "netIncome": 17.4,
+          "operatingIncome": 20.1,
+          "operatingMargin": 20.1,
+          "fcf": 35.4,
+          "roe": 9.6,
+          "netMargin": 17.4,
+          "debtRatio": 27.0,
+          "updatedAt": "2026-07-14T16:03:52.606684",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6919": {
+      "name": "康霈*",
+      "industry": "生技醫療業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -0.23,
+          "revenue": 0.4,
+          "netIncome": -3.5,
+          "operatingIncome": -7.1,
+          "operatingMargin": -1859.3,
+          "fcf": -4.4,
+          "roe": -3.7,
+          "netMargin": -925.2,
+          "debtRatio": 0.7,
+          "updatedAt": "2026-07-14T16:03:54.494721",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": -4.13,
+          "revenue": 0.4,
+          "netIncome": -5.9,
+          "operatingIncome": -7.2,
+          "operatingMargin": -1614.0,
+          "fcf": -5.3,
+          "roe": -6.1,
+          "netMargin": -1325.2,
+          "debtRatio": 0.8,
+          "updatedAt": "2026-07-14T16:03:54.494733",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2324": {
+      "name": "仁寶",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.38,
+          "revenue": 7575.1,
+          "netIncome": 79.0,
+          "operatingIncome": 106.4,
+          "operatingMargin": 1.4,
+          "fcf": 216.2,
+          "roe": 5.3,
+          "netMargin": 1.0,
+          "debtRatio": 66.4,
+          "updatedAt": "2026-07-14T16:03:56.409087",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.3,
+          "revenue": 9102.5,
+          "netIncome": 116.9,
+          "operatingIncome": 148.4,
+          "operatingMargin": 1.6,
+          "fcf": 181.5,
+          "roe": 7.5,
+          "netMargin": 1.3,
+          "debtRatio": 66.2,
+          "updatedAt": "2026-07-14T16:03:56.409097",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1504": {
+      "name": "東元",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.42,
+          "revenue": 590.9,
+          "netIncome": 56.3,
+          "operatingIncome": 52.9,
+          "operatingMargin": 8.9,
+          "fcf": 16.2,
+          "roe": 5.7,
+          "netMargin": 9.5,
+          "debtRatio": 32.0,
+          "updatedAt": "2026-07-14T16:03:58.832889",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.73,
+          "revenue": 552.3,
+          "netIncome": 62.5,
+          "operatingIncome": 62.3,
+          "operatingMargin": 11.3,
+          "fcf": 29.6,
+          "roe": 7.7,
+          "netMargin": 11.3,
+          "debtRatio": 34.3,
+          "updatedAt": "2026-07-14T16:03:58.832909",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1605": {
+      "name": "華新",
+      "industry": "電器電纜",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.75,
+          "revenue": 1742.4,
+          "netIncome": 23.4,
+          "operatingIncome": 0.2,
+          "operatingMargin": 0.0,
+          "fcf": -65.5,
+          "roe": 1.3,
+          "netMargin": 1.3,
+          "debtRatio": 42.0,
+          "updatedAt": "2026-07-14T16:04:00.730455",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.71,
+          "revenue": 1793.2,
+          "netIncome": 26.0,
+          "operatingIncome": 21.7,
+          "operatingMargin": 1.2,
+          "fcf": -89.2,
+          "roe": 1.8,
+          "netMargin": 1.4,
+          "debtRatio": 46.1,
+          "updatedAt": "2026-07-14T16:04:00.730467",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3026": {
+      "name": "禾伸堂",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 6.58,
+          "revenue": 134.3,
+          "netIncome": 10.3,
+          "operatingIncome": 10.8,
+          "operatingMargin": 8.0,
+          "fcf": 8.2,
+          "roe": 9.9,
+          "netMargin": 7.6,
+          "debtRatio": 35.8,
+          "updatedAt": "2026-07-14T16:04:02.584562",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.87,
+          "revenue": 127.9,
+          "netIncome": 9.3,
+          "operatingIncome": 6.2,
+          "operatingMargin": 4.9,
+          "fcf": 11.6,
+          "roe": 8.9,
+          "netMargin": 7.2,
+          "debtRatio": 34.4,
+          "updatedAt": "2026-07-14T16:04:02.584573",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2633": {
+      "name": "台灣高鐵",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.17,
+          "revenue": 546.5,
+          "netIncome": 65.8,
+          "operatingIncome": 215.0,
+          "operatingMargin": 39.3,
+          "fcf": 206.2,
+          "roe": 9.0,
+          "netMargin": 12.0,
+          "debtRatio": 80.9,
+          "updatedAt": "2026-07-14T16:04:04.551854",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.15,
+          "revenue": 531.9,
+          "netIncome": 64.5,
+          "operatingIncome": 215.0,
+          "operatingMargin": 40.4,
+          "fcf": 166.3,
+          "roe": 9.0,
+          "netMargin": 12.1,
+          "debtRatio": 81.2,
+          "updatedAt": "2026-07-14T16:04:04.551865",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "7750": {
+      "name": "新代",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 35.18,
+          "revenue": 139.6,
+          "netIncome": 22.8,
+          "operatingIncome": 28.2,
+          "operatingMargin": 20.2,
+          "fcf": 20.3,
+          "roe": 20.1,
+          "netMargin": 16.4,
+          "debtRatio": 35.6,
+          "updatedAt": "2026-07-14T16:04:06.428449",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "6531": {
+      "name": "愛普*",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 7.73,
+          "revenue": 56.7,
+          "netIncome": 12.4,
+          "operatingIncome": 14.0,
+          "operatingMargin": 24.7,
+          "fcf": 28.5,
+          "roe": 10.0,
+          "netMargin": 21.9,
+          "debtRatio": 16.1,
+          "updatedAt": "2026-07-14T16:04:08.459248",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 9.73,
+          "revenue": 41.9,
+          "netIncome": 15.8,
+          "operatingIncome": 10.6,
+          "operatingMargin": 25.4,
+          "fcf": 14.8,
+          "roe": 13.3,
+          "netMargin": 37.6,
+          "debtRatio": 8.5,
+          "updatedAt": "2026-07-14T16:04:08.459258",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1402": {
+      "name": "遠東新",
+      "industry": "紡織纖維",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.54,
+          "revenue": 2540.6,
+          "netIncome": 169.1,
+          "operatingIncome": 183.4,
+          "operatingMargin": 7.2,
+          "fcf": 290.6,
+          "roe": 5.4,
+          "netMargin": 6.7,
+          "debtRatio": 53.0,
+          "updatedAt": "2026-07-14T16:04:10.356304",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.01,
+          "revenue": 2709.5,
+          "netIncome": 189.6,
+          "operatingIncome": 176.9,
+          "operatingMargin": 6.5,
+          "fcf": 290.0,
+          "roe": 5.9,
+          "netMargin": 7.0,
+          "debtRatio": 53.2,
+          "updatedAt": "2026-07-14T16:04:10.356316",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8210": {
+      "name": "勤誠",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 29.02,
+          "revenue": 220.0,
+          "netIncome": 36.6,
+          "operatingIncome": 47.7,
+          "operatingMargin": 21.7,
+          "fcf": 21.0,
+          "roe": 33.0,
+          "netMargin": 16.6,
+          "debtRatio": 52.8,
+          "updatedAt": "2026-07-14T16:04:12.228641",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 16.05,
+          "revenue": 145.2,
+          "netIncome": 19.7,
+          "operatingIncome": 25.1,
+          "operatingMargin": 17.3,
+          "fcf": 19.1,
+          "roe": 27.1,
+          "netMargin": 13.6,
+          "debtRatio": 56.4,
+          "updatedAt": "2026-07-14T16:04:12.228662",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2347": {
+      "name": "聯強",
+      "industry": "電子通路業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.09,
+          "revenue": 4111.5,
+          "netIncome": 91.0,
+          "operatingIncome": 85.6,
+          "operatingMargin": 2.1,
+          "fcf": 109.2,
+          "roe": 10.9,
+          "netMargin": 2.2,
+          "debtRatio": 61.7,
+          "updatedAt": "2026-07-14T16:04:14.048360",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.52,
+          "revenue": 4260.1,
+          "netIncome": 99.3,
+          "operatingIncome": 100.2,
+          "operatingMargin": 2.4,
+          "fcf": 191.8,
+          "roe": 12.4,
+          "netMargin": 2.3,
+          "debtRatio": 64.4,
+          "updatedAt": "2026-07-14T16:04:14.048388",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6213": {
+      "name": "聯茂",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.16,
+          "revenue": 331.0,
+          "netIncome": 15.1,
+          "operatingIncome": 23.8,
+          "operatingMargin": 7.2,
+          "fcf": 19.4,
+          "roe": 7.1,
+          "netMargin": 4.6,
+          "debtRatio": 44.3,
+          "updatedAt": "2026-07-14T16:04:15.868260",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.26,
+          "revenue": 293.8,
+          "netIncome": 8.2,
+          "operatingIncome": 13.5,
+          "operatingMargin": 4.6,
+          "fcf": 2.5,
+          "roe": 4.0,
+          "netMargin": 2.8,
+          "debtRatio": 40.7,
+          "updatedAt": "2026-07-14T16:04:15.868272",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2610": {
+      "name": "華航",
+      "industry": "航運業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.42,
+          "revenue": 2091.4,
+          "netIncome": 161.7,
+          "operatingIncome": 208.4,
+          "operatingMargin": 10.0,
+          "fcf": 431.9,
+          "roe": 15.8,
+          "netMargin": 7.7,
+          "debtRatio": 71.1,
+          "updatedAt": "2026-07-14T16:04:17.937290",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.38,
+          "revenue": 2038.8,
+          "netIncome": 155.0,
+          "operatingIncome": 182.0,
+          "operatingMargin": 8.9,
+          "fcf": 497.0,
+          "roe": 17.1,
+          "netMargin": 7.6,
+          "debtRatio": 72.3,
+          "updatedAt": "2026-07-14T16:04:17.937302",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "910322": {
+      "name": "康師傅-DR",
+      "industry": "食品工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2377": {
+      "name": "微星",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 6.8,
+          "revenue": 2302.0,
+          "netIncome": 57.5,
+          "operatingIncome": 63.9,
+          "operatingMargin": 2.8,
+          "fcf": 4.2,
+          "roe": 10.5,
+          "netMargin": 2.5,
+          "debtRatio": 54.9,
+          "updatedAt": "2026-07-14T16:04:22.007884",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 8.04,
+          "revenue": 1978.7,
+          "netIncome": 67.9,
+          "operatingIncome": 71.2,
+          "operatingMargin": 3.6,
+          "fcf": 26.9,
+          "roe": 12.8,
+          "netMargin": 3.4,
+          "debtRatio": 45.3,
+          "updatedAt": "2026-07-14T16:04:22.007909",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6285": {
+      "name": "啟碁",
+      "industry": "通信網路業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 6.4,
+          "revenue": 1102.5,
+          "netIncome": 30.6,
+          "operatingIncome": 37.7,
+          "operatingMargin": 3.4,
+          "fcf": 62.9,
+          "roe": 8.9,
+          "netMargin": 2.8,
+          "debtRatio": 54.5,
+          "updatedAt": "2026-07-14T16:04:23.921371",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.26,
+          "revenue": 1102.1,
+          "netIncome": 34.5,
+          "operatingIncome": 37.1,
+          "operatingMargin": 3.4,
+          "fcf": 73.3,
+          "roe": 10.8,
+          "netMargin": 3.1,
+          "debtRatio": 57.6,
+          "updatedAt": "2026-07-14T16:04:23.921383",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2812": {
+      "name": "台中銀",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "6196": {
+      "name": "帆宣",
+      "industry": "其他電子業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 15.43,
+          "revenue": 515.7,
+          "netIncome": 31.7,
+          "operatingIncome": 22.8,
+          "operatingMargin": 4.4,
+          "fcf": 45.2,
+          "roe": 19.6,
+          "netMargin": 6.1,
+          "debtRatio": 71.8,
+          "updatedAt": "2026-07-14T16:04:29.022051",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 8.94,
+          "revenue": 606.8,
+          "netIncome": 17.6,
+          "operatingIncome": 21.8,
+          "operatingMargin": 3.6,
+          "fcf": 96.0,
+          "roe": 14.6,
+          "netMargin": 2.9,
+          "debtRatio": 74.2,
+          "updatedAt": "2026-07-14T16:04:29.022069",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3706": {
+      "name": "神達",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.36,
+          "revenue": 1055.8,
+          "netIncome": 71.1,
+          "operatingIncome": 53.7,
+          "operatingMargin": 5.1,
+          "fcf": -15.0,
+          "roe": 10.2,
+          "netMargin": 6.7,
+          "debtRatio": 46.8,
+          "updatedAt": "2026-07-14T16:04:30.930833",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.28,
+          "revenue": 613.6,
+          "netIncome": 39.7,
+          "operatingIncome": 17.8,
+          "operatingMargin": 2.9,
+          "fcf": 8.6,
+          "roe": 6.6,
+          "netMargin": 6.5,
+          "debtRatio": 47.4,
+          "updatedAt": "2026-07-14T16:04:30.930850",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "7610": {
+      "name": "聯友金屬-創",
+      "industry": "鋼鐵工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.33,
+          "revenue": 14.1,
+          "netIncome": 2.4,
+          "operatingIncome": 3.1,
+          "operatingMargin": 22.0,
+          "fcf": -5.8,
+          "roe": 15.0,
+          "netMargin": 17.2,
+          "debtRatio": 46.7,
+          "updatedAt": "2026-07-14T16:04:32.786152",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2049": {
+      "name": "上銀",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.3,
+          "revenue": 242.6,
+          "netIncome": 14.1,
+          "operatingIncome": 16.4,
+          "operatingMargin": 6.8,
+          "fcf": 25.9,
+          "roe": 3.8,
+          "netMargin": 5.8,
+          "debtRatio": 30.8,
+          "updatedAt": "2026-07-14T16:04:34.984214",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.58,
+          "revenue": 243.9,
+          "netIncome": 18.6,
+          "operatingIncome": 20.6,
+          "operatingMargin": 8.4,
+          "fcf": 7.4,
+          "roe": 5.0,
+          "netMargin": 7.6,
+          "debtRatio": 31.9,
+          "updatedAt": "2026-07-14T16:04:34.984234",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8996": {
+      "name": "高力",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.08,
+          "revenue": 65.8,
+          "netIncome": 8.3,
+          "operatingIncome": 10.2,
+          "operatingMargin": 15.6,
+          "fcf": 2.8,
+          "roe": 19.9,
+          "netMargin": 12.6,
+          "debtRatio": 48.6,
+          "updatedAt": "2026-07-14T16:04:36.861362",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 6.55,
+          "revenue": 40.0,
+          "netIncome": 5.9,
+          "operatingIncome": 6.5,
+          "operatingMargin": 16.2,
+          "fcf": 8.5,
+          "roe": 17.3,
+          "netMargin": 14.8,
+          "debtRatio": 43.7,
+          "updatedAt": "2026-07-14T16:04:36.861381",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1503": {
+      "name": "士電",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 6.28,
+          "revenue": 371.8,
+          "netIncome": 33.8,
+          "operatingIncome": 43.0,
+          "operatingMargin": 11.6,
+          "fcf": 31.5,
+          "roe": 9.1,
+          "netMargin": 9.1,
+          "debtRatio": 38.7,
+          "updatedAt": "2026-07-14T16:04:38.713250",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.82,
+          "revenue": 350.7,
+          "netIncome": 31.4,
+          "operatingIncome": 33.6,
+          "operatingMargin": 9.6,
+          "fcf": 14.8,
+          "roe": 8.2,
+          "netMargin": 9.0,
+          "debtRatio": 34.3,
+          "updatedAt": "2026-07-14T16:04:38.713285",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6526": {
+      "name": "達發",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 17.32,
+          "revenue": 209.3,
+          "netIncome": 28.3,
+          "operatingIncome": 29.1,
+          "operatingMargin": 13.9,
+          "fcf": 34.5,
+          "roe": 13.0,
+          "netMargin": 13.5,
+          "debtRatio": 23.2,
+          "updatedAt": "2026-07-14T16:04:40.553381",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 16.09,
+          "revenue": 191.2,
+          "netIncome": 26.1,
+          "operatingIncome": 28.8,
+          "operatingMargin": 15.0,
+          "fcf": 39.0,
+          "roe": 12.5,
+          "netMargin": 13.7,
+          "debtRatio": 22.7,
+          "updatedAt": "2026-07-14T16:04:40.553395",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6257": {
+      "name": "矽格",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 6.15,
+          "revenue": 195.9,
+          "netIncome": 33.3,
+          "operatingIncome": 39.7,
+          "operatingMargin": 20.3,
+          "fcf": 11.1,
+          "roe": 13.4,
+          "netMargin": 17.0,
+          "debtRatio": 42.2,
+          "updatedAt": "2026-07-14T16:04:42.514704",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.89,
+          "revenue": 182.2,
+          "netIncome": 31.7,
+          "operatingIncome": 30.7,
+          "operatingMargin": 16.9,
+          "fcf": 33.4,
+          "roe": 13.8,
+          "netMargin": 17.4,
+          "debtRatio": 41.8,
+          "updatedAt": "2026-07-14T16:04:42.514742",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "5269": {
+      "name": "祥碩",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 72.7,
+          "revenue": 134.1,
+          "netIncome": 54.3,
+          "operatingIncome": 39.6,
+          "operatingMargin": 29.5,
+          "fcf": 35.4,
+          "roe": 15.0,
+          "netMargin": 40.4,
+          "debtRatio": 11.4,
+          "updatedAt": "2026-07-14T16:04:44.463484",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 51.58,
+          "revenue": 80.8,
+          "netIncome": 37.3,
+          "operatingIncome": 23.3,
+          "operatingMargin": 28.9,
+          "fcf": 33.6,
+          "roe": 11.2,
+          "netMargin": 46.2,
+          "debtRatio": 7.4,
+          "updatedAt": "2026-07-14T16:04:44.463508",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6442": {
+      "name": "光聖",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 23.48,
+          "revenue": 105.3,
+          "netIncome": 17.8,
+          "operatingIncome": 25.4,
+          "operatingMargin": 24.1,
+          "fcf": 27.9,
+          "roe": 26.0,
+          "netMargin": 16.9,
+          "debtRatio": 49.0,
+          "updatedAt": "2026-07-14T16:04:46.561609",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 14.2,
+          "revenue": 64.1,
+          "netIncome": 10.6,
+          "operatingIncome": 12.9,
+          "operatingMargin": 20.2,
+          "fcf": 12.5,
+          "roe": 28.5,
+          "netMargin": 16.5,
+          "debtRatio": 47.4,
+          "updatedAt": "2026-07-14T16:04:46.561650",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2451": {
+      "name": "創見",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 12.98,
+          "revenue": 171.3,
+          "netIncome": 55.7,
+          "operatingIncome": 65.5,
+          "operatingMargin": 38.3,
+          "fcf": -22.5,
+          "roe": 24.2,
+          "netMargin": 32.5,
+          "debtRatio": 12.2,
+          "updatedAt": "2026-07-14T16:04:48.397651",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.39,
+          "revenue": 100.8,
+          "netIncome": 23.1,
+          "operatingIncome": 19.1,
+          "operatingMargin": 18.9,
+          "fcf": -10.6,
+          "roe": 11.7,
+          "netMargin": 23.0,
+          "debtRatio": 7.4,
+          "updatedAt": "2026-07-14T16:04:48.397676",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "5434": {
+      "name": "崇越",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 21.8,
+          "revenue": 675.8,
+          "netIncome": 41.9,
+          "operatingIncome": 44.6,
+          "operatingMargin": 6.6,
+          "fcf": 39.9,
+          "roe": 20.7,
+          "netMargin": 6.2,
+          "debtRatio": 51.7,
+          "updatedAt": "2026-07-14T16:04:50.366836",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 19.29,
+          "revenue": 570.0,
+          "netIncome": 36.7,
+          "operatingIncome": 39.4,
+          "operatingMargin": 6.9,
+          "fcf": 8.7,
+          "roe": 20.4,
+          "netMargin": 6.4,
+          "debtRatio": 51.7,
+          "updatedAt": "2026-07-14T16:04:50.366875",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8464": {
+      "name": "億豐",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 22.53,
+          "revenue": 299.7,
+          "netIncome": 69.4,
+          "operatingIncome": 89.2,
+          "operatingMargin": 29.8,
+          "fcf": 55.1,
+          "roe": 22.8,
+          "netMargin": 23.1,
+          "debtRatio": 24.0,
+          "updatedAt": "2026-07-14T16:04:52.406685",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 23.56,
+          "revenue": 295.4,
+          "netIncome": 71.2,
+          "operatingIncome": 83.7,
+          "operatingMargin": 28.3,
+          "fcf": 66.7,
+          "roe": 25.3,
+          "netMargin": 24.1,
+          "debtRatio": 25.8,
+          "updatedAt": "2026-07-14T16:04:52.406694",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2105": {
+      "name": "正新",
+      "industry": "橡膠工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.5,
+          "revenue": 907.8,
+          "netIncome": 48.4,
+          "operatingIncome": 71.6,
+          "operatingMargin": 7.9,
+          "fcf": 106.3,
+          "roe": 5.5,
+          "netMargin": 5.3,
+          "debtRatio": 38.7,
+          "updatedAt": "2026-07-14T16:04:54.703637",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.47,
+          "revenue": 962.5,
+          "netIncome": 80.3,
+          "operatingIncome": 100.1,
+          "operatingMargin": 10.4,
+          "fcf": 150.1,
+          "roe": 8.9,
+          "netMargin": 8.3,
+          "debtRatio": 38.2,
+          "updatedAt": "2026-07-14T16:04:54.703660",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1560": {
+      "name": "中砂",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.28,
+          "revenue": 81.5,
+          "netIncome": 14.0,
+          "operatingIncome": 13.0,
+          "operatingMargin": 16.0,
+          "fcf": 8.5,
+          "roe": 16.5,
+          "netMargin": 17.1,
+          "debtRatio": 36.0,
+          "updatedAt": "2026-07-14T16:04:56.921153",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.1,
+          "revenue": 70.2,
+          "netIncome": 10.6,
+          "operatingIncome": 11.6,
+          "operatingMargin": 16.5,
+          "fcf": 12.7,
+          "roe": 14.3,
+          "netMargin": 15.1,
+          "debtRatio": 32.8,
+          "updatedAt": "2026-07-14T16:04:56.921319",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2027": {
+      "name": "大成鋼",
+      "industry": "鋼鐵工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.89,
+          "revenue": 1018.1,
+          "netIncome": 82.0,
+          "operatingIncome": 140.5,
+          "operatingMargin": 13.8,
+          "fcf": -44.8,
+          "roe": 9.3,
+          "netMargin": 8.1,
+          "debtRatio": 42.3,
+          "updatedAt": "2026-07-14T16:04:58.877039",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.54,
+          "revenue": 904.0,
+          "netIncome": 47.2,
+          "operatingIncome": 61.1,
+          "operatingMargin": 6.8,
+          "fcf": 95.3,
+          "roe": 5.9,
+          "netMargin": 5.2,
+          "debtRatio": 42.1,
+          "updatedAt": "2026-07-14T16:04:58.877049",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2838": {
+      "name": "聯邦銀",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2353": {
+      "name": "宏碁",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.26,
+          "revenue": 2756.3,
+          "netIncome": 57.7,
+          "operatingIncome": 51.4,
+          "operatingMargin": 1.9,
+          "fcf": -54.2,
+          "roe": 5.9,
+          "netMargin": 2.1,
+          "debtRatio": 61.4,
+          "updatedAt": "2026-07-14T16:05:03.602877",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.84,
+          "revenue": 2646.8,
+          "netIncome": 62.2,
+          "operatingIncome": 48.8,
+          "operatingMargin": 1.8,
+          "fcf": -60.1,
+          "roe": 7.4,
+          "netMargin": 2.3,
+          "debtRatio": 61.9,
+          "updatedAt": "2026-07-14T16:05:03.602910",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6805": {
+      "name": "富世達",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 31.0,
+          "revenue": 124.1,
+          "netIncome": 21.3,
+          "operatingIncome": 25.2,
+          "operatingMargin": 20.3,
+          "fcf": 16.5,
+          "roe": 29.5,
+          "netMargin": 17.1,
+          "debtRatio": 51.0,
+          "updatedAt": "2026-07-14T16:05:05.620544",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 17.9,
+          "revenue": 81.9,
+          "netIncome": 12.3,
+          "operatingIncome": 12.0,
+          "operatingMargin": 14.6,
+          "fcf": 8.7,
+          "roe": 22.1,
+          "netMargin": 15.0,
+          "debtRatio": 56.5,
+          "updatedAt": "2026-07-14T16:05:05.620552",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6781": {
+      "name": "AES-KY",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 38.2,
+          "revenue": 160.0,
+          "netIncome": 32.6,
+          "operatingIncome": 38.8,
+          "operatingMargin": 24.2,
+          "fcf": 20.4,
+          "roe": 19.4,
+          "netMargin": 20.4,
+          "debtRatio": 32.2,
+          "updatedAt": "2026-07-14T16:05:07.471927",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 25.39,
+          "revenue": 100.4,
+          "netIncome": 21.7,
+          "operatingIncome": 23.8,
+          "operatingMargin": 23.7,
+          "fcf": 20.0,
+          "roe": 14.7,
+          "netMargin": 21.6,
+          "debtRatio": 28.5,
+          "updatedAt": "2026-07-14T16:05:07.471985",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2645": {
+      "name": "長榮航太",
+      "industry": "航運業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.46,
+          "revenue": 181.8,
+          "netIncome": 20.4,
+          "operatingIncome": 30.0,
+          "operatingMargin": 16.5,
+          "fcf": 32.1,
+          "roe": 15.1,
+          "netMargin": 11.2,
+          "debtRatio": 42.3,
+          "updatedAt": "2026-07-14T16:05:09.339158",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.89,
+          "revenue": 162.8,
+          "netIncome": 18.4,
+          "operatingIncome": 24.3,
+          "operatingMargin": 14.9,
+          "fcf": 16.9,
+          "roe": 13.9,
+          "netMargin": 11.3,
+          "debtRatio": 42.4,
+          "updatedAt": "2026-07-14T16:05:09.339166",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2542": {
+      "name": "興富發",
+      "industry": "建材營造",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.11,
+          "revenue": 310.6,
+          "netIncome": 55.1,
+          "operatingIncome": 64.3,
+          "operatingMargin": 20.7,
+          "fcf": -101.9,
+          "roe": 8.7,
+          "netMargin": 17.7,
+          "debtRatio": 77.2,
+          "updatedAt": "2026-07-14T16:05:11.234250",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.19,
+          "revenue": 369.3,
+          "netIncome": 81.7,
+          "operatingIncome": 94.2,
+          "operatingMargin": 25.5,
+          "fcf": -20.9,
+          "roe": 12.8,
+          "netMargin": 22.1,
+          "debtRatio": 73.9,
+          "updatedAt": "2026-07-14T16:05:11.234269",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1476": {
+      "name": "儒鴻",
+      "industry": "紡織纖維",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 20.1,
+          "revenue": 379.9,
+          "netIncome": 55.1,
+          "operatingIncome": 70.9,
+          "operatingMargin": 18.7,
+          "fcf": 72.0,
+          "roe": 18.6,
+          "netMargin": 14.5,
+          "debtRatio": 15.4,
+          "updatedAt": "2026-07-14T16:05:13.122889",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 24.2,
+          "revenue": 368.3,
+          "netIncome": 66.4,
+          "operatingIncome": 77.6,
+          "operatingMargin": 21.1,
+          "fcf": 42.4,
+          "roe": 23.0,
+          "netMargin": 18.0,
+          "debtRatio": 19.4,
+          "updatedAt": "2026-07-14T16:05:13.122923",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2467": {
+      "name": "志聖",
+      "industry": "其他電子業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.49,
+          "revenue": 61.0,
+          "netIncome": 8.9,
+          "operatingIncome": 8.8,
+          "operatingMargin": 14.5,
+          "fcf": -10.2,
+          "roe": 12.8,
+          "netMargin": 14.6,
+          "debtRatio": 54.4,
+          "updatedAt": "2026-07-14T16:05:14.932371",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.8,
+          "revenue": 48.2,
+          "netIncome": 7.6,
+          "operatingIncome": 6.4,
+          "operatingMargin": 13.2,
+          "fcf": 5.4,
+          "roe": 14.4,
+          "netMargin": 15.7,
+          "debtRatio": 51.3,
+          "updatedAt": "2026-07-14T16:05:14.932429",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6409": {
+      "name": "旭隼",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 40.23,
+          "revenue": 205.2,
+          "netIncome": 35.2,
+          "operatingIncome": 43.3,
+          "operatingMargin": 21.1,
+          "fcf": 45.7,
+          "roe": 36.9,
+          "netMargin": 17.2,
+          "debtRatio": 44.1,
+          "updatedAt": "2026-07-14T16:05:16.731160",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 48.12,
+          "revenue": 228.1,
+          "netIncome": 42.0,
+          "operatingIncome": 51.1,
+          "operatingMargin": 22.4,
+          "fcf": 43.3,
+          "roe": 42.3,
+          "netMargin": 18.4,
+          "debtRatio": 42.7,
+          "updatedAt": "2026-07-14T16:05:16.731173",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "9105": {
+      "name": "泰金寶-DR",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "6691": {
+      "name": "洋基工程",
+      "industry": "建材營造",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 25.51,
+          "revenue": 223.5,
+          "netIncome": 29.9,
+          "operatingIncome": 37.2,
+          "operatingMargin": 16.6,
+          "fcf": 14.0,
+          "roe": 39.3,
+          "netMargin": 13.4,
+          "debtRatio": 61.2,
+          "updatedAt": "2026-07-14T16:05:22.980885",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 20.05,
+          "revenue": 151.9,
+          "netIncome": 20.3,
+          "operatingIncome": 24.9,
+          "operatingMargin": 16.4,
+          "fcf": 30.9,
+          "roe": 32.3,
+          "netMargin": 13.4,
+          "debtRatio": 59.9,
+          "updatedAt": "2026-07-14T16:05:22.980904",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1717": {
+      "name": "長興",
+      "industry": "化學工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 1.41,
+          "revenue": 406.8,
+          "netIncome": 17.1,
+          "operatingIncome": 16.9,
+          "operatingMargin": 4.2,
+          "fcf": 11.5,
+          "roe": 6.1,
+          "netMargin": 4.2,
+          "debtRatio": 53.1,
+          "updatedAt": "2026-07-14T16:05:25.232597",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.57,
+          "revenue": 441.9,
+          "netIncome": 18.7,
+          "operatingIncome": 21.7,
+          "operatingMargin": 4.9,
+          "fcf": 10.3,
+          "roe": 6.5,
+          "netMargin": 4.2,
+          "debtRatio": 53.6,
+          "updatedAt": "2026-07-14T16:05:25.232611",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1513": {
+      "name": "中興電",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.07,
+          "revenue": 274.5,
+          "netIncome": 39.9,
+          "operatingIncome": 49.8,
+          "operatingMargin": 18.1,
+          "fcf": 114.5,
+          "roe": 19.1,
+          "netMargin": 14.5,
+          "debtRatio": 56.2,
+          "updatedAt": "2026-07-14T16:05:27.589203",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.33,
+          "revenue": 256.1,
+          "netIncome": 36.3,
+          "operatingIncome": 45.4,
+          "operatingMargin": 17.7,
+          "fcf": 32.6,
+          "roe": 18.8,
+          "netMargin": 14.2,
+          "debtRatio": 60.9,
+          "updatedAt": "2026-07-14T16:05:27.589224",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2385": {
+      "name": "群光",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.06,
+          "revenue": 956.6,
+          "netIncome": 76.6,
+          "operatingIncome": 79.7,
+          "operatingMargin": 8.3,
+          "fcf": 40.1,
+          "roe": 14.6,
+          "netMargin": 8.0,
+          "debtRatio": 48.2,
+          "updatedAt": "2026-07-14T16:05:29.458564",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 12.43,
+          "revenue": 1014.8,
+          "netIncome": 107.0,
+          "operatingIncome": 103.1,
+          "operatingMargin": 10.2,
+          "fcf": 85.8,
+          "roe": 19.7,
+          "netMargin": 10.5,
+          "debtRatio": 48.6,
+          "updatedAt": "2026-07-14T16:05:29.458573",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8150": {
+      "name": "南茂",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.7,
+          "revenue": 239.3,
+          "netIncome": 5.0,
+          "operatingIncome": 11.4,
+          "operatingMargin": 4.8,
+          "fcf": 1.5,
+          "roe": 2.1,
+          "netMargin": 2.1,
+          "debtRatio": 47.1,
+          "updatedAt": "2026-07-14T16:05:31.562858",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.95,
+          "revenue": 227.0,
+          "netIncome": 14.2,
+          "operatingIncome": 12.7,
+          "operatingMargin": 5.6,
+          "fcf": 8.6,
+          "roe": 5.7,
+          "netMargin": 6.3,
+          "debtRatio": 44.7,
+          "updatedAt": "2026-07-14T16:05:31.562872",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6944": {
+      "name": "兆聯實業",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 32.15,
+          "revenue": 169.1,
+          "netIncome": 23.7,
+          "operatingIncome": 31.2,
+          "operatingMargin": 18.4,
+          "fcf": 24.5,
+          "roe": 29.5,
+          "netMargin": 14.0,
+          "debtRatio": 48.2,
+          "updatedAt": "2026-07-14T16:05:33.544356",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2354": {
+      "name": "鴻準",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.31,
+          "revenue": 1560.6,
+          "netIncome": 31.2,
+          "operatingIncome": 24.4,
+          "operatingMargin": 1.6,
+          "fcf": 28.9,
+          "roe": 2.9,
+          "netMargin": 2.0,
+          "debtRatio": 32.7,
+          "updatedAt": "2026-07-14T16:05:35.403431",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.53,
+          "revenue": 758.2,
+          "netIncome": 34.0,
+          "operatingIncome": 15.7,
+          "operatingMargin": 2.1,
+          "fcf": 24.4,
+          "roe": 3.1,
+          "netMargin": 4.5,
+          "debtRatio": 34.0,
+          "updatedAt": "2026-07-14T16:05:35.403460",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2855": {
+      "name": "統一證",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2441": {
+      "name": "超豐",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.31,
+          "revenue": 167.6,
+          "netIncome": 24.5,
+          "operatingIncome": 27.1,
+          "operatingMargin": 16.2,
+          "fcf": 20.7,
+          "roe": 10.1,
+          "netMargin": 14.6,
+          "debtRatio": 13.8,
+          "updatedAt": "2026-07-14T16:05:39.087887",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.39,
+          "revenue": 152.1,
+          "netIncome": 25.0,
+          "operatingIncome": 27.3,
+          "operatingMargin": 17.9,
+          "fcf": 36.1,
+          "roe": 11.2,
+          "netMargin": 16.4,
+          "debtRatio": 14.1,
+          "updatedAt": "2026-07-14T16:05:39.087924",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3023": {
+      "name": "信邦",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 13.02,
+          "revenue": 310.2,
+          "netIncome": 31.0,
+          "operatingIncome": 32.6,
+          "operatingMargin": 10.5,
+          "fcf": 25.0,
+          "roe": 18.8,
+          "netMargin": 10.0,
+          "debtRatio": 48.5,
+          "updatedAt": "2026-07-14T16:05:40.956908",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 14.7,
+          "revenue": 330.9,
+          "netIncome": 35.2,
+          "operatingIncome": 35.6,
+          "operatingMargin": 10.8,
+          "fcf": 18.9,
+          "roe": 22.8,
+          "netMargin": 10.6,
+          "debtRatio": 49.6,
+          "updatedAt": "2026-07-14T16:05:40.956933",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6005": {
+      "name": "群益證",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "3450": {
+      "name": "聯鈞",
+      "industry": "光電業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.01,
+          "revenue": 85.8,
+          "netIncome": 12.3,
+          "operatingIncome": 16.0,
+          "operatingMargin": 18.7,
+          "fcf": 1.3,
+          "roe": 15.8,
+          "netMargin": 14.4,
+          "debtRatio": 41.0,
+          "updatedAt": "2026-07-14T16:05:44.602732",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.82,
+          "revenue": 75.7,
+          "netIncome": 10.7,
+          "operatingIncome": 11.7,
+          "operatingMargin": 15.5,
+          "fcf": 14.4,
+          "roe": 15.4,
+          "netMargin": 14.2,
+          "debtRatio": 37.5,
+          "updatedAt": "2026-07-14T16:05:44.602751",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3090": {
+      "name": "日電貿",
+      "industry": "電子通路業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.47,
+          "revenue": 157.3,
+          "netIncome": 12.8,
+          "operatingIncome": 15.9,
+          "operatingMargin": 10.1,
+          "fcf": 0.6,
+          "roe": 9.2,
+          "netMargin": 8.1,
+          "debtRatio": 31.2,
+          "updatedAt": "2026-07-14T16:05:46.489987",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.52,
+          "revenue": 121.4,
+          "netIncome": 9.7,
+          "operatingIncome": 11.2,
+          "operatingMargin": 9.2,
+          "fcf": -1.6,
+          "roe": 14.5,
+          "netMargin": 7.9,
+          "debtRatio": 38.8,
+          "updatedAt": "2026-07-14T16:05:46.490009",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8021": {
+      "name": "尖點",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.74,
+          "revenue": 44.1,
+          "netIncome": 4.6,
+          "operatingIncome": 6.6,
+          "operatingMargin": 14.9,
+          "fcf": 2.7,
+          "roe": 8.4,
+          "netMargin": 10.4,
+          "debtRatio": 31.9,
+          "updatedAt": "2026-07-14T16:05:48.442095",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.45,
+          "revenue": 35.4,
+          "netIncome": 2.1,
+          "operatingIncome": 2.8,
+          "operatingMargin": 7.9,
+          "fcf": -4.0,
+          "roe": 4.1,
+          "netMargin": 6.0,
+          "debtRatio": 28.7,
+          "updatedAt": "2026-07-14T16:05:48.442120",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2481": {
+      "name": "強茂",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 3.11,
+          "revenue": 130.9,
+          "netIncome": 13.9,
+          "operatingIncome": 11.1,
+          "operatingMargin": 8.5,
+          "fcf": 11.2,
+          "roe": 8.6,
+          "netMargin": 10.6,
+          "debtRatio": 45.4,
+          "updatedAt": "2026-07-14T16:05:50.390792",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.4,
+          "revenue": 125.4,
+          "netIncome": 10.8,
+          "operatingIncome": 8.1,
+          "operatingMargin": 6.5,
+          "fcf": 9.7,
+          "roe": 6.9,
+          "netMargin": 8.6,
+          "debtRatio": 46.0,
+          "updatedAt": "2026-07-14T16:05:50.390846",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3167": {
+      "name": "大量",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.13,
+          "revenue": 50.8,
+          "netIncome": 7.2,
+          "operatingIncome": 9.2,
+          "operatingMargin": 18.0,
+          "fcf": -1.2,
+          "roe": 21.0,
+          "netMargin": 14.1,
+          "debtRatio": 59.4,
+          "updatedAt": "2026-07-14T16:05:52.559560",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.48,
+          "revenue": 26.0,
+          "netIncome": 1.2,
+          "operatingIncome": 0.7,
+          "operatingMargin": 2.8,
+          "fcf": -5.0,
+          "roe": 4.7,
+          "netMargin": 4.8,
+          "debtRatio": 48.6,
+          "updatedAt": "2026-07-14T16:05:52.559592",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1229": {
+      "name": "聯華",
+      "industry": "食品工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.6,
+          "revenue": 135.8,
+          "netIncome": 55.8,
+          "operatingIncome": 20.5,
+          "operatingMargin": 15.1,
+          "fcf": 59.4,
+          "roe": 7.1,
+          "netMargin": 41.1,
+          "debtRatio": 18.5,
+          "updatedAt": "2026-07-14T16:05:54.806164",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.51,
+          "revenue": 129.5,
+          "netIncome": 48.7,
+          "operatingIncome": 13.3,
+          "operatingMargin": 10.3,
+          "fcf": 37.6,
+          "roe": 6.6,
+          "netMargin": 37.6,
+          "debtRatio": 19.9,
+          "updatedAt": "2026-07-14T16:05:54.806193",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "9945": {
+      "name": "潤泰新",
+      "industry": "建材營造",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 3.93,
+          "revenue": 393.1,
+          "netIncome": 132.0,
+          "operatingIncome": 69.4,
+          "operatingMargin": 17.7,
+          "fcf": 45.9,
+          "roe": 13.3,
+          "netMargin": 33.6,
+          "debtRatio": 46.6,
+          "updatedAt": "2026-07-14T16:05:56.735395",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 6.06,
+          "revenue": 318.2,
+          "netIncome": 199.0,
+          "operatingIncome": 63.0,
+          "operatingMargin": 19.8,
+          "fcf": 36.3,
+          "roe": 17.8,
+          "netMargin": 62.6,
+          "debtRatio": 42.4,
+          "updatedAt": "2026-07-14T16:05:56.735434",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3005": {
+      "name": "神基",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.43,
+          "revenue": 394.5,
+          "netIncome": 54.6,
+          "operatingIncome": 62.0,
+          "operatingMargin": 15.7,
+          "fcf": 39.4,
+          "roe": 18.6,
+          "netMargin": 13.9,
+          "debtRatio": 41.6,
+          "updatedAt": "2026-07-14T16:05:58.590733",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.26,
+          "revenue": 356.7,
+          "netIncome": 47.0,
+          "operatingIncome": 52.0,
+          "operatingMargin": 14.6,
+          "fcf": 37.6,
+          "roe": 17.4,
+          "netMargin": 13.2,
+          "debtRatio": 41.9,
+          "updatedAt": "2026-07-14T16:05:58.590770",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "9904": {
+      "name": "寶成",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.1,
+          "revenue": 2514.0,
+          "netIncome": 182.5,
+          "operatingIncome": 115.7,
+          "operatingMargin": 4.6,
+          "fcf": 66.0,
+          "roe": 8.4,
+          "netMargin": 7.3,
+          "debtRatio": 37.7,
+          "updatedAt": "2026-07-14T16:06:00.306163",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.44,
+          "revenue": 2638.2,
+          "netIncome": 234.4,
+          "operatingIncome": 159.5,
+          "operatingMargin": 6.0,
+          "fcf": 52.0,
+          "roe": 10.4,
+          "netMargin": 8.9,
+          "debtRatio": 35.9,
+          "updatedAt": "2026-07-14T16:06:00.306178",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3030": {
+      "name": "德律",
+      "industry": "其他電子業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 10.49,
+          "revenue": 84.7,
+          "netIncome": 24.8,
+          "operatingIncome": 29.9,
+          "operatingMargin": 35.3,
+          "fcf": 14.4,
+          "roe": 25.8,
+          "netMargin": 29.3,
+          "debtRatio": 21.0,
+          "updatedAt": "2026-07-14T16:06:02.170666",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.78,
+          "revenue": 63.6,
+          "netIncome": 18.4,
+          "operatingIncome": 20.3,
+          "operatingMargin": 31.9,
+          "fcf": 7.9,
+          "roe": 22.2,
+          "netMargin": 28.9,
+          "debtRatio": 18.4,
+          "updatedAt": "2026-07-14T16:06:02.170683",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8454": {
+      "name": "富邦媒",
+      "industry": "電子商務",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 11.58,
+          "revenue": 1086.7,
+          "netIncome": 30.0,
+          "operatingIncome": 33.5,
+          "operatingMargin": 3.1,
+          "fcf": 13.6,
+          "roe": 30.6,
+          "netMargin": 2.8,
+          "debtRatio": 63.8,
+          "updatedAt": "2026-07-14T16:06:04.103446",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 14.02,
+          "revenue": 1125.6,
+          "netIncome": 34.5,
+          "operatingIncome": 43.0,
+          "operatingMargin": 3.8,
+          "fcf": 47.9,
+          "roe": 34.3,
+          "netMargin": 3.1,
+          "debtRatio": 65.3,
+          "updatedAt": "2026-07-14T16:06:04.103464",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3406": {
+      "name": "玉晶光",
+      "industry": "光電業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 32.84,
+          "revenue": 249.9,
+          "netIncome": 37.1,
+          "operatingIncome": 47.7,
+          "operatingMargin": 19.1,
+          "fcf": 54.7,
+          "roe": 14.0,
+          "netMargin": 14.8,
+          "debtRatio": 39.3,
+          "updatedAt": "2026-07-14T16:06:05.847116",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 38.36,
+          "revenue": 231.9,
+          "netIncome": 43.4,
+          "operatingIncome": 47.6,
+          "operatingMargin": 20.5,
+          "fcf": 92.4,
+          "roe": 17.5,
+          "netMargin": 18.7,
+          "debtRatio": 42.5,
+          "updatedAt": "2026-07-14T16:06:05.847126",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "4919": {
+      "name": "新唐",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -3.97,
+          "revenue": 304.9,
+          "netIncome": -16.6,
+          "operatingIncome": -12.3,
+          "operatingMargin": -4.0,
+          "fcf": -12.8,
+          "roe": -12.7,
+          "netMargin": -5.5,
+          "debtRatio": 56.3,
+          "updatedAt": "2026-07-14T16:06:07.721280",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.52,
+          "revenue": 319.2,
+          "netIncome": 2.2,
+          "operatingIncome": 0.1,
+          "operatingMargin": 0.0,
+          "fcf": 1.3,
+          "roe": 1.4,
+          "netMargin": 0.7,
+          "debtRatio": 48.3,
+          "updatedAt": "2026-07-14T16:06:07.721300",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3006": {
+      "name": "晶豪科",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.87,
+          "revenue": 145.8,
+          "netIncome": 2.4,
+          "operatingIncome": 3.4,
+          "operatingMargin": 2.4,
+          "fcf": 11.1,
+          "roe": 2.4,
+          "netMargin": 1.7,
+          "debtRatio": 39.5,
+          "updatedAt": "2026-07-14T16:06:09.596607",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.8,
+          "revenue": 134.9,
+          "netIncome": 5.0,
+          "operatingIncome": -3.9,
+          "operatingMargin": -2.9,
+          "fcf": -2.9,
+          "roe": 4.9,
+          "netMargin": 3.7,
+          "debtRatio": 41.8,
+          "updatedAt": "2026-07-14T16:06:09.596622",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3042": {
+      "name": "晶技",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.28,
+          "revenue": 133.5,
+          "netIncome": 18.0,
+          "operatingIncome": 20.2,
+          "operatingMargin": 15.2,
+          "fcf": 22.1,
+          "roe": 11.3,
+          "netMargin": 13.5,
+          "debtRatio": 26.5,
+          "updatedAt": "2026-07-14T16:06:11.440054",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 6.52,
+          "revenue": 126.7,
+          "netIncome": 21.4,
+          "operatingIncome": 21.4,
+          "operatingMargin": 16.9,
+          "fcf": 4.0,
+          "roe": 13.0,
+          "netMargin": 16.9,
+          "debtRatio": 25.8,
+          "updatedAt": "2026-07-14T16:06:11.440091",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2845": {
+      "name": "遠東銀",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "3583": {
+      "name": "辛耘",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 17.48,
+          "revenue": 113.7,
+          "netIncome": 11.4,
+          "operatingIncome": 15.8,
+          "operatingMargin": 13.9,
+          "fcf": 2.3,
+          "roe": 17.8,
+          "netMargin": 10.0,
+          "debtRatio": 74.4,
+          "updatedAt": "2026-07-14T16:06:15.155383",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 11.54,
+          "revenue": 96.9,
+          "netIncome": 9.3,
+          "operatingIncome": 11.2,
+          "operatingMargin": 11.5,
+          "fcf": 11.8,
+          "roe": 18.7,
+          "netMargin": 9.6,
+          "debtRatio": 78.9,
+          "updatedAt": "2026-07-14T16:06:15.155402",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2646": {
+      "name": "星宇航空",
+      "industry": "航運業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.08,
+          "revenue": 440.5,
+          "netIncome": 2.7,
+          "operatingIncome": 16.4,
+          "operatingMargin": 3.7,
+          "fcf": -51.3,
+          "roe": 0.9,
+          "netMargin": 0.6,
+          "debtRatio": 77.1,
+          "updatedAt": "2026-07-14T16:06:17.405899",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.55,
+          "revenue": 355.5,
+          "netIncome": 13.2,
+          "operatingIncome": 23.7,
+          "operatingMargin": 6.7,
+          "fcf": -128.4,
+          "roe": 4.4,
+          "netMargin": 3.7,
+          "debtRatio": 74.9,
+          "updatedAt": "2026-07-14T16:06:17.405911",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "7799": {
+      "name": "禾榮科",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -3.29,
+          "revenue": 0.1,
+          "netIncome": -4.8,
+          "operatingIncome": -5.3,
+          "operatingMargin": -5183.6,
+          "fcf": -5.1,
+          "roe": -4.2,
+          "netMargin": -4672.7,
+          "debtRatio": 0.8,
+          "updatedAt": "2026-07-14T16:06:19.477102",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
+    },
+    "2637": {
+      "name": "慧洋-KY",
+      "industry": "航運業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 5.27,
+          "revenue": 169.0,
+          "netIncome": 39.4,
+          "operatingIncome": 40.4,
+          "operatingMargin": 23.9,
+          "fcf": 64.4,
+          "roe": 8.2,
+          "netMargin": 23.3,
+          "debtRatio": 40.7,
+          "updatedAt": "2026-07-14T16:06:21.776595",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 8.08,
+          "revenue": 203.7,
+          "netIncome": 60.3,
+          "operatingIncome": 67.9,
+          "operatingMargin": 33.3,
+          "fcf": 84.3,
+          "roe": 11.5,
+          "netMargin": 29.6,
+          "debtRatio": 42.6,
+          "updatedAt": "2026-07-14T16:06:21.776604",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2455": {
+      "name": "全新",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.96,
+          "revenue": 33.8,
+          "netIncome": 5.5,
+          "operatingIncome": 6.7,
+          "operatingMargin": 19.8,
+          "fcf": 3.0,
+          "roe": 16.6,
+          "netMargin": 16.2,
+          "debtRatio": 29.6,
+          "updatedAt": "2026-07-14T16:06:23.819780",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 3.63,
+          "revenue": 32.4,
+          "netIncome": 6.7,
+          "operatingIncome": 7.2,
+          "operatingMargin": 22.3,
+          "fcf": 10.5,
+          "roe": 20.2,
+          "netMargin": 20.7,
+          "debtRatio": 27.4,
+          "updatedAt": "2026-07-14T16:06:23.819810",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2371": {
+      "name": "大同",
+      "industry": "電機機械",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -5.2,
+          "revenue": 503.8,
+          "netIncome": -112.1,
+          "operatingIncome": 21.4,
+          "operatingMargin": 4.2,
+          "fcf": -0.3,
+          "roe": -20.7,
+          "netMargin": -22.2,
+          "debtRatio": 62.9,
+          "updatedAt": "2026-07-14T16:06:25.878780",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 6.47,
+          "revenue": 474.8,
+          "netIncome": 142.5,
+          "operatingIncome": 117.6,
+          "operatingMargin": 24.8,
+          "fcf": -18.8,
+          "roe": 18.7,
+          "netMargin": 30.0,
+          "debtRatio": 47.4,
+          "updatedAt": "2026-07-14T16:06:25.878807",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2634": {
+      "name": "漢翔",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.78,
+          "revenue": 354.5,
+          "netIncome": 7.3,
+          "operatingIncome": 11.7,
+          "operatingMargin": 3.3,
+          "fcf": -50.5,
+          "roe": 4.1,
+          "netMargin": 2.1,
+          "debtRatio": 66.9,
+          "updatedAt": "2026-07-14T16:06:27.749641",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.3,
+          "revenue": 393.4,
+          "netIncome": 21.7,
+          "operatingIncome": 22.2,
+          "operatingMargin": 5.6,
+          "fcf": -45.2,
+          "roe": 11.9,
+          "netMargin": 5.5,
+          "debtRatio": 63.0,
+          "updatedAt": "2026-07-14T16:06:27.749655",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6949": {
+      "name": "沛爾生醫-創",
+      "industry": "生技醫療業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -7.23,
+          "revenue": 0.3,
+          "netIncome": -4.5,
+          "operatingIncome": -4.7,
+          "operatingMargin": -1487.2,
+          "fcf": -5.0,
+          "roe": -26.7,
+          "netMargin": -1440.5,
+          "debtRatio": 19.8,
+          "updatedAt": "2026-07-14T16:06:29.690762",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": -6.84,
+          "revenue": 0.2,
+          "netIncome": -4.0,
+          "operatingIncome": -4.1,
+          "operatingMargin": -2106.3,
+          "fcf": -4.1,
+          "roe": -30.7,
+          "netMargin": -2012.7,
+          "debtRatio": 26.3,
+          "updatedAt": "2026-07-14T16:06:29.690772",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2486": {
+      "name": "一詮",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.22,
+          "revenue": 60.5,
+          "netIncome": 0.7,
+          "operatingIncome": 1.2,
+          "operatingMargin": 2.0,
+          "fcf": -13.3,
+          "roe": 1.3,
+          "netMargin": 1.2,
+          "debtRatio": 55.7,
+          "updatedAt": "2026-07-14T16:06:31.853766",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.08,
+          "revenue": 54.9,
+          "netIncome": 0.3,
+          "operatingIncome": -0.2,
+          "operatingMargin": -0.4,
+          "fcf": -32.2,
+          "roe": 0.6,
+          "netMargin": 0.5,
+          "debtRatio": 51.1,
+          "updatedAt": "2026-07-14T16:06:31.853784",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2889": {
+      "name": "國票金",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.63,
+          "revenue": 85.9,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 87.9,
+          "updatedAt": "2026-07-14T16:06:33.934291",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.61,
+          "revenue": 82.1,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": 87.7,
+          "updatedAt": "2026-07-14T16:06:33.934305",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8926": {
+      "name": "台汽電",
+      "industry": "油電燃氣業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.45,
+          "revenue": 76.1,
+          "netIncome": 17.9,
+          "operatingIncome": 6.0,
+          "operatingMargin": 7.8,
+          "fcf": 28.0,
+          "roe": 11.3,
+          "netMargin": 23.5,
+          "debtRatio": 48.8,
+          "updatedAt": "2026-07-14T16:06:35.914000",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 1.86,
+          "revenue": 91.3,
+          "netIncome": 13.5,
+          "operatingIncome": 4.4,
+          "operatingMargin": 4.8,
+          "fcf": 9.2,
+          "roe": 8.8,
+          "netMargin": 14.7,
+          "debtRatio": 43.6,
+          "updatedAt": "2026-07-14T16:06:35.914027",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6414": {
+      "name": "樺漢",
+      "industry": "電腦及週邊設備業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 23.26,
+          "revenue": 1422.9,
+          "netIncome": 84.6,
+          "operatingIncome": 56.7,
+          "operatingMargin": 4.0,
+          "fcf": 84.5,
+          "roe": 13.2,
+          "netMargin": 5.9,
+          "debtRatio": 61.1,
+          "updatedAt": "2026-07-14T16:06:38.073003",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 20.04,
+          "revenue": 1463.8,
+          "netIncome": 61.3,
+          "operatingIncome": 52.4,
+          "operatingMargin": 3.6,
+          "fcf": 110.7,
+          "roe": 11.3,
+          "netMargin": 4.2,
+          "debtRatio": 63.1,
+          "updatedAt": "2026-07-14T16:06:38.073024",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2472": {
+      "name": "立隆電",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.72,
+          "revenue": 112.9,
+          "netIncome": 20.1,
+          "operatingIncome": 22.9,
+          "operatingMargin": 20.3,
+          "fcf": 14.4,
+          "roe": 14.5,
+          "netMargin": 17.8,
+          "debtRatio": 24.2,
+          "updatedAt": "2026-07-14T16:06:39.988471",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.01,
+          "revenue": 104.9,
+          "netIncome": 17.1,
+          "operatingIncome": 18.7,
+          "operatingMargin": 17.9,
+          "fcf": 16.4,
+          "roe": 13.9,
+          "netMargin": 16.3,
+          "debtRatio": 26.6,
+          "updatedAt": "2026-07-14T16:06:39.988483",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6451": {
+      "name": "訊芯-KY",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.26,
+          "revenue": 75.3,
+          "netIncome": 0.6,
+          "operatingIncome": 1.6,
+          "operatingMargin": 2.2,
+          "fcf": -25.7,
+          "roe": 0.8,
+          "netMargin": 0.8,
+          "debtRatio": 59.9,
+          "updatedAt": "2026-07-14T16:06:41.877283",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.4,
+          "revenue": 51.9,
+          "netIncome": 0.4,
+          "operatingIncome": -2.3,
+          "operatingMargin": -4.4,
+          "fcf": -5.8,
+          "roe": 0.5,
+          "netMargin": 0.8,
+          "debtRatio": 53.6,
+          "updatedAt": "2026-07-14T16:06:41.877293",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1477": {
+      "name": "聚陽",
+      "industry": "紡織纖維",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 14.65,
+          "revenue": 344.3,
+          "netIncome": 36.7,
+          "operatingIncome": 46.8,
+          "operatingMargin": 13.6,
+          "fcf": 33.5,
+          "roe": 25.9,
+          "netMargin": 10.7,
+          "debtRatio": 40.7,
+          "updatedAt": "2026-07-14T16:06:43.830633",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 16.84,
+          "revenue": 355.2,
+          "netIncome": 41.7,
+          "operatingIncome": 53.0,
+          "operatingMargin": 14.9,
+          "fcf": 39.3,
+          "roe": 28.2,
+          "netMargin": 11.7,
+          "debtRatio": 36.3,
+          "updatedAt": "2026-07-14T16:06:43.830649",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2915": {
+      "name": "潤泰全",
+      "industry": "其他業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.3,
+          "revenue": 24.2,
+          "netIncome": 98.9,
+          "operatingIncome": 1.6,
+          "operatingMargin": 6.5,
+          "fcf": 1.2,
+          "roe": 10.5,
+          "netMargin": 408.8,
+          "debtRatio": 12.3,
+          "updatedAt": "2026-07-14T16:06:46.436037",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 13.0,
+          "revenue": 28.9,
+          "netIncome": 137.4,
+          "operatingIncome": 2.1,
+          "operatingMargin": 7.2,
+          "fcf": -4.5,
+          "roe": 13.1,
+          "netMargin": 474.9,
+          "debtRatio": 10.9,
+          "updatedAt": "2026-07-14T16:06:46.436052",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2458": {
+      "name": "義隆",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 8.54,
+          "revenue": 123.3,
+          "netIncome": 23.1,
+          "operatingIncome": 29.8,
+          "operatingMargin": 24.2,
+          "fcf": 9.4,
+          "roe": 22.1,
+          "netMargin": 18.7,
+          "debtRatio": 32.9,
+          "updatedAt": "2026-07-14T16:06:49.174885",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 9.57,
+          "revenue": 127.0,
+          "netIncome": 25.9,
+          "operatingIncome": 30.7,
+          "operatingMargin": 24.1,
+          "fcf": 19.4,
+          "roe": 25.9,
+          "netMargin": 20.4,
+          "debtRatio": 33.4,
+          "updatedAt": "2026-07-14T16:06:49.174895",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "3035": {
+      "name": "智原",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 2.81,
+          "revenue": 179.9,
+          "netIncome": 7.7,
+          "operatingIncome": 5.5,
+          "operatingMargin": 3.1,
+          "fcf": 7.7,
+          "roe": 5.7,
+          "netMargin": 4.3,
+          "debtRatio": 28.5,
+          "updatedAt": "2026-07-14T16:06:51.078687",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.04,
+          "revenue": 110.6,
+          "netIncome": 10.7,
+          "operatingIncome": 10.7,
+          "operatingMargin": 9.7,
+          "fcf": 27.5,
+          "roe": 8.0,
+          "netMargin": 9.7,
+          "debtRatio": 26.5,
+          "updatedAt": "2026-07-14T16:06:51.078708",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2258": {
+      "name": "鴻華先進-創",
+      "industry": "汽車工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": -2.15,
+          "revenue": 41.5,
+          "netIncome": -37.4,
+          "operatingIncome": -39.4,
+          "operatingMargin": -94.9,
+          "fcf": -33.5,
+          "roe": -28.0,
+          "netMargin": -90.3,
+          "debtRatio": 21.1,
+          "updatedAt": "2026-07-14T16:06:52.896648",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": -1.23,
+          "revenue": 85.2,
+          "netIncome": -21.4,
+          "operatingIncome": -26.8,
+          "operatingMargin": -31.4,
+          "fcf": -37.3,
+          "roe": -12.5,
+          "netMargin": -25.1,
+          "debtRatio": 17.5,
+          "updatedAt": "2026-07-14T16:06:52.896659",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "8028": {
+      "name": "昇陽半導體",
+      "industry": "半導體業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.38,
+          "revenue": 45.1,
+          "netIncome": 7.6,
+          "operatingIncome": 9.7,
+          "operatingMargin": 21.5,
+          "fcf": -17.4,
+          "roe": 14.8,
+          "netMargin": 16.8,
+          "debtRatio": 58.0,
+          "updatedAt": "2026-07-14T16:06:54.752383",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 2.85,
+          "revenue": 35.5,
+          "netIncome": 4.9,
+          "operatingIncome": 5.3,
+          "operatingMargin": 15.1,
+          "fcf": 1.5,
+          "roe": 11.9,
+          "netMargin": 13.9,
+          "debtRatio": 56.9,
+          "updatedAt": "2026-07-14T16:06:54.752400",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2606": {
+      "name": "裕民",
+      "industry": "航運業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.31,
+          "revenue": 155.7,
+          "netIncome": 36.4,
+          "operatingIncome": 37.0,
+          "operatingMargin": 23.8,
+          "fcf": 37.2,
+          "roe": 9.4,
+          "netMargin": 23.4,
+          "debtRatio": 55.5,
+          "updatedAt": "2026-07-14T16:06:56.651175",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 5.54,
+          "revenue": 163.4,
+          "netIncome": 46.7,
+          "operatingIncome": 44.8,
+          "operatingMargin": 27.4,
+          "fcf": 50.3,
+          "roe": 11.5,
+          "netMargin": 28.6,
+          "debtRatio": 54.1,
+          "updatedAt": "2026-07-14T16:06:56.651201",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6472": {
+      "name": "保瑞",
+      "industry": "生技醫療業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 27.15,
+          "revenue": 190.1,
+          "netIncome": 30.5,
+          "operatingIncome": 32.9,
+          "operatingMargin": 17.3,
+          "fcf": 38.3,
+          "roe": 17.4,
+          "netMargin": 16.0,
+          "debtRatio": 60.9,
+          "updatedAt": "2026-07-14T16:06:59.034651",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 38.65,
+          "revenue": 192.5,
+          "netIncome": 40.4,
+          "operatingIncome": 33.8,
+          "operatingMargin": 17.6,
+          "fcf": 5.4,
+          "roe": 26.9,
+          "netMargin": 21.0,
+          "debtRatio": 67.1,
+          "updatedAt": "2026-07-14T16:06:59.034663",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1773": {
+      "name": "勝一",
+      "industry": "化學工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 7.12,
+          "revenue": 115.0,
+          "netIncome": 20.4,
+          "operatingIncome": 23.8,
+          "operatingMargin": 20.7,
+          "fcf": 12.8,
+          "roe": 17.9,
+          "netMargin": 17.8,
+          "debtRatio": 33.2,
+          "updatedAt": "2026-07-14T16:07:01.107781",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 7.21,
+          "revenue": 110.6,
+          "netIncome": 18.0,
+          "operatingIncome": 21.2,
+          "operatingMargin": 19.1,
+          "fcf": 11.0,
+          "roe": 18.5,
+          "netMargin": 16.3,
+          "debtRatio": 37.3,
+          "updatedAt": "2026-07-14T16:07:01.107792",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "6278": {
+      "name": "台表科",
+      "industry": "電子零組件業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 9.39,
+          "revenue": 498.8,
+          "netIncome": 27.5,
+          "operatingIncome": 35.0,
+          "operatingMargin": 7.0,
+          "fcf": 21.9,
+          "roe": 12.0,
+          "netMargin": 5.5,
+          "debtRatio": 55.5,
+          "updatedAt": "2026-07-14T16:07:03.150983",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 9.94,
+          "revenue": 452.9,
+          "netIncome": 29.1,
+          "operatingIncome": 30.1,
+          "operatingMargin": 6.6,
+          "fcf": 13.8,
+          "roe": 12.9,
+          "netMargin": 6.4,
+          "debtRatio": 56.6,
+          "updatedAt": "2026-07-14T16:07:03.151004",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1795": {
+      "name": "美時",
+      "industry": "生技醫療業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 18.13,
+          "revenue": 205.1,
+          "netIncome": 47.2,
+          "operatingIncome": 59.0,
+          "operatingMargin": 28.8,
+          "fcf": 61.6,
+          "roe": 19.8,
+          "netMargin": 23.0,
+          "debtRatio": 77.6,
+          "updatedAt": "2026-07-14T16:07:05.036982",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 19.35,
+          "revenue": 185.8,
+          "netIncome": 50.7,
+          "operatingIncome": 60.2,
+          "operatingMargin": 32.4,
+          "fcf": 58.0,
+          "roe": 23.9,
+          "netMargin": 27.3,
+          "debtRatio": 47.2,
+          "updatedAt": "2026-07-14T16:07:05.036992",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2597": {
+      "name": "潤弘",
+      "industry": "建材營造",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 11.1,
+          "revenue": 314.8,
+          "netIncome": 36.5,
+          "operatingIncome": 42.9,
+          "operatingMargin": 13.6,
+          "fcf": 15.6,
+          "roe": 33.1,
+          "netMargin": 11.6,
+          "debtRatio": 59.1,
+          "updatedAt": "2026-07-14T16:07:07.140975",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 12.29,
+          "revenue": 262.4,
+          "netIncome": 30.0,
+          "operatingIncome": 35.5,
+          "operatingMargin": 13.5,
+          "fcf": 43.2,
+          "roe": 27.8,
+          "netMargin": 11.4,
+          "debtRatio": 56.1,
+          "updatedAt": "2026-07-14T16:07:07.141000",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "2867": {
+      "name": "三商壽",
+      "industry": "金融保險業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 0.2,
+          "revenue": 979.4,
+          "netIncome": 11.8,
+          "operatingIncome": 4.7,
+          "operatingMargin": 0.5,
+          "fcf": null,
+          "roe": 1.1,
+          "netMargin": 1.2,
+          "debtRatio": 93.6,
+          "updatedAt": "2026-07-14T16:07:09.074999",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 0.42,
+          "revenue": 1368.5,
+          "netIncome": 21.8,
+          "operatingIncome": 0.0,
+          "operatingMargin": 0.0,
+          "fcf": null,
+          "roe": 5.3,
+          "netMargin": 1.6,
+          "debtRatio": 97.5,
+          "updatedAt": "2026-07-14T16:07:09.075017",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
+    },
+    "1210": {
+      "name": "大成",
+      "industry": "食品工業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2025",
+          "eps": 4.32,
+          "revenue": 1012.2,
+          "netIncome": 42.9,
+          "operatingIncome": 47.6,
+          "operatingMargin": 4.7,
+          "fcf": -4.2,
+          "roe": 12.1,
+          "netMargin": 4.2,
+          "debtRatio": 53.4,
+          "updatedAt": "2026-07-14T16:07:11.128705",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        },
+        {
+          "year": "2024",
+          "eps": 4.21,
+          "revenue": 1027.5,
+          "netIncome": 44.2,
+          "operatingIncome": 53.4,
+          "operatingMargin": 5.2,
+          "fcf": 37.1,
+          "roe": 12.8,
+          "netMargin": 4.3,
+          "debtRatio": 51.2,
+          "updatedAt": "2026-07-14T16:07:11.128725",
+          "source": "FinMind",
+          "isEstimate": false,
+          "dataType": "真實"
+        }
+      ]
     }
   }
 }
