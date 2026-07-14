@@ -117,7 +117,7 @@ def merge_financial_data(html_path, json_path):
 
 if __name__ == '__main__':
     html_file = 'index.html'
-    json_file = 'financial-data-template.json'
+    json_file = 'financial-data-mops.json'
 
     if merge_financial_data(html_file, json_file):
         print(f"\n更新時間: {datetime.now().isoformat()}")

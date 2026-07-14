@@ -38,8 +38,8 @@
 !us-stocks.json                # 美股數據（本地快照）
 !test-stocks.json              # 測試數據
 !backend.py                    # Flask 後端服務（FinMind API 代理）
-!financial-data-template.json  # 財報數據模板
-!financial-data-complete.json  # 財報數據庫（FinMind 更新）
+!financial-data-complete.json  # 財報數據庫（FinMind 更新，主資料源）
+!financial-data-mops.json      # 財報數據庫（MOPS 更新，FINANCIAL_DB 備援來源）
 !merge-financial-data.py       # 財報數據合併腳本
 !fetch-mops-financials.py      # MOPS 爬蟲腳本
 !finmind-data-fetcher.py       # FinMind 財報更新腳本
