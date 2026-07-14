@@ -34,17 +34,17 @@
 !update-daily-report.js        # 每日更新腳本
 !update-international-markets.js  # 國際市場更新
 !daily-report.json             # 每日報告數據
-!fetch-stock-data.py           # yfinance 數據抓取腳本（完整版）
-!fetch-stock-data-lite.py      # yfinance 數據抓取腳本（簡化版）
 !tw-stocks.json                # 台股數據（本地快照）
 !us-stocks.json                # 美股數據（本地快照）
 !test-stocks.json              # 測試數據
 !backend.py                    # Flask 後端服務（FinMind API 代理）
 !financial-data-template.json  # 財報數據模板
+!financial-data-complete.json  # 財報數據庫（FinMind 更新）
 !merge-financial-data.py       # 財報數據合併腳本
 !fetch-mops-financials.py      # MOPS 爬蟲腳本
-!update-financial-data.py      # 通用財報更新腳本
+!finmind-data-fetcher.py       # FinMind 財報更新腳本
 !generate-market-analysis.py   # 市場分析生成腳本
+!generate-news-highlights.py   # 每日新聞重點生成腳本
 !fetch-market-data.py          # 市場指數抓取腳本
 !market-data.json              # 市場指數數據
 !market-analysis.json          # 市場分析結果
