@@ -1,0 +1,55 @@
+name: 每日自動擴充財報資料庫
+
+on:
+  schedule:
+    # 每天 UTC 14:00 (台北時間 22:00) 執行
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests python-dotenv
+
+      - name: 執行自動擴充
+        run: |
+          python auto-expand-stocks.py
+        env:
+          PYTHONIOENCODING: utf-8
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+
+      - name: Check if Data Changed
+        id: check_changes
+        run: |
+          if git diff --quiet financial-data-complete.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and Push Changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add financial-data-complete.json
+          git commit -m "chore: 每日自動擴充財報資料庫 ($(date '+%Y-%m-%d %H:%M:%S'))"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -43,6 +43,7 @@
 !merge-financial-data.py       # 財報數據合併腳本
 !fetch-mops-financials.py      # MOPS 爬蟲腳本
 !finmind-data-fetcher.py       # FinMind 財報更新腳本
+!auto-expand-stocks.py         # 每日自動擴充財報資料庫腳本(上市+上櫃+興櫃全市場)
 !generate-market-analysis.py   # 市場分析生成腳本
 !generate-news-highlights.py   # 每日新聞重點生成腳本
 !fetch-market-data.py          # 市場指數抓取腳本
