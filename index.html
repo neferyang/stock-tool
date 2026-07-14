@@ -137,9 +137,9 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
     <h1>📊 股票估價分析工具 <span class="vsub">v7.1.0 (全局數據加載修復)</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-      <span>📊 財務數據更新進度 (TWSE 全市場)：</span>
+      <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
       <span style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:8px;font-weight:600;">
-        <span id="update-count">9</span>/<span id="total-count">4,265</span>
+        <span id="update-count">0</span>/<span id="total-count">2,303</span>
         (<span id="update-pct">0.2</span>%)
       </span>
       <span style="display:inline-block;width:80px;height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;">
@@ -181,11 +181,11 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 
 <script>
 // ════════════════════════════════════════════════════════
-// 財務數據更新進度顯示 (基於 TWSE 4,265 支全市場股票)
+// 財務數據更新進度顯示 (基於台股全市場 2,303 支：上市+上櫃+興櫃)
 // ════════════════════════════════════════════════════════
 async function updateProgressDisplay() {
   try {
-    const TWSE_TOTAL = 4265;  // TWSE 全市場股票總數
+    const TWSE_TOTAL = 2303;  // 台股全市場股票總數(上市1089+上櫃891+興櫃355，扣除無交易報價者)
 
     // 嘗試從GitHub Pages加載
     let dataUrl = 'financial-data-complete.json';
