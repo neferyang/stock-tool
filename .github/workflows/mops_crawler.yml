@@ -37,13 +37,7 @@ jobs:
         run: |
           if [ -f financial-data-mops.json ]; then
             echo "✓ MOPS 數據文件已生成"
-            python -c "
-import json
-with open('financial-data-mops.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
-stocks = data.get('stocks', {})
-print(f'✓ 爬蟲成功: {len(stocks)} 支股票有資料')
-"
+            python -c "import json; d=json.load(open('financial-data-mops.json',encoding='utf-8')); print(f'✓ 爬蟲成功: {len(d.get(\"stocks\",{}))} 支股票有資料')"
           else
             echo "⚠ 未生成 MOPS 數據文件"
           fi
