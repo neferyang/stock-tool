@@ -51,7 +51,11 @@ class MOPSCrawler:
             }
             r = self.session.post(f"{API_BASE}/{dataset}", json=body, timeout=TIMEOUT)
             r.raise_for_status()
-            d = r.json()
+            try:
+                d = r.json()
+            except ValueError:
+                print(f"    ✗ {dataset} 非JSON回應 status={r.status_code} body前200字={r.text[:200]!r}")
+                return None
             if d.get("code") == 200 and d.get("result"):
                 return d["result"].get("reportList", [])
             return None
