@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-從 FinMind API 補足 financial-data-complete.json 的歷史財務數據
+從 FinMind API 更新 financial-data-complete.json 的歷史財務數據
 
 設計原則：
   - 正確 API：https://api.finmindtrade.com/api/v4/data
-  - 只填補 data 陣列中為 null 的欄位，保留既有真實數據（不覆蓋）
-  - 全部為真實數據，無推估
-  - 單位：營收/淨利/營業利益 = 億元（FinMind 原始值 ÷ 1e8）；EPS = 元
+  - FinMind 為唯一資料來源：每個年度全覆蓋（含當年），無完整資料則設為 null
+  - 全部為真實數據，無推估、無佔位
+  - 單位：營收/淨利/營業利益/FCF = 億元；EPS = 元；比率 = %
+
+資料集與整合方式：
+  - 損益表 TaiwanStockFinancialStatements：單季值 → 年度加總
+      EPS、Revenue、IncomeAfterTaxes(稅後淨利)、OperatingIncome(營業利益)
+  - 資產負債表 TaiwanStockBalanceSheet：年底餘額 → 取 Q4
+      Equity(權益)、Liabilities(負債)、TotalAssets(資產總額)
+  - 現金流量表 TaiwanStockCashFlowsStatement：累計值 → 取 Q4
+      NetCashInflowFromOperatingActivities(營業現金流)、PropertyAndPlantAndEquipment(資本支出)
+
+衍生指標：
+  netMargin = 稅後淨利 / 營收 × 100
+  operatingMargin = 營業利益 / 營收 × 100
+  roe = 稅後淨利 / 年底權益 × 100
+  debtRatio = 年底負債 / 年底資產 × 100
+  fcf = 營業現金流 + 資本支出（資本支出為負值）
 """
 
 import requests
@@ -17,22 +32,21 @@ import sys
 import os
 from datetime import datetime
 
-# dotenv 為選用：本地開發方便，CI 環境直接用環境變數（無 dotenv 不應崩潰）
+# dotenv 為選用：本地方便，CI 用環境變數（無 dotenv 不應崩潰）
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
     pass
 
-# Windows 編碼修復
 if sys.platform.startswith('win'):
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 API_URL = "https://api.finmindtrade.com/api/v4/data"
 DATA_FILE = "financial-data-complete.json"
-TIMEOUT = 20
-RATE_DELAY = 0.3  # 請求間隔（秒）— 免費版 600 req/hr
-OKU = 1e8         # 億元換算
+TIMEOUT = 25
+RATE_DELAY = 0.4
+OKU = 1e8  # 億元換算
 
 
 class FinMindFetcher:
@@ -40,120 +54,142 @@ class FinMindFetcher:
         self.token = os.getenv('FINMIND_TOKEN', '')
         self.headers = {'Authorization': f'Bearer {self.token}'} if self.token else {}
         if not self.token:
-            print("⚠️  未設定 FINMIND_TOKEN，部分資料集可能受限")
+            print("⚠️  未設定 FINMIND_TOKEN，資料可能受限")
 
-    def fetch_financial_statements(self, stock_code, start_date, end_date):
-        """獲取財務報表（季資料，type/value 長格式）"""
-        params = {
-            "dataset": "TaiwanStockFinancialStatements",
-            "data_id": stock_code,
-            "start_date": start_date,
-            "end_date": end_date,
-        }
+    def _get(self, dataset, code, start, end):
+        params = {"dataset": dataset, "data_id": code, "start_date": start, "end_date": end}
         r = requests.get(API_URL, params=params, headers=self.headers, timeout=TIMEOUT)
         r.raise_for_status()
         d = r.json()
         if d.get('status') != 200:
-            raise RuntimeError(f"API status {d.get('status')}: {d.get('msg')}")
+            raise RuntimeError(f"{dataset} status {d.get('status')}: {d.get('msg')}")
         return d.get('data', [])
 
+    def fetch_all(self, code, start, end):
+        """回傳 (損益表, 資產負債表, 現金流量表) 三組原始資料"""
+        income = self._get("TaiwanStockFinancialStatements", code, start, end)
+        balance = self._get("TaiwanStockBalanceSheet", code, start, end)
+        cashflow = self._get("TaiwanStockCashFlowsStatement", code, start, end)
+        return income, balance, cashflow
+
     @staticmethod
-    def compute_annual(rows):
-        """把季資料整合成年度指標。回傳 { '2023': {eps, revenue, ...}, ... }"""
-        # 依年份 → type → [(date, value)]
-        by_year = {}
+    def _group(rows):
+        """rows → { year: { type: [(date, value), ...] } }"""
+        g = {}
         for r in rows:
-            year = r['date'][:4]
-            by_year.setdefault(year, {}).setdefault(r['type'], []).append((r['date'], r['value']))
+            y = r['date'][:4]
+            g.setdefault(y, {}).setdefault(r['type'], []).append((r['date'], r['value']))
+        return g
 
-        result = {}
-        for year, types in by_year.items():
-            def vals(t):
-                return [v for _, v in types.get(t, [])]
+    def compute_annual(self, income, balance, cashflow):
+        """整合三表，回傳 { '2024': {eps, revenue, ...}, ... }（僅完整年度）"""
+        gi, gb, gc = self._group(income), self._group(balance), self._group(cashflow)
+        years = set(gi) | set(gb) | set(gc)
+        out = {}
 
-            eps_q = vals('EPS')
-            revenue_q = vals('Revenue')
-            net_income_q = vals('IncomeAfterTaxes')
-            op_income_q = vals('OperatingIncome')
+        for y in years:
+            it = gi.get(y, {})
 
-            # 只在當年有完整 4 季資料時才計入年度（避免不完整年度產生錯誤年值）
-            if len(eps_q) < 4 or len(revenue_q) < 4:
+            def isum(t):  # 損益表：單季加總
+                vals = [v for _, v in it.get(t, [])]
+                return sum(vals) if vals else None
+
+            def icount(t):
+                return len(it.get(t, []))
+
+            def last(group, t):  # 取 Q4（最後日期）
+                items = sorted(group.get(y, {}).get(t, []))
+                return items[-1][1] if items else None
+
+            # 至少需 4 季損益表才算完整年度
+            if icount('EPS') < 4 or icount('Revenue') < 4:
                 continue
 
-            eps = round(sum(eps_q), 2)
-            revenue = sum(revenue_q)          # 原始 NTD
-            net_income = sum(net_income_q) if net_income_q else None
-            op_income = sum(op_income_q) if op_income_q else None
+            eps = isum('EPS')
+            revenue = isum('Revenue')
+            net_income = isum('IncomeAfterTaxes')
+            op_income = isum('OperatingIncome')
+
+            equity = last(gb, 'Equity')
+            liab = last(gb, 'Liabilities')
+            total_assets = last(gb, 'TotalAssets')
+
+            ocf = last(gc, 'NetCashInflowFromOperatingActivities')
+            capex = last(gc, 'PropertyAndPlantAndEquipment')
 
             rec = {
-                'eps': eps,
-                'revenue': round(revenue / OKU, 1),
+                'eps': round(eps, 2) if eps is not None else None,
+                'revenue': round(revenue / OKU, 1) if revenue is not None else None,
                 'netIncome': round(net_income / OKU, 1) if net_income is not None else None,
                 'operatingIncome': round(op_income / OKU, 1) if op_income is not None else None,
-                'netMargin': round(net_income / revenue * 100, 1) if (net_income is not None and revenue) else None,
                 'operatingMargin': round(op_income / revenue * 100, 1) if (op_income is not None and revenue) else None,
+                'netMargin': round(net_income / revenue * 100, 1) if (net_income is not None and revenue) else None,
+                'roe': round(net_income / equity * 100, 1) if (net_income is not None and equity) else None,
+                'debtRatio': round(liab / total_assets * 100, 1) if (liab is not None and total_assets) else None,
+                'fcf': round((ocf + capex) / OKU, 1) if (ocf is not None and capex is not None) else None,
             }
-            result[year] = rec
-        return result
+            out[y] = rec
+        return out
+
+
+# 前端 data 條目的財務欄位（全覆蓋這些欄位）
+FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
+              'operatingMargin', 'netMargin', 'roe', 'debtRatio', 'fcf']
 
 
 def update_data_file(fetcher):
-    """讀取 financial-data-complete.json，逐檔補足 null 欄位，寫回"""
     with open(DATA_FILE, 'r', encoding='utf-8-sig') as f:
         db = json.load(f)
 
     stocks = db.get('stocks', {})
     codes = list(stocks.keys())
-    print(f"\n開始補足 {len(codes)} 支股票的歷史財務數據...\n")
+    print(f"\n開始更新 {len(codes)} 支股票（FinMind 全覆蓋）...\n")
 
-    # 補足 FinMind 可填的欄位（ROE/debtRatio/fcf 需資產負債表與現金流量表，本腳本不處理 → 保持原值）
-    FILLABLE = ['eps', 'revenue', 'netIncome', 'operatingIncome', 'netMargin', 'operatingMargin']
-
-    filled_count = 0
     updated_stocks = 0
     failed = 0
 
     for i, code in enumerate(codes, 1):
         stock = stocks[code]
         data_arr = stock.get('data', [])
-        years_in_file = [str(d.get('year')) for d in data_arr]
-        if not years_in_file:
+        years = [str(d.get('year')) for d in data_arr if str(d.get('year')).isdigit()]
+        if not years:
             continue
 
         print(f"[{i}/{len(codes)}] {code} {stock.get('name','')}...", end=" ", flush=True)
 
         try:
-            yrs = [int(y) for y in years_in_file if str(y).isdigit()]
-            start = f"{min(yrs)}-01-01"
-            end = f"{max(yrs)}-12-31"
-            rows = fetcher.fetch_financial_statements(code, start, end)
-            annual = fetcher.compute_annual(rows)
+            yrs = [int(y) for y in years]
+            start, end = f"{min(yrs)}-01-01", f"{max(yrs)}-12-31"
+            income, balance, cashflow = fetcher.fetch_all(code, start, end)
+            annual = fetcher.compute_annual(income, balance, cashflow)
 
-            stock_changed = False
+            now = datetime.now().isoformat()
+            changed = False
             for entry in data_arr:
                 yr = str(entry.get('year'))
-                if yr not in annual:
-                    continue
-                src = annual[yr]
-                entry_changed = False
-                for key in FILLABLE:
-                    # 只填補目前為 null/缺漏的欄位，不覆蓋既有真實值
-                    if entry.get(key) is None and src.get(key) is not None:
-                        entry[key] = src[key]
-                        filled_count += 1
-                        entry_changed = True
-                if entry_changed:
-                    entry['updatedAt'] = datetime.now().isoformat()
+                src = annual.get(yr)
+                if src:
+                    # 全覆蓋：用 FinMind 真實值取代所有財務欄位
+                    for k in FIN_FIELDS:
+                        entry[k] = src.get(k)
+                    entry['updatedAt'] = now
                     entry['source'] = 'FinMind'
                     entry['isEstimate'] = False
                     entry['dataType'] = '真實'
-                    stock_changed = True
+                    changed = True
+                else:
+                    # 該年度無完整真實資料 → 全部設為 null（不留佔位）
+                    for k in FIN_FIELDS:
+                        entry[k] = None
+                    entry['source'] = None
+                    entry['dataType'] = '無資料'
 
-            if stock_changed:
+            if changed:
                 updated_stocks += 1
-                print("✅ 已補足")
+                got = [y for y in years if y in annual]
+                print(f"✅ {','.join(sorted(got, reverse=True))}")
             else:
-                print("－ 無新增")
+                print("－ 無真實資料")
 
         except Exception as e:
             failed += 1
@@ -161,23 +197,21 @@ def update_data_file(fetcher):
 
         time.sleep(RATE_DELAY)
 
-    # 更新頂層元數據
     db['updatedAt'] = datetime.now().isoformat()
+    db['source'] = 'FinMind API'
 
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(db, f, ensure_ascii=False, indent=2)
 
     print(f"\n{'='*60}")
-    print(f"完成！更新股票: {updated_stocks}, 補足欄位: {filled_count}, 失敗: {failed}")
+    print(f"完成！更新股票: {updated_stocks}, 失敗: {failed}")
     print(f"{'='*60}")
-    return filled_count
 
 
 def main():
     print("=" * 60)
-    print("FinMind 財務數據補足工具（更新 financial-data-complete.json）")
+    print("FinMind 財務數據更新（全覆蓋 financial-data-complete.json）")
     print("=" * 60)
-
     fetcher = FinMindFetcher()
     update_data_file(fetcher)
 
