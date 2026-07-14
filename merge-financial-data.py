@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 合併財報數據到 index.html
-從 financial-data-template.json 讀取，更新 index.html 的 FINANCIAL_DB
+從 financial-data-mops.json 讀取，更新 index.html 的 FINANCIAL_DB
 """
 
 import json
