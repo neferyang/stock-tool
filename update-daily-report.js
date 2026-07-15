@@ -94,6 +94,36 @@ function buildDisplayStr(data) {
   return `${priceStr}（${date}，${arrow}${Math.abs(changePct).toFixed(2)}%）`;
 }
 
+// 從既有 items 文字中解析出資料日期（格式如「道瓊：52,508（07/14，▲0.02%）」→ 07/14）
+function extractExistingDate(items) {
+  if (!items || !items.length) return null;
+  const m = String(items[0]).match(/（(\d{2}\/\d{2})，/);
+  return m ? m[1] : null;
+}
+
+// MM/DD 比較（同年度內足夠；跨年時 12/31 -> 01/01 會誤判為退步，
+// 故僅在月份接近時才比較，跨年直接放行）
+function isOlderThan(newDate, oldDate) {
+  if (!newDate || !oldDate) return false;
+  const [nm, nd] = newDate.split('/').map(Number);
+  const [om, od] = oldDate.split('/').map(Number);
+  if (Math.abs(nm - om) > 6) return false;  // 跨年，放行
+  return (nm < om) || (nm === om && nd < od);
+}
+
+// 防資料退步：yfinance 的 Yahoo 資料源不穩定，同一筆資料時有時無
+// （實測 ^DJI 的 07/14 收盤在 UTC 08:04 有值 52,508，但數小時後同一筆變成 NaN，
+//   經 dropna 濾除後只會取到 07/13，導致早報上已正確的資料被較舊的覆蓋）
+function shouldUpdate(market, newItems) {
+  const newDate = extractExistingDate(newItems);
+  const oldDate = extractExistingDate(market.items);
+  if (isOlderThan(newDate, oldDate)) {
+    console.log(`⏭️  ${market.name} 跳過：新資料(${newDate})比現有(${oldDate})舊，保留原值`);
+    return false;
+  }
+  return true;
+}
+
 function updateMarkets(markets, indices) {
   if (!markets || !Array.isArray(markets)) return;
 
@@ -109,7 +139,7 @@ function updateMarkets(markets, indices) {
       if (dji) items.push(`道瓊：${buildDisplayStr(dji)}`);
       if (sp) items.push(`S&P 500：${buildDisplayStr(sp)}`);
       if (nasdaq) items.push(`那斯達克：${buildDisplayStr(nasdaq)}`);
-      if (items.length > 0) {
+      if (items.length > 0 && shouldUpdate(market, items)) {
         market.items = items;
         console.log(`✅ 美國股市更新 (${items.length} 項)`);
       }
@@ -118,19 +148,28 @@ function updateMarkets(markets, indices) {
     // 日本
     if (name.includes('日經') || name.includes('日本')) {
       const d = findIndexData(indices, ['日經', 'N225', 'JP']);
-      if (d) { market.items = [`日經225：${buildDisplayStr(d)}`]; console.log('✅ 日經225 更新'); }
+      if (d) {
+        const items = [`日經225：${buildDisplayStr(d)}`];
+        if (shouldUpdate(market, items)) { market.items = items; console.log('✅ 日經225 更新'); }
+      }
     }
 
     // 台灣
     if (name.includes('台灣') || name.includes('台股')) {
       const d = findIndexData(indices, ['台灣加權', 'TWII', 'TW']);
-      if (d) { market.items = [`台灣加權指數：${buildDisplayStr(d)}`]; console.log('✅ 台灣加權指數更新'); }
+      if (d) {
+        const items = [`台灣加權指數：${buildDisplayStr(d)}`];
+        if (shouldUpdate(market, items)) { market.items = items; console.log('✅ 台灣加權指數更新'); }
+      }
     }
 
     // 黃金
     if (name.includes('黃金') || name.includes('商品')) {
       const d = findIndexData(indices, ['黃金', 'GOLD', 'GC=F']);
-      if (d) { market.items = [`黃金：${buildDisplayStr(d)}`]; console.log('✅ 黃金更新'); }
+      if (d) {
+        const items = [`黃金：${buildDisplayStr(d)}`];
+        if (shouldUpdate(market, items)) { market.items = items; console.log('✅ 黃金更新'); }
+      }
     }
 
     // 印度
@@ -140,7 +179,7 @@ function updateMarkets(markets, indices) {
       const items = [];
       if (sensex) items.push(`SENSEX：${buildDisplayStr(sensex)}`);
       if (nifty) items.push(`NIFTY 50：${buildDisplayStr(nifty)}`);
-      if (items.length > 0) { market.items = items; console.log('✅ 印度市場更新'); }
+      if (items.length > 0 && shouldUpdate(market, items)) { market.items = items; console.log('✅ 印度市場更新'); }
     }
 
     // 註：越南 VN-Index 已移除。yfinance 無任何可用 ticker
