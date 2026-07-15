@@ -227,8 +227,13 @@ def main():
     print("FinMind 財務數據更新（全覆蓋 financial-data-complete.json）")
     print("=" * 60)
     fetcher = FinMindFetcher()
+    # 無 token 直接中止：FinMind 無 token 會全數擋下，靜默跑完會誤判為成功
+    if not fetcher.token:
+        print("❌ 未設定 FINMIND_TOKEN，中止（請確認 GitHub Secrets 已設定 FINMIND_TOKEN）")
+        return False
     update_data_file(fetcher)
+    return True
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(0 if main() else 1)

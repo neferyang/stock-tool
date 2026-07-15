@@ -160,6 +160,11 @@ def main():
     spec.loader.exec_module(fm)
     fetcher = fm.FinMindFetcher()
 
+    # 無 token 直接中止：避免靜默跑完卻一支都沒抓到，還把空骨架寫進資料庫
+    if not fetcher.token:
+        print("❌ 未設定 FINMIND_TOKEN，中止（請確認 GitHub Secrets 已設定 FINMIND_TOKEN）")
+        return False
+
     success, nodata, failed = 0, 0, 0
     for i, (code, info) in enumerate(batch, 1):
         entry = db["stocks"][code]
@@ -188,8 +193,14 @@ def main():
                 print("無資料")
         except Exception as ex:
             failed += 1
+            # 抓取失敗(API錯誤/額度)不留空骨架污染資料庫，下次執行時重新納入候選
+            db["stocks"].pop(code, None)
             print(f"錯誤: {ex}")
         time.sleep(0.2)
+
+    if success == 0 and failed > 0:
+        print(f"\n❌ {failed} 支全數抓取失敗，未寫入任何資料（可能為 API 額度或 token 問題）")
+        return False
 
     db["updatedAt"] = datetime.now().isoformat()
     total = len(db["stocks"])
