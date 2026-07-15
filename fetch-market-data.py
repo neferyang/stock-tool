@@ -6,6 +6,7 @@
 """
 
 import yfinance as yf
+import requests
 import json
 from datetime import datetime, timedelta
 import pytz
@@ -16,6 +17,8 @@ if sys.stdout.encoding != 'utf-8':
 
 # 需要抓取的市場指數
 # tz: 各交易所本地時區（用於正確顯示交易日期）
+# 註：台股改用 TWSE 官方 API（見 fetch_taiex），因 yfinance 的 ^TWII 資料常缺交易日
+#     越南 VN-Index 已移除：yfinance 無任何可用 ticker（^VNINDEX/VNINDEX.VN/^VNI/VN30.VN 實測皆無資料）
 INDICES = {
     '^DJI':    {'name': '道瓊',          'group': 'US',   'tz': 'America/New_York'},
     '^GSPC':   {'name': 'S&P 500',       'group': 'US',   'tz': 'America/New_York'},
@@ -23,10 +26,52 @@ INDICES = {
     '^N225':   {'name': '日經225',        'group': 'JP',   'tz': 'Asia/Tokyo'},
     '^BSESN':  {'name': 'SENSEX',        'group': 'IN',   'tz': 'Asia/Kolkata'},
     '^NSEI':   {'name': 'NIFTY 50',      'group': 'IN',   'tz': 'Asia/Kolkata'},
-    '^TWII':   {'name': '台灣加權指數',   'group': 'TW',   'tz': 'Asia/Taipei'},
     'GC=F':    {'name': '黃金',          'group': 'GOLD', 'tz': 'America/New_York'},
-    'VNI':     {'name': '越南 VN-Index', 'group': 'VN',   'tz': 'Asia/Ho_Chi_Minh'},
 }
+
+
+def fetch_taiex():
+    """
+    台股加權指數改用 TWSE 官方 API（FMTQIK）
+    原因：yfinance 的 ^TWII 會缺漏交易日（實測 2026/07/14 台股有交易且大跌642點，
+          但 yfinance 完全沒有該筆資料，導致早報顯示過期且方向相反的數據）
+    """
+    try:
+        r = requests.get('https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK',
+                         headers={'User-Agent': 'Mozilla/5.0'}, timeout=15)
+        r.raise_for_status()
+        rows = r.json()
+        if not rows:
+            print('[WARN] 台灣加權指數: TWSE API 無數據')
+            return None
+
+        latest = rows[-1]
+        close = float(latest['TAIEX'].replace(',', ''))
+        change = float(latest['Change'].replace(',', ''))
+        prev_close = close - change
+        change_pct = (change / prev_close * 100) if prev_close else 0
+        arrow = '▲' if change >= 0 else '▼'
+
+        # 民國年日期 1150714 -> 07/14
+        roc = latest['Date']
+        date_str = f'{roc[3:5]}/{roc[5:7]}'
+
+        result = {
+            'name': '台灣加權指數',
+            'group': 'TW',
+            'price': round(close, 2),
+            'change': round(change, 2),
+            'changePct': round(change_pct, 2),
+            'arrow': arrow,
+            'date': date_str,
+            'displayStr': f'{close:,.0f}（{date_str}，{arrow}{abs(change_pct):.2f}%）'
+        }
+        print(f'[OK] 台灣加權指數: {close:,.0f} ({arrow}{abs(change_pct):.2f}%) [TWSE官方]')
+        return result
+
+    except Exception as e:
+        print(f'[WARN] 台灣加權指數 (TWSE API): {e}')
+        return None
 
 def fetch_index(symbol, info):
     try:
@@ -36,6 +81,13 @@ def fetch_index(symbol, info):
 
         if hist.empty:
             print(f'[WARN] {info["name"]} ({symbol}): 無數據')
+            return None
+
+        # 排除 Close 為 NaN 的列：yfinance 在盤前/盤中常回傳一筆空資料，
+        # 若不濾掉會算出 nan 並寫進 JSON（實測美股在美東盤前抓取時全為 nan）
+        hist = hist.dropna(subset=['Close'])
+        if hist.empty:
+            print(f'[WARN] {info["name"]} ({symbol}): 濾除NaN後無有效數據')
             return None
 
         # 過濾掉今天尚未收盤的資料：
@@ -107,6 +159,11 @@ def main():
         if data:
             results[symbol] = data
 
+    # 台股用官方 API 單獨處理
+    taiex = fetch_taiex()
+    if taiex:
+        results['^TWII'] = taiex
+
     # 儲存結果
     output = {
         'updatedAt': datetime.utcnow().isoformat() + 'Z',
@@ -117,7 +174,7 @@ def main():
     with open('market-data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f'\n=== 完成：{len(results)}/{len(INDICES)} 個指數已獲取 ===')
+    print(f'\n=== 完成：{len(results)}/{len(INDICES) + 1} 個指數已獲取 ===')  # +1 為台股(官方API另外抓)
     print(f'輸出：market-data.json')
 
 if __name__ == '__main__':

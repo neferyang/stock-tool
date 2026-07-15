@@ -1,0 +1,86 @@
+{
+  "updatedAt": "2026-07-15T08:18:11.487996Z",
+  "indices": {
+    "^DJI": {
+      "name": "道瓊",
+      "group": "US",
+      "price": 52498.64,
+      "change": -138.37,
+      "changePct": -0.26,
+      "arrow": "▼",
+      "date": "07/13",
+      "displayStr": "52,499（07/13，▼0.26%）"
+    },
+    "^GSPC": {
+      "name": "S&P 500",
+      "group": "US",
+      "price": 7515.34,
+      "change": -60.05,
+      "changePct": -0.79,
+      "arrow": "▼",
+      "date": "07/13",
+      "displayStr": "7,515（07/13，▼0.79%）"
+    },
+    "^IXIC": {
+      "name": "那斯達克",
+      "group": "US",
+      "price": 25873.18,
+      "change": -408.43,
+      "changePct": -1.55,
+      "arrow": "▼",
+      "date": "07/13",
+      "displayStr": "25,873（07/13，▼1.55%）"
+    },
+    "^N225": {
+      "name": "日經225",
+      "group": "JP",
+      "price": 68751.51,
+      "change": 1508.78,
+      "changePct": 2.24,
+      "arrow": "▲",
+      "date": "07/15",
+      "displayStr": "68,752（07/15，▲2.24%）"
+    },
+    "^BSESN": {
+      "name": "SENSEX",
+      "group": "IN",
+      "price": 77152.62,
+      "change": -463.78,
+      "changePct": -0.6,
+      "arrow": "▼",
+      "date": "07/15",
+      "displayStr": "77,153（07/15，▼0.60%）"
+    },
+    "^NSEI": {
+      "name": "NIFTY 50",
+      "group": "IN",
+      "price": 24063.4,
+      "change": -147.6,
+      "changePct": -0.61,
+      "arrow": "▼",
+      "date": "07/15",
+      "displayStr": "24,063（07/15，▼0.61%）"
+    },
+    "GC=F": {
+      "name": "黃金",
+      "group": "GOLD",
+      "price": 4028.1,
+      "change": -33.0,
+      "changePct": -0.81,
+      "arrow": "▼",
+      "date": "07/15",
+      "displayStr": "4,028（07/15，▼0.81%）"
+    },
+    "^TWII": {
+      "name": "台灣加權指數",
+      "group": "TW",
+      "price": 44737.95,
+      "change": -642.57,
+      "changePct": -1.42,
+      "arrow": "▼",
+      "date": "07/14",
+      "displayStr": "44,738（07/14，▼1.42%）"
+    }
+  },
+  "count": 8
+}

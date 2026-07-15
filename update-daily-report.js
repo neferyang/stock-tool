@@ -143,11 +143,9 @@ function updateMarkets(markets, indices) {
       if (items.length > 0) { market.items = items; console.log('✅ 印度市場更新'); }
     }
 
-    // 越南
-    if (name.includes('越南') || name.includes('東南亞')) {
-      const d = findIndexData(indices, ['越南', 'VN']);
-      if (d) { market.items = [`越南 VN-Index：${buildDisplayStr(d)}`]; console.log('✅ 越南市場更新'); }
-    }
+    // 註：越南 VN-Index 已移除。yfinance 無任何可用 ticker
+    //（^VNINDEX / VNINDEX.VN / ^VNI / VN30.VN / VNI 實測皆無資料），
+    // 先前因抓不到資料而不更新 items，導致顯示從 2026/06 沿用至今的過期死值。
   }
 }
 
@@ -165,9 +163,11 @@ async function main() {
   // 版本號保持不變（自動執行不遞增，只在功能更新時手動改）
   // reportData.version = '2.0.0';  // 保留此行供手動編輯
 
-  // 時間更新（UTC+8 台北）
+  // 時間更新（台北時區）
+  // 註：原本寫死 now.getTime() + 8h，只在 UTC 環境(GitHub runner)正確；
+  //     本地(已是UTC+8)執行會變成 UTC+16 而算出隔天日期。改用時區轉換，任何環境皆正確。
   const now = new Date();
-  const twhTime = new Date(now.getTime() + 8 * 60 * 60 * 1000);
+  const twhTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Taipei' }));
   reportData.lastUpdated = now.toISOString();
   reportData.updateSource = 'GitHub Actions (yfinance)';
 
