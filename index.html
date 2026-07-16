@@ -82,6 +82,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .health-summary{margin-top:10px;padding:10px 12px;background:#f9fafb;border-radius:8px;border-left:3px solid}
 .health-summary-title{font-weight:700;margin-bottom:4px}
 .health-summary-desc{font-size:.8rem;color:#666;line-height:1.4}
+.trend-chart-box{position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)}
 .vd.sell{border-color:var(--red);background:#fff1f2}
 .vdtit{font-weight:700;font-size:1.1rem;margin-bottom:6px}.vdbod{font-size:.875rem;line-height:1.8}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
@@ -129,6 +130,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .health-card{padding:14px}
   .health-grid{grid-template-columns:repeat(2,1fr);gap:8px}
   .health-metric{padding:10px}
+  .trend-chart-box{height:240px}
 }
 
 @media(max-width:480px){
@@ -146,6 +148,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .health-metric-value{font-size:1.15rem}
   .health-metric-level{font-size:.7rem}
   .health-metric-desc{font-size:.65rem}
+  .trend-chart-box{height:210px}
 }
 </style>
 </head>
@@ -159,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.8.0',
+  version: '8.9.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26916,7 +26919,7 @@ ${latestFinancial && latestFinancial.roe !== undefined ? (() => {
 `; })() : ''}
 
 ${financialTrend.length > 0 ? `
-<div class="sec"><div class="st2">📈 5 年財報趨勢</div><div style="position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)"><canvas id="fc" style="max-height:300px"></canvas></div></div>
+<div class="sec"><div class="st2">📈 5 年財報趨勢</div><div class="trend-chart-box"><canvas id="fc"></canvas></div></div>
 
 <div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
