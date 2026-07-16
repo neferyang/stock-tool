@@ -1,14 +1,13 @@
-name: MOPS 爬蟲 - 定期更新 EPS 數據
+name: 官方財報交叉驗證 - TWSE/TPEx OpenAPI
 
 on:
-  # 排程已停用（2026-07-16）：MOPS 官方 API 持續回應空值/逾時，判斷是對
-  # GitHub Actions 的 IP 做了反爬蟲阻擋，自 6/8 起排程執行僅成功過1次。
-  # 主要資料源 FinMind（update-financial-data.yml）運作正常不受影響，
-  # 此腳本原本只是備援/交叉驗證來源。之後若有更好的繞過方案再重新啟用。
-  # schedule:
-  #   - cron: '0 6 * * 1'
+  # 每週一早晨 6:00 UTC (台灣時間 14:00)
+  # 2026-07-16：原本打 mops.twse.com.tw/mops/api 被反爬蟲阻擋（連續失敗超過
+  # 1個月），改用 TWSE/TPEx OpenAPI 批次資料集重寫（見 fetch-mops-financials.py）
+  schedule:
+    - cron: '0 6 * * 1'
 
-  # 手動觸發（保留，可隨時測試是否恢復）
+  # 手動觸發
   workflow_dispatch:
 
 permissions:
@@ -32,17 +31,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: 運行 MOPS 爬蟲(備援/交叉驗證來源)
+      - name: 抓取 TWSE/TPEx 官方財報（交叉驗證來源）
         run: |
           python fetch-mops-financials.py
 
       - name: 驗證數據
         run: |
           if [ -f financial-data-mops.json ]; then
-            echo "✓ MOPS 數據文件已生成"
-            python -c "import json; d=json.load(open('financial-data-mops.json',encoding='utf-8')); print(f'✓ 爬蟲成功: {len(d.get(\"stocks\",{}))} 支股票有資料')"
+            echo "✓ 資料檔已生成"
+            python -c "import json; d=json.load(open('financial-data-mops.json',encoding='utf-8')); print(f'✓ 取得 {len(d.get(\"stocks\",{}))} 支股票全年度資料')"
           else
-            echo "⚠ 未生成 MOPS 數據文件"
+            echo "⚠ 未生成資料檔"
           fi
 
       - name: 合併進 FINANCIAL_DB 備援
@@ -58,12 +57,12 @@ jobs:
           if git diff --cached --quiet; then
             echo "無變更"
           else
-            git commit -m "chore: MOPS 備援數據更新 ($(date '+%Y-%m-%d %H:%M:%S'))"
+            git commit -m "chore: 官方財報交叉驗證資料更新 ($(date '+%Y-%m-%d %H:%M:%S'))"
             git push
           fi
 
       - name: 發送通知
         if: always()
         run: |
-          echo "✓ MOPS 爬蟲運行完成"
+          echo "✓ 官方財報交叉驗證運行完成"
           echo "時間: $(date)"
