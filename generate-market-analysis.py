@@ -202,7 +202,7 @@ def load_market_data():
 
 
 def find_price_for_market(indices, market_key):
-    group_map = {'US': '^DJI', 'JP': '^N225', 'TW': '^TWII', 'GOLD': 'GC=F', 'IN': '^BSESN', 'VN': 'VNI'}
+    group_map = {'US': '^DJI', 'JP': '^N225', 'TW': '^TWII', 'GOLD': 'GC=F', 'IN': '^BSESN', 'VN': '^VNINDEX.VN'}
     symbol = group_map.get(market_key)
     return indices.get(symbol) if symbol else None
 

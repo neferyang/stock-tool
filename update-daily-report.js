@@ -182,9 +182,14 @@ function updateMarkets(markets, indices) {
       if (items.length > 0 && shouldUpdate(market, items)) { market.items = items; console.log('✅ 印度市場更新'); }
     }
 
-    // 註：越南 VN-Index 已移除。yfinance 無任何可用 ticker
-    //（^VNINDEX / VNINDEX.VN / ^VNI / VN30.VN / VNI 實測皆無資料），
-    // 先前因抓不到資料而不更新 items，導致顯示從 2026/06 沿用至今的過期死值。
+    // 越南（正確 ticker 為 ^VNINDEX.VN，先前漏了開頭的 ^ 才誤判無資料）
+    if (name.includes('越南') || name.includes('VN')) {
+      const vnindex = findIndexData(indices, ['VN-Index', 'VN']);
+      if (vnindex) {
+        const items = [`VN-Index：${buildDisplayStr(vnindex)}`];
+        if (shouldUpdate(market, items)) { market.items = items; console.log('✅ 越南市場更新'); }
+      }
+    }
   }
 }
 

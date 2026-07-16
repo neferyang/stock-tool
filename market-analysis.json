@@ -1,54 +1,56 @@
 {
-  "updatedAt": "2026-06-22T01:45:32.371428Z",
+  "updatedAt": "2026-07-16T02:35:50.870346Z",
   "markets": {
     "US": {
       "label": "美國股市",
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。",
       "headlines": [
-        "S&P 500 Futures Up In Premarket Trading; ACM Research, Mercury Systems Lead",
-        "Dow Jones futures ease as market mood remains cautious",
-        "芝加哥商品交易所將推出新的現金結算微型E-mini標普500指數和納斯達克100指數期權"
+        "This Powerful Stock-market Momentum Trade Has Hit a Wall After Seeing Biggest Unwind Since 2001",
+        "Dow Jones Industrial Average sits out the disinflation party",
+        "「巴菲特指標」飆破 233% 創新高，股神驚呼：從沒看過人們這麼愛賭"
       ]
     },
     "JP": {
       "label": "日經225",
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。",
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。",
       "headlines": [
         "6月19日【今日投資策略】",
-        "6月18日【今日投資策略】",
-        "後場日經指數漲幅擴大至844點 半導體股領漲 東電與松下控股買盤延續"
+        "1489ETF數據：股利、報酬率(TSE:1489)",
+        "Asian markets trade mixed; Japan's Nikkei 225 rally 1%, while Kospi slips on profit-taking"
       ]
     },
     "TW": {
       "label": "台灣加權指數",
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。",
       "headlines": [
-        "外資台指期淨空單近7萬口　加碼主動ETF記憶體金融股",
-        "看懂華爾街的冒險與避險 外資7萬口空單壓境的啟示：別讓投資在多頭裡裸奔",
-        "TWA00 加權指數- 2026年6月5日週五台股盤前觀察- 股市爆料同學會"
+        "5天提款台股4057億⋯外資撤資了嗎？外資手上的彈藥庫不是只看買賣超？！一文看懂「外資淨匯入/匯出」關鍵密碼｜看圖說股市",
+        "TWA00 加權指數- 2026年6月5日週五台股盤前觀察- 股市爆料同學會",
+        "6月26日盤前／升息預期再起 中東再添變數 台股受制外資籌碼面壓抑"
       ]
     },
     "GOLD": {
       "label": "黃金",
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。",
       "headlines": [
-        "COMEX黃金 概述",
-        "Gold price extends selloff as Fed repricing lifts USD and yields",
-        "微型黃金 概述"
+        "Gold drifts higher above $4,050 as US PPI unexpectedly fell in June",
+        "U.S CPI Data Released – June Inflation Rate Falls to 3.5%",
+        "Fed’s Williams: June CPI consistent with progress on inflation"
       ]
     },
     "IN": {
       "label": "印度",
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。",
-      "headlines": []
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。",
+      "headlines": [
+        "Stocks to watch: Cochin Shipyard, Premier Energies, ideaForge Tech among shares in focus today; check list here"
+      ]
     },
     "VN": {
       "label": "越南 VN-Index",
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。",
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。",
       "headlines": [
         "越南股市持續擴張 新興券商強勢崛起 | 熱門亮點 | 商情",
         "越南股市[VNI]",
-        "VNINDEX指數圖表和行情"
+        "NAB股價和圖表 — HOSE:NAB"
       ]
     }
   }
