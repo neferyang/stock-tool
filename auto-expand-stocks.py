@@ -154,13 +154,14 @@ def main():
                 "operatingMargin": None, "fcf": None, "roe": None, "netMargin": None, "debtRatio": None,
                 "updatedAt": None, "source": None, "isEstimate": False, "dataType": "待更新"}
 
+    this_year = datetime.now().year
     for code, info in batch:
         db["stocks"][code] = {
             "name": info["name"],
             "industry": info["industry"],
             "priority": 3,
             "priority_name": "一般",
-            "data": [blank_year(y) for y in (2025, 2024, 2023, 2022, 2021)],
+            "data": [blank_year(y) for y in range(this_year, this_year - 6, -1)],
         }
 
     # 匯入 finmind-data-fetcher.py 的抓取邏輯，只對新增的這批打 API

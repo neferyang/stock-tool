@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.10.0',
+  version: '8.11.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26417,7 +26417,9 @@ function calcFinancialTrend(data) {
       eps: { val: curr.eps, growth: epsGrowth },
       roe: { val: curr.roe },  // 只顯示值，不顯示年增率（已是百分比）
       netMargin: { val: curr.netMargin },  // 只顯示值，不顯示年增率（已是百分比）
-      debtRatio: { val: curr.debtRatio }   // 只顯示值
+      debtRatio: { val: curr.debtRatio },  // 只顯示值
+      isEstimate: !!curr.isEstimate,
+      partialQuarters: curr.partialQuarters || null
     });
   }
 
@@ -26439,10 +26441,15 @@ function renderFinancialChart(financialData){
 
   // 準備數據（從新到舊反轉為舊到新）
   const data = [...financialData].reverse();
-  const years = data.map(d => d.year);
+  const years = data.map(d => d.isEstimate ? d.year + '(推估)' : d.year);
   const eps = data.map(d => d.eps.val);
   const roe = data.map(d => d.roe.val);
   const margin = data.map(d => d.netMargin.val);
+
+  // 推估年度用虛線連接、菱形標記，跟前面的真實年度做視覺區分
+  const estimatePointStyle = (c) => (data[c.dataIndex] && data[c.dataIndex].isEstimate) ? 'rectRot' : 'circle';
+  const estimatePointRadius = (c) => (data[c.dataIndex] && data[c.dataIndex].isEstimate) ? 6 : 3;
+  const estimateSegmentDash = (c) => (data[c.p1DataIndex] && data[c.p1DataIndex].isEstimate) ? [6, 4] : undefined;
 
   fchart = new Chart(ctx.getContext('2d'), {
     type: 'line',
@@ -26457,7 +26464,10 @@ function renderFinancialChart(financialData){
           yAxisID: 'y',
           borderWidth: 2,
           fill: true,
-          tension: 0.4
+          tension: 0.4,
+          pointStyle: estimatePointStyle,
+          pointRadius: estimatePointRadius,
+          segment: { borderDash: estimateSegmentDash }
         },
         {
           label: 'ROE %',
@@ -26467,7 +26477,10 @@ function renderFinancialChart(financialData){
           yAxisID: 'y1',
           borderWidth: 2,
           fill: false,
-          tension: 0.4
+          tension: 0.4,
+          pointStyle: estimatePointStyle,
+          pointRadius: estimatePointRadius,
+          segment: { borderDash: estimateSegmentDash }
         },
         {
           label: '淨利率 %',
@@ -26478,6 +26491,8 @@ function renderFinancialChart(financialData){
           borderWidth: 2,
           fill: false,
           tension: 0.4,
+          pointStyle: estimatePointStyle,
+          pointRadius: estimatePointRadius,
           borderDash: [5, 5]
         }
       ]
@@ -26821,7 +26836,9 @@ async function go(){
         fcf: (raw.fcf !== null && raw.fcf !== undefined && !isNaN(raw.fcf)) ? raw.fcf : null,
         debtRatio: (raw.debtRatio !== null && raw.debtRatio !== undefined && !isNaN(raw.debtRatio)) ? raw.debtRatio : null,
         eps: (raw.eps !== null && raw.eps !== undefined && !isNaN(raw.eps)) ? raw.eps : null,
-        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : null
+        netMargin: (raw.netMargin !== null && raw.netMargin !== undefined && !isNaN(raw.netMargin)) ? raw.netMargin : null,
+        isEstimate: !!raw.isEstimate,
+        partialQuarters: raw.partialQuarters || null
       };
     }
 
@@ -26880,7 +26897,8 @@ ${latestFinancial && latestFinancial.roe !== undefined ? (() => {
   const drEval = evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey);
   return `
 <div class="sec health-card" style="border-left:4px solid ${hs.color}; background:linear-gradient(135deg, rgba(${healthScoreRGB(hs.color)},0.05), transparent);">
-<div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年)</div>
+<div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年${latestFinancial && latestFinancial.isEstimate ? '・推估' : ''})</div>
+${latestFinancial && latestFinancial.isEstimate ? `<p style="font-size:.75rem;color:var(--muted);margin:-8px 0 12px">⚠️ 本年度僅公布${latestFinancial.partialQuarters ? 'Q'+latestFinancial.partialQuarters : '部分'}季財報，以下數字為年化推估，非正式年報</p>` : ''}
 <div class="health-grid">
   <div class="health-metric">
     <div class="health-metric-label">股東權益報酬率 (ROE)</div>
@@ -26919,12 +26937,14 @@ ${latestFinancial && latestFinancial.roe !== undefined ? (() => {
 `; })() : ''}
 
 ${financialTrend.length > 0 ? `
-<div class="sec"><div class="st2">📈 5 年財報趨勢</div><div class="trend-chart-box"><canvas id="fc"></canvas></div></div>
+<div class="sec"><div class="st2">📈 財報趨勢</div><div class="trend-chart-box"><canvas id="fc"></canvas></div>
+${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var(--muted);margin-top:8px">◆ 菱形標記／虛線段為本年度推估值，依已公布季度財報年化推算，非正式年報數字</p>` : ''}
+</div>
 
-<div class="sec"><div class="st2">📊 歷年財報指標（近5年）</div><div style="overflow-x:auto">
+<div class="sec"><div class="st2">📊 歷年財報指標</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
-${financialTrend.map(f => `<tr>
-  <td><strong>${f.year}</strong></td>
+${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : ''}>
+  <td><strong>${f.year}${f.isEstimate ? `（推估·${f.partialQuarters ? 'Q'+f.partialQuarters+'年化' : '年化'}）` : ''}</strong></td>
   <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}</td>
   <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
   <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>

@@ -82,7 +82,12 @@ class FinMindFetcher:
         return g
 
     def compute_annual(self, income, balance, cashflow):
-        """整合三表，回傳 { '2024': {eps, revenue, ...}, ... }（僅完整年度）"""
+        """整合三表，回傳 { '2024': {eps, revenue, ...}, ... }
+        滿4季損益表 → 真實年度數據。不滿4季（當年度進行中，如今年僅公布Q1）→
+        用現有季數年化推估（現有季度加總 ÷ 季數 × 4），標記 isEstimate=True、
+        partialQuarters=實際季數，前端需明顯區分避免使用者誤認成正式年報數字。
+        資產負債表科目本身就是期末餘額，不需年化，直接取最新一期。
+        """
         gi, gb, gc = self._group(income), self._group(balance), self._group(cashflow)
         years = set(gi) | set(gb) | set(gc)
         out = {}
@@ -97,13 +102,16 @@ class FinMindFetcher:
             def icount(t):
                 return len(it.get(t, []))
 
-            def last(group, t):  # 取 Q4（最後日期）
+            def last(group, t):  # 取最新一期（完整年度為Q4，進行中年度為最新公布季）
                 items = sorted(group.get(y, {}).get(t, []))
                 return items[-1][1] if items else None
 
-            # 至少需 4 季損益表才算完整年度
-            if icount('EPS') < 4 or icount('Revenue') < 4:
+            n_quarters = min(icount('EPS'), icount('Revenue'))
+            if n_quarters == 0:
                 continue
+
+            is_estimate = n_quarters < 4
+            annualize = (4 / n_quarters) if is_estimate else 1
 
             eps = isum('EPS')
             revenue = isum('Revenue')
@@ -117,16 +125,25 @@ class FinMindFetcher:
             ocf = last(gc, 'NetCashInflowFromOperatingActivities')
             capex = last(gc, 'PropertyAndPlantAndEquipment')
 
+            eps_a = eps * annualize if eps is not None else None
+            revenue_a = revenue * annualize if revenue is not None else None
+            net_income_a = net_income * annualize if net_income is not None else None
+            op_income_a = op_income * annualize if op_income is not None else None
+            # 淨利率/營業利益率是比率，分子分母同倍率縮放後不變，直接用原始（未年化）值即可
+            fcf_a = (ocf * annualize + capex * annualize) if (ocf is not None and capex is not None) else None
+
             rec = {
-                'eps': round(eps, 2) if eps is not None else None,
-                'revenue': round(revenue / OKU, 1) if revenue is not None else None,
-                'netIncome': round(net_income / OKU, 1) if net_income is not None else None,
-                'operatingIncome': round(op_income / OKU, 1) if op_income is not None else None,
+                'eps': round(eps_a, 2) if eps_a is not None else None,
+                'revenue': round(revenue_a / OKU, 1) if revenue_a is not None else None,
+                'netIncome': round(net_income_a / OKU, 1) if net_income_a is not None else None,
+                'operatingIncome': round(op_income_a / OKU, 1) if op_income_a is not None else None,
                 'operatingMargin': round(op_income / revenue * 100, 1) if (op_income is not None and revenue) else None,
                 'netMargin': round(net_income / revenue * 100, 1) if (net_income is not None and revenue) else None,
-                'roe': round(net_income / equity * 100, 1) if (net_income is not None and equity) else None,
+                'roe': round(net_income_a / equity * 100, 1) if (net_income_a is not None and equity) else None,
                 'debtRatio': round(liab / total_assets * 100, 1) if (liab is not None and total_assets) else None,
-                'fcf': round((ocf + capex) / OKU, 1) if (ocf is not None and capex is not None) else None,
+                'fcf': round(fcf_a / OKU, 1) if fcf_a is not None else None,
+                'isEstimate': is_estimate,
+                'partialQuarters': n_quarters if is_estimate else None,
             }
             out[y] = rec
         return out
@@ -164,6 +181,8 @@ def update_data_file(fetcher):
     updated_stocks = 0
     failed = 0
 
+    current_year = datetime.now().year
+
     for i, code in enumerate(codes, 1):
         stock = stocks[code]
         data_arr = stock.get('data', [])
@@ -171,11 +190,22 @@ def update_data_file(fetcher):
         if not years:
             continue
 
+        # 補上當年度(進行中)的空位，讓下面的迴圈能寫入推估值；沒有就不會出現在圖表/表格裡
+        if str(current_year) not in years:
+            data_arr.append({
+                'year': str(current_year), 'eps': None, 'revenue': None, 'netIncome': None,
+                'operatingIncome': None, 'operatingMargin': None, 'fcf': None, 'roe': None,
+                'netMargin': None, 'debtRatio': None, 'updatedAt': None, 'source': None,
+                'isEstimate': False, 'dataType': '待更新',
+            })
+            stock['data'] = data_arr
+            years.append(str(current_year))
+
         print(f"[{i}/{len(codes)}] {code} {stock.get('name','')}...", end=" ", flush=True)
 
         try:
             yrs = [int(y) for y in years]
-            start, end = f"{min(yrs)}-01-01", f"{max(yrs)}-12-31"
+            start, end = f"{min(yrs)}-01-01", f"{max(max(yrs), current_year)}-12-31"
             income, balance, cashflow = fetcher.fetch_all(code, start, end)
             annual = fetcher.compute_annual(income, balance, cashflow)
 
@@ -185,13 +215,14 @@ def update_data_file(fetcher):
                 yr = str(entry.get('year'))
                 src = annual.get(yr)
                 if src:
-                    # 用 FinMind 真實值取代所有財務欄位
+                    # 用 FinMind 真實值取代所有財務欄位（不滿4季時 compute_annual 已年化並標記推估）
                     for k in FIN_FIELDS:
                         entry[k] = src.get(k)
                     entry['updatedAt'] = now
                     entry['source'] = 'FinMind'
-                    entry['isEstimate'] = False
-                    entry['dataType'] = '真實'
+                    entry['isEstimate'] = src.get('isEstimate', False)
+                    entry['partialQuarters'] = src.get('partialQuarters')
+                    entry['dataType'] = '推估' if src.get('isEstimate') else '真實'
                     changed = True
                 elif entry.get('eps') is None:
                     # 該年度本來就無資料 → 標記為無資料（不影響已有真實值的欄位，因為本來就是None）
