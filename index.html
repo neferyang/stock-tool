@@ -73,15 +73,15 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .vd.buy{border-color:var(--green);background:#f0fdf4}
 .vd.hold{border-color:var(--yel);background:#fffbeb}
 .health-card{border-radius:8px;padding:16px}
-.health-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.health-metric{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px}
-.health-metric-label{font-size:.9rem;color:#666;margin-bottom:4px}
-.health-metric-value{font-size:1.8rem;font-weight:700;margin-bottom:4px}
-.health-metric-level{font-size:.8rem;color:#666}
-.health-metric-desc{font-size:.75rem;color:#999;margin-top:6px}
-.health-summary{margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid}
-.health-summary-title{font-weight:700;margin-bottom:6px}
-.health-summary-desc{font-size:.85rem;color:#666;line-height:1.6}
+.health-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.health-metric{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px}
+.health-metric-label{font-size:.8rem;color:#666;margin-bottom:2px}
+.health-metric-value{font-size:1.4rem;font-weight:700;margin-bottom:2px;line-height:1.2}
+.health-metric-level{font-size:.75rem;color:#666}
+.health-metric-desc{font-size:.7rem;color:#999;margin-top:3px;line-height:1.3}
+.health-summary{margin-top:10px;padding:10px 12px;background:#f9fafb;border-radius:8px;border-left:3px solid}
+.health-summary-title{font-weight:700;margin-bottom:4px}
+.health-summary-desc{font-size:.8rem;color:#666;line-height:1.4}
 .vd.sell{border-color:var(--red);background:#fff1f2}
 .vdtit{font-weight:700;font-size:1.1rem;margin-bottom:6px}.vdbod{font-size:.875rem;line-height:1.8}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
@@ -127,9 +127,8 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .vt{font-size:.8rem}
   .vt th,.vt td{padding:7px 8px}
   .health-card{padding:14px}
-  .health-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .health-metric{padding:12px}
-  .health-metric-value{font-size:1.4rem}
+  .health-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .health-metric{padding:10px}
 }
 
 @media(max-width:480px){
@@ -141,12 +140,12 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .sbox button{width:100%;padding:12px 20px}
   .hint{font-size:.7rem;padding:8px 10px;margin-bottom:16px}
   .health-card{padding:12px}
-  .health-grid{gap:8px}
-  .health-metric{padding:10px}
-  .health-metric-label{font-size:.8rem}
-  .health-metric-value{font-size:1.25rem}
-  .health-metric-level{font-size:.75rem}
-  .health-metric-desc{font-size:.7rem}
+  .health-grid{gap:6px}
+  .health-metric{padding:8px}
+  .health-metric-label{font-size:.75rem}
+  .health-metric-value{font-size:1.15rem}
+  .health-metric-level{font-size:.7rem}
+  .health-metric-desc{font-size:.65rem}
 }
 </style>
 </head>
@@ -155,7 +154,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.5.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.6.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
