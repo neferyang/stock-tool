@@ -143,6 +143,7 @@ class FinMindFetcher:
 
             rec = {
                 'eps': round(eps_a, 2) if eps_a is not None else None,
+                'epsActual': round(eps, 2) if (is_estimate and eps is not None) else None,
                 'revenue': round(revenue_a / OKU, 1) if revenue_a is not None else None,
                 'netIncome': round(net_income_a / OKU, 1) if net_income_a is not None else None,
                 'operatingIncome': round(op_income_a / OKU, 1) if op_income_a is not None else None,
@@ -231,6 +232,7 @@ def update_data_file(fetcher):
                     entry['source'] = 'FinMind'
                     entry['isEstimate'] = src.get('isEstimate', False)
                     entry['partialQuarters'] = src.get('partialQuarters')
+                    entry['epsActual'] = src.get('epsActual')
                     entry['dataType'] = '推估' if src.get('isEstimate') else '真實'
                     changed = True
                 elif entry.get('eps') is None:
