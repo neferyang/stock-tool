@@ -134,7 +134,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.3.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.4.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
@@ -26335,16 +26335,14 @@ function evaluateOperatingMargin(margin) {
   return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本業無法盈利' };
 }
 
-// 3. 自由現金流評估（現金才是王道）
-function evaluateFCF(fcf, netIncome) {
-  if (!netIncome || netIncome <= 0) return { level: '⚠️ 異常', color: '#f97316', score: 2, desc: '淨利異常，無法評估' };
-
-  const ratio = fcf / netIncome;
-  if (ratio > 0.7) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '現金創造力超強，品質優異' };
-  if (ratio > 0.5) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '現金創造力很好' };
-  if (ratio > 0.3) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '現金創造力尚可' };
-  if (ratio > 0) return { level: '🟡一般', color: '#eab308', score: 2, desc: '現金創造力較弱' };
-  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '淨利品質堪憂，現金不足' };
+// 3. 淨利率評估（最終獲利能力，數據永遠可算、不受淨損影響）
+function evaluateNetMargin(margin) {
+  if (margin > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '獲利能力超強' };
+  if (margin > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '獲利能力很好' };
+  if (margin > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '獲利能力尚可' };
+  if (margin > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '獲利能力普通' };
+  if (margin > 0) return { level: '⚠️ 偏弱', color: '#f97316', score: 2, desc: '獲利能力較弱' };
+  return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本期淨損，體質堪憂' };
 }
 
 // 4. 負債比率評估（財務風險評估）
@@ -26363,19 +26361,26 @@ function evaluateDebtRatio(ratio, industry = 'general') {
 }
 
 // 綜合評分函數
-function calculateHealthScore(roe, operatingMargin, fcf, netIncome, debtRatio, industry) {
+function calculateHealthScore(roe, operatingMargin, netMargin, debtRatio, industry) {
   const roeScore = evaluateROE(roe).score;
-  const marginScore = evaluateOperatingMargin(operatingMargin).score;
-  const fcfScore = evaluateFCF(fcf, netIncome).score;
+  const opMarginScore = evaluateOperatingMargin(operatingMargin).score;
+  const netMarginScore = evaluateNetMargin(netMargin).score;
   const debtScore = evaluateDebtRatio(debtRatio, industry).score;
 
-  const avgScore = (roeScore + marginScore + fcfScore + debtScore) / 4;
+  const avgScore = (roeScore + opMarginScore + netMarginScore + debtScore) / 4;
 
   if (avgScore >= 4.5) return { level: '★★★★★ 一流企業', color: '#10b981' };
   if (avgScore >= 3.5) return { level: '★★★★ 優質企業', color: '#16a34a' };
   if (avgScore >= 2.5) return { level: '★★★ 普通企業', color: '#3b82f6' };
   if (avgScore >= 1.5) return { level: '★★ 問題企業', color: '#eab308' };
+
   return { level: '★ 風險企業', color: '#ef4444' };
+}
+
+// 健康評分色卡轉 RGB，供卡片背景漸層使用（避免只認得 #10b981 一種顏色）
+function healthScoreRGB(hex) {
+  const map = { '#10b981':'16,185,129', '#16a34a':'22,163,74', '#3b82f6':'59,130,246', '#eab308':'234,179,8', '#ef4444':'239,68,68' };
+  return map[hex] || '37,99,235';
 }
 
 function calcFinancialTrend(data) {
@@ -26863,7 +26868,7 @@ ${!isTW && !m.pe && !m.eps ? `
 </div></div>
 
 ${latestFinancial && latestFinancial.roe !== undefined ? `
-<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color}; border-radius:8px; padding:16px; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
+<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color}; border-radius:8px; padding:16px; background:linear-gradient(135deg, rgba(${healthScoreRGB(calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color)},0.05), transparent);">
 <div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年)</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
@@ -26881,10 +26886,10 @@ ${latestFinancial && latestFinancial.roe !== undefined ? `
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">自由現金流 (FCF)</div>
-    <div style="font-size:1.4rem;font-weight:700;color:${evaluateFCF(latestFinancial.fcf || 0, latestFinancial.netIncome || 1).color};margin-bottom:4px;">${((latestFinancial.fcf || 0) / (latestFinancial.netIncome || 1) * 100).toFixed(0)}%</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateFCF(latestFinancial.fcf || 0, latestFinancial.netIncome || 1).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateFCF(latestFinancial.fcf || 0, latestFinancial.netIncome || 1).desc}</div>
+    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">淨利率</div>
+    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.netMargin !== null && latestFinancial.netMargin !== undefined ? evaluateNetMargin(latestFinancial.netMargin).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.netMargin)}</div>
+    <div style="font-size:.8rem;color:#666;">${evaluateNetMargin(latestFinancial.netMargin || 0).level}</div>
+    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateNetMargin(latestFinancial.netMargin || 0).desc}</div>
   </div>
 
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
@@ -26895,9 +26900,9 @@ ${latestFinancial && latestFinancial.roe !== undefined ? `
   </div>
 </div>
 
-<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color};">
-  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color};margin-bottom:6px;">
-    綜合評分：${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).level}
+<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color};">
+  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color};margin-bottom:6px;">
+    綜合評分：${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).level}
   </div>
   <div style="font-size:.85rem;color:#666;line-height:1.6;">
     這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。
