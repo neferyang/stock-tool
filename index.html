@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.11.0',
+  version: '8.12.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26825,8 +26825,11 @@ async function go(){
     let financialTrend = [];
     let latestFinancial = null;
     if (financialResult && financialResult.length > 0) {
-      financialTrend = calcFinancialTrend(financialResult);
-      const raw = financialResult[0];
+      // 依年度由新到舊排序：資料庫寫入時可能把新補上的年度(如當年度推估)
+      // append 到陣列尾端而非依年份排序，不能信任原始順序
+      const sortedFinancial = [...financialResult].sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
+      financialTrend = calcFinancialTrend(sortedFinancial);
+      const raw = sortedFinancial[0];
       // 確保所有數值屬性都存在且有效
       latestFinancial = {
         year: raw.year || 0,
