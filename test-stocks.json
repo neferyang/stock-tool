@@ -1,0 +1,30 @@
+{
+  "updated": "2026-06-17T11:27:34.651408",
+  "stocks": {
+    "2330.TW": {
+      "price": 2365.0,
+      "pe": 32.098263,
+      "pb": 10.410889,
+      "name": "Taiwan Semiconductor Manufacturing Company Limited"
+    },
+    "2207.TW": {
+      "price": 462.0,
+      "pe": 13.620284,
+      "pb": 3.248854,
+      "name": "Hotai Motor Co.,Ltd."
+    },
+    "AAPL": {
+      "price": 299.24,
+      "pe": 36.2276,
+      "pb": 41.21763,
+      "name": "Apple Inc."
+    },
+    "MSFT": {
+      "price": 393.83,
+      "pe": 23.470201,
+      "pb": 7.0607953,
+      "name": "Microsoft Corporation"
+    }
+  },
+  "count": 4
+}

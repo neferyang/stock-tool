@@ -1,6 +1,7 @@
-﻿# ════════════════════════════════════════════
+# ════════════════════════════════════════════
 # GitHub Pages 白名單配置
 # 只推送核心生產文件，所有其他文件被忽略
+# 注意：gitignore 不支援行尾註解，所有註解必須獨立成行
 # ════════════════════════════════════════════
 
 # 忽略所有檔案
@@ -9,46 +10,74 @@
 # ════════════════════════════════════════════
 # 核心應用文件
 # ════════════════════════════════════════════
-!index.html                    # 主應用（股票估價工具）
-!index_v6_ai.html              # 財金早報分頁
+# 主應用（股票估價工具）
+!index.html
+# 財金早報分頁
+!index_v6_ai.html
 
 # ════════════════════════════════════════════
 # 配置文件
 # ════════════════════════════════════════════
-!.gitignore                    # Git 配置
-!README.md                     # 項目文檔
-!vercel.json                   # Vercel 配置
+# Git 配置
+!.gitignore
+# 項目文檔
+!README.md
+# Vercel 配置
+!vercel.json
 
 # ════════════════════════════════════════════
 # API 和後端
 # ════════════════════════════════════════════
-!api/                          # Vercel 函數目錄
-!api/proxy.js                  # 後端代理
-!api/stocks.js                 # 台股數據 API（Vercel Serverless）
-!api/stock/                    # 動態路由目錄
-!api/stock/[code].js           # 單支股票 API（動態路由）
+# Vercel 函數目錄
+!api/
+# 後端代理
+!api/proxy.js
+# 台股數據 API（Vercel Serverless）
+!api/stocks.js
+# 動態路由目錄
+!api/stock/
+# 單支股票 API（動態路由）
+!api/stock/[code].js
 
 # ════════════════════════════════════════════
 # 自動化和數據
 # ════════════════════════════════════════════
-!update-daily-report.js        # 每日更新腳本
-!update-international-markets.js  # 國際市場更新
-!daily-report.json             # 每日報告數據
-!tw-stocks.json                # 台股數據（本地快照）
-!us-stocks.json                # 美股數據（本地快照）
-!test-stocks.json              # 測試數據
-!backend.py                    # Flask 後端服務（FinMind API 代理）
-!financial-data-complete.json  # 財報數據庫（FinMind 更新，主資料源）
-!financial-data-mops.json      # 財報數據庫（MOPS 更新，FINANCIAL_DB 備援來源）
-!merge-financial-data.py       # 財報數據合併腳本
-!fetch-mops-financials.py      # MOPS 爬蟲腳本
-!finmind-data-fetcher.py       # FinMind 財報更新腳本
-!auto-expand-stocks.py         # 每日自動擴充財報資料庫腳本(上市+上櫃+興櫃全市場)
-!generate-market-analysis.py   # 市場分析生成腳本
-!generate-news-highlights.py   # 每日新聞重點生成腳本
-!fetch-market-data.py          # 市場指數抓取腳本
-!market-data.json              # 市場指數數據
-!market-analysis.json          # 市場分析結果
+# 每日更新腳本
+!update-daily-report.js
+# 國際市場更新
+!update-international-markets.js
+# 每日報告數據
+!daily-report.json
+# 台股數據（本地快照）
+!tw-stocks.json
+# 美股數據（本地快照）
+!us-stocks.json
+# 測試數據
+!test-stocks.json
+# Flask 後端服務（FinMind API 代理）
+!backend.py
+# 財報數據庫（FinMind 更新，主資料源）
+!financial-data-complete.json
+# 財報數據庫（MOPS 更新，FINANCIAL_DB 備援來源）
+!financial-data-mops.json
+# 財報數據合併腳本
+!merge-financial-data.py
+# MOPS 爬蟲腳本
+!fetch-mops-financials.py
+# FinMind 財報更新腳本
+!finmind-data-fetcher.py
+# 每日自動擴充財報資料庫腳本(上市+上櫃+興櫃全市場)
+!auto-expand-stocks.py
+# 市場分析生成腳本
+!generate-market-analysis.py
+# 每日新聞重點生成腳本
+!generate-news-highlights.py
+# 市場指數抓取腳本
+!fetch-market-data.py
+# 市場指數數據
+!market-data.json
+# 市場分析結果
+!market-analysis.json
 # 市場風險指標儀表板自動更新腳本
 !fetch-risk-dashboard.py
 # 台股簡稱對照表更新腳本
@@ -57,13 +86,19 @@
 # ════════════════════════════════════════════
 # GitHub Actions 工作流
 # ════════════════════════════════════════════
-!.github/                      # GitHub 配置目錄
-!.github/workflows/            # 工作流目錄
-!.github/workflows/daily-report-update.yml  # 每日更新工作流
+# GitHub 配置目錄
+!.github/
+# 工作流目錄
+!.github/workflows/
+# 每日更新工作流
+!.github/workflows/daily-report-update.yml
 
 # ════════════════════════════════════════════
 # 文檔目錄
 # ════════════════════════════════════════════
-!docs/                         # 開發文檔目錄
-!docs/*.md                     # 所有文檔檔案
-!*.md                          # 所有 Markdown 文檔（根目錄）
+# 開發文檔目錄
+!docs/
+# 所有文檔檔案
+!docs/*.md
+# 所有 Markdown 文檔（根目錄）
+!*.md
