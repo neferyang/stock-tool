@@ -151,33 +151,19 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 </head>
 <body>
 <div class="wrap">
-<!-- ═══════════════ 美化表頭 ═══════════════ -->
-<div class="header">
-  <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.7.0</span></h1>
-    <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
-    <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-      <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
-      <span style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:8px;font-weight:600;">
-        <span id="update-count">0</span>/<span id="total-count">2,303</span>
-        (<span id="update-pct">0.2</span>%)
-      </span>
-      <span style="display:inline-block;width:80px;height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;">
-        <div id="progress-bar" style="height:100%;width:31%;background:rgba(255,255,255,0.9);transition:width 0.3s ease;"></div>
-      </span>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════ 分頁標籤 ═══════════════ -->
-<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;">
-  <a href="index.html" style="flex:1;padding:14px 20px;text-decoration:none;color:var(--text);font-weight:600;border-bottom:3px solid var(--accent);background:#fff;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;">
-    📊 股票估價工具
-  </a>
-  <a href="index_v6_ai.html" style="flex:1;padding:14px 20px;text-decoration:none;color:var(--muted);font-weight:600;border-bottom:3px solid transparent;background:#f9fafb;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;" onmouseover="this.style.color='var(--text)';this.style.background='#fff'" onmouseout="this.style.color='var(--muted)';this.style.background='#f9fafb'">
-    🤖 財金早報
-  </a>
-</div>
+<div id="app-header"></div>
+<script src="shared-header.js"></script>
+<script>
+renderAppHeader({
+  containerSelector: '#app-header',
+  activeTab: 'valuation',
+  icon: '📊',
+  title: '股票估價分析工具',
+  version: '8.8.0',
+  subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
+  showProgress: true
+});
+</script>
 
 <!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
@@ -27027,42 +27013,6 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
     console.error(e);
   } finally {
     btn.disabled=false;
-    saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult);
-  }
-}
-
-// 保存查詢結果到 localStorage（供 index_v6_ai.html 動態載入）
-function saveQueryDataToStorage(ticker, m, price, vals, vd, tech, indName, indResult) {
-  try {
-    const queryData = {
-      timestamp: new Date().toISOString(),
-      ticker: ticker,
-      company: {
-        name: m.name,
-        sector: m.sector,
-        industry: m.industry,
-        pe: m.pe,
-        pb: m.pb,
-        eps: m.eps,
-        divYield: m.divYield,
-        div: m.div,
-        '52hi': m['52hi'],
-        '52lo': m['52lo']
-      },
-      price: price,
-      valuation: vals,
-      verdict: vd,
-      technical: tech,
-      classification: {
-        name: indName,
-        confidence: indResult.confidence,
-        method: indResult.details?.method || 'auto'
-      }
-    };
-    localStorage.setItem('lastQueryData', JSON.stringify(queryData));
-    console.log('[數據保存] 已將查詢結果保存到 localStorage');
-  } catch(e) {
-    console.warn('[數據保存] 保存失敗:', e.message);
   }
 }
 
