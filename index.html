@@ -72,6 +72,16 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .vd{border-radius:10px;padding:16px 20px;margin-bottom:28px;border-left:4px solid}
 .vd.buy{border-color:var(--green);background:#f0fdf4}
 .vd.hold{border-color:var(--yel);background:#fffbeb}
+.health-card{border-radius:8px;padding:16px}
+.health-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.health-metric{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px}
+.health-metric-label{font-size:.9rem;color:#666;margin-bottom:4px}
+.health-metric-value{font-size:1.8rem;font-weight:700;margin-bottom:4px}
+.health-metric-level{font-size:.8rem;color:#666}
+.health-metric-desc{font-size:.75rem;color:#999;margin-top:6px}
+.health-summary{margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid}
+.health-summary-title{font-weight:700;margin-bottom:6px}
+.health-summary-desc{font-size:.85rem;color:#666;line-height:1.6}
 .vd.sell{border-color:var(--red);background:#fff1f2}
 .vdtit{font-weight:700;font-size:1.1rem;margin-bottom:6px}.vdbod{font-size:.875rem;line-height:1.8}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
@@ -116,6 +126,10 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .sp{font-size:1.5rem}
   .vt{font-size:.8rem}
   .vt th,.vt td{padding:7px 8px}
+  .health-card{padding:14px}
+  .health-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .health-metric{padding:12px}
+  .health-metric-value{font-size:1.4rem}
 }
 
 @media(max-width:480px){
@@ -126,6 +140,13 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
   .sbox input{min-width:100%;padding:12px 14px}
   .sbox button{width:100%;padding:12px 20px}
   .hint{font-size:.7rem;padding:8px 10px;margin-bottom:16px}
+  .health-card{padding:12px}
+  .health-grid{gap:8px}
+  .health-metric{padding:10px}
+  .health-metric-label{font-size:.8rem}
+  .health-metric-value{font-size:1.25rem}
+  .health-metric-level{font-size:.75rem}
+  .health-metric-desc{font-size:.7rem}
 }
 </style>
 </head>
@@ -134,7 +155,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.4.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.5.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
@@ -26867,49 +26888,51 @@ ${!isTW && !m.pe && !m.eps ? `
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
-${latestFinancial && latestFinancial.roe !== undefined ? `
-<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color}; border-radius:8px; padding:16px; background:linear-gradient(135deg, rgba(${healthScoreRGB(calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color)},0.05), transparent);">
+${latestFinancial && latestFinancial.roe !== undefined ? (() => {
+  const hs = calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey);
+  const roeEval = latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe) : null;
+  const opEval = evaluateOperatingMargin(latestFinancial.operatingMargin || 0);
+  const nmEval = evaluateNetMargin(latestFinancial.netMargin || 0);
+  const drEval = evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey);
+  return `
+<div class="sec health-card" style="border-left:4px solid ${hs.color}; background:linear-gradient(135deg, rgba(${healthScoreRGB(hs.color)},0.05), transparent);">
 <div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年)</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">股東權益報酬率 (ROE)</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).color : '#999'};margin-bottom:4px;">${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? latestFinancial.roe.toFixed(1) + '%' : 'N/A'}</div>
-    <div style="font-size:.8rem;color:#666;">${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).level : '無資料'}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe).desc : '—'}</div>
+<div class="health-grid">
+  <div class="health-metric">
+    <div class="health-metric-label">股東權益報酬率 (ROE)</div>
+    <div class="health-metric-value" style="color:${roeEval ? roeEval.color : '#999'};">${roeEval ? latestFinancial.roe.toFixed(1) + '%' : 'N/A'}</div>
+    <div class="health-metric-level">${roeEval ? roeEval.level : '無資料'}</div>
+    <div class="health-metric-desc">💡 ${roeEval ? roeEval.desc : '—'}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">營業利益率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.operatingMargin !== null && latestFinancial.operatingMargin !== undefined ? evaluateOperatingMargin(latestFinancial.operatingMargin).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.operatingMargin)}</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateOperatingMargin(latestFinancial.operatingMargin || 0).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateOperatingMargin(latestFinancial.operatingMargin || 0).desc}</div>
+  <div class="health-metric">
+    <div class="health-metric-label">營業利益率</div>
+    <div class="health-metric-value" style="color:${latestFinancial.operatingMargin !== null && latestFinancial.operatingMargin !== undefined ? opEval.color : '#999'};">${fp(latestFinancial.operatingMargin)}</div>
+    <div class="health-metric-level">${opEval.level}</div>
+    <div class="health-metric-desc">💡 ${opEval.desc}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">淨利率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.netMargin !== null && latestFinancial.netMargin !== undefined ? evaluateNetMargin(latestFinancial.netMargin).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.netMargin)}</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateNetMargin(latestFinancial.netMargin || 0).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateNetMargin(latestFinancial.netMargin || 0).desc}</div>
+  <div class="health-metric">
+    <div class="health-metric-label">淨利率</div>
+    <div class="health-metric-value" style="color:${latestFinancial.netMargin !== null && latestFinancial.netMargin !== undefined ? nmEval.color : '#999'};">${fp(latestFinancial.netMargin)}</div>
+    <div class="health-metric-level">${nmEval.level}</div>
+    <div class="health-metric-desc">💡 ${nmEval.desc}</div>
   </div>
 
-  <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-    <div style="font-size:.9rem;color:#666;margin-bottom:4px;">負債佔資產比率</div>
-    <div style="font-size:1.8rem;font-weight:700;color:${latestFinancial.debtRatio !== null && latestFinancial.debtRatio !== undefined ? evaluateDebtRatio(latestFinancial.debtRatio, indKey).color : '#999'};margin-bottom:4px;">${fp(latestFinancial.debtRatio)}</div>
-    <div style="font-size:.8rem;color:#666;">${evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey).level}</div>
-    <div style="font-size:.75rem;color:#999;margin-top:6px;">💡 ${evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey).desc}</div>
+  <div class="health-metric">
+    <div class="health-metric-label">負債佔資產比率</div>
+    <div class="health-metric-value" style="color:${latestFinancial.debtRatio !== null && latestFinancial.debtRatio !== undefined ? drEval.color : '#999'};">${fp(latestFinancial.debtRatio)}</div>
+    <div class="health-metric-level">${drEval.level}</div>
+    <div class="health-metric-desc">💡 ${drEval.desc}</div>
   </div>
 </div>
 
-<div style="margin-top:14px;padding:12px;background:#f9fafb;border-radius:8px;border-left:3px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color};">
-  <div style="font-weight:700;color:${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).color};margin-bottom:6px;">
-    綜合評分：${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey).level}
-  </div>
-  <div style="font-size:.85rem;color:#666;line-height:1.6;">
-    這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。
-  </div>
+<div class="health-summary" style="border-left-color:${hs.color};">
+  <div class="health-summary-title" style="color:${hs.color};">綜合評分：${hs.level}</div>
+  <div class="health-summary-desc">這家企業的四項核心指標綜合評估結果，幫助您快速判斷其財務體質。綠色為優秀，紅色為警告。</div>
 </div>
 </div>
-` : ''}
+`; })() : ''}
 
 ${financialTrend.length > 0 ? `
 <div class="sec"><div class="st2">📈 5 年財報趨勢</div><div style="position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)"><canvas id="fc" style="max-height:300px"></canvas></div></div>
