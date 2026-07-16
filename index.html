@@ -134,7 +134,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.1.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.2.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
@@ -26863,7 +26863,7 @@ ${!isTW && !m.pe && !m.eps ? `
 </div></div>
 
 ${latestFinancial && latestFinancial.roe !== undefined ? `
-<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color}; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
+<div class="sec" style="border-left:4px solid ${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color}; border-radius:8px; padding:16px; background:linear-gradient(135deg, rgba(${calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.fcf ?? 0, latestFinancial.netIncome ?? 1, latestFinancial.debtRatio ?? 0, indKey).color === '#10b981' ? '16,163,68' : '37,99,235'},0.05), transparent);">
 <div class="st2">📈 企業健康診斷卡 (${(latestFinancial && latestFinancial.year) || new Date().getFullYear()}年)</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
   <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
