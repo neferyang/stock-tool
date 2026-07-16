@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.14.0',
+  version: '8.15.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26829,7 +26829,9 @@ async function go(){
       // append 到陣列尾端而非依年份排序，不能信任原始順序
       const sortedFinancial = [...financialResult].sort((a, b) => (parseInt(b.year) || 0) - (parseInt(a.year) || 0));
       financialTrend = calcFinancialTrend(sortedFinancial);
-      const raw = sortedFinancial[0];
+      // 取「有真實數值」的最新一筆：若最新年度(如2026)還只是空骨架(待更新/無資料)，
+      // 自動退回上一個有資料的年度(如2025)，不要顯示一張全部N/A的診斷卡
+      const raw = sortedFinancial.find(d => d.eps !== null && d.eps !== undefined) || sortedFinancial[0];
       // 確保所有數值屬性都存在且有效
       latestFinancial = {
         year: raw.year || 0,
@@ -26963,7 +26965,7 @@ ${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var
 <div class="sec"><div class="st2">📊 歷年財報指標</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
 ${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : ''}>
-  <td><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">推估・${f.partialQuarters ? 'Q'+f.partialQuarters+'年化' : '年化'}</span>` : ''}</td>
+  <td><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">${f.partialQuarters ? 'Q'+f.partialQuarters+'推估' : '推估'}</span>` : ''}</td>
   <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}${f.isEstimate && f.eps && f.eps.actual !== null ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（Q${f.partialQuarters}實際 ${parseFloat(f.eps.actual).toFixed(2)}）</span>` : ''}</td>
   <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
   <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>
