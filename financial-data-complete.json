@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-16T12:13:07.963007",
+  "updatedAt": "2026-07-16T12:26:03.375102",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -44470,19 +44470,20 @@
         },
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "待更新"
+          "eps": -1.8,
+          "revenue": 6.9,
+          "netIncome": -1.1,
+          "operatingIncome": -1.1,
+          "operatingMargin": -16.1,
+          "fcf": -0.2,
+          "roe": -9.5,
+          "netMargin": -15.2,
+          "debtRatio": 12.6,
+          "updatedAt": "2026-07-16T12:23:42.516735",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1
         }
       ]
     },
