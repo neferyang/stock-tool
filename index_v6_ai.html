@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 股票智能分析工具 v8.9.0</title>
+<title>AI 股票智能分析工具 v8.10.0</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb;--grad1:#2563eb;--grad2:#1d4ed8}
@@ -46,7 +46,7 @@ renderAppHeader({
   activeTab: 'report',
   icon: '🤖',
   title: '股票智能分析工具',
-  version: '8.9.0',
+  version: '8.10.0',
   subtitle: '基於 4 層 AI 分析：財務評分 × 估值模型 × 技術指標 × 企業診斷',
   showProgress: false
 });
@@ -131,15 +131,15 @@ function renderMarketReport(data) {
 
   const html = `
     <!-- 標題區 -->
-    <div style="background:linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;">
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 24px;margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
         <div style="flex:1;">
-          <h2 style="margin:0;font-size:1.5rem;font-weight:800;">📊 每日財金早報</h2>
-          <p style="margin:8px 0 0;opacity:0.9;font-size:0.95rem;">${data.date}</p>
-          <p style="margin:4px 0 0;opacity:0.85;font-size:0.85rem;">資料基準：${data.basedOn}</p>
+          <h2 style="margin:0;font-size:1.3rem;font-weight:800;color:#1a1a1a;">📊 每日財金早報</h2>
+          <p style="margin:8px 0 0;color:#666;font-size:0.95rem;">${data.date}</p>
+          <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${data.basedOn}</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-          <div style="font-size:0.75rem;background:rgba(255,255,255,0.2);padding:8px 12px;border-radius:6px;">
+          <div style="font-size:0.75rem;background:#eef2ff;color:#4f46e5;font-weight:600;padding:8px 12px;border-radius:6px;">
             ${data.riskDashboard.rating}
           </div>
         </div>
