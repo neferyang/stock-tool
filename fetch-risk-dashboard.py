@@ -3,13 +3,16 @@
 """
 自動更新 daily-report.json 的 riskDashboard（市場風險指標儀表板）。
 
-可自動化的 11 項指標（FRED + yfinance，官方/免費資料源）：
-  巴菲特指標、台股年乖離率、美10年期公債殖利率、DXY、USD/TWD、VIX、
-  美債10Y-2Y利差、高收益債信用利差、Sahm法則、Conference Board... (LEI無API不含)
-  、WTI原油、初領失業救濟金
+可自動化的 14 項指標：
+  【FRED + yfinance 官方/免費資料源】巴菲特指標(近似)、台股年乖離率、
+  美10年期公債殖利率、DXY、USD/TWD、VIX、美債10Y-2Y利差、高收益債信用
+  利差、Sahm法則、WTI原油、初領失業救濟金、Conference Board LEI(近似，
+  用FRED USSLIND替代)
+  【HTML 爬蟲，非官方 API】CAPE 席勒本益比(multpl.com)、
+  Fed 全年降息預期(近似，用 investing.com Fed Rate Monitor 頁面估算)
 
-其餘 4 項（CAPE、S&P500 FCF殖利率、Fed全年降息預期、Conference Board LEI）
-無穩定免費 API，維持人工更新；若超過 STALE_DAYS 天未更新，自動加註過舊警示。
+其餘 1 項（S&P500 FCF殖利率）無可行免費資料源，維持人工更新；
+若超過合理時間未更新，自動加註過舊警示。
 """
 import json
 import os
@@ -19,7 +22,7 @@ from datetime import datetime, timezone
 FRED_API_KEY = os.environ.get("FRED_API_KEY", "")
 
 # 人工維護指標（Tier C）：只做「資料過舊」檢查，不動數值
-MANUAL_INDICATORS = {"CAPE 席勒本益比", "S&P 500 自由現金流殖利率", "Fed 全年降息預期", "Conference Board LEI"}
+MANUAL_INDICATORS = {"S&P 500 自由現金流殖利率"}
 
 
 def fred_latest(series_id):
@@ -258,6 +261,121 @@ def build_initial_claims():
     }
 
 
+def build_lei():
+    # Conference Board LEI 本身無免費 API，改用 FRED 的 Leading Index for the
+    # United States（USSLIND，費城聯儲編製）作為近似替代，非官方 LEI 原始數值，
+    # 但方向性一致，月頻更新
+    val, date = fred_latest("USSLIND")
+    status, note = tier(val, [-1.0, 0, 1.0], [
+        ("🔴", "六個月領先指標明顯轉負，衰退風險升高"),
+        ("🟠", "領先指標轉負，經濟動能轉弱"),
+        ("🟡", "領先指標偏弱，成長動能放緩"),
+        ("🟢", "領先指標穩健，經濟動能良好"),
+    ])
+    return {
+        "name": "Conference Board LEI",
+        "current": f"{val:.2f}（{fmt_date(date)}，近似值：FRED USSLIND 領先指標）",
+        "status": status,
+        "statusText": note,
+    }
+
+
+def build_cape():
+    # multpl.com 無官方 API，改抓其伺服器渲染的 HTML（非 JS 動態頁面），
+    # 從固定格式的 meta description 取值；若網站改版導致抓不到，直接拋錯，
+    # 交由 main() 落回人工維護 + 過舊警示
+    import re
+    url = "https://www.multpl.com/shiller-pe"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        html = r.read().decode("utf-8")
+    m = re.search(r"Current Shiller PE Ratio is ([\d.]+)", html)
+    if not m:
+        raise RuntimeError("multpl.com 頁面格式已變更，抓不到 CAPE 數值")
+    val = float(m.group(1))
+    date_m = re.search(r'<div id="timestamp">\s*([^<]+?)\s*</div>', html)
+    date_text = date_m.group(1).strip() if date_m else ""
+    status, note = tier(val, [20, 30, 38], [
+        ("🟢", "本益比溫和，未過熱"),
+        ("🟡", "本益比偏高，留意估值風險"),
+        ("🟠", "接近歷史高檔區"),
+        ("🔴", "達歷史相對高檔，結構性泡沫風險升高"),
+    ])
+    return {
+        "name": "CAPE 席勒本益比",
+        "current": f"{val:.1f}（{date_text or 'multpl.com'}）",
+        "status": status,
+        "statusText": note,
+    }
+
+
+def build_fed_rate_cuts():
+    # CME FedWatch 無公開 API；改抓 investing.com Fed Rate Monitor 頁面
+    # （伺服器渲染的靜態表格，含每場 FOMC 會議的利率區間機率分佈）。
+    # 取「今年最後一場會議」的機率分佈，算出機率加權期望利率中值，
+    # 再與 FRED 公布的目前聯邦資金利率目標區間比較，換算成「全年降息次數」。
+    # 這是近似估算，非市場精確定價；investing.com 頁面結構改版或被反爬蟲
+    # 阻擋都會導致失敗，失敗時直接拋錯落回人工維護。
+    import re
+    url = "https://www.investing.com/central-banks/fed-rate-monitor"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        html = r.read().decode("utf-8")
+
+    meeting_pattern = re.compile(
+        r"Meeting Time:</span>\s*<i>([A-Za-z]+ \d{1,2}, \d{4})[^<]*</i>.*?"
+        r'<div class="percfedRateWrap">(.*?)</div>\s*<table',
+        re.DOTALL,
+    )
+    item_pattern = re.compile(
+        r"<span>([\d.]+)\s*-\s*([\d.]+)</span>.*?<span>([\d.]+)%</span>",
+        re.DOTALL,
+    )
+
+    this_year = datetime.now(timezone.utc).year
+    meetings = []
+    for date_str, block in meeting_pattern.findall(html):
+        dt = datetime.strptime(date_str, "%b %d, %Y")
+        if dt.year != this_year:
+            continue
+        items = item_pattern.findall(block)
+        if not items:
+            continue
+        weighted_sum = 0.0
+        weight_total = 0.0
+        for lo, hi, prob in items:
+            mid = (float(lo) + float(hi)) / 2
+            weighted_sum += mid * float(prob)
+            weight_total += float(prob)
+        if weight_total == 0:
+            continue
+        meetings.append((dt, weighted_sum / weight_total))
+
+    if not meetings:
+        raise RuntimeError("investing.com 找不到今年內的 FOMC 會議資料")
+
+    meetings.sort(key=lambda x: x[0])
+    year_end_date, year_end_expected_mid = meetings[-1]
+
+    tar_u, _ = fred_latest("DFEDTARU")
+    tar_l, _ = fred_latest("DFEDTARL")
+    current_mid = (tar_u + tar_l) / 2
+
+    cuts = (current_mid - year_end_expected_mid) / 0.25
+    status, note = tier(cuts, [1, 2, 3], [
+        ("🔴", "深度觸發警戒（<1次），降息預期大幅降溫"),
+        ("🟠", "低於預期（1~2次）"),
+        ("🟡", "接近基準情境（2~3次）"),
+        ("🟢", "符合或優於基準情境（≥3次）"),
+    ])
+    return {
+        "name": "Fed 全年降息預期",
+        "current": f"約{cuts:.1f}次（依{year_end_date.strftime('%m/%d')}會議市場定價估算）",
+        "status": status,
+        "statusText": note,
+    }
+
+
 BUILDERS = [
     build_buffett_indicator,
     build_taiwan_deviation,
@@ -270,6 +388,9 @@ BUILDERS = [
     build_sahm,
     build_wti,
     build_initial_claims,
+    build_lei,
+    build_cape,
+    build_fed_rate_cuts,
 ]
 
 
