@@ -32,7 +32,7 @@ window.addEventListener('error', function(event) {
 :root{--bg:#fff;--text:#1a1a1a;--muted:#666;--border:#ddd;--accent:#2563eb;--al:#eff6ff;--green:#16a34a;--red:#dc2626;--yel:#d97706;--sbg:#f9fafb;--grad1:#2563eb;--grad2:#1d4ed8}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(135deg, #f8f9ff 0%, #fff 100%);color:var(--text);font-size:15px;line-height:1.75}
-.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 60px}
+.wrap{max-width:880px;margin:0 auto;padding:24px 16px 60px}
 
 /* ═══════════════ 表頭美化 ═══════════════ */
 .header{background:linear-gradient(135deg, var(--grad1) 0%, var(--grad2) 100%);border-radius:16px;padding:32px 28px;margin-bottom:28px;color:#fff;box-shadow:0 10px 30px rgba(37, 99, 235, 0.15);position:relative;overflow:hidden}
@@ -134,7 +134,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.0.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.1.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
@@ -238,9 +238,12 @@ async function initStockCache() {
 
   // 備援 1：優先從本地 JSON 檔案加載（最快最可靠）
   try {
-    const resp = await fetch('twse-stocks.json', {signal: AbortSignal.timeout(5000)});
+    const resp = await fetch('tw-stocks.json', {signal: AbortSignal.timeout(5000)});
     if (resp.ok) {
-      STOCK_CACHE = await resp.json();
+      const raw = await resp.json();
+      STOCK_CACHE = Object.values(raw.stocks).map(s => ({
+        Code: s.code, CHName: s.short || s.name, Name: s.name_en, Type: s.type
+      }));
       console.log(`✅ 台股數據已加載 (本地 JSON，${STOCK_CACHE.length} 支股票)`);
       return;
     }
@@ -1506,10 +1509,10 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
 
   if(bull>=2&&bull>bear) {
     const buyWarn = m.majorNewsCount > 0 ? ' 但請先確認重大訊息內容。' : '';
-    return{t:'buy',ti:'🔴 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
+    return{t:'buy',ti:'🟢 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
   }
   if(bear>=2&&bear>bull) {
-    return{t:'sell',ti:'🟢 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
+    return{t:'sell',ti:'🔴 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
   }
   return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
 }

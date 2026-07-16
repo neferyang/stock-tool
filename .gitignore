@@ -49,6 +49,10 @@
 !fetch-market-data.py          # 市場指數抓取腳本
 !market-data.json              # 市場指數數據
 !market-analysis.json          # 市場分析結果
+# 市場風險指標儀表板自動更新腳本
+!fetch-risk-dashboard.py
+# 台股簡稱對照表更新腳本
+!update-tw-stocks.py
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流

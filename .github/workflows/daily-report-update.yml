@@ -45,6 +45,11 @@ jobs:
       - name: Update daily report
         run: node update-daily-report.js
 
+      - name: Update risk dashboard
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python fetch-risk-dashboard.py
+
       - name: Push via GitHub API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
