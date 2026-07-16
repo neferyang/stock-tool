@@ -104,8 +104,10 @@ def merge_financial_data(html_path, json_path):
         print(f"{stock_code}: ✅ 已更新 ({latest_year} EPS={latest_eps}, ROE={latest_roe}%, {data_years}年數據)")
 
     if updated_count == 0:
-        print("❌ 沒有任何更新")
-        return False
+        # 沒有可合併的資料是正常狀態（例如非年報公告季，交叉驗證來源當次
+        # 沒抓到任何全年度資料），不是腳本執行失敗，不應讓 workflow 顯示紅色
+        print("ℹ️ 沒有可合併的資料（非錯誤，可能是非年報公告季）")
+        return True
 
     # 保存更新
     print(f"\n保存修改到 {html_path}...")
