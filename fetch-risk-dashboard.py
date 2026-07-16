@@ -67,10 +67,13 @@ def tier(value, bounds, labels):
 
 
 def build_buffett_indicator():
-    will5000, d1 = fred_latest("WILL5000PRFC")
+    # FRED 已於 2024/6/3 下架 Wilshire 指數授權資料（WILL5000PRFC 已失效），
+    # 改用 yfinance 的 ^W5000（Wilshire 5000 Total Market Index）替代，
+    # 沿用同一近似換算法：指數點數 / GDP（十億美元）× 100
+    will5000, d1 = yf_latest("^W5000")
     gdp_data = fred_series("GDP", limit=1)
     gdp_date, gdp = gdp_data[0]
-    ratio = will5000 / gdp * 100  # 近似值：Wilshire 5000 Full Cap Price Index / GDP
+    ratio = will5000 / gdp * 100  # 近似值：Wilshire 5000 Total Market Index / GDP
     status, note = tier(ratio, [150, 180, 200], [
         ("🟢", "低於150%，估值溫和"),
         ("🟡", "150~180%，估值偏熱"),
@@ -249,7 +252,7 @@ def build_initial_claims():
     ])
     return {
         "name": "初領失業救濟金",
-        "current": f"{val_k:.1f}萬/週（{fmt_date(date)}）",
+        "current": f"{val/10000:.1f}萬/週（{fmt_date(date)}）",
         "status": status,
         "statusText": note,
     }
