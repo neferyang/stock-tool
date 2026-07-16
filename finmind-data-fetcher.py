@@ -83,11 +83,17 @@ class FinMindFetcher:
 
     def compute_annual(self, income, balance, cashflow):
         """整合三表，回傳 { '2024': {eps, revenue, ...}, ... }
-        滿4季損益表 → 真實年度數據。不滿4季（當年度進行中，如今年僅公布Q1）→
-        用現有季數年化推估（現有季度加總 ÷ 季數 × 4），標記 isEstimate=True、
-        partialQuarters=實際季數，前端需明顯區分避免使用者誤認成正式年報數字。
+        滿4季損益表 → 真實年度數據。
+        當年度（進行中，如今年僅公布Q1）不滿4季 → 用現有季數年化推估
+        （現有季度加總 ÷ 季數 × 4），標記 isEstimate=True、partialQuarters=
+        實際季數，前端需明顯區分避免使用者誤認成正式年報數字。
+        過去年度（非當年度）不滿4季 → 視為資料不完整，直接略過（不年化、
+        不推估），原因：部分小型/興櫃公司在 FinMind 的申報紀錄本來就不齊全
+        或非季報頻率，強行年化會產生失真甚至誇大的數字，不能套用「進行中
+        年度」的推估邏輯。
         資產負債表科目本身就是期末餘額，不需年化，直接取最新一期。
         """
+        current_year = str(datetime.now().year)
         gi, gb, gc = self._group(income), self._group(balance), self._group(cashflow)
         years = set(gi) | set(gb) | set(gc)
         out = {}
@@ -111,6 +117,9 @@ class FinMindFetcher:
                 continue
 
             is_estimate = n_quarters < 4
+            if is_estimate and y != current_year:
+                # 過去年度資料本來就不齊全（非當年度進行中），不年化、不當作推估
+                continue
             annualize = (4 / n_quarters) if is_estimate else 1
 
             eps = isum('EPS')
