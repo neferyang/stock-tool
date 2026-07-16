@@ -1,11 +1,14 @@
 name: MOPS 爬蟲 - 定期更新 EPS 數據
 
 on:
-  # 定時運行：每週一早晨 6:00 UTC (台灣時間 14:00)
-  schedule:
-    - cron: '0 6 * * 1'
+  # 排程已停用（2026-07-16）：MOPS 官方 API 持續回應空值/逾時，判斷是對
+  # GitHub Actions 的 IP 做了反爬蟲阻擋，自 6/8 起排程執行僅成功過1次。
+  # 主要資料源 FinMind（update-financial-data.yml）運作正常不受影響，
+  # 此腳本原本只是備援/交叉驗證來源。之後若有更好的繞過方案再重新啟用。
+  # schedule:
+  #   - cron: '0 6 * * 1'
 
-  # 手動觸發
+  # 手動觸發（保留，可隨時測試是否恢復）
   workflow_dispatch:
 
 permissions:
