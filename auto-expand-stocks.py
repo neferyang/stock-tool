@@ -191,7 +191,7 @@ def main():
                         e[k] = v
                     e["updatedAt"] = datetime.now().isoformat()
                     e["source"] = "FinMind"
-                    e["dataType"] = "真實"
+                    e["dataType"] = "推估" if annual[yr].get("isEstimate") else "真實"
                     changed = True
                 else:
                     e["dataType"] = "無資料"
