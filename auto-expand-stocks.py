@@ -3,7 +3,8 @@
 """
 每日自動擴充財報資料庫 - 依市值排名(上市+上櫃+興櫃全市場)逐步補齊
 每次執行新增市值最高的 BATCH_SIZE 支「尚未收錄」的股票，並用 FinMind 抓真實數據填入。
-全市場涵蓋完畢後自動結束(不報錯)。
+全市場涵蓋完畢後自動切換成常態模式：改呼叫 finmind-data-fetcher.py 的既有邏輯，
+刷新資料庫裡缺值最多/最久未更新的既有股票（不再是一次性任務，變成持續維護）。
 """
 
 import requests
@@ -134,7 +135,15 @@ def main():
     candidates.sort(key=lambda x: -x[1]["market_cap"])
 
     if not candidates:
-        print("✅ 全市場已完整涵蓋，無新股票可擴充，結束。")
+        print("✅ 全市場已完整涵蓋，無新股票可擴充，改為刷新既有資料（缺值最多/最久未更新優先）")
+        spec = importlib.util.spec_from_file_location("fm", os.path.join(os.path.dirname(__file__) or ".", "finmind-data-fetcher.py"))
+        fm = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(fm)
+        fetcher = fm.FinMindFetcher()
+        if not fetcher.token:
+            print("❌ 未設定 FINMIND_TOKEN，中止（請確認 GitHub Secrets 已設定 FINMIND_TOKEN）")
+            return False
+        fm.update_data_file(fetcher)
         return True
 
     batch = candidates[:BATCH_SIZE]
