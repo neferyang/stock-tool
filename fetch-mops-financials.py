@@ -83,6 +83,7 @@ def main():
 
     income_rows = {}
     balance_rows = {}
+    fetch_ok_count = 0
 
     for url, kind in DATASETS:
         try:
@@ -91,6 +92,7 @@ def main():
             print(f"⚠️ {url} 抓取失敗：{e}")
             continue
 
+        fetch_ok_count += 1
         target = income_rows if kind == "income" else balance_rows
         count = 0
         for row in rows:
@@ -154,7 +156,9 @@ def main():
     print(f"完成！{len(results)} 檔公司取得全年度交叉驗證資料")
     print(f"已保存至 {OUTPUT_FILE}")
 
-    return len(results) > 0
+    # 0 筆結果是預期行為（非年報公告季，資料集裡還沒有季別=4的資料），不算失敗；
+    # 只有連資料集本身都抓不到（全部6個請求都失敗）才視為真正的失敗
+    return fetch_ok_count > 0
 
 
 if __name__ == "__main__":
