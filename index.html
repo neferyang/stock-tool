@@ -154,7 +154,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 <!-- ═══════════════ 美化表頭 ═══════════════ -->
 <div class="header">
   <div class="header-content">
-    <h1>📊 股票估價分析工具 <span class="vsub">v8.6.0</span></h1>
+    <h1>📊 股票估價分析工具 <span class="vsub">v8.7.0</span></h1>
     <p class="sub">💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub</p>
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
       <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
@@ -26454,10 +26454,6 @@ function renderFinancialChart(financialData){
   const eps = data.map(d => d.eps.val);
   const roe = data.map(d => d.roe.val);
   const margin = data.map(d => d.netMargin.val);
-  const fcfRatio = data.map(d => {
-    const ratio = d.eps.val ? (d.eps.val * 0.3 + Math.random() * 20) : 0; // 簡化估算
-    return Math.min(ratio, 100);
-  });
 
   fchart = new Chart(ctx.getContext('2d'), {
     type: 'line',
@@ -26499,7 +26495,7 @@ function renderFinancialChart(financialData){
     },
     options: {
       responsive: true,
-      maintainAspectRatio: true,
+      maintainAspectRatio: false,
       interaction: {mode: 'index', intersect: false},
       plugins: {
         legend: {
