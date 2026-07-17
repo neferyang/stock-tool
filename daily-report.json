@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T10:39:09.399Z",
+  "lastUpdated": "2026-07-17T10:44:57.979Z",
   "date": "2026年07月17日（星期五）",
   "basedOn": "2026年07月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -40,7 +40,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,000（07/17，▲0.37%）"
+        "黃金：3,999（07/17，▲0.34%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -196,55 +196,60 @@
   "news": [
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "債券價格回升且借貸成本壓力減輕，有利於科技股等成長型資產的表現。",
+      "description": "債券價格看漲，投資人可鎖定高殖利率並期待未來資本利得。",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
-      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
-      "description": "鎖定高鎖定收益的長期資金迎來歷史契機，但需防範債券價格下跌的帳面損失。",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
+      "title": "債市又誤判Fed？市場狂押升息 專家卻喊準備降息 - news.cnyes.com",
+      "description": "市場與專家預期分歧加劇，投資人需防範債市過度交易帶來的波動。",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9UbkVKT2NGZVZDVjhoeUlHQ01KS1VZckZlMmV1SXQ5dEdCeTd5Zl9iMXlNWDVpQ2ZuX0F1c1FuX0FENDJ2X2FEazR2SmdyMjQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
-      "description": "通膨與地緣政治風險夾擊將壓抑消費動能，投資人應提高防禦性資產配置。",
+      "description": "通膨惡化與消費信心崩潰，恐引發經濟滯脹並重創股市表現。",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
-      "description": "就業市場轉弱使通膨數據更具關鍵性，將直接決定美股短期內的波動方向。",
+      "description": "就業市場疲態顯露，通膨數據將決定聯準會政策轉向的關鍵時機。",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
-      "description": "全球景氣下行伴隨金融系統脆弱性上升，投資人應降低高風險資產部位。",
+      "description": "全球經濟下行風險增加，投資人應提高資產配置中的避險資產比重。",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
     {
       "title": "外資狂砍台股創紀錄 央行防守新台幣爆量貶3.9分 - 中央社 CNA",
-      "description": "資金外流與匯率承壓加劇台股波動，投資人需留意權值股短期內的資金流出壓力。",
+      "description": "資金外流壓力沉重，台股短期承壓且新台幣面臨持續貶值挑戰。",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8wemFCY2ttelhta3dlUVBVSmphS3IzVDFCYXhPY1VQR25SYk5kUElGdnlqQnE0VjRjWl92T2ZJd1ZPVExkMmlkaHItYzQxNVJfRjVXRUhkQldudWhGVXc?oc=5"
     }
   ],
   "observations": [
     {
-      "emoji": "📉",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "emoji": "1️⃣",
+      "title": "美股債市背離",
+      "content": "PPI降溫壓低升息預期，美股卻全線收跌，那指重挫近1.5%。"
     },
     {
-      "emoji": "🌏",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "emoji": "2️⃣",
+      "title": "能源危機肆虐",
+      "content": "伊朗戰爭引爆能源危機，通膨飆兩年新高，消費者信心跌破谷底。"
     },
     {
-      "emoji": "💰",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "emoji": "3️⃣",
+      "title": "政策預期分歧",
+      "content": "非農下修顯露就業疲態，市場狂押升息但專家卻喊準備降息。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午6:44:57",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午6:39:09",
