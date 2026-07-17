@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.17.0',
+  version: '8.17.1',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -834,84 +834,41 @@ async function newsAnnouncementsFetch(code) {
 let COMPANY_INDUSTRY_MAP = new Map();  // {公司代碼} → {產業名稱}
 let lastIndustrySync = null;           // 最後同步時間
 
+// 產業分類來源改用本地財報庫（financial-data-complete.json，已含官方33種產業名稱、
+// 100% 覆蓋，且 updateProgressDisplay 每次載入本來就會抓，瀏覽器快取命中幾乎零成本）。
+// 原本此處直接從瀏覽器打 openapi.twse.com.tw / tpex.org.tw 兩支 OpenAPI 做即時同步，
+// 但它們不送 CORS 標頭，正式站(github.io)實測 100% Failed to fetch，等於每次載入
+// 兩個必失敗的 fetch + monitorIndustrySync 空轉 15 秒後永遠 fallback，故廢除改本地填表。
 async function loadLatestIndustryData() {
   try {
-    console.log('[產業數據] 正在從 TWSE/TPEX 同步官方企業分類...');
-
-    // 上市公司（TWSE - 代碼對應表）
-    const twseUrl = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L";
-    let twseData = [];
-    try {
-      const twseResp = await fetch(twseUrl, {signal: AbortSignal.timeout(10000)});
-      if (twseResp.ok) {
-        twseData = await twseResp.json();
-        console.log(`[TWSE] 獲得 ${twseData.length} 家上市公司`);
-      }
-    } catch(twseErr) {
-      console.warn('[TWSE] API 請求失敗:', twseErr.message);
+    if (!FINANCIAL_DATA_CACHE) {
+      const resp = await fetch('financial-data-complete.json');
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+      FINANCIAL_DATA_CACHE = data.stocks || {};
     }
-
-    // 上櫃公司（TPEX - 代碼對應表）
-    const tpexUrl = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O";
-    let tpexData = [];
-    try {
-      const tpexResp = await fetch(tpexUrl, {signal: AbortSignal.timeout(10000)});
-      if (tpexResp.ok) {
-        tpexData = await tpexResp.json();
-        console.log(`[TPEX] 獲得 ${tpexData.length} 家上櫃公司`);
-      }
-    } catch(tpexErr) {
-      console.warn('[TPEX] API 請求失敗:', tpexErr.message);
-    }
-
-    // 合併上市 + 上櫃數據
-    const allCompanies = [...twseData, ...tpexData];
-    console.log(`[產業數據] 獲得 ${allCompanies.length} 家企業資訊`);
-
-    // 建立快速查找表：公司代碼 → 產業名稱（中文）
     COMPANY_INDUSTRY_MAP = new Map();
-    let successCount = 0;
-
-    allCompanies.forEach(item => {
-      // 兼容多種欄位名稱（TWSE 和 TPEX 格式可能不同）
-      let code = item.Code || item['公司代號'] || item['代號'] || item.symbol;
-      let industryCode = item.IndustryCode || item['產業代號'] || item['代碼'] || null;
-      let industryName = item['產業別'] || item.Industry || null;
-
-      if (!code) return;
-      code = code.toString().trim();
-
-      // 優先用產業名稱，次要用產業代碼轉換
-      let finalIndustry = null;
-      if (industryName && industryName.trim()) {
-        finalIndustry = industryName.trim();
-      } else if (industryCode) {
-        const codeStr = industryCode.toString().trim().padStart(2, '0');
-        finalIndustry = OFFICIAL_INDUSTRY_CODES[codeStr] || null;
-      }
-
-      if (finalIndustry) {
-        COMPANY_INDUSTRY_MAP.set(code, finalIndustry);
-        successCount++;
-      }
-    });
-
+    for (const [code, s] of Object.entries(FINANCIAL_DATA_CACHE)) {
+      if (s && s.industry) COMPANY_INDUSTRY_MAP.set(code, s.industry);
+    }
     lastIndustrySync = new Date();
-    const successRate = allCompanies.length > 0 ? ((successCount / allCompanies.length) * 100).toFixed(1) : 0;
-    console.log(`✅ 官方企業分類已同步完成 (${successCount}/${allCompanies.length} = ${successRate}%), 時間：${lastIndustrySync.toLocaleString()}`);
-
-    // 成功率超過 80% 視為成功
-    return successCount > allCompanies.length * 0.8;
-  } catch(e) {
-    console.warn('⚠️ 官方企業分類同步失敗:', e.message, '將使用備援方案');
+    console.log(`[產業數據] 從本地財報庫載入 ${COMPANY_INDUSTRY_MAP.size} 家企業官方分類`);
+    return COMPANY_INDUSTRY_MAP.size > 0;
+  } catch (e) {
+    console.warn('[產業數據] 本地分類載入失敗:', e.message, '將使用關鍵字備援');
     lastIndustrySync = null;
     return false;
   }
 }
 
-// 應用啟動時自動同步（非阻塞）
+// 應用啟動時自動載入（非阻塞）。延到 DOMContentLoaded 才呼叫，確保此時 script 已整段
+// 執行完、FINANCIAL_DATA_CACHE(宣告在後段)已初始化，避免 let 的暫時性死區(TDZ)。
 if (typeof document !== 'undefined') {
-  loadLatestIndustryData();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadLatestIndustryData);
+  } else {
+    loadLatestIndustryData();
+  }
 }
 
 // ════════════════════════════════════════════════════════
