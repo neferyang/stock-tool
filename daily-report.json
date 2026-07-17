@@ -1,17 +1,17 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T10:44:57.979Z",
-  "date": "2026年07月17日（星期五）",
-  "basedOn": "2026年07月16日（前一交易日）",
+  "lastUpdated": "2026-07-17T22:25:04.429Z",
+  "date": "2026年07月18日（星期六）",
+  "basedOn": "2026年07月17日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,553（07/16，▼0.20%）",
-        "S&P 500：7,534（07/16，▼0.51%）",
-        "那斯達克：25,882（07/16，▼1.47%）"
+        "道瓊：52,146（07/17，▼0.77%）",
+        "S&P 500：7,458（07/17，▼1.01%）",
+        "那斯達克：25,520（07/17，▼1.40%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -28,7 +28,7 @@
         "SENSEX：78,151（07/17，▲1.25%）",
         "NIFTY 50：24,334（07/17，▲1.09%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -40,14 +40,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,999（07/17，▲0.34%）"
+        "黃金：4,023（07/17，▲0.94%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,787（07/17，▼0.93%）"
+        "VN-Index：1,787（07/18，▼0.93%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -65,7 +65,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.9（4:00 PM EDT, Thu Jul 16）",
+            "current": "41.5（4:00 PM EDT, Fri Jul 17）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -83,7 +83,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（7/17，加權指數 vs 240日均線）",
+            "current": "約41%（7/16，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -96,9 +96,9 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.55%（7/15）",
+            "current": "4.57%（7/16）",
             "status": "🟠",
-            "statusText": "距警戒（>4.80%）約0.25%"
+            "statusText": "距警戒（>4.80%）約0.23%"
           },
           {
             "name": "Fed 全年降息預期",
@@ -108,13 +108,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.82（7/17）",
+            "current": "100.75（7/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.35（7/17）",
+            "current": "32.37（7/17）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -127,19 +127,19 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.2（7/17）",
+            "current": "18.8（7/17）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.42%（10Y 4.55% - 2Y 4.13%，7/15）",
+            "current": "+0.41%（10Y 4.57% - 2Y 4.16%，7/16）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
           {
             "name": "高收益債信用利差",
-            "current": "271 bps（2.71%，7/15）",
+            "current": "271 bps（2.71%，7/16）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -164,7 +164,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$80（7/17）",
+            "current": "$82（7/17）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -196,55 +196,60 @@
   "news": [
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "債券價格看漲，投資人可鎖定高殖利率並期待未來資本利得。",
+      "description": "債券殖利率回落有助於緩解科技股估值壓力，並為債市投資人帶來資本利得空間。",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
       "title": "債市又誤判Fed？市場狂押升息 專家卻喊準備降息 - news.cnyes.com",
-      "description": "市場與專家預期分歧加劇，投資人需防範債市過度交易帶來的波動。",
+      "description": "市場與專家對利率走向分歧加劇，投資人需防範利率政策轉折帶來的市場劇烈波動。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9UbkVKT2NGZVZDVjhoeUlHQ01KS1VZckZlMmV1SXQ5dEdCeTd5Zl9iMXlNWDVpQ2ZuX0F1c1FuX0FENDJ2X2FEazR2SmdyMjQ?oc=5"
     },
     {
-      "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
-      "description": "通膨惡化與消費信心崩潰，恐引發經濟滯脹並重創股市表現。",
+      "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞網SETN.com",
+      "description": "通膨復燃與消費信心崩潰雙擊，恐引發經濟滯脹危機並壓抑股市長線表現。",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
-      "description": "就業市場疲態顯露，通膨數據將決定聯準會政策轉向的關鍵時機。",
+      "description": "就業數據大幅下修削弱經濟動能，使本周通膨數據成為決定美股去向的關鍵催化劑。",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
-      "description": "全球經濟下行風險增加，投資人應提高資產配置中的避險資產比重。",
+      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞網SETN.com",
+      "description": "全球金融系統性風險升高，投資人應提高資產配置中的避險資產比重以防範衝擊。",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
     {
-      "title": "外資狂砍台股創紀錄 央行防守新台幣爆量貶3.9分 - 中央社 CNA",
-      "description": "資金外流壓力沉重，台股短期承壓且新台幣面臨持續貶值挑戰。",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8wemFCY2ttelhta3dlUVBVSmphS3IzVDFCYXhPY1VQR25SYk5kUElGdnlqQnE0VjRjWl92T2ZJd1ZPVExkMmlkaHItYzQxNVJfRjVXRUhkQldudWhGVXc?oc=5"
+      "title": "外資提現賣超1890億…央行出手 台幣小貶 - UDN",
+      "description": "央行進場調節有助穩定匯市信心，減緩外資大舉匯出對台股造成的資金流失壓力。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0waEF3am1JRmh3TmhuOUhTNFJRb3QycTFZWlhRb2MxY0ZoMzVNN19HeThUX3I2ZjVBM2VoemF4b1JLUERMODEyNGRLTWZKQllRNExvV2Zn0gFWQVVfeXFMTTBoQXdqbUlGaHdOaG45SFM0UlFvdDJxMVlaWFFvYzFjRmgzNU03X0d5OFRfcjZmNUEzZWh6YXhvUktQREw4MTI0ZEtNZkpCWVE0TG9XZmc?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股債市背離",
-      "content": "PPI降溫壓低升息預期，美股卻全線收跌，那指重挫近1.5%。"
+      "title": "美股全面重挫",
+      "content": "美債殖利率因PPI降溫下滑，美股三大指數卻仍集體收黑跌超0.7%。"
     },
     {
       "emoji": "2️⃣",
-      "title": "能源危機肆虐",
-      "content": "伊朗戰爭引爆能源危機，通膨飆兩年新高，消費者信心跌破谷底。"
+      "title": "地緣戰爭危機",
+      "content": "伊朗戰爭引爆能源危機，通膨飆兩年新高致消費者信心跌破谷底。"
     },
     {
       "emoji": "3️⃣",
-      "title": "政策預期分歧",
-      "content": "非農下修顯露就業疲態，市場狂押升息但專家卻喊準備降息。"
+      "title": "政策走向分歧",
+      "content": "非農下修91萬人，市場狂押升息但專家卻喊準備降息。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/18 上午6:25:04",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午6:44:57",
