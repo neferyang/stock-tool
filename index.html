@@ -166,8 +166,33 @@ renderAppHeader({
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
+
+// 分頁切換（原本index.html／index_v6_ai.html兩個獨立頁面合併成SPA，
+// 財金早報改lazy load：只有使用者真的點進去才fetch daily-report.json）
+let reportLoaded = false;
+function switchTab(tab) {
+  const panels = { valuation: 'tab-valuation', report: 'tab-report' };
+  Object.entries(panels).forEach(([key, id]) => {
+    document.getElementById(id).classList.toggle('hidden', key !== tab);
+  });
+  document.querySelectorAll('[data-tab-link]').forEach(a => {
+    const active = a.dataset.tabLink === tab;
+    a.style.color = active ? 'var(--text)' : 'var(--muted)';
+    a.style.background = active ? '#fff' : '#f9fafb';
+    a.style.borderBottomColor = active ? 'var(--accent)' : 'transparent';
+  });
+  if (location.hash.slice(1) !== tab) history.replaceState(null, '', '#' + tab);
+  if (tab === 'report' && !reportLoaded) {
+    reportLoaded = true;
+    loadDailyReport();
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  switchTab(location.hash === '#report' ? 'report' : 'valuation');
+});
 </script>
 
+<div id="tab-valuation">
 <!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="🔍 輸入代號或名稱... 如 2330、台積電、AAPL" autocomplete="off" autocapitalize="characters"/>
@@ -186,6 +211,12 @@ renderAppHeader({
 </p>
 <div id="st"></div>
 <div id="res" class="hidden"></div>
+</div>
+
+<!-- ═══════════════ 財金早報分頁（合併自 index_v6_ai.html） ═══════════════ -->
+<div id="tab-report" class="hidden">
+  <div id="market-report"></div>
+</div>
 </div>
 
 <script>
@@ -27089,6 +27120,148 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', monitorIndustrySync);
 } else {
   monitorIndustrySync();
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- 財金早報 - 市場數據加載與展示（合併自 index_v6_ai.html） -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+async function loadDailyReport() {
+  try {
+    let container = document.getElementById('market-report');
+    if (!container) return;
+
+    let reportData = null;
+    try {
+      const timestamp = new Date().getTime();
+      const response = await fetch(`./daily-report.json?t=${timestamp}`, { cache: 'no-store' });
+      if (response.ok) {
+        reportData = await response.json();
+      } else {
+        throw new Error(`HTTP ${response.status}`);
+      }
+    } catch (error) {
+      console.error('[財金早報] 加載外部數據失敗:', error.message);
+      throw error;
+    }
+
+    if (!reportData) throw new Error('無法解析數據');
+    renderMarketReport(reportData);
+  } catch (error) {
+    console.error('[財金早報] 載入失敗:', error.message);
+    const container = document.getElementById('market-report');
+    if (container) {
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${error.message}</span><br><span style="font-size:0.75rem;">請清除快取並刷新頁面</span></div>`;
+    }
+  }
+}
+
+function renderMarketReport(data) {
+  const container = document.getElementById('market-report');
+  if (!container) return;
+
+  const html = `
+    <!-- 標題區 -->
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 24px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+        <div style="flex:1;">
+          <h2 style="margin:0;font-size:1.3rem;font-weight:800;color:#1a1a1a;">📊 每日財金早報</h2>
+          <p style="margin:8px 0 0;color:#666;font-size:0.95rem;">${data.date}</p>
+          <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${data.basedOn}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+          <div style="font-size:0.75rem;background:#eef2ff;color:#4f46e5;font-weight:600;padding:8px 12px;border-radius:6px;">
+            ${data.riskDashboard.rating}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 市場概況 -->
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #4f46e5;padding-bottom:8px;">🌍 全球市場概況</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
+        ${(data.markets || []).map(market => `
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
+            <div style="font-weight:700;margin-bottom:8px;font-size:1rem;">${market.name}</div>
+            <div style="font-size:0.9rem;color:#444;margin-bottom:10px;line-height:1.8;">
+              ${(market.items || []).map(item => `<div>▸ ${item}</div>`).join('')}
+            </div>
+            <div style="font-size:0.8rem;color:#666;border-top:1px solid #e5e7eb;padding-top:8px;line-height:1.6;">
+              💡 ${market.analysis}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 風險指標儀表板 -->
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #d97706;padding-bottom:8px;">⚠️ 市場風險指標儀表板</h3>
+      <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px;margin-bottom:16px;font-size:0.9rem;">
+        <strong>${data.riskDashboard.rating}</strong> | ${data.riskDashboard.summary}
+      </div>
+      ${(data.riskDashboard.layers || []).map(layer => `
+        <div style="margin-bottom:20px;border-left:4px solid #4f46e5;padding-left:16px;">
+          <h4 style="margin:0;font-size:1rem;font-weight:700;">【第${layer.number}層】${layer.name}</h4>
+          <p style="margin:4px 0;font-size:0.85rem;color:#666;">📌 ${layer.question}</p>
+          <div style="margin-top:12px;">
+            ${(layer.indicators || []).map(ind => `
+              <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px;margin-bottom:8px;font-size:0.85rem;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+                  <div style="flex:1;">
+                    <strong>${ind.name}</strong><br>
+                    <span style="color:#666;">現值：${ind.current}</span><br>
+                    <span style="color:#888;font-size:0.8rem;">${ind.statusText}</span>
+                  </div>
+                  <div style="font-size:1.2rem;">${ind.status}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- 綜合研判 -->
+    <div style="background:linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);border:1px solid #fca5a5;border-radius:12px;padding:16px;margin-bottom:20px;">
+      <h3 style="margin:0 0 12px;font-size:1rem;font-weight:700;color:#7f1d1d;">【綜合研判】</h3>
+      <p style="margin:0;font-size:0.9rem;color:#5f2121;line-height:1.8;">${data.synthesis}</p>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid #fca5a5;font-size:0.85rem;color:#7f1d1d;font-weight:600;">
+        📌 最關鍵觀察指標：${(data.keyObservations || []).map(o => `（${o.number}）${o.title}`).join('；')}
+      </div>
+    </div>
+
+    <!-- 重要新聞 -->
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #059669;padding-bottom:8px;">【📰 重要新聞】</h3>
+      ${(data.news || []).map(n => `
+        <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e5e7eb;">
+          <div style="font-weight:700;margin-bottom:6px;">• ${n.title}</div>
+          <div style="font-size:0.9rem;color:#666;line-height:1.6;">${n.description}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- 今日觀察 -->
+    <div style="background:#dbeafe;border:1px solid #93c5fd;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;color:#1e40af;border-bottom:2px solid #3b82f6;padding-bottom:8px;">【💡 今日觀察】</h3>
+      ${(data.observations || []).map(o => `
+        <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #93c5fd;">
+          <div style="font-weight:700;margin-bottom:6px;color:#1e40af;">${o.emoji} ${o.title}</div>
+          <div style="font-size:0.9rem;color:#0c4a6e;line-height:1.6;">${o.content}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- 免責聲明 -->
+    <div style="background:#f3f4f6;border:1px solid #d1d5db;border-radius:8px;padding:12px;font-size:0.85rem;color:#666;text-align:center;">
+      ${data.disclaimer}
+    </div>
+  `;
+
+  container.innerHTML = html;
 }
 </script>
 

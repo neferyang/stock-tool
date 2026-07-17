@@ -1,15 +1,17 @@
-// 共用 App Header：兩頁（股票估價工具 / 財金早報）用同一份程式碼產生
+// 共用 App Header：股票估價工具／財金早報兩個分頁用同一份程式碼產生
 // header + 分頁列，統一配色與排版，之後要調視覺只改這一處。
+// v8.17起兩頁合併成同一個index.html的SPA，分頁改成JS切換（見index.html的
+// switchTab()），不再整頁跳轉；index_v6_ai.html保留成redirect stub供舊書籤使用。
 function renderAppHeader({ containerSelector, activeTab, icon, title, version, subtitle, showProgress }) {
   const tabs = [
-    { href: 'index.html', icon: '📊', label: '股票估價工具', key: 'valuation' },
-    { href: 'index_v6_ai.html', icon: '🤖', label: '財金早報', key: 'report' },
+    { key: 'valuation', icon: '📊', label: '股票估價工具' },
+    { key: 'report', icon: '🤖', label: '財金早報' },
   ];
 
   const tabsHtml = tabs.map(t => {
     const active = t.key === activeTab;
     const hoverAttrs = active ? '' : ` onmouseover="this.style.color='var(--text)';this.style.background='#fff'" onmouseout="this.style.color='var(--muted)';this.style.background='#f9fafb'"`;
-    return `<a href="${t.href}" style="flex:1;padding:14px 20px;text-decoration:none;color:${active ? 'var(--text)' : 'var(--muted)'};font-weight:600;border-bottom:3px solid ${active ? 'var(--accent)' : 'transparent'};background:${active ? '#fff' : '#f9fafb'};text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;"${hoverAttrs}>${t.icon} ${t.label}</a>`;
+    return `<a href="#${t.key}" data-tab-link="${t.key}" onclick="event.preventDefault();switchTab('${t.key}')" style="flex:1;padding:14px 20px;text-decoration:none;color:${active ? 'var(--text)' : 'var(--muted)'};font-weight:600;border-bottom:3px solid ${active ? 'var(--accent)' : 'transparent'};background:${active ? '#fff' : '#f9fafb'};text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;"${hoverAttrs}>${t.icon} ${t.label}</a>`;
   }).join('');
 
   const progressHtml = showProgress ? `
