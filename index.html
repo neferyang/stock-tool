@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.19.1',
+  version: '8.20.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -27163,17 +27163,16 @@ function renderMarketReport(data) {
         <strong>${data.riskDashboard.rating}</strong> | ${data.riskDashboard.summary}
       </div>
       ${(data.riskDashboard.layers || []).map(layer => `
-        <div style="margin-bottom:20px;border-left:4px solid #4f46e5;padding-left:16px;">
+        <div style="margin-bottom:14px;border-left:4px solid #4f46e5;padding-left:16px;">
           <h4 style="margin:0;font-size:1rem;font-weight:700;">【第${layer.number}層】${layer.name}</h4>
           <p style="margin:4px 0;font-size:0.85rem;color:#666;">📌 ${layer.question}</p>
-          <div style="margin-top:12px;">
+          <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;">
             ${(layer.indicators || []).map(ind => `
-              <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:10px;margin-bottom:8px;font-size:0.85rem;">
+              <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:8px 10px;font-size:0.85rem;">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-                  <div style="flex:1;">
+                  <div style="flex:1;min-width:0;">
                     <strong>${ind.name}</strong><br>
-                    <span style="color:#666;">現值：${ind.current}</span><br>
-                    <span style="color:#888;font-size:0.8rem;">${ind.statusText}</span>
+                    <span style="color:#666;">現值：${ind.current}</span><span style="color:#888;font-size:0.8rem;"> ｜ ${ind.statusText}</span>
                   </div>
                   <div style="font-size:1.2rem;">${ind.status}</div>
                 </div>
