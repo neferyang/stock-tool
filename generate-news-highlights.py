@@ -21,7 +21,7 @@ if sys.stdout.encoding != 'utf-8':
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 # gemini-2.0-flash 免費層已被 Google 關閉(limit:0)，改用仍有免費配額的 2.5-flash。
 # 可用環境變數 GEMINI_MODEL 覆寫，方便日後不改 code 換模型。
-GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 
 
 def call_gemini(prompt):
