@@ -39,12 +39,20 @@ INDUSTRY_NAME = {
 }
 
 
-def fetch_json(url):
+def fetch_json(url, retries=3):
     # TPEx(tpex.org.tw)憑證缺 Subject Key Identifier，屬官方已知瑕疵，非安全疑慮，關閉嚴格驗證避免握手失敗
     verify = "tpex.org.tw" not in url
-    r = requests.get(url, headers=UA, timeout=TIMEOUT, verify=verify)
-    r.raise_for_status()
-    return r.json()
+    last_err = None
+    for attempt in range(retries):
+        try:
+            r = requests.get(url, headers=UA, timeout=TIMEOUT, verify=verify)
+            r.raise_for_status()
+            return r.json()
+        except requests.exceptions.RequestException as e:
+            last_err = e
+            if attempt < retries - 1:
+                time.sleep(5 * (attempt + 1))
+    raise last_err
 
 
 def build_universe():

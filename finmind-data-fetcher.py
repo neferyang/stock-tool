@@ -150,6 +150,9 @@ class FinMindFetcher:
                 'operatingMargin': round(op_income / revenue * 100, 1) if (op_income is not None and revenue) else None,
                 'netMargin': round(net_income / revenue * 100, 1) if (net_income is not None and revenue) else None,
                 'roe': round(net_income_a / equity * 100, 1) if (net_income_a is not None and equity) else None,
+                # ROE 分子是年化淨利，跟淨利率/負債比不同（那兩者未年化，本身已是實際值），
+                # 這裡多存一份「未年化」的實際季度ROE，前端可對照顯示，避免推估值被誤認成正式數字
+                'roeActual': round(net_income / equity * 100, 1) if (is_estimate and net_income is not None and equity) else None,
                 'debtRatio': round(liab / total_assets * 100, 1) if (liab is not None and total_assets) else None,
                 'fcf': round(fcf_a / OKU, 1) if fcf_a is not None else None,
                 'isEstimate': is_estimate,
@@ -233,6 +236,7 @@ def update_data_file(fetcher):
                     entry['isEstimate'] = src.get('isEstimate', False)
                     entry['partialQuarters'] = src.get('partialQuarters')
                     entry['epsActual'] = src.get('epsActual')
+                    entry['roeActual'] = src.get('roeActual')
                     entry['dataType'] = '推估' if src.get('isEstimate') else '真實'
                     changed = True
                 elif entry.get('eps') is None:

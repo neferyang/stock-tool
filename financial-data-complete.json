@@ -92180,11 +92180,13 @@
           "roe": 14.3,
           "netMargin": 19.6,
           "debtRatio": 24.9,
-          "updatedAt": "2026-07-16T12:12:42.834892",
+          "updatedAt": "2026-07-17T09:16:42.363156",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
-          "partialQuarters": 1
+          "partialQuarters": 1,
+          "epsActual": 3.22,
+          "roeActual": 3.6
         }
       ]
     },

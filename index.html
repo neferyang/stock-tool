@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.15.0',
+  version: '8.16.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26415,7 +26415,7 @@ function calcFinancialTrend(data) {
     trends.push({
       year: curr.year,
       eps: { val: curr.eps, growth: epsGrowth, actual: curr.epsActual ?? null },
-      roe: { val: curr.roe },  // 只顯示值，不顯示年增率（已是百分比）
+      roe: { val: curr.roe, actual: curr.roeActual ?? null },  // 只顯示值，不顯示年增率（已是百分比）
       netMargin: { val: curr.netMargin },  // 只顯示值，不顯示年增率（已是百分比）
       debtRatio: { val: curr.debtRatio },  // 只顯示值
       isEstimate: !!curr.isEstimate,
@@ -26493,7 +26493,7 @@ function renderFinancialChart(financialData){
           tension: 0.4,
           pointStyle: estimatePointStyle,
           pointRadius: estimatePointRadius,
-          borderDash: [5, 5]
+          segment: { borderDash: estimateSegmentDash }
         }
       ]
     },
@@ -26919,33 +26919,29 @@ ${latestFinancial && latestFinancial.isEstimate ? `<p style="font-size:.75rem;co
 <div class="health-grid">
   <div class="health-metric">
     <div class="health-metric-label">股東權益報酬率 (ROE)</div>
-    <div class="health-metric-value" style="color:${roeEval ? roeEval.color : '#999'};">${roeEval ? latestFinancial.roe.toFixed(1) + '%' : 'N/A'}</div>
+    <div class="health-metric-value" style="color:${roeEval ? roeEval.color : '#999'};">${roeEval ? latestFinancial.roe.toFixed(1) + '%' : 'N/A'}${latestFinancial.isEstimate && latestFinancial.compareYear ? `<span style="font-size:.65rem;font-weight:400;color:var(--muted)"> (${latestFinancial.compareRoe !== null ? latestFinancial.compareRoe.toFixed(1) + '%' : 'N/A'})</span>` : ''}</div>
     <div class="health-metric-level">${roeEval ? roeEval.level : '無資料'}</div>
-    ${latestFinancial.isEstimate && latestFinancial.compareYear ? `<div class="health-metric-desc">📊 ${latestFinancial.compareYear}真實：${latestFinancial.compareRoe !== null ? latestFinancial.compareRoe.toFixed(1) + '%' : 'N/A'}</div>` : ''}
     <div class="health-metric-desc">💡 ${roeEval ? roeEval.desc : '—'}</div>
   </div>
 
   <div class="health-metric">
     <div class="health-metric-label">營業利益率</div>
-    <div class="health-metric-value" style="color:${latestFinancial.operatingMargin !== null && latestFinancial.operatingMargin !== undefined ? opEval.color : '#999'};">${fp(latestFinancial.operatingMargin)}</div>
+    <div class="health-metric-value" style="color:${latestFinancial.operatingMargin !== null && latestFinancial.operatingMargin !== undefined ? opEval.color : '#999'};">${fp(latestFinancial.operatingMargin)}${latestFinancial.isEstimate && latestFinancial.compareYear ? `<span style="font-size:.65rem;font-weight:400;color:var(--muted)"> (${latestFinancial.compareOperatingMargin !== null ? latestFinancial.compareOperatingMargin.toFixed(1) + '%' : 'N/A'})</span>` : ''}</div>
     <div class="health-metric-level">${opEval.level}</div>
-    ${latestFinancial.isEstimate && latestFinancial.compareYear ? `<div class="health-metric-desc">📊 ${latestFinancial.compareYear}真實：${latestFinancial.compareOperatingMargin !== null ? latestFinancial.compareOperatingMargin.toFixed(1) + '%' : 'N/A'}</div>` : ''}
     <div class="health-metric-desc">💡 ${opEval.desc}</div>
   </div>
 
   <div class="health-metric">
     <div class="health-metric-label">淨利率</div>
-    <div class="health-metric-value" style="color:${latestFinancial.netMargin !== null && latestFinancial.netMargin !== undefined ? nmEval.color : '#999'};">${fp(latestFinancial.netMargin)}</div>
+    <div class="health-metric-value" style="color:${latestFinancial.netMargin !== null && latestFinancial.netMargin !== undefined ? nmEval.color : '#999'};">${fp(latestFinancial.netMargin)}${latestFinancial.isEstimate && latestFinancial.compareYear ? `<span style="font-size:.65rem;font-weight:400;color:var(--muted)"> (${latestFinancial.compareNetMargin !== null ? latestFinancial.compareNetMargin.toFixed(1) + '%' : 'N/A'})</span>` : ''}</div>
     <div class="health-metric-level">${nmEval.level}</div>
-    ${latestFinancial.isEstimate && latestFinancial.compareYear ? `<div class="health-metric-desc">📊 ${latestFinancial.compareYear}真實：${latestFinancial.compareNetMargin !== null ? latestFinancial.compareNetMargin.toFixed(1) + '%' : 'N/A'}</div>` : ''}
     <div class="health-metric-desc">💡 ${nmEval.desc}</div>
   </div>
 
   <div class="health-metric">
     <div class="health-metric-label">負債佔資產比率</div>
-    <div class="health-metric-value" style="color:${latestFinancial.debtRatio !== null && latestFinancial.debtRatio !== undefined ? drEval.color : '#999'};">${fp(latestFinancial.debtRatio)}</div>
+    <div class="health-metric-value" style="color:${latestFinancial.debtRatio !== null && latestFinancial.debtRatio !== undefined ? drEval.color : '#999'};">${fp(latestFinancial.debtRatio)}${latestFinancial.isEstimate && latestFinancial.compareYear ? `<span style="font-size:.65rem;font-weight:400;color:var(--muted)"> (${latestFinancial.compareDebtRatio !== null ? latestFinancial.compareDebtRatio.toFixed(1) + '%' : 'N/A'})</span>` : ''}</div>
     <div class="health-metric-level">${drEval.level}</div>
-    ${latestFinancial.isEstimate && latestFinancial.compareYear ? `<div class="health-metric-desc">📊 ${latestFinancial.compareYear}真實：${latestFinancial.compareDebtRatio !== null ? latestFinancial.compareDebtRatio.toFixed(1) + '%' : 'N/A'}</div>` : ''}
     <div class="health-metric-desc">💡 ${drEval.desc}</div>
   </div>
 </div>
@@ -26966,10 +26962,10 @@ ${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var
 <table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
 ${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : ''}>
   <td><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">${f.partialQuarters ? 'Q'+f.partialQuarters+'推估' : '推估'}</span>` : ''}</td>
-  <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}${f.isEstimate && f.eps && f.eps.actual !== null ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（Q${f.partialQuarters}實際 ${parseFloat(f.eps.actual).toFixed(2)}）</span>` : ''}</td>
+  <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（${f.eps && f.eps.actual !== null ? parseFloat(f.eps.actual).toFixed(2) : 'N/A'}）</span>` : ''}</td>
   <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
   <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>
-  <td>${f.roe && f.roe.val !== null ? parseFloat(f.roe.val).toFixed(1) + '%' : 'N/A'}</td>
+  <td>${f.roe && f.roe.val !== null ? parseFloat(f.roe.val).toFixed(1) + '%' : 'N/A'}${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（${f.roe && f.roe.actual !== null ? parseFloat(f.roe.actual).toFixed(1) + '%' : 'N/A'}）</span>` : ''}</td>
   <td>${f.debtRatio && f.debtRatio.val !== null ? parseFloat(f.debtRatio.val).toFixed(1) + '%' : 'N/A'}</td>
 </tr>`).join('')}
 </tbody></table></div>
