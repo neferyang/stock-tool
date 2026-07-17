@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T22:25:04.429Z",
+  "lastUpdated": "2026-07-17T23:34:29.090Z",
   "date": "2026年07月18日（星期六）",
   "basedOn": "2026年07月17日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -33,9 +33,9 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：45,625（07/16，▼0.01%）"
+        "台灣加權指數：42,671（07/17，▼6.47%）"
       ],
-      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
@@ -196,55 +196,60 @@
   "news": [
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "債券殖利率回落有助於緩解科技股估值壓力，並為債市投資人帶來資本利得空間。",
+      "description": "升息壓力減輕促使債券價格回升，投資人可留意債市布局契機。",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
       "title": "債市又誤判Fed？市場狂押升息 專家卻喊準備降息 - news.cnyes.com",
-      "description": "市場與專家對利率走向分歧加劇，投資人需防範利率政策轉折帶來的市場劇烈波動。",
+      "description": "市場與專家對利率走向分歧加劇，投資人應審慎防範債市劇烈波動。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9UbkVKT2NGZVZDVjhoeUlHQ01KS1VZckZlMmV1SXQ5dEdCeTd5Zl9iMXlNWDVpQ2ZuX0F1c1FuX0FENDJ2X2FEazR2SmdyMjQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞網SETN.com",
-      "description": "通膨復燃與消費信心崩潰雙擊，恐引發經濟滯脹危機並壓抑股市長線表現。",
+      "description": "通膨與能源危機重創消費信心，恐衝擊經濟成長並壓抑股市表現。",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
-      "description": "就業數據大幅下修削弱經濟動能，使本周通膨數據成為決定美股去向的關鍵催化劑。",
+      "description": "就業數據下修放大通膨指標影響力，本周數據將主導美股短期走勢。",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞網SETN.com",
-      "description": "全球金融系統性風險升高，投資人應提高資產配置中的避險資產比重以防範衝擊。",
+      "description": "全球金融系統性風險升高，投資人應提高警覺並採取防禦性配置。",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
     {
       "title": "外資提現賣超1890億…央行出手 台幣小貶 - UDN",
-      "description": "央行進場調節有助穩定匯市信心，減緩外資大舉匯出對台股造成的資金流失壓力。",
+      "description": "央行阻貶有助穩定匯市，但外資大舉匯出仍將壓抑台股資金動能。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0waEF3am1JRmh3TmhuOUhTNFJRb3QycTFZWlhRb2MxY0ZoMzVNN19HeThUX3I2ZjVBM2VoemF4b1JLUERMODEyNGRLTWZKQllRNExvV2Zn0gFWQVVfeXFMTTBoQXdqbUlGaHdOaG45SFM0UlFvdDJxMVlaWFFvYzFjRmgzNU03X0d5OFRfcjZmNUEzZWh6YXhvUktQREw4MTI0ZEtNZkpCWVE0TG9XZmc?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面重挫",
-      "content": "美債殖利率因PPI降溫下滑，美股三大指數卻仍集體收黑跌超0.7%。"
+      "title": "台股暴跌外資撤",
+      "content": "台股重挫逾6%但外資大賣1890億，央行出手阻貶台幣。"
     },
     {
       "emoji": "2️⃣",
-      "title": "地緣戰爭危機",
-      "content": "伊朗戰爭引爆能源危機，通膨飆兩年新高致消費者信心跌破谷底。"
+      "title": "中東戰火引通膨",
+      "content": "伊朗戰爭引爆能源危機，通膨飆兩年新高重創消費信心。"
     },
     {
       "emoji": "3️⃣",
-      "title": "政策走向分歧",
-      "content": "非農下修91萬人，市場狂押升息但專家卻喊準備降息。"
+      "title": "利率走向分歧大",
+      "content": "市場狂押升息但專家喊降息，非農下修放大通膨數據影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/18 上午7:34:29",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/18 上午6:25:04",
