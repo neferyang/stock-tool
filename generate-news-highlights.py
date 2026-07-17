@@ -60,7 +60,14 @@ def summarize_headlines(news):
             out = call_gemini(prompt)
             break
         except urllib.error.HTTPError as e:
-            # 429=每分鐘限流，退避重試；其餘 HTTP 錯誤直接放棄
+            # 印出 Gemini 回傳的錯誤 body：429 的 body 會寫是哪個 quota metric/限額，
+            # 用來判斷是「真的用量超標」還是「key 根本不是付費 key/專案沒綁計費」
+            try:
+                err_body = e.read().decode('utf-8', 'replace')[:500]
+            except Exception:
+                err_body = '(無法讀取錯誤內容)'
+            print(f'   🔎 Gemini HTTP {e.code} 詳情: {err_body}')
+            # 429=限流，退避重試；其餘 HTTP 錯誤直接放棄
             if e.code == 429 and attempt < 2:
                 wait = 20 * (attempt + 1)
                 print(f'   ⏳ Gemini 429 限流，{wait}s 後重試 ({attempt+1}/2)...')
