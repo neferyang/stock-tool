@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T07:40:16.306Z",
+  "lastUpdated": "2026-07-17T07:42:20.726Z",
   "date": "2026年07月17日（星期五）",
   "basedOn": "2026年07月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -25,8 +25,8 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,968（07/17，▲1.01%）",
-        "NIFTY 50：24,278（07/17，▲0.85%）"
+        "SENSEX：77,960（07/17，▲1.00%）",
+        "NIFTY 50：24,281（07/17，▲0.86%）"
       ],
       "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
@@ -40,14 +40,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,001（07/17，▲0.39%）"
+        "黃金：4,000（07/17，▲0.37%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,790（07/17，▼0.79%）"
+        "VN-Index：1,791（07/17，▼0.76%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -108,13 +108,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.69（7/17）",
+            "current": "100.67（7/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.36（7/17）",
+            "current": "32.35（7/17）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -127,7 +127,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.0（7/17）",
+            "current": "17.9（7/17）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -196,7 +196,7 @@
   "news": [
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "",
+      "description": "通膨降溫減輕央行升息壓力，有助於債券價格",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
@@ -215,7 +215,7 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞網SETN.com",
+      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
@@ -245,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午3:42:20",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午3:40:16",
