@@ -29,7 +29,13 @@ def call_gemini(prompt):
     url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
     body = json.dumps({
         'contents': [{'parts': [{'text': prompt}]}],
-        'generationConfig': {'maxOutputTokens': 500, 'temperature': 0.3}
+        # gemini-2.5 系列預設開啟 thinking，會吃掉 maxOutputTokens 導致實際輸出被截斷；
+        # 這種格式化短輸出的任務不需要 thinking，設 thinkingBudget=0 關閉並拉高 token 上限。
+        'generationConfig': {
+            'maxOutputTokens': 2048,
+            'temperature': 0.3,
+            'thinkingConfig': {'thinkingBudget': 0},
+        },
     }).encode('utf-8')
     req = urllib.request.Request(url, data=body,
         headers={'content-type': 'application/json'}, method='POST')
