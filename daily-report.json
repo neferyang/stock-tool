@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T06:44:53.862Z",
+  "lastUpdated": "2026-07-17T06:58:59.867Z",
   "date": "2026年07月17日（星期五）",
-  "basedOn": "2026年07月15日（前一交易日）",
+  "basedOn": "2026年07月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -13,20 +13,20 @@
         "S&P 500：7,534（07/16，▼0.51%）",
         "那斯達克：25,882（07/16，▼1.47%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,633（07/16，▼3.08%）"
+        "日經225：64,141（07/17，▼4.03%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,185（07/15，▲0.17%）",
-        "NIFTY 50：24,079（07/15，▲0.11%）"
+        "SENSEX：77,985（07/17，▲1.03%）",
+        "NIFTY 50：24,279（07/17，▲0.86%）"
       ],
       "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
@@ -35,26 +35,26 @@
       "items": [
         "台灣加權指數：45,625（07/16，▼0.01%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,978（07/16，▼1.63%）"
+        "黃金：4,002（07/17，▲0.41%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,804（07/17，▲1.24%）"
+        "VN-Index：1,794（07/17，▼0.56%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年7月16日",
+    "date": "2026年7月17日",
     "rating": "中度警戒",
     "summary": "🔴×3　🟠×5　🟡×3　🟢×4",
     "layers": [
@@ -83,7 +83,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約41%（7/15，加權指數 vs 240日均線）",
+            "current": "約31%（7/17，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -108,13 +108,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.71（7/16）",
+            "current": "100.68（7/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.26（7/16）",
+            "current": "32.35（7/17）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -164,7 +164,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$79（7/16）",
+            "current": "$79（7/17）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -215,7 +215,7 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
+      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞網SETN.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
@@ -227,9 +227,9 @@
   ],
   "observations": [
     {
-      "emoji": "📈",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "emoji": "📉",
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "🌏",
@@ -245,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午2:58:59",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午2:44:53",
