@@ -45,6 +45,16 @@ def summarize_headlines(news):
     if not GEMINI_API_KEY:
         print('   ⚠️ GEMINI_API_KEY 未設定，跳過重點摘要（維持純連結）')
         return
+    # 診斷：列出這把 key 實際可用、且支援 generateContent 的模型（避免猜模型名）
+    try:
+        lm_url = f'https://generativelanguage.googleapis.com/v1beta/models?key={GEMINI_API_KEY}&pageSize=100'
+        with urllib.request.urlopen(lm_url, timeout=15) as r:
+            models = json.loads(r.read().decode('utf-8')).get('models', [])
+        usable = [m['name'].replace('models/', '') for m in models
+                  if 'generateContent' in m.get('supportedGenerationMethods', [])]
+        print('   🔎 可用模型: ' + ', '.join(usable[:20]))
+    except Exception as e:
+        print(f'   🔎 ListModels 失敗: {e}')
     titles = [n['title'] for n in news]
     numbered = '\n'.join(f'{i+1}. {t}' for i, t in enumerate(titles))
     prompt = (
