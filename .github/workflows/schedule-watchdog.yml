@@ -1,0 +1,53 @@
+name: 排程補跑監控
+
+# GitHub Actions 的 cron 排程在平台負載高時可能延遲甚至整次跳過（官方已知限制，
+# 尤其整點/偶數小時最容易撞上全球排隊尖峰）。這支workflow每20分鐘檢查一次
+# 其他4個排程各自「上次成功執行距今多久」，超過各自允許的最大間隔就用
+# workflow_dispatch補觸發，把誤點時間壓在20分鐘內，不用去猜GitHub什麼時候會delay。
+
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'   # 錯開整點/半點，避免自己也撞上GitHub排隊尖峰
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 檢查各排程是否逾期，逾期就補觸發
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          check_and_trigger() {
+            local file="$1"
+            local max_age_hours="$2"
+            local last_run
+            last_run=$(gh api "repos/$REPO/actions/workflows/$file/runs?per_page=1&status=completed" \
+              --jq '.workflow_runs[0].created_at' 2>/dev/null)
+
+            if [ -z "$last_run" ] || [ "$last_run" = "null" ]; then
+              echo "⚠️ $file 查無執行紀錄，略過"
+              return
+            fi
+
+            local last_ts now_ts age_hours
+            last_ts=$(date -d "$last_run" +%s)
+            now_ts=$(date +%s)
+            age_hours=$(( (now_ts - last_ts) / 3600 ))
+            echo "$file：上次執行 $last_run（$age_hours 小時前，門檻 $max_age_hours 小時）"
+
+            if [ "$age_hours" -ge "$max_age_hours" ]; then
+              echo "🔁 $file 已逾期，觸發補跑"
+              gh workflow run "$file"
+            fi
+          }
+
+          check_and_trigger "auto-expand-stocks.yml" 3
+          check_and_trigger "update-financial-data.yml" 26
+          check_and_trigger "daily-report-update.yml" 14
+          check_and_trigger "mops_crawler.yml" 192

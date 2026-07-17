@@ -1,11 +1,11 @@
 name: 官方財報交叉驗證 - TWSE/TPEx OpenAPI
 
 on:
-  # 每週一早晨 6:00 UTC (台灣時間 14:00)
+  # 每週一早晨 6:53 UTC (台灣時間 14:53，分鐘錯開避免整點排隊延遲)
   # 2026-07-16：原本打 mops.twse.com.tw/mops/api 被反爬蟲阻擋（連續失敗超過
   # 1個月），改用 TWSE/TPEx OpenAPI 批次資料集重寫（見 fetch-mops-financials.py）
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '53 6 * * 1'
 
   # 手動觸發
   workflow_dispatch:

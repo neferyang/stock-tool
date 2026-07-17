@@ -2,8 +2,8 @@ name: Daily Financial Report Update
 
 on:
   schedule:
-    - cron: '0 22 * * *'   # 台北 06:00（美股收盤後 2hr，亞洲開盤前）
-    - cron: '0 21 * * *'   # 台北 05:00（美股收盤後 1hr = 最早可拿到當日美股收盤）
+    - cron: '41 22 * * *'   # 台北 06:41（美股收盤後 2hr，亞洲開盤前；分鐘錯開避免整點排隊延遲）
+    - cron: '37 21 * * *'   # 台北 05:37（美股收盤後 1hr = 最早可拿到當日美股收盤；分鐘錯開避免整點排隊延遲）
   workflow_dispatch:
   workflow_call:
 

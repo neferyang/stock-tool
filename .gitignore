@@ -94,6 +94,8 @@
 !.github/workflows/
 # 每日更新工作流
 !.github/workflows/daily-report-update.yml
+# 排程補跑監控工作流
+!.github/workflows/schedule-watchdog.yml
 
 # ════════════════════════════════════════════
 # 文檔目錄

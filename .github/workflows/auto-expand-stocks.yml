@@ -6,7 +6,7 @@ on:
     # 刻意避開 UTC 00:00(update-financial-data.yml 排程，需540次額度)前後，
     # 免得同一小時內 540+300=840 次超出 FinMind 免費版 600次/hr 上限
     # 全市場(2303支)涵蓋完畢後，腳本會自動判定無新股票可擴充並正常結束
-    - cron: '0 3-23/2 * * *'
+    - cron: '17 3-23/2 * * *'
   workflow_dispatch:
 
 permissions:
