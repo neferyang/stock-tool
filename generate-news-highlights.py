@@ -173,18 +173,29 @@ def generate_observations(markets_data):
 def main():
     print('\n=== 生成每日新聞和重點觀察 ===\n')
 
-    news_sources = {
-        '美股': '美國股市 S&P 500 NASDAQ',
-        '台股': '台灣股市加權指數',
-        '全球經濟': '全球經濟 央行'
-    }
+    # 新聞聚焦在風險儀表板追蹤的總經驅動因子(為什麼市場會動)，而非指數漲跌(市場概況已呈現)。
+    # (分類, 查詢字串, 取幾則)
+    news_sources = [
+        ('貨幣政策', 'Fed 升息 降息 美國公債殖利率', 2),      # 對應第2層 總體貨幣環境
+        ('通膨與景氣', '美國 通膨 CPI 經濟數據 衰退', 2),     # 對應第1/4層 估值與實體經濟
+        ('全球風險', '全球經濟 央行 金融穩定 風險', 1),        # 綜合系統性風險
+        ('台灣總經', '台股 外資 台幣匯率', 1),                # 對應第2層 USD/TWD、外資動向
+    ]
 
     all_news = []
-    for category, query in news_sources.items():
+    seen = set()  # 跨分類去重(總經查詢常撈到同一則)，用網址優先、否則用標題
+    for category, query, n in news_sources:
         print(f'📰 {category}: 正在抓取...')
-        news = fetch_news_from_google(query, max_items=2)
-        all_news.extend(news)
-        print(f'   ✅ 取得 {len(news)} 則')
+        news = fetch_news_from_google(query, max_items=n)
+        added = 0
+        for item in news:
+            key = item.get('url') or item.get('title')
+            if key in seen:
+                continue
+            seen.add(key)
+            all_news.append(item)
+            added += 1
+        print(f'   ✅ 取得 {added} 則')
 
     # 讀取市場數據以生成觀察
     try:
