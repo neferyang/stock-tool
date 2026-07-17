@@ -208,56 +208,103 @@ def fetch_news_from_google(query, max_items=5):
         print(f'⚠️ 新聞抓取失敗 ({query}): {e}')
         return []
 
-def generate_observations(markets_data):
-    """根據市場數據生成觀察"""
-    observations = []
+NUMBER_EMOJI = ['1️⃣', '2️⃣', '3️⃣']
 
+
+def generate_observations_rule_based(markets_data):
+    """規則式備援：Gemini 不可用時的最低限度版本，不牽涉真實數字判讀。"""
+    observations = []
     try:
-        # 美股觀察
         if 'US' in markets_data:
             us_data = markets_data['US']
             change_sum = sum([m.get('change', 0) for m in us_data.values()])
             avg_change = change_sum / len(us_data) if us_data else 0
-
             if avg_change > 1:
-                observations.append({
-                    'emoji': '📈',
-                    'title': '美股全面上漲',
-                    'content': '美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。'
-                })
+                title, content = '美股全面上漲', '美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。'
             elif avg_change < -1:
-                observations.append({
-                    'emoji': '📉',
-                    'title': '美股回檔調整',
-                    'content': '美股出現調整，投資人謹慎情緒升溫，避險資金流入。'
-                })
+                title, content = '美股回檔調整', '美股出現調整，投資人謹慎情緒升溫，避險資金流入。'
             else:
-                observations.append({
-                    'emoji': '➡️',
-                    'title': '美股漲跌互見',
-                    'content': '美股三大指數表現分化，市場等待政策方向明確。'
-                })
+                title, content = '美股漲跌互見', '美股三大指數表現分化，市場等待政策方向明確。'
+            observations.append({'emoji': NUMBER_EMOJI[0], 'title': title, 'content': content})
 
-        # 亞股觀察
         if 'JP' in markets_data or 'TW' in markets_data:
-            observations.append({
-                'emoji': '🌏',
-                'title': '亞股跟風美股',
-                'content': '亞股走勢跟隨美股，日股和台股表現受美股指引。'
-            })
+            observations.append({'emoji': NUMBER_EMOJI[1], 'title': '亞股跟風美股',
+                                  'content': '亞股走勢跟隨美股，日股和台股表現受美股指引。'})
 
-        # 商品觀察
         if 'GOLD' in markets_data:
-            observations.append({
-                'emoji': '💰',
-                'title': '貴金屬波動',
-                'content': '黃金價格波動，受美元走勢和風險情緒影響。'
-            })
-
+            observations.append({'emoji': NUMBER_EMOJI[2], 'title': '貴金屬波動',
+                                  'content': '黃金價格波動，受美元走勢和風險情緒影響。'})
     except Exception as e:
-        print(f'⚠️ 生成觀察失敗: {e}')
-
+        print(f'⚠️ 規則式觀察生成失敗: {e}')
     return observations
+
+
+def generate_observations(markets_data, news, indices_flat):
+    """歸納「今日觀察」3點：1.最大價格異常/悖論 2.最大地緣政治/外部風險 3.最關鍵總經數據矛盾/Fed訊號。
+    餵真實市場數字(indices_flat 的 displayStr，已含漲跌%)＋新聞標題與其一句話意涵給 Gemini 歸納，
+    嚴禁捏造輸入數據沒有的具體數字；Gemini 不可用或解析失敗則 fallback 回規則式版本。"""
+    if not GEMINI_API_KEY or not news:
+        if not GEMINI_API_KEY:
+            print('   ⚠️ GEMINI_API_KEY 未設定，今日觀察改用規則式備援')
+        return generate_observations_rule_based(markets_data)
+
+    market_lines = '\n'.join(f"- {v['name']}：{v.get('displayStr', '')}" for v in indices_flat.values())
+    news_lines = '\n'.join(
+        f"- {n['title']}" + (f"（意涵：{n['description']}）" if n.get('description') else '')
+        for n in news
+    )
+    prompt = (
+        '你是財經編輯，請從以下「真實市場數據」與「今日新聞」中，歸納出3個最值得投資人關注的'
+        '觀察重點，作為每日財金早報的結尾區塊。\n\n'
+        '選材邏輯（依序對應第1、2、3點）：\n'
+        '1. 當天最大的價格異常或市場悖論（例如利多出盡、暴跌反彈、預期與結果背離）\n'
+        '2. 最大的地緣政治或外部風險變數\n'
+        '3. 最關鍵的總經數據矛盾或 Fed 政策訊號\n\n'
+        '格式規則：\n'
+        '- 每點有 title（4-6字關鍵詞）與 body（1句話，20-30字，點出矛盾或影響，不要重複標題）\n'
+        '- 3點合計不超過150字，繁體中文，語氣精煉直白、不用敬語\n'
+        '- 只能引用下方數據與新聞裡出現過的數字/事實，嚴禁捏造未提及的具體數字、日期\n'
+        '- 若某一類找不到明顯素材，改選次要但仍具體的觀察，不要硬套或留白\n\n'
+        f'真實市場數據：\n{market_lines}\n\n'
+        f'今日新聞：\n{news_lines}\n\n'
+        '請直接輸出 JSON 陣列（不要加 ```json 或其他說明文字），格式：\n'
+        '[{"title":"...","body":"..."},{"title":"...","body":"..."},{"title":"...","body":"..."}]'
+    )
+
+    import time
+    raw = None
+    for attempt in range(3):
+        try:
+            raw = call_gemini(prompt)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 2:
+                wait = 20 * (attempt + 1)
+                print(f'   ⏳ Gemini 429 限流，{wait}s 後重試 ({attempt+1}/2)...')
+                time.sleep(wait)
+                continue
+            print(f'   ⚠️ 今日觀察 Gemini 失敗（改用規則式備援）: HTTP {e.code}')
+            return generate_observations_rule_based(markets_data)
+        except Exception as e:
+            print(f'   ⚠️ 今日觀察 Gemini 失敗（改用規則式備援）: {e}')
+            return generate_observations_rule_based(markets_data)
+
+    try:
+        cleaned = re.sub(r'^```(json)?|```$', '', raw.strip(), flags=re.MULTILINE).strip()
+        items = json.loads(cleaned)
+        observations = []
+        for i, item in enumerate(items[:3]):
+            title = str(item.get('title', '')).strip()[:12]
+            body = str(item.get('body', '')).strip()[:60]
+            if title and body:
+                observations.append({'emoji': NUMBER_EMOJI[i], 'title': title, 'content': body})
+        if len(observations) < 3:
+            raise ValueError(f'只解析出 {len(observations)} 點，不足3點')
+        print(f'   ✅ Gemini 產生 {len(observations)} 點今日觀察')
+        return observations
+    except Exception as e:
+        print(f'   ⚠️ 今日觀察解析失敗（改用規則式備援）: {e}')
+        return generate_observations_rule_based(markets_data)
 
 def main():
     print('\n=== 生成每日新聞和重點觀察 ===\n')
@@ -294,16 +341,16 @@ def main():
     try:
         with open('market-data.json', 'r', encoding='utf-8') as f:
             market_data_raw = json.load(f)
-            # 按 group 分組
-            markets_by_group = {}
-            for symbol, data in market_data_raw.get('indices', {}).items():
-                group = data.get('group', 'OTHER')
-                if group not in markets_by_group:
-                    markets_by_group[group] = {}
-                markets_by_group[group][symbol] = data
+        indices_flat = market_data_raw.get('indices', {})
+        # 按 group 分組（規則式備援用）
+        markets_by_group = {}
+        for symbol, data in indices_flat.items():
+            group = data.get('group', 'OTHER')
+            markets_by_group.setdefault(group, {})[symbol] = data
 
-        observations = generate_observations(markets_by_group)
-        print(f'\n💡 已生成 {len(observations)} 個觀察')
+        print('\n💡 產生今日觀察...')
+        observations = generate_observations(markets_by_group, all_news, indices_flat)
+        print(f'   已生成 {len(observations)} 個觀察')
 
     except Exception as e:
         observations = []
