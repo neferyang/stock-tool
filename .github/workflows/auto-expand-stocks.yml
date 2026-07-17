@@ -53,6 +53,11 @@ jobs:
           git config user.email "actions@github.com"
           git add financial-data-complete.json
           git commit -m "chore: 每日自動擴充財報資料庫 ($(date '+%Y-%m-%d %H:%M:%S'))"
-          git push origin main
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            echo "push被拒絕(遠端有新commit)，pull --rebase後重試 ($i/5)..."
+            git pull --rebase origin main
+            sleep $((i * 5))
+          done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
