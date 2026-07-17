@@ -19,11 +19,14 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+# gemini-2.0-flash 免費層已被 Google 關閉(limit:0)，改用仍有免費配額的 2.5-flash。
+# 可用環境變數 GEMINI_MODEL 覆寫，方便日後不改 code 換模型。
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')
 
 
 def call_gemini(prompt):
-    """呼叫 Google Gemini API (gemini-2.0-flash，免費層)；與 generate-market-analysis.py 同一套。"""
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
+    """呼叫 Google Gemini API；與 generate-market-analysis.py 同一套。"""
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
     body = json.dumps({
         'contents': [{'parts': [{'text': prompt}]}],
         'generationConfig': {'maxOutputTokens': 500, 'temperature': 0.3}
