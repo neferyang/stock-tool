@@ -10,6 +10,7 @@ import os
 import re
 import requests
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime
 from urllib.parse import quote
@@ -52,10 +53,25 @@ def summarize_headlines(news):
         '- 每則只輸出一行，格式為「編號. 意涵」，編號需與輸入對應，不要加其他說明。\n\n'
         f'標題：\n{numbered}'
     )
-    try:
-        out = call_gemini(prompt)
-    except Exception as e:
-        print(f'   ⚠️ Gemini 重點摘要失敗（維持純連結）: {e}')
+    import time
+    out = None
+    for attempt in range(3):
+        try:
+            out = call_gemini(prompt)
+            break
+        except urllib.error.HTTPError as e:
+            # 429=每分鐘限流，退避重試；其餘 HTTP 錯誤直接放棄
+            if e.code == 429 and attempt < 2:
+                wait = 20 * (attempt + 1)
+                print(f'   ⏳ Gemini 429 限流，{wait}s 後重試 ({attempt+1}/2)...')
+                time.sleep(wait)
+                continue
+            print(f'   ⚠️ Gemini 重點摘要失敗（維持純連結）: HTTP {e.code}')
+            return
+        except Exception as e:
+            print(f'   ⚠️ Gemini 重點摘要失敗（維持純連結）: {e}')
+            return
+    if out is None:
         return
     # 解析「編號. 意涵」，對回原新聞
     parsed = {}
