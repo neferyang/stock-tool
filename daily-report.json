@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T07:35:43.728Z",
+  "lastUpdated": "2026-07-17T07:40:16.306Z",
   "date": "2026年07月17日（星期五）",
   "basedOn": "2026年07月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -25,8 +25,8 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：78,001（07/17，▲1.05%）",
-        "NIFTY 50：24,280（07/17，▲0.86%）"
+        "SENSEX：77,968（07/17，▲1.01%）",
+        "NIFTY 50：24,278（07/17，▲0.85%）"
       ],
       "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
@@ -108,13 +108,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.70（7/17）",
+            "current": "100.69（7/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.33（7/17）",
+            "current": "32.36（7/17）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -245,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午3:40:16",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午3:35:43",
