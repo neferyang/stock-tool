@@ -6,14 +6,71 @@
 """
 
 import json
+import os
 import re
 import requests
 import sys
+import urllib.request
 from datetime import datetime
 from urllib.parse import quote
 
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
+
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+
+
+def call_gemini(prompt):
+    """呼叫 Google Gemini API (gemini-2.0-flash，免費層)；與 generate-market-analysis.py 同一套。"""
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
+    body = json.dumps({
+        'contents': [{'parts': [{'text': prompt}]}],
+        'generationConfig': {'maxOutputTokens': 500, 'temperature': 0.3}
+    }).encode('utf-8')
+    req = urllib.request.Request(url, data=body,
+        headers={'content-type': 'application/json'}, method='POST')
+    with urllib.request.urlopen(req, timeout=25) as resp:
+        result = json.loads(resp.read().decode('utf-8'))
+    return result['candidates'][0]['content']['parts'][0]['text'].strip()
+
+
+def summarize_headlines(news):
+    """用 Gemini 為每則新聞產生「一句話市場意涵」。只有標題、無全文，故定位為依標題判讀的
+    意涵而非逐字摘要，prompt 明確禁止杜撰數字/事實。單次請求批次處理所有標題以省額度。
+    失敗或未設 key 時不動 description（維持空字串 → 前端顯示為純連結）。"""
+    if not GEMINI_API_KEY:
+        print('   ⚠️ GEMINI_API_KEY 未設定，跳過重點摘要（維持純連結）')
+        return
+    titles = [n['title'] for n in news]
+    numbered = '\n'.join(f'{i+1}. {t}' for i, t in enumerate(titles))
+    prompt = (
+        '你是財經編輯。以下是今天的財經新聞標題，請針對每一則，用繁體中文寫「一句話」點出它對'
+        '市場或投資人的意涵與重要性（每則不超過40字）。\n'
+        '規則：\n'
+        '- 只能根據標題本身與總體經濟常識推理，嚴禁杜撰標題沒有的具體數字、日期或事實。\n'
+        '- 聚焦「所以呢／為什麼重要」，不要重複標題原文。\n'
+        '- 每則只輸出一行，格式為「編號. 意涵」，編號需與輸入對應，不要加其他說明。\n\n'
+        f'標題：\n{numbered}'
+    )
+    try:
+        out = call_gemini(prompt)
+    except Exception as e:
+        print(f'   ⚠️ Gemini 重點摘要失敗（維持純連結）: {e}')
+        return
+    # 解析「編號. 意涵」，對回原新聞
+    parsed = {}
+    for line in out.splitlines():
+        m = re.match(r'\s*(\d+)[\.\、\)]\s*(.+)', line.strip())
+        if m:
+            parsed[int(m.group(1))] = m.group(2).strip()
+    filled = 0
+    for i, n in enumerate(news, 1):
+        s = parsed.get(i, '').strip()
+        # 防呆：意涵若跟標題實質重複就不用
+        if s and not _is_dup_desc(s, n['title']):
+            n['description'] = s[:120]
+            filled += 1
+    print(f'   ✅ Gemini 產生 {filled}/{len(news)} 則重點摘要')
 
 
 def _norm(s):
@@ -196,6 +253,10 @@ def main():
             all_news.append(item)
             added += 1
         print(f'   ✅ 取得 {added} 則')
+
+    # 用 Gemini 為每則新聞產生一句話市場意涵（依標題判讀，非逐字摘要）
+    print('\n🧠 產生新聞重點摘要...')
+    summarize_headlines(all_news)
 
     # 讀取市場數據以生成觀察
     try:
