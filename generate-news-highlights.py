@@ -6,6 +6,7 @@
 """
 
 import json
+import re
 import requests
 import sys
 from datetime import datetime
@@ -13,6 +14,20 @@ from urllib.parse import quote
 
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
+
+
+def _norm(s):
+    """正規化：去掉空白與常見標點/分隔符，供標題與摘要比對是否實質相同"""
+    return re.sub(r'[\s\-|｜–—:：,，。、!！?？“”"\'（）()【】\[\]]+', '', s or '').lower()
+
+
+def _is_dup_desc(desc, title):
+    """Google News RSS 的 description 幾乎都是「標題＋來源」的重複，不是真摘要。
+    正規化後若摘要與標題互為包含關係，視為無效摘要（回傳 True，交由前端改用連結）。"""
+    nd, nt = _norm(desc), _norm(title)
+    if not nd:
+        return True
+    return nd == nt or nt in nd or nd in nt
 
 def fetch_news_from_google(query, max_items=5):
     """從 Google News RSS 抓取新聞"""
@@ -33,6 +48,7 @@ def fetch_news_from_google(query, max_items=5):
             for item in root.findall('.//item')[:max_items]:
                 title_elem = item.find('title')
                 desc_elem = item.find('description')
+                link_elem = item.find('link')
 
                 if title_elem is not None and title_elem.text:
                     title = title_elem.text.strip()
@@ -40,21 +56,24 @@ def fetch_news_from_google(query, max_items=5):
                     if '<' in title:
                         title = title.split('<')[0].strip()
 
+                    url = link_elem.text.strip() if (link_elem is not None and link_elem.text) else ''
+
                     desc = ''
                     if desc_elem is not None and desc_elem.text:
-                        desc = desc_elem.text.strip()
-                        # 去除 HTML 標籤和實體
-                        import re
-                        desc = re.sub(r'<[^>]+>', '', desc)  # 移除 HTML 標籤
-                        desc = desc.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&quot;', '"')
+                        desc = re.sub(r'<[^>]+>', '', desc_elem.text.strip())  # 移除 HTML 標籤
+                        desc = (desc.replace('&amp;', '&').replace('&lt;', '<')
+                                    .replace('&gt;', '>').replace('&quot;', '"').replace('&nbsp;', ' '))
+                        desc = re.sub(r'\s+', ' ', desc).strip()
 
-                    if not desc:
-                        desc = f"更新於 {datetime.now().strftime('%Y-%m-%d')}"
+                    # 摘要若只是標題的重複就捨棄，前端改把標題做成新聞連結
+                    if _is_dup_desc(desc, title):
+                        desc = ''
 
                     if title and len(title) > 5:  # 跳過過短的標題
                         headlines.append({
                             'title': title[:100],
-                            'description': desc[:200]
+                            'description': desc[:200],
+                            'url': url
                         })
 
             return headlines
@@ -70,20 +89,25 @@ def fetch_news_from_google(query, max_items=5):
                     title = line.split('<title>')[1].split('</title>')[0].strip()
                     title = title.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
 
-                    # 嘗試找下一行的 description
+                    # 嘗試找下一行的 description 與 link
                     desc = ''
+                    url = ''
                     for j in range(i+1, min(i+10, len(lines))):
-                        if '<description>' in lines[j]:
+                        if '<description>' in lines[j] and not desc:
                             desc = lines[j].split('<description>')[1].split('</description>')[0].strip()
-                            desc = desc.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
-                            break
+                            desc = re.sub(r'<[^>]+>', '', desc)
+                            desc = desc.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>').replace('&nbsp;', ' ')
+                            desc = re.sub(r'\s+', ' ', desc).strip()
+                        if '<link>' in lines[j] and not url:
+                            url = lines[j].split('<link>')[1].split('</link>')[0].strip()
 
                     if title and len(title) > 5 and title not in [h['title'] for h in headlines]:
-                        if not desc:
-                            desc = f"查詢: {query}"
+                        if _is_dup_desc(desc, title):
+                            desc = ''
                         headlines.append({
                             'title': title[:100],
-                            'description': desc[:200]
+                            'description': desc[:200],
+                            'url': url
                         })
 
                     if len(headlines) >= max_items:

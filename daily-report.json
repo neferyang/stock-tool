@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-16T22:57:26.802Z",
+  "lastUpdated": "2026-07-17T06:35:22.200Z",
   "date": "2026年07月17日（星期五）",
-  "basedOn": "2026年07月16日（前一交易日）",
+  "basedOn": "2026年07月15日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -13,14 +13,14 @@
         "S&P 500：7,534（07/16，▼0.51%）",
         "那斯達克：25,882（07/16，▼1.47%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,626（07/16，▼3.09%）"
+        "日經225：66,633（07/16，▼3.08%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇮🇳 印度",
@@ -35,7 +35,7 @@
       "items": [
         "台灣加權指數：45,625（07/16，▼0.01%）"
       ],
-      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
@@ -49,7 +49,7 @@
       "items": [
         "VN-Index：1,804（07/17，▲1.24%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -196,34 +196,40 @@
   "news": [
     {
       "title": "美國股市因科技股疲弱而下滑，S&P 500與納斯達克遭重創！ - CMoney投資網誌",
-      "description": "美國股市因科技股疲弱而下滑，S&P 500與納斯達克遭重創！&nbsp;&nbsp;CMoney投資網誌"
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOdTlrLVBjM28tbDdiNllVTVRSME1xRzJsOUlVNk5aZDJhWnVYTWJwVENRazdCTzNjN0wzc2RwbUVFOFlIXzV1Yl9XYlozZnBQS3Bxc2tkZlVjcnphRFN5VFg0MEtZekx3QjBreUJlU3I2SnZKSUVELXBacE41dFdmUTNYN1U1U08ydVZMVzZ3?oc=5"
     },
     {
       "title": "標普500恐跌17%、那斯達克14%！巴菲特點破股市最大風險 - news.cnyes.com",
-      "description": "標普500恐跌17%、那斯達克14%！巴菲特點破股市最大風險&nbsp;&nbsp;news.cnyes.com"
-    },
-    {
-      "title": "台灣-產業類別指數成交比重 | 台灣-股市 | 圖組 - MacroMicro",
-      "description": "台灣-產業類別指數成交比重 | 台灣-股市 | 圖組&nbsp;&nbsp;MacroMicro"
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBNZ0NkZWhKUktjNzZLaDduUmtEdkM4dl9pX0tWSHBIZ3lsVUFEUlluX0hPV0d6a1YxYXhtbjdVRlNnblMyX1U4WS1DbktDc1k?oc=5"
     },
     {
       "title": "你真的懂台灣加權指數嗎？台股怎麼投資最高效？ - 鉅亨買基金",
-      "description": "你真的懂台灣加權指數嗎？台股怎麼投資最高效？&nbsp;&nbsp;鉅亨買基金"
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQTmhaNW9jNm5wNnd3cXF5U1lScFZzNXNzVEh0cS1SajhPUXBmc2NlaERHS21RT0dwQTM0N2tkZVBhNUtWa18ydk9INGFVMkFqRnhwY3JyY0kwWktwV0RRa0hZZzFtTzBwb2lZOE1lMkhLcFV1SGJOY3VRRnNzdmlyN283Sm51cWh4VlJPMjZHeDhMX3ZaR292STZ3?oc=5"
+    },
+    {
+      "title": "快訊／美伊開戰火燒台股！加權指數崩跌500點 5大電子權值股全倒 - Yahoo股市",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMikANBVV95cUxNNkUxUVFPWkdPUGFlTVktbm1GY005Z2lHTTd6Wk96NEV5aEF0YWVvenk2dFVJSm9wVC0wd3o1cmF2UTJocTNsRnJVYldGclpCdU5iVE1FRzFpTEN1TmpJbzYwbjBvazQ1XzVJQmFIV3owXzVHMFAtUjRwME9XcGdzSFdDVkwxcWZZcFJjdzVuOFJpSEd1dWZ6OVhkSE44M3pSdHVDWVc2VzJua29HZHpTaWdpSF9rZlVOdFpwMFpEVzcwb0pmWHNnWGNaZGtGTFBGdC1xeDZOMTV2X1psMHhHSmExWGQxdHh6MG5MdDh6QWpIVERTSTk5Z1pLZ0s4bndEM2NtRExiRTVjaFRiWEZXMVpRdXMtZklMVlBiSjBiWDV6MzRxQmNFanZJdnl4bVdkMWdZZXNnT1dMUEJ3UFl6M2V5d2lpZ3VISUQtVTl1TWVQTTZ6bjJ6bUswUGUtQVIxN3BuMF91VGhmRG9MXzBKdG42VF9NX2xHLUkyRU9qME9JVjcwbjJwN2trX2ZkWWdz?oc=5"
     },
     {
       "title": "富邦財經論壇：下半年全球經濟看三主軸 聚焦現金流穩健龍頭企業 - UDN",
-      "description": "富邦財經論壇：下半年全球經濟看三主軸 聚焦現金流穩健龍頭企業&nbsp;&nbsp;UDN"
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5LSDYtVVU3Zjd5c24wUGh6b2NIYTNRdS1PYmUya3NweTVNU0lZYnFaVFI1bXZmZnVFcUxQN0pTbDNyTFZqdlV3c1pOSzJ5YUNv0gFWQVVfeXFMUHRUQ19JUTIxNkNFYTlZRHNBRkRlOG1GZGpscHNhcHFkbDB3RWNOZER6bi1XM3JOWFJpN1hCdERtZzRpTFJkcnY2eHBzWmVTWGczdUFQSFE?oc=5"
     },
     {
-      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞網SETN.com",
-      "description": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經&nbsp;&nbsp;三立新聞網SETN.com"
+      "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     }
   ],
   "observations": [
     {
-      "emoji": "📉",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "emoji": "📈",
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "🌏",
@@ -239,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午2:35:22",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 上午6:57:26",

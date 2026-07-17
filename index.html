@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.17.1',
+  version: '8.18.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -27193,12 +27193,21 @@ function renderMarketReport(data) {
     <!-- 重要新聞 -->
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
       <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #059669;padding-bottom:8px;">【📰 重要新聞】</h3>
-      ${(data.news || []).map(n => `
+      ${(data.news || []).map(n => {
+        // 摘要若只是標題的重複(Google News RSS 常見)就不顯示；有連結則把標題做成可點的新聞連結。
+        // 前端同樣做一次去重防呆，讓尚未重新產生的舊資料也能即時生效。
+        const norm = s => (s || '').replace(/[\s\-|｜–—:：,，。、!！?？"'（）()【】\[\]]+/g, '').toLowerCase();
+        const nd = norm(n.description), nt = norm(n.title);
+        const showDesc = nd && nd !== nt && !nt.includes(nd) && !nd.includes(nt);
+        const titleHtml = n.url
+          ? `<a href="${n.url}" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:none;">${n.title} ↗</a>`
+          : n.title;
+        return `
         <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e5e7eb;">
-          <div style="font-weight:700;margin-bottom:6px;">• ${n.title}</div>
-          <div style="font-size:0.9rem;color:#666;line-height:1.6;">${n.description}</div>
-        </div>
-      `).join('')}
+          <div style="font-weight:700;margin-bottom:6px;">• ${titleHtml}</div>
+          ${showDesc ? `<div style="font-size:0.9rem;color:#666;line-height:1.6;">${n.description}</div>` : ''}
+        </div>`;
+      }).join('')}
     </div>
 
     <!-- 今日觀察 -->
