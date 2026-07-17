@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-17T07:42:20.726Z",
+  "lastUpdated": "2026-07-17T07:45:54.120Z",
   "date": "2026年07月17日（星期五）",
   "basedOn": "2026年07月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -25,8 +25,8 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,960（07/17，▲1.00%）",
-        "NIFTY 50：24,281（07/17，▲0.86%）"
+        "SENSEX：78,002（07/17，▲1.06%）",
+        "NIFTY 50：24,273（07/17，▲0.83%）"
       ],
       "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
@@ -47,7 +47,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,791（07/17，▼0.76%）"
+        "VN-Index：1,780（07/17，▼1.32%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -108,7 +108,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.67（7/17）",
+            "current": "100.70（7/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -127,7 +127,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.9（7/17）",
+            "current": "18.0（7/17）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -196,32 +196,32 @@
   "news": [
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "通膨降溫減輕央行升息壓力，有助於債券價格",
+      "description": "借貸成本可望降低，有利於科技股等成長型資產的估值修復。",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
-      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
+      "title": "債市又誤判Fed？市場狂押升息 專家卻喊準備降息 - news.cnyes.com",
+      "description": "市場預期與專家看法分歧，投資人需防範債市劇烈波動的風險。",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9UbkVKT2NGZVZDVjhoeUlHQ01KS1VZckZlMmV1SXQ5dEdCeTd5Zl9iMXlNWDVpQ2ZuX0F1c1FuX0FENDJ2X2FEazR2SmdyMjQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
-      "description": "",
+      "description": "通膨惡化與信心崩潰雙重打擊，暗示經濟面臨滯脹風險，美股承壓。",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
-      "description": "",
+      "description": "就業市場大幅走弱，使本周通膨數據成為決定聯準會降息幅度的關鍵。",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "經濟趨緩！央行報告示警全球金融穩定風險上升| 財經 - 三立新聞",
-      "description": "",
+      "description": "景氣下行伴隨金融系統脆弱性增加，投資人應提高資產配置的防禦性。",
       "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5iUmV1TmJzeHBUYjN0RjM3enRBY19Vc3E4el9wTHBEcHZEbzRwOWU5ZXh0M2U1NzNJa3ltWGVtd2NJNHdYUkJ3?oc=5"
     },
     {
       "title": "股匯雙殺！新台幣貶破32.3元 再創波段新低 - 自由財經",
-      "description": "",
+      "description": "資金加速外流，台股面臨資金面壓力，進口成本增加恐加劇國內通膨。",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9YVUVUX1hZcUhTdzRuc2NfcXFWQ0ZLZG1xMjZRUWowZGx1bjB6cG1UazFVd2VhTWxGaXNMdldLU0h4b3lpTEhFTWpzQlFxb2x0djlESkdOUGhfX0YzbUgw0gFkQVVfeXFMUGxjRVUzeGxRWW5WQ2oxUFA1Rm9KbW1VOFFmdi1vVDU3T1VmTTNKeGhibUhHUkFBMjVMcUQwNDlRd01oOGpMZFdvVURPODJfTnR1ZWxQOTlOXzZ2M29kTkdXTDBVTg?oc=5"
     }
   ],
@@ -245,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/17 下午3:45:54",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/17 下午3:42:20",
