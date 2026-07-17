@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.19.0',
+  version: '8.19.1',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -225,7 +225,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // ════════════════════════════════════════════════════════
 async function updateProgressDisplay() {
   try {
-    const TWSE_TOTAL = 2303;  // 台股全市場股票總數(上市1089+上櫃891+興櫃355，扣除無交易報價者)
+    // 全市場總數改讀 auto-expand-stocks.py 每次實際打 TWSE/TPEx OpenAPI 算出的真實值
+    // (financial-data-complete.json 的 marketUniverseTotal)，2303 只是抓不到時的估計備援。
+    const TWSE_TOTAL_FALLBACK = 2303;
 
     // 嘗試從GitHub Pages加載
     let dataUrl = 'financial-data-complete.json';
@@ -233,6 +235,7 @@ async function updateProgressDisplay() {
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
+      const TWSE_TOTAL = data.marketUniverseTotal || TWSE_TOTAL_FALLBACK;
       let updated = 0;
 
       // 統計已更新的股票（有2025年數據且ROE不為null）

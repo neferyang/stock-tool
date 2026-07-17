@@ -139,6 +139,14 @@ def main():
     universe = build_universe()
     print(f"全市場(上市+上櫃+興櫃)共 {len(universe)} 支")
 
+    # 把每次實際算出的全市場總數存下來，供前端「財務數據更新進度」讀取真實值，
+    # 不再寫死估計值。只有變動時才寫檔，避免每次跑都造成無意義的 commit。
+    if db.get("marketUniverseTotal") != len(universe):
+        db["marketUniverseTotal"] = len(universe)
+        db["marketUniverseUpdatedAt"] = datetime.now().isoformat()
+        with open(DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(db, f, ensure_ascii=False, indent=2)
+
     candidates = [(c, v) for c, v in universe.items() if c not in existing]
     candidates.sort(key=lambda x: -x[1]["market_cap"])
 
