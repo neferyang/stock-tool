@@ -51,12 +51,19 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
+          
+          # 先在本地建立 commit
           git add financial-data-complete.json
           git commit -m "chore: 每日自動擴充財報資料庫 ($(date '+%Y-%m-%d %H:%M:%S'))"
+          
+          # 嘗試推送，若失敗則透過帶有策略的 rebase 自動解決衝突
           for i in 1 2 3 4 5; do
             git push origin main && break
-            echo "push被拒絕(遠端有新commit)，pull --rebase後重試 ($i/5)..."
-            git pull --rebase origin main
+            echo "Push 被拒絕（遠端有新 commit），正在以本地新資料為主進行 pull --rebase ($i/5)..."
+            
+            # -X ours 在 rebase 時代表「保留當前分支新產生的 commit 內容」，直接覆蓋遠端衝突
+            git pull --rebase -X ours origin main
+            
             sleep $((i * 5))
           done
         env:
