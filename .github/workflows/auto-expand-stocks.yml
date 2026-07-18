@@ -1,68 +1,18 @@
-name: 每日自動擴充財報資料庫
-
-on:
-  schedule:
-    # 每 2 小時執行一次(UTC 奇數小時 03~23)，每次 +100 支，一天 11 次 = +1100 支
-    # 刻意避開 UTC 00:00(update-financial-data.yml 排程，需540次額度)前後，
-    # 免得同一小時內 540+300=840 次超出 FinMind 免費版 600次/hr 上限
-    # 全市場(2303支)涵蓋完畢後，腳本會自動判定無新股票可擴充並正常結束
-    - cron: '17 3-23/2 * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  expand:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests python-dotenv
-
-      - name: 執行自動擴充
-        run: |
-          python auto-expand-stocks.py
-        env:
-          PYTHONIOENCODING: utf-8
-          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
-
-      - name: Check if Data Changed
-        id: check_changes
-        run: |
-          if git diff --quiet financial-data-complete.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
       - name: Commit and Push Changes
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           
-          # 先在本地建立 commit
           git add financial-data-complete.json
           git commit -m "chore: 每日自動擴充財報資料庫 ($(date '+%Y-%m-%d %H:%M:%S'))"
           
-          # 嘗試推送，若失敗則透過帶有策略的 rebase 自動解決衝突
           for i in 1 2 3 4 5; do
             git push origin main && break
-            echo "Push 被拒絕（遠端有新 commit），正在以本地新資料為主進行 pull --rebase ($i/5)..."
+            echo "Push 被拒絕，正在以本地新資料為主進行 merge ($i/5)..."
             
-            # -X ours 在 rebase 時代表「保留當前分支新產生的 commit 內容」，直接覆蓋遠端衝突
-            git pull --rebase -X ours origin main
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
             
             sleep $((i * 5))
           done
