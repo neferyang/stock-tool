@@ -1135,7 +1135,7 @@ function classifyIndustry(sym, name, sector, industry) {
   // L0.5：官方企業分類映射（TWSE/TPEX OpenAPI - 最高準確度）✅ 已啟用
   // ─────────────────────────────────────────────────────────
   if (typeof COMPANY_INDUSTRY_MAP !== 'undefined' && COMPANY_INDUSTRY_MAP.size > 0) {
-    const code = sym.replace('.TW','').replace('.TWO','');
+    const code = sym.replace(/\.TWO?$/, '');
     if (COMPANY_INDUSTRY_MAP.has(code)) {
       const officialIndustry = COMPANY_INDUSTRY_MAP.get(code);
       console.log(`[L0.5] ${code} → ${officialIndustry} (官方TWSE/TPEX映射)`);
@@ -1329,7 +1329,7 @@ function classifyIndustry(sym, name, sector, industry) {
   // ─────────────────────────────────────────────────────────
   // L4：代號範圍推斷（台股）- 改為返回官方產業名稱
   // ─────────────────────────────────────────────────────────
-  const codeNum = parseInt(sym.replace('.TW','').replace('.TWO',''));
+  const codeNum = parseInt(sym.replace(/\.TWO?$/, ''));
   if (!isNaN(codeNum)) {
     for (const range of CODE_RANGE_MAP) {
       if (codeNum >= range.range[0] && codeNum <= range.range[1]) {
@@ -26650,7 +26650,12 @@ async function go(){
     const isOTC = ticker.endsWith('.TWO'); // 上櫃
 
     // 並行抓取基本面資料
-    const code = ticker.replace('.TW','').replace('.TWO','');
+    // 注意：.replace('.TW','').replace('.TWO','') 這個寫法有 bug——".TWO" 本身包含
+    // ".TW" 子字串，先去 ".TW" 會把 "6498.TWO" 誤砍成 "6498O"（多一個O），導致
+    // getFinancialData／COMPANY_INDUSTRY_MAP 用這個錯誤代號查不到資料，上櫃股
+    // 永遠顯示不出企業健康診斷卡跟財報歷史表格、產業分類也永遠掉回「其他業」。
+    // 改用正則一次處理兩種後綴，不管後綴是 .TW 還是 .TWO 都能正確去掉。
+    const code = ticker.replace(/\.TWO?$/, '');
     const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
       isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
@@ -26700,7 +26705,7 @@ async function go(){
 
     // TWSE 上市資料
     if (twseArr) {
-      const no = ticker.replace('.TW','').replace('.TWO','');
+      const no = ticker.replace(/\.TWO?$/, '');
       const row = twseArr.find(r=>r.Code===no);
       if (row) {
         if (row.PEratio && row.PEratio!=='-') m.pe = parseFloat(row.PEratio);
