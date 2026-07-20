@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.1',
+  version: '8.20.2',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -934,7 +934,7 @@ const INDUSTRY_DB = {
   // ═══════════════════════════════════════════════════════════
   // 【B】防禦與內需族群 - 中等本益比
   // ═══════════════════════════════════════════════════════════
-  '食品工業': {name:'食品工業', code:'02', fairPE:18, fairPB:3, fairDiv:2, fairYield:2.5, evEbitda:10},
+  '食品工業': {name:'食品工業', code:'02', fairPE:18, fairPB:3, fairDiv:3, fairYield:3.5, evEbitda:10},  // fairDiv/fairYield比照汽車工業/紡織纖維，貼近台股食品定存股(統一/大成/卜蜂)實際3~4%殖利率水準，避免原本2~2.5%地板把正常殖利率誤判成低估
   '汽車工業': {name:'汽車工業', code:'12', fairPE:15, fairPB:1.5, fairDiv:3, fairYield:4, evEbitda:6},
   '觀光餐旅': {name:'觀光餐旅', code:'16', fairPE:15, fairPB:2.2, fairDiv:2, fairYield:2.5, evEbitda:8},
   '貿易百貨業': {name:'貿易百貨業', code:'18', fairPE:16, fairPB:2.5, fairDiv:2, fairYield:2.5, evEbitda:9},
@@ -26952,7 +26952,7 @@ ${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var
 <div class="sec"><div class="st2">📊 歷年財報指標</div><div style="overflow-x:auto">
 <table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
 ${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : ''}>
-  <td><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">${f.partialQuarters ? 'Q'+f.partialQuarters+'推估' : '推估'}</span>` : ''}</td>
+  <td style="white-space:nowrap"><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">${f.partialQuarters ? 'Q'+f.partialQuarters+'推估' : '推估'}</span>` : ''}</td>
   <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（${f.eps && f.eps.actual !== null ? parseFloat(f.eps.actual).toFixed(2) : 'N/A'}）</span>` : ''}</td>
   <td style="color:${f.eps && f.eps.growth === null ? 'var(--muted)' : f.eps && f.eps.growth >= 0 ? 'var(--red)' : 'var(--green)'}"><strong>${f.eps && f.eps.growth === null ? '—' : f.eps && f.eps.growth !== null && f.eps.growth !== undefined ? (f.eps.growth >= 0 ? '+' : '') + parseFloat(f.eps.growth).toFixed(1) + '%' : '—'}</strong></td>
   <td>${f.netMargin && f.netMargin.val !== null ? parseFloat(f.netMargin.val).toFixed(1) + '%' : 'N/A'}</td>
