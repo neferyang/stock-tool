@@ -71,6 +71,10 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .vt-fin th{text-align:center}
 .vt-fin td{text-align:right}
 .vt-fin th:first-child,.vt-fin td:first-child{text-align:left}
+/* 估值模型試算：第3欄「估算值」是數字，靠右；模型/說明/評估文字欄不變 */
+.vt-model td:nth-child(3){text-align:right}
+/* 買賣參考價位：第2欄「價格」是數字，靠右；類型/參考說明文字欄不變 */
+.vt-price td:nth-child(2){text-align:right}
 .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600;white-space:nowrap}
 .bl{background:#dcfce7;color:#15803d}.bf{background:#fef9c3;color:#854d0e}.bh{background:#fee2e2;color:#b91c1c}.bn{background:#f3f4f6;color:#6b7280}
 .vd{border-radius:10px;padding:16px 20px;margin-bottom:28px;border-left:4px solid}
@@ -166,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.4',
+  version: '8.20.5',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26994,14 +26998,14 @@ ${indKey==='etf'?`<div class="sec"><div class="st2">ETF 指標</div><div class="
 </div></div>`:''}
 
 <div class="sec"><div class="st2">估值模型試算（${indName}）</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
+<table class="vt vt-model"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
 ${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':indKey==='etf'?'ETF 不適用傳統企業估值模型，請參考技術面和費用率分析':'財務資料不足，無法計算'}</td></tr>`}
 </tbody></table></div>
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 模型均為簡化估算，請搭配多個模型綜合判斷，不構成投資建議。</p>
 </div>
 
 ${ptRows.length?`<div class="sec"><div class="st2">📍 買賣參考價位</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>類型</th><th>價格</th><th>參考說明</th></tr></thead><tbody>
+<table class="vt vt-price"><thead><tr><th>類型</th><th>價格</th><th>參考說明</th></tr></thead><tbody>
 ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong class="${r.cls}">${r.val}</strong></td><td style="font-size:.8rem;color:var(--muted)">${r.note}</td></tr>`).join('')}
 </tbody></table></div>
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 以上價位僅供參考，操作前請搭配完整研究判斷。</p>
