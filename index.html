@@ -67,6 +67,10 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .vt th,.vt td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--border)}
 .vt th{background:var(--sbg);font-weight:600;font-size:.8rem;color:var(--muted)}
 .vt tr:last-child td{border-bottom:none}
+/* 歷年財報指標表：標題置中、數字欄靠右，年度欄(第一欄)是列標籤維持靠左 */
+.vt-fin th{text-align:center}
+.vt-fin td{text-align:right}
+.vt-fin th:first-child,.vt-fin td:first-child{text-align:left}
 .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600;white-space:nowrap}
 .bl{background:#dcfce7;color:#15803d}.bf{background:#fef9c3;color:#854d0e}.bh{background:#fee2e2;color:#b91c1c}.bn{background:#f3f4f6;color:#6b7280}
 .vd{border-radius:10px;padding:16px 20px;margin-bottom:28px;border-left:4px solid}
@@ -162,7 +166,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.3',
+  version: '8.20.4',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26961,7 +26965,7 @@ ${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var
 </div>
 
 <div class="sec"><div class="st2">📊 歷年財報指標</div><div style="overflow-x:auto">
-<table class="vt"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
+<table class="vt vt-fin"><thead><tr><th>年度</th><th>EPS</th><th>EPS年增率</th><th>淨利率</th><th>ROE</th><th>負債比</th></tr></thead><tbody>
 ${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : ''}>
   <td style="white-space:nowrap"><strong>${f.year}</strong>${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">${f.partialQuarters ? 'Q'+f.partialQuarters+'推估' : '推估'}</span>` : ''}</td>
   <td>${f.eps && f.eps.val !== null ? parseFloat(f.eps.val).toFixed(2) : 'N/A'}${f.isEstimate ? `<br><span style="font-size:.7rem;font-weight:400;color:var(--muted)">（${f.eps && f.eps.actual !== null ? parseFloat(f.eps.actual).toFixed(2) : 'N/A'}）</span>` : ''}</td>
