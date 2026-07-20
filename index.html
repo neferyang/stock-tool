@@ -658,37 +658,35 @@ async function twseFetch() {
   return await safeFetch('https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_d');
 }
 
-// 上櫃基本面：BWIBBU_d 只有上市，上櫃用 TWSE 的 OTC 專屬 endpoint
-// 或嘗試 BWIBBU_ALL（合併版）
-async function tpexFetch() {
-  // 上櫃股：目前公開API無法直接取得，回傳 null（顯示 N/A）
-  // 僅做嘗試，若未來 API 支援則自動生效
-  const candidates = [
-    'https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis',
-    'https://www.tpex.org.tw/openapi/v1/tpex_esb_peratio_analysis',
-  ];
-  for (const url of candidates) {
-    // 直連
-    try {
-      const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
-      if (r.ok) {
-        const d = await r.json();
-        if (d && d.length > 0) { console.log('[tpexFetch] direct ok:', url.split('/').pop(), 'keys:', Object.keys(d[0]).join(',')); return d; }
-      }
-    } catch(e) {}
-    // corsproxy
-    try {
-      const pu = 'https://corsproxy.io/?' + encodeURIComponent(url);
-      const r = await fetch(pu, {signal:AbortSignal.timeout(14000)});
-      console.log('[tpexFetch] proxy', url.split('/').pop(), 'status:', r.status);
-      if (r.ok) {
-        const d = await r.json();
-        if (d && d.length > 0) { console.log('[tpexFetch] proxy ok, keys:', Object.keys(d[0]).join(','), 'sample:', JSON.stringify(d[0])); return d; }
-      }
-    } catch(e) { console.log('[tpexFetch] proxy error:', e.message); }
+// 上櫃基本面：TPEX 官方兩支 openapi 端點目前持續回 502（上游故障，非我方問題，
+// 見程式內原本的重試/備援設計），改用 FinMind 的 TaiwanStockPER 資料集頂替——
+// 同一個資料源這個 repo 本來就在用（financial-data-complete.json 也是 FinMind
+// 抓的），上市/上櫃都涵蓋，免費額度不需 token（300次/小時，查詢頁這種單次用量
+// 完全夠用），缺點是收盤後才更新（非即時盤中），對估值分析工具而言影響不大。
+async function tpexFetch(code) {
+  if (!code) return null;
+  try {
+    const end = new Date();
+    const start = new Date(end.getTime() - 14 * 24 * 60 * 60 * 1000); // 抓兩週，避開連假拿不到最新交易日
+    const fmt = d => d.toISOString().slice(0, 10);
+    const url = `https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPER&data_id=${code}&start_date=${fmt(start)}&end_date=${fmt(end)}`;
+    const r = await fetch(url, {signal: AbortSignal.timeout(8000)});
+    if (!r.ok) { console.log('[tpexFetch] FinMind HTTP', r.status); return null; }
+    const j = await r.json();
+    if (!j.data || j.data.length === 0) { console.log('[tpexFetch] FinMind 無資料:', code); return null; }
+    const latest = j.data[j.data.length - 1]; // 依日期升冪排列，最後一筆是最新交易日
+    console.log('[tpexFetch] FinMind PER for', code, ':', JSON.stringify(latest));
+    // 包成跟舊 TPEX 回應相容的形狀，下游 .find(r => r.Code===no) 不用改
+    return [{
+      Code: code,
+      PEratio: latest.PER,
+      PBratio: latest.PBR,
+      DividendYield: latest.dividend_yield,
+    }];
+  } catch (e) {
+    console.log('[tpexFetch] FinMind error:', e.message);
+    return null;
   }
-  console.log('[tpexFetch] all failed');
-  return null;
 }
 
 // ════════════════════════════════════════════════════════
@@ -26658,7 +26656,7 @@ async function go(){
     const code = ticker.replace(/\.TWO?$/, '');
     const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
-      isOTC ? tpexFetch() : Promise.resolve(null),              // 上櫃 TPEX
+      isOTC ? tpexFetch(code) : Promise.resolve(null),          // 上櫃：FinMind TaiwanStockPER（TPEX官方API目前502）
       yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
       isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
       !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v4.18：美股 Finnhub 基本面數據（優化版）
