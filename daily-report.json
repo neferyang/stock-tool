@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-20T22:32:10.213Z",
+  "lastUpdated": "2026-07-20T23:40:09.093Z",
   "date": "2026年07月21日（星期二）",
   "basedOn": "2026年07月20日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -40,9 +40,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,009（07/20，▼0.10%）"
+        "黃金：4,008（07/20，▼0.11%）"
       ],
-      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -114,7 +114,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.28（7/20）",
+            "current": "32.28（7/21）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -195,56 +195,61 @@
   ],
   "news": [
     {
-      "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - news.cnyes.com",
-      "description": "債市殖利率攀升將收緊金融環境，可能使美聯儲減少實際升息的迫切性。",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
+      "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - Yahoo 財經",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMi4AJBVV95cUxOOE5CMlRrZnZZaEtVMmdaMWIxMWZiUk5kakdBdHF2RzRDYTRVS2pEeDhkNXR4MXFiWnhDdzc3OGZmSVhjdWlMVHdoVTBEdXdCeHB1ZmlxTUpkLXpDYkZxdXlsVml6VTM4d3BBQVR5Z2pfS19LZzVTWFNWSVozdUxQQW01cjktUWxBem1oWUE5QTFnWVMyV0Znd0ZFMEloMVk5bmFyek5sR0c0ZmVWTUN1UDVLN2V5MG9IQjhLb3ZtYnExN3FUOTl6R0ZWUUFuYk9wbUNkZlBzMzREVW1nTTdjeDdha1k2ei10bnZrVHNLdjBKVXFIcTZ3cXJHbUdldUd2RG1QWjBxalpmMDZ4blhqNmNVakQwUTZmQXA3WmR3V3RjY0ZLeGxVSThTQ0Z0OVlUcGFIU1ZMcVQ2cHhFUmlLR0N1MmFVMkdHY2pZeGZ0aFlCTENCWTEwSV9PVXhLMUMx?oc=5"
     },
     {
       "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
-      "description": "通膨壓力放緩降低了借貸成本，有助於緩解科技股等成長型資產的估值壓力。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞網SETN.com",
-      "description": "能源通膨與信心崩盤雙重打擊消費動能，市場面臨經濟滯脹與避險情緒升溫風險。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
-      "description": "就業市場修正與通膨數據的交互作用，將成為重新評估美股估值與降息路徑的關鍵。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
-      "description": "科技新興風險與地緣政治並存，投資人需提防金融市場波動度加劇與系統性風險。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "出口商拋匯、外資賣超驟減 新台幣升4分終止連4貶 - UDN",
-      "description": "資金流出壓力減輕與匯率止貶回穩，有助於穩定台股信心並吸引外資重新布局。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1YX2ZtRlBoUy1pYWhEMWNlZjVjSTlnZFNGYVkyMEtyRmQtZDhIS2kyTDM2ekxybXFHTDRDNkxCYmxPdTIzOVBDaVpDQ3ludHBO?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美債殖利率",
-      "content": "PPI降溫壓低升息預期，殖利率下滑卻未阻止美股三大指數全面收跌。"
+      "title": "美債殖利率謎團",
+      "content": "PPI降溫壓低升息預期，市場卻代勞Fed升息使殖利率大漲。"
     },
     {
       "emoji": "2️⃣",
-      "title": "地緣政治",
-      "content": "伊朗戰爭引爆能源危機，消費者信心跌破二戰後谷底，滯脹風險升溫。"
+      "title": "伊朗戰爭引爆危機",
+      "content": "地緣衝突推升通膨至兩年新高，消費者信心跌破二戰後谷底。"
     },
     {
       "emoji": "3️⃣",
-      "title": "政策矛盾",
-      "content": "非農大幅下修91萬人，市場代勞升息與通膨飆升使政策路徑更顯分歧。"
+      "title": "就業數據大幅下修",
+      "content": "非農數據大修91萬人，央行首提AI風險並示警全球變數。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/21 上午7:40:09",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/21 上午6:32:10",
