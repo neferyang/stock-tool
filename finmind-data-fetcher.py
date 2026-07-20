@@ -217,7 +217,9 @@ def update_data_file(fetcher):
     # 額外用 noDataStreak（連續無資料次數）把「連續多次都抓不到」的個股降到佇列後段——
     # 不是永久排除（萬一 FinMind 之後補上資料還是會排到），只是不讓單一個股長期霸佔額度
     # 前段、卡死其他股票（例如 2448 這類非金融/ETF/DR、但 FinMind 本身就沒資料的個案）。
-    NO_DATA_DEMOTE_THRESHOLD = 5
+    # 門檻設 1（原本 5）：只要這次抓空就立刻讓開，不然要連續卡滿5個排程週期才會降級，
+    # 期間會反覆卡住同一批、擋住後面真正抓得到資料的股票（2026-07-20 實測 3 次全卡死）。
+    NO_DATA_DEMOTE_THRESHOLD = 1
 
     def sort_key(code):
         s = stocks[code]

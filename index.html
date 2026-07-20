@@ -243,16 +243,25 @@ async function updateProgressDisplay() {
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
-      const TWSE_TOTAL = data.marketUniverseTotal || TWSE_TOTAL_FALLBACK;
+      const marketTotal = data.marketUniverseTotal || TWSE_TOTAL_FALLBACK;
       let updated = 0;
+      let unsupported = 0;
 
-      // 統計已更新的股票（有2025年數據且ROE不為null）
+      // 金融股/ETF/DR 結構上永遠拿不到 FinMind 資料（見 finmind-data-fetcher.py 的
+      // _is_finmind_unsupported），分子分母都要排除，不然進度永遠到不了100%、看不出真實進度
       Object.entries(stocks).forEach(([code, stock]) => {
         const yearData = stock.data.find(d => d.year === '2025');
+        if (yearData && yearData.dataType === '不適用（金融股/ETF/DR）') {
+          unsupported++;
+          return;
+        }
         if (yearData && yearData.roe !== null && yearData.source !== null) {
           updated++;
         }
       });
+
+      // 分母排除結構上不適用的股票，才能反映真實可達成的進度
+      const TWSE_TOTAL = marketTotal - unsupported;
 
       // 基於 TWSE 全市場總數計算百分比
       const pct = (updated / TWSE_TOTAL * 100).toFixed(1);
