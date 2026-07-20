@@ -221,15 +221,27 @@ def update_data_file(fetcher):
     # 期間會反覆卡住同一批、擋住後面真正抓得到資料的股票（2026-07-20 實測 3 次全卡死）。
     NO_DATA_DEMOTE_THRESHOLD = 1
 
+    # 前端進度百分比只看「去年」（PREV_YEAR）這個完整年度算不算真實資料，跟這裡缺值分數
+    # 算的「任何一年缺值」是兩件事——2026-07-20 實測發現：批次剛好抽到一堆「去年已完整、
+    # 只差今年Q1」的股票，佇列雖然真的有在動（更新股票數>0），但前端百分比完全沒感覺在漲。
+    # 所以缺「去年」真實資料的股票要排最前面，把這批補完後，才輪到原本缺值分數的排序邏輯。
+    PREV_YEAR_STR = str(datetime.now().year - 1)
+
+    def _prev_year_missing(s):
+        entry = next((e for e in s.get('data', []) if str(e.get('year')) == PREV_YEAR_STR), None)
+        return entry is None or entry.get('eps') is None
+
     def sort_key(code):
         s = stocks[code]
         last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
         demoted = 1 if s.get('noDataStreak', 0) >= NO_DATA_DEMOTE_THRESHOLD else 0
-        return (demoted, -_missing_score(s), last_updated)
+        prev_missing_first = 0 if _prev_year_missing(s) else 1
+        return (demoted, prev_missing_first, -_missing_score(s), last_updated)
 
     codes = sorted(candidate_codes, key=sort_key)[:BATCH_SIZE]
     print(f"\n共 {len(all_codes)} 支（其中 {len(unsupported_codes)} 支金融股/ETF/DR結構上無法從"
-          f"FinMind取得，已排除候選），本次處理優先度最高的 {len(codes)} 支（缺值最多/最久未更新優先）...\n")
+          f"FinMind取得，已排除候選），本次處理優先度最高的 {len(codes)} 支"
+          f"（缺{PREV_YEAR_STR}年真實資料優先，其餘按缺值最多/最久未更新排序）...\n")
 
     updated_stocks = 0
     failed = 0

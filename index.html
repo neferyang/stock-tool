@@ -247,11 +247,13 @@ async function updateProgressDisplay() {
       let updated = 0;
       let unsupported = 0;
 
-      // 金融股/ETF/DR 結構上永遠拿不到 FinMind 資料（見 finmind-data-fetcher.py 的
-      // _is_finmind_unsupported），分子分母都要排除，不然進度永遠到不了100%、看不出真實進度
+      // 分母排除兩種：金融股/ETF/DR（結構上永遠拿不到 FinMind 資料，見
+      // finmind-data-fetcher.py 的 _is_finmind_unsupported）、以及目前抓不到真實資料的
+      // 個股（dataType==='無資料'）。後者不是永久排除——一旦之後哪次排程真的抓到資料，
+      // dataType 會被覆寫成「真實」或「推估」，自然就會重新算進分子分母，不用額外處理。
       Object.entries(stocks).forEach(([code, stock]) => {
         const yearData = stock.data.find(d => d.year === '2025');
-        if (yearData && yearData.dataType === '不適用（金融股/ETF/DR）') {
+        if (yearData && (yearData.dataType === '不適用（金融股/ETF/DR）' || yearData.dataType === '無資料')) {
           unsupported++;
           return;
         }
@@ -260,7 +262,7 @@ async function updateProgressDisplay() {
         }
       });
 
-      // 分母排除結構上不適用的股票，才能反映真實可達成的進度
+      // 分母排除結構上不適用／目前抓不到資料的股票，才能反映真實可達成的進度
       const TWSE_TOTAL = marketTotal - unsupported;
 
       // 基於 TWSE 全市場總數計算百分比
