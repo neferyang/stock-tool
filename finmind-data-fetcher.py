@@ -25,6 +25,7 @@
   fcf = 營業現金流 + 資本支出（資本支出為負值）
 """
 
+import re
 import requests
 import json
 import time
@@ -175,6 +176,24 @@ def _missing_score(stock):
     return sum(1 for e in stock.get('data', []) if e.get('eps') is None)
 
 
+UNSUPPORTED_DATATYPE = '不適用（金融股/ETF/DR）'
+UNSUPPORTED_INDUSTRIES = {'金融保險業'}  # 銀行/證券/期貨/保險用不同會計科目，非一般業損益表格式
+
+
+def _is_finmind_unsupported(code, stock):
+    """FinMind 的 TaiwanStockFinancialStatements 資料集只涵蓋一般業，以下三類結構上永遠
+    拿不到資料：金融保險業(會計科目完全不同)、ETF(代號00開頭)、中國存託憑證(DR，掛的是
+    海外公司財報)。這些股票的缺值分數永遠最高，若不排除會每天佔滿整批額度、卡死佇列，
+    導致其他真正抓得到資料的股票永遠排不到（此函式即修正此問題的核心）。"""
+    if '-DR' in stock.get('name', '').upper():
+        return True
+    if re.match(r'^00\d{2,3}$', code):
+        return True
+    if stock.get('industry') in UNSUPPORTED_INDUSTRIES:
+        return True
+    return False
+
+
 def update_data_file(fetcher):
     with open(DATA_FILE, 'r', encoding='utf-8-sig') as f:
         db = json.load(f)
@@ -182,14 +201,33 @@ def update_data_file(fetcher):
     stocks = db.get('stocks', {})
     all_codes = list(stocks.keys())
 
-    # 優先處理缺值最多的股票；缺值相同時，越久沒更新的越優先
+    unsupported_codes = [c for c in all_codes if _is_finmind_unsupported(c, stocks[c])]
+    unsupported_set = set(unsupported_codes)
+    candidate_codes = [c for c in all_codes if c not in unsupported_set]
+
+    # 標記排除股票的 dataType，只在還沒標記過時才動，避免每次都造成無意義的 git diff
+    newly_marked = 0
+    for c in unsupported_codes:
+        for entry in stocks[c].get('data', []):
+            if entry.get('eps') is None and entry.get('dataType') != UNSUPPORTED_DATATYPE:
+                entry['dataType'] = UNSUPPORTED_DATATYPE
+                newly_marked += 1
+
+    # 優先處理缺值最多的股票；缺值相同時，越久沒更新的越優先。
+    # 額外用 noDataStreak（連續無資料次數）把「連續多次都抓不到」的個股降到佇列後段——
+    # 不是永久排除（萬一 FinMind 之後補上資料還是會排到），只是不讓單一個股長期霸佔額度
+    # 前段、卡死其他股票（例如 2448 這類非金融/ETF/DR、但 FinMind 本身就沒資料的個案）。
+    NO_DATA_DEMOTE_THRESHOLD = 5
+
     def sort_key(code):
         s = stocks[code]
         last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
-        return (-_missing_score(s), last_updated)
+        demoted = 1 if s.get('noDataStreak', 0) >= NO_DATA_DEMOTE_THRESHOLD else 0
+        return (demoted, -_missing_score(s), last_updated)
 
-    codes = sorted(all_codes, key=sort_key)[:BATCH_SIZE]
-    print(f"\n共 {len(all_codes)} 支，本次處理優先度最高的 {len(codes)} 支（缺值最多/最久未更新優先）...\n")
+    codes = sorted(candidate_codes, key=sort_key)[:BATCH_SIZE]
+    print(f"\n共 {len(all_codes)} 支（其中 {len(unsupported_codes)} 支金融股/ETF/DR結構上無法從"
+          f"FinMind取得，已排除候選），本次處理優先度最高的 {len(codes)} 支（缺值最多/最久未更新優先）...\n")
 
     updated_stocks = 0
     failed = 0
@@ -246,10 +284,12 @@ def update_data_file(fetcher):
 
             if changed:
                 updated_stocks += 1
+                stock['noDataStreak'] = 0
                 got = [y for y in years if y in annual]
                 print(f"✅ {','.join(sorted(got, reverse=True))}")
             else:
-                print("－ 無真實資料")
+                stock['noDataStreak'] = stock.get('noDataStreak', 0) + 1
+                print(f"－ 無真實資料（連續{stock['noDataStreak']}次）")
 
         except Exception as e:
             failed += 1
@@ -264,7 +304,9 @@ def update_data_file(fetcher):
         json.dump(db, f, ensure_ascii=False, indent=2)
 
     print(f"\n{'='*60}")
-    print(f"完成！更新股票: {updated_stocks}, 失敗: {failed}（未處理: {len(all_codes)-len(codes)}支留待下次）")
+    print(f"完成！更新股票: {updated_stocks}, 失敗: {failed}"
+          f"（未處理: {len(candidate_codes)-len(codes)}支留待下次，另排除 {len(unsupported_codes)} 支金融股/ETF/DR，"
+          f"本次新標記 {newly_marked} 筆）")
     print(f"{'='*60}")
 
 
