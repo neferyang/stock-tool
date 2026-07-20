@@ -162,7 +162,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.2',
+  version: '8.20.3',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26325,22 +26325,33 @@ function evaluateROE(roe) {
   return { level: '🔴警告', color: '#ef4444', score: 1, desc: '問題企業，應迴避' };
 }
 
+// 低毛利、高週轉結構性產業：食品/零售/通路/餐旅本質上就是薄利多銷，
+// 淨利率4~6%對這些產業是正常健康水準，不能跟半導體業等高毛利產業用同一把尺，
+// 否則會系統性把這些產業的正常公司誤判成「問題企業」（門檻取一般產業的一半）。
+const LOW_MARGIN_INDUSTRIES = ['食品工業', '貿易百貨業', '電子通路業', '觀光餐旅', '汽車工業'];
+
 // 2. 營業利益率評估（檢驗本業賺錢能力）
-function evaluateOperatingMargin(margin) {
-  if (margin > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '本業盈利能力超強' };
-  if (margin > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '本業盈利能力很好' };
-  if (margin > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '本業盈利能力尚可' };
-  if (margin > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '本業盈利能力普通' };
+function evaluateOperatingMargin(margin, industry) {
+  const t = LOW_MARGIN_INDUSTRIES.includes(industry)
+    ? { great: 10, good: 7, ok: 4, avg: 2 }
+    : { great: 20, good: 15, ok: 10, avg: 5 };
+  if (margin > t.great) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '本業盈利能力超強' };
+  if (margin > t.good) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '本業盈利能力很好' };
+  if (margin > t.ok) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '本業盈利能力尚可' };
+  if (margin > t.avg) return { level: '🟡一般', color: '#eab308', score: 2, desc: '本業盈利能力普通' };
   if (margin > 0) return { level: '⚠️ 偏弱', color: '#f97316', score: 2, desc: '本業盈利能力較弱' };
   return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本業無法盈利' };
 }
 
 // 3. 淨利率評估（最終獲利能力，數據永遠可算、不受淨損影響）
-function evaluateNetMargin(margin) {
-  if (margin > 20) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '獲利能力超強' };
-  if (margin > 15) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '獲利能力很好' };
-  if (margin > 10) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '獲利能力尚可' };
-  if (margin > 5) return { level: '🟡一般', color: '#eab308', score: 2, desc: '獲利能力普通' };
+function evaluateNetMargin(margin, industry) {
+  const t = LOW_MARGIN_INDUSTRIES.includes(industry)
+    ? { great: 10, good: 7, ok: 4, avg: 2 }
+    : { great: 20, good: 15, ok: 10, avg: 5 };
+  if (margin > t.great) return { level: '🌟傑出', color: '#10b981', score: 5, desc: '獲利能力超強' };
+  if (margin > t.good) return { level: '🟢優秀', color: '#16a34a', score: 4, desc: '獲利能力很好' };
+  if (margin > t.ok) return { level: '🔵良好', color: '#3b82f6', score: 3, desc: '獲利能力尚可' };
+  if (margin > t.avg) return { level: '🟡一般', color: '#eab308', score: 2, desc: '獲利能力普通' };
   if (margin > 0) return { level: '⚠️ 偏弱', color: '#f97316', score: 2, desc: '獲利能力較弱' };
   return { level: '🔴警告', color: '#ef4444', score: 1, desc: '本期淨損，體質堪憂' };
 }
@@ -26363,8 +26374,8 @@ function evaluateDebtRatio(ratio, industry = 'general') {
 // 綜合評分函數
 function calculateHealthScore(roe, operatingMargin, netMargin, debtRatio, industry) {
   const roeScore = evaluateROE(roe).score;
-  const opMarginScore = evaluateOperatingMargin(operatingMargin).score;
-  const netMarginScore = evaluateNetMargin(netMargin).score;
+  const opMarginScore = evaluateOperatingMargin(operatingMargin, industry).score;
+  const netMarginScore = evaluateNetMargin(netMargin, industry).score;
   const debtScore = evaluateDebtRatio(debtRatio, industry).score;
 
   const avgScore = (roeScore + opMarginScore + netMarginScore + debtScore) / 4;
@@ -26900,8 +26911,8 @@ ${!isTW && !m.pe && !m.eps ? `
 ${latestFinancial && latestFinancial.roe !== undefined ? (() => {
   const hs = calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey);
   const roeEval = latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe) : null;
-  const opEval = evaluateOperatingMargin(latestFinancial.operatingMargin || 0);
-  const nmEval = evaluateNetMargin(latestFinancial.netMargin || 0);
+  const opEval = evaluateOperatingMargin(latestFinancial.operatingMargin || 0, indKey);
+  const nmEval = evaluateNetMargin(latestFinancial.netMargin || 0, indKey);
   const drEval = evaluateDebtRatio(latestFinancial.debtRatio || 0, indKey);
   return `
 <div class="sec health-card" style="border-left:4px solid ${hs.color}; background:linear-gradient(135deg, rgba(${healthScoreRGB(hs.color)},0.05), transparent);">
