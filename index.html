@@ -26756,6 +26756,14 @@ async function go(){
       }
     }
 
+    // 中文名稱備援：TPEX 目前掛掉（502），上櫃股抓不到中文名會落到 Yahoo 只給英文名。
+    // STOCK_CACHE 是搜尋框在用的本地台股清單（tw-stocks.json），本來就有正確中文名，
+    // 直接拿來墊底，比顯示英文公司名有意義多了。
+    if (isTW && !m.name && STOCK_CACHE) {
+      const cached = STOCK_CACHE.find(s => s.Code === code);
+      if (cached && cached.CHName) m.name = cached.CHName;
+    }
+
     // quoteSummary 資料（美股直連，台股上櫃走proxy也可能取到）
     // TWSE/TPEX 已有的數值優先保留，summary 只補充缺少的欄位
     if (summaryResult) {
