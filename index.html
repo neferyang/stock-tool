@@ -867,14 +867,12 @@ let lastIndustrySync = null;           // 最後同步時間
 // 兩個必失敗的 fetch + monitorIndustrySync 空轉 15 秒後永遠 fallback，故廢除改本地填表。
 async function loadLatestIndustryData() {
   try {
-    if (!FINANCIAL_DATA_CACHE) {
-      const resp = await fetch('financial-data-complete.json');
-      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-      const data = await resp.json();
-      FINANCIAL_DATA_CACHE = data.stocks || {};
-    }
+    // 跟 getFinancialData 共用同一個 single-flight Promise（見該函式上方註解），
+    // 避免頁面載入時兩邊各自發一次 fetch 互相干擾
+    const cache = await ensureFinancialDataCache();
+    if (!cache) throw new Error('financial-data-complete.json 載入失敗');
     COMPANY_INDUSTRY_MAP = new Map();
-    for (const [code, s] of Object.entries(FINANCIAL_DATA_CACHE)) {
+    for (const [code, s] of Object.entries(cache)) {
       if (s && s.industry) COMPANY_INDUSTRY_MAP.set(code, s.industry);
     }
     lastIndustrySync = new Date();
@@ -26308,23 +26306,38 @@ const FINANCIAL_DB = {
 // 獲取財報數據函數（使用本地數據庫，未來可擴展為 API）
 // 全局財務數據快取
 let FINANCIAL_DATA_CACHE = null;
+// 共用的載入 Promise（single-flight）：loadLatestIndustryData 跟 getFinancialData
+// 以前各自獨立檢查 `if (!FINANCIAL_DATA_CACHE)` 再各自 fetch 同一支 6MB+ 的 JSON，
+// 頁面剛載入、使用者馬上查詢時兩邊會同時搶著發 fetch，實測其中一邊會拿到 null（原因
+// 不明，疑似同源大檔並發請求在 GitHub Pages/Fastly CDN 上互相干擾），導致「明明資料庫
+// 有資料，查詢頁卻不顯示企業健康診斷卡」。改成兩邊都 await 同一個 Promise 物件，
+// 保證只發一次請求、結果一定一致，從根本消除這個 race condition。
+let _financialDataCachePromise = null;
+
+function ensureFinancialDataCache() {
+  if (FINANCIAL_DATA_CACHE) return Promise.resolve(FINANCIAL_DATA_CACHE);
+  if (!_financialDataCachePromise) {
+    _financialDataCachePromise = fetch('financial-data-complete.json')
+      .then(r => r.json())
+      .then(data => {
+        FINANCIAL_DATA_CACHE = data.stocks || {};
+        return FINANCIAL_DATA_CACHE;
+      })
+      .catch(e => {
+        console.warn('無法加載財務數據文件:', e);
+        _financialDataCachePromise = null; // 允許之後重試，而不是永久卡在失敗的 Promise
+        return null;
+      });
+  }
+  return _financialDataCachePromise;
+}
 
 async function getFinancialData(code, isTW) {
-  // 首次加載時，從 financial-data-complete.json 讀取
-  if (!FINANCIAL_DATA_CACHE) {
-    try {
-      const response = await fetch('financial-data-complete.json');
-      const data = await response.json();
-      FINANCIAL_DATA_CACHE = data.stocks || {};
-    } catch (e) {
-      console.warn('無法加載財務數據文件:', e);
-      return null;
-    }
-  }
+  const cache = await ensureFinancialDataCache();
 
   // 從快取中獲取該股票的數據
-  if (FINANCIAL_DATA_CACHE[code]) {
-    return FINANCIAL_DATA_CACHE[code].data;
+  if (cache && cache[code]) {
+    return cache[code].data;
   }
 
   // 備援：嘗試從硬編碼 FINANCIAL_DB 獲取
