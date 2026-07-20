@@ -243,7 +243,11 @@ async function updateProgressDisplay() {
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
-      const marketTotal = data.marketUniverseTotal || TWSE_TOTAL_FALLBACK;
+      // marketUniverseTotal 是 auto-expand-stocks.py 上次跑完時寫入的快照，可能比
+      // stocks 實際筆數還舊還小（尤其這幾天全市場一直在擴充）；分母現在還要再扣掉
+      // 不適用/無資料的股票，若沿用過期的 marketUniverseTotal 扣一扣可能比分子還小，
+      // 算出 >100%。取两者較大值，確保分母至少涵蓋資料檔裡實際存在的股票數。
+      const marketTotal = Math.max(data.marketUniverseTotal || 0, Object.keys(stocks).length) || TWSE_TOTAL_FALLBACK;
       let updated = 0;
       let unsupported = 0;
 
