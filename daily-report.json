@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-21T22:28:40.760Z",
+  "lastUpdated": "2026-07-21T23:40:51.766Z",
   "date": "2026年07月22日（星期三）",
   "basedOn": "2026年07月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -114,7 +114,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.33（7/21）",
+            "current": "32.32（7/22）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -245,6 +245,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/22 上午7:40:51",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/22 上午6:28:40",
