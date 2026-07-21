@@ -16,13 +16,9 @@ function renderAppHeader({ containerSelector, activeTab, icon, title, version, s
 
   const progressHtml = showProgress ? `
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-      <span>📊 財務數據更新進度 (台股全市場：上市+上櫃+興櫃)：</span>
+      <span>📊 財務數據更新（當日/本月累計）：</span>
       <span style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:8px;font-weight:600;">
-        <span id="update-count">0</span>/<span id="total-count">2,303</span>
-        (<span id="update-pct">0.2</span>%)
-      </span>
-      <span style="display:inline-block;width:80px;height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;">
-        <div id="progress-bar" style="height:100%;width:31%;background:rgba(255,255,255,0.9);transition:width 0.3s ease;"></div>
+        <span id="update-count-today">0</span>/<span id="update-count-month">0</span> 家公司
       </span>
     </div>` : '';
 

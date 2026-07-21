@@ -229,57 +229,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 // ════════════════════════════════════════════════════════
-// 財務數據更新進度顯示 (基於台股全市場 2,303 支：上市+上櫃+興櫃)
+// 財務數據更新進度顯示：本月累計實際被排程更新過的公司數
+// （不是總覆蓋率——排程已進到「當季更新」階段，看當月動了幾家更有意義）
 // ════════════════════════════════════════════════════════
 async function updateProgressDisplay() {
   try {
-    // 全市場總數改讀 auto-expand-stocks.py 每次實際打 TWSE/TPEx OpenAPI 算出的真實值
-    // (financial-data-complete.json 的 marketUniverseTotal)，2303 只是抓不到時的估計備援。
-    const TWSE_TOTAL_FALLBACK = 2303;
-
-    // 嘗試從GitHub Pages加載
     let dataUrl = 'financial-data-complete.json';
     const response = await fetch(dataUrl, {signal: AbortSignal.timeout(3000)});
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
-      // marketUniverseTotal 是 auto-expand-stocks.py 上次跑完時寫入的快照，可能比
-      // stocks 實際筆數還舊還小（尤其這幾天全市場一直在擴充）；分母現在還要再扣掉
-      // 不適用/無資料的股票，若沿用過期的 marketUniverseTotal 扣一扣可能比分子還小，
-      // 算出 >100%。取两者較大值，確保分母至少涵蓋資料檔裡實際存在的股票數。
-      const marketTotal = Math.max(data.marketUniverseTotal || 0, Object.keys(stocks).length) || TWSE_TOTAL_FALLBACK;
-      let updated = 0;
-      let unsupported = 0;
+      const monthPrefix = new Date().toISOString().slice(0, 7); // 'YYYY-MM'
+      const todayPrefix = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
 
-      // 分母排除兩種：金融股/ETF/DR（結構上永遠拿不到 FinMind 資料，見
-      // finmind-data-fetcher.py 的 _is_finmind_unsupported）、以及目前抓不到真實資料的
-      // 個股（dataType==='無資料'）。後者不是永久排除——一旦之後哪次排程真的抓到資料，
-      // dataType 會被覆寫成「真實」或「推估」，自然就會重新算進分子分母，不用額外處理。
-      Object.entries(stocks).forEach(([code, stock]) => {
-        const yearData = stock.data.find(d => d.year === '2025');
-        if (yearData && (yearData.dataType === '不適用（金融股/ETF/DR）' || yearData.dataType === '無資料')) {
-          unsupported++;
-          return;
-        }
-        if (yearData && yearData.roe !== null && yearData.source !== null) {
-          updated++;
-        }
+      let updatedToday = 0;
+      let updatedMonth = 0;
+      Object.values(stocks).forEach(stock => {
+        const dates = stock.data.map(d => d.updatedAt || '');
+        if (dates.some(d => d.startsWith(todayPrefix))) updatedToday++;
+        if (dates.some(d => d.startsWith(monthPrefix))) updatedMonth++;
       });
 
-      // 分母排除結構上不適用／目前抓不到資料的股票，才能反映真實可達成的進度
-      const TWSE_TOTAL = marketTotal - unsupported;
-
-      // 基於 TWSE 全市場總數計算百分比
-      const pct = (updated / TWSE_TOTAL * 100).toFixed(1);
-
-      // 更新表頭顯示
-      document.getElementById('update-count').textContent = updated;
-      document.getElementById('total-count').textContent = TWSE_TOTAL.toLocaleString();
-      document.getElementById('update-pct').textContent = pct;
-
-      // 進度條最大顯示 5%（避免條形太小看不見）
-      const barWidth = Math.max(pct, 0.5);
-      document.getElementById('progress-bar').style.width = Math.min(barWidth, 100) + '%';
+      document.getElementById('update-count-today').textContent = updatedToday.toLocaleString();
+      document.getElementById('update-count-month').textContent = updatedMonth.toLocaleString();
     }
   } catch (e) {
     console.warn('進度更新失敗:', e.message);
