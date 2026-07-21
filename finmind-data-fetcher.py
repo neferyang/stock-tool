@@ -175,13 +175,21 @@ def _missing_score(stock, current_year):
     """缺值分數：data陣列中沒有真實eps的年份數，越大越優先處理。
     當年度（進行中）即使已抓過推估值，只要還是 isEstimate，代表季數還沒抓滿，
     仍算作缺值，否則抓到Q1推估值後就永久掉出優先序，之後公布的Q2/Q3永遠等不到
-    重抓（此為3-4筆/天問題的根因）。"""
+    重抓（此為3-4筆/天問題的根因）。
+    另：當年度 entry 若根本不存在（像早期收錄、年報齊全但從沒補當年度的股票，如
+    2330），也算缺一年——否則這種股票缺值分數恆為0、永遠排在佇列最後，補當年度空位
+    的邏輯（update_data_file 只在股票被選進batch後才補）永遠輪不到它，季報追不上。"""
     score = 0
+    has_current = False
     for e in stock.get('data', []):
+        if str(e.get('year')) == current_year:
+            has_current = True
         if e.get('eps') is None:
             score += 1
         elif str(e.get('year')) == current_year and e.get('isEstimate'):
             score += 1
+    if not has_current:
+        score += 1
     return score
 
 
