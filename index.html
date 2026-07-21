@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.7',
+  version: '8.20.8',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26777,6 +26777,12 @@ async function go(){
       if (!m.div && v.divPerShare) m.div = v.divPerShare;
       console.log('[Finnhub] Integrated metric data');
     }
+
+    // 美股殖利率修正：Yahoo summaryDetail(小數)與 Finnhub(百分比)兩來源的殖利率欄位
+    // 單位不一致，統一×100會算出離譜值(如 AAPL 顯示 32.64%，實際 0.32%)。既然已有可靠的
+    // 每股年配息(m.div)與即時股價(price)，直接用 div÷price 反算最準。台股不受影響(isTW跳過，
+    // 其 divYield 直接取自 TWSE/TPEX 的正確百分比)。
+    if (!isTW && m.div && price) m.divYield = m.div / price * 100;
 
     // 整合公開資訊觀測站新聞（P1 優化版）
     if (newsResult) {
