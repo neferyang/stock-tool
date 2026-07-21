@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.20.9',
+  version: '8.21.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26923,17 +26923,17 @@ ${!isTW && !m.pe && !m.eps ? `
 ` : ''}
 
 <div class="sec"><div class="st2">基本面數據</div><div class="grid">
-  ${sc2('本益比 P/E', f(m.pe))}
-  ${sc2('股價淨值比 P/B', f(m.pb))}
-  ${sc2('現金殖利率', m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
+  ${((indKey==='etf'||!isTW)&&m.pe==null)?'':sc2('本益比 P/E', f(m.pe))}
+  ${((indKey==='etf'||!isTW)&&m.pb==null)?'':sc2('股價淨值比 P/B', f(m.pb))}
+  ${((indKey==='etf'||!isTW)&&m.divYield==null)?'':sc2('現金殖利率', m.divYield!=null?f(m.divYield,2)+'%':'N/A')}
   ${sc2('52週高點', f(m['52hi']))}
   ${sc2('52週低點', f(m['52lo']))}
-  ${sc2('EPS', f(m.eps))}
-  ${sc2('現金股利', f(m.div))}
+  ${((indKey==='etf'||!isTW)&&m.eps==null)?'':sc2('EPS', f(m.eps))}
+  ${((indKey==='etf'||!isTW)&&m.div==null)?'':sc2('現金股利', f(m.div))}
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
-${latestFinancial && latestFinancial.roe !== undefined ? (() => {
+${latestFinancial && latestFinancial.roe !== null && latestFinancial.roe !== undefined && indKey!=='etf' ? (() => {
   const hs = calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey);
   const roeEval = latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe) : null;
   const opEval = evaluateOperatingMargin(latestFinancial.operatingMargin || 0, indKey);
@@ -26980,7 +26980,7 @@ ${latestFinancial && latestFinancial.isEstimate ? `<p style="font-size:.75rem;co
 </div>
 `; })() : ''}
 
-${financialTrend.length > 0 ? `
+${financialTrend.some(f => f.eps && f.eps.val !== null) ? `
 <div class="sec"><div class="st2">📈 財報趨勢</div><div class="trend-chart-box"><canvas id="fc"></canvas></div>
 ${financialTrend.some(f => f.isEstimate) ? `<p style="font-size:.75rem;color:var(--muted);margin-top:8px">◆ 菱形標記／虛線段為本年度推估值，依已公布季度財報年化推算，非正式年報數字</p>` : ''}
 </div>
@@ -27007,7 +27007,7 @@ ${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">
   ${m.confDate ? `<div class="card"><div class="cl">法人說明會</div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}→</a></div></div>` : ''}
 </div></div>` : ''}
 
-${indKey==='etf'?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
+${indKey==='etf' && (m.totalAssets!=null||m.ytdReturn!=null||m.y3return!=null||m.expRatio!=null)?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
   ${sc2('基金規模', fB(m.totalAssets))}
   ${sc2('今年報酬', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
   ${sc2('3年平均年報酬', m.y3return!=null?f(m.y3return*100,2)+'%':'N/A')}
