@@ -171,9 +171,18 @@ FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
 BATCH_SIZE = 180  # 每支3次API呼叫，180支=540次，留餘裕給同小時的其他工作流程
 
 
-def _missing_score(stock):
-    """缺值分數：data陣列中沒有真實eps的年份數，越大越優先處理"""
-    return sum(1 for e in stock.get('data', []) if e.get('eps') is None)
+def _missing_score(stock, current_year):
+    """缺值分數：data陣列中沒有真實eps的年份數，越大越優先處理。
+    當年度（進行中）即使已抓過推估值，只要還是 isEstimate，代表季數還沒抓滿，
+    仍算作缺值，否則抓到Q1推估值後就永久掉出優先序，之後公布的Q2/Q3永遠等不到
+    重抓（此為3-4筆/天問題的根因）。"""
+    score = 0
+    for e in stock.get('data', []):
+        if e.get('eps') is None:
+            score += 1
+        elif str(e.get('year')) == current_year and e.get('isEstimate'):
+            score += 1
+    return score
 
 
 UNSUPPORTED_DATATYPE = '不適用（金融股/ETF/DR）'
@@ -226,6 +235,7 @@ def update_data_file(fetcher):
     # 只差今年Q1」的股票，佇列雖然真的有在動（更新股票數>0），但前端百分比完全沒感覺在漲。
     # 所以缺「去年」真實資料的股票要排最前面，把這批補完後，才輪到原本缺值分數的排序邏輯。
     PREV_YEAR_STR = str(datetime.now().year - 1)
+    CURRENT_YEAR_STR = str(datetime.now().year)
 
     def _prev_year_missing(s):
         entry = next((e for e in s.get('data', []) if str(e.get('year')) == PREV_YEAR_STR), None)
@@ -236,7 +246,7 @@ def update_data_file(fetcher):
         last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
         demoted = 1 if s.get('noDataStreak', 0) >= NO_DATA_DEMOTE_THRESHOLD else 0
         prev_missing_first = 0 if _prev_year_missing(s) else 1
-        return (demoted, prev_missing_first, -_missing_score(s), last_updated)
+        return (demoted, prev_missing_first, -_missing_score(s, CURRENT_YEAR_STR), last_updated)
 
     codes = sorted(candidate_codes, key=sort_key)[:BATCH_SIZE]
     print(f"\n共 {len(all_codes)} 支（其中 {len(unsupported_codes)} 支金融股/ETF/DR結構上無法從"
