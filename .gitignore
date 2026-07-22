@@ -84,6 +84,8 @@
 !fetch-risk-dashboard.py
 # 台股簡稱對照表更新腳本
 !update-tw-stocks.py
+# 美股搜尋清單抓取腳本
+!fetch-us-stocks.py
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流
