@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.3',
+  version: '8.21.7',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -229,8 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <script>
 // ════════════════════════════════════════════════════════
-// 財務數據更新進度顯示：本月累計實際被排程更新過的公司數
-// （不是總覆蓋率——排程已進到「當季更新」階段，看當月動了幾家更有意義）
+// 財務數據收錄顯示：目前真實收錄（去年真實年報）的公司數 / 候選股總數
+// 候選股 = 全市場扣除金融股/ETF/DR（這三類FinMind結構上永遠無法提供資料，
+// 邏輯對應 finmind-data-fetcher.py 的 _is_finmind_unsupported，需保持一致）
 // ════════════════════════════════════════════════════════
 async function updateProgressDisplay() {
   try {
@@ -239,19 +240,26 @@ async function updateProgressDisplay() {
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
-      const monthPrefix = new Date().toISOString().slice(0, 7); // 'YYYY-MM'
-      const todayPrefix = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
+      const prevYear = String(new Date().getFullYear() - 1);
 
-      let updatedToday = 0;
-      let updatedMonth = 0;
-      Object.values(stocks).forEach(stock => {
-        const dates = stock.data.map(d => d.updatedAt || '');
-        if (dates.some(d => d.startsWith(todayPrefix))) updatedToday++;
-        if (dates.some(d => d.startsWith(monthPrefix))) updatedMonth++;
+      const isUnsupported = (code, s) => {
+        if ((s.name || '').toUpperCase().includes('-DR')) return true;
+        if (/^00\d{2,3}$/.test(code)) return true;
+        if (s.industry === '金融保險業') return true;
+        return false;
+      };
+
+      let candidateTotal = 0;
+      let realCount = 0;
+      Object.entries(stocks).forEach(([code, stock]) => {
+        if (isUnsupported(code, stock)) return;
+        candidateTotal++;
+        const hasReal = (stock.data || []).some(d => String(d.year) === prevYear && d.eps != null && !d.isEstimate);
+        if (hasReal) realCount++;
       });
 
-      document.getElementById('update-count-today').textContent = updatedToday.toLocaleString();
-      document.getElementById('update-count-month').textContent = updatedMonth.toLocaleString();
+      document.getElementById('update-count-real').textContent = realCount.toLocaleString();
+      document.getElementById('update-count-total').textContent = candidateTotal.toLocaleString();
     }
   } catch (e) {
     console.warn('進度更新失敗:', e.message);

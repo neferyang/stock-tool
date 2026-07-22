@@ -168,7 +168,12 @@ FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
               'operatingMargin', 'netMargin', 'roe', 'debtRatio', 'fcf']
 
 
-BATCH_SIZE = 180  # 每支3次API呼叫，180支=540次，留餘裕給同小時的其他工作流程
+BATCH_SIZE = 160  # 每支3次API呼叫，160支=480次。FinMind免費方案實測 api_request_limit_hour=600。
+# 原本設100支(300次)是多留一半餘裕，但拆解後發現兩個保留理由都不成立：
+# (1)前端tpexFetch走匿名額度池，跟這組token額度無關；(2)已知唯一一次「同一run
+# 出現3次attempt」案例，間隔都≥2.5小時、落在不同小時額度桶，不會疊加撞額度；
+# 真正會導致同小時額度衝突的schedule-watchdog門檻錯位已修正。故提高批次量，
+# 仍留120次(20%)緩衝應付未知風險。
 
 
 def _missing_score(stock, current_year):

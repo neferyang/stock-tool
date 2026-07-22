@@ -2,10 +2,12 @@ name: Update Financial Data Daily
 
 on:
   schedule:
-    # 改為每 2 小時執行一次(UTC 奇數小時 03~23，一天11次)，加速當季財報追更速度。
-    # 刻意避開 UTC 00:00(auto-expand-stocks.yml 排程，需300次額度)前後，
-    # 免得同一小時內 540+300=840 次超出 FinMind 免費版 600次/hr 上限
-    - cron: '17 3-23/2 * * *'
+    # 每小時一次(跳過UTC 0點，留給auto-expand-stocks.yml獨享)，BATCH_SIZE=160支
+    # (=480次API呼叫)。實測FinMind免費方案 api_request_limit_hour=600 為整點重置的
+    # 每小時制(非日/月制，查詢 https://api.web.finmindtrade.com/v2/user_info 確認)。
+    # 23次/天×160支=3680支，超過候選股總數(~2279支)一輪份量，每小時留120次
+    # (20%)緩衝應付未知風險(見finmind-data-fetcher.py的BATCH_SIZE註解)。
+    - cron: '17 1-23 * * *'
   workflow_dispatch:  # 支持手動觸發
 
 jobs:

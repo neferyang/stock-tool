@@ -16,9 +16,9 @@ function renderAppHeader({ containerSelector, activeTab, icon, title, version, s
 
   const progressHtml = showProgress ? `
     <div style="margin-top:12px;font-size:0.85rem;color:rgba(255,255,255,0.8);display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-      <span>📊 財務數據更新（當日/本月累計）：</span>
+      <span>📊 財務數據收錄：</span>
       <span style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:8px;font-weight:600;">
-        <span id="update-count-today">0</span>/<span id="update-count-month">0</span> 家公司
+        <span id="update-count-real">0</span>/<span id="update-count-total">0</span> 家公司
       </span>
     </div>` : '';
 
