@@ -168,7 +168,8 @@ FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
               'operatingMargin', 'netMargin', 'roe', 'debtRatio', 'fcf']
 
 
-BATCH_SIZE = 180  # 每支3次API呼叫，180支=540次，留餘裕給同小時的其他工作流程
+BATCH_SIZE = 100  # 每支3次API呼叫，100支=300次。FinMind免費方案實測 api_request_limit_hour=600，
+# 搭配排程改成每小時跑一次，300次留一半額度餘裕給同小時可能重疊的auto-expand-stocks.yml或意外重跑
 
 
 def _missing_score(stock, current_year):
