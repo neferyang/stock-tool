@@ -86,6 +86,8 @@
 !update-tw-stocks.py
 # 美股搜尋清單抓取腳本
 !fetch-us-stocks.py
+# 台股ETF搜尋清單補齊腳本
+!fetch-tw-etf.py
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流

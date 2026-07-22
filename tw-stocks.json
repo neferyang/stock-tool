@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-16T00:53:12.699346+00:00",
-  "count": 1972,
+  "updated": "2026-07-22T01:49:36.326517+00:00",
+  "count": 2236,
   "stocks": {
     "1240": {
       "code": "1240",
@@ -17748,6 +17748,2382 @@
       "industry": "鋼鐵工業",
       "listed_date": "",
       "short": "世紀鋼"
+    },
+    "00400A": {
+      "code": "00400A",
+      "name": "主動國泰動能高息",
+      "name_en": "Cathay High Dividend Momentum Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150409",
+      "short": "主動國泰動能高息"
+    },
+    "00401A": {
+      "code": "00401A",
+      "name": "主動摩根台灣鑫收",
+      "name_en": "JPMorgan (Taiwan) Taiwan Equity High Income Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150410",
+      "short": "主動摩根台灣鑫收"
+    },
+    "00402A": {
+      "code": "00402A",
+      "name": "主動安聯美國科技",
+      "name_en": "Allianz Global Investors US Technology Equity Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150609",
+      "short": "主動安聯美國科技"
+    },
+    "00403A": {
+      "code": "00403A",
+      "name": "主動統一升級50",
+      "name_en": "UPAMC Taiwan Elite 50 Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150512",
+      "short": "主動統一升級50"
+    },
+    "00404A": {
+      "code": "00404A",
+      "name": "主動聯博動能50",
+      "name_en": "ABITL Taiwan Momentum Equity Premium Income 50 Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150609",
+      "short": "主動聯博動能50"
+    },
+    "00405A": {
+      "code": "00405A",
+      "name": "主動富邦台灣龍耀",
+      "name_en": "Fubon Taiwan Glory Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150609",
+      "short": "主動富邦台灣龍耀"
+    },
+    "00406A": {
+      "code": "00406A",
+      "name": "主動中信台灣收益",
+      "name_en": "CTBC Taiwan Income and Growth Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150611",
+      "short": "主動中信台灣收益"
+    },
+    "00407A": {
+      "code": "00407A",
+      "name": "主動凱基台灣",
+      "name_en": "KGI Taiwan Equity Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150624",
+      "short": "主動凱基台灣"
+    },
+    "00408A": {
+      "code": "00408A",
+      "name": "主動第一金優股息",
+      "name_en": "FSITC Taiwan Sector Growth and  Enhanced Dividend income Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150715",
+      "short": "主動第一金優股息"
+    },
+    "0050": {
+      "code": "0050",
+      "name": "元大台灣50",
+      "name_en": "Yuanta/P-shares Taiwan Top 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0920630",
+      "short": "元大台灣50"
+    },
+    "0051": {
+      "code": "0051",
+      "name": "元大中型100",
+      "name_en": "Yuanta/P-shares Taiwan Mid-Cap 100 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0950831",
+      "short": "元大中型100"
+    },
+    "0052": {
+      "code": "0052",
+      "name": "富邦科技",
+      "name_en": "Fubon Taiwan Technology Tracker Fund",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0950912",
+      "short": "富邦科技"
+    },
+    "0053": {
+      "code": "0053",
+      "name": "元大電子",
+      "name_en": "Yuanta/P-shares Taiwan Electronics Tech ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0960716",
+      "short": "元大電子"
+    },
+    "0054": {
+      "code": "0054",
+      "name": "元大台商50",
+      "name_en": "Yuanta/P-shares S&amp;P Custom China Play 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0960716",
+      "short": "元大台商50"
+    },
+    "0055": {
+      "code": "0055",
+      "name": "元大MSCI金融",
+      "name_en": "Yuanta/P-shares MSCI Taiwan Financials ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0960716",
+      "short": "元大MSCI金融"
+    },
+    "0056": {
+      "code": "0056",
+      "name": "元大高股息",
+      "name_en": "Yuanta/P-shares Taiwan Dividend Plus ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0961226",
+      "short": "元大高股息"
+    },
+    "0057": {
+      "code": "0057",
+      "name": "富邦摩台",
+      "name_en": "FUBON MSCI  TAIWAN ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0970227",
+      "short": "富邦摩台"
+    },
+    "0058": {
+      "code": "0058",
+      "name": "富邦發達",
+      "name_en": "FUBON TAIWAN EIGHT INDUSTRIES ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0970227",
+      "short": "富邦發達"
+    },
+    "0059": {
+      "code": "0059",
+      "name": "富邦金融",
+      "name_en": "FUBON TAIWAN FINANCE  ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0970227",
+      "short": "富邦金融"
+    },
+    "0060": {
+      "code": "0060",
+      "name": "新台灣",
+      "name_en": "Yuanta/P-shares TWSE Taiwan Non－Tech 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "0970818",
+      "short": "新台灣"
+    },
+    "0061": {
+      "code": "0061",
+      "name": "元大寶滬深",
+      "name_en": "W.I.S.E. Yuanta/P-shares CSI 300 ETF",
+      "type": "ETF",
+      "industry": "連結式證券指數股票型基金",
+      "listed_date": "0980817",
+      "short": "元大寶滬深"
+    },
+    "006203": {
+      "code": "006203",
+      "name": "元大MSCI台灣",
+      "name_en": "Yuanta/ P-shares MSCI Taiwan ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1000512",
+      "short": "元大MSCI台灣"
+    },
+    "006204": {
+      "code": "006204",
+      "name": "永豐臺灣加權",
+      "name_en": "Sinopac TAIEX ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1000928",
+      "short": "永豐臺灣加權"
+    },
+    "006205": {
+      "code": "006205",
+      "name": "富邦上証",
+      "name_en": "Fubon SSE180 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1000926",
+      "short": "富邦上証"
+    },
+    "006206": {
+      "code": "006206",
+      "name": "元大上證50",
+      "name_en": "Yuanta/P-shares SSE50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1010511",
+      "short": "元大上證50"
+    },
+    "006207": {
+      "code": "006207",
+      "name": "復華滬深",
+      "name_en": "Fuh Hwa CSI 300 A Shares Exchange Traded Fund",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1010622",
+      "short": "復華滬深"
+    },
+    "006208": {
+      "code": "006208",
+      "name": "富邦台50",
+      "name_en": "Fubon FTSE TWSE Taiwan 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1010717",
+      "short": "富邦台50"
+    },
+    "00625K": {
+      "code": "00625K",
+      "name": "富邦上証+R",
+      "name_en": "FUBON SSE 180 ETF RMB",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1050808",
+      "short": "富邦上証+R"
+    },
+    "00631L": {
+      "code": "00631L",
+      "name": "元大台灣50正2",
+      "name_en": "Yuanta Daily Taiwan 50 Bull 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1031031",
+      "short": "元大台灣50正2"
+    },
+    "00632R": {
+      "code": "00632R",
+      "name": "元大台灣50反1",
+      "name_en": "Yuanta Daily Taiwan 50 Bear -1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1031031",
+      "short": "元大台灣50反1"
+    },
+    "00633L": {
+      "code": "00633L",
+      "name": "富邦上証正2",
+      "name_en": "Fubon SSE 180 Leveraged 2X Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1031125",
+      "short": "富邦上証正2"
+    },
+    "00634R": {
+      "code": "00634R",
+      "name": "富邦上証反1",
+      "name_en": "Fubon SSE 180 Inversed Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1031125",
+      "short": "富邦上証反1"
+    },
+    "00635U": {
+      "code": "00635U",
+      "name": "期元大S&amp;P黃金(原名：元大S&amp;P黃金)",
+      "name_en": "Yuanta S&amp;P GSCI Gold ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1040415",
+      "short": "期元大S&amp;P黃金(原名：元大S&amp;P黃金)"
+    },
+    "00636": {
+      "code": "00636",
+      "name": "國泰中國A50",
+      "name_en": "Cathay FTSE China A50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1040401",
+      "short": "國泰中國A50"
+    },
+    "00636K": {
+      "code": "00636K",
+      "name": "國泰中國A50+U",
+      "name_en": "Cathay FTSE China A50 ETF(USD)",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1061024",
+      "short": "國泰中國A50+U"
+    },
+    "00637L": {
+      "code": "00637L",
+      "name": "元大滬深300正2",
+      "name_en": "Yuanta Daily CSI300 Bull 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1040518",
+      "short": "元大滬深300正2"
+    },
+    "00638R": {
+      "code": "00638R",
+      "name": "元大滬深300反1",
+      "name_en": "Yuanta Daily CSI 300 Bear -1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1040518",
+      "short": "元大滬深300反1"
+    },
+    "00639": {
+      "code": "00639",
+      "name": "富邦深100",
+      "name_en": "Fubon SZSE 100 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1040609",
+      "short": "富邦深100"
+    },
+    "00640L": {
+      "code": "00640L",
+      "name": "富邦日本正2",
+      "name_en": "Fubon TOPIX Leveraged 2X Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1040910",
+      "short": "富邦日本正2"
+    },
+    "00641R": {
+      "code": "00641R",
+      "name": "富邦日本反1",
+      "name_en": "Fubon TOPIX Inverse-1X Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1040910",
+      "short": "富邦日本反1"
+    },
+    "00642U": {
+      "code": "00642U",
+      "name": "期元大S&amp;P石油(原名：元大S&amp;P石油)",
+      "name_en": "Yuanta S&amp;P GSCI Crude Oil ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1040907",
+      "short": "期元大S&amp;P石油(原名：元大S&amp;P石油)"
+    },
+    "00643": {
+      "code": "00643",
+      "name": "群益深証中小",
+      "name_en": "CAPITAL SZSE SME １００ INDEX EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1041202",
+      "short": "群益深証中小"
+    },
+    "00643K": {
+      "code": "00643K",
+      "name": "群益深証中小+R",
+      "name_en": "CAPITAL SZSE SME １００ INDEX EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1050826",
+      "short": "群益深証中小+R"
+    },
+    "00645": {
+      "code": "00645",
+      "name": "富邦日本",
+      "name_en": "Fubon TOPIX ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1041106",
+      "short": "富邦日本"
+    },
+    "00646": {
+      "code": "00646",
+      "name": "元大S&amp;P500",
+      "name_en": "Yuanta S&amp;P 500 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1041214",
+      "short": "元大S&amp;P500"
+    },
+    "00647L": {
+      "code": "00647L",
+      "name": "元大S&amp;P500正2",
+      "name_en": "Yuanta Daily S&amp;P 500 Bull 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1041214",
+      "short": "元大S&amp;P500正2"
+    },
+    "00648R": {
+      "code": "00648R",
+      "name": "元大S&amp;P500反1",
+      "name_en": "Yuanta Daily S&amp;P 500 Bear 1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1041214",
+      "short": "元大S&amp;P500反1"
+    },
+    "00649": {
+      "code": "00649",
+      "name": "FH香港",
+      "name_en": "Fuh Hwa Hang Seng ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050127",
+      "short": "FH香港"
+    },
+    "00650L": {
+      "code": "00650L",
+      "name": "復華香港正2",
+      "name_en": "Fuh Hwa Daily Hang Seng Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050127",
+      "short": "復華香港正2"
+    },
+    "00651R": {
+      "code": "00651R",
+      "name": "復華香港反1",
+      "name_en": "Fuh Hwa Daily Hang Seng Inversed ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050127",
+      "short": "復華香港反1"
+    },
+    "00652": {
+      "code": "00652",
+      "name": "富邦印度",
+      "name_en": "Fubon NIFTY ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050329",
+      "short": "富邦印度"
+    },
+    "00653L": {
+      "code": "00653L",
+      "name": "富邦印度正2",
+      "name_en": "Fubon NIFTY 2X Leveraged Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050329",
+      "short": "富邦印度正2"
+    },
+    "00654R": {
+      "code": "00654R",
+      "name": "富邦印度反1",
+      "name_en": "Fubon NIFTY -1 Inverse Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050329",
+      "short": "富邦印度反1"
+    },
+    "00655L": {
+      "code": "00655L",
+      "name": "國泰中國A50正2",
+      "name_en": "Cathay FTSE China A50 Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050318",
+      "short": "國泰中國A50正2"
+    },
+    "00656R": {
+      "code": "00656R",
+      "name": "國泰中國A50反1",
+      "name_en": "Cathay FTSE China A50 Daily Inversed  ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050318",
+      "short": "國泰中國A50反1"
+    },
+    "00657": {
+      "code": "00657",
+      "name": "國泰日經225",
+      "name_en": "Cathay Nikkei 225 Currency-hedged ETF Fund",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050509",
+      "short": "國泰日經225"
+    },
+    "00657K": {
+      "code": "00657K",
+      "name": "國泰日經225+U",
+      "name_en": "Cathay Nikkei 225 Currency-hedged ETF Fund(USD)",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1061024",
+      "short": "國泰日經225+U"
+    },
+    "00658L": {
+      "code": "00658L",
+      "name": "國泰日本正2",
+      "name_en": "Cathay FTSE Japan Daily Leveraged 2X ETF Fund",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050509",
+      "short": "國泰日本正2"
+    },
+    "00659R": {
+      "code": "00659R",
+      "name": "國泰日本反1",
+      "name_en": "Cathay FTSE Japan Daily Inversed ETF Fund",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050509",
+      "short": "國泰日本反1"
+    },
+    "00660": {
+      "code": "00660",
+      "name": "元大歐洲50",
+      "name_en": "Yuanta EURO STOXX 50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050615",
+      "short": "元大歐洲50"
+    },
+    "00661": {
+      "code": "00661",
+      "name": "元大日經225",
+      "name_en": "Yuanta Nikkei 225 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050615",
+      "short": "元大日經225"
+    },
+    "00662": {
+      "code": "00662",
+      "name": "富邦NASDAQ",
+      "name_en": "Fubon  NASDAQ-100  ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1050617",
+      "short": "富邦NASDAQ"
+    },
+    "00663L": {
+      "code": "00663L",
+      "name": "國泰臺灣加權正2",
+      "name_en": "Cathay TAIEX Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050714",
+      "short": "國泰臺灣加權正2"
+    },
+    "00664R": {
+      "code": "00664R",
+      "name": "國泰臺灣加權反1",
+      "name_en": "Cathay TAIEX Daily Inversed ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050714",
+      "short": "國泰臺灣加權反1"
+    },
+    "00665L": {
+      "code": "00665L",
+      "name": "富邦恒生國企正2",
+      "name_en": "Fubon Hang Seng China Enterprises Leveraged Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050805",
+      "short": "富邦恒生國企正2"
+    },
+    "00666R": {
+      "code": "00666R",
+      "name": "富邦恒生國企反1",
+      "name_en": "Fubon Hang Seng China Enterprises Inverse Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1050805",
+      "short": "富邦恒生國企反1"
+    },
+    "00667": {
+      "code": "00667",
+      "name": "元大韓國",
+      "name_en": "Yuanta KOSPI 200 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1051007",
+      "short": "元大韓國"
+    },
+    "00668": {
+      "code": "00668",
+      "name": "國泰美國道瓊",
+      "name_en": "Cathay Dow Jones Industrial Average ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1051017",
+      "short": "國泰美國道瓊"
+    },
+    "00668K": {
+      "code": "00668K",
+      "name": "國泰美國道瓊+U",
+      "name_en": "Cathay Dow Jones Industrial Average ETF(USD)",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1061024",
+      "short": "國泰美國道瓊+U"
+    },
+    "00669R": {
+      "code": "00669R",
+      "name": "國泰美國道瓊反1",
+      "name_en": "Cathay Dow Jones Industrial Average Daily Inversed ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051017",
+      "short": "國泰美國道瓊反1"
+    },
+    "00670L": {
+      "code": "00670L",
+      "name": "富邦NASDAQ正2",
+      "name_en": "Fubon NASDAQ-100  2X Leveraged Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060221",
+      "short": "富邦NASDAQ正2"
+    },
+    "00671R": {
+      "code": "00671R",
+      "name": "富邦NASDAQ 反1",
+      "name_en": "Fubon NASDAQ-100 -1X  Inverse Index ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060221",
+      "short": "富邦NASDAQ 反1"
+    },
+    "00672L": {
+      "code": "00672L",
+      "name": "元大S&amp;P原油正2",
+      "name_en": "Yuanta S&amp;P GSCI Crude Oil 2x Leveraged ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051007",
+      "short": "元大S&amp;P原油正2"
+    },
+    "00673R": {
+      "code": "00673R",
+      "name": "期元大S&amp;P原油反1(原名：元大S&amp;P原油反1)",
+      "name_en": "Yuanta S&amp;P GSCI Crude Oil 1x Inverse ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051007",
+      "short": "期元大S&amp;P原油反1(原名：元大S&amp;P原油反1)"
+    },
+    "00674R": {
+      "code": "00674R",
+      "name": "期元大S&amp;P黃金反1(原名：元大S&amp;P黃金反1)",
+      "name_en": "Yuanta S&amp;P GSCI Gold 1x Inverse ER FuturesETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051007",
+      "short": "期元大S&amp;P黃金反1(原名：元大S&amp;P黃金反1)"
+    },
+    "00675L": {
+      "code": "00675L",
+      "name": "FB臺灣加權正2",
+      "name_en": "Fubon TAIEX Daily 2X  Leveraged ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051005",
+      "short": "FB臺灣加權正2"
+    },
+    "00676R": {
+      "code": "00676R",
+      "name": "富邦臺灣加權反1",
+      "name_en": "Fubon TAIEX Daily-1X Inverse ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1051005",
+      "short": "富邦臺灣加權反1"
+    },
+    "00677U": {
+      "code": "00677U",
+      "name": "期富邦VIX",
+      "name_en": "Fubon S&amp;P 500 VIX  Short-Term Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1051230",
+      "short": "期富邦VIX"
+    },
+    "00678": {
+      "code": "00678",
+      "name": "群益那斯達克生技",
+      "name_en": "CAPITAL NASDAQ BIOTECHNOLOGY INDEX EXCHANGE",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060116",
+      "short": "群益那斯達克生技"
+    },
+    "00680L": {
+      "code": "00680L",
+      "name": "元大美債20正2",
+      "name_en": "Yuanta Daily U.S. Treasury 20+ Year Bond Bull 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060117",
+      "short": "元大美債20正2"
+    },
+    "00681R": {
+      "code": "00681R",
+      "name": "元大美債20反1",
+      "name_en": "Yuanta Daily U.S. Treasury 20+ Year Bond Bear 1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060117",
+      "short": "元大美債20反1"
+    },
+    "00682U": {
+      "code": "00682U",
+      "name": "期元大美元指數(原名：元大美元指數)",
+      "name_en": "Yuanta S&amp;P US Dollar ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1060314",
+      "short": "期元大美元指數(原名：元大美元指數)"
+    },
+    "00683L": {
+      "code": "00683L",
+      "name": "期元大美元指正2(原名：元大美元指數正2)",
+      "name_en": "Yuanta S&amp;P US Dollar 2x Leverage ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060314",
+      "short": "期元大美元指正2(原名：元大美元指數正2)"
+    },
+    "00684R": {
+      "code": "00684R",
+      "name": "期元大美元指反1(原名：元大美元指數反1)",
+      "name_en": "Yuanta S&amp;P US Dollar 1x Inverse ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060314",
+      "short": "期元大美元指反1(原名：元大美元指數反1)"
+    },
+    "00685L": {
+      "code": "00685L",
+      "name": "群益臺灣加權正2",
+      "name_en": "CAPITAL TAIEX DAILY LEVERAGED 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060330",
+      "short": "群益臺灣加權正2"
+    },
+    "00686R": {
+      "code": "00686R",
+      "name": "群益臺灣加權反1",
+      "name_en": "CAPITAL TAIEX DAILY INVERSED -1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060330",
+      "short": "群益臺灣加權反1"
+    },
+    "00688L": {
+      "code": "00688L",
+      "name": "國泰20年美債正2",
+      "name_en": "Cathay U.S. Treasury 20+ Year Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060413",
+      "short": "國泰20年美債正2"
+    },
+    "00689R": {
+      "code": "00689R",
+      "name": "國泰20年美債反1",
+      "name_en": "Cathay U.S. Treasury 20+ Year Daily Inverse 1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060413",
+      "short": "國泰20年美債反1"
+    },
+    "00690": {
+      "code": "00690",
+      "name": "兆豐藍籌30",
+      "name_en": "Mega Taiwan Blue Chip 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1060331",
+      "short": "兆豐藍籌30"
+    },
+    "00691R": {
+      "code": "00691R",
+      "name": "兆豐藍籌反一",
+      "name_en": "Mega Taiwan Blue Chip 30 Daily Inverse ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060331",
+      "short": "兆豐藍籌反一"
+    },
+    "00692": {
+      "code": "00692",
+      "name": "富邦公司治理",
+      "name_en": "Fubon TWSE Corporate Governance 100 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1060517",
+      "short": "富邦公司治理"
+    },
+    "00693U": {
+      "code": "00693U",
+      "name": "期街口S&amp;P黃豆",
+      "name_en": "JKO S&amp;P GSCI Soybeans ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1060425",
+      "short": "期街口S&amp;P黃豆"
+    },
+    "00698L": {
+      "code": "00698L",
+      "name": "元大美債7-10正2",
+      "name_en": "Yuanta Daily U.S. Treasury 7-10 Year Bond Bull 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060623",
+      "short": "元大美債7-10正2"
+    },
+    "00699R": {
+      "code": "00699R",
+      "name": "元大美債7-10反1",
+      "name_en": "Yuanta Daily U.S. Treasury 7-10 Year Bond Bear 1X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060623",
+      "short": "元大美債7-10反1"
+    },
+    "00700": {
+      "code": "00700",
+      "name": "富邦恒生國企",
+      "name_en": "Fubon Hang Seng China Enterprises  ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060728",
+      "short": "富邦恒生國企"
+    },
+    "00701": {
+      "code": "00701",
+      "name": "國泰股利精選30",
+      "name_en": "Cathay TIP TAIEX +Low Volatility Select 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1060817",
+      "short": "國泰股利精選30"
+    },
+    "00702": {
+      "code": "00702",
+      "name": "國泰標普低波高息",
+      "name_en": "Cathay S&amp;P 500 Low Volatility High Dividend ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060817",
+      "short": "國泰標普低波高息"
+    },
+    "00703": {
+      "code": "00703",
+      "name": "台新MSCI中國",
+      "name_en": "Taishin MSCI China ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060810",
+      "short": "台新MSCI中國"
+    },
+    "00704L": {
+      "code": "00704L",
+      "name": "台新MSCI台灣正2",
+      "name_en": "Taishin MSCI Taiwan Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060810",
+      "short": "台新MSCI台灣正2"
+    },
+    "00705R": {
+      "code": "00705R",
+      "name": "台新MSCI台灣反1",
+      "name_en": "Taishin MSCI Taiwan Daily Inverse ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060810",
+      "short": "台新MSCI台灣反1"
+    },
+    "00706L": {
+      "code": "00706L",
+      "name": "期元大S&amp;P日圓正2(原名：元大S&amp;P日圓正2)",
+      "name_en": "Yuanta S&amp;P Japanese Yen 2x Leverage ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060901",
+      "short": "期元大S&amp;P日圓正2(原名：元大S&amp;P日圓正2)"
+    },
+    "00707R": {
+      "code": "00707R",
+      "name": "期元大S&amp;P日圓反1(原名：元大S&amp;P日圓反1)",
+      "name_en": "Yuanta S&amp;P Japanese Yen 1x Inverse ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060901",
+      "short": "期元大S&amp;P日圓反1(原名：元大S&amp;P日圓反1)"
+    },
+    "00708L": {
+      "code": "00708L",
+      "name": "期元大S&amp;P黃金正2(原名：元大S&amp;P黃金正2)",
+      "name_en": "Yuanta S&amp;P GSCI Gold 2x Leveraged ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1060901",
+      "short": "期元大S&amp;P黃金正2(原名：元大S&amp;P黃金正2)"
+    },
+    "00709": {
+      "code": "00709",
+      "name": "富邦歐洲",
+      "name_en": "Fubon FTSE Developed Europe ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060815",
+      "short": "富邦歐洲"
+    },
+    "00710B": {
+      "code": "00710B",
+      "name": "復華彭博非投等債",
+      "name_en": "Fuh Hwa 1-5 Yr High Yield ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060821",
+      "short": "復華彭博非投等債"
+    },
+    "00711B": {
+      "code": "00711B",
+      "name": "復華彭博新興債",
+      "name_en": "Fuh Hwa Emerging Market 10+ Yr Bond ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060821",
+      "short": "復華彭博新興債"
+    },
+    "00712": {
+      "code": "00712",
+      "name": "復華富時不動產",
+      "name_en": "Fuh Hwa FTSE Mortgage REITs ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1060821",
+      "short": "復華富時不動產"
+    },
+    "00713": {
+      "code": "00713",
+      "name": "元大台灣高息低波",
+      "name_en": "Yuanta Taiwan High Dividend Low Volatility ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1060927",
+      "short": "元大台灣高息低波"
+    },
+    "00714": {
+      "code": "00714",
+      "name": "群益道瓊美國地產",
+      "name_en": "CAPITAL DOW JONES U.S. REAL ESTATE  INDEX EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1061027",
+      "short": "群益道瓊美國地產"
+    },
+    "00715L": {
+      "code": "00715L",
+      "name": "期街口布蘭特正2",
+      "name_en": "JKO S&amp;P GSCI Brent Crude 2x Leveraged ER Futures ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1061116",
+      "short": "期街口布蘭特正2"
+    },
+    "00716R": {
+      "code": "00716R",
+      "name": "華頓S&amp;P布蘭特反1",
+      "name_en": "Paradigm S&amp;P GSCI Brent Crude 1X Inverse ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1061116",
+      "short": "華頓S&amp;P布蘭特反1"
+    },
+    "00717": {
+      "code": "00717",
+      "name": "富邦美國特別股",
+      "name_en": "Fubon S&amp;P US Preferred Stock ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1061129",
+      "short": "富邦美國特別股"
+    },
+    "00728": {
+      "code": "00728",
+      "name": "第一金工業30",
+      "name_en": "FSITC Taiwan Industry Elite 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1070418",
+      "short": "第一金工業30"
+    },
+    "00729R": {
+      "code": "00729R",
+      "name": "第一金工業30反一",
+      "name_en": "FSITC Taiwan Industry Elite 30 Daily -1X Inverse ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1070418",
+      "short": "第一金工業30反一"
+    },
+    "00730": {
+      "code": "00730",
+      "name": "富邦臺灣優質高息",
+      "name_en": "Fubon Dow Jones Taiwan High-Quality Dividend 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1070208",
+      "short": "富邦臺灣優質高息"
+    },
+    "00731": {
+      "code": "00731",
+      "name": "復華富時高息低波",
+      "name_en": "Fuh Hwa FTSE Taiwan High Div Low Vol ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1070420",
+      "short": "復華富時高息低波"
+    },
+    "00732": {
+      "code": "00732",
+      "name": "國泰RMB短期報酬",
+      "name_en": "Cathay FTSE Chinese Government and Policy Bank Bond 0-1Year Select ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070514",
+      "short": "國泰RMB短期報酬"
+    },
+    "00733": {
+      "code": "00733",
+      "name": "臺灣中小A級動能50 ETF基金",
+      "name_en": "Fubon Taiwan Small-Mid Cap Alpha Momentum 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1070517",
+      "short": "臺灣中小A級動能50 ETF基金"
+    },
+    "00735": {
+      "code": "00735",
+      "name": "國泰臺韓科技",
+      "name_en": "Cathay Korea/Taiwan IT Premier ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070611",
+      "short": "國泰臺韓科技"
+    },
+    "00736": {
+      "code": "00736",
+      "name": "國泰新興市場",
+      "name_en": "Cathay FTSE Emerging Markets ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070611",
+      "short": "國泰新興市場"
+    },
+    "00737": {
+      "code": "00737",
+      "name": "國泰AI機器人",
+      "name_en": "Cathay Nasdaq CTA Artificial Inteligence and Robotics ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070611",
+      "short": "國泰AI機器人"
+    },
+    "00738U": {
+      "code": "00738U",
+      "name": "期元大道瓊白銀(原名：元大道瓊白銀)",
+      "name_en": "Yuanta DJCI Silver ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1070601",
+      "short": "期元大道瓊白銀(原名：元大道瓊白銀)"
+    },
+    "00739": {
+      "code": "00739",
+      "name": "元大MSCI A股",
+      "name_en": "Yuanta MSCI CHINA  A  ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070627",
+      "short": "元大MSCI A股"
+    },
+    "00742": {
+      "code": "00742",
+      "name": "新光內需收益",
+      "name_en": "Shin Kong Domestic Demand High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1070622",
+      "short": "新光內需收益"
+    },
+    "00743": {
+      "code": "00743",
+      "name": "國泰中國A150",
+      "name_en": "Cathay FTSE China A150 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1070803",
+      "short": "國泰中國A150"
+    },
+    "00752": {
+      "code": "00752",
+      "name": "中信中國50",
+      "name_en": "CTBC MSCI China Free 50 ex A and B ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1071031",
+      "short": "中信中國50"
+    },
+    "00753L": {
+      "code": "00753L",
+      "name": "中信中國50正2",
+      "name_en": "CTBC MSCI China Free 50 ex A and B Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1071031",
+      "short": "中信中國50正2"
+    },
+    "00757": {
+      "code": "00757",
+      "name": "統一FANG+",
+      "name_en": "UPAMC NYSE  FANG+ ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1071206",
+      "short": "統一FANG+"
+    },
+    "00762": {
+      "code": "00762",
+      "name": "元大全球AI",
+      "name_en": "Yuanta  STOXX  Global  Artificial Intelligence  ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080123",
+      "short": "元大全球AI"
+    },
+    "00763U": {
+      "code": "00763U",
+      "name": "期街口道瓊銅",
+      "name_en": "JKO Dow Jones Copper ER Futures ETF",
+      "type": "ETF",
+      "industry": "指數股票型期貨信託基金",
+      "listed_date": "1071219",
+      "short": "期街口道瓊銅"
+    },
+    "00766L": {
+      "code": "00766L",
+      "name": "台新MSCI中國正2",
+      "name_en": "Taishin MSCI China Free Leveraged 2X Daily ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1080123",
+      "short": "台新MSCI中國正2"
+    },
+    "00767": {
+      "code": "00767",
+      "name": "FH美國金融股",
+      "name_en": "Fuh Hwa Dow Jones US Financial Services Equity ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080128",
+      "short": "FH美國金融股"
+    },
+    "00770": {
+      "code": "00770",
+      "name": "國泰標普北美科技ETF基金",
+      "name_en": "Cathay North American Technology ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080129",
+      "short": "國泰標普北美科技ETF基金"
+    },
+    "00771": {
+      "code": "00771",
+      "name": "元大US高息特別股",
+      "name_en": "Yuanta S&amp;P U.S. High Yield Preferred Stock ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080516",
+      "short": "元大US高息特別股"
+    },
+    "00774B": {
+      "code": "00774B",
+      "name": "新光中國政金綠債",
+      "name_en": "Shin Kong 10 Years China Treasury Policy Bank Green Bond ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080227",
+      "short": "新光中國政金綠債"
+    },
+    "00774C": {
+      "code": "00774C",
+      "name": "00774C",
+      "name_en": "Shin Kong 10 Years China Treasury Policy Bank Green Bond ETF RMB",
+      "type": "ETF",
+      "industry": "國外成份/加掛外幣證券指數股票型基金",
+      "listed_date": "1080828",
+      "short": "00774C"
+    },
+    "00775B": {
+      "code": "00775B",
+      "name": "台新投等債15+",
+      "name_en": "Taishin FTSE 15 Years Investment Grade USD Corporate Bond ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080215",
+      "short": "台新投等債15+"
+    },
+    "00776": {
+      "code": "00776",
+      "name": "新光ICE美國權值",
+      "name_en": "Shin Kong NYSE US Core Large Cap ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080215",
+      "short": "新光ICE美國權值"
+    },
+    "00783": {
+      "code": "00783",
+      "name": "富邦中証500",
+      "name_en": "Fubon China CSI 500 Index ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080327",
+      "short": "富邦中証500"
+    },
+    "0080": {
+      "code": "0080",
+      "name": "恒中國",
+      "name_en": "HANG SENG H-SHARE INDEX ETF",
+      "type": "ETF",
+      "industry": "境外指數股票型基金",
+      "listed_date": "0980814",
+      "short": "恒中國"
+    },
+    "0081": {
+      "code": "0081",
+      "name": "恒香港",
+      "name_en": "HANG SENG INDEX ETF",
+      "type": "ETF",
+      "industry": "境外指數股票型基金",
+      "listed_date": "0980814",
+      "short": "恒香港"
+    },
+    "008201": {
+      "code": "008201",
+      "name": "BP上證50",
+      "name_en": "W.I.S.E. - SSE 50 China Tracker",
+      "type": "ETF",
+      "industry": "境外指數股票型基金",
+      "listed_date": "0991208",
+      "short": "BP上證50"
+    },
+    "00830": {
+      "code": "00830",
+      "name": "國泰費城半導體",
+      "name_en": "Cathay U.S. PHLX Semiconductor Sector ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080503",
+      "short": "國泰費城半導體"
+    },
+    "00850": {
+      "code": "00850",
+      "name": "元大臺灣ESG永續",
+      "name_en": "Yuanta FTSE4Good TIP Taiwan ESG ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1080823",
+      "short": "元大臺灣ESG永續"
+    },
+    "00851": {
+      "code": "00851",
+      "name": "台新全球AI",
+      "name_en": "Taishin SG Global AI and Robotics Select ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1080812",
+      "short": "台新全球AI"
+    },
+    "00852L": {
+      "code": "00852L",
+      "name": "國泰美國道瓊正2",
+      "name_en": "Cathay DJIA Daily Leveraged 2X ETF",
+      "type": "ETF",
+      "industry": "槓桿/反向指數股票型基金",
+      "listed_date": "1080822",
+      "short": "國泰美國道瓊正2"
+    },
+    "00861": {
+      "code": "00861",
+      "name": "元大全球未來通訊",
+      "name_en": "Yuanta Global NextGen Communications ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1081119",
+      "short": "元大全球未來通訊"
+    },
+    "00865B": {
+      "code": "00865B",
+      "name": "國泰US短期公債",
+      "name_en": "Cathay US Short Term Treasury ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1081125",
+      "short": "國泰US短期公債"
+    },
+    "00866": {
+      "code": "00866",
+      "name": "新光Shiller CAPE",
+      "name_en": "Shin Kong Shiller Barclays CAPE&#174; US Sector Value ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1081119",
+      "short": "新光Shiller CAPE"
+    },
+    "00875": {
+      "code": "00875",
+      "name": "國泰網路資安ETF",
+      "name_en": "Cathay Cyber Security ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1090330",
+      "short": "國泰網路資安ETF"
+    },
+    "00876": {
+      "code": "00876",
+      "name": "元大全球5G(原名:元大未來關鍵科技)",
+      "name_en": "Yuanta Global 5G &amp; NexGen Telecommunication Components ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1090707",
+      "short": "元大全球5G(原名:元大未來關鍵科技)"
+    },
+    "00878": {
+      "code": "00878",
+      "name": "國泰永續高股息",
+      "name_en": "Cathay MSCI Taiwan ESG Sustainability High Dividend Yield ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1090720",
+      "short": "國泰永續高股息"
+    },
+    "00881": {
+      "code": "00881",
+      "name": "國泰台灣科技龍頭",
+      "name_en": "Cathay Taiwan Technology Leader ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1091210",
+      "short": "國泰台灣科技龍頭"
+    },
+    "00882": {
+      "code": "00882",
+      "name": "中信中國高股息",
+      "name_en": "CTBC Hang Seng China High Dividend Yield ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1100204",
+      "short": "中信中國高股息"
+    },
+    "00885": {
+      "code": "00885",
+      "name": "富邦越南",
+      "name_en": "Fubon FTSE Vietnam ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1100419",
+      "short": "富邦越南"
+    },
+    "00891": {
+      "code": "00891",
+      "name": "中信關鍵半導體",
+      "name_en": "CTBC Taiwan ESG Leading Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1100528",
+      "short": "中信關鍵半導體"
+    },
+    "00892": {
+      "code": "00892",
+      "name": "富邦台灣半導體",
+      "name_en": "Fubon ICE FactSet Taiwan Core Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1100610",
+      "short": "富邦台灣半導體"
+    },
+    "00893": {
+      "code": "00893",
+      "name": "國泰智能電動車",
+      "name_en": "Cathay Global Autonomous EV ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1100701",
+      "short": "國泰智能電動車"
+    },
+    "00894": {
+      "code": "00894",
+      "name": "中信小資高價30",
+      "name_en": "CTBC TIP Customized Investor Movement Aristocrats 30ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1100813",
+      "short": "中信小資高價30"
+    },
+    "00895": {
+      "code": "00895",
+      "name": "富邦未來車",
+      "name_en": "Fubon MSCI ACWI IMI Select Future Mobility Top 30 Capped ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1100812",
+      "short": "富邦未來車"
+    },
+    "00896": {
+      "code": "00896",
+      "name": "中信綠能及電動車",
+      "name_en": "CTBC TIP Customized Taiwan Green Energy and Electric Vehicles ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1100916",
+      "short": "中信綠能及電動車"
+    },
+    "00897": {
+      "code": "00897",
+      "name": "富邦基因免疫生技",
+      "name_en": "Fubon NYSE FactSet Global Genomics and Immuno Biopharma ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1101004",
+      "short": "富邦基因免疫生技"
+    },
+    "00898": {
+      "code": "00898",
+      "name": "國泰全球基因免疫與醫療革命ETF基金",
+      "name_en": "Solactive Global Genomics Immunology and medical revolution index",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1101122",
+      "short": "國泰全球基因免疫與醫療革命ETF基金"
+    },
+    "00899": {
+      "code": "00899",
+      "name": "FT潔淨能源(原名:富蘭克林潔淨能源)",
+      "name_en": "Franklin Templeton SinoAm Global Clean Energy ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110121",
+      "short": "FT潔淨能源(原名:富蘭克林潔淨能源)"
+    },
+    "00900": {
+      "code": "00900",
+      "name": "富邦特選高股息30",
+      "name_en": "Fubon Taiwan Index high dividend 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1101222",
+      "short": "富邦特選高股息30"
+    },
+    "00901": {
+      "code": "00901",
+      "name": "永豐智能車供應鏈",
+      "name_en": "SinoPac Taiwan Electric Vehicle Supply Chain ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1101215",
+      "short": "永豐智能車供應鏈"
+    },
+    "00902": {
+      "code": "00902",
+      "name": "中信電池及儲能",
+      "name_en": "CTBC Battery and Energy Storage Technology ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110125",
+      "short": "中信電池及儲能"
+    },
+    "00903": {
+      "code": "00903",
+      "name": "富邦元宇宙",
+      "name_en": "Fubon Solactive Metaverse ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110124",
+      "short": "富邦元宇宙"
+    },
+    "00904": {
+      "code": "00904",
+      "name": "台新臺灣半導體30",
+      "name_en": "Taishin TIP Taiwan Semiconductor 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110307",
+      "short": "台新臺灣半導體30"
+    },
+    "00905": {
+      "code": "00905",
+      "name": "FT臺灣Smart",
+      "name_en": "Franklin Templeton SinoAm Taiwan Smart ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110421",
+      "short": "FT臺灣Smart"
+    },
+    "00906": {
+      "code": "00906",
+      "name": "大華元宇宙科技50",
+      "name_en": "United Metaverse Technology and Services ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110517",
+      "short": "大華元宇宙科技50"
+    },
+    "00907": {
+      "code": "00907",
+      "name": "永豐優息存股",
+      "name_en": "SinoPac Taiwan Superior Dividend Highlight Stocks ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110524",
+      "short": "永豐優息存股"
+    },
+    "00908": {
+      "code": "00908",
+      "name": "富邦入息REITs+",
+      "name_en": "Fubon Global Dividend REITs and Infrastructure ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110520",
+      "short": "富邦入息REITs+"
+    },
+    "00909": {
+      "code": "00909",
+      "name": "國泰全球數位支付服務ETF基金",
+      "name_en": "Cathay Global Digital Payment Services ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110713",
+      "short": "國泰全球數位支付服務ETF基金"
+    },
+    "00910": {
+      "code": "00910",
+      "name": "第一金太空衛星",
+      "name_en": "FSITC Aerospace and Satellite ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110720",
+      "short": "第一金太空衛星"
+    },
+    "00911": {
+      "code": "00911",
+      "name": "兆豐洲際半導體",
+      "name_en": "Mega ICE Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110627",
+      "short": "兆豐洲際半導體"
+    },
+    "00912": {
+      "code": "00912",
+      "name": "中信臺灣智慧50",
+      "name_en": "CTBC TIP Customized Taiwan Smart Factor 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110629",
+      "short": "中信臺灣智慧50"
+    },
+    "00913": {
+      "code": "00913",
+      "name": "兆豐台灣晶圓製造ETF",
+      "name_en": "Mega Taiwan Wafer Manufacture ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110808",
+      "short": "兆豐台灣晶圓製造ETF"
+    },
+    "00915": {
+      "code": "00915",
+      "name": "凱基優選高股息30",
+      "name_en": "KGI Taiwan Premium Selection High Dividend 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1110809",
+      "short": "凱基優選高股息30"
+    },
+    "00916": {
+      "code": "00916",
+      "name": "國泰全球品牌50",
+      "name_en": "Cathay Global Top 50 Brands ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110926",
+      "short": "國泰全球品牌50"
+    },
+    "00917": {
+      "code": "00917",
+      "name": "中信特選金融",
+      "name_en": "CTBC Selected Financials and Data Industry ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1110826",
+      "short": "中信特選金融"
+    },
+    "00918": {
+      "code": "00918",
+      "name": "大華優利高填息30 ETF",
+      "name_en": "United Taiwan High Dividend Recovery ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1111124",
+      "short": "大華優利高填息30 ETF"
+    },
+    "00919": {
+      "code": "00919",
+      "name": "群益台灣精選高息",
+      "name_en": "CAPITAL TIP CUSTOMIZED TAIWAN SELECT HIGH DIVIDEND EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1111020",
+      "short": "群益台灣精選高息"
+    },
+    "00920": {
+      "code": "00920",
+      "name": "富邦ESG綠色電力",
+      "name_en": "Fubon Global ESG Green Energy ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1111020",
+      "short": "富邦ESG綠色電力"
+    },
+    "00921": {
+      "code": "00921",
+      "name": "兆豐龍頭等權重",
+      "name_en": "Mega Taiwan Market Leader EW ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120113",
+      "short": "兆豐龍頭等權重"
+    },
+    "00922": {
+      "code": "00922",
+      "name": "國泰台灣領袖50 ETF基金",
+      "name_en": "Cathay MSCI Taiwan Leaders 50 Select ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120327",
+      "short": "國泰台灣領袖50 ETF基金"
+    },
+    "00923": {
+      "code": "00923",
+      "name": "群益台ESG低碳50",
+      "name_en": "CAPITAL TIP CUSTOMIZED TAIWAN ESG LOW CARBON 50 EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120308",
+      "short": "群益台ESG低碳50"
+    },
+    "00924": {
+      "code": "00924",
+      "name": "復華S&amp;P500成長",
+      "name_en": "Fuh Hwa US S&amp;P 500 Growth ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1120426",
+      "short": "復華S&amp;P500成長"
+    },
+    "00925": {
+      "code": "00925",
+      "name": "新光標普電動車",
+      "name_en": "Shin Kong S&amp;P Electric Vehicles ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1120418",
+      "short": "新光標普電動車"
+    },
+    "00926": {
+      "code": "00926",
+      "name": "凱基全球菁英55",
+      "name_en": "KGI Global Industry Elite 55 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1120602",
+      "short": "凱基全球菁英55"
+    },
+    "00927": {
+      "code": "00927",
+      "name": "群益半導體收益",
+      "name_en": "CAPITAL TIP CUSTOMIZED TAIWAN SEMICONDUCTOR DIVIDEND YIELD EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120606",
+      "short": "群益半導體收益"
+    },
+    "00929": {
+      "code": "00929",
+      "name": "復華台灣科技優息",
+      "name_en": "Fuh Hwa Taiwan Technology Dividend Highlight ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120609",
+      "short": "復華台灣科技優息"
+    },
+    "00930": {
+      "code": "00930",
+      "name": "永豐ESG低碳高息",
+      "name_en": "SinoPac Taiwan ESG Low Carbon High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120713",
+      "short": "永豐ESG低碳高息"
+    },
+    "00932": {
+      "code": "00932",
+      "name": "兆豐永續高息等權",
+      "name_en": "Mega Taiwan ESG High Dividend Equal Weight ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1120901",
+      "short": "兆豐永續高息等權"
+    },
+    "00934": {
+      "code": "00934",
+      "name": "中信成長高股息",
+      "name_en": "CTBC TIP Customized Taiwan Growth and High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1121101",
+      "short": "中信成長高股息"
+    },
+    "00935": {
+      "code": "00935",
+      "name": "野村臺灣新科技50",
+      "name_en": "NEXT FUNDS – Nomura Taiwan Innovative Technology 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1121101",
+      "short": "野村臺灣新科技50"
+    },
+    "00936": {
+      "code": "00936",
+      "name": "台新永續高息中小型ETF",
+      "name_en": "Taishin TIP Customized Taiwan ESG High Dividend Small/Mid-Cap ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1121108",
+      "short": "台新永續高息中小型ETF"
+    },
+    "00938": {
+      "code": "00938",
+      "name": "凱基優選30",
+      "name_en": "KGI Taiwan Premium Selection 30 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1131023",
+      "short": "凱基優選30"
+    },
+    "00939": {
+      "code": "00939",
+      "name": "統一台灣高息動能ETF基金",
+      "name_en": "UPAMC Taiwan High Dividend Momentum ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130320",
+      "short": "統一台灣高息動能ETF基金"
+    },
+    "00940": {
+      "code": "00940",
+      "name": "元大台灣價值高息",
+      "name_en": "Yuanta Taiwan Value High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130401",
+      "short": "元大台灣價值高息"
+    },
+    "00941": {
+      "code": "00941",
+      "name": "中信上游半導體",
+      "name_en": "CTBC Upstream Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130315",
+      "short": "中信上游半導體"
+    },
+    "00943": {
+      "code": "00943",
+      "name": "兆豐電子高息等權",
+      "name_en": "Mega Taiwan IT Growth and High Dividend Equal Weight ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130520",
+      "short": "兆豐電子高息等權"
+    },
+    "00944": {
+      "code": "00944",
+      "name": "野村趨勢動能高息",
+      "name_en": "NEXT FUNDS – Nomura Taiwan Momentum High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130509",
+      "short": "野村趨勢動能高息"
+    },
+    "00945B": {
+      "code": "00945B",
+      "name": "凱基美國非投等債",
+      "name_en": "KGI US Premium Selection High Yield Bond ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130502",
+      "short": "凱基美國非投等債"
+    },
+    "00946": {
+      "code": "00946",
+      "name": "群益科技高息成長",
+      "name_en": "CAPITAL TAIWAN TECH HIGH DIVIDEND AND GROWTH ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130509",
+      "short": "群益科技高息成長"
+    },
+    "00947": {
+      "code": "00947",
+      "name": "台新臺灣IC設計動能ETF基金",
+      "name_en": "Taishin Taiwan IC Design and Momentum ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130612",
+      "short": "台新臺灣IC設計動能ETF基金"
+    },
+    "00949": {
+      "code": "00949",
+      "name": "復華日本龍頭",
+      "name_en": "Fuh Hwa Japan Global Moat Leaders ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130701",
+      "short": "復華日本龍頭"
+    },
+    "00951": {
+      "code": "00951",
+      "name": "台新日本半導體ETF",
+      "name_en": "Taishin NYSE FactSet Japan Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130725",
+      "short": "台新日本半導體ETF"
+    },
+    "00952": {
+      "code": "00952",
+      "name": "凱基台灣AI 50",
+      "name_en": "KGI Taiwan Premium Selection AI 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1130905",
+      "short": "凱基台灣AI 50"
+    },
+    "00953B": {
+      "code": "00953B",
+      "name": "群益優選非投等債",
+      "name_en": "CAPITAL BB-B COUPON ENHANCED HIGH YIELD BOND EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130821",
+      "short": "群益優選非投等債"
+    },
+    "00954": {
+      "code": "00954",
+      "name": "中信日本半導體",
+      "name_en": "CTBC Japan Semiconductor ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130820",
+      "short": "中信日本半導體"
+    },
+    "00956": {
+      "code": "00956",
+      "name": "中信日經高股息",
+      "name_en": "CTBC Nikkei High Dividend Yield 50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130820",
+      "short": "中信日經高股息"
+    },
+    "00960": {
+      "code": "00960",
+      "name": "野村全球航運龍頭",
+      "name_en": "NEXT FUNDS - Nomura Global Shipping Leaders Income ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1130920",
+      "short": "野村全球航運龍頭"
+    },
+    "00961": {
+      "code": "00961",
+      "name": "FT臺灣永續高息",
+      "name_en": "Franklin Templeton SinoAm Taiwan ESG High Dividend ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1131015",
+      "short": "FT臺灣永續高息"
+    },
+    "00962": {
+      "code": "00962",
+      "name": "台新AI優息動能基金",
+      "name_en": "Taishin Taiwan AI High Dividend and Momentum ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1131206",
+      "short": "台新AI優息動能基金"
+    },
+    "00963": {
+      "code": "00963",
+      "name": "中信全球高股息",
+      "name_en": "CTBC Global High Dividend ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1131114",
+      "short": "中信全球高股息"
+    },
+    "00964": {
+      "code": "00964",
+      "name": "中信亞太高股息",
+      "name_en": "CTBC Asia Pacific High Dividend ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1131114",
+      "short": "中信亞太高股息"
+    },
+    "00965": {
+      "code": "00965",
+      "name": "元大航太防衛科技",
+      "name_en": "Yuanta Global Aerospace and Defense Technology ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1131126",
+      "short": "元大航太防衛科技"
+    },
+    "00971": {
+      "code": "00971",
+      "name": "野村美國研發龍頭",
+      "name_en": "NEXT FUNDS – Nomura US R&amp;D Leaders Select ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140109",
+      "short": "野村美國研發龍頭"
+    },
+    "00972": {
+      "code": "00972",
+      "name": "野村日本動能高息",
+      "name_en": "NEXT FUNDS – Nomura Japan Value-creation Momentum Dividend ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140109",
+      "short": "野村日本動能高息"
+    },
+    "009800": {
+      "code": "009800",
+      "name": "中信NASDAQ",
+      "name_en": "CTBC NASDAQ 100 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140211",
+      "short": "中信NASDAQ"
+    },
+    "009801": {
+      "code": "009801",
+      "name": "中信美國創新科技",
+      "name_en": "CTBC US Innovation Technology ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140211",
+      "short": "中信美國創新科技"
+    },
+    "009802": {
+      "code": "009802",
+      "name": "富邦旗艦50",
+      "name_en": "Fubon Taiwan Flagship Momentum 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1140319",
+      "short": "富邦旗艦50"
+    },
+    "009803": {
+      "code": "009803",
+      "name": "玉山市值動能50",
+      "name_en": "E.SUN Taiwan Market Capitalization Momentum 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1140313",
+      "short": "玉山市值動能50"
+    },
+    "009804": {
+      "code": "009804",
+      "name": "聯邦台灣精彩50ETF基金",
+      "name_en": "Union Taiwan 50 30% Capped ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1140416",
+      "short": "聯邦台灣精彩50ETF基金"
+    },
+    "009805": {
+      "code": "009805",
+      "name": "台新美國電力基建",
+      "name_en": "Taishin US Electricity Infrastructure Quality Income ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140513",
+      "short": "台新美國電力基建"
+    },
+    "009808": {
+      "code": "009808",
+      "name": "華南永昌優選50",
+      "name_en": "Hua Nan Taiwan Moat Select 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1140516",
+      "short": "華南永昌優選50"
+    },
+    "009809": {
+      "code": "009809",
+      "name": "富邦淨零ESG50",
+      "name_en": "Fubon Taiwan NET ZERO ESG 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1141014",
+      "short": "富邦淨零ESG50"
+    },
+    "00980A": {
+      "code": "00980A",
+      "name": "主動野村臺灣優選",
+      "name_en": "NEXT FUNDS – Nomura Taiwan SMART Select Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140505",
+      "short": "主動野村臺灣優選"
+    },
+    "009810": {
+      "code": "009810",
+      "name": "玉山全球藍籌100",
+      "name_en": "E.SUN Global 100 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140716",
+      "short": "玉山全球藍籌100"
+    },
+    "009811": {
+      "code": "009811",
+      "name": "統一美國50ETF基金",
+      "name_en": "UPAMC NYSE US 50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140729",
+      "short": "統一美國50ETF基金"
+    },
+    "009812": {
+      "code": "009812",
+      "name": "野村日本東證",
+      "name_en": "NEXT FUNDS – Nomura TOPIX Feeder ETF",
+      "type": "ETF",
+      "industry": "連結式證券指數股票型基金",
+      "listed_date": "1140918",
+      "short": "野村日本東證"
+    },
+    "009813": {
+      "code": "009813",
+      "name": "貝萊德標普卓越50",
+      "name_en": "BlackRock iShares S&amp;P 500 Top 50 ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1141020",
+      "short": "貝萊德標普卓越50"
+    },
+    "009816": {
+      "code": "009816",
+      "name": "凱基台灣TOP50",
+      "name_en": "KGI Taiwan TOP 50 ETF",
+      "type": "ETF",
+      "industry": "國內成分證券指數股票型基金",
+      "listed_date": "1150203",
+      "short": "凱基台灣TOP50"
+    },
+    "009817": {
+      "code": "009817",
+      "name": "國泰大和日本不動產收息ETF基金",
+      "name_en": "Cathay Daiwa Japan REITs Dividend Income ETF",
+      "type": "ETF",
+      "industry": "連結式證券指數股票型基金",
+      "listed_date": "1150206",
+      "short": "國泰大和日本不動產收息ETF基金"
+    },
+    "009818": {
+      "code": "009818",
+      "name": "華南永昌NASDAQxT",
+      "name_en": "Hua Nan NASDAQ 100 Technology ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1150323",
+      "short": "華南永昌NASDAQxT"
+    },
+    "009819": {
+      "code": "009819",
+      "name": "中信數據及電力",
+      "name_en": "CTBC Data Center &amp; Electricity Infrastructure ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1150423",
+      "short": "中信數據及電力"
+    },
+    "00981A": {
+      "code": "00981A",
+      "name": "主動統一台股增長",
+      "name_en": "UPAMC  Taiwan Growth Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140527",
+      "short": "主動統一台股增長"
+    },
+    "00981T": {
+      "code": "00981T",
+      "name": "平衡凱基雙核收息",
+      "name_en": "KGI Dual-Core Income Balanced ETF",
+      "type": "ETF",
+      "industry": "國外成分證券平衡型指數股票型基金",
+      "listed_date": "1140924",
+      "short": "平衡凱基雙核收息"
+    },
+    "009820": {
+      "code": "009820",
+      "name": "元大納斯達克精選",
+      "name_en": "Yuanta Nasdaq-100 Enhanced Growth ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1150423",
+      "short": "元大納斯達克精選"
+    },
+    "009821": {
+      "code": "009821",
+      "name": "野村稀土關鍵資源",
+      "name_en": "NEXT FUNDS – Nomura Global Rare Earth and Strategic Resources ETF",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1150617",
+      "short": "野村稀土關鍵資源"
+    },
+    "009824": {
+      "code": "009824",
+      "name": "群益美國科技巨頭ETF基金",
+      "name_en": "CAPITAL US TECH GIANT EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1150625",
+      "short": "群益美國科技巨頭ETF基金"
+    },
+    "00982A": {
+      "code": "00982A",
+      "name": "主動群益台灣強棒",
+      "name_en": "CAPITAL TAIWAN SELECT PREMIUM ACTIVE EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140522",
+      "short": "主動群益台灣強棒"
+    },
+    "00982D": {
+      "code": "00982D",
+      "name": "主動富邦動態入息",
+      "name_en": "Fubon Global Dynamic Income Investment Grade Bond Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(債券)",
+      "listed_date": "1141014",
+      "short": "主動富邦動態入息"
+    },
+    "00982T": {
+      "code": "00982T",
+      "name": "平衡兆豐台美動能",
+      "name_en": "Mega Taiwan-U.S. Momentum Balanced",
+      "type": "ETF",
+      "industry": "國外成分證券平衡型指數股票型基金",
+      "listed_date": "1141226",
+      "short": "平衡兆豐台美動能"
+    },
+    "00983A": {
+      "code": "00983A",
+      "name": "主動中信ARK創新",
+      "name_en": "CTBC ARK Innovation Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140618",
+      "short": "主動中信ARK創新"
+    },
+    "00983D": {
+      "code": "00983D",
+      "name": "主動富邦複合收益",
+      "name_en": "Fubon Global Selective Income Bond Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(債券)",
+      "listed_date": "1141014",
+      "short": "主動富邦複合收益"
+    },
+    "00984A": {
+      "code": "00984A",
+      "name": "主動安聯台灣高息",
+      "name_en": "Allianz Global Investors Taiwan Dividend and Growth Equity Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140714",
+      "short": "主動安聯台灣高息"
+    },
+    "00984D": {
+      "code": "00984D",
+      "name": "主動聯博全球非投",
+      "name_en": "ABITL Select Global High Yield Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(債券)",
+      "listed_date": "1150204",
+      "short": "主動聯博全球非投"
+    },
+    "00985A": {
+      "code": "00985A",
+      "name": "主動野村台灣50",
+      "name_en": "NEXT FUNDS – Nomura Taiwan 50 Enhanced Equity Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140721",
+      "short": "主動野村台灣50"
+    },
+    "00985B": {
+      "code": "00985B",
+      "name": "群益ESG投等債0-5",
+      "name_en": "CAPITAL 0-5 YEAR ESG INVESTMENT GRADE CORPORATE BOND EXCHANGE TRADED FUND",
+      "type": "ETF",
+      "industry": "國外成分證券指數股票型基金",
+      "listed_date": "1140911",
+      "short": "群益ESG投等債0-5"
+    },
+    "00986A": {
+      "code": "00986A",
+      "name": "主動台新龍頭成長",
+      "name_en": "Taishin Global Growth Leaders Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1140827",
+      "short": "主動台新龍頭成長"
+    },
+    "00987A": {
+      "code": "00987A",
+      "name": "主動台新優勢成長",
+      "name_en": "Taishin Taiwan Growth Dominance Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141230",
+      "short": "主動台新優勢成長"
+    },
+    "00988A": {
+      "code": "00988A",
+      "name": "主動統一全球創新",
+      "name_en": "UPAMC Global Innovation Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141105",
+      "short": "主動統一全球創新"
+    },
+    "00989A": {
+      "code": "00989A",
+      "name": "主動摩根美國科技",
+      "name_en": "JPMorgan(Taiwan) U.S. Tech Leaders Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141022",
+      "short": "主動摩根美國科技"
+    },
+    "00990A": {
+      "code": "00990A",
+      "name": "主動元大AI新經濟",
+      "name_en": "Yuanta Global AI New Economy Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141222",
+      "short": "主動元大AI新經濟"
+    },
+    "00991A": {
+      "code": "00991A",
+      "name": "主動復華未來50",
+      "name_en": "Fuh Hwa Taiwan Future 50 Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141218",
+      "short": "主動復華未來50"
+    },
+    "00992A": {
+      "code": "00992A",
+      "name": "主動群益科技創新",
+      "name_en": "Capital Taiwan Technology Innovation Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1141230",
+      "short": "主動群益科技創新"
+    },
+    "00993A": {
+      "code": "00993A",
+      "name": "主動安聯台灣",
+      "name_en": "Allianz Global Investors Taiwan Equity Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150203",
+      "short": "主動安聯台灣"
+    },
+    "00994A": {
+      "code": "00994A",
+      "name": "主動第一金台股優",
+      "name_en": "FSITC Taiwan Momentum Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150107",
+      "short": "主動第一金台股優"
+    },
+    "00995A": {
+      "code": "00995A",
+      "name": "主動中信台灣卓越",
+      "name_en": "CTBC Taiwan Excellence Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150122",
+      "short": "主動中信台灣卓越"
+    },
+    "00996A": {
+      "code": "00996A",
+      "name": "主動兆豐台灣豐收",
+      "name_en": "Mega Taiwan Harvest Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150325",
+      "short": "主動兆豐台灣豐收"
+    },
+    "00997A": {
+      "code": "00997A",
+      "name": "主動群益美國增長",
+      "name_en": "Capital US Growth Active ETF",
+      "type": "ETF",
+      "industry": "國外成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150414",
+      "short": "主動群益美國增長"
+    },
+    "00999A": {
+      "code": "00999A",
+      "name": "主動野村臺灣高息",
+      "name_en": "NEXT FUNDS – Nomura Taiwan Strategic High Dividend Active ETF",
+      "type": "ETF",
+      "industry": "國內成分證券主動式交易所交易基金(股票)",
+      "listed_date": "1150505",
+      "short": "主動野村臺灣高息"
     }
   }
 }
