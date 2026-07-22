@@ -47,7 +47,10 @@ jobs:
             fi
           }
 
-          check_and_trigger "auto-expand-stocks.yml" 3
-          check_and_trigger "update-financial-data.yml" 26
+          # 門檻需對齊各排程實際cron頻率，2026-07-22排程對調(auto-expand改1天1次、
+          # update-financial-data改每小時1次)後這裡曾忘記同步更新，導致
+          # auto-expand用舊的3小時門檻誤判「逾期」而被重複補跑、白耗FinMind額度。
+          check_and_trigger "auto-expand-stocks.yml" 26
+          check_and_trigger "update-financial-data.yml" 3
           check_and_trigger "daily-report-update.yml" 14
           check_and_trigger "mops_crawler.yml" 192
