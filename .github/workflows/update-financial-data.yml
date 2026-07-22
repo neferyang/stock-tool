@@ -2,11 +2,11 @@ name: Update Financial Data Daily
 
 on:
   schedule:
-    # 每小時一次(跳過UTC 0點，留給auto-expand-stocks.yml獨享)，BATCH_SIZE=100支
-    # (=300次API呼叫)。實測FinMind免費方案 api_request_limit_hour=600 為整點重置的
+    # 每小時一次(跳過UTC 0點，留給auto-expand-stocks.yml獨享)，BATCH_SIZE=160支
+    # (=480次API呼叫)。實測FinMind免費方案 api_request_limit_hour=600 為整點重置的
     # 每小時制(非日/月制，查詢 https://api.web.finmindtrade.com/v2/user_info 確認)。
-    # 23次/天×100支=2300支，剛好覆蓋候選股總數(~2279支)一輪，每小時穩定留300次
-    # (50%)餘裕給意外重跑/前端流量。
+    # 23次/天×160支=3680支，超過候選股總數(~2279支)一輪份量，每小時留120次
+    # (20%)緩衝應付未知風險(見finmind-data-fetcher.py的BATCH_SIZE註解)。
     - cron: '17 1-23 * * *'
   workflow_dispatch:  # 支持手動觸發
 
