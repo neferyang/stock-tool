@@ -43,7 +43,7 @@ jobs:
 
             if [ "$age_hours" -ge "$max_age_hours" ]; then
               echo "🔁 $file 已逾期，觸發補跑"
-              gh workflow run "$file"
+              gh workflow run "$file" --repo "$REPO"
             fi
           }
 
