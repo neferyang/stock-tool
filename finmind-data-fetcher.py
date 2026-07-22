@@ -231,12 +231,13 @@ def update_data_file(fetcher):
                 newly_marked += 1
 
     # 優先處理缺值最多的股票；缺值相同時，越久沒更新的越優先。
-    # 額外用 noDataStreak（連續無資料次數）把「連續多次都抓不到」的個股降到佇列後段——
-    # 不是永久排除（萬一 FinMind 之後補上資料還是會排到），只是不讓單一個股長期霸佔額度
-    # 前段、卡死其他股票（例如 2448 這類非金融/ETF/DR、但 FinMind 本身就沒資料的個案）。
-    # 門檻設 1（原本 5）：只要這次抓空就立刻讓開，不然要連續卡滿5個排程週期才會降級，
-    # 期間會反覆卡住同一批、擋住後面真正抓得到資料的股票（2026-07-20 實測 3 次全卡死）。
-    NO_DATA_DEMOTE_THRESHOLD = 1
+    # noDataStreak（連續無資料次數）原本用獨立的 tuple 層把「連續多次都抓不到」的個股
+    # 降到佇列最後面，但候選池（demoted=0那群）遠大於單次batch(180)、水位永遠夠，
+    # 導致降級股永遠輪不到、noDataStreak永遠沒機會清零——等於永久放逐，不是懲罰
+    # （2026-07-22 實測：314支demoted股票本月0支被摸過）。
+    # 改成扣分併入 missing_score，並封頂(cap=3)：降級股仍會被排後面，但不是絕對否決，
+    # 只要missing_score夠高或last_updated夠舊，還是有機會被排進batch重試、清零noDataStreak。
+    NO_DATA_STREAK_PENALTY_CAP = 3
 
     # 前端進度百分比只看「去年」（PREV_YEAR）這個完整年度算不算真實資料，跟這裡缺值分數
     # 算的「任何一年缺值」是兩件事——2026-07-20 實測發現：批次剛好抽到一堆「去年已完整、
@@ -252,9 +253,10 @@ def update_data_file(fetcher):
     def sort_key(code):
         s = stocks[code]
         last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
-        demoted = 1 if s.get('noDataStreak', 0) >= NO_DATA_DEMOTE_THRESHOLD else 0
         prev_missing_first = 0 if _prev_year_missing(s) else 1
-        return (demoted, prev_missing_first, -_missing_score(s, CURRENT_YEAR_STR), last_updated)
+        streak_penalty = min(s.get('noDataStreak', 0), NO_DATA_STREAK_PENALTY_CAP)
+        score = _missing_score(s, CURRENT_YEAR_STR) - streak_penalty
+        return (prev_missing_first, -score, last_updated)
 
     codes = sorted(candidate_codes, key=sort_key)[:BATCH_SIZE]
     print(f"\n共 {len(all_codes)} 支（其中 {len(unsupported_codes)} 支金融股/ETF/DR結構上無法從"
