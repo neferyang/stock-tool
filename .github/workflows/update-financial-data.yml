@@ -55,8 +55,9 @@ jobs:
           git commit -m "chore: auto update financial data from FinMind API ($(date '+%Y-%m-%d %H:%M:%S'))"
           for i in 1 2 3 4 5; do
             git push origin main && break
-            echo "push被拒絕(遠端有新commit)，pull --rebase後重試 ($i/5)..."
-            git pull --rebase origin main
+            echo "Push 被拒絕(遠端有新commit)，以本地新資料為主 merge 後重試 ($i/5)..."
+            git fetch origin main
+            git merge -X ours origin/main --no-edit
             sleep $((i * 5))
           done
         env:
