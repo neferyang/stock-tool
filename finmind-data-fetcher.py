@@ -31,7 +31,7 @@ import json
 import time
 import sys
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # dotenv 為選用：本地方便，CI 用環境變數（無 dotenv 不應崩潰）
 try:
@@ -250,6 +250,33 @@ def update_data_file(fetcher):
     NO_DATA_STREAK_THRESHOLD = 2   # 連續失敗幾次後開始降級
     NO_DATA_STREAK_PENALTY = 5     # 降級固定扣分（不是streak本身，避免cap調整方向又搞反）
 
+    # 2026-07-23 光靠扣分還是不夠：候選池裡「缺2025」這組實測426支，扣分後沒被罰的只剩
+    # 110支(<batch 160)，缺口一定要從已扣分那組硬補滿——不管streak是2還是8，扣分都封在
+    # 同一個固定值，結果變成連續失敗8次的股票照樣每輪陪榜，真正該被排到的「只缺當年度」
+    # 那組(如2330，資料源已確認FinMind有、只是排序排不到)永遠插不進來。
+    # 改成真的「跳過」：streak>=EXCLUDE_THRESHOLD直接排除出candidate_codes，不進排序也
+    # 不進batch，讓路給其他候選股；但不是永久放逐——冷卻COOLDOWN_DAYS天后自動解禁一次，
+    # 讓FinMind如果之後補上資料還是抓得到，也避免真的資料源缺漏的股票被永久鎖死查不到。
+    EXCLUDE_STREAK_THRESHOLD = 3
+    COOLDOWN_DAYS = 7
+
+    def _is_cooling_down(s):
+        # 注意：不能用 entry 的 updatedAt 判斷「上次嘗試時間」——完全抓不到真實資料的股票
+        # (changed=False那條路)從來不會寫入entry['updatedAt']，這個欄位對它們永遠是None，
+        # 會被誤判成「從沒抓過」而永遠不冷卻。改用 stock 層級專門記錄的 lastAttemptAt，
+        # 這個欄位不管成功失敗、每次被選進batch處理過就一定會更新。
+        streak = s.get('noDataStreak', 0) or 0
+        if streak < EXCLUDE_STREAK_THRESHOLD:
+            return False
+        last_attempt = s.get('lastAttemptAt') or ''
+        if not last_attempt:
+            return False  # 從沒真的抓過，不算冷卻中
+        try:
+            last_dt = datetime.fromisoformat(last_attempt)
+        except ValueError:
+            return False
+        return (datetime.now() - last_dt) < timedelta(days=COOLDOWN_DAYS)
+
     # 前端進度百分比只看「去年」（PREV_YEAR）這個完整年度算不算真實資料，跟這裡缺值分數
     # 算的「任何一年缺值」是兩件事——2026-07-20 實測發現：批次剛好抽到一堆「去年已完整、
     # 只差今年Q1」的股票，佇列雖然真的有在動（更新股票數>0），但前端百分比完全沒感覺在漲。
@@ -270,10 +297,19 @@ def update_data_file(fetcher):
         score = _missing_score(s, CURRENT_YEAR_STR) - streak_penalty
         return (prev_missing_first, -score, last_updated)
 
-    codes = sorted(candidate_codes, key=sort_key)[:BATCH_SIZE]
+    cooling_codes = [c for c in candidate_codes if _is_cooling_down(stocks[c])]
+    active_codes = [c for c in candidate_codes if c not in set(cooling_codes)]
+
+    codes = sorted(active_codes, key=sort_key)[:BATCH_SIZE]
+    if len(codes) < BATCH_SIZE:
+        # active池不夠湊滿一批才會用到冷卻中的股票（正常情況下active池遠大於BATCH_SIZE，
+        # 幾乎不會走到這裡；真的走到，代表候選池整體已經很乾淨，可以讓冷卻股提前解禁）
+        codes += sorted(cooling_codes, key=sort_key)[:BATCH_SIZE - len(codes)]
+
     print(f"\n共 {len(all_codes)} 支（其中 {len(unsupported_codes)} 支金融股/ETF/DR結構上無法從"
-          f"FinMind取得，已排除候選），本次處理優先度最高的 {len(codes)} 支"
-          f"（缺{PREV_YEAR_STR}年真實資料優先，其餘按缺值最多/最久未更新排序）...\n")
+          f"FinMind取得，已排除候選；另有 {len(cooling_codes)} 支連續{EXCLUDE_STREAK_THRESHOLD}次"
+          f"以上抓不到真實資料，冷卻{COOLDOWN_DAYS}天中，暫不排入），本次處理優先度最高的 "
+          f"{len(codes)} 支（缺{PREV_YEAR_STR}年真實資料優先，其餘按缺值最多/最久未更新排序）...\n")
 
     updated_stocks = 0
     failed = 0
@@ -299,6 +335,10 @@ def update_data_file(fetcher):
             years.append(str(current_year))
 
         print(f"[{i}/{len(codes)}] {code} {stock.get('name','')}...", end=" ", flush=True)
+        # 不管這次成功失敗，都要記錄「有真的嘗試過」，冷卻機制(_is_cooling_down)靠這個
+        # 判斷距上次嘗試多久，不能用entry['updatedAt']——完全抓不到真實資料的股票那個
+        # 欄位永遠是None(見上面changed=False分支)，會被誤判成「從沒抓過」而不冷卻。
+        stock['lastAttemptAt'] = datetime.now().isoformat()
 
         try:
             yrs = [int(y) for y in years]
