@@ -88,6 +88,8 @@
 !fetch-us-stocks.py
 # 台股ETF搜尋清單補齊腳本
 !fetch-tw-etf.py
+# 台股興櫃搜尋清單補齊腳本
+!fetch-tw-emerging.py
 
 # ════════════════════════════════════════════
 # GitHub Actions 工作流

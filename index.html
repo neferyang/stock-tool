@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.10',
+  version: '8.21.11',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -26602,7 +26602,9 @@ function setPd(n,b){
 async function go(){
   let raw=document.getElementById('ti').value.trim().toUpperCase();
   if(!raw)return;
-  const isNumeric = /^\d{4,6}$/.test(raw);
+  // 新式主動式ETF代號是5碼數字+1碼字母（如00981A），純數字regex會漏判，
+  // 導致直接落到美股分支查裸代號，Yahoo Finance當然查不到（缺.TW/.TWO後綴）
+  const isNumeric = /^\d{4,6}[A-Z]?$/.test(raw);
   let ticker = isNumeric ? raw+'.TW' : raw;
   const btn=document.getElementById('btn');btn.disabled=true;
   setSt('<span class="spin"></span>查詢 '+ticker+'...',false);

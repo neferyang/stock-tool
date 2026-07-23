@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-22T01:49:36.326517+00:00",
-  "count": 2236,
+  "updated": "2026-07-23T01:10:09.942609+00:00",
+  "count": 2593,
   "stocks": {
     "1240": {
       "code": "1240",
@@ -20124,6 +20124,3219 @@
       "industry": "國內成分證券主動式交易所交易基金(股票)",
       "listed_date": "1150505",
       "short": "主動野村臺灣高息"
+    },
+    "1260": {
+      "code": "1260",
+      "name": "富味鄉食品股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20121126",
+      "short": "富味鄉"
+    },
+    "1269": {
+      "code": "1269",
+      "name": "乾杯股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20160829",
+      "short": "乾杯"
+    },
+    "1271": {
+      "code": "1271",
+      "name": "晨暉生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210118",
+      "short": "晨暉生技"
+    },
+    "1293": {
+      "code": "1293",
+      "name": "利統股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20211029",
+      "short": "利統"
+    },
+    "1343": {
+      "code": "1343",
+      "name": "旭東環保科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20210325",
+      "short": "旭東環保"
+    },
+    "1480": {
+      "code": "1480",
+      "name": "東盟開發實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "10",
+      "listed_date": "20231027",
+      "short": "東盟開發"
+    },
+    "1594": {
+      "code": "1594",
+      "name": "日高工程實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20101013",
+      "short": "日高"
+    },
+    "2071": {
+      "code": "2071",
+      "name": "震南鐵線股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "10",
+      "listed_date": "20190923",
+      "short": "震南鐵"
+    },
+    "2237": {
+      "code": "2237",
+      "name": "華德動能科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20141223",
+      "short": "華德動能"
+    },
+    "2245": {
+      "code": "2245",
+      "name": "詠勝昌股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20161215",
+      "short": "詠勝昌*"
+    },
+    "2249": {
+      "code": "2249",
+      "name": "湧盛電機股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20191219",
+      "short": "湧盛"
+    },
+    "2252": {
+      "code": "2252",
+      "name": "為昇科科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20210823",
+      "short": "為昇科"
+    },
+    "2255": {
+      "code": "2255",
+      "name": "凱銳光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20211130",
+      "short": "凱銳光電"
+    },
+    "2256": {
+      "code": "2256",
+      "name": "歐特明電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20211208",
+      "short": "歐特明"
+    },
+    "2644": {
+      "code": "2644",
+      "name": "中信造船股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "15",
+      "listed_date": "20221011",
+      "short": "中信造船"
+    },
+    "2733": {
+      "code": "2733",
+      "name": "維格餅家股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20121224",
+      "short": "維格餅家"
+    },
+    "2741": {
+      "code": "2741",
+      "name": "人杰老四川餐飲管理顧問(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20141028",
+      "short": "老四川"
+    },
+    "2758": {
+      "code": "2758",
+      "name": "路易莎職人咖啡股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20210917",
+      "short": "路易莎咖啡"
+    },
+    "2760": {
+      "code": "2760",
+      "name": "巨宇翔股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20221226",
+      "short": "巨宇翔"
+    },
+    "2761": {
+      "code": "2761",
+      "name": "橘焱胡同國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20220413",
+      "short": "橘焱胡同"
+    },
+    "2938": {
+      "code": "2938",
+      "name": "床的世界股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "38",
+      "listed_date": "20161005",
+      "short": "床的世界"
+    },
+    "2940": {
+      "code": "2940",
+      "name": "歐都納股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "37",
+      "listed_date": "20250505",
+      "short": "歐都納"
+    },
+    "2942": {
+      "code": "2942",
+      "name": "京站實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "38",
+      "listed_date": "20180331",
+      "short": "京站"
+    },
+    "3097": {
+      "code": "3097",
+      "name": "拍檔科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20020802",
+      "short": "拍檔"
+    },
+    "3117": {
+      "code": "3117",
+      "name": "年程科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20120831",
+      "short": "年程"
+    },
+    "3184": {
+      "code": "3184",
+      "name": "微邦科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20130418",
+      "short": "微邦"
+    },
+    "3473": {
+      "code": "3473",
+      "name": "智通聯網科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20250811",
+      "short": "智通聯網"
+    },
+    "3585": {
+      "code": "3585",
+      "name": "聯致科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20071025",
+      "short": "聯致"
+    },
+    "3595": {
+      "code": "3595",
+      "name": "山太士股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20071116",
+      "short": "山太士"
+    },
+    "3603": {
+      "code": "3603",
+      "name": "建祥國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "29",
+      "listed_date": "20080109",
+      "short": "建祥國際"
+    },
+    "3633": {
+      "code": "3633",
+      "name": "云光科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20080806",
+      "short": "云光"
+    },
+    "3644": {
+      "code": "3644",
+      "name": "凌嘉科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260615",
+      "short": "凌嘉科"
+    },
+    "3659": {
+      "code": "3659",
+      "name": "百辰光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20091019",
+      "short": "百辰"
+    },
+    "3678": {
+      "code": "3678",
+      "name": "聯享光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20091022",
+      "short": "聯享"
+    },
+    "4115": {
+      "code": "4115",
+      "name": "善德生化科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220831",
+      "short": "善德生技"
+    },
+    "4117": {
+      "code": "4117",
+      "name": "普生股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20020704",
+      "short": "普生"
+    },
+    "4150": {
+      "code": "4150",
+      "name": "優你康光學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20100915",
+      "short": "優你康"
+    },
+    "4170": {
+      "code": "4170",
+      "name": "鑫品生醫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20231228",
+      "short": "鑫品生醫"
+    },
+    "4172": {
+      "code": "4172",
+      "name": "因華生技製藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20120913",
+      "short": "因華"
+    },
+    "4186": {
+      "code": "4186",
+      "name": "台灣尖端先進生技醫藥(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20121127",
+      "short": "尖端醫"
+    },
+    "4194": {
+      "code": "4194",
+      "name": "禾伸堂生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20131213",
+      "short": "禾生技"
+    },
+    "4197": {
+      "code": "4197",
+      "name": "暐世生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20131024",
+      "short": "暐世"
+    },
+    "4431": {
+      "code": "4431",
+      "name": "敏成健康科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20110830",
+      "short": "敏成健康"
+    },
+    "4537": {
+      "code": "4537",
+      "name": "旭東機械工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20120503",
+      "short": "旭東"
+    },
+    "4544": {
+      "code": "4544",
+      "name": "春日機械工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20121224",
+      "short": "春日"
+    },
+    "4546": {
+      "code": "4546",
+      "name": "長亨精密股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20130730",
+      "short": "長亨"
+    },
+    "4553": {
+      "code": "4553",
+      "name": "盛復工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20140916",
+      "short": "盛復"
+    },
+    "4559": {
+      "code": "4559",
+      "name": "久裕興業科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "37",
+      "listed_date": "20141208",
+      "short": "久裕興"
+    },
+    "4565": {
+      "code": "4565",
+      "name": "宏偉電機工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20161005",
+      "short": "宏偉"
+    },
+    "4570": {
+      "code": "4570",
+      "name": "傑生工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20240314",
+      "short": "傑生"
+    },
+    "4573": {
+      "code": "4573",
+      "name": "高明鐵企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20180726",
+      "short": "高明鐵"
+    },
+    "4575": {
+      "code": "4575",
+      "name": "銓寶工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20181119",
+      "short": "銓寶"
+    },
+    "4587": {
+      "code": "4587",
+      "name": "寶元數控股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20220727",
+      "short": "寶元數控"
+    },
+    "4589": {
+      "code": "4589",
+      "name": "碩陽電機股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20230427",
+      "short": "碩陽電機"
+    },
+    "4724": {
+      "code": "4724",
+      "name": "宣捷幹細胞生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230616",
+      "short": "宣捷幹細胞"
+    },
+    "4732": {
+      "code": "4732",
+      "name": "彥臣生技藥品股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20071225",
+      "short": "彥臣"
+    },
+    "4738": {
+      "code": "4738",
+      "name": "大同精密化學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20090909",
+      "short": "大同精化"
+    },
+    "4765": {
+      "code": "4765",
+      "name": "磐采股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20161205",
+      "short": "磐采"
+    },
+    "4925": {
+      "code": "4925",
+      "name": "智微科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20101028",
+      "short": "智微"
+    },
+    "4980": {
+      "code": "4980",
+      "name": "佐臻股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20101116",
+      "short": "佐臻"
+    },
+    "5240": {
+      "code": "5240",
+      "name": "建騰創達科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20110622",
+      "short": "建騰"
+    },
+    "5246": {
+      "code": "5246",
+      "name": "勵威電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20221103",
+      "short": "勵威"
+    },
+    "5248": {
+      "code": "5248",
+      "name": "景傳光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20110906",
+      "short": "景傳"
+    },
+    "5254": {
+      "code": "5254",
+      "name": "欣訊科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20190108",
+      "short": "欣訊科技"
+    },
+    "5262": {
+      "code": "5262",
+      "name": "立達國際電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20131021",
+      "short": "立達"
+    },
+    "5267": {
+      "code": "5267",
+      "name": "龍翩真空科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20120224",
+      "short": "龍翩"
+    },
+    "5271": {
+      "code": "5271",
+      "name": "紘通企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20120306",
+      "short": "紘通"
+    },
+    "5297": {
+      "code": "5297",
+      "name": "廣化科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20170221",
+      "short": "廣化"
+    },
+    "5859": {
+      "code": "5859",
+      "name": "遠雄人壽保險事業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "17",
+      "listed_date": "20150416",
+      "short": "遠壽"
+    },
+    "5863": {
+      "code": "5863",
+      "name": "瑞興商業銀行股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "17",
+      "listed_date": "20071203",
+      "short": "瑞興銀"
+    },
+    "6027": {
+      "code": "6027",
+      "name": "德信綜合證券(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "17",
+      "listed_date": "20151102",
+      "short": "德信"
+    },
+    "6035": {
+      "code": "6035",
+      "name": "悠遊卡股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "17",
+      "listed_date": "20230103",
+      "short": "悠遊卡"
+    },
+    "6407": {
+      "code": "6407",
+      "name": "相互股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20130329",
+      "short": "相互"
+    },
+    "6428": {
+      "code": "6428",
+      "name": "台灣淘米科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20130911",
+      "short": "台灣淘米"
+    },
+    "6434": {
+      "code": "6434",
+      "name": "達輝光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20131112",
+      "short": "達輝光電"
+    },
+    "6467": {
+      "code": "6467",
+      "name": "泰合生技藥品股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20241230",
+      "short": "泰合"
+    },
+    "6473": {
+      "code": "6473",
+      "name": "美賣科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20141208",
+      "short": "美賣*"
+    },
+    "6483": {
+      "code": "6483",
+      "name": "原創生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240329",
+      "short": "原創生醫"
+    },
+    "6493": {
+      "code": "6493",
+      "name": "雷虎生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20150108",
+      "short": "雷虎生"
+    },
+    "6518": {
+      "code": "6518",
+      "name": "康科特股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20150513",
+      "short": "康科特"
+    },
+    "6536": {
+      "code": "6536",
+      "name": "碩豐數位科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20150618",
+      "short": "碩豐"
+    },
+    "6539": {
+      "code": "6539",
+      "name": "麗彤生醫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20151015",
+      "short": "麗彤"
+    },
+    "6543": {
+      "code": "6543",
+      "name": "普惠醫工股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20190327",
+      "short": "普惠醫工"
+    },
+    "6549": {
+      "code": "6549",
+      "name": "景凱生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20151021",
+      "short": "景凱"
+    },
+    "6555": {
+      "code": "6555",
+      "name": "榮炭科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20160125",
+      "short": "榮炭"
+    },
+    "6559": {
+      "code": "6559",
+      "name": "研晶光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20151215",
+      "short": "研晶"
+    },
+    "6563": {
+      "code": "6563",
+      "name": "映智科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20250310",
+      "short": "映智"
+    },
+    "6564": {
+      "code": "6564",
+      "name": "安特羅生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20180918",
+      "short": "安特羅"
+    },
+    "6565": {
+      "code": "6565",
+      "name": "物聯智慧股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20170118",
+      "short": "物聯"
+    },
+    "6572": {
+      "code": "6572",
+      "name": "博錸生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20160226",
+      "short": "博錸"
+    },
+    "6580": {
+      "code": "6580",
+      "name": "台睿生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20170620",
+      "short": "台睿"
+    },
+    "6583": {
+      "code": "6583",
+      "name": "友松娛樂股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20160805",
+      "short": "友松"
+    },
+    "6586": {
+      "code": "6586",
+      "name": "醣基生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20170927",
+      "short": "醣基"
+    },
+    "6595": {
+      "code": "6595",
+      "name": "光禹國際數位娛樂開發(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20190111",
+      "short": "光禹國際"
+    },
+    "6599": {
+      "code": "6599",
+      "name": "普達系統股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20171225",
+      "short": "普達系統"
+    },
+    "6604": {
+      "code": "6604",
+      "name": "儒億科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20251028",
+      "short": "儒億"
+    },
+    "6610": {
+      "code": "6610",
+      "name": "安成生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20161227",
+      "short": "安成生技"
+    },
+    "6618": {
+      "code": "6618",
+      "name": "永虹先進材料股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20170915",
+      "short": "永虹先進"
+    },
+    "6621": {
+      "code": "6621",
+      "name": "華宇藥品股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20170818",
+      "short": "華宇藥"
+    },
+    "6622": {
+      "code": "6622",
+      "name": "百聿數碼創意股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20170522",
+      "short": "百聿數碼"
+    },
+    "6634": {
+      "code": "6634",
+      "name": "欣耀生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20170629",
+      "short": "欣耀"
+    },
+    "6638": {
+      "code": "6638",
+      "name": "沅聖科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20170628",
+      "short": "沅聖"
+    },
+    "6639": {
+      "code": "6639",
+      "name": "源大環能股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "23",
+      "listed_date": "20181031",
+      "short": "源大環能"
+    },
+    "6648": {
+      "code": "6648",
+      "name": "斯其大科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20170904",
+      "short": "斯其大"
+    },
+    "6650": {
+      "code": "6650",
+      "name": "帝圖科技文化股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20170915",
+      "short": "帝圖"
+    },
+    "6659": {
+      "code": "6659",
+      "name": "天明製藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251222",
+      "short": "天明製藥"
+    },
+    "6665": {
+      "code": "6665",
+      "name": "康聯生醫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20171123",
+      "short": "康聯生醫"
+    },
+    "6673": {
+      "code": "6673",
+      "name": "和詮科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20180307",
+      "short": "和詮"
+    },
+    "6676": {
+      "code": "6676",
+      "name": "祥翊製藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220119",
+      "short": "祥翊"
+    },
+    "6677": {
+      "code": "6677",
+      "name": "瑩碩生技醫藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20180627",
+      "short": "瑩碩生技"
+    },
+    "6682": {
+      "code": "6682",
+      "name": "華旭先進股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20180511",
+      "short": "華旭先進"
+    },
+    "6696": {
+      "code": "6696",
+      "name": "仁新醫藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20181008",
+      "short": "仁新"
+    },
+    "6704": {
+      "code": "6704",
+      "name": "國璽幹細胞應用技術股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230426",
+      "short": "國璽幹細胞"
+    },
+    "6705": {
+      "code": "6705",
+      "name": "振躍精密滑軌股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20181031",
+      "short": "振躍精密"
+    },
+    "6707": {
+      "code": "6707",
+      "name": "富基電通股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "29",
+      "listed_date": "20220721",
+      "short": "富基電通"
+    },
+    "6709": {
+      "code": "6709",
+      "name": "昱厚生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20181129",
+      "short": "昱厚生技"
+    },
+    "6723": {
+      "code": "6723",
+      "name": "傑智環境科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20181226",
+      "short": "傑智環境"
+    },
+    "6729": {
+      "code": "6729",
+      "name": "機光科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20190704",
+      "short": "機光科技"
+    },
+    "6734": {
+      "code": "6734",
+      "name": "安盛生科股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20190628",
+      "short": "安盛生"
+    },
+    "6737": {
+      "code": "6737",
+      "name": "秀育企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20191230",
+      "short": "秀育"
+    },
+    "6738": {
+      "code": "6738",
+      "name": "鼎恒數位科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20190823",
+      "short": "鼎恒"
+    },
+    "6744": {
+      "code": "6744",
+      "name": "豐技生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20190925",
+      "short": "豐技生技"
+    },
+    "6748": {
+      "code": "6748",
+      "name": "亞果生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210727",
+      "short": "亞果生醫"
+    },
+    "6750": {
+      "code": "6750",
+      "name": "泰創工程股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20191111",
+      "short": "泰創工程"
+    },
+    "6755": {
+      "code": "6755",
+      "name": "連鋐科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20191205",
+      "short": "連鋐科技"
+    },
+    "6758": {
+      "code": "6758",
+      "name": "冠亞生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20200102",
+      "short": "冠亞"
+    },
+    "6775": {
+      "code": "6775",
+      "name": "穎台科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20200529",
+      "short": "穎台科技"
+    },
+    "6780": {
+      "code": "6780",
+      "name": "學習王科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20200723",
+      "short": "學習王"
+    },
+    "6784": {
+      "code": "6784",
+      "name": "天凱科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20201118",
+      "short": "天凱科技"
+    },
+    "6786": {
+      "code": "6786",
+      "name": "芯測科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20200819",
+      "short": "芯測"
+    },
+    "6787": {
+      "code": "6787",
+      "name": "晶瑞光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20210416",
+      "short": "晶瑞光"
+    },
+    "6793": {
+      "code": "6793",
+      "name": "天力離岸風電科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20201030",
+      "short": "天力離岸"
+    },
+    "6797": {
+      "code": "6797",
+      "name": "台灣圓點奈米技術股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20201105",
+      "short": "圓點奈米"
+    },
+    "6798": {
+      "code": "6798",
+      "name": "展逸國際企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "37",
+      "listed_date": "20230427",
+      "short": "展逸"
+    },
+    "6808": {
+      "code": "6808",
+      "name": "三鼎生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20201225",
+      "short": "三鼎生技"
+    },
+    "6810": {
+      "code": "6810",
+      "name": "新穎生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210830",
+      "short": "新穎生醫"
+    },
+    "6812": {
+      "code": "6812",
+      "name": "梭特科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20210204",
+      "short": "梭特"
+    },
+    "6814": {
+      "code": "6814",
+      "name": "路迦生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20201231",
+      "short": "路迦生醫"
+    },
+    "6815": {
+      "code": "6815",
+      "name": "晶鑽生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210129",
+      "short": "晶鑽生醫"
+    },
+    "6816": {
+      "code": "6816",
+      "name": "捷智商訊科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20210118",
+      "short": "捷智商訊"
+    },
+    "6817": {
+      "code": "6817",
+      "name": "溫士頓醫藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210224",
+      "short": "溫士頓"
+    },
+    "6818": {
+      "code": "6818",
+      "name": "連騰科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20210121",
+      "short": "連騰"
+    },
+    "6819": {
+      "code": "6819",
+      "name": "眾智光電科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20210205",
+      "short": "眾智"
+    },
+    "6820": {
+      "code": "6820",
+      "name": "連訊通信股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20210322",
+      "short": "連訊"
+    },
+    "6825": {
+      "code": "6825",
+      "name": "和暢科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20210429",
+      "short": "和暢科技"
+    },
+    "6826": {
+      "code": "6826",
+      "name": "和淞科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20210617",
+      "short": "和淞"
+    },
+    "6827": {
+      "code": "6827",
+      "name": "巨生生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211019",
+      "short": "巨生醫"
+    },
+    "6832": {
+      "code": "6832",
+      "name": "金鼎聯合科技纖維股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20210929",
+      "short": "金鼎科"
+    },
+    "6833": {
+      "code": "6833",
+      "name": "太康精密股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20210601",
+      "short": "太康精密"
+    },
+    "6839": {
+      "code": "6839",
+      "name": "開陽能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20211025",
+      "short": "開陽能源"
+    },
+    "6842": {
+      "code": "6842",
+      "name": "瑞宇國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20210930",
+      "short": "瑞宇"
+    },
+    "6847": {
+      "code": "6847",
+      "name": "普瑞博生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211105",
+      "short": "普瑞博"
+    },
+    "6848": {
+      "code": "6848",
+      "name": "拉法生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211025",
+      "short": "拉法醫"
+    },
+    "6849": {
+      "code": "6849",
+      "name": "奇鼎科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20241122",
+      "short": "奇鼎科技"
+    },
+    "6850": {
+      "code": "6850",
+      "name": "光鼎生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211110",
+      "short": "光鼎生技"
+    },
+    "6857": {
+      "code": "6857",
+      "name": "宏碁智醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211027",
+      "short": "宏碁智醫"
+    },
+    "6858": {
+      "code": "6858",
+      "name": "愛比科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20220111",
+      "short": "愛比科技"
+    },
+    "6864": {
+      "code": "6864",
+      "name": "元樟生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20211229",
+      "short": "元樟生技"
+    },
+    "6867": {
+      "code": "6867",
+      "name": "坦德科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20220623",
+      "short": "坦德科技"
+    },
+    "6868": {
+      "code": "6868",
+      "name": "采威國際資訊股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20220113",
+      "short": "采威國際"
+    },
+    "6876": {
+      "code": "6876",
+      "name": "朗齊生物醫學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240118",
+      "short": "朗齊生醫*"
+    },
+    "6878": {
+      "code": "6878",
+      "name": "歐付寶電子支付股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "17",
+      "listed_date": "20220317",
+      "short": "歐付寶"
+    },
+    "6879": {
+      "code": "6879",
+      "name": "大江基因醫學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220125",
+      "short": "大江基因"
+    },
+    "6882": {
+      "code": "6882",
+      "name": "甲尚股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20220426",
+      "short": "甲尚"
+    },
+    "6886": {
+      "code": "6886",
+      "name": "遠東生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20230427",
+      "short": "遠東生技"
+    },
+    "6891": {
+      "code": "6891",
+      "name": "樂迦再生科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220428",
+      "short": "樂迦再生"
+    },
+    "6892": {
+      "code": "6892",
+      "name": "台寶生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220513",
+      "short": "台寶生醫"
+    },
+    "6898": {
+      "code": "6898",
+      "name": "程曦資訊整合股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20220526",
+      "short": "程曦資訊"
+    },
+    "6911": {
+      "code": "6911",
+      "name": "群運環保股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20221020",
+      "short": "群運"
+    },
+    "6912": {
+      "code": "6912",
+      "name": "益鈞環保科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20221019",
+      "short": "益鈞環科*"
+    },
+    "6915": {
+      "code": "6915",
+      "name": "美強光學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20221103",
+      "short": "美強光"
+    },
+    "6917": {
+      "code": "6917",
+      "name": "竟天生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230112",
+      "short": "竟天"
+    },
+    "6920": {
+      "code": "6920",
+      "name": "恆勁科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20230110",
+      "short": "恆勁科技"
+    },
+    "6926": {
+      "code": "6926",
+      "name": "聖安生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20221125",
+      "short": "聖安生醫"
+    },
+    "6927": {
+      "code": "6927",
+      "name": "聯合聚晶股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20230526",
+      "short": "聯合聚晶"
+    },
+    "6932": {
+      "code": "6932",
+      "name": "水星生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20221223",
+      "short": "水星生醫*"
+    },
+    "6935": {
+      "code": "6935",
+      "name": "王子製藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20230329",
+      "short": "王子製藥"
+    },
+    "6938": {
+      "code": "6938",
+      "name": "藍新資訊股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20240123",
+      "short": "藍新資訊"
+    },
+    "6939": {
+      "code": "6939",
+      "name": "啟弘生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230515",
+      "short": "啟弘生技"
+    },
+    "6940": {
+      "code": "6940",
+      "name": "格斯科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20230512",
+      "short": "格斯科技*"
+    },
+    "6946": {
+      "code": "6946",
+      "name": "三地能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20241007",
+      "short": "三地能源"
+    },
+    "6947": {
+      "code": "6947",
+      "name": "台鎔科技材料股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20230721",
+      "short": "台鎔科技"
+    },
+    "6959": {
+      "code": "6959",
+      "name": "兆捷科技國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20230713",
+      "short": "兆捷科技"
+    },
+    "6963": {
+      "code": "6963",
+      "name": "品元實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20230628",
+      "short": "品元"
+    },
+    "6972": {
+      "code": "6972",
+      "name": "博瑞達應用材料股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20241129",
+      "short": "博瑞達應材"
+    },
+    "6973": {
+      "code": "6973",
+      "name": "永立榮生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230720",
+      "short": "永立榮"
+    },
+    "6976": {
+      "code": "6976",
+      "name": "英屬開曼群島商育世博(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230808",
+      "short": "育世博-KY"
+    },
+    "6977": {
+      "code": "6977",
+      "name": "聯純科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20230925",
+      "short": "聯純"
+    },
+    "6979": {
+      "code": "6979",
+      "name": "勝釩科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20240527",
+      "short": "勝釩"
+    },
+    "6980": {
+      "code": "6980",
+      "name": "鐳洋科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20230810",
+      "short": "鐳洋科技"
+    },
+    "6984": {
+      "code": "6984",
+      "name": "交流資服股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20231020",
+      "short": "ACpay"
+    },
+    "6987": {
+      "code": "6987",
+      "name": "寶晶能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20240826",
+      "short": "寶晶能源*"
+    },
+    "6990": {
+      "code": "6990",
+      "name": "華鉬實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20230908",
+      "short": "華鉬"
+    },
+    "6992": {
+      "code": "6992",
+      "name": "萬勝發科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260722",
+      "short": "萬勝發科技"
+    },
+    "6995": {
+      "code": "6995",
+      "name": "野獸國股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20250121",
+      "short": "野獸國"
+    },
+    "6999": {
+      "code": "6999",
+      "name": "瀚醫生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240731",
+      "short": "瀚醫生技"
+    },
+    "7415": {
+      "code": "7415",
+      "name": "元澄半導體科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260617",
+      "short": "元澄半導體"
+    },
+    "7418": {
+      "code": "7418",
+      "name": "香繼光股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20260626",
+      "short": "香繼光"
+    },
+    "7419": {
+      "code": "7419",
+      "name": "達勝科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20190925",
+      "short": "達勝"
+    },
+    "7427": {
+      "code": "7427",
+      "name": "華上生技醫藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20210708",
+      "short": "華上生醫"
+    },
+    "7443": {
+      "code": "7443",
+      "name": "凡事康流體科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20160215",
+      "short": "凡事康"
+    },
+    "7455": {
+      "code": "7455",
+      "name": "樺緯物聯股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20250110",
+      "short": "樺緯物聯"
+    },
+    "7507": {
+      "code": "7507",
+      "name": "環拓科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20200320",
+      "short": "環拓科技"
+    },
+    "7516": {
+      "code": "7516",
+      "name": "清淨海生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20181224",
+      "short": "清淨海"
+    },
+    "7530": {
+      "code": "7530",
+      "name": "鋒魁科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20211124",
+      "short": "鋒魁科技"
+    },
+    "7551": {
+      "code": "7551",
+      "name": "知識科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20191212",
+      "short": "知識科技"
+    },
+    "7558": {
+      "code": "7558",
+      "name": "群利科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20210503",
+      "short": "群利科技"
+    },
+    "7561": {
+      "code": "7561",
+      "name": "光晟生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20200706",
+      "short": "光晟生技"
+    },
+    "7562": {
+      "code": "7562",
+      "name": "博來科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20230830",
+      "short": "博來科技"
+    },
+    "7566": {
+      "code": "7566",
+      "name": "亞果遊艇開發股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20200701",
+      "short": "亞果遊艇"
+    },
+    "7575": {
+      "code": "7575",
+      "name": "安美得生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20220624",
+      "short": "安美得"
+    },
+    "7578": {
+      "code": "7578",
+      "name": "利百景股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20220601",
+      "short": "利百景"
+    },
+    "7583": {
+      "code": "7583",
+      "name": "國際海洋股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20230926",
+      "short": "國際海洋"
+    },
+    "7590": {
+      "code": "7590",
+      "name": "怡和國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20220302",
+      "short": "怡和國際"
+    },
+    "7595": {
+      "code": "7595",
+      "name": "世基生物醫學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20201222",
+      "short": "世基生醫"
+    },
+    "7607": {
+      "code": "7607",
+      "name": "通用幹細胞股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20230525",
+      "short": "通用幹細胞*"
+    },
+    "7669": {
+      "code": "7669",
+      "name": "碩正科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20251127",
+      "short": "碩正科技"
+    },
+    "7689": {
+      "code": "7689",
+      "name": "大鵬科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20251003",
+      "short": "大鵬科CLMX"
+    },
+    "7702": {
+      "code": "7702",
+      "name": "前端離岸風電設備製造（股）公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20231017",
+      "short": "前端風電"
+    },
+    "7706": {
+      "code": "7706",
+      "name": "宏碁創達股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20231225",
+      "short": "宏碁創達"
+    },
+    "7707": {
+      "code": "7707",
+      "name": "益芯科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20231205",
+      "short": "益芯科"
+    },
+    "7710": {
+      "code": "7710",
+      "name": "東擎科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20251028",
+      "short": "東擎科技"
+    },
+    "7719": {
+      "code": "7719",
+      "name": "碳基科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20231123",
+      "short": "碳基"
+    },
+    "7724": {
+      "code": "7724",
+      "name": "諾亞克科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240815",
+      "short": "諾亞克"
+    },
+    "7725": {
+      "code": "7725",
+      "name": "列特博生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20231222",
+      "short": "列特博"
+    },
+    "7726": {
+      "code": "7726",
+      "name": "暄達醫學科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240227",
+      "short": "暄達"
+    },
+    "7729": {
+      "code": "7729",
+      "name": "仲恩生醫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240311",
+      "short": "仲恩生醫"
+    },
+    "7731": {
+      "code": "7731",
+      "name": "火星生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20240205",
+      "short": "火星生技*"
+    },
+    "7735": {
+      "code": "7735",
+      "name": "台灣智慧雲端服務股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20260529",
+      "short": "台智雲"
+    },
+    "7737": {
+      "code": "7737",
+      "name": "凱鈿行動科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20250205",
+      "short": "凱鈿"
+    },
+    "7742": {
+      "code": "7742",
+      "name": "天弘化學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20240704",
+      "short": "天弘化"
+    },
+    "7745": {
+      "code": "7745",
+      "name": "紅陽科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20260105",
+      "short": "紅陽"
+    },
+    "7748": {
+      "code": "7748",
+      "name": "鑫囍創業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20241205",
+      "short": "鑫囍創業"
+    },
+    "7752": {
+      "code": "7752",
+      "name": "世紀樺欣風能股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20240619",
+      "short": "世紀樺欣"
+    },
+    "7754": {
+      "code": "7754",
+      "name": "安基生技新藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240625",
+      "short": "安基生技"
+    },
+    "7756": {
+      "code": "7756",
+      "name": "多那之國際股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20240801",
+      "short": "多那之"
+    },
+    "7758": {
+      "code": "7758",
+      "name": "睿騰能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20250508",
+      "short": "睿騰能源"
+    },
+    "7759": {
+      "code": "7759",
+      "name": "視航生物醫學股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250310",
+      "short": "視航生醫"
+    },
+    "7761": {
+      "code": "7761",
+      "name": "三大未來科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20240816",
+      "short": "三大未來"
+    },
+    "7762": {
+      "code": "7762",
+      "name": "吉晟生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240725",
+      "short": "吉晟生"
+    },
+    "7763": {
+      "code": "7763",
+      "name": "崇舜股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20240926",
+      "short": "崇舜"
+    },
+    "7764": {
+      "code": "7764",
+      "name": "聖州企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20240828",
+      "short": "聖州"
+    },
+    "7771": {
+      "code": "7771",
+      "name": "綠基企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20260327",
+      "short": "綠基"
+    },
+    "7773": {
+      "code": "7773",
+      "name": "富禾生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20240926",
+      "short": "富禾生醫"
+    },
+    "7776": {
+      "code": "7776",
+      "name": "奧孟亞股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20241025",
+      "short": "奧孟亞"
+    },
+    "7779": {
+      "code": "7779",
+      "name": "鍇睿國際數位股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "37",
+      "listed_date": "20241003",
+      "short": "鍇睿國際"
+    },
+    "7781": {
+      "code": "7781",
+      "name": "昕力資訊股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20241023",
+      "short": "昕力資*"
+    },
+    "7783": {
+      "code": "7783",
+      "name": "佳運重機械工程股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20241025",
+      "short": "佳運"
+    },
+    "7784": {
+      "code": "7784",
+      "name": "安邦生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260505",
+      "short": "安邦生技*"
+    },
+    "7785": {
+      "code": "7785",
+      "name": "北祥科技服務股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20250626",
+      "short": "北祥科服"
+    },
+    "7789": {
+      "code": "7789",
+      "name": "開展餐飲股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20241120",
+      "short": "開展"
+    },
+    "7790": {
+      "code": "7790",
+      "name": "思必瑞特生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20241227",
+      "short": "思必瑞特"
+    },
+    "7796": {
+      "code": "7796",
+      "name": "擷發科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20241209",
+      "short": "擷發科"
+    },
+    "7797": {
+      "code": "7797",
+      "name": "饗樂餐飲實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20250106",
+      "short": "Q Burger"
+    },
+    "7798": {
+      "code": "7798",
+      "name": "將捷股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "14",
+      "listed_date": "20251021",
+      "short": "將捷"
+    },
+    "7801": {
+      "code": "7801",
+      "name": "華芸科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20241125",
+      "short": "華芸科技"
+    },
+    "7806": {
+      "code": "7806",
+      "name": "精華生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20241212",
+      "short": "精華生醫"
+    },
+    "7808": {
+      "code": "7808",
+      "name": "訊聯細胞智藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20241212",
+      "short": "訊聯智藥"
+    },
+    "7812": {
+      "code": "7812",
+      "name": "稜研科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20250115",
+      "short": "稜研科技*"
+    },
+    "7813": {
+      "code": "7813",
+      "name": "宇辰系統科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20250116",
+      "short": "宇辰系統"
+    },
+    "7815": {
+      "code": "7815",
+      "name": "新特系統股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20250115",
+      "short": "新特"
+    },
+    "7816": {
+      "code": "7816",
+      "name": "來穎科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20250115",
+      "short": "來穎"
+    },
+    "7824": {
+      "code": "7824",
+      "name": "智寶國際開發股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20250918",
+      "short": "智寶"
+    },
+    "7825": {
+      "code": "7825",
+      "name": "和亞智慧科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20250415",
+      "short": "和亞智慧"
+    },
+    "7826": {
+      "code": "7826",
+      "name": "極風雲創股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20250415",
+      "short": "極風雲創"
+    },
+    "7829": {
+      "code": "7829",
+      "name": "英屬開曼群島商思捷優達(股)公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250603",
+      "short": "思捷優達-KY"
+    },
+    "7831": {
+      "code": "7831",
+      "name": "捷博股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "38",
+      "listed_date": "20250430",
+      "short": "捷博"
+    },
+    "7832": {
+      "code": "7832",
+      "name": "智新生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250508",
+      "short": "智新生技*"
+    },
+    "7833": {
+      "code": "7833",
+      "name": "綠岩能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20250522",
+      "short": "綠岩能源"
+    },
+    "7834": {
+      "code": "7834",
+      "name": "來毅數位科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20250513",
+      "short": "來毅數位"
+    },
+    "7836": {
+      "code": "7836",
+      "name": "智生活科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20250730",
+      "short": "智生活"
+    },
+    "7837": {
+      "code": "7837",
+      "name": "啟新生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250528",
+      "short": "啟新生"
+    },
+    "7840": {
+      "code": "7840",
+      "name": "祥圃實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "33",
+      "listed_date": "20250618",
+      "short": "祥圃"
+    },
+    "7841": {
+      "code": "7841",
+      "name": "經貿聯網科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20250611",
+      "short": "經貿聯網"
+    },
+    "7843": {
+      "code": "7843",
+      "name": "英柏得科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20250717",
+      "short": "英柏得"
+    },
+    "7846": {
+      "code": "7846",
+      "name": "德揚科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20250626",
+      "short": "德揚"
+    },
+    "7847": {
+      "code": "7847",
+      "name": "豊漁股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20250626",
+      "short": "豊漁"
+    },
+    "7848": {
+      "code": "7848",
+      "name": "騏億鑫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20250729",
+      "short": "騏億鑫"
+    },
+    "7849": {
+      "code": "7849",
+      "name": "旭誼工程股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20250801",
+      "short": "旭誼"
+    },
+    "7850": {
+      "code": "7850",
+      "name": "寶泰生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250804",
+      "short": "寶泰生醫"
+    },
+    "7851": {
+      "code": "7851",
+      "name": "英屬開曼群島商慧康生活科技(股)",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251119",
+      "short": "慧康生技*-KY"
+    },
+    "7853": {
+      "code": "7853",
+      "name": "政美應用股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20250930",
+      "short": "政美應用"
+    },
+    "7854": {
+      "code": "7854",
+      "name": "佐茂股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20251030",
+      "short": "佐茂"
+    },
+    "7855": {
+      "code": "7855",
+      "name": "和運租車股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20250926",
+      "short": "和運租車"
+    },
+    "7856": {
+      "code": "7856",
+      "name": "漢民測試系統股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20250917",
+      "short": "漢測"
+    },
+    "7857": {
+      "code": "7857",
+      "name": "合水先進環境技術股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20250828",
+      "short": "合水先進"
+    },
+    "7858": {
+      "code": "7858",
+      "name": "芝普企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "21",
+      "listed_date": "20250926",
+      "short": "芝普"
+    },
+    "7860": {
+      "code": "7860",
+      "name": "得生製藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20250909",
+      "short": "得生製藥"
+    },
+    "7861": {
+      "code": "7861",
+      "name": "貝爾威勒電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20251112",
+      "short": "貝爾威勒"
+    },
+    "7862": {
+      "code": "7862",
+      "name": "聚泰環保材料科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "04",
+      "listed_date": "20251022",
+      "short": "聚泰"
+    },
+    "7863": {
+      "code": "7863",
+      "name": "中科國際物流股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "15",
+      "listed_date": "20250930",
+      "short": "中科物流"
+    },
+    "7865": {
+      "code": "7865",
+      "name": "金聯成資源科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20251002",
+      "short": "金聯成"
+    },
+    "7866": {
+      "code": "7866",
+      "name": "丹立電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20251016",
+      "short": "丹立"
+    },
+    "7867": {
+      "code": "7867",
+      "name": "特力屋股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "38",
+      "listed_date": "20251016",
+      "short": "特力屋"
+    },
+    "7868": {
+      "code": "7868",
+      "name": "聖育科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20251021",
+      "short": "聖育"
+    },
+    "7869": {
+      "code": "7869",
+      "name": "宏于電機股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20251222",
+      "short": "宏于電機"
+    },
+    "7870": {
+      "code": "7870",
+      "name": "聯剛科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20251121",
+      "short": "聯剛科技"
+    },
+    "7871": {
+      "code": "7871",
+      "name": "安立璽榮醫藥股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260113",
+      "short": "安立璽榮-KY"
+    },
+    "7872": {
+      "code": "7872",
+      "name": "登豐微電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20251222",
+      "short": "登豐"
+    },
+    "7873": {
+      "code": "7873",
+      "name": "瑞峰半導體股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260529",
+      "short": "瑞峰"
+    },
+    "7875": {
+      "code": "7875",
+      "name": "安圖斯科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20251121",
+      "short": "安圖斯"
+    },
+    "7876": {
+      "code": "7876",
+      "name": "鼎晉生技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251124",
+      "short": "鼎晉生技"
+    },
+    "7877": {
+      "code": "7877",
+      "name": "海利普電子科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20251127",
+      "short": "海利普"
+    },
+    "7878": {
+      "code": "7878",
+      "name": "藥祇生醫股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251127",
+      "short": "藥祇"
+    },
+    "7879": {
+      "code": "7879",
+      "name": "益材科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20260123",
+      "short": "益材科技"
+    },
+    "7880": {
+      "code": "7880",
+      "name": "聖凰科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20251126",
+      "short": "聖凰"
+    },
+    "7881": {
+      "code": "7881",
+      "name": "科明儀器股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251126",
+      "short": "科明"
+    },
+    "7882": {
+      "code": "7882",
+      "name": "倍利生技創業投資股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20251209",
+      "short": "倍利創投"
+    },
+    "7883": {
+      "code": "7883",
+      "name": "饗賓餐旅事業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20260123",
+      "short": "饗賓"
+    },
+    "7885": {
+      "code": "7885",
+      "name": "宏羚股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20260116",
+      "short": "宏羚"
+    },
+    "7886": {
+      "code": "7886",
+      "name": "科建國際實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260119",
+      "short": "科建"
+    },
+    "7887": {
+      "code": "7887",
+      "name": "宇川精密材料科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260113",
+      "short": "宇川精材"
+    },
+    "7888": {
+      "code": "7888",
+      "name": "麗寶新藥生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20251223",
+      "short": "麗寶新藥"
+    },
+    "7889": {
+      "code": "7889",
+      "name": "騰勢股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "02",
+      "listed_date": "20260113",
+      "short": "騰勢"
+    },
+    "7890": {
+      "code": "7890",
+      "name": "明曜科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260120",
+      "short": "明曜科技"
+    },
+    "7891": {
+      "code": "7891",
+      "name": "博研醫藥開發股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260114",
+      "short": "博研醫藥"
+    },
+    "7892": {
+      "code": "7892",
+      "name": "元鈦科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20260116",
+      "short": "元鈦科"
+    },
+    "7893": {
+      "code": "7893",
+      "name": "睿信電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20260115",
+      "short": "睿信"
+    },
+    "7894": {
+      "code": "7894",
+      "name": "瀚軒股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260626",
+      "short": "瀚軒"
+    },
+    "7895": {
+      "code": "7895",
+      "name": "元進莊企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "33",
+      "listed_date": "20260122",
+      "short": "元進莊"
+    },
+    "7896": {
+      "code": "7896",
+      "name": "喬越實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20260116",
+      "short": "喬越"
+    },
+    "7897": {
+      "code": "7897",
+      "name": "禾迅綠電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260127",
+      "short": "禾迅綠電"
+    },
+    "7898": {
+      "code": "7898",
+      "name": "乾瞻科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260527",
+      "short": "乾瞻"
+    },
+    "7899": {
+      "code": "7899",
+      "name": "景美科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260225",
+      "short": "景美"
+    },
+    "7901": {
+      "code": "7901",
+      "name": "大大寬頻股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20260121",
+      "short": "大大寬頻"
+    },
+    "7902": {
+      "code": "7902",
+      "name": "宇越生醫科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260122",
+      "short": "宇越生醫*"
+    },
+    "7904": {
+      "code": "7904",
+      "name": "任開數位媒體行銷股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "36",
+      "listed_date": "20260123",
+      "short": "任開數位"
+    },
+    "7907": {
+      "code": "7907",
+      "name": "錸恩帕斯科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20260422",
+      "short": "錸恩帕斯"
+    },
+    "7909": {
+      "code": "7909",
+      "name": "鈺祥企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260325",
+      "short": "鈺祥"
+    },
+    "7911": {
+      "code": "7911",
+      "name": "阿波羅電力股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260428",
+      "short": "阿波羅電力"
+    },
+    "7912": {
+      "code": "7912",
+      "name": "新聿科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20260422",
+      "short": "新聿科"
+    },
+    "7913": {
+      "code": "7913",
+      "name": "通寶半導體設計股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260515",
+      "short": "通寶半導體"
+    },
+    "7915": {
+      "code": "7915",
+      "name": "廌家科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20260428",
+      "short": "廌家"
+    },
+    "7918": {
+      "code": "7918",
+      "name": "創鉅先進材料股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20260511",
+      "short": "創鉅材料"
+    },
+    "7919": {
+      "code": "7919",
+      "name": "禾蒼科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20260514",
+      "short": "禾蒼"
+    },
+    "7920": {
+      "code": "7920",
+      "name": "瀚陽生物科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260520",
+      "short": "瀚陽*"
+    },
+    "7921": {
+      "code": "7921",
+      "name": "台普威能源股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260527",
+      "short": "台普威"
+    },
+    "7922": {
+      "code": "7922",
+      "name": "源點科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260522",
+      "short": "源點*"
+    },
+    "7924": {
+      "code": "7924",
+      "name": "TLC BioSciences Corp.",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "22",
+      "listed_date": "20260626",
+      "short": "TLC-KY"
+    },
+    "7926": {
+      "code": "7926",
+      "name": "中華立鼎光電股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "26",
+      "listed_date": "20260617",
+      "short": "中華立鼎"
+    },
+    "7927": {
+      "code": "7927",
+      "name": "連距電機股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "05",
+      "listed_date": "20260617",
+      "short": "連距電機"
+    },
+    "7928": {
+      "code": "7928",
+      "name": "合聖科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20260626",
+      "short": "合聖科技*"
+    },
+    "7929": {
+      "code": "7929",
+      "name": "碩通散熱股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20260626",
+      "short": "碩通"
+    },
+    "7930": {
+      "code": "7930",
+      "name": "威世波股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20260716",
+      "short": "威世波"
+    },
+    "7931": {
+      "code": "7931",
+      "name": "續升綠能股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "35",
+      "listed_date": "20260629",
+      "short": "續升綠能"
+    },
+    "7935": {
+      "code": "7935",
+      "name": "安富科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "27",
+      "listed_date": "20260722",
+      "short": "安富"
+    },
+    "7936": {
+      "code": "7936",
+      "name": "寰聖國際實業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "28",
+      "listed_date": "20260721",
+      "short": "寰聖"
+    },
+    "8058": {
+      "code": "8058",
+      "name": "耐特科技材料股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "31",
+      "listed_date": "20250715",
+      "short": "耐特"
+    },
+    "8098": {
+      "code": "8098",
+      "name": "慶康科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "24",
+      "listed_date": "20231031",
+      "short": "慶康科技"
+    },
+    "8119": {
+      "code": "8119",
+      "name": "公信電子股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "25",
+      "listed_date": "20170704",
+      "short": "公信"
+    },
+    "8298": {
+      "code": "8298",
+      "name": "威睿科技股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "30",
+      "listed_date": "20180328",
+      "short": "威睿"
+    },
+    "8329": {
+      "code": "8329",
+      "name": "臺灣電視事業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20070906",
+      "short": "台視"
+    },
+    "8345": {
+      "code": "8345",
+      "name": "超秦企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "33",
+      "listed_date": "20250618",
+      "short": "超秦"
+    },
+    "8359": {
+      "code": "8359",
+      "name": "錢櫃企業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "16",
+      "listed_date": "20120503",
+      "short": "錢櫃"
+    },
+    "8458": {
+      "code": "8458",
+      "name": "影一製作所股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "32",
+      "listed_date": "20141027",
+      "short": "影一"
+    },
+    "8999": {
+      "code": "8999",
+      "name": "台灣積層工業股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "20",
+      "listed_date": "20250110",
+      "short": "台灣積層"
+    },
+    "9957": {
+      "code": "9957",
+      "name": "燁聯鋼鐵股份有限公司",
+      "name_en": "",
+      "type": "興櫃",
+      "industry": "10",
+      "listed_date": "20030103",
+      "short": "燁聯"
     }
   }
 }
