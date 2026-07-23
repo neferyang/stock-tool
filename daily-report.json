@@ -54,9 +54,9 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年7月22日",
-    "rating": "中度警戒",
-    "summary": "🔴×3　🟠×5　🟡×3　🟢×4",
+    "date": "2026年7月23日",
+    "rating": "高度警戒",
+    "summary": "🔴×4　🟠×4　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -77,9 +77,9 @@
           },
           {
             "name": "S&P 500 自由現金流殖利率",
-            "current": "約2.4~3.0%",
-            "status": "🟠",
-            "statusText": "⚠️ 資料已逾期，待人工更新｜已觸及或跌破警戒（<3.0%），處歷史低點，高利率環境下買點困難"
+            "current": "<2.0%（7月初，多篇報導共識區間估算，非單一精確源）",
+            "status": "🔴",
+            "statusText": "⚠️ 無免費即時精確源，依多源共識標註｜跌破2%，數十年新低，Magnificent 7 AI資本支出大增侵蝕自由現金流"
           },
           {
             "name": "台股年乖離率",
@@ -158,9 +158,9 @@
           },
           {
             "name": "Conference Board LEI",
-            "current": "1.72（2/1，近似值：FRED USSLIND 領先指標）",
-            "status": "🟢",
-            "statusText": "領先指標穩健，經濟動能良好"
+            "current": "99.1（6月，官方數值，MoM -0.2%）",
+            "status": "🟡",
+            "statusText": "六個月/十二個月成長率轉負，但降幅較2025下半年(-1.1%)收斂，Conference Board同步上修2026全年GDP預測至1.9%。下次公布8/20"
           },
           {
             "name": "WTI 原油",

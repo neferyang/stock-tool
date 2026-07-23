@@ -26,14 +26,19 @@ MANUAL_INDICATORS = {"S&P 500 自由現金流殖利率"}
 
 
 def fred_latest(series_id):
+    # limit=1只抓最新一筆，若那筆剛好是FRED用"."標記的「尚未公布」，float()會炸、
+    # 整個builder失敗回退舊值——且LEI等指標不在MANUAL_INDICATORS，不會被標「已逾期」，
+    # 導致舊值無聲無息卡死。改抓5筆、跳過"."取第一筆有值的，跟fred_series的邏輯對齊。
     url = (f"https://api.stlouisfed.org/fred/series/observations"
            f"?series_id={series_id}&api_key={FRED_API_KEY}&file_type=json"
-           f"&sort_order=desc&limit=1")
+           f"&sort_order=desc&limit=5")
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=20) as r:
         data = json.loads(r.read().decode("utf-8"))
-    obs = data["observations"][0]
-    return float(obs["value"]), obs["date"]
+    for obs in data["observations"]:
+        if obs["value"] != ".":
+            return float(obs["value"]), obs["date"]
+    raise RuntimeError(f"{series_id} 近5筆皆為未公布值")
 
 
 def fred_series(series_id, limit=1):
