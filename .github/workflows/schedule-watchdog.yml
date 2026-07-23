@@ -7,7 +7,8 @@ name: 排程補跑監控
 
 on:
   schedule:
-    - cron: '7,27,47 * * * *'   # 錯開整點/半點，避免自己也撞上GitHub排隊尖峰
+    - cron: '7,27,37,47 * * * *'   # 錯開整點/半點，避免自己也撞上GitHub排隊尖峰；多加:37是為了讓
+                                    # update-financial-data(預期每小時:17觸發)能在逾期20分鐘內被抓到
   workflow_dispatch:
 
 permissions:
@@ -47,10 +48,46 @@ jobs:
             fi
           }
 
+          # update-financial-data.yml 是每小時排程(cron '17 1-23 * * *')，用「距上次執行幾小時」
+          # 這種粗粒度門檻抓不到「這次:17沒觸發」，逾期要等滿3小時才補，太鬆。改用「本UTC小時的
+          # 預期觸發時間(HH:17)過了20分鐘寬限、且這小時內查無任何執行紀錄」才補跑，且天然只會補一次
+          # （一補上就會查到本小時的紀錄），不會跟延遲到達的原生排程疊加超過FinMind每小時額度。
+          check_hourly_financial_catchup() {
+            local file="update-financial-data.yml"
+            local cur_hour cur_min now_ts expected_ts due_ts recent
+            cur_hour=$(date -u +%H)
+            cur_min=$(date -u +%M)
+
+            if [ "$cur_hour" = "00" ]; then
+              echo "$file：UTC 0點排程本身就跳過，不檢查"
+              return
+            fi
+
+            now_ts=$(date -u +%s)
+            expected_ts=$(date -u -d "$(date -u +%Y-%m-%d) ${cur_hour}:17:00" +%s)
+            due_ts=$(( expected_ts + 20*60 ))
+
+            if [ "$now_ts" -lt "$due_ts" ]; then
+              echo "$file：本小時(UTC ${cur_hour}:17)預期觸發時間+20分鐘寬限未到，略過"
+              return
+            fi
+
+            recent=$(gh api "repos/$REPO/actions/workflows/$file/runs?per_page=5" \
+              --jq '.workflow_runs[] | select(.created_at >= "'"$(date -u -d "$(date -u +%Y-%m-%d) ${cur_hour}:00:00" +%Y-%m-%dT%H:%M:%SZ)"'") | .created_at' 2>/dev/null)
+
+            if [ -n "$recent" ]; then
+              echo "$file：本小時已有執行紀錄，略過"
+              return
+            fi
+
+            echo "🔁 $file 本小時(UTC ${cur_hour}:17)逾20分鐘未觸發，補跑"
+            gh workflow run "$file" --repo "$REPO"
+          }
+
           # 門檻需對齊各排程實際cron頻率，2026-07-22排程對調(auto-expand改1天1次、
           # update-financial-data改每小時1次)後這裡曾忘記同步更新，導致
           # auto-expand用舊的3小時門檻誤判「逾期」而被重複補跑、白耗FinMind額度。
           check_and_trigger "auto-expand-stocks.yml" 26
-          check_and_trigger "update-financial-data.yml" 3
+          check_hourly_financial_catchup
           check_and_trigger "daily-report-update.yml" 14
           check_and_trigger "mops_crawler.yml" 192
