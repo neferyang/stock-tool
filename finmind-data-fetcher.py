@@ -240,9 +240,11 @@ def update_data_file(fetcher):
     # 降到佇列最後面，但候選池（demoted=0那群）遠大於單次batch(180)、水位永遠夠，
     # 導致降級股永遠輪不到、noDataStreak永遠沒機會清零——等於永久放逐，不是懲罰
     # （2026-07-22 實測：314支demoted股票本月0支被摸過）。
-    # 改成扣分併入 missing_score，並封頂(cap=3)：降級股仍會被排後面，但不是絕對否決，
+    # 改成扣分併入 missing_score，並封頂(cap=2)：降級股仍會被排後面，但不是絕對否決，
     # 只要missing_score夠高或last_updated夠舊，還是有機會被排進batch重試、清零noDataStreak。
-    NO_DATA_STREAK_PENALTY_CAP = 3
+    # （2026-07-23 從3降到2：抽查87支連續無資料股票，多數是FinMind結構性缺資料/興櫃股非
+    # 季報頻率，同輪內反覆重試無意義，提早封頂讓額度讓給其他候選股，下一輪再試。）
+    NO_DATA_STREAK_PENALTY_CAP = 2
 
     # 前端進度百分比只看「去年」（PREV_YEAR）這個完整年度算不算真實資料，跟這裡缺值分數
     # 算的「任何一年缺值」是兩件事——2026-07-20 實測發現：批次剛好抽到一堆「去年已完整、
