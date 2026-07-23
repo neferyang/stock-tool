@@ -240,11 +240,15 @@ def update_data_file(fetcher):
     # 降到佇列最後面，但候選池（demoted=0那群）遠大於單次batch(180)、水位永遠夠，
     # 導致降級股永遠輪不到、noDataStreak永遠沒機會清零——等於永久放逐，不是懲罰
     # （2026-07-22 實測：314支demoted股票本月0支被摸過）。
-    # 改成扣分併入 missing_score，並封頂(cap=2)：降級股仍會被排後面，但不是絕對否決，
-    # 只要missing_score夠高或last_updated夠舊，還是有機會被排進batch重試、清零noDataStreak。
-    # （2026-07-23 從3降到2：抽查87支連續無資料股票，多數是FinMind結構性缺資料/興櫃股非
-    # 季報頻率，同輪內反覆重試無意義，提早封頂讓額度讓給其他候選股，下一輪再試。）
-    NO_DATA_STREAK_PENALTY_CAP = 2
+    # 改成扣分併入 missing_score：降級股仍會被排後面，但不是絕對否決，只要missing_score
+    # 夠高或last_updated夠舊，還是有機會被排進batch重試、清零noDataStreak。
+    # （2026-07-23 改用「門檻+固定扣分」取代原本的min(streak,cap)：候選池裡缺2025的股票
+    # missing_score幾乎全部頂格(=6)，min(streak,cap)這種cap越小扣越少的設計，cap調小
+    # 反而讓連續失敗股「demote力道變弱」，方向剛好搞反——實測cap=3時扣到6-3=3，cap=2時只
+    # 扣到6-2=4，比cap=3還不容易被排到後面。改成streak>=THRESHOLD才觸發，觸發後扣固定
+    # PENALTY（要夠大，蓋過同組其他股票的分數差距，才能真的把它們壓到隊尾）。
+    NO_DATA_STREAK_THRESHOLD = 2   # 連續失敗幾次後開始降級
+    NO_DATA_STREAK_PENALTY = 5     # 降級固定扣分（不是streak本身，避免cap調整方向又搞反）
 
     # 前端進度百分比只看「去年」（PREV_YEAR）這個完整年度算不算真實資料，跟這裡缺值分數
     # 算的「任何一年缺值」是兩件事——2026-07-20 實測發現：批次剛好抽到一堆「去年已完整、
@@ -261,7 +265,8 @@ def update_data_file(fetcher):
         s = stocks[code]
         last_updated = max((e.get('updatedAt') or '') for e in s.get('data', []))
         prev_missing_first = 0 if _prev_year_missing(s) else 1
-        streak_penalty = min(s.get('noDataStreak', 0), NO_DATA_STREAK_PENALTY_CAP)
+        streak = s.get('noDataStreak', 0)
+        streak_penalty = NO_DATA_STREAK_PENALTY if streak >= NO_DATA_STREAK_THRESHOLD else 0
         score = _missing_score(s, CURRENT_YEAR_STR) - streak_penalty
         return (prev_missing_first, -score, last_updated)
 
@@ -323,11 +328,24 @@ def update_data_file(fetcher):
                     entry['dataType'] = '無資料'
                 # 若該年度annual缺漏但entry已有真實值 → 保留原值，不清空(避免暫時性API缺漏造成資料退步)
 
+            # noDataStreak 該不該歸零，要看「去年真實資料」有沒有拿到，不是「任何一年有沒有變動」——
+            # 否則FinMind只有當年度(進行中)資料、去年以前完全空白的股票(通常是近期才公開發行/興櫃，
+            # FinMind覆蓋範圍從掛牌後才開始)，每次都會抓到當年度Q1而觸發changed=True，streak永遠
+            # 被打回0、missing_score永遠頂格最高分，變成永久最高優先權，反而把它們的batch名額
+            # 佔死、擠掉其他候選股，去年真實資料缺口永遠補不上也永遠看不出來（2026-07-23實測發現）。
+            prev_year_str = str(current_year - 1)
+            got_real_prev = bool(annual.get(prev_year_str)) and not annual[prev_year_str].get('isEstimate')
+
             if changed:
                 updated_stocks += 1
-                stock['noDataStreak'] = 0
                 got = [y for y in years if y in annual]
-                print(f"✅ {','.join(sorted(got, reverse=True))}")
+                if got_real_prev:
+                    stock['noDataStreak'] = 0
+                    print(f"✅ {','.join(sorted(got, reverse=True))}")
+                else:
+                    stock['noDataStreak'] = stock.get('noDataStreak', 0) + 1
+                    print(f"✅ {','.join(sorted(got, reverse=True))}（但無{prev_year_str}真實資料，"
+                          f"連續{stock['noDataStreak']}次）")
             else:
                 stock['noDataStreak'] = stock.get('noDataStreak', 0) + 1
                 print(f"－ 無真實資料（連續{stock['noDataStreak']}次）")
