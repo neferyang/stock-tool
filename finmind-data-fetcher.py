@@ -183,15 +183,27 @@ def _missing_score(stock, current_year):
     重抓（此為3-4筆/天問題的根因）。
     另：當年度 entry 若根本不存在（像早期收錄、年報齊全但從沒補當年度的股票，如
     2330），也算缺一年——否則這種股票缺值分數恆為0、永遠排在佇列最後，補當年度空位
-    的邏輯（update_data_file 只在股票被選進batch後才補）永遠輪不到它，季報追不上。"""
+    的邏輯（update_data_file 只在股票被選進batch後才補）永遠輪不到它，季報追不上。
+    另：新上市股票（如7780大研生醫）上市前年度FinMind結構上不可能有資料（MOPS本來就
+    沒有申報紀錄，不是抓不到），若跟一般缺值一樣計分，分數會永久偏高、每輪都被選進batch
+    卻永遠補不到——用「最早一筆真實資料的年份」當推定上市年下限，更早的年份視為結構性
+    缺值不計分；該年份之後才出現的缺值（如小型/興櫃公司申報不齊全）仍正常計分，因為
+    那些之後有機會補齊。"""
     score = 0
     has_current = False
-    for e in stock.get('data', []):
-        if str(e.get('year')) == current_year:
+    data = stock.get('data', [])
+    real_years = [int(e['year']) for e in data
+                  if e.get('eps') is not None and str(e.get('year')).isdigit()]
+    earliest_real_year = min(real_years) if real_years else None
+    for e in data:
+        yr_str = str(e.get('year'))
+        if yr_str == current_year:
             has_current = True
         if e.get('eps') is None:
+            if earliest_real_year is not None and yr_str.isdigit() and int(yr_str) < earliest_real_year:
+                continue  # 推定上市前，結構性缺值，不計分
             score += 1
-        elif str(e.get('year')) == current_year and e.get('isEstimate'):
+        elif yr_str == current_year and e.get('isEstimate'):
             score += 1
     if not has_current:
         score += 1
