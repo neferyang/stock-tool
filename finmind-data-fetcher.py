@@ -168,12 +168,12 @@ FIN_FIELDS = ['eps', 'revenue', 'netIncome', 'operatingIncome',
               'operatingMargin', 'netMargin', 'roe', 'debtRatio', 'fcf']
 
 
-BATCH_SIZE = 160  # 每支3次API呼叫，160支=480次。FinMind免費方案實測 api_request_limit_hour=600。
-# 原本設100支(300次)是多留一半餘裕，但拆解後發現兩個保留理由都不成立：
-# (1)前端tpexFetch走匿名額度池，跟這組token額度無關；(2)已知唯一一次「同一run
-# 出現3次attempt」案例，間隔都≥2.5小時、落在不同小時額度桶，不會疊加撞額度；
-# 真正會導致同小時額度衝突的schedule-watchdog門檻錯位已修正。故提高批次量，
-# 仍留120次(20%)緩衝應付未知風險。
+BATCH_SIZE = 200  # 每支固定3次API呼叫(income/balance/cashflow)，200支=600次，打滿FinMind
+# 免費方案 api_request_limit_hour=600 上限，不留額外緩衝。原本160支(480次，留20%緩衝)
+# 是為了應付跟auto-expand-stocks.yml(00:23跑，最多300次)撞額度的風險，2026-07-24
+# 已改用schedule上的時間緩衝解決(update-financial-data.yml跳過UTC 0、1點兩小時，
+# 讓auto-expand到下一次財報更新間隔114分鐘)，不再需要靠壓低BATCH_SIZE留餘裕。
+# 每支呼叫次數固定不變，不會有重試造成的額外消耗，打滿600次是安全的。
 
 
 def _missing_score(stock, current_year):
