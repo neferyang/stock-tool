@@ -50,6 +50,15 @@ RATE_DELAY = 0.4
 OKU = 1e8  # 億元換算
 
 
+class FinMindQuotaError(Exception):
+    """FinMind額度用盡/被限速(HTTP或回應body的status為402/429)，跟其他錯誤(單一股票
+    資料格式異常、網路瞬斷等)分開處理——這種錯誤代表整個額度池已經打滿，繼續對剩下的
+    候選股逐一發送必敗請求，等於短時間內狂發錯誤請求，有觸發FinMind IP封鎖的風險。"""
+    def __init__(self, status_code, msg):
+        self.status_code = status_code
+        super().__init__(msg)
+
+
 class FinMindFetcher:
     def __init__(self):
         self.token = os.getenv('FINMIND_TOKEN', '')
@@ -60,8 +69,12 @@ class FinMindFetcher:
     def _get(self, dataset, code, start, end):
         params = {"dataset": dataset, "data_id": code, "start_date": start, "end_date": end}
         r = requests.get(API_URL, params=params, headers=self.headers, timeout=TIMEOUT)
+        if r.status_code in (402, 429):
+            raise FinMindQuotaError(r.status_code, f"{dataset} HTTP {r.status_code}")
         r.raise_for_status()
         d = r.json()
+        if d.get('status') in (402, 429):
+            raise FinMindQuotaError(d.get('status'), f"{dataset} status {d.get('status')}: {d.get('msg')}")
         if d.get('status') != 200:
             raise RuntimeError(f"{dataset} status {d.get('status')}: {d.get('msg')}")
         return d.get('data', [])
@@ -342,6 +355,10 @@ def update_data_file(fetcher):
 
     updated_stocks = 0
     failed = 0
+    QUOTA_BACKOFF_SECONDS = 300  # 額度/限速錯誤只backoff重試一次，不做無限重試——排程本身
+    # 每小時就會重跑一次，撞到額度上限時整批中止、留給下次排程處理即可，重試太多次沒有
+    # 意義還會拖長runtime，只需要避免「明知額度爆了還繼續逐支硬打」這個IP封鎖風險。
+    quota_backoff_used = False
 
     current_year = datetime.now().year
 
@@ -364,15 +381,31 @@ def update_data_file(fetcher):
             years.append(str(current_year))
 
         print(f"[{i}/{len(codes)}] {code} {stock.get('name','')}...", end=" ", flush=True)
-        # 不管這次成功失敗，都要記錄「有真的嘗試過」，冷卻機制(_is_cooling_down)靠這個
-        # 判斷距上次嘗試多久，不能用entry['updatedAt']——完全抓不到真實資料的股票那個
-        # 欄位永遠是None(見上面changed=False分支)，會被誤判成「從沒抓過」而不冷卻。
-        stock['lastAttemptAt'] = datetime.now().isoformat()
+        # lastAttemptAt只在「真的完成一次嘗試」時才寫入(成功、或非額度的真實失敗)——
+        # 額度/限速(FinMindQuotaError)不算，才能讓被額度擋下的股票下一輪馬上重試，不會
+        # 被誤判成「跑過了」而白白等20小時(_recently_attempted)或算進noDataStreak的
+        # 冷卻判斷(_is_cooling_down)。
 
         try:
             yrs = [int(y) for y in years]
             start, end = f"{min(yrs)}-01-01", f"{max(max(yrs), current_year)}-12-31"
-            income, balance, cashflow = fetcher.fetch_all(code, start, end)
+            try:
+                income, balance, cashflow = fetcher.fetch_all(code, start, end)
+            except FinMindQuotaError as qe:
+                if quota_backoff_used:
+                    print(f"❌ 重試後仍額度/限速錯誤(HTTP {qe.status_code})，"
+                          f"中止本次批次剩餘{len(codes)-i+1}支(含這支)，留待下次排程")
+                    break
+                print(f"\n⚠️  額度/限速錯誤(HTTP {qe.status_code})，暫停"
+                      f"{QUOTA_BACKOFF_SECONDS//60}分鐘後重試一次...")
+                time.sleep(QUOTA_BACKOFF_SECONDS)
+                quota_backoff_used = True
+                try:
+                    income, balance, cashflow = fetcher.fetch_all(code, start, end)
+                except FinMindQuotaError as qe2:
+                    print(f"❌ 重試後仍額度/限速錯誤(HTTP {qe2.status_code})，"
+                          f"中止本次批次剩餘{len(codes)-i+1}支(含這支)，留待下次排程")
+                    break
             annual = fetcher.compute_annual(income, balance, cashflow)
 
             now = datetime.now().isoformat()
@@ -423,6 +456,7 @@ def update_data_file(fetcher):
 
         except Exception as e:
             failed += 1
+            stock['lastAttemptAt'] = datetime.now().isoformat()  # 真的失敗(非額度)，算一次嘗試
             print(f"❌ {e}")
 
         time.sleep(RATE_DELAY)
