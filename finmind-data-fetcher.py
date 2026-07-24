@@ -225,7 +225,25 @@ def update_data_file(fetcher):
 
     unsupported_codes = [c for c in all_codes if _is_finmind_unsupported(c, stocks[c])]
     unsupported_set = set(unsupported_codes)
-    candidate_codes = [c for c in all_codes if c not in unsupported_set]
+
+    # 只要這次有真的抓到資料（不管抓到哪一年），就先讓路給其他候選股，等下一輪再排——
+    # 否則像新上市股票這種「有幾年結構性缺值、但當年度每次都抓得到」的股票，missing_score
+    # 永遠居高不下，會每輪都卡在batch前段班，佔掉本該給其他股票的名額。
+    # 只看有沒有實際跑過（lastAttemptAt），跟有沒有抓到資料/抓到哪年無關；額度不足等
+    # exception不算「跑過」（見下方迴圈），才能讓被額度擋下的股票下一輪還能盡快重試。
+    ATTEMPT_COOLDOWN_HOURS = 20
+
+    def _recently_attempted(s):
+        ts = s.get('lastAttemptAt')
+        if not ts:
+            return False
+        try:
+            return datetime.now() - datetime.fromisoformat(ts) < timedelta(hours=ATTEMPT_COOLDOWN_HOURS)
+        except ValueError:
+            return False
+
+    candidate_codes = [c for c in all_codes
+                        if c not in unsupported_set and not _recently_attempted(stocks[c])]
 
     # 標記排除股票的 dataType，只在還沒標記過時才動，避免每次都造成無意義的 git diff
     newly_marked = 0
@@ -375,6 +393,8 @@ def update_data_file(fetcher):
             # 佔死、擠掉其他候選股，去年真實資料缺口永遠補不上也永遠看不出來（2026-07-23實測發現）。
             prev_year_str = str(current_year - 1)
             got_real_prev = bool(annual.get(prev_year_str)) and not annual[prev_year_str].get('isEstimate')
+
+            stock['lastAttemptAt'] = now
 
             if changed:
                 updated_stocks += 1
