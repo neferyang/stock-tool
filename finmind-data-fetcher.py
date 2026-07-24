@@ -211,19 +211,18 @@ def _missing_score(stock, current_year):
 
 
 UNSUPPORTED_DATATYPE = '不適用（金融股/ETF/DR）'
-UNSUPPORTED_INDUSTRIES = {'金融保險業'}  # 銀行/證券/期貨/保險用不同會計科目，非一般業損益表格式
 
 
 def _is_finmind_unsupported(code, stock):
-    """FinMind 的 TaiwanStockFinancialStatements 資料集只涵蓋一般業，以下三類結構上永遠
-    拿不到資料：金融保險業(會計科目完全不同)、ETF(代號00開頭)、中國存託憑證(DR，掛的是
-    海外公司財報)。這些股票的缺值分數永遠最高，若不排除會每天佔滿整批額度、卡死佇列，
-    導致其他真正抓得到資料的股票永遠排不到（此函式即修正此問題的核心）。"""
+    """ETF(代號00開頭)、中國存託憑證(DR，掛的是海外公司財報)這兩類結構上永遠拿不到任何
+    財務資料(不是公司、或財報不在台灣申報體系)，排除候選，避免每天佔滿整批額度、卡死佇列。
+    金融保險業(銀行/證券/期貨/保險)不在此列——FinMind的eps/revenue/debtRatio對這類公司
+    抓得到，只有netIncome(用不同會計科目申報)抓不到，但_missing_score只看eps，不會因為
+    netIncome/roe/netMargin永遠null而被卡住，所以讓它們正常進候選池，抓得到的欄位維持
+    更新，抓不到的欄位維持null顯示，不需要特殊排除。"""
     if '-DR' in stock.get('name', '').upper():
         return True
     if re.match(r'^00\d{2,3}$', code):
-        return True
-    if stock.get('industry') in UNSUPPORTED_INDUSTRIES:
         return True
     return False
 
