@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-25T14:17:51.033Z",
-  "date": "2026年07月25日（星期六）",
-  "basedOn": "2026年07月24日（前一交易日）",
+  "lastUpdated": "2026-07-25T22:28:52.015Z",
+  "date": "2026年07月26日（星期日）",
+  "basedOn": "2026年07月23日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -14,14 +14,14 @@
         "那斯達克：24,976（07/24，▼0.64%）",
         "費城半導體指數：11,819（07/24，▼4.25%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,611（07/24，▼2.73%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,7 +48,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,686（07/25，▼0.78%）"
+        "VN-Index：1,686（07/26，▼0.78%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -84,7 +84,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（7/24，加權指數 vs 240日均線）",
+            "current": "約37%（7/23，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -109,7 +109,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.47（7/24）",
+            "current": "101.43（7/23）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -128,7 +128,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.6（7/24）",
+            "current": "18.7（7/23）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -221,9 +221,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "股匯不同調！台股狂飆1783點 新台幣重貶近1角、爆出史上第6大量 - 自由時報",
+      "title": "台幣升1.09角 終止連二黑 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1QS2Z5YWtNQU03eGVEcXZpMHVidG5NV3ZldzllRUJZNUhLSHBScVc4TVpISi1yVnBZZVhLMTBGTUItVHJUcnd2T2luMWhJVW42aVhZTFd6bDc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBJRktrM3RwODhLOC1rX2JnajIxaXZTQlByWjFWYlBDUThFTndjZW9MVU43MGMxaV9Ub3BFR25ZZzVpYTlQanpOSEdXY2tSTG040gFWQVVfeXFMTU9tYngzY0lfNjg4M2o5QWQ3Y2pXb1NiLTUxWkdrNW1wZHdfUUNfeFY0bENDTTZWYlZCNklpREN6LXVSemVTOGZXamY0ZDVOa3RGVmxxYVE?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/26 上午6:28:52",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/25 下午10:17:51",
