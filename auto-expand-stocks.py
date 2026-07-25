@@ -48,7 +48,8 @@ def fetch_json(url, retries=3):
             r = requests.get(url, headers=UA, timeout=TIMEOUT, verify=verify)
             r.raise_for_status()
             return r.json()
-        except requests.exceptions.RequestException as e:
+        except (requests.exceptions.RequestException, ValueError) as e:
+            # ValueError 涵蓋 r.json() 解析失敗（TWSE 偶發回傳空內容），視同請求失敗一併重試
             last_err = e
             if attempt < retries - 1:
                 time.sleep(5 * (attempt + 1))

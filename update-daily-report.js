@@ -135,10 +135,12 @@ function updateMarkets(markets, indices) {
       const dji = findIndexData(indices, ['道瓊', 'DJI']);
       const sp = findIndexData(indices, ['S&P', 'GSPC']);
       const nasdaq = findIndexData(indices, ['那斯達克', 'IXIC']);
+      const sox = findIndexData(indices, ['費城半導體', 'SOX']);
       const items = [];
       if (dji) items.push(`道瓊：${buildDisplayStr(dji)}`);
       if (sp) items.push(`S&P 500：${buildDisplayStr(sp)}`);
       if (nasdaq) items.push(`那斯達克：${buildDisplayStr(nasdaq)}`);
+      if (sox) items.push(`費城半導體指數：${buildDisplayStr(sox)}`);
       if (items.length > 0 && shouldUpdate(market, items)) {
         market.items = items;
         console.log(`✅ 美國股市更新 (${items.length} 項)`);
