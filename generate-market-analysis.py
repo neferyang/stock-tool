@@ -21,8 +21,8 @@ GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 MARKET_QUERIES = {
     'US': {
         'label': '美國股市',
-        'queries': ['Dow Jones S&P500 Nasdaq market June 2026', 'US stock market Federal Reserve 2026'],
-        'symbols': ['道瓊', 'S&P500', '那斯達克'],
+        'queries': ['Dow Jones S&P500 Nasdaq market June 2026', 'US stock market Federal Reserve 2026', 'Philadelphia Semiconductor Index SOX 2026'],
+        'symbols': ['道瓊', 'S&P500', '那斯達克', '費城半導體指數'],
     },
     'JP': {
         'label': '日經225',

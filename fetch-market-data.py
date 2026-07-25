@@ -25,6 +25,7 @@ INDICES = {
     '^DJI':    {'name': '道瓊',          'group': 'US',   'tz': 'America/New_York'},
     '^GSPC':   {'name': 'S&P 500',       'group': 'US',   'tz': 'America/New_York'},
     '^IXIC':   {'name': '那斯達克',       'group': 'US',   'tz': 'America/New_York'},
+    '^SOX':    {'name': '費城半導體指數',  'group': 'US',   'tz': 'America/New_York'},
     '^N225':   {'name': '日經225',        'group': 'JP',   'tz': 'Asia/Tokyo'},
     '^BSESN':  {'name': 'SENSEX',        'group': 'IN',   'tz': 'Asia/Kolkata'},
     '^NSEI':   {'name': 'NIFTY 50',      'group': 'IN',   'tz': 'Asia/Kolkata'},
