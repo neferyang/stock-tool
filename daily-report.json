@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-25T23:43:17.949Z",
+  "lastUpdated": "2026-07-26T14:11:52.335Z",
   "date": "2026年07月26日（星期日）",
   "basedOn": "2026年07月24日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -41,7 +41,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,068（07/24，▲0.52%）"
+        "黃金：4,071（07/24，▲0.60%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -55,7 +55,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年7月25日",
+    "date": "2026年7月26日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×4　🟡×3　🟢×4",
     "layers": [
@@ -115,7 +115,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.34（7/25）",
+            "current": "32.32（7/26）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -196,14 +196,14 @@
   ],
   "news": [
     {
-      "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - news.cnyes.com",
+      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
     {
-      "title": "《美債》PPI降溫壓低升息預期殖利率全面下滑- 新聞 - MoneyDJ",
+      "title": "升息或降息兩股力量拉鋸　市場預料聯準會按兵不動 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOclZjTERMbm5wLWlack1FNkNVY0JfbGNpeVpKb1BjUy1DamdObHR5THlSMzJIVUxRRy1XcjNOZmd1UzhCV25QVWtqMllwaHlLLW5ZYWR5RndpTHhHV25DdV9jSnFVWVdvbDFIRm85bW1TdERDZ3ludTQtMFItNmhGb3pkbGNKNTdmUy1WdTZ0VXhSQQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kTmJzY3VQUFFwdUh6V1V0b1VHU2JHcjJoYzlfWW5hOUdpNmhtaUsteVZCdDZOLTQ0TFB6OWdSaUdaRER1Xy10ck5tOVViVEZlT1otaVJMbzVYZ9IBX0FVX3lxTE1PdzdKNm0xSHZ1SU14QkJ6ZEo5d09LTGx6Q05YbnlzS0c4MWlJZUw3ZTVTWGhUdUpLTjJBaXlGRFEwTjFmblE5cUItWVhHU2pTbDFwc0tSZEtoLUVkV2JJ?oc=5"
     },
     {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
@@ -216,14 +216,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "台幣升1.09角 終止連二黑 - UDN",
+      "title": "美元回落外資匯入　新台幣強升1.09角重返32.2元 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBJRktrM3RwODhLOC1rX2JnajIxaXZTQlByWjFWYlBDUThFTndjZW9MVU43MGMxaV9Ub3BFR25ZZzVpYTlQanpOSEdXY2tSTG040gFWQVVfeXFMTU9tYngzY0lfNjg4M2o5QWQ3Y2pXb1NiLTUxWkdrNW1wZHdfUUNfeFY0bENDTTZWYlZCNklpREN6LXVSemVTOGZXamY0ZDVOa3RGVmxxYVE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE44Rk1jbi1yZkpOVkVpWWdfRW5XMHBITGhuYjRfdS1PZzFuaG5fUVdrQ1psQktXdUVWTnZHLVFsb00yRWx0N2Z4UjBGNG8ya2ZVNF8wLXFidm43d9IBX0FVX3lxTFBlSkg2REMyODU2MnZJY2lTTjN2RG9IQ1pLTXJOTElHc25VMnlkYmVWNXUwMlBUbWk0NW1TM2laZGJyNWE3bG1fRlZkM3ZPTXZyUWFJOVRlcHRCUVpOYnJV?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/26 下午10:11:52",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/26 上午7:43:17",
