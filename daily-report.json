@@ -1,35 +1,35 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-26T23:41:22.254Z",
+  "lastUpdated": "2026-07-27T13:56:03.947Z",
   "date": "2026年07月27日（星期一）",
-  "basedOn": "2026年07月24日（前一交易日）",
+  "basedOn": "2026年07月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,947（07/24，▲0.46%）",
-        "S&P 500：7,412（07/24，▲0.05%）",
-        "那斯達克：24,976（07/24，▼0.64%）",
-        "費城半導體指數：11,819（07/24，▼4.25%）"
+        "道瓊：52,459（07/27，▲1.45%）",
+        "S&P 500：7,456（07/27，▲0.64%）",
+        "那斯達克：25,139（07/27，▲0.00%）",
+        "費城半導體指數：11,760（07/27，▼4.73%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：64,611（07/24，▼2.73%）"
+        "日經225：64,931（07/27，▼2.25%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,060（07/24，▼0.43%）",
-        "NIFTY 50：23,767（07/24，▼0.43%）"
+        "SENSEX：76,836（07/27，▲0.58%）",
+        "NIFTY 50：23,996（07/27，▲0.53%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -41,21 +41,21 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,088（07/26，▲0.50%）"
+        "黃金：4,089（07/27，▲0.53%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,686（07/27，▼0.78%）"
+        "VN-Index：1,669（07/27，▼1.01%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年7月26日",
+    "date": "2026年7月27日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×4　🟡×3　🟢×4",
     "layers": [
@@ -84,7 +84,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（7/24，加權指數 vs 240日均線）",
+            "current": "約33%（7/27，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -109,13 +109,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.31（7/26）",
+            "current": "101.42（7/27）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.32（7/26）",
+            "current": "32.28（7/27）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -128,7 +128,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.6（7/24）",
+            "current": "17.9（7/27）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -165,7 +165,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$85（7/26）",
+            "current": "$84（7/27）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -216,21 +216,21 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "美元回落外資匯入　新台幣強升1.09角重返32.2元 - 經濟日報",
+      "title": "股匯同步修正 新台幣連2貶收31.557元 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE44Rk1jbi1yZkpOVkVpWWdfRW5XMHBITGhuYjRfdS1PZzFuaG5fUVdrQ1psQktXdUVWTnZHLVFsb00yRWx0N2Z4UjBGNG8ya2ZVNF8wLXFidm43d9IBX0FVX3lxTFBlSkg2REMyODU2MnZJY2lTTjN2RG9IQ1pLTXJOTElHc25VMnlkYmVWNXUwMlBUbWk0NW1TM2laZGJyNWE3bG1fRlZkM3ZPTXZyUWFJOVRlcHRCUVpOYnJV?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB6eEdzMUhhUUl6a3ZpMjZFRngxVFhQamZPNUx6WTF1RlRsUC1QYnJtUDBuQ1BheXdlaXg2MHpJdVRQZEZqV05JbUc3RUFNT3JZWVZGTDhSUWlMS1FDU01BZVFLSXlsMU9kaFBzWFlyb3R1ekxmZHRlLVdIQlpNSXPSAV9BVV95cUxPU2VHVTRoWmRtWC1fcXZ3d3lubDQzdi05cElCVEZBYl9DNkFodHJkangxc1dsYzk3dmdtM0tleUk3a05BTF9DaHdmdFJRUVg0WUhPY2FUUVlXRTFLSk93OA?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/27 下午9:56:03",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/27 上午7:41:22",
