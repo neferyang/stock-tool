@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-30T15:18:45.045Z",
-  "date": "2026年07月30日（星期四）",
+  "lastUpdated": "2026-07-30T22:39:48.399Z",
+  "date": "2026年07月31日（星期五）",
   "basedOn": "2026年07月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,700（07/30，▲0.21%）",
-        "S&P 500：7,379（07/30，▲0.86%）",
-        "那斯達克：24,962（07/30，▲2.13%）",
-        "費城半導體指數：11,281（07/30，▲7.98%）"
+        "道瓊：52,208（07/30，▲1.19%）",
+        "S&P 500：7,438（07/30，▲1.66%）",
+        "那斯達克：25,122（07/30，▲2.78%）",
+        "費城半導體指數：11,303（07/30，▲8.19%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -34,21 +34,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：40,039（07/29，▼3.76%）"
+        "台灣加權指數：39,933（07/30，▼0.26%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,156（07/30，▲3.01%）"
+        "黃金：4,166（07/30，▲3.25%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,745（07/30，▲2.35%）"
+        "VN-Index：1,745（07/31，▲2.35%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -57,7 +57,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年7月30日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
+    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -66,7 +66,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "39.9（4:00 PM EDT, Wed Jul 29）",
+            "current": "40.6（4:00 PM EDT, Thu Jul 30）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -84,7 +84,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約20%（7/30，加權指數 vs 240日均線）",
+            "current": "約21%（7/29，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -97,9 +97,9 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.61%（7/28）",
+            "current": "4.67%（7/29）",
             "status": "🟠",
-            "statusText": "距警戒（>4.80%）約0.19%"
+            "statusText": "距警戒（>4.80%）約0.13%"
           },
           {
             "name": "Fed 全年降息預期",
@@ -109,13 +109,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.10（7/30）",
-            "status": "🟠",
-            "statusText": "接近警戒（>105）"
+            "current": "99.97（7/30）",
+            "status": "🟡",
+            "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.44（7/30）",
+            "current": "32.39（7/30）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -128,13 +128,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.8（7/30）",
+            "current": "17.1（7/30）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.35%（10Y 4.61% - 2Y 4.26%，7/28）",
+            "current": "+0.45%（10Y 4.67% - 2Y 4.22%，7/29）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -165,7 +165,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$85（7/30）",
+            "current": "$84（7/30）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -216,14 +216,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - ctee.com.tw",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資匯出、出口商拋匯交鋒 新台幣「貶勢難止」盤中再破32.5元 - UDN",
+      "title": "盤勢分析》短底已近 留意新台幣走勢 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5pQ01RelZOY2Y2WXhjRTFnUW4xcFgxV2lLVmdIRXVScnpaR2hOOXU2MjRPTDV3Q1ROSU9TOEduWUdiRkIwWVB1WTI0ZEFOeGgzX0NyYUxma1R5ZHEtUDNGdmlSN21qT0lnZGtLanVXLXFyRGVXSkx4NlBWeDcyNEk?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9ETDh5ZUh3NTdHcUkzNXpMeFE1cVRmOFVJOWx6Q2xjMEtnU241UHA4Y25LZEI1SXJvV0xpOXJlWDJ6d3kyMFliMGV2b2lPRUdadVp6d0dn?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/31 上午6:39:48",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/30 下午11:18:45",
