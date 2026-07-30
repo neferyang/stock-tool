@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-30T22:39:48.399Z",
+  "lastUpdated": "2026-07-30T23:43:20.057Z",
   "date": "2026年07月31日（星期五）",
   "basedOn": "2026年07月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -41,7 +41,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,166（07/30，▲3.25%）"
+        "黃金：4,163（07/30，▲3.17%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,7 +57,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年7月30日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
+    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -109,13 +109,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.97（7/30）",
-            "status": "🟡",
-            "statusText": "逼近100大關，升勢持續"
+            "current": "100.02（7/30）",
+            "status": "🟠",
+            "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.39（7/30）",
+            "current": "32.39（7/31）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -201,7 +201,7 @@
       "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxNYXJsZUM3cC1PUTdhZGpSVFU2NDNvVFR2dFg3bC1WMmFGN3lPRG9tRGR2bFVNR2YtcldQeExXdU96Mnl5VU1aZFFZZWRldlZoLWZYVmlWZ1pnUE55czdQcEhlaEYydHVaMXhjYVM3cnNseVpJWU9icDlUNDA0RG8zeHVUeGkyaWlyS2dMTEY3VEV2MlphOWRRVTZDRUFLMWdlVV9IVHR4MmpGZEpsTngxYjBJOV9nWkxVRXlublFfT3V2OU0tdUVWcFhZV1JIVjhRbTNjUUlITlJEX1dneXlqZkVmOFUxMGZqd19QamNJLTBVU2d5QzM5RkhzY1IwUzJoSlJJTm16WVJvOWNfd2FXcGJGOHoySi1qalRCdWJKVlZYUFEwMEtubE1jRWtVc3JWRTE3eDdCb2hfb2lhSGlQdTcwZzd1WjlfX3FKU1UxZlBZVGNJY2RBbnN1S2lZTUpvclE?oc=5"
     },
     {
-      "title": "升息或降息兩股力量拉鋸　市場預料聯準會按兵不動 - 經濟日報",
+      "title": "升息或降息兩股力量拉鋸　市場預料聯準會按兵不動 - money.udn.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kTmJzY3VQUFFwdUh6V1V0b1VHU2JHcjJoYzlfWW5hOUdpNmhtaUsteVZCdDZOLTQ0TFB6OWdSaUdaRER1Xy10ck5tOVViVEZlT1otaVJMbzVYZ9IBX0FVX3lxTE1PdzdKNm0xSHZ1SU14QkJ6ZEo5d09LTGx6Q05YbnlzS0c4MWlJZUw3ZTVTWGhUdUpLTjJBaXlGRFEwTjFmblE5cUItWVhHU2pTbDFwc0tSZEtoLUVkV2JJ?oc=5"
     },
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/7/31 上午7:43:20",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/7/31 上午6:39:48",
