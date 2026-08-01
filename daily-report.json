@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-01T13:49:10.608Z",
-  "date": "2026年08月01日（星期六）",
+  "lastUpdated": "2026-08-01T22:30:54.557Z",
+  "date": "2026年08月02日（星期日）",
   "basedOn": "2026年07月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -36,7 +36,7 @@
       "items": [
         "台灣加權指數：43,120（07/31，▲7.98%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
     },
     {
       "name": "🥇 黃金",
@@ -48,7 +48,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,736（08/01，▼0.51%）"
+        "VN-Index：1,736（08/02，▼0.51%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -221,9 +221,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資回流 新台幣由貶翻升 - 自由財經",
+      "title": "台股創史上最大漲點　新台幣強升1.62角收32.292元 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLY2lQRl94azMwWG8yOUduQXRrQ3NFOWNQb3kzeUZCdHUtNkctcWJqUFpkd1dXdFVqSUlCdnFHTUlFdVQyNENaRG1zdl9GLWVDTzU3aTZR?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1pZDNXdXJJcWR0bHpJdDEzRFl3Tl96dFZHaEJzbWl6NWV3NXJEV2prUVZhamhfOGRIZHBCQ1prRnhyX1RGcFpRcWhJc3ZqcXU1LUF6cWJDR0pIUdIBX0FVX3lxTE5ZcF90V1ZOM2VPWTJLcFFRYXAyeGVuSDZpVXczeXl1cktMWERrMXVQOEdKdmhLSElyeUNtN3BCbGVNLURnOHJIdDJ0RU9JZGdBT2kyWHFZZ29iVXpuSk1v?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/2 上午6:30:54",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/1 下午9:49:10",
