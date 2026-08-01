@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-07-31T23:43:11.717Z",
+  "lastUpdated": "2026-08-01T13:49:10.608Z",
   "date": "2026年08月01日（星期六）",
   "basedOn": "2026年07月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,7 +19,7 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：61,867（07/30，▲0.71%）"
+        "日經225：64,362（07/31，▲4.03%）"
       ],
       "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
@@ -41,9 +41,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,099（07/31，▼0.04%）"
+        "黃金：4,049（07/31，▼1.24%）"
       ],
-      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -55,7 +55,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年7月31日",
+    "date": "2026年8月1日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
     "layers": [
@@ -84,7 +84,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約20%（7/30，加權指數 vs 240日均線）",
+            "current": "約30%（7/31，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -165,7 +165,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$87（7/31）",
+            "current": "$85（7/31）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -196,14 +196,14 @@
   ],
   "news": [
     {
-      "title": "Fed利率連五凍、內部仍偏鷹 交易員下修9月升息預期至60% - Yahoo股市",
+      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxNYXJsZUM3cC1PUTdhZGpSVFU2NDNvVFR2dFg3bC1WMmFGN3lPRG9tRGR2bFVNR2YtcldQeExXdU96Mnl5VU1aZFFZZWRldlZoLWZYVmlWZ1pnUE55czdQcEhlaEYydHVaMXhjYVM3cnNseVpJWU9icDlUNDA0RG8zeHVUeGkyaWlyS2dMTEY3VEV2MlphOWRRVTZDRUFLMWdlVV9IVHR4MmpGZEpsTngxYjBJOV9nWkxVRXlublFfT3V2OU0tdUVWcFhZV1JIVjhRbTNjUUlITlJEX1dneXlqZkVmOFUxMGZqd19QamNJLTBVU2d5QzM5RkhzY1IwUzJoSlJJTm16WVJvOWNfd2FXcGJGOHoySi1qalRCdWJKVlZYUFEwMEtubE1jRWtVc3JWRTE3eDdCb2hfb2lhSGlQdTcwZzd1WjlfX3FKU1UxZlBZVGNJY2RBbnN1S2lZTUpvclE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
-      "title": "升息或降息兩股力量拉鋸　市場預料聯準會按兵不動 - 經濟日報",
+      "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - news.cnyes.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1kTmJzY3VQUFFwdUh6V1V0b1VHU2JHcjJoYzlfWW5hOUdpNmhtaUsteVZCdDZOLTQ0TFB6OWdSaUdaRER1Xy10ck5tOVViVEZlT1otaVJMbzVYZ9IBX0FVX3lxTE1PdzdKNm0xSHZ1SU14QkJ6ZEo5d09LTGx6Q05YbnlzS0c4MWlJZUw3ZTVTWGhUdUpLTjJBaXlGRFEwTjFmblE5cUItWVhHU2pTbDFwc0tSZEtoLUVkV2JJ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
     },
     {
       "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
@@ -221,9 +221,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資回流 新台幣由貶翻升 - 自由時報",
+      "title": "外資回流 新台幣由貶翻升 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBZZlhJanU2UFJGNkdDSTV1dzh2cVZrai1iM0ZaQ1drUWY1QXpycVkyNUZnR0Z2c2NqMnpybVROMVgtMldNSnFQY2pkZFFpU3ZRR2dTRm1fcmE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBLY2lQRl94azMwWG8yOUduQXRrQ3NFOWNQb3kzeUZCdHUtNkctcWJqUFpkd1dXdFVqSUlCdnFHTUlFdVQyNENaRG1zdl9GLWVDTzU3aTZR?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/1 下午9:49:10",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/1 上午7:43:11",
