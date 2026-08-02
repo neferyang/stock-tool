@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-02T14:05:49.901Z",
-  "date": "2026年08月02日（星期日）",
+  "lastUpdated": "2026-08-02T22:30:54.956Z",
+  "date": "2026年08月03日（星期一）",
   "basedOn": "2026年07月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -41,14 +41,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,107（07/31，▲0.17%）"
+        "黃金：4,127（08/02，▲1.92%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,736（08/02，▼0.51%）"
+        "VN-Index：1,736（08/03，▼0.51%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -109,7 +109,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.80（7/31）",
+            "current": "99.64（8/2）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -165,7 +165,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$85（7/31）",
+            "current": "$81（8/2）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -201,9 +201,9 @@
       "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
-      "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - news.cnyes.com",
+      "title": "Fed利率連五凍、內部仍偏鷹 交易員下修9月升息預期至60% - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxNYXJsZUM3cC1PUTdhZGpSVFU2NDNvVFR2dFg3bC1WMmFGN3lPRG9tRGR2bFVNR2YtcldQeExXdU96Mnl5VU1aZFFZZWRldlZoLWZYVmlWZ1pnUE55czdQcEhlaEYydHVaMXhjYVM3cnNseVpJWU9icDlUNDA0RG8zeHVUeGkyaWlyS2dMTEY3VEV2MlphOWRRVTZDRUFLMWdlVV9IVHR4MmpGZEpsTngxYjBJOV9nWkxVRXlublFfT3V2OU0tdUVWcFhZV1JIVjhRbTNjUUlITlJEX1dneXlqZkVmOFUxMGZqd19QamNJLTBVU2d5QzM5RkhzY1IwUzJoSlJJTm16WVJvOWNfd2FXcGJGOHoySi1qalRCdWJKVlZYUFEwMEtubE1jRWtVc3JWRTE3eDdCb2hfb2lhSGlQdTcwZzd1WjlfX3FKU1UxZlBZVGNJY2RBbnN1S2lZTUpvclE?oc=5"
     },
     {
       "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
@@ -221,9 +221,9 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "外資回頭+台股狂飆！新台幣勁揚1.62角 7月仍重貶4.55角 - Yahoo新聞",
+      "title": "出口商拋匯助攻 新台幣午後急拉收32.305元 | 外匯市場 | 金融 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMitwJBVV95cUxQMmt6Mk8wRGd3eVNBTjQtX3pHRzRoSld4LU01dU9DdWhvTFZyYmVSQXE2eE9hOWVyRU1OclNqMXduQ1Fhb1EyNUhzSXVadHpRQjU2MmxTend1LXVYeC1PTUtoVXpVak4zMGNmMFl5ZUtUT3ktdzN6aW5NTVg5TmRCUWowbnc1LXl6Q0NhVnhLR1RYTlRCenlEUUZRQ0pSaWs3SnVTQ3hSQzBqTGFsbWZ6WnJJdFZhUHRDRzdZaEVEb3B0bEVjeHRPRW9KdkVkVE5wd3FCeXVWcFpsSGk0TmwwTEg2aWpsQVd4ZG5lWl9aSkJibUh4TDRNdjRlVV8yVmVhRjkwbk1UeTdPMzRQTXBRNmpacjh6RGpreGt3S3lXRTVtUWhIYXR0Zzd3d3lOTHRaZHRvQ0VGYw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5YSlVDb0Ria25VeTNSRWFNSEJTX2NzQ1JsUlcxbjhwMnFOU3VDdWFON1MxU1dwbkFVRDhGRmNQaGFmT1dRZDhad2dnTzRwMWc1ek9ENnAyVThJdw?oc=5"
     }
   ],
   "observations": [
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/3 上午6:30:54",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/2 下午10:05:49",
