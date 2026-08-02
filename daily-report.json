@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-02T22:30:54.956Z",
+  "lastUpdated": "2026-08-02T23:42:58.311Z",
   "date": "2026年08月03日（星期一）",
   "basedOn": "2026年07月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -41,7 +41,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,127（08/02，▲1.92%）"
+        "黃金：4,128（08/02，▲1.94%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -109,13 +109,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.64（8/2）",
+            "current": "99.73（8/2）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.29（8/1）",
+            "current": "32.29（8/3）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -246,6 +246,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/3 上午7:42:58",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/3 上午6:30:54",
