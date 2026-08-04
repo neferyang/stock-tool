@@ -29,6 +29,11 @@ MARKET_QUERIES = {
         'queries': ['日経225 株式市場 2026年6月', 'Nikkei 225 Japan stock market 2026'],
         'symbols': ['日經225'],
     },
+    'KR': {
+        'label': '南韓 KOSPI',
+        'queries': ['코스피 주식시장 2026', 'KOSPI Korea stock market 2026'],
+        'symbols': ['KOSPI'],
+    },
     'TW': {
         'label': '台灣加權指數',
         'queries': ['台股 加權指數 外資 2026年6月', '台灣股市 行情分析 2026'],
@@ -156,6 +161,11 @@ RULE_TEMPLATES = {
         'down': '日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。',
         'flat': '日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。',
     },
+    'KR': {
+        'up':   '南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。',
+        'down': '南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。',
+        'flat': 'KOSPI小幅震盪，投資人觀望半導體循環及Fed政策方向，盤面呈整理格局。',
+    },
     'TW': {
         'up':   '台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。',
         'down': '台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。',
@@ -202,7 +212,7 @@ def load_market_data():
 
 
 def find_price_for_market(indices, market_key):
-    group_map = {'US': '^DJI', 'JP': '^N225', 'TW': '^TWII', 'GOLD': 'GC=F', 'IN': '^BSESN', 'VN': '^VNINDEX.VN'}
+    group_map = {'US': '^DJI', 'JP': '^N225', 'KR': '^KS11', 'TW': '^TWII', 'GOLD': 'GC=F', 'IN': '^BSESN', 'VN': '^VNINDEX.VN'}
     symbol = group_map.get(market_key)
     return indices.get(symbol) if symbol else None
 

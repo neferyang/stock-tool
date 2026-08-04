@@ -27,6 +27,7 @@ INDICES = {
     '^IXIC':   {'name': '那斯達克',       'group': 'US',   'tz': 'America/New_York'},
     '^SOX':    {'name': '費城半導體指數',  'group': 'US',   'tz': 'America/New_York'},
     '^N225':   {'name': '日經225',        'group': 'JP',   'tz': 'Asia/Tokyo'},
+    '^KS11':   {'name': 'KOSPI',         'group': 'KR',   'tz': 'Asia/Seoul'},
     '^BSESN':  {'name': 'SENSEX',        'group': 'IN',   'tz': 'Asia/Kolkata'},
     '^NSEI':   {'name': 'NIFTY 50',      'group': 'IN',   'tz': 'Asia/Kolkata'},
     'GC=F':    {'name': '黃金',          'group': 'GOLD', 'tz': 'America/New_York'},

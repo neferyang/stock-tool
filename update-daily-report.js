@@ -156,6 +156,15 @@ function updateMarkets(markets, indices) {
       }
     }
 
+    // 南韓
+    if (name.includes('韓') || name.includes('KOSPI')) {
+      const d = findIndexData(indices, ['KOSPI', 'KR']);
+      if (d) {
+        const items = [`KOSPI：${buildDisplayStr(d)}`];
+        if (shouldUpdate(market, items)) { market.items = items; console.log('✅ 南韓 KOSPI 更新'); }
+      }
+    }
+
     // 台灣
     if (name.includes('台灣') || name.includes('台股')) {
       const d = findIndexData(indices, ['台灣加權', 'TWII', 'TW']);
@@ -265,6 +274,7 @@ async function main() {
     const groupKeyMap = {
       '美國': 'US', '美股': 'US',
       '日經': 'JP', '日本': 'JP',
+      '韓': 'KR', 'KOSPI': 'KR',
       '台灣': 'TW', '台股': 'TW',
       '黃金': 'GOLD', '商品': 'GOLD',
       '印度': 'IN',
