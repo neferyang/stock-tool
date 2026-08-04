@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # GitHub Actions 版本更新提醒（actions/checkout、setup-python 等）
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
