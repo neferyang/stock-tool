@@ -192,13 +192,38 @@ def main():
         print("❌ 未設定 FINMIND_TOKEN，中止（請確認 GitHub Secrets 已設定 FINMIND_TOKEN）")
         return False
 
+    QUOTA_BACKOFF_SECONDS = 300  # 跟finmind-data-fetcher.py同一套：撞額度/限速只backoff重試一次，
+    # 仍失敗就中止整批剩餘股票，避免額度爆掉後繼續逐支硬打觸發IP封鎖風險。
+    quota_backoff_used = False
+
     success, nodata, failed = 0, 0, 0
+    i = 0  # batch為空陣列時for迴圈不會執行，這裡先給預設值避免下面NameError
+    quota_aborted = False
     for i, (code, info) in enumerate(batch, 1):
         entry = db["stocks"][code]
         years = [str(d["year"]) for d in entry["data"]]
         print(f"[{i}/{len(batch)}] {code} {info['name']}...", end=" ", flush=True)
         try:
-            income, balance, cashflow = fetcher.fetch_all(code, f"{min(int(y) for y in years)}-01-01", f"{max(int(y) for y in years)}-12-31")
+            start, end = f"{min(int(y) for y in years)}-01-01", f"{max(int(y) for y in years)}-12-31"
+            try:
+                income, balance, cashflow = fetcher.fetch_all(code, start, end)
+            except fm.FinMindQuotaError as qe:
+                if quota_backoff_used:
+                    print(f"❌ 重試後仍額度/限速錯誤(HTTP {qe.status_code})，"
+                          f"中止本次批次剩餘{len(batch)-i+1}支(含這支)，留待下次排程")
+                    quota_aborted = True
+                    break
+                print(f"\n⚠️  額度/限速錯誤(HTTP {qe.status_code})，暫停"
+                      f"{QUOTA_BACKOFF_SECONDS//60}分鐘後重試一次...")
+                time.sleep(QUOTA_BACKOFF_SECONDS)
+                quota_backoff_used = True
+                try:
+                    income, balance, cashflow = fetcher.fetch_all(code, start, end)
+                except fm.FinMindQuotaError as qe2:
+                    print(f"❌ 重試後仍額度/限速錯誤(HTTP {qe2.status_code})，"
+                          f"中止本次批次剩餘{len(batch)-i+1}支(含這支)，留待下次排程")
+                    quota_aborted = True
+                    break
             annual = fetcher.compute_annual(income, balance, cashflow)
             changed = False
             for e in entry["data"]:
@@ -224,6 +249,12 @@ def main():
             db["stocks"].pop(code, None)
             print(f"錯誤: {ex}")
         time.sleep(0.2)
+
+    # 因額度/限速中止時，剩餘尚未嘗試的股票(含觸發中止的這支)只留下空骨架，
+    # 要跟個別失敗一樣pop掉，不然會留下「已收錄但全空」的假紀錄，下次也不會被重新排入候選。
+    if quota_aborted:
+        for code, _ in batch[i - 1:]:
+            db["stocks"].pop(code, None)
 
     if success == 0 and failed > 0:
         print(f"\n❌ {failed} 支全數抓取失敗，未寫入任何資料（可能為 API 額度或 token 問題）")
