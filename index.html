@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.19',
+  version: '8.21.20',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -27158,9 +27158,18 @@ async function loadDailyReport() {
     console.error('[財金早報] 載入失敗:', error.message);
     const container = document.getElementById('market-report');
     if (container) {
-      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${error.message}</span><br><span style="font-size:0.75rem;">請清除快取並刷新頁面</span></div>`;
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${escapeHtml(error.message)}</span><br><span style="font-size:0.75rem;">請清除快取並刷新頁面</span></div>`;
     }
   }
+}
+
+// 早報內容(新聞標題/描述、AI生成的分析/觀察)來自外部來源，用innerHTML組頁面前
+// 必須escape，避免上游被污染(惡意新聞標題、AI輸出異常)時在使用者瀏覽器執行任意HTML/JS。
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
 }
 
 function renderMarketReport(data) {
@@ -27173,12 +27182,12 @@ function renderMarketReport(data) {
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
         <div style="flex:1;">
           <h2 style="margin:0;font-size:1.3rem;font-weight:800;color:#1a1a1a;">📊 每日財金早報</h2>
-          <p style="margin:8px 0 0;color:#666;font-size:0.95rem;">${data.date}</p>
-          <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${data.basedOn}</p>
+          <p style="margin:8px 0 0;color:#666;font-size:0.95rem;">${escapeHtml(data.date)}</p>
+          <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${escapeHtml(data.basedOn)}</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
           <div style="font-size:0.75rem;background:#eef2ff;color:#4f46e5;font-weight:600;padding:8px 12px;border-radius:6px;">
-            ${data.riskDashboard.rating}
+            ${escapeHtml(data.riskDashboard.rating)}
           </div>
         </div>
       </div>
@@ -27190,12 +27199,12 @@ function renderMarketReport(data) {
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
         ${(data.markets || []).map(market => `
           <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
-            <div style="font-weight:700;margin-bottom:8px;font-size:1rem;">${market.name}</div>
+            <div style="font-weight:700;margin-bottom:8px;font-size:1rem;">${escapeHtml(market.name)}</div>
             <div style="font-size:0.9rem;color:#444;margin-bottom:10px;line-height:1.8;">
-              ${(market.items || []).map(item => `<div>▸ ${item}</div>`).join('')}
+              ${(market.items || []).map(item => `<div>▸ ${escapeHtml(item)}</div>`).join('')}
             </div>
             <div style="font-size:0.8rem;color:#666;border-top:1px solid #e5e7eb;padding-top:8px;line-height:1.6;">
-              💡 ${market.analysis}
+              💡 ${escapeHtml(market.analysis)}
             </div>
           </div>
         `).join('')}
@@ -27206,21 +27215,21 @@ function renderMarketReport(data) {
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
       <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #d97706;padding-bottom:8px;">⚠️ 市場風險指標儀表板</h3>
       <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px;margin-bottom:16px;font-size:0.9rem;">
-        <strong>${data.riskDashboard.rating}</strong> | ${data.riskDashboard.summary}
+        <strong>${escapeHtml(data.riskDashboard.rating)}</strong> | ${escapeHtml(data.riskDashboard.summary)}
       </div>
       ${(data.riskDashboard.layers || []).map(layer => `
         <div style="margin-bottom:14px;border-left:4px solid #4f46e5;padding-left:16px;">
-          <h4 style="margin:0;font-size:1rem;font-weight:700;">【第${layer.number}層】${layer.name}</h4>
-          <p style="margin:4px 0;font-size:0.85rem;color:#666;">📌 ${layer.question}</p>
+          <h4 style="margin:0;font-size:1rem;font-weight:700;">【第${escapeHtml(layer.number)}層】${escapeHtml(layer.name)}</h4>
+          <p style="margin:4px 0;font-size:0.85rem;color:#666;">📌 ${escapeHtml(layer.question)}</p>
           <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;">
             ${(layer.indicators || []).map(ind => `
               <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:8px 10px;font-size:0.85rem;">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
                   <div style="flex:1;min-width:0;">
-                    <strong>${ind.name}</strong><br>
-                    <span style="color:#666;">現值：${ind.current}</span><span style="color:#888;font-size:0.8rem;"> ｜ ${ind.statusText}</span>
+                    <strong>${escapeHtml(ind.name)}</strong><br>
+                    <span style="color:#666;">現值：${escapeHtml(ind.current)}</span><span style="color:#888;font-size:0.8rem;"> ｜ ${escapeHtml(ind.statusText)}</span>
                   </div>
-                  <div style="font-size:1.2rem;">${ind.status}</div>
+                  <div style="font-size:1.2rem;">${escapeHtml(ind.status)}</div>
                 </div>
               </div>
             `).join('')}
@@ -27232,9 +27241,9 @@ function renderMarketReport(data) {
     <!-- 綜合研判 -->
     <div style="background:linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);border:1px solid #fca5a5;border-radius:12px;padding:16px;margin-bottom:20px;">
       <h3 style="margin:0 0 12px;font-size:1rem;font-weight:700;color:#7f1d1d;">【綜合研判】</h3>
-      <p style="margin:0;font-size:0.9rem;color:#5f2121;line-height:1.8;">${data.synthesis}</p>
+      <p style="margin:0;font-size:0.9rem;color:#5f2121;line-height:1.8;">${escapeHtml(data.synthesis)}</p>
       <div style="margin-top:12px;padding-top:12px;border-top:1px solid #fca5a5;font-size:0.85rem;color:#7f1d1d;font-weight:600;">
-        📌 最關鍵觀察指標：${(data.keyObservations || []).map(o => `（${o.number}）${o.title}`).join('；')}
+        📌 最關鍵觀察指標：${(data.keyObservations || []).map(o => `（${escapeHtml(o.number)}）${escapeHtml(o.title)}`).join('；')}
       </div>
     </div>
 
@@ -27247,13 +27256,15 @@ function renderMarketReport(data) {
         const norm = s => (s || '').replace(/[\s\-|｜–—:：,，。、!！?？"'（）()【】\[\]]+/g, '').toLowerCase();
         const nd = norm(n.description), nt = norm(n.title);
         const showDesc = nd && nd !== nt && !nt.includes(nd) && !nd.includes(nt);
-        const titleHtml = n.url
-          ? `<a href="${n.url}" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:none;">${n.title} ↗</a>`
-          : n.title;
+        // 只允許http(s)連結進href，防止news來源被污染塞入javascript:等惡意scheme
+        const safeUrl = /^https?:\/\//i.test(n.url || '') ? n.url : '';
+        const titleHtml = safeUrl
+          ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:none;">${escapeHtml(n.title)} ↗</a>`
+          : escapeHtml(n.title);
         return `
         <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e5e7eb;">
           <div style="font-weight:700;margin-bottom:6px;">• ${titleHtml}</div>
-          ${showDesc ? `<div style="font-size:0.9rem;color:#666;line-height:1.6;">${n.description}</div>` : ''}
+          ${showDesc ? `<div style="font-size:0.9rem;color:#666;line-height:1.6;">${escapeHtml(n.description)}</div>` : ''}
         </div>`;
       }).join('')}
     </div>
@@ -27263,15 +27274,15 @@ function renderMarketReport(data) {
       <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;color:#1e40af;border-bottom:2px solid #3b82f6;padding-bottom:8px;">【💡 今日觀察】</h3>
       ${(data.observations || []).map(o => `
         <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #93c5fd;">
-          <div style="font-weight:700;margin-bottom:6px;color:#1e40af;">${o.emoji} ${o.title}</div>
-          <div style="font-size:0.9rem;color:#0c4a6e;line-height:1.6;">${o.content}</div>
+          <div style="font-weight:700;margin-bottom:6px;color:#1e40af;">${escapeHtml(o.emoji)} ${escapeHtml(o.title)}</div>
+          <div style="font-size:0.9rem;color:#0c4a6e;line-height:1.6;">${escapeHtml(o.content)}</div>
         </div>
       `).join('')}
     </div>
 
     <!-- 免責聲明 -->
     <div style="background:#f3f4f6;border:1px solid #d1d5db;border-radius:8px;padding:12px;font-size:0.85rem;color:#666;text-align:center;">
-      ${data.disclaimer}
+      ${escapeHtml(data.disclaimer)}
     </div>
   `;
 
