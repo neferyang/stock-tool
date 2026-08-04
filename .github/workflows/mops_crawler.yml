@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: 檢出代碼
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 設置 Python
         uses: actions/setup-python@v5
