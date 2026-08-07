@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-06T14:42:45.512Z",
-  "date": "2026年08月06日（星期四）",
+  "lastUpdated": "2026-08-07T01:06:18.794Z",
+  "date": "2026年08月07日（星期五）",
   "basedOn": "2026年08月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,24 +9,24 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：54,216（08/06，▼0.24%）",
-        "S&P 500：7,724（08/06，▲0.00%）",
-        "那斯達克：26,412（08/06，▲0.18%）",
-        "費城半導體指數：12,188（08/06，▲1.49%）"
+        "道瓊：53,885（08/06，▼0.85%）",
+        "S&P 500：7,710（08/06，▼0.18%）",
+        "那斯達克：26,348（08/06，▼0.06%）",
+        "費城半導體指數：12,049（08/06，▲0.33%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：65,683（08/06，▼0.93%）"
+        "日經225：65,117（08/07，▼1.78%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,296（08/06，▼4.58%）"
+        "KOSPI：6,303（08/07，▼4.48%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
@@ -41,28 +41,28 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：44,612（08/05，▲2.88%）"
+        "台灣加權指數：44,397（08/06，▼0.48%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,328（08/06，▲1.92%）"
+        "黃金：4,292（08/06，▲1.10%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,765（08/06，▼0.66%）"
+        "VN-Index：1,765（08/07，▼0.66%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月6日",
+    "date": "2026年8月7日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "42.2（4:00 PM EDT, Wed Aug 5）",
+            "current": "42.1（4:00 PM EDT, Thu Aug 6）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（8/6，加權指數 vs 240日均線）",
+            "current": "約33%（8/5，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.63%（8/4）",
+            "current": "4.63%（8/5）",
             "status": "🟠",
             "statusText": "距警戒（>4.80%）約0.17%"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.83（8/6）",
+            "current": "99.99（8/6）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.25（8/6）",
+            "current": "32.20（8/7）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.6（8/6）",
+            "current": "15.1（8/6）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.43%（10Y 4.63% - 2Y 4.20%，8/4）",
+            "current": "+0.45%（10Y 4.63% - 2Y 4.18%，8/5）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$75（8/6）",
+            "current": "$78（8/6）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
     },
     {
-      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
-    },
-    {
       "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
+    },
+    {
+      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -228,16 +228,16 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資匯入浪潮延續　新台幣連2升創逾半個月新高 - money.udn.com",
+      "title": "外資匯入浪潮延續 新台幣連2升創逾半個月新高 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1LOFlTUEh2ODEtRmF1dTFCbFR2VHNRdUd4UE5OMXoyeWxyYVdPc3k1Q1NNSVJhR09hQlVhcnRuWjJLQUtibmhCOEpWVGhOQ0xBSXp4OTZEekVJODFKS0FV0gFfQVVfeXFMTUs4WVNQSHY4MS1GYXV1MUJsVHZUc1F1R3hQTk4xejJ5bHJhV09zeTVDU01JUmFHT2FCVWFydG5aMktBS2JuaEI4SlZUaE5DTEFJeng5NkR6RUk4MUpLQVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45Tmpka1lQYVFsMDJoTXBDclVHUUhZd05RU2VOSl9HeDdhU3JEeUhaZGFLVnc2SjhsQ0swNVY5NE5aSzcxUHpBNVNtOVlzdy11TzNMV2RBUXVOY25qeW0w0gFfQVVfeXFMTjlOamRrWVBhUWwwMmhNcENyVUdRSFl3TlFTZU5KX0d4N2FTckR5SFpkYUtWdzZKOGxDSzA1Vjk0TlpLNzFQekE1U205WXN3LXVPM0xXZEFRdU5jbmp5bTA?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/7 上午9:06:18",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/6 下午10:42:45",
