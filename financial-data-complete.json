@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-07T18:10:25.081038",
+  "updatedAt": "2026-08-07T19:21:54.067074",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -252296,8 +252296,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:40.287567"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:34.193193"
     },
     "7854": {
       "name": "佐茂",
@@ -252402,8 +252402,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:41.803961"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:35.739694"
     },
     "6842": {
       "name": "瑞宇",
@@ -252508,8 +252508,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:43.490660"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:37.733312"
     },
     "7729": {
       "name": "仲恩生醫",
@@ -252614,8 +252614,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:45.199462"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:39.581368"
     },
     "7901": {
       "name": "大大寬頻",
@@ -252720,8 +252720,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:46.843859"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:41.118940"
     },
     "7796": {
       "name": "擷發科",
@@ -252826,8 +252826,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:48.369492"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:43.195265"
     },
     "4570": {
       "name": "傑生",
@@ -252932,8 +252932,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:49.998237"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:44.918354"
     },
     "7846": {
       "name": "德揚",
@@ -252943,19 +252943,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 14.64,
+          "revenue": 21.9,
+          "netIncome": 5.0,
+          "operatingIncome": 4.8,
+          "operatingMargin": 21.9,
+          "fcf": 4.3,
+          "roe": 67.4,
+          "netMargin": 23.0,
+          "debtRatio": 46.2,
+          "updatedAt": "2026-08-07T19:15:46.521157",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 3.66,
+          "roeActual": 16.8
         },
         {
           "year": "2025",
@@ -253038,8 +253041,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:51.570355"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:46.521157"
     },
     "7427": {
       "name": "華上生醫",
@@ -253144,8 +253147,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:53.096818"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:48.033242"
     },
     "7895": {
       "name": "元進莊",
@@ -253250,8 +253253,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:54.616286"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:49.555845"
     },
     "1269": {
       "name": "乾杯",
@@ -253356,8 +253359,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:56.159449"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:51.384269"
     },
     "6634": {
       "name": "欣耀",
@@ -253462,8 +253465,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 16,
-      "lastAttemptAt": "2026-08-03T23:46:57.742469"
+      "noDataStreak": 17,
+      "lastAttemptAt": "2026-08-07T19:15:53.534529"
     },
     "6738": {
       "name": "鼎恒",
@@ -253568,8 +253571,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:46:59.359103"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:15:55.081098"
     },
     "6926": {
       "name": "聖安生醫",
@@ -253579,19 +253582,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": -9.32,
+          "revenue": 0.8,
+          "netIncome": -4.6,
+          "operatingIncome": -4.9,
+          "operatingMargin": -592.1,
+          "fcf": -4.5,
+          "roe": -58.7,
+          "netMargin": -563.0,
+          "debtRatio": 6.9,
+          "updatedAt": "2026-08-07T19:15:56.613948",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": -2.33,
+          "roeActual": -14.7
         },
         {
           "year": "2025",
@@ -253674,8 +253680,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:00.918732"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:15:56.613948"
     },
     "7562": {
       "name": "博來科技",
@@ -253889,8 +253895,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:02.534543"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:15:58.351052"
     },
     "7806": {
       "name": "精華生醫",
@@ -254104,8 +254110,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:04.229058"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:15:59.947796"
     },
     "7868": {
       "name": "聖育",
@@ -254319,8 +254325,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:05.854800"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:16:01.862775"
     },
     "8359": {
       "name": "錢櫃",
@@ -254425,8 +254431,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:07.441036"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:16:03.389983"
     },
     "7865": {
       "name": "金聯成",
@@ -254531,8 +254537,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:09.247509"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:16:04.908742"
     },
     "6995": {
       "name": "野獸國",
@@ -254637,8 +254643,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:10.820208"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:16:09.131374"
     },
     "6750": {
       "name": "泰創工程",
@@ -254743,8 +254749,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-03T23:47:12.396919"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-07T19:16:10.735887"
     },
     "6817": {
       "name": "溫士頓",
@@ -254849,8 +254855,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:13.995453"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:12.932926"
     },
     "7419": {
       "name": "達勝",
@@ -254955,8 +254961,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:15.610422"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:15.421052"
     },
     "7754": {
       "name": "安基生技",
@@ -255061,8 +255067,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:17.186949"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:17.311311"
     },
     "7879": {
       "name": "益材科技",
@@ -255167,8 +255173,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:18.844640"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:18.833881"
     },
     "7867": {
       "name": "特力屋",
@@ -255382,8 +255388,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-03T23:47:20.439214",
-      "noDataStreak": 9
+      "lastAttemptAt": "2026-08-07T19:16:20.573835",
+      "noDataStreak": 10
     },
     "6786": {
       "name": "芯測",
@@ -255488,8 +255494,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:22.246133"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:22.091473"
     },
     "7797": {
       "name": "Q Burger",
@@ -255594,8 +255600,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:23.741031"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:23.645828"
     },
     "7816": {
       "name": "來穎",
@@ -255700,8 +255706,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:25.259696"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:25.177132"
     },
     "7455": {
       "name": "樺緯物聯",
@@ -255806,8 +255812,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:26.917280"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:30.399926"
     },
     "7771": {
       "name": "綠基",
@@ -255912,8 +255918,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:28.565090"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:32.697822"
     },
     "7790": {
       "name": "思必瑞特",
@@ -256018,8 +256024,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:30.075593"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:34.365772"
     },
     "6729": {
       "name": "機光科技",
@@ -256124,8 +256130,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:31.696105"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:37.306983"
     },
     "8345": {
       "name": "超秦",
@@ -256230,8 +256236,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:33.346255"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:38.816790"
     },
     "3585": {
       "name": "聯致",
@@ -256241,19 +256247,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 0.08,
+          "revenue": 7.9,
+          "netIncome": 0.1,
+          "operatingIncome": -0.8,
+          "operatingMargin": -10.2,
+          "fcf": -0.0,
+          "roe": 0.7,
+          "netMargin": 1.4,
+          "debtRatio": 8.4,
+          "updatedAt": "2026-08-07T19:16:40.562356",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.02,
+          "roeActual": 0.2
         },
         {
           "year": "2025",
@@ -256336,8 +256345,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:34.983836"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:40.562356"
     },
     "7872": {
       "name": "登豐",
@@ -256551,8 +256560,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:36.664186"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:42.252215"
     },
     "6818": {
       "name": "連騰",
@@ -256657,8 +256666,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:38.301245"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:44.869013"
     },
     "3678": {
       "name": "聯享",
@@ -256763,8 +256772,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:39.965801"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:47.793247"
     },
     "7762": {
       "name": "吉晟生",
@@ -256869,8 +256878,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:41.531442"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:50.162135"
     },
     "5267": {
       "name": "龍翩",
@@ -256975,8 +256984,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:43.265518"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:51.744783"
     },
     "6886": {
       "name": "遠東生技",
@@ -257081,8 +257090,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:44.927098"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:53.726060"
     },
     "6638": {
       "name": "沅聖",
@@ -257187,8 +257196,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:46.509314"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:55.680102"
     },
     "7836": {
       "name": "智生活",
@@ -257293,8 +257302,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:48.014089"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:57.266701"
     },
     "4587": {
       "name": "寶元數控",
@@ -257399,8 +257408,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:49.581628"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:16:58.805575"
     },
     "7919": {
       "name": "禾蒼",
@@ -257505,8 +257514,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:51.232305"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:00.440288"
     },
     "8298": {
       "name": "威睿",
@@ -257611,8 +257620,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:52.879826"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:02.183895"
     },
     "6915": {
       "name": "美強光",
@@ -257717,8 +257726,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:54.441836"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:03.860097"
     },
     "7758": {
       "name": "睿騰能源",
@@ -257823,8 +257832,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:56.003057"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:05.396107"
     },
     "7737": {
       "name": "凱鈿",
@@ -257929,8 +257938,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:58.049213"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:07.114843"
     },
     "4980": {
       "name": "佐臻",
@@ -258035,8 +258044,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:47:59.570271"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:08.716339"
     },
     "7863": {
       "name": "中科物流",
@@ -258141,8 +258150,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:01.112806"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:10.262718"
     },
     "7824": {
       "name": "智寶",
@@ -258247,8 +258256,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:02.606589"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:11.811660"
     },
     "6891": {
       "name": "樂迦再生",
@@ -258353,8 +258362,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:04.167346"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:13.472082"
     },
     "6539": {
       "name": "麗彤",
@@ -258459,8 +258468,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:05.816028"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:15.043522"
     },
     "6864": {
       "name": "元樟生技",
@@ -258565,8 +258574,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:07.452717"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:16.781124"
     },
     "6825": {
       "name": "和暢科技",
@@ -258895,8 +258904,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:08.982587"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:18.302016"
     },
     "7857": {
       "name": "合水先進",
@@ -259001,8 +259010,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:10.479347"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:19.836541"
     },
     "7706": {
       "name": "宏碁創達",
@@ -259216,8 +259225,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:12.121488"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:21.494126"
     },
     "7789": {
       "name": "開展",
@@ -259322,8 +259331,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:13.622421"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:23.038966"
     },
     "6682": {
       "name": "華旭先進",
@@ -259428,8 +259437,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:15.180785"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:24.657354"
     },
     "6780": {
       "name": "學習王",
@@ -259534,8 +259543,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:16.729505"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:26.332842"
     },
     "2237": {
       "name": "華德動能",
@@ -259749,8 +259758,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:18.319115"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:28.134086"
     },
     "2942": {
       "name": "京站",
@@ -259855,8 +259864,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:19.908774"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:29.847802"
     },
     "7761": {
       "name": "三大未來",
@@ -259961,8 +259970,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:21.497212"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:31.471635"
     },
     "6599": {
       "name": "普達系統",
@@ -260176,8 +260185,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:23.065955"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:33.069872"
     },
     "7877": {
       "name": "海利普",
@@ -260282,8 +260291,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:24.695403"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:34.772097"
     },
     "6816": {
       "name": "捷智商訊",
@@ -260293,19 +260302,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 5.2,
+          "revenue": 4.5,
+          "netIncome": 0.7,
+          "operatingIncome": 0.4,
+          "operatingMargin": 9.4,
+          "fcf": 0.4,
+          "roe": 22.8,
+          "netMargin": 14.7,
+          "debtRatio": 22.5,
+          "updatedAt": "2026-08-07T19:17:36.731766",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 1.3,
+          "roeActual": 5.7
         },
         {
           "year": "2025",
@@ -260388,8 +260400,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:26.293679"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:36.731766"
     },
     "7829": {
       "name": "思捷優達-KY",
@@ -260494,8 +260506,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:27.798451"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:38.231121"
     },
     "7583": {
       "name": "國際海洋",
@@ -260709,8 +260721,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:29.438442"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:39.800452"
     },
     "6723": {
       "name": "傑智環境",
@@ -260815,8 +260827,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:30.987921"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:42.195833"
     },
     "7756": {
       "name": "多那之",
@@ -260921,8 +260933,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:32.950215"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:44.659129"
     },
     "7897": {
       "name": "禾迅綠電",
@@ -261027,8 +261039,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:34.524614"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:46.154729"
     },
     "8999": {
       "name": "台灣積層",
@@ -261133,8 +261145,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:36.135324"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:47.679905"
     },
     "7840": {
       "name": "祥圃",
@@ -261348,8 +261360,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:37.728548"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:49.380689"
     },
     "7876": {
       "name": "鼎晉生技",
@@ -261454,8 +261466,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:39.242959"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:51.115151"
     },
     "4589": {
       "name": "碩陽電機",
@@ -261560,8 +261572,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:40.796130"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:53.589426"
     },
     "5254": {
       "name": "欣訊科技",
@@ -261666,8 +261678,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:42.424315"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:55.243467"
     },
     "2071": {
       "name": "震南鐵",
@@ -261677,19 +261689,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
+          "eps": 4.92,
+          "revenue": 33.5,
+          "netIncome": 3.4,
+          "operatingIncome": 4.2,
+          "operatingMargin": 12.5,
+          "fcf": -1.1,
           "roe": null,
-          "netMargin": null,
+          "netMargin": 10.2,
           "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "updatedAt": "2026-08-07T19:17:56.791496",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 1.23,
+          "roeActual": null
         },
         {
           "year": "2025",
@@ -261772,8 +261787,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:44.176519"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:56.791496"
     },
     "6917": {
       "name": "竟天",
@@ -261878,8 +261893,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:45.876202"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:58.391662"
     },
     "6879": {
       "name": "大江基因",
@@ -261889,19 +261904,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 2.0,
+          "revenue": 4.8,
+          "netIncome": 0.5,
+          "operatingIncome": 0.7,
+          "operatingMargin": 14.6,
+          "fcf": 0.8,
+          "roe": 5.7,
+          "netMargin": 11.1,
+          "debtRatio": 10.8,
+          "updatedAt": "2026-08-07T19:17:59.975667",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.5,
+          "roeActual": 1.4
         },
         {
           "year": "2025",
@@ -261984,8 +262002,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:47.393388"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:17:59.975667"
     },
     "6604": {
       "name": "儒億",
@@ -262199,8 +262217,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:49.037707"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:01.541659"
     },
     "6973": {
       "name": "永立榮",
@@ -262305,8 +262323,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:50.644437"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:03.072773"
     },
     "6850": {
       "name": "光鼎生技",
@@ -262411,8 +262429,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:52.209660"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:04.934864"
     },
     "7726": {
       "name": "暄達",
@@ -262517,8 +262535,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:54.065932"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:06.613764"
     },
     "7776": {
       "name": "奧孟亞",
@@ -262623,8 +262641,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:58.153390"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:10.400847"
     },
     "6518": {
       "name": "康科特",
@@ -262838,8 +262856,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:48:59.712748"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:11.921934"
     },
     "6707": {
       "name": "富基電通",
@@ -262944,8 +262962,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:01.237044"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:13.450695"
     },
     "6787": {
       "name": "晶瑞光",
@@ -263050,8 +263068,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:02.796087"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:15.381032"
     },
     "7808": {
       "name": "訊聯智藥",
@@ -263156,8 +263174,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:04.288946"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:17.009822"
     },
     "6935": {
       "name": "王子製藥",
@@ -263262,8 +263280,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:05.857324"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:18.526645"
     },
     "7752": {
       "name": "世紀樺欣",
@@ -263368,8 +263386,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:07.454913"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:20.079190"
     },
     "6737": {
       "name": "秀育",
@@ -263474,8 +263492,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:09.148786"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:22.120175"
     },
     "6595": {
       "name": "光禹國際",
@@ -263580,8 +263598,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:10.688133"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:23.839061"
     },
     "6815": {
       "name": "晶鑽生醫",
@@ -263686,8 +263704,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:12.476761"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:25.771841"
     },
     "6650": {
       "name": "帝圖",
@@ -263792,8 +263810,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:14.138645"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:27.374477"
     },
     "6758": {
       "name": "冠亞",
@@ -263898,8 +263916,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:15.772775"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:29.495995"
     },
     "7862": {
       "name": "聚泰",
@@ -264004,8 +264022,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:17.281542"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:31.032193"
     },
     "6775": {
       "name": "穎台科技",
@@ -264110,8 +264128,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:18.814624"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:32.732864"
     },
     "7785": {
       "name": "北祥科服",
@@ -264216,8 +264234,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:20.319753"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:34.385025"
     },
     "6911": {
       "name": "群運",
@@ -264322,8 +264340,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:21.964922"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:35.901508"
     },
     "7888": {
       "name": "麗寶新藥",
@@ -264428,8 +264446,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:23.634930"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:37.447760"
     },
     "3117": {
       "name": "年程",
@@ -264534,8 +264552,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:25.182751"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:39.086977"
     },
     "6428": {
       "name": "台灣淘米",
@@ -264640,8 +264658,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:26.870401"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:41.833687"
     },
     "7578": {
       "name": "利百景",
@@ -264746,8 +264764,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:28.951903"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:44.329859"
     },
     "6563": {
       "name": "映智",
@@ -264852,8 +264870,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:30.586537"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:45.840829"
     },
     "7841": {
       "name": "經貿聯網",
@@ -264958,8 +264976,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:32.104754"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:48.033845"
     },
     "1343": {
       "name": "旭東環保",
@@ -265064,8 +265082,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:33.623563"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:49.905766"
     },
     "7773": {
       "name": "富禾生醫",
@@ -265170,8 +265188,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:35.135209"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:51.487950"
     },
     "6610": {
       "name": "安成生技",
@@ -265276,8 +265294,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:36.714128"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:53.495392"
     },
     "7885": {
       "name": "宏羚",
@@ -265382,8 +265400,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:38.316758"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:55.021895"
     },
     "2245": {
       "name": "詠勝昌*",
@@ -265488,8 +265506,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:39.905771"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:56.621065"
     },
     "7891": {
       "name": "博研醫藥",
@@ -265594,8 +265612,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:41.650253"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:58.118666"
     },
     "6892": {
       "name": "台寶生醫",
@@ -265700,8 +265718,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:43.249436"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:18:59.804705"
     },
     "3097": {
       "name": "拍檔",
@@ -265806,8 +265824,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:44.852626"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:01.320827"
     },
     "7851": {
       "name": "慧康生技*-KY",
@@ -265912,8 +265930,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:46.359693"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:02.847843"
     },
     "1293": {
       "name": "利統",
@@ -266018,8 +266036,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:47.984525"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:04.518476"
     },
     "6868": {
       "name": "采威國際",
@@ -266124,8 +266142,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:49.714714"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:06.116296"
     },
     "7781": {
       "name": "昕力資*",
@@ -266230,8 +266248,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:51.231325"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:07.735998"
     },
     "2938": {
       "name": "床的世界",
@@ -266445,8 +266463,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:52.956867"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:10.134005"
     },
     "6407": {
       "name": "相互",
@@ -266551,8 +266569,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:54.518748"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:11.963458"
     },
     "6810": {
       "name": "新穎生醫",
@@ -266657,8 +266675,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:56.162909"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:13.551861"
     },
     "1260": {
       "name": "富味鄉",
@@ -266763,8 +266781,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:57.704600"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:15.481711"
     },
     "2940": {
       "name": "歐都納",
@@ -266869,8 +266887,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:49:59.253519"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:17.185776"
     },
     "6814": {
       "name": "路迦生醫",
@@ -266975,8 +266993,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:00.921075"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:18.761926"
     },
     "7882": {
       "name": "倍利創投",
@@ -267081,8 +267099,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:02.550576"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:20.316259"
     },
     "6709": {
       "name": "昱厚生技",
@@ -267187,8 +267205,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:04.092757"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:22.029625"
     },
     "6972": {
       "name": "博瑞達應材",
@@ -267198,19 +267216,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 2.92,
+          "revenue": 115.5,
+          "netIncome": 0.7,
+          "operatingIncome": 1.6,
+          "operatingMargin": 1.4,
+          "fcf": 7.1,
+          "roe": 13.0,
+          "netMargin": 0.6,
+          "debtRatio": 75.9,
+          "updatedAt": "2026-08-07T19:19:23.611098",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.73,
+          "roeActual": 3.2
         },
         {
           "year": "2025",
@@ -267293,8 +267314,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:05.649061"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:23.611098"
     },
     "6833": {
       "name": "太康精密",
@@ -267399,8 +267420,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:07.183498"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:25.255797"
     },
     "4575": {
       "name": "銓寶",
@@ -267410,19 +267431,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 2.24,
+          "revenue": 17.1,
+          "netIncome": 0.9,
+          "operatingIncome": -0.2,
+          "operatingMargin": -1.3,
+          "fcf": 2.4,
+          "roe": 7.7,
+          "netMargin": 5.1,
+          "debtRatio": 57.7,
+          "updatedAt": "2026-08-07T19:19:26.783932",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.56,
+          "roeActual": 1.9
         },
         {
           "year": "2025",
@@ -267505,8 +267529,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:08.714666"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:26.783932"
     },
     "6940": {
       "name": "格斯科技*",
@@ -267611,8 +267635,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:10.265261"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:28.311942"
     },
     "7833": {
       "name": "綠岩能源",
@@ -267717,8 +267741,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:11.807438"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:29.969803"
     },
     "6858": {
       "name": "愛比科技",
@@ -267823,8 +267847,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:13.361198"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:31.518514"
     },
     "7558": {
       "name": "群利科技",
@@ -267929,8 +267953,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:14.964011"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:33.168720"
     },
     "6784": {
       "name": "天凱科技",
@@ -268035,8 +268059,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:16.551112"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:34.728086"
     },
     "3659": {
       "name": "百辰",
@@ -268141,8 +268165,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:19.476795"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:36.557778"
     },
     "2741": {
       "name": "老四川",
@@ -268247,8 +268271,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:21.068794"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:38.160846"
     },
     "6939": {
       "name": "啟弘生技",
@@ -268353,8 +268377,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:22.757030"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:39.728117"
     },
     "7702": {
       "name": "前端風電",
@@ -268568,8 +268592,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:24.342694"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:41.272725"
     },
     "7561": {
       "name": "光晟生技",
@@ -268674,8 +268698,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:26.109528"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:42.989294"
     },
     "7507": {
       "name": "環拓科技",
@@ -268780,8 +268804,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:27.690262"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:44.579335"
     },
     "6848": {
       "name": "拉法醫",
@@ -268886,8 +268910,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:29.276293"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:46.192303"
     },
     "6659": {
       "name": "天明製藥",
@@ -268992,8 +269016,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:30.878929"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:47.711087"
     },
     "6987": {
       "name": "寶晶能源*",
@@ -269098,8 +269122,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:32.504226"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:49.315062"
     },
     "6665": {
       "name": "康聯生醫",
@@ -269204,8 +269228,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-03T23:50:34.210394"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-07T19:19:50.929202"
     },
     "6878": {
       "name": "歐付寶",
@@ -269310,8 +269334,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-03T23:50:35.841323",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-07T19:19:52.824688",
+      "noDataStreak": 9
     },
     "6704": {
       "name": "國璽幹細胞",
@@ -269416,8 +269440,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:37.468196"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:19:54.362263"
     },
     "6536": {
       "name": "碩豐",
@@ -269631,8 +269655,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:39.117511"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:19:55.919999"
     },
     "7847": {
       "name": "豊漁",
@@ -269737,8 +269761,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:40.731344"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:19:58.280755"
     },
     "7748": {
       "name": "鑫囍創業",
@@ -269843,8 +269867,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:42.295504"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:19:59.972936"
     },
     "2252": {
       "name": "為昇科",
@@ -269949,8 +269973,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:43.818257"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:01.672021"
     },
     "6984": {
       "name": "ACpay",
@@ -270055,8 +270079,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:45.349368"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:03.308262"
     },
     "6565": {
       "name": "物聯",
@@ -270161,8 +270185,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:46.919489"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:04.862125"
     },
     "7590": {
       "name": "怡和國際",
@@ -270267,8 +270291,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:48.465235"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:06.535972"
     },
     "4431": {
       "name": "敏成健康",
@@ -270373,8 +270397,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:50.204175"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:08.115812"
     },
     "4732": {
       "name": "彥臣",
@@ -270479,8 +270503,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:51.744152"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:11.858134"
     },
     "6882": {
       "name": "甲尚",
@@ -270585,8 +270609,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:53.315215"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:13.432884"
     },
     "6559": {
       "name": "研晶",
@@ -270596,19 +270620,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 1.08,
+          "revenue": 2.0,
+          "netIncome": 0.3,
+          "operatingIncome": 0.0,
+          "operatingMargin": 2.2,
+          "fcf": 0.1,
+          "roe": 10.0,
+          "netMargin": 12.5,
+          "debtRatio": 11.7,
+          "updatedAt": "2026-08-07T19:20:16.540023",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.27,
+          "roeActual": 2.5
         },
         {
           "year": "2025",
@@ -270691,8 +270718,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:54.924220"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:16.540023"
     },
     "4553": {
       "name": "盛復",
@@ -270702,19 +270729,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 1.48,
+          "revenue": 22.8,
+          "netIncome": 0.5,
+          "operatingIncome": 0.5,
+          "operatingMargin": 2.4,
+          "fcf": 1.9,
+          "roe": 8.7,
+          "netMargin": 2.2,
+          "debtRatio": 66.0,
+          "updatedAt": "2026-08-07T19:20:19.116002",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.37,
+          "roeActual": 2.2
         },
         {
           "year": "2025",
@@ -270797,8 +270827,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:56.490218"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:19.116002"
     },
     "7724": {
       "name": "諾亞克",
@@ -270903,8 +270933,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:50:59.273337"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:21.413882"
     },
     "2255": {
       "name": "凱銳光電",
@@ -271009,8 +271039,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:01.185020"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:24.265746"
     },
     "6677": {
       "name": "瑩碩生技",
@@ -271115,8 +271145,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:03.414828"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:26.255210"
     },
     "7798": {
       "name": "將捷",
@@ -271221,8 +271251,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:04.936625"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:27.842819"
     },
     "6564": {
       "name": "安特羅",
@@ -271327,8 +271357,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:06.726141"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:29.811395"
     },
     "6744": {
       "name": "豐技生技",
@@ -271433,8 +271463,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:08.375382"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:32.297010"
     },
     "6876": {
       "name": "朗齊生醫*",
@@ -271539,8 +271569,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:10.071517"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:35.201805"
     },
     "6555": {
       "name": "榮炭",
@@ -271645,8 +271675,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:12.223827"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:37.051424"
     },
     "7850": {
       "name": "寶泰生醫",
@@ -271751,8 +271781,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:14.286096"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:39.217474"
     },
     "4765": {
       "name": "磐采",
@@ -271857,8 +271887,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:15.947325"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:43.045336"
     },
     "2761": {
       "name": "橘焱胡同",
@@ -271963,8 +271993,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:17.599644"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:44.598497"
     },
     "4170": {
       "name": "鑫品生醫",
@@ -272069,8 +272099,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:20.146573"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:46.360899"
     },
     "6648": {
       "name": "斯其大",
@@ -272175,8 +272205,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:22.965567"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:49.324344"
     },
     "6755": {
       "name": "連鋐科技",
@@ -272281,8 +272311,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:25.271346"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:50.956494"
     },
     "8458": {
       "name": "影一",
@@ -272387,8 +272417,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:27.129725"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:52.749292"
     },
     "6673": {
       "name": "和詮",
@@ -272493,8 +272523,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:28.829589"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:55.602339"
     },
     "3184": {
       "name": "微邦",
@@ -272504,19 +272534,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 2.12,
+          "revenue": 4.6,
+          "netIncome": 1.3,
+          "operatingIncome": 1.2,
+          "operatingMargin": 26.6,
+          "fcf": 1.6,
+          "roe": 19.8,
+          "netMargin": 28.9,
+          "debtRatio": 18.1,
+          "updatedAt": "2026-08-07T19:20:57.908222",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.53,
+          "roeActual": 4.9
         },
         {
           "year": "2025",
@@ -272599,8 +272632,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:30.695921"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:57.908222"
     },
     "4544": {
       "name": "春日",
@@ -272705,8 +272738,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:32.334556"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:20:59.759349"
     },
     "7745": {
       "name": "紅陽",
@@ -272811,8 +272844,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:34.000274"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:01.563214"
     },
     "6434": {
       "name": "達輝光電",
@@ -272917,8 +272950,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:35.613923"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:03.601522"
     },
     "5859": {
       "name": "遠壽",
@@ -273023,8 +273056,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-03T23:51:37.707847",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-07T19:21:05.165170",
+      "noDataStreak": 9
     },
     "6676": {
       "name": "祥翊",
@@ -273129,8 +273162,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:39.433943"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:06.825306"
     },
     "6797": {
       "name": "圓點奈米",
@@ -273235,8 +273268,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:40.957167"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:09.116964"
     },
     "7551": {
       "name": "知識科技",
@@ -273341,8 +273374,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:42.675542"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:11.929732"
     },
     "6976": {
       "name": "育世博-KY",
@@ -273447,8 +273480,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:44.268139"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:14.988537"
     },
     "6580": {
       "name": "台睿",
@@ -273553,8 +273586,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:45.908627"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:16.646232"
     },
     "2760": {
       "name": "巨宇翔",
@@ -273659,8 +273692,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:47.695650"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:18.888366"
     },
     "7779": {
       "name": "鍇睿國際",
@@ -273765,8 +273798,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:49.212386"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:21.256454"
     },
     "5271": {
       "name": "紘通",
@@ -273871,8 +273904,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:50.884783"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:23.453241"
     },
     "6839": {
       "name": "開陽能源",
@@ -273977,8 +274010,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-03T23:51:52.563040"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-07T19:21:26.205104"
     },
     "7832": {
       "name": "智新生技*",
@@ -274083,8 +274116,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:51:54.076008"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:27.816833"
     },
     "4172": {
       "name": "因華",
@@ -274189,8 +274222,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:51:55.946339"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:30.084087"
     },
     "6483": {
       "name": "原創生醫",
@@ -274295,8 +274328,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:51:57.627413"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:34.617544"
     },
     "6912": {
       "name": "益鈞環科*",
@@ -274401,8 +274434,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:51:59.197117"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:36.640588"
     },
     "6583": {
       "name": "友松",
@@ -274507,8 +274540,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:52:00.935241"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:40.794618"
     },
     "7764": {
       "name": "聖州",
@@ -274613,8 +274646,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:52:02.524515"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:42.809272"
     },
     "7566": {
       "name": "亞果遊艇",
@@ -274719,8 +274752,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:52:04.709415"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:44.642838"
     },
     "6027": {
       "name": "德信",
@@ -274825,8 +274858,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-03T23:52:06.295303",
-      "noDataStreak": 7
+      "lastAttemptAt": "2026-08-07T19:21:46.499899",
+      "noDataStreak": 8
     },
     "6621": {
       "name": "華宇藥",
@@ -274931,8 +274964,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-03T23:52:07.990676"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-07T19:21:48.447682"
     },
     "2733": {
       "name": "維格餅家",
@@ -275037,8 +275070,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 9,
-      "lastAttemptAt": "2026-08-02T23:12:03.194671"
+      "noDataStreak": 10,
+      "lastAttemptAt": "2026-08-07T19:21:50.129363"
     },
     "5863": {
       "name": "瑞興銀",
@@ -275143,8 +275176,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-02T23:12:05.215321",
-      "noDataStreak": 6
+      "lastAttemptAt": "2026-08-07T19:21:52.041179",
+      "noDataStreak": 7
     },
     "7575": {
       "name": "安美得",
@@ -275249,8 +275282,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 9,
-      "lastAttemptAt": "2026-08-02T23:12:07.176274"
+      "noDataStreak": 10,
+      "lastAttemptAt": "2026-08-07T19:21:53.666585"
     },
     "7784": {
       "name": "安邦生技*",
