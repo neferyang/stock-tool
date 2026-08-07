@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-07T16:23:02.280763",
+  "updatedAt": "2026-08-07T17:12:52.331941",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -17006,7 +17006,7 @@
           "roe": 15.1,
           "netMargin": 11.2,
           "debtRatio": 42.3,
-          "updatedAt": "2026-08-06T14:48:17.189188",
+          "updatedAt": "2026-08-07T17:07:49.501685",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實",
@@ -17025,7 +17025,7 @@
           "roe": 13.9,
           "netMargin": 11.3,
           "debtRatio": 42.4,
-          "updatedAt": "2026-08-06T14:48:17.189188",
+          "updatedAt": "2026-08-07T17:07:49.501685",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實",
@@ -17044,7 +17044,7 @@
           "roe": 14.1,
           "netMargin": 12.4,
           "debtRatio": 43.7,
-          "updatedAt": "2026-08-06T14:48:17.189188",
+          "updatedAt": "2026-08-07T17:07:49.501685",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實",
@@ -17095,7 +17095,7 @@
           "roe": 30.5,
           "netMargin": 20.4,
           "debtRatio": 48.6,
-          "updatedAt": "2026-08-06T14:48:17.189188",
+          "updatedAt": "2026-08-07T17:07:49.501685",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -17105,7 +17105,7 @@
         }
       ],
       "noDataStreak": 0,
-      "lastAttemptAt": "2026-08-06T14:48:17.189188"
+      "lastAttemptAt": "2026-08-07T17:07:49.501685"
     },
     "2542": {
       "name": "興富發",
