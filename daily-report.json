@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-08T13:52:12.917Z",
-  "date": "2026年08月08日（星期六）",
+  "lastUpdated": "2026-08-08T21:58:53.974Z",
+  "date": "2026年08月09日（星期日）",
   "basedOn": "2026年08月07日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -55,7 +55,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,768（08/08，▲0.19%）"
+        "VN-Index：1,768（08/09，▲0.19%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資匯入浪潮延續　新台幣連2升創逾半個月新高 - 經濟日報",
+      "title": "外資匯入浪潮延續 新台幣連2升創逾半個月新高 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1LOFlTUEh2ODEtRmF1dTFCbFR2VHNRdUd4UE5OMXoyeWxyYVdPc3k1Q1NNSVJhR09hQlVhcnRuWjJLQUtibmhCOEpWVGhOQ0xBSXp4OTZEekVJODFKS0FV0gFfQVVfeXFMTUs4WVNQSHY4MS1GYXV1MUJsVHZUc1F1R3hQTk4xejJ5bHJhV09zeTVDU01JUmFHT2FCVWFydG5aMktBS2JuaEI4SlZUaE5DTEFJeng5NkR6RUk4MUpLQVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBvSFR2U0hZc2plUUItTGFuUnpXaENDc3BXckdKTzFDT2JwUXF0RkxlclhWVmhQQnI3VWhxX0xNRVk2WFlDeFBwenVJY2V5V3Rvc19yTk5EODJnZ9IBX0FVX3lxTE45Tmpka1lQYVFsMDJoTXBDclVHUUhZd05RU2VOSl9HeDdhU3JEeUhaZGFLVnc2SjhsQ0swNVY5NE5aSzcxUHpBNVNtOVlzdy11TzNMV2RBUXVOY25qeW0w?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/9 上午5:58:53",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/8 下午9:52:12",
