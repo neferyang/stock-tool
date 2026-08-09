@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-09T16:59:30.553340",
+  "updatedAt": "2026-08-09T17:51:33.053634",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -27616,7 +27616,7 @@
           "roe": 14.1,
           "netMargin": 24.5,
           "debtRatio": 40.3,
-          "updatedAt": "2026-08-08T19:53:20.221156",
+          "updatedAt": "2026-08-09T17:50:42.649474",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -27625,8 +27625,8 @@
           "roeActual": 3.5
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:20.221156"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:42.649474"
     },
     "3324": {
       "name": "雙鴻",
@@ -32631,7 +32631,7 @@
           "roe": 13.5,
           "netMargin": 30.0,
           "debtRatio": 21.1,
-          "updatedAt": "2026-08-08T19:53:22.096780",
+          "updatedAt": "2026-08-09T17:50:44.524350",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -32640,8 +32640,8 @@
           "roeActual": 3.4
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:22.096780"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:44.524350"
     },
     "7795": {
       "name": "長廣",
@@ -32740,7 +32740,7 @@
           "roe": 2.3,
           "netMargin": 3.9,
           "debtRatio": 32.6,
-          "updatedAt": "2026-08-08T19:53:23.963675",
+          "updatedAt": "2026-08-09T17:50:46.038810",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -32749,8 +32749,8 @@
           "roeActual": 0.6
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:23.963675"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:46.038810"
     },
     "3596": {
       "name": "智易",
@@ -47476,7 +47476,7 @@
           "roe": 20.7,
           "netMargin": 18.4,
           "debtRatio": 52.0,
-          "updatedAt": "2026-08-08T19:53:25.833644",
+          "updatedAt": "2026-08-09T17:50:47.579539",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -47485,8 +47485,8 @@
           "roeActual": 5.2
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:25.833644"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:47.579539"
     },
     "7827": {
       "name": "漢康-KY創",
@@ -47585,7 +47585,7 @@
           "roe": -227.4,
           "netMargin": null,
           "debtRatio": 39.8,
-          "updatedAt": "2026-08-08T19:53:27.714625",
+          "updatedAt": "2026-08-09T17:50:49.471402",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -47594,8 +47594,8 @@
           "roeActual": -56.9
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:27.714625"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:49.471402"
     },
     "6456": {
       "name": "GIS-KY",
@@ -49524,7 +49524,7 @@
           "roe": 45.2,
           "netMargin": 7.8,
           "debtRatio": 66.0,
-          "updatedAt": "2026-08-08T19:52:49.079356",
+          "updatedAt": "2026-08-09T17:50:15.881350",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -49533,8 +49533,8 @@
           "roeActual": 22.6
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:49.079356"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:15.881350"
     },
     "3014": {
       "name": "聯陽",
@@ -60307,7 +60307,7 @@
           "roe": -9.5,
           "netMargin": -15.2,
           "debtRatio": 12.6,
-          "updatedAt": "2026-08-08T19:53:31.582237",
+          "updatedAt": "2026-08-09T17:50:52.576762",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -60316,8 +60316,8 @@
           "roeActual": -2.4
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:31.582237"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:52.576762"
     },
     "1304": {
       "name": "台聚",
@@ -62975,7 +62975,7 @@
           "roe": 28.0,
           "netMargin": 15.0,
           "debtRatio": 50.8,
-          "updatedAt": "2026-08-08T19:52:50.962336",
+          "updatedAt": "2026-08-09T17:50:17.440959",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -62984,8 +62984,8 @@
           "roeActual": 7.0
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:50.962336"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:17.440959"
     },
     "6175": {
       "name": "立敦",
@@ -65169,7 +65169,7 @@
           "roe": 5.8,
           "netMargin": 36.4,
           "debtRatio": 10.1,
-          "updatedAt": "2026-08-08T19:52:53.471880",
+          "updatedAt": "2026-08-09T17:50:19.116725",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -65178,8 +65178,8 @@
           "roeActual": 1.4
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:53.471880"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:19.116725"
     },
     "7744": {
       "name": "崴寶",
@@ -78021,7 +78021,7 @@
           "roe": 6.5,
           "netMargin": 4.7,
           "debtRatio": 44.1,
-          "updatedAt": "2026-08-08T19:52:55.371895",
+          "updatedAt": "2026-08-09T17:50:21.129618",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -78030,8 +78030,8 @@
           "roeActual": 1.6
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:55.371895"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:21.129618"
     },
     "6153": {
       "name": "嘉聯益",
@@ -82319,7 +82319,7 @@
           "roe": -29.9,
           "netMargin": null,
           "debtRatio": 6.6,
-          "updatedAt": "2026-08-08T19:52:57.415918",
+          "updatedAt": "2026-08-09T17:50:22.860488",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -82328,8 +82328,8 @@
           "roeActual": -7.5
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:57.415918"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:22.860488"
     },
     "2034": {
       "name": "允強",
@@ -84654,7 +84654,7 @@
           "roe": 16.8,
           "netMargin": 42.7,
           "debtRatio": 10.6,
-          "updatedAt": "2026-08-08T19:52:59.319404",
+          "updatedAt": "2026-08-09T17:50:24.369445",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -84663,8 +84663,8 @@
           "roeActual": 4.2
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:59.319404"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:24.369445"
     },
     "6790": {
       "name": "永豐實",
@@ -100409,7 +100409,7 @@
           "roe": -5.9,
           "netMargin": -14070.8,
           "debtRatio": 4.3,
-          "updatedAt": "2026-08-08T19:53:29.709607",
+          "updatedAt": "2026-08-09T17:50:51.023889",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -100418,8 +100418,8 @@
           "roeActual": -1.5
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:29.709607"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:51.023889"
     },
     "1809": {
       "name": "中釉",
@@ -103476,7 +103476,7 @@
           "roe": -8.8,
           "netMargin": 115.5,
           "debtRatio": 0.6,
-          "updatedAt": "2026-08-08T19:53:01.191550",
+          "updatedAt": "2026-08-09T17:50:25.882259",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -103485,8 +103485,8 @@
           "roeActual": -2.2
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:01.191550"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:25.882259"
     },
     "4142": {
       "name": "國光生",
@@ -109917,7 +109917,7 @@
           "roe": 3.1,
           "netMargin": 6.3,
           "debtRatio": 45.8,
-          "updatedAt": "2026-08-08T19:53:03.112365",
+          "updatedAt": "2026-08-09T17:50:27.461340",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -109926,8 +109926,8 @@
           "roeActual": 0.8
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:03.112365"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:27.461340"
     },
     "2536": {
       "name": "宏普",
@@ -123653,7 +123653,7 @@
           "roe": 7.4,
           "netMargin": 24.3,
           "debtRatio": 42.4,
-          "updatedAt": "2026-08-08T19:53:04.984272",
+          "updatedAt": "2026-08-09T17:50:29.137648",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -123662,8 +123662,8 @@
           "roeActual": 1.8
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:04.984272"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:29.137648"
     },
     "4726": {
       "name": "永昕",
@@ -125604,7 +125604,7 @@
           "roe": 11.7,
           "netMargin": 5.3,
           "debtRatio": 61.3,
-          "updatedAt": "2026-08-08T19:53:06.854932",
+          "updatedAt": "2026-08-09T17:50:30.667365",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -125613,8 +125613,8 @@
           "roeActual": 2.9
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:06.854932"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:30.667365"
     },
     "1460": {
       "name": "宏遠",
@@ -126820,7 +126820,7 @@
           "roe": 18.5,
           "netMargin": 3.8,
           "debtRatio": 71.1,
-          "updatedAt": "2026-08-08T19:53:08.716752",
+          "updatedAt": "2026-08-09T17:50:32.206566",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -126829,8 +126829,8 @@
           "roeActual": 4.6
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:08.716752"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:32.206566"
     },
     "1217": {
       "name": "愛之味",
@@ -135050,7 +135050,7 @@
           "roe": 14.5,
           "netMargin": 27.6,
           "debtRatio": 46.2,
-          "updatedAt": "2026-08-08T19:53:10.578629",
+          "updatedAt": "2026-08-09T17:50:33.704279",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -135059,8 +135059,8 @@
           "roeActual": 3.6
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:10.578629"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:33.704279"
     },
     "6546": {
       "name": "正基",
@@ -138235,7 +138235,7 @@
           "roe": 68.1,
           "netMargin": 25.8,
           "debtRatio": 36.5,
-          "updatedAt": "2026-08-08T19:53:12.607449",
+          "updatedAt": "2026-08-09T17:50:35.786412",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -138244,8 +138244,8 @@
           "roeActual": 17.0
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:12.607449"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:35.786412"
     },
     "2109": {
       "name": "華豐",
@@ -140301,7 +140301,7 @@
           "roe": -8.6,
           "netMargin": -41.4,
           "debtRatio": 45.7,
-          "updatedAt": "2026-08-08T19:53:14.477704",
+          "updatedAt": "2026-08-09T17:50:37.293174",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -140310,8 +140310,8 @@
           "roeActual": -2.2
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:14.477704"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:37.293174"
     },
     "8104": {
       "name": "錸寶",
@@ -161697,7 +161697,7 @@
           "roe": -35.0,
           "netMargin": -1359.1,
           "debtRatio": 19.4,
-          "updatedAt": "2026-08-08T19:53:16.467725",
+          "updatedAt": "2026-08-09T17:50:38.788873",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -161706,8 +161706,8 @@
           "roeActual": -8.8
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:16.467725"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:38.788873"
     },
     "7631": {
       "name": "聚賢研發-創",
@@ -163651,7 +163651,7 @@
           "roe": -3.6,
           "netMargin": -5.4,
           "debtRatio": 36.5,
-          "updatedAt": "2026-08-08T19:53:33.437192",
+          "updatedAt": "2026-08-09T17:50:54.147668",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -163740,8 +163740,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:33.437192"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:54.147668"
     },
     "3570": {
       "name": "大塚",
@@ -166205,7 +166205,7 @@
           "roe": 4.9,
           "netMargin": 8.8,
           "debtRatio": 39.1,
-          "updatedAt": "2026-08-08T19:53:35.304651",
+          "updatedAt": "2026-08-09T17:50:55.836997",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -166294,8 +166294,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:35.304651"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:55.836997"
     },
     "6855": {
       "name": "數泓科",
@@ -173886,7 +173886,7 @@
           "roe": 23.4,
           "netMargin": 32.8,
           "debtRatio": 16.4,
-          "updatedAt": "2026-08-08T19:53:37.268376",
+          "updatedAt": "2026-08-09T17:50:57.461917",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -173975,8 +173975,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:37.268376"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:57.461917"
     },
     "3466": {
       "name": "德晉",
@@ -174243,7 +174243,7 @@
           "roe": 6.2,
           "netMargin": 5.0,
           "debtRatio": 29.5,
-          "updatedAt": "2026-08-08T19:53:39.131339",
+          "updatedAt": "2026-08-09T17:50:58.966864",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -174332,8 +174332,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:39.131339"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:58.966864"
     },
     "6796": {
       "name": "晉弘",
@@ -179252,7 +179252,7 @@
           "roe": 8.8,
           "netMargin": 10.6,
           "debtRatio": 57.4,
-          "updatedAt": "2026-08-08T19:53:41.007705",
+          "updatedAt": "2026-08-09T17:51:00.470866",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -179341,8 +179341,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:41.007705"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:00.470866"
     },
     "4414": {
       "name": "如興",
@@ -182012,7 +182012,7 @@
           "roe": -51.6,
           "netMargin": -642.4,
           "debtRatio": 13.1,
-          "updatedAt": "2026-08-08T19:53:42.900264",
+          "updatedAt": "2026-08-09T17:51:02.083074",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -182101,8 +182101,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:42.900264"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:02.083074"
     },
     "2949": {
       "name": "欣新網",
@@ -182239,7 +182239,7 @@
           "roe": -12.3,
           "netMargin": -30.2,
           "debtRatio": 5.2,
-          "updatedAt": "2026-08-08T19:53:44.842526",
+          "updatedAt": "2026-08-09T17:51:03.581656",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -182328,8 +182328,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:44.842526"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:03.581656"
     },
     "3171": {
       "name": "炎洲流通",
@@ -183703,7 +183703,7 @@
           "roe": 14.2,
           "netMargin": 37.8,
           "debtRatio": 9.5,
-          "updatedAt": "2026-08-08T19:53:46.850366",
+          "updatedAt": "2026-08-09T17:51:05.306086",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -183792,8 +183792,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:46.850366"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:05.306086"
     },
     "1587": {
       "name": "吉茂",
@@ -184677,7 +184677,7 @@
           "roe": 11.4,
           "netMargin": 14.6,
           "debtRatio": 68.4,
-          "updatedAt": "2026-08-08T19:53:48.934185",
+          "updatedAt": "2026-08-09T17:51:07.093160",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -184766,8 +184766,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:48.934185"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:07.093160"
     },
     "6151": {
       "name": "晉倫",
@@ -204186,7 +204186,7 @@
           "roe": 19.0,
           "netMargin": 4.1,
           "debtRatio": 28.4,
-          "updatedAt": "2026-08-08T19:53:51.214852",
+          "updatedAt": "2026-08-09T17:51:08.596623",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -204275,8 +204275,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:51.214852"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:08.596623"
     },
     "3164": {
       "name": "景岳",
@@ -206996,7 +206996,7 @@
           "roe": -35.8,
           "netMargin": -31.5,
           "debtRatio": 59.7,
-          "updatedAt": "2026-08-08T19:53:53.384397",
+          "updatedAt": "2026-08-09T17:51:10.356083",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -207085,8 +207085,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:53.384397"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:10.356083"
     },
     "5543": {
       "name": "桓鼎-KY",
@@ -207477,7 +207477,7 @@
           "roe": -2.1,
           "netMargin": -0.9,
           "debtRatio": 42.3,
-          "updatedAt": "2026-08-08T19:51:34.272835",
+          "updatedAt": "2026-08-09T17:49:11.271151",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -207566,8 +207566,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:34.272835"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:11.271151"
     },
     "4173": {
       "name": "久裕",
@@ -211507,7 +211507,7 @@
           "roe": -3.2,
           "netMargin": -9.9,
           "debtRatio": 6.2,
-          "updatedAt": "2026-08-08T19:51:36.141779",
+          "updatedAt": "2026-08-09T17:49:12.823331",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -211596,8 +211596,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:36.141779"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:12.823331"
     },
     "6856": {
       "name": "鑫傳",
@@ -214556,7 +214556,7 @@
           "roe": 95.9,
           "netMargin": 31.5,
           "debtRatio": 65.1,
-          "updatedAt": "2026-08-08T19:51:38.120083",
+          "updatedAt": "2026-08-09T17:49:14.448024",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -214645,8 +214645,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:38.120083"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:14.448024"
     },
     "6560": {
       "name": "欣普羅",
@@ -224132,7 +224132,7 @@
           "roe": 3.6,
           "netMargin": 5.5,
           "debtRatio": 23.1,
-          "updatedAt": "2026-08-08T19:51:40.013176",
+          "updatedAt": "2026-08-09T17:49:16.013413",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -224221,8 +224221,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:40.013176"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:16.013413"
     },
     "2736": {
       "name": "富野",
@@ -227795,7 +227795,7 @@
           "roe": 15.0,
           "netMargin": 5.8,
           "debtRatio": 62.3,
-          "updatedAt": "2026-08-08T19:51:41.877529",
+          "updatedAt": "2026-08-09T17:49:17.657218",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -227884,8 +227884,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:41.877529"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:17.657218"
     },
     "3085": {
       "name": "新零售",
@@ -234026,7 +234026,7 @@
           "roe": 23.8,
           "netMargin": 44.8,
           "debtRatio": 29.6,
-          "updatedAt": "2026-08-08T19:51:43.746524",
+          "updatedAt": "2026-08-09T17:49:19.382546",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -234115,8 +234115,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:43.746524"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:19.382546"
     },
     "5211": {
       "name": "蒙恬",
@@ -234259,7 +234259,7 @@
           "roe": 21.3,
           "netMargin": 22.7,
           "debtRatio": 18.8,
-          "updatedAt": "2026-08-08T19:51:45.623279",
+          "updatedAt": "2026-08-09T17:49:20.959458",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -234348,8 +234348,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:45.623279"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:20.959458"
     },
     "3623": {
       "name": "富晶通",
@@ -234988,7 +234988,7 @@
           "roe": 27.6,
           "netMargin": 3.7,
           "debtRatio": 59.1,
-          "updatedAt": "2026-08-08T19:53:57.205012",
+          "updatedAt": "2026-08-09T17:51:15.269351",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -235077,8 +235077,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:53:57.205012",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-09T17:51:15.269351",
+      "noDataStreak": 9
     },
     "7842": {
       "name": "天能綠電",
@@ -235097,7 +235097,7 @@
           "roe": 19.1,
           "netMargin": 2.8,
           "debtRatio": 57.2,
-          "updatedAt": "2026-08-08T19:51:47.512861",
+          "updatedAt": "2026-08-09T17:49:22.648048",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -235186,8 +235186,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:47.512861"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:22.648048"
     },
     "5212": {
       "name": "凌網",
@@ -238945,7 +238945,7 @@
           "roe": 107.6,
           "netMargin": 43.2,
           "debtRatio": 20.4,
-          "updatedAt": "2026-08-08T19:54:16.542775",
+          "updatedAt": "2026-08-09T17:51:30.984508",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -239034,8 +239034,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 21,
-      "lastAttemptAt": "2026-08-08T19:54:16.542775"
+      "noDataStreak": 22,
+      "lastAttemptAt": "2026-08-09T17:51:30.984508"
     },
     "2941": {
       "name": "米斯特",
@@ -241653,7 +241653,7 @@
           "roe": 28.1,
           "netMargin": 12.9,
           "debtRatio": 54.1,
-          "updatedAt": "2026-08-08T19:51:49.468024",
+          "updatedAt": "2026-08-09T17:49:24.495606",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -241742,8 +241742,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:49.468024"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:24.495606"
     },
     "4924": {
       "name": "欣厚-KY",
@@ -242010,7 +242010,7 @@
           "roe": 121.6,
           "netMargin": 36.6,
           "debtRatio": 27.1,
-          "updatedAt": "2026-08-08T19:54:18.423835",
+          "updatedAt": "2026-08-09T17:51:32.653144",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -242099,8 +242099,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 21,
-      "lastAttemptAt": "2026-08-08T19:54:18.423835"
+      "noDataStreak": 22,
+      "lastAttemptAt": "2026-08-09T17:51:32.653144"
     },
     "3067": {
       "name": "全域",
@@ -242243,7 +242243,7 @@
           "roe": 25.3,
           "netMargin": 17.6,
           "debtRatio": 51.8,
-          "updatedAt": "2026-08-08T19:51:51.342679",
+          "updatedAt": "2026-08-09T17:49:26.156003",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -242332,8 +242332,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:51.342679"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:26.156003"
     },
     "4529": {
       "name": "淳紳",
@@ -244334,7 +244334,7 @@
           "roe": 93.7,
           "netMargin": 15.2,
           "debtRatio": 57.5,
-          "updatedAt": "2026-08-08T19:54:02.002620",
+          "updatedAt": "2026-08-09T17:51:18.663514",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -244423,8 +244423,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 17,
-      "lastAttemptAt": "2026-08-08T19:54:02.002620"
+      "noDataStreak": 18,
+      "lastAttemptAt": "2026-08-09T17:51:18.663514"
     },
     "5348": {
       "name": "正能量智能",
@@ -244567,7 +244567,7 @@
           "roe": 38.5,
           "netMargin": 8.8,
           "debtRatio": 69.8,
-          "updatedAt": "2026-08-08T19:51:53.376794",
+          "updatedAt": "2026-08-09T17:49:27.822433",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -244656,8 +244656,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:53.376794"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:27.822433"
     },
     "4609": {
       "name": "唐鋒",
@@ -245242,7 +245242,7 @@
           "roe": 44.2,
           "netMargin": 13.4,
           "debtRatio": 73.1,
-          "updatedAt": "2026-08-08T19:51:55.366708",
+          "updatedAt": "2026-08-09T17:49:29.522105",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -245331,8 +245331,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:55.366708"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:29.522105"
     },
     "6977": {
       "name": "聯純",
@@ -245881,7 +245881,7 @@
           "roe": 40.1,
           "netMargin": 33.6,
           "debtRatio": 23.4,
-          "updatedAt": "2026-08-08T19:54:00.140537",
+          "updatedAt": "2026-08-09T17:51:17.074893",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -245970,8 +245970,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-08T19:54:00.140537"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-09T17:51:17.074893"
     },
     "6990": {
       "name": "華鉬",
@@ -246202,7 +246202,7 @@
           "roe": 10.7,
           "netMargin": 8.9,
           "debtRatio": 64.8,
-          "updatedAt": "2026-08-08T19:51:57.808672",
+          "updatedAt": "2026-08-09T17:49:31.094888",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -246291,8 +246291,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:57.808672"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:31.094888"
     },
     "7858": {
       "name": "芝普",
@@ -246947,7 +246947,7 @@
           "roe": 17.7,
           "netMargin": 18.7,
           "debtRatio": 27.7,
-          "updatedAt": "2026-08-08T19:51:59.678905",
+          "updatedAt": "2026-08-09T17:49:32.738514",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -247036,8 +247036,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:59.678905"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:32.738514"
     },
     "7931": {
       "name": "續升綠能",
@@ -247586,7 +247586,7 @@
           "roe": 42.5,
           "netMargin": 39.4,
           "debtRatio": 48.9,
-          "updatedAt": "2026-08-08T19:52:01.723415",
+          "updatedAt": "2026-08-09T17:49:34.461121",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -247675,8 +247675,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:01.723415"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:34.461121"
     },
     "7813": {
       "name": "宇辰系統",
@@ -248013,7 +248013,7 @@
           "roe": 33.6,
           "netMargin": 1.9,
           "debtRatio": 79.2,
-          "updatedAt": "2026-08-08T19:54:08.129980",
+          "updatedAt": "2026-08-09T17:51:23.585929",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248102,8 +248102,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 18,
-      "lastAttemptAt": "2026-08-08T19:54:08.129980"
+      "noDataStreak": 19,
+      "lastAttemptAt": "2026-08-09T17:51:23.585929"
     },
     "6959": {
       "name": "兆捷科技",
@@ -248122,7 +248122,7 @@
           "roe": -7.2,
           "netMargin": -17.6,
           "debtRatio": 30.8,
-          "updatedAt": "2026-08-08T19:52:03.624464",
+          "updatedAt": "2026-08-09T17:49:36.301739",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248211,8 +248211,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:03.624464"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:36.301739"
     },
     "7707": {
       "name": "益芯科",
@@ -248231,7 +248231,7 @@
           "roe": 9.2,
           "netMargin": 3.1,
           "debtRatio": 41.1,
-          "updatedAt": "2026-08-08T19:51:22.558628",
+          "updatedAt": "2026-08-09T17:48:36.861515",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248266,7 +248266,7 @@
           "roe": 26.1,
           "netMargin": 25.6,
           "debtRatio": 31.9,
-          "updatedAt": "2026-08-08T19:51:22.558628",
+          "updatedAt": "2026-08-09T17:48:36.861515",
           "source": "FinMind",
           "isEstimate": false,
           "dataType": "真實",
@@ -248323,8 +248323,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:51:22.558628"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:48:36.861515"
     },
     "7911": {
       "name": "阿波羅電力",
@@ -248449,7 +248449,7 @@
           "roe": -69.2,
           "netMargin": -50.1,
           "debtRatio": 35.0,
-          "updatedAt": "2026-08-08T19:54:12.596733",
+          "updatedAt": "2026-08-09T17:51:26.843276",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248538,8 +248538,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 19,
-      "lastAttemptAt": "2026-08-08T19:54:12.596733"
+      "noDataStreak": 20,
+      "lastAttemptAt": "2026-08-09T17:51:26.843276"
     },
     "6467": {
       "name": "泰合",
@@ -248558,7 +248558,7 @@
           "roe": -44.2,
           "netMargin": -477133.3,
           "debtRatio": 5.8,
-          "updatedAt": "2026-08-08T19:52:05.910525",
+          "updatedAt": "2026-08-09T17:49:37.965616",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248647,8 +248647,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:05.910525"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:37.965616"
     },
     "7890": {
       "name": "明曜科技",
@@ -248773,7 +248773,7 @@
           "roe": 32.9,
           "netMargin": 31.3,
           "debtRatio": 15.6,
-          "updatedAt": "2026-08-08T19:52:07.791019",
+          "updatedAt": "2026-08-09T17:49:39.611051",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248862,8 +248862,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:07.791019"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:39.611051"
     },
     "7801": {
       "name": "華芸科技",
@@ -248882,7 +248882,7 @@
           "roe": 24.9,
           "netMargin": 13.1,
           "debtRatio": 47.3,
-          "updatedAt": "2026-08-08T19:52:09.666142",
+          "updatedAt": "2026-08-09T17:49:41.295692",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -248971,8 +248971,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:09.666142"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:41.295692"
     },
     "7922": {
       "name": "源點*",
@@ -249097,7 +249097,7 @@
           "roe": 28.8,
           "netMargin": 14.5,
           "debtRatio": 35.0,
-          "updatedAt": "2026-08-08T19:52:11.695792",
+          "updatedAt": "2026-08-09T17:49:44.080988",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -249186,8 +249186,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:11.695792"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:44.080988"
     },
     "7855": {
       "name": "和運租車",
@@ -249206,7 +249206,7 @@
           "roe": 16.7,
           "netMargin": 3.4,
           "debtRatio": 89.8,
-          "updatedAt": "2026-08-08T19:52:14.155206",
+          "updatedAt": "2026-08-09T17:49:45.697652",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -249295,8 +249295,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:14.155206"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:45.697652"
     },
     "4546": {
       "name": "長亨",
@@ -249633,7 +249633,7 @@
           "roe": 28.1,
           "netMargin": 12.6,
           "debtRatio": 57.7,
-          "updatedAt": "2026-08-08T19:52:16.264917",
+          "updatedAt": "2026-08-09T17:49:47.394540",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -249722,8 +249722,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:16.264917"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:47.394540"
     },
     "8058": {
       "name": "耐特",
@@ -249742,7 +249742,7 @@
           "roe": 14.1,
           "netMargin": 8.0,
           "debtRatio": 49.4,
-          "updatedAt": "2026-08-08T19:53:18.356137",
+          "updatedAt": "2026-08-09T17:50:41.010894",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -249831,8 +249831,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:18.356137"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:41.010894"
     },
     "6857": {
       "name": "宏碁智醫",
@@ -249851,7 +249851,7 @@
           "roe": -23.5,
           "netMargin": -22.6,
           "debtRatio": 18.5,
-          "updatedAt": "2026-08-08T19:54:14.611432",
+          "updatedAt": "2026-08-09T17:51:28.934649",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -249940,8 +249940,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 19,
-      "lastAttemptAt": "2026-08-08T19:54:14.611432"
+      "noDataStreak": 20,
+      "lastAttemptAt": "2026-08-09T17:51:28.934649"
     },
     "5246": {
       "name": "勵威",
@@ -250066,7 +250066,7 @@
           "roe": -59.6,
           "netMargin": -54.1,
           "debtRatio": 45.3,
-          "updatedAt": "2026-08-08T17:00:06.364190",
+          "updatedAt": "2026-08-09T17:48:39.641367",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -250155,8 +250155,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 20,
-      "lastAttemptAt": "2026-08-08T17:00:06.364190"
+      "noDataStreak": 21,
+      "lastAttemptAt": "2026-08-09T17:48:39.641367"
     },
     "6705": {
       "name": "振躍精密",
@@ -250281,7 +250281,7 @@
           "roe": 15.3,
           "netMargin": 11.6,
           "debtRatio": 34.7,
-          "updatedAt": "2026-08-08T19:52:18.173128",
+          "updatedAt": "2026-08-09T17:49:49.002593",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -250370,8 +250370,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:18.173128"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:49.002593"
     },
     "7921": {
       "name": "台普威",
@@ -250602,7 +250602,7 @@
           "roe": 26.6,
           "netMargin": 11.8,
           "debtRatio": 52.3,
-          "updatedAt": "2026-08-08T19:52:20.501294",
+          "updatedAt": "2026-08-09T17:49:50.758203",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -250691,8 +250691,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:20.501294"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:50.758203"
     },
     "2644": {
       "name": "中信造船",
@@ -250711,7 +250711,7 @@
           "roe": 6.4,
           "netMargin": 0.7,
           "debtRatio": 86.8,
-          "updatedAt": "2026-08-08T17:00:08.478045",
+          "updatedAt": "2026-08-09T17:48:41.618076",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -250800,8 +250800,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 20,
-      "lastAttemptAt": "2026-08-08T17:00:08.478045"
+      "noDataStreak": 21,
+      "lastAttemptAt": "2026-08-09T17:48:41.618076"
     },
     "7860": {
       "name": "得生製藥",
@@ -250820,7 +250820,7 @@
           "roe": 7.7,
           "netMargin": 5.8,
           "debtRatio": 23.3,
-          "updatedAt": "2026-08-08T17:00:11.154906",
+          "updatedAt": "2026-08-09T17:48:43.335488",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -250909,8 +250909,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 20,
-      "lastAttemptAt": "2026-08-08T17:00:11.154906"
+      "noDataStreak": 21,
+      "lastAttemptAt": "2026-08-09T17:48:43.335488"
     },
     "7871": {
       "name": "安立璽榮-KY",
@@ -251035,7 +251035,7 @@
           "roe": 11.9,
           "netMargin": 15.9,
           "debtRatio": 71.6,
-          "updatedAt": "2026-08-08T19:52:22.814378",
+          "updatedAt": "2026-08-09T17:49:52.571004",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -251124,8 +251124,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:22.814378"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:52.571004"
     },
     "6920": {
       "name": "恆勁科技",
@@ -251462,7 +251462,7 @@
           "roe": 15.5,
           "netMargin": 8.7,
           "debtRatio": 50.1,
-          "updatedAt": "2026-08-08T19:52:24.991431",
+          "updatedAt": "2026-08-09T17:49:54.191432",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -251551,8 +251551,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:24.991431"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:54.191432"
     },
     "6847": {
       "name": "普瑞博",
@@ -251677,7 +251677,7 @@
           "roe": 16.0,
           "netMargin": 18.1,
           "debtRatio": 37.4,
-          "updatedAt": "2026-08-08T19:53:55.322295",
+          "updatedAt": "2026-08-09T17:51:12.154576",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -251766,8 +251766,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:53:55.322295"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:51:12.154576"
     },
     "6927": {
       "name": "聯合聚晶",
@@ -252952,7 +252952,7 @@
           "roe": 67.4,
           "netMargin": 23.0,
           "debtRatio": 46.2,
-          "updatedAt": "2026-08-08T17:00:14.357544",
+          "updatedAt": "2026-08-09T17:48:44.850613",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -253041,8 +253041,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 18,
-      "lastAttemptAt": "2026-08-08T17:00:14.357544"
+      "noDataStreak": 19,
+      "lastAttemptAt": "2026-08-09T17:48:44.850613"
     },
     "7427": {
       "name": "華上生醫",
@@ -253591,7 +253591,7 @@
           "roe": -58.7,
           "netMargin": -563.0,
           "debtRatio": 6.9,
-          "updatedAt": "2026-08-08T17:00:16.982636",
+          "updatedAt": "2026-08-09T17:48:46.461008",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -253680,8 +253680,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-08T17:00:16.982636"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-09T17:48:46.461008"
     },
     "7562": {
       "name": "博來科技",
@@ -253700,7 +253700,7 @@
           "roe": 22.5,
           "netMargin": 12.2,
           "debtRatio": 40.2,
-          "updatedAt": "2026-08-08T19:51:32.209370",
+          "updatedAt": "2026-08-09T17:49:09.416416",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -253789,8 +253789,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:51:32.209370"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:49:09.416416"
     },
     "6812": {
       "name": "梭特",
@@ -253915,7 +253915,7 @@
           "roe": 8.0,
           "netMargin": 11.3,
           "debtRatio": 30.3,
-          "updatedAt": "2026-08-08T19:52:26.864501",
+          "updatedAt": "2026-08-09T17:49:55.868741",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -254004,8 +254004,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:26.864501"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:55.868741"
     },
     "1271": {
       "name": "晨暉生技",
@@ -254130,7 +254130,7 @@
           "roe": 15.4,
           "netMargin": 1.5,
           "debtRatio": 76.3,
-          "updatedAt": "2026-08-08T19:52:29.013882",
+          "updatedAt": "2026-08-09T17:49:57.640200",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -254219,8 +254219,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:29.013882"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:57.640200"
     },
     "2256": {
       "name": "歐特明",
@@ -255193,7 +255193,7 @@
           "roe": 18.6,
           "netMargin": 5.6,
           "debtRatio": 72.2,
-          "updatedAt": "2026-08-08T19:52:32.877409",
+          "updatedAt": "2026-08-09T17:50:00.848277",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -255282,8 +255282,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:32.877409"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:00.848277"
     },
     "6035": {
       "name": "悠遊卡",
@@ -256256,7 +256256,7 @@
           "roe": 0.7,
           "netMargin": 1.4,
           "debtRatio": 8.4,
-          "updatedAt": "2026-08-08T17:00:19.122451",
+          "updatedAt": "2026-08-09T17:48:48.078775",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -256345,8 +256345,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:19.122451"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:48.078775"
     },
     "7872": {
       "name": "登豐",
@@ -256365,7 +256365,7 @@
           "roe": 20.0,
           "netMargin": 12.8,
           "debtRatio": 21.9,
-          "updatedAt": "2026-08-08T19:54:04.087857",
+          "updatedAt": "2026-08-09T17:51:20.262553",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -256454,8 +256454,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T19:54:04.087857"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:51:20.262553"
     },
     "7719": {
       "name": "碳基",
@@ -258594,7 +258594,7 @@
           "roe": 13.2,
           "netMargin": 11.9,
           "debtRatio": 20.4,
-          "updatedAt": "2026-08-08T19:52:34.846965",
+          "updatedAt": "2026-08-09T17:50:02.446629",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -258683,8 +258683,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:34.846965"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:02.446629"
     },
     "5262": {
       "name": "立達",
@@ -259030,7 +259030,7 @@
           "roe": 10.2,
           "netMargin": 2.1,
           "debtRatio": 46.2,
-          "updatedAt": "2026-08-08T19:52:36.724422",
+          "updatedAt": "2026-08-09T17:50:04.183206",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -259119,8 +259119,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:36.724422"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:04.183206"
     },
     "6819": {
       "name": "眾智",
@@ -259563,7 +259563,7 @@
           "roe": 39.9,
           "netMargin": 15.6,
           "debtRatio": 66.8,
-          "updatedAt": "2026-08-08T19:52:38.892927",
+          "updatedAt": "2026-08-09T17:50:06.381256",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -259652,8 +259652,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:38.892927"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:06.381256"
     },
     "6808": {
       "name": "三鼎生技",
@@ -259990,7 +259990,7 @@
           "roe": 11.0,
           "netMargin": 2.5,
           "debtRatio": 39.1,
-          "updatedAt": "2026-08-08T19:54:06.195005",
+          "updatedAt": "2026-08-09T17:51:21.889929",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -260079,8 +260079,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T19:54:06.195005"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:51:21.889929"
     },
     "5248": {
       "name": "景傳",
@@ -260311,7 +260311,7 @@
           "roe": 22.8,
           "netMargin": 14.7,
           "debtRatio": 22.5,
-          "updatedAt": "2026-08-08T17:00:21.227981",
+          "updatedAt": "2026-08-09T17:48:49.681869",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -260400,8 +260400,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:21.227981"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:49.681869"
     },
     "7829": {
       "name": "思捷優達-KY",
@@ -260526,7 +260526,7 @@
           "roe": -20.9,
           "netMargin": -19.7,
           "debtRatio": 51.8,
-          "updatedAt": "2026-08-08T19:52:40.838079",
+          "updatedAt": "2026-08-09T17:50:08.067874",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -260615,8 +260615,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:40.838079"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:08.067874"
     },
     "6493": {
       "name": "雷虎生",
@@ -261165,7 +261165,7 @@
           "roe": 9.4,
           "netMargin": 6.0,
           "debtRatio": 49.8,
-          "updatedAt": "2026-08-08T19:52:42.722723",
+          "updatedAt": "2026-08-09T17:50:09.673595",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -261254,8 +261254,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:42.722723"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:09.673595"
     },
     "7530": {
       "name": "鋒魁科技",
@@ -261698,7 +261698,7 @@
           "roe": 24.3,
           "netMargin": 10.2,
           "debtRatio": 45.0,
-          "updatedAt": "2026-08-08T17:00:23.233608",
+          "updatedAt": "2026-08-09T17:48:51.352599",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -261787,8 +261787,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:23.233608"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:51.352599"
     },
     "6917": {
       "name": "竟天",
@@ -261913,7 +261913,7 @@
           "roe": 5.7,
           "netMargin": 11.1,
           "debtRatio": 10.8,
-          "updatedAt": "2026-08-08T17:00:25.456692",
+          "updatedAt": "2026-08-09T17:48:53.039402",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -262002,8 +262002,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:25.456692"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:53.039402"
     },
     "6604": {
       "name": "儒億",
@@ -262022,7 +262022,7 @@
           "roe": 27.9,
           "netMargin": 12.8,
           "debtRatio": 67.2,
-          "updatedAt": "2026-08-08T19:52:44.787439",
+          "updatedAt": "2026-08-09T17:50:11.415715",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -262111,8 +262111,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:44.787439"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:11.415715"
     },
     "7902": {
       "name": "宇越生醫*",
@@ -262661,7 +262661,7 @@
           "roe": 25.3,
           "netMargin": 9.1,
           "debtRatio": 38.3,
-          "updatedAt": "2026-08-08T19:51:26.373324",
+          "updatedAt": "2026-08-09T17:49:04.323330",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -262750,8 +262750,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T19:51:26.373324"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:49:04.323330"
     },
     "7759": {
       "name": "視航生醫",
@@ -266268,7 +266268,7 @@
           "roe": 6.5,
           "netMargin": 6.2,
           "debtRatio": 55.5,
-          "updatedAt": "2026-08-08T19:52:47.006582",
+          "updatedAt": "2026-08-09T17:50:14.178342",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -266357,8 +266357,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:47.006582"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:50:14.178342"
     },
     "6963": {
       "name": "品元",
@@ -267225,7 +267225,7 @@
           "roe": 13.0,
           "netMargin": 0.6,
           "debtRatio": 75.9,
-          "updatedAt": "2026-08-08T17:00:27.949227",
+          "updatedAt": "2026-08-09T17:48:54.597909",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -267314,8 +267314,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:27.949227"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:54.597909"
     },
     "6833": {
       "name": "太康精密",
@@ -267440,7 +267440,7 @@
           "roe": 7.7,
           "netMargin": 5.1,
           "debtRatio": 57.7,
-          "updatedAt": "2026-08-08T17:00:31.398647",
+          "updatedAt": "2026-08-09T17:48:56.166554",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -267529,8 +267529,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-08T17:00:31.398647"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-09T17:48:56.166554"
     },
     "6940": {
       "name": "格斯科技*",
@@ -268397,7 +268397,7 @@
           "roe": -2.8,
           "netMargin": -1.2,
           "debtRatio": 52.8,
-          "updatedAt": "2026-08-08T19:54:10.232503",
+          "updatedAt": "2026-08-09T17:51:25.214181",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -268486,8 +268486,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T19:54:10.232503"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:51:25.214181"
     },
     "6618": {
       "name": "永虹先進",
@@ -269460,7 +269460,7 @@
           "roe": 8.3,
           "netMargin": 5.3,
           "debtRatio": 19.3,
-          "updatedAt": "2026-08-08T19:51:28.442207",
+          "updatedAt": "2026-08-09T17:49:05.959079",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -269549,8 +269549,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 12,
-      "lastAttemptAt": "2026-08-08T19:51:28.442207"
+      "noDataStreak": 13,
+      "lastAttemptAt": "2026-08-09T17:49:05.959079"
     },
     "6543": {
       "name": "普惠醫工",
@@ -270629,7 +270629,7 @@
           "roe": 10.0,
           "netMargin": 12.5,
           "debtRatio": 11.7,
-          "updatedAt": "2026-08-08T17:00:33.361117",
+          "updatedAt": "2026-08-09T17:48:57.742764",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -270718,8 +270718,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T17:00:33.361117"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:48:57.742764"
     },
     "4553": {
       "name": "盛復",
@@ -270738,7 +270738,7 @@
           "roe": 8.7,
           "netMargin": 2.2,
           "debtRatio": 66.0,
-          "updatedAt": "2026-08-08T17:00:35.899170",
+          "updatedAt": "2026-08-09T17:48:59.356860",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -270827,8 +270827,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T17:00:35.899170"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:48:59.356860"
     },
     "7724": {
       "name": "諾亞克",
@@ -272543,7 +272543,7 @@
           "roe": 19.8,
           "netMargin": 28.9,
           "debtRatio": 18.1,
-          "updatedAt": "2026-08-08T17:00:38.882849",
+          "updatedAt": "2026-08-09T17:49:00.892831",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -272632,8 +272632,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 13,
-      "lastAttemptAt": "2026-08-08T17:00:38.882849"
+      "noDataStreak": 14,
+      "lastAttemptAt": "2026-08-09T17:49:00.892831"
     },
     "4544": {
       "name": "春日",
@@ -276872,8 +276872,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:15.377944"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:39.380612"
     },
     "1594": {
       "name": "日高",
@@ -276978,8 +276978,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:17.364647"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:41.032840"
     },
     "7834": {
       "name": "來毅數位",
@@ -277084,8 +277084,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:19.244613"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:42.704110"
     },
     "4115": {
       "name": "善德生技",
@@ -277190,8 +277190,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:21.119041"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:44.872382"
     },
     "3603": {
       "name": "建祥國際",
@@ -277296,8 +277296,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:23.036001"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:46.567572"
     },
     "6473": {
       "name": "美賣*",
@@ -277402,8 +277402,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:24.942615"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:48.153985"
     },
     "6622": {
       "name": "百聿數碼",
@@ -277508,8 +277508,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:26.889129"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:49.756862"
     },
     "6549": {
       "name": "景凱",
@@ -277614,8 +277614,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:28.887487"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:51.305189"
     },
     "6734": {
       "name": "安盛生",
@@ -277720,8 +277720,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:30.909212"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:52.919990"
     },
     "4194": {
       "name": "禾生技",
@@ -277826,8 +277826,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:32.800813"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:55.462971"
     },
     "4738": {
       "name": "大同精化",
@@ -277932,8 +277932,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:34.817539"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:57.029340"
     },
     "6639": {
       "name": "源大環能",
@@ -278038,8 +278038,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:36.736589"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:47:58.666178"
     },
     "9957": {
       "name": "燁聯",
@@ -278144,8 +278144,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:38.655167"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:00.285857"
     },
     "6793": {
       "name": "天力離岸",
@@ -278250,8 +278250,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:40.690985"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:02.468023"
     },
     "6932": {
       "name": "水星生醫*",
@@ -278356,8 +278356,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:42.621079"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:04.136508"
     },
     "7731": {
       "name": "火星生技*",
@@ -278462,8 +278462,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:44.502217"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:05.721549"
     },
     "4150": {
       "name": "優你康",
@@ -278568,8 +278568,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:46.385946"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:07.337470"
     },
     "6883": {
       "name": "微電能源",
@@ -278674,8 +278674,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:48.282884"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:08.953844"
     },
     "6798": {
       "name": "展逸",
@@ -278780,8 +278780,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:50.700358"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:10.610732"
     },
     "6999": {
       "name": "瀚醫生技",
@@ -278886,8 +278886,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:52.802206"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:12.142278"
     },
     "6867": {
       "name": "坦德科技",
@@ -278906,7 +278906,7 @@
           "roe": 51.6,
           "netMargin": 17.8,
           "debtRatio": 43.9,
-          "updatedAt": "2026-08-08T19:52:30.934463",
+          "updatedAt": "2026-08-09T17:49:59.217081",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -278995,8 +278995,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 10,
-      "lastAttemptAt": "2026-08-08T19:52:30.934463"
+      "noDataStreak": 11,
+      "lastAttemptAt": "2026-08-09T17:49:59.217081"
     },
     "7904": {
       "name": "任開數位",
@@ -279101,8 +279101,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:54.831810"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:14.347468"
     },
     "7607": {
       "name": "通用幹細胞*",
@@ -279207,8 +279207,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:56.720783"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:15.981875"
     },
     "8329": {
       "name": "台視",
@@ -279313,8 +279313,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:50:58.617308"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:17.607941"
     },
     "4706": {
       "name": "大恭",
@@ -280145,8 +280145,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:51:00.491123"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:19.229869"
     },
     "7936": {
       "name": "寰聖",
@@ -280251,8 +280251,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:51:03.136797"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:20.862671"
     },
     "5240": {
       "name": "建騰",
@@ -280357,8 +280357,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 11,
-      "lastAttemptAt": "2026-08-08T19:51:05.033449"
+      "noDataStreak": 12,
+      "lastAttemptAt": "2026-08-09T17:48:22.524144"
     },
     "1591": {
       "name": "駿吉-KY",
@@ -280587,8 +280587,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:07.076843",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-09T17:48:24.154309",
+      "noDataStreak": 9
     },
     "7935": {
       "name": "安富",
@@ -280693,8 +280693,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:08.934739",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-09T17:48:25.765857",
+      "noDataStreak": 9
     },
     "7933": {
       "name": "威旭",
@@ -280799,8 +280799,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:10.976018",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-09T17:48:27.319542",
+      "noDataStreak": 9
     },
     "7725": {
       "name": "列特博",
@@ -280819,7 +280819,7 @@
           "roe": 2.2,
           "netMargin": 12.4,
           "debtRatio": 5.0,
-          "updatedAt": "2026-08-08T19:51:24.426280",
+          "updatedAt": "2026-08-09T17:49:02.595626",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -280908,8 +280908,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:24.426280",
-      "noDataStreak": 8
+      "lastAttemptAt": "2026-08-09T17:49:02.595626",
+      "noDataStreak": 9
     },
     "7835": {
       "name": "永悅健康-創",
@@ -280928,7 +280928,7 @@
           "roe": -94.2,
           "netMargin": -53.6,
           "debtRatio": 57.2,
-          "updatedAt": "2026-08-08T19:51:30.318645",
+          "updatedAt": "2026-08-09T17:49:07.482403",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -281017,8 +281017,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:30.318645",
-      "noDataStreak": 7
+      "lastAttemptAt": "2026-08-09T17:49:07.482403",
+      "noDataStreak": 8
     },
     "7422": {
       "name": "鴻林堂",
@@ -281123,8 +281123,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:12.871902",
-      "noDataStreak": 7
+      "lastAttemptAt": "2026-08-09T17:48:28.911162",
+      "noDataStreak": 8
     },
     "7939": {
       "name": "技宸",
@@ -281229,8 +281229,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:14.806139",
-      "noDataStreak": 7
+      "lastAttemptAt": "2026-08-09T17:48:30.481557",
+      "noDataStreak": 8
     },
     "7917": {
       "name": "源傑科技",
@@ -281335,8 +281335,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:16.670120",
-      "noDataStreak": 6
+      "lastAttemptAt": "2026-08-09T17:48:32.155677",
+      "noDataStreak": 7
     },
     "3194": {
       "name": "圓方科技",
@@ -281441,8 +281441,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:18.599753",
-      "noDataStreak": 6
+      "lastAttemptAt": "2026-08-09T17:48:33.710516",
+      "noDataStreak": 7
     },
     "7925": {
       "name": "健生",
@@ -281547,8 +281547,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-08T19:51:20.692420",
-      "noDataStreak": 5
+      "lastAttemptAt": "2026-08-09T17:48:35.266972",
+      "noDataStreak": 6
     },
     "7942": {
       "name": "東佑達",
