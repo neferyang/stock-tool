@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-08T23:05:50.027Z",
+  "lastUpdated": "2026-08-09T13:05:49.240Z",
   "date": "2026年08月09日（星期日）",
   "basedOn": "2026年08月07日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,341（08/07，▲2.33%）"
+        "黃金：4,400（08/07，▲3.72%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月8日",
+    "date": "2026年8月9日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
@@ -213,19 +213,19 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
     },
     {
+      "title": "澤平宏觀—投資時鐘：贏在周期 - 鉅亨號",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0zQ2Jrc3ItaGZGSXkyLWdnLWpzMFBxQ1pVdWwtLVhRQ0s5anRFa2ZFUGlQR0UxNmJQeXk1RzV6ZHhJTEo2aFpIdA?oc=5"
+    },
+    {
       "title": "美政府停擺創史上最長紀錄：經濟數據何時恢復？投資人必看4大關鍵趨勢｜股市話題｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMimgRBVV95cUxQam0wRlJLekp5NVZRc1pzX3E3OWVTSWhYWVFqX01fNEpRNjFMSjdfYkQ2XzEzTzJ4cl8tSFVnMmxwUVpxT0ZBQkdDNHdyY3BVV1RmcWgxSlZJLVg1TE5qRm1NS2lRM3JvM2Z5aUdQdEZMME9OODRIbjdDZXdub2dPQ251SkQxRUE0QXdXMEZuX2VLRkR3bzJxejZGeEN0NzFaNy1JQnBsQXU1Ti1uWDd1Xzd6LVFNYVpIRmhTb0VaTFFFbXN5UXpnVVp6TEVLT1N3NXZidVNXOExTZDFqWWFUU3Z2bFdRRkVfRFRJZmo2VXk0bzVZb2tQX3o0Z3hnU2dMb3RjdE9aNTF0d2dYSUZXT1lqOUZGWUtscXFBZGVrVmhrVzBFQUlENGQ1NVEtT3RacngwbWtDN2h0OFpMM2o1VDA5Wk5HQ1BzcERNREFNdXVUZTR5bDQ3SHlMc0NxQXR5aWhNRmxRZVhuN1ZzTEFYUTU3TlU0UmxQME9yYVdCbk5vUHdfaW5MbElzOTJsTTItZzVzb3pGQk9uRy1pbnV6Q0poc1NJSlh3V3BzRWE3YzlhSzRMajVlV3ktRUtZM3l3eGtJcWVSX1hjWVJKQURDcWxpdGNROVJzV1I4Qk4wN3lKVUFQbEV2VzlUOWh4T3A2M2hycHl3UWlrZUpyOXZ2djlzbkpvOXlkRDRtQnBUNWk3eTJTazZDUlZB?oc=5"
     },
     {
-      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
-    },
-    {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
       "title": "外資匯入浪潮延續 新台幣連2升創逾半個月新高 - 經濟日報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/9 下午9:05:49",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/9 上午7:05:50",
