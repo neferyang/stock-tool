@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-09T22:02:06.812Z",
+  "lastUpdated": "2026-08-09T23:07:00.713Z",
   "date": "2026年08月10日（星期一）",
   "basedOn": "2026年08月07日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,400（08/07，▲3.72%）"
+        "黃金：4,401（08/09，▲1.39%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.60（8/7）",
+            "current": "99.64（8/9）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$78（8/7）",
+            "current": "$79（8/9）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/10 上午7:07:00",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/10 上午6:02:06",
