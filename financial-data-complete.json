@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-10T22:49:24.811517",
+  "updatedAt": "2026-08-10T23:05:11.321314",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -262338,8 +262338,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:00:49.136049"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:33.485207"
     },
     "6850": {
       "name": "光鼎生技",
@@ -262349,19 +262349,22 @@
       "data": [
         {
           "year": "2026",
-          "eps": null,
-          "revenue": null,
-          "netIncome": null,
-          "operatingIncome": null,
-          "operatingMargin": null,
-          "fcf": null,
-          "roe": null,
-          "netMargin": null,
-          "debtRatio": null,
-          "updatedAt": null,
-          "source": null,
-          "isEstimate": false,
-          "dataType": "無資料"
+          "eps": 1.52,
+          "revenue": 4.1,
+          "netIncome": 0.6,
+          "operatingIncome": 0.5,
+          "operatingMargin": 11.3,
+          "fcf": 0.8,
+          "roe": 12.6,
+          "netMargin": 13.7,
+          "debtRatio": 24.1,
+          "updatedAt": "2026-08-10T23:01:35.659273",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "partialQuarters": 1,
+          "epsActual": 0.38,
+          "roeActual": 3.1
         },
         {
           "year": "2025",
@@ -262444,8 +262447,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:00:50.996802"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:35.659273"
     },
     "7726": {
       "name": "暄達",
@@ -262550,8 +262553,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:00:52.859977"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:40.028307"
     },
     "7776": {
       "name": "奧孟亞",
@@ -262656,8 +262659,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:00.315724"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:44.760621"
     },
     "6518": {
       "name": "康科特",
@@ -262871,8 +262874,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:02.183938"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:47.859607"
     },
     "6707": {
       "name": "富基電通",
@@ -262977,8 +262980,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:07.209435"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:50.323543"
     },
     "6787": {
       "name": "晶瑞光",
@@ -263083,8 +263086,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:09.079948"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:52.600644"
     },
     "7808": {
       "name": "訊聯智藥",
@@ -263189,8 +263192,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:10.947118"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:55.681098"
     },
     "6935": {
       "name": "王子製藥",
@@ -263295,8 +263298,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:12.811177"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:01:58.102058"
     },
     "7752": {
       "name": "世紀樺欣",
@@ -263401,8 +263404,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T15:01:14.661490"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:00.683897"
     },
     "6737": {
       "name": "秀育",
@@ -263507,8 +263510,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:08.301832"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:03.029431"
     },
     "6595": {
       "name": "光禹國際",
@@ -263613,8 +263616,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:09.857461"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:05.191239"
     },
     "6815": {
       "name": "晶鑽生醫",
@@ -263719,8 +263722,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:11.417079"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:07.245582"
     },
     "6650": {
       "name": "帝圖",
@@ -263825,8 +263828,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:13.471878"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:10.903973"
     },
     "6758": {
       "name": "冠亞",
@@ -263931,8 +263934,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:15.115763"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:14.077995"
     },
     "7862": {
       "name": "聚泰",
@@ -264037,8 +264040,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:16.687477"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:17.665525"
     },
     "6775": {
       "name": "穎台科技",
@@ -264143,8 +264146,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:18.299961"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:25.767537"
     },
     "7785": {
       "name": "北祥科服",
@@ -264249,8 +264252,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:19.941632"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:29.865448"
     },
     "6911": {
       "name": "群運",
@@ -264355,8 +264358,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:21.549200"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:31.920831"
     },
     "7888": {
       "name": "麗寶新藥",
@@ -264461,8 +264464,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:23.023414"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:34.742289"
     },
     "3117": {
       "name": "年程",
@@ -264567,8 +264570,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:24.514238"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:36.768718"
     },
     "6428": {
       "name": "台灣淘米",
@@ -264673,8 +264676,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:26.058358"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:40.793377"
     },
     "7578": {
       "name": "利百景",
@@ -264779,8 +264782,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:27.642717"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:43.149988"
     },
     "6563": {
       "name": "映智",
@@ -264885,8 +264888,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:29.203903"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:45.260362"
     },
     "7841": {
       "name": "經貿聯網",
@@ -264991,8 +264994,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:30.787315"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:47.398411"
     },
     "1343": {
       "name": "旭東環保",
@@ -265097,8 +265100,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:32.259804"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:49.701492"
     },
     "7773": {
       "name": "富禾生醫",
@@ -265203,8 +265206,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:33.920109"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:52.785337"
     },
     "6610": {
       "name": "安成生技",
@@ -265309,8 +265312,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:36.672640"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:55.056351"
     },
     "7885": {
       "name": "宏羚",
@@ -265415,8 +265418,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:38.128784"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:57.242218"
     },
     "2245": {
       "name": "詠勝昌*",
@@ -265521,8 +265524,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:39.797676"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:02:59.315603"
     },
     "7891": {
       "name": "博研醫藥",
@@ -265627,8 +265630,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:41.469194"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:02.276665"
     },
     "6892": {
       "name": "台寶生醫",
@@ -265733,8 +265736,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:43.056253"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:04.825723"
     },
     "3097": {
       "name": "拍檔",
@@ -265839,8 +265842,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:44.788765"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:06.895464"
     },
     "7851": {
       "name": "慧康生技*-KY",
@@ -265945,8 +265948,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:47.348058"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:10.835153"
     },
     "1293": {
       "name": "利統",
@@ -266051,8 +266054,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:48.993505"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:14.381322"
     },
     "6868": {
       "name": "采威國際",
@@ -266157,8 +266160,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:50.781863"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:16.374997"
     },
     "7781": {
       "name": "昕力資*",
@@ -266263,8 +266266,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:54.325962"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:20.776844"
     },
     "2938": {
       "name": "床的世界",
@@ -266478,8 +266481,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:56.023426"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:24.564163"
     },
     "6407": {
       "name": "相互",
@@ -266584,8 +266587,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:57.552801"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:29.380657"
     },
     "6810": {
       "name": "新穎生醫",
@@ -266690,8 +266693,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:48:59.027063"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:31.385922"
     },
     "1260": {
       "name": "富味鄉",
@@ -266796,8 +266799,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:04.626712"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:35.040605"
     },
     "2940": {
       "name": "歐都納",
@@ -266902,8 +266905,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:06.135519"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:37.061735"
     },
     "6814": {
       "name": "路迦生醫",
@@ -267008,8 +267011,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:07.587119"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:39.166281"
     },
     "7882": {
       "name": "倍利創投",
@@ -267114,8 +267117,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:09.032257"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:42.080777"
     },
     "6709": {
       "name": "昱厚生技",
@@ -267220,8 +267223,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:10.682628"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:45.100281"
     },
     "6972": {
       "name": "博瑞達應材",
@@ -267435,8 +267438,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:12.135418"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:47.092098"
     },
     "4575": {
       "name": "銓寶",
@@ -267650,8 +267653,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:13.687353"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:49.523303"
     },
     "7833": {
       "name": "綠岩能源",
@@ -267756,8 +267759,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:15.263946"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:52.345901"
     },
     "6858": {
       "name": "愛比科技",
@@ -267862,8 +267865,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:16.966663"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:54.342350"
     },
     "7558": {
       "name": "群利科技",
@@ -267968,8 +267971,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:18.861504"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:03:58.194609"
     },
     "6784": {
       "name": "天凱科技",
@@ -268074,8 +268077,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:22.137230"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:01.676798"
     },
     "3659": {
       "name": "百辰",
@@ -268180,8 +268183,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:23.684324"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:03.696904"
     },
     "2741": {
       "name": "老四川",
@@ -268286,8 +268289,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:25.243220"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:07.173687"
     },
     "6939": {
       "name": "啟弘生技",
@@ -268392,8 +268395,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:26.873764"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:10.193053"
     },
     "7702": {
       "name": "前端風電",
@@ -268607,8 +268610,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:28.788032"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:12.273782"
     },
     "7561": {
       "name": "光晟生技",
@@ -268713,8 +268716,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:30.397807"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:18.128129"
     },
     "7507": {
       "name": "環拓科技",
@@ -268819,8 +268822,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:32.405059"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:22.238520"
     },
     "6848": {
       "name": "拉法醫",
@@ -268925,8 +268928,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:34.381140"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:24.226801"
     },
     "6659": {
       "name": "天明製藥",
@@ -269031,8 +269034,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:37.276241"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:30.180983"
     },
     "6987": {
       "name": "寶晶能源*",
@@ -269137,8 +269140,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:40.356507"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:33.322267"
     },
     "6665": {
       "name": "康聯生醫",
@@ -269243,8 +269246,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 15,
-      "lastAttemptAt": "2026-08-09T16:49:42.083549"
+      "noDataStreak": 16,
+      "lastAttemptAt": "2026-08-10T23:04:36.229400"
     },
     "6878": {
       "name": "歐付寶",
@@ -269349,8 +269352,8 @@
           "dataType": "無資料"
         }
       ],
-      "lastAttemptAt": "2026-08-09T16:49:44.539123",
-      "noDataStreak": 11
+      "lastAttemptAt": "2026-08-10T23:04:38.220325",
+      "noDataStreak": 12
     },
     "6704": {
       "name": "國璽幹細胞",
@@ -269455,8 +269458,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:46.348223"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:43.229172"
     },
     "6536": {
       "name": "碩豐",
@@ -269670,8 +269673,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:48.902414"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:45.492892"
     },
     "7847": {
       "name": "豊漁",
@@ -269776,8 +269779,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:50.482167"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:48.080074"
     },
     "7748": {
       "name": "鑫囍創業",
@@ -269882,8 +269885,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:52.199395"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:50.315458"
     },
     "2252": {
       "name": "為昇科",
@@ -269988,8 +269991,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:53.718060"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:52.851996"
     },
     "6984": {
       "name": "ACpay",
@@ -270094,8 +270097,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:55.249460"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:04:57.579776"
     },
     "6565": {
       "name": "物聯",
@@ -270200,8 +270203,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:56.922810"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:05:00.750922"
     },
     "7590": {
       "name": "怡和國際",
@@ -270306,8 +270309,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:49:58.610385"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:05:03.506386"
     },
     "4431": {
       "name": "敏成健康",
@@ -270412,8 +270415,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:50:00.327313"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:05:05.811122"
     },
     "4732": {
       "name": "彥臣",
@@ -270518,8 +270521,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 14,
-      "lastAttemptAt": "2026-08-09T16:50:01.976442"
+      "noDataStreak": 15,
+      "lastAttemptAt": "2026-08-10T23:05:10.396674"
     },
     "6882": {
       "name": "甲尚",
