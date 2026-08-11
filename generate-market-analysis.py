@@ -8,6 +8,8 @@
 import json
 import os
 import sys
+import time
+import urllib.error
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -17,6 +19,7 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 
 MARKET_QUERIES = {
     'US': {
@@ -99,11 +102,11 @@ def gather_headlines(market_key):
 
 
 def call_gemini(prompt):
-    """呼叫 Google Gemini API (gemini-2.0-flash，免費層)"""
+    """呼叫 Google Gemini API，免費層 429 限流時退避重試（與 generate-news-highlights.py 同一套）"""
     if not GEMINI_API_KEY:
         raise ValueError('GEMINI_API_KEY 未設定')
 
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
     body = json.dumps({
         'contents': [{'parts': [{'text': prompt}]}],
         'generationConfig': {'maxOutputTokens': 200, 'temperature': 0.3}
@@ -112,10 +115,18 @@ def call_gemini(prompt):
     req = urllib.request.Request(url, data=body,
         headers={'content-type': 'application/json'}, method='POST')
 
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        result = json.loads(resp.read().decode('utf-8'))
-
-    return result['candidates'][0]['content']['parts'][0]['text'].strip()
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                result = json.loads(resp.read().decode('utf-8'))
+            return result['candidates'][0]['content']['parts'][0]['text'].strip()
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 2:
+                wait = 20 * (attempt + 1)
+                print(f'   ⏳ Gemini 429 限流，{wait}s 後重試 ({attempt+1}/2)...')
+                time.sleep(wait)
+                continue
+            raise
 
 
 def generate_analysis(market_key, headlines, price_data=None, ai_func=None):
@@ -238,6 +249,7 @@ def main():
         if GEMINI_API_KEY:
             print(f'   🤖 Gemini 生成分析（{len(headlines)} 則新聞）...')
             analysis = generate_analysis(market_key, headlines, price_data, call_gemini)
+            time.sleep(13)  # 免費層限流 5 req/min，7 個市場需間隔避免爆量
             if not analysis:
                 print(f'   ⚠️  Gemini 失敗，改用規則式備援')
                 analysis = rule_based_analysis(market_key, price_data)

@@ -75,13 +75,11 @@ def tier(value, bounds, labels):
 
 
 def build_buffett_indicator():
-    # FRED 已於 2024/6/3 下架 Wilshire 指數授權資料（WILL5000PRFC 已失效），
-    # 改用 yfinance 的 ^W5000（Wilshire 5000 Total Market Index）替代，
-    # 沿用同一近似換算法：指數點數 / GDP（十億美元）× 100
-    will5000, d1 = yf_latest("^W5000")
-    gdp_data = fred_series("GDP", limit=1)
-    gdp_date, gdp = gdp_data[0]
-    ratio = will5000 / gdp * 100  # 近似值：Wilshire 5000 Total Market Index / GDP
+    # yfinance 的 ^W5000（Wilshire 5000）已下架，改用 FRED
+    # 企業股權市值（NCBEILQ027S，百萬美元，季頻）/ GDP（十億美元，季頻）
+    eq_date, equities = fred_series("NCBEILQ027S", limit=1)[0]
+    gdp_date, gdp = fred_series("GDP", limit=1)[0]
+    ratio = equities / gdp / 10  # 市值(百萬)/GDP(十億)/10 = %
     status, note = tier(ratio, [150, 180, 200], [
         ("🟢", "低於150%，估值溫和"),
         ("🟡", "150~180%，估值偏熱"),
@@ -90,7 +88,7 @@ def build_buffett_indicator():
     ])
     return {
         "name": "巴菲特指標（市值/GDP）",
-        "current": f"{ratio:.1f}%（{fmt_date(d1)}，近似值：Wilshire5000/GDP）",
+        "current": f"{ratio:.1f}%（{fmt_date(eq_date)}，季頻：企業股權市值/GDP）",
         "status": status,
         "statusText": note,
     }

@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-11T07:02:12.221Z",
+  "lastUpdated": "2026-08-11T10:44:19.009Z",
   "date": "2026年08月11日（星期二）",
   "basedOn": "2026年08月10日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,50 +14,50 @@
         "那斯達克：26,605（08/10，▼0.32%）",
         "費城半導體指數：11,994（08/10，▼2.94%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股今日微幅收"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,970（08/10，▲2.08%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "focus on the general drivers like holiday"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,346（08/11，▲0.73%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "KOSPI今日反"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：78,096（08/11，▼0.57%）",
-        "NIFTY 50：24,438（08/11，▼0.59%）"
+        "SENSEX：78,154（08/11，▼0.49%）",
+        "NIFTY 50：24,472（08/11，▼0.46%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市今日下跌0.4"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：44,929（08/10，▲1.59%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "今日台股大漲1."
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,426（08/11，▲1.46%）"
+        "黃金：4,439（08/11，▲1.76%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "受美國非農就"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,778（08/11，▲0.07%）"
+        "VN-Index：1,773（08/11，▼0.19%）"
       ],
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
+      "analysis": ").\n        *   Content: Explain"
     }
   ],
   "riskDashboard": {
@@ -79,7 +79,7 @@
           },
           {
             "name": "巴菲特指標（市值/GDP）",
-            "current": "234.3%（7/17，近似值：Wilshire5000/GDP）",
+            "current": "214.0%（1/1，季頻：企業股權市值/GDP）",
             "status": "🔴",
             "statusText": "突破警戒（>200%），股市嚴重高估"
           },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.84（8/11）",
+            "current": "99.85（8/11）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.5（8/10）",
+            "current": "15.5（8/11）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -213,22 +213,22 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9UbkVKT2NGZVZDVjhoeUlHQ01KS1VZckZlMmV1SXQ5dEdCeTd5Zl9iMXlNWDVpQ2ZuX0F1c1FuX0FENDJ2X2FEazR2SmdyMjQ?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - n.yam.com",
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
+      "title": "美政府停擺創史上最長紀錄：經濟數據何時恢復？投資人必看4大關鍵趨勢｜股市話題｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMimgRBVV95cUxQam0wRlJLekp5NVZRc1pzX3E3OWVTSWhYWVFqX01fNEpRNjFMSjdfYkQ2XzEzTzJ4cl8tSFVnMmxwUVpxT0ZBQkdDNHdyY3BVV1RmcWgxSlZJLVg1TE5qRm1NS2lRM3JvM2Z5aUdQdEZMME9OODRIbjdDZXdub2dPQ251SkQxRUE0QXdXMEZuX2VLRkR3bzJxejZGeEN0NzFaNy1JQnBsQXU1Ti1uWDd1Xzd6LVFNYVpIRmhTb0VaTFFFbXN5UXpnVVp6TEVLT1N3NXZidVNXOExTZDFqWWFUU3Z2bFdRRkVfRFRJZmo2VXk0bzVZb2tQX3o0Z3hnU2dMb3RjdE9aNTF0d2dYSUZXT1lqOUZGWUtscXFBZGVrVmhrVzBFQUlENGQ1NVEtT3RacngwbWtDN2h0OFpMM2o1VDA5Wk5HQ1BzcERNREFNdXVUZTR5bDQ3SHlMc0NxQXR5aWhNRmxRZVhuN1ZzTEFYUTU3TlU0UmxQME9yYVdCbk5vUHdfaW5MbElzOTJsTTItZzVzb3pGQk9uRy1pbnV6Q0poc1NJSlh3V3BzRWE3YzlhSzRMajVlV3ktRUtZM3l3eGtJcWVSX1hjWVJKQURDcWxpdGNROVJzV1I4Qk4wN3lKVUFQbEV2VzlUOWh4T3A2M2hycHl3UWlrZUpyOXZ2djlzbkpvOXlkRDRtQnBUNWk3eTJTazZDUlZB?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行示警五大金融風險 AI 產業估值過熱也入列 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBMZmJQZlIyOWNpaXQya2xSMTg5NDk1TWRPRVItT3k1V2xwTU5YSlBaUjdBVHV2XzVqUkt3bEhPU2d1OXg5NXlLS0w3STI1dVNHZ1lzZVJsNjliQdIBX0FVX3lxTE5BcUtRUUxkTUF6V29yN2x3bzFySzNfWjdXSjBQQ0l5NVRzeHBzRWJpTHZNTHlBUkoyNUt0dmNnS2YyOS03LVIxNlRDQ1ZrbUFpQl9oajZkaFJnYXA2SWxN?oc=5"
     },
     {
-      "title": "外資砸錢暴升卡位！新台幣升值浪潮來襲？ 四大族群股匯雙多與匯損防線完整拆解 - 理財周刊",
+      "title": "外資砸錢暴升卡位！新台幣升值浪潮來襲？ 四大族群股匯雙多與匯損防線完整拆解 - moneyweekly.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5nU21oaGVLaXhyRFBCRkI4b2pkWFd1enpKUGttX0xMY0tYZ3huWnRZRF84ZXFEMXdUeGUzQkpVVURGR1lpWnA4a3ZsMHJxUC00bVpfaHNRNVJoZkNpZ2lKdWhxZmREblNtQjZBX1NxOA?oc=5"
     }
@@ -253,6 +253,16 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/11 下午6:44:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
+    {
+      "version": "2.0.28",
+      "date": "2026/8/11 下午6:36:44",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/11 下午3:02:12",
