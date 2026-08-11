@@ -17,6 +17,7 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 
 MARKET_QUERIES = {
     'US': {
@@ -103,7 +104,7 @@ def call_gemini(prompt):
     if not GEMINI_API_KEY:
         raise ValueError('GEMINI_API_KEY 未設定')
 
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}'
+    url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
     body = json.dumps({
         'contents': [{'parts': [{'text': prompt}]}],
         'generationConfig': {'maxOutputTokens': 200, 'temperature': 0.3}
