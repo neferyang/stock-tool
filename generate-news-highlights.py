@@ -27,21 +27,31 @@ GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-flash-latest')
 def call_gemini(prompt):
     """呼叫 Google Gemini API；與 generate-market-analysis.py 同一套。"""
     url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
-    body = json.dumps({
-        'contents': [{'parts': [{'text': prompt}]}],
-        # gemini-2.5 系列預設開啟 thinking，會吃掉 maxOutputTokens 導致實際輸出被截斷；
-        # 這種格式化短輸出的任務不需要 thinking，設 thinkingBudget=0 關閉並拉高 token 上限。
-        'generationConfig': {
-            'maxOutputTokens': 2048,
-            'temperature': 0.3,
-            'thinkingConfig': {'thinkingBudget': 0},
-        },
-    }).encode('utf-8')
-    req = urllib.request.Request(url, data=body,
-        headers={'content-type': 'application/json'}, method='POST')
-    with urllib.request.urlopen(req, timeout=25) as resp:
-        result = json.loads(resp.read().decode('utf-8'))
-    return result['candidates'][0]['content']['parts'][0]['text'].strip()
+
+    def _request(with_thinking_config):
+        generation_config = {'maxOutputTokens': 2048, 'temperature': 0.3}
+        if with_thinking_config:
+            # gemini-2.5 系列預設開啟 thinking，會吃掉 maxOutputTokens 導致實際輸出被截斷；
+            # 這種格式化短輸出的任務不需要 thinking，設 thinkingBudget=0 關閉並拉高 token 上限。
+            # 部分較新模型不接受此參數（400 INVALID_ARGUMENT），失敗時改不帶此參數重試。
+            generation_config['thinkingConfig'] = {'thinkingBudget': 0}
+        body = json.dumps({
+            'contents': [{'parts': [{'text': prompt}]}],
+            'generationConfig': generation_config,
+        }).encode('utf-8')
+        req = urllib.request.Request(url, data=body,
+            headers={'content-type': 'application/json'}, method='POST')
+        with urllib.request.urlopen(req, timeout=25) as resp:
+            result = json.loads(resp.read().decode('utf-8'))
+        return result['candidates'][0]['content']['parts'][0]['text'].strip()
+
+    try:
+        return _request(with_thinking_config=True)
+    except urllib.error.HTTPError as e:
+        if e.code == 400:
+            print('   🔎 帶 thinkingConfig 遭 400，改不帶此參數重試...')
+            return _request(with_thinking_config=False)
+        raise
 
 
 def summarize_headlines(news):
