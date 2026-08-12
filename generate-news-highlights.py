@@ -347,6 +347,9 @@ def main():
     print('\n🧠 產生新聞重點摘要...')
     summarize_headlines(all_news)
 
+    import time
+    time.sleep(13)  # 與 market-analysis 同款節流，避免緊接著的下一次 Gemini 呼叫撞上限流
+
     # 讀取市場數據以生成觀察
     try:
         with open('market-data.json', 'r', encoding='utf-8') as f:

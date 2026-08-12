@@ -34,6 +34,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python generate-market-analysis.py
 
+      - name: Cool down Gemini quota before news-highlights
+        run: sleep 60
+
       - name: Generate news and highlights
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
