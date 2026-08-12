@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-11T23:31:31.700Z",
+  "lastUpdated": "2026-08-12T02:22:15.197Z",
   "date": "2026年08月12日（星期三）",
   "basedOn": "2026年08月11日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,19 +14,19 @@
         "那斯達克：26,445（08/11，▼0.60%）",
         "費城半導體指數：12,098（08/11，▲0.87%）"
       ],
-      "analysis": "美股今日微跌"
+      "analysis": "簡潔).\n        *   No"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,970（08/10，▲2.08%）"
+        "日經225：67,023（08/12，▲0.08%）"
       ],
-      "analysis": "或40,000"
+      "analysis": "受美股漲勢與"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,346（08/11，▲0.73%）"
+        "KOSPI：6,580（08/12，▲3.70%）"
       ],
       "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
@@ -36,7 +36,7 @@
         "SENSEX：78,154（08/11，▼0.49%）",
         "NIFTY 50：24,472（08/11，▼0.46%）"
       ],
-      "analysis": "印度股市今日微幅"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,426（08/11，▲1.47%）"
+        "黃金：4,456（08/11，▲2.16%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月11日",
+    "date": "2026年8月12日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（8/10，加權指數 vs 240日均線）",
+            "current": "約34%（8/12，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.81（8/11）",
+            "current": "99.85（8/11）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.21（8/12）",
+            "current": "32.19（8/12）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -223,7 +223,7 @@
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
-      "title": "央行示警五大金融風險 AI 產業估值過熱也入列 - 經濟日報",
+      "title": "央行示警五大金融風險 AI 產業估值過熱也入列 - money.udn.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBMZmJQZlIyOWNpaXQya2xSMTg5NDk1TWRPRVItT3k1V2xwTU5YSlBaUjdBVHV2XzVqUkt3bEhPU2d1OXg5NXlLS0w3STI1dVNHZ1lzZVJsNjliQdIBX0FVX3lxTE5BcUtRUUxkTUF6V29yN2x3bzFySzNfWjdXSjBQQ0l5NVRzeHBzRWJpTHZNTHlBUkoyNUt0dmNnS2YyOS03LVIxNlRDQ1ZrbUFpQl9oajZkaFJnYXA2SWxN?oc=5"
     },
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/12 上午10:22:15",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/12 上午7:31:31",
