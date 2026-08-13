@@ -1,68 +1,68 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-12T23:33:20.410Z",
+  "lastUpdated": "2026-08-13T13:40:17.099Z",
   "date": "2026年08月13日（星期四）",
-  "basedOn": "2026年08月12日（前一交易日）",
+  "basedOn": "2026年08月13日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：53,770（08/12，▼0.04%）",
-        "S&P 500：7,749（08/12，▲0.26%）",
-        "那斯達克：26,588（08/12，▲0.54%）",
-        "費城半導體指數：12,399（08/12，▲2.49%）"
+        "道瓊：53,873（08/13，▲0.19%）",
+        "S&P 500：7,781（08/13，▲0.42%）",
+        "那斯達克：26,719（08/13，▲0.49%）",
+        "費城半導體指數：12,482（08/13，▲0.67%）"
       ],
-      "analysis": "美股微幅"
+      "analysis": "Constraints:**\n        *"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：67,023（08/12，▲0.08%）"
+        "日經225：68,309（08/13，▲1.16%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225指數"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,580（08/12，▲3.70%）"
+        "KOSPI：6,813（08/13，▲3.56%）"
       ],
       "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,966（08/12，▼0.24%）",
-        "NIFTY 50：24,436（08/12，▼0.15%）"
+        "SENSEX：78,080（08/13，▲0.15%）",
+        "NIFTY 50：24,396（08/13，▼0.16%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": ").\n\n2."
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,518（08/12，▲0.88%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "Under 50 Traditional Chinese characters."
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,464（08/12，▲1.85%）"
+        "黃金：4,444（08/13，▲0.80%）"
       ],
-      "analysis": "受美非農就業數據"
+      "analysis": "今日黃金上漲0.8"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,793（08/13，▲1.11%）"
+        "VN-Index：1,766（08/13，▼1.54%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "VN-Index今日"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月12日",
+    "date": "2026年8月13日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（8/11，加權指數 vs 240日均線）",
+            "current": "約35%（8/13，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.99（8/12）",
+            "current": "99.88（8/13）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.22（8/13）",
+            "current": "32.09（8/13）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.6（8/12）",
+            "current": "14.4（8/13）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -172,13 +172,13 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$83（8/12）",
+            "current": "$81（8/13）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
           {
             "name": "初領失業救濟金",
-            "current": "19.9萬/週（8/1）",
+            "current": "20.9萬/週（8/8）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -204,33 +204,33 @@
   "news": [
     {
       "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
-      "description": "",
+      "description": "殖利率曲線異象反映經濟衰退疑慮加劇，提示投資人應提高避險意識與風險控管。",
       "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
       "title": "市場代勞Fed「升息」！美債殖利率大漲成華許緊縮新武器？ - news.cnyes.com",
-      "description": "",
+      "description": "殖利率飆升自動緊縮金融環境，將提升企業融資成本並壓抑風險資產估值。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE50dG5oVEFmdGVxaDV2ampJYjNUeENBbGlqdFJ5bF9WWi1jUS1DZjliaWdPWHhMR25zLXBRMkFkNVN0SF9HRFBIdVUxZ0VFTzg?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "",
+      "description": "提供關鍵事件前瞻，有助投資人提前掌握本週市場動向並規劃交易策略。",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "美政府停擺創史上最長紀錄：經濟數據何時恢復？投資人必看4大關鍵趨勢｜股市話題｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
-      "description": "",
+      "description": "官方數據停擺加劇資訊真空風險，投資人應關注大趨勢以因應市場波動。",
       "url": "https://news.google.com/rss/articles/CBMimgRBVV95cUxQam0wRlJLekp5NVZRc1pzX3E3OWVTSWhYWVFqX01fNEpRNjFMSjdfYkQ2XzEzTzJ4cl8tSFVnMmxwUVpxT0ZBQkdDNHdyY3BVV1RmcWgxSlZJLVg1TE5qRm1NS2lRM3JvM2Z5aUdQdEZMME9OODRIbjdDZXdub2dPQ251SkQxRUE0QXdXMEZuX2VLRkR3bzJxejZGeEN0NzFaNy1JQnBsQXU1Ti1uWDd1Xzd6LVFNYVpIRmhTb0VaTFFFbXN5UXpnVVp6TEVLT1N3NXZidVNXOExTZDFqWWFUU3Z2bFdRRkVfRFRJZmo2VXk0bzVZb2tQX3o0Z3hnU2dMb3RjdE9aNTF0d2dYSUZXT1lqOUZGWUtscXFBZGVrVmhrVzBFQUlENGQ1NVEtT3RacngwbWtDN2h0OFpMM2o1VDA5Wk5HQ1BzcERNREFNdXVUZTR5bDQ3SHlMc0NxQXR5aWhNRmxRZVhuN1ZzTEFYUTU3TlU0UmxQME9yYVdCbk5vUHdfaW5MbElzOTJsTTItZzVzb3pGQk9uRy1pbnV6Q0poc1NJSlh3V3BzRWE3YzlhSzRMajVlV3ktRUtZM3l3eGtJcWVSX1hjWVJKQURDcWxpdGNROVJzV1I4Qk4wN3lKVUFQbEV2VzlUOWh4T3A2M2hycHl3UWlrZUpyOXZ2djlzbkpvOXlkRDRtQnBUNWk3eTJTazZDUlZB?oc=5"
     },
     {
-      "title": "央行示警五大金融風險 AI 產業估值過熱也入列 - 經濟日報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBMZmJQZlIyOWNpaXQya2xSMTg5NDk1TWRPRVItT3k1V2xwTU5YSlBaUjdBVHV2XzVqUkt3bEhPU2d1OXg5NXlLS0w3STI1dVNHZ1lzZVJsNjliQdIBX0FVX3lxTE5BcUtRUUxkTUF6V29yN2x3bzFySzNfWjdXSjBQQ0l5NVRzeHBzRWJpTHZNTHlBUkoyNUt0dmNnS2YyOS03LVIxNlRDQ1ZrbUFpQl9oajZkaFJnYXA2SWxN?oc=5"
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "description": "央行首度示警AI系統性風險，提示投資人需留意科技熱潮下的潛在金融波動。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資回補難助攻！新台幣連兩日挑戰32.1元未果 收32.246元 | 太報 - LINE TODAY",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFA2RnVHS2ZqeUU4OXlwdmF5WVNLRy1aTlRrNGFDUUtNSWgwOFVhS0RILTN4WHRvVUpXMFI5V21qRGE0alFMU1p0S2ttTTR3NHE5bUY3WDl3?oc=5"
+      "title": "外資買超台股756億第7大 台幣升破32.3關卡 - 非凡新聞台",
+      "description": "股匯齊揚展現強勁外資吸引力，短線大舉挹注資金動能並提振台股信心。",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1fWE50ZFVUdlFoeElEbnlkcVFCSUVoTDNuMGQzMzFjOGpLMlhycDRqSGlpTlRUUU1yYXM2eUlPaWNqNUVSUk1OSWZONDJLQW5PMWVCYk5pUHNDZnNT?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/13 下午9:40:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/13 上午7:33:20",
