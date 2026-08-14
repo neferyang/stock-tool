@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-14T21:54:43.544Z",
+  "lastUpdated": "2026-08-14T23:05:53.255Z",
   "date": "2026年08月15日（星期六）",
   "basedOn": "2026年08月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,14 +14,14 @@
         "那斯達克：26,729（08/14，▼0.28%）",
         "費城半導體指數：12,417（08/14，▼0.31%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股今日微跌0."
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：68,714（08/14，▲0.59%）"
       ],
-      "analysis": "以內).\n        *"
+      "analysis": "日經225"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,28 +36,28 @@
         "SENSEX：78,009（08/14，▼0.09%）",
         "NIFTY 50：24,366（08/14，▼0.12%）"
       ],
-      "analysis": "勢指引及個股推薦"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,811（08/14，▼0.46%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "，不加標題)."
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,432（08/14，▲1.57%）"
       ],
-      "analysis": "今日金價上漲1.5"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,729（08/15，▼2.07%）"
       ],
-      "analysis": "說明可能的市場驅"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "42.6（4:00 PM EDT, Thu Aug 13）",
+            "current": "42.6（4:00 PM EDT, Fri Aug 14）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約35%（8/13，加權指數 vs 240日均線）",
+            "current": "約36%（8/13，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
     {
-      "title": "降息預期發酵！這檔不配息債券基金近一年賺15.8% - CMoney投資網誌",
+      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1MSU01Tlo4X0NNNGFRNkU5bUV3NFRYRldaTzJBWmJqMHRRWk9mUHdNZjNPQWRGS2UzamNGRkk2Q2RxQ3o4aVpzaUFDY0x3MHZhWTA0YXVSbl9rWVhMdFJ2NktaZ2Vjc1FZQkd5YU5OZ1NhT3k2eGRRRng0VG1fdw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "台股估值分歧",
-      "content": "央行示警AI產業過熱，童子賢則稱本益比25倍未過熱。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "中東戰事升級",
-      "content": "伊朗戰爭引爆能源危機，推升避險黃金漲逾1.5%。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "通膨重燃降息",
-      "content": "通膨創兩年新高使降息夢碎，市場卻仍見押注債市行情。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/15 上午7:05:53",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/15 上午5:54:43",
