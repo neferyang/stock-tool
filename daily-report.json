@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-14T23:05:53.255Z",
+  "lastUpdated": "2026-08-15T13:39:39.548Z",
   "date": "2026年08月15日（星期六）",
   "basedOn": "2026年08月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,14 +14,14 @@
         "那斯達克：26,729（08/14，▼0.28%）",
         "費城半導體指數：12,417（08/14，▼0.31%）"
       ],
-      "analysis": "美股今日微跌0."
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：68,714（08/14，▲0.59%）"
       ],
-      "analysis": "日經225"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,19 +36,19 @@
         "SENSEX：78,009（08/14，▼0.09%）",
         "NIFTY 50：24,366（08/14，▼0.12%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,811（08/14，▼0.46%）"
       ],
-      "analysis": "，不加標題)."
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,432（08/14，▲1.57%）"
+        "黃金：4,380（08/14，▲0.38%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,12 +57,12 @@
       "items": [
         "VN-Index：1,729（08/15，▼2.07%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "no titles/headers (客"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月14日",
+    "date": "2026年8月15日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約36%（8/13，加權指數 vs 240日均線）",
+            "current": "約34%（8/14，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.64（8/14）",
+            "current": "99.67（8/14）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "外資回流…台幣強升 將測試31.8元 - UDN",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/15 下午9:39:39",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/15 上午7:05:53",
