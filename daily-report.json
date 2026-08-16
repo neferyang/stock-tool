@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-15T23:05:56.627Z",
+  "lastUpdated": "2026-08-16T13:39:36.753Z",
   "date": "2026年08月16日（星期日）",
   "basedOn": "2026年08月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,729（08/14，▼0.28%）",
         "費城半導體指數：12,417（08/14，▼0.31%）"
       ],
-      "analysis": "美股微跌0.2"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：68,714（08/14，▲0.59%）"
       ],
-      "analysis": ").\n        *   State possible"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,978（08/14，▲2.42%）"
       ],
-      "analysis": "今日上漲"
+      "analysis": "受AI概念股強彈"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,19 +36,19 @@
         "SENSEX：78,009（08/14，▼0.09%）",
         "NIFTY 50：24,366（08/14，▼0.12%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "**"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,811（08/14，▼0.46%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": ":**"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,380（08/14，▲0.38%）"
+        "黃金：4,437（08/14，▲1.69%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,12 +57,12 @@
       "items": [
         "VN-Index：1,729（08/16，▼2.07%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "今日越南"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月15日",
+    "date": "2026年8月16日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
+      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -230,29 +230,34 @@
     {
       "title": "外資回流…台幣強升 將測試31.8元 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE91SlpkZVBFcUxoOXd5UEcyWkZ6R2JTWFMyRk5fY3lSWG1vT3JnbGdLYTFIUjJSZkVWZTNWMWhGem5jUGoxeDllRndpU1h6Qk4taDRvYnNR?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBKRVNwdDVmcjlZQ05RM2l6X2xfTDZjc3NsbWFxWVJIcUFPZFFxQXQ3bFFqM1JONXlPaGoxWURnLXR4U3J5aVFQNHNISVlHeHMxMEJ0RkxR?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股背離黃金",
+      "content": "美股全數收黑之際，黃金逆勢大漲近1.7%顯現避險買盤。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "央行示警風險",
+      "content": "央行報告首提AI風險與全球5大變數，凸顯外部衝擊隱憂。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "降息預期落空",
+      "content": "非農下修91萬人後通膨疑慮再起，美債警訊恐加劇股債雙殺。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/16 下午9:39:36",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/16 上午7:05:56",
