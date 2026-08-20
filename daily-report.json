@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-20T21:58:31.959Z",
+  "lastUpdated": "2026-08-20T23:09:14.804Z",
   "date": "2026年08月21日（星期五）",
   "basedOn": "2026年08月20日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,067（08/20，▼1.00%）",
         "費城半導體指數：11,800（08/20，▲0.53%）"
       ],
-      "analysis": "美股"
+      "analysis": "獲"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,217（08/20，▲1.36%）"
       ],
-      "analysis": "AI 熱潮降溫，"
+      "analysis": "50 characters or less (50"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,853（08/20，▲5.89%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": ").\n        *   Output text"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：44,934（08/20，▲0.48%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股今日走勢"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,575（08/20，▲1.91%）"
+        "黃金：4,579（08/20，▲1.99%）"
       ],
-      "analysis": "黃金今日"
+      "analysis": "黃金今日漲"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.87（8/20）",
+            "current": "98.84（8/20）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.86（8/20）",
+            "current": "31.86（8/21）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "美債殖利率、美元雙挫！新台幣拉出連二紅 收31.925元 | 太報 - LINE TODAY",
+      "title": "台股下挫外資轉匯出　新台幣收31.945元終止連4升 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1YUDBhR3BNX0FnRHlrZDNFV1B0anpZY09naEpJOEdxdXRabVhPMzRDbHFBZ2IyYVdwUGRTVjEwai1GQjVibnFMTGJwSkRSRjl5TDJVOHVB?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPOGU0UmZPbHhEUGthVWxfR1lyZi00WWRUZ0JTOUFvRDdsWjBwcUVtUWpmVzRlX1hRYkF4SE1ZLWR2enZPd252V2RBcGg1cFlvUXRna2prdmI4THB6endnMk0wd2N6TnpGYXl1VWpMamdIQmhEVDAwN05UVFJMdlJ0cNIBX0FVX3lxTE85eUZ2SkNqZGtvQmpsSmpLbDBQeUtXdldfTjdXeU1wUWE4LXV1RlRleVl6NkxVZUJudFZFdmVLU0ZHWFk0NHUxUHZFUE9UY1lSLW1DSS00Y3pEMUc4eHF3?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股半導體背離",
-      "content": "美股主要指數全面下挫逾1%，費半卻逆勢微幅收紅。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行首提AI風險",
-      "content": "金融穩定報告示警全球五大變數，地緣與新興科技衝擊加劇。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "聯準會政策矛盾",
-      "content": "債市挑戰升息路徑，殖利率高檔與寬鬆預期形成劇烈拉鋸。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/21 上午7:09:14",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/21 上午5:58:31",
