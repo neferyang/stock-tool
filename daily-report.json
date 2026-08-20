@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-19T23:07:11.258Z",
+  "lastUpdated": "2026-08-20T13:04:19.253Z",
   "date": "2026年08月20日（星期四）",
   "basedOn": "2026年08月19日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,57 +14,57 @@
         "那斯達克：26,331（08/19，▲0.16%）",
         "費城半導體指數：11,738（08/19，▼2.12%）"
       ],
-      "analysis": "美股今日小漲0.2"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：65,326（08/19，▼3.16%）"
+        "日經225：66,217（08/20，▲1.36%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,471（08/19，▼5.80%）"
+        "KOSPI：6,853（08/20，▲5.89%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,910（08/19，▼0.42%）",
-        "NIFTY 50：24,078（08/19，▼0.32%）"
+        "SENSEX：77,538（08/20，▲0.82%）",
+        "NIFTY 50：24,232（08/20，▲0.64%）"
       ],
-      "analysis": "受美伊地緣局勢"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：44,719（08/19，▼1.30%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "跌1.30%，主要受"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,578（08/19，▲4.84%）"
+        "黃金：4,526（08/20，▲0.81%）"
       ],
-      "analysis": "受通膨降溫"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,727（08/20，▼0.31%）"
+        "VN-Index：1,734（08/20，▲0.44%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "今日VN-Index上"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月19日",
+    "date": "2026年8月20日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
+    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（8/18，加權指數 vs 240日均線）",
+            "current": "約31%（8/20，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.77（8/19）",
+            "current": "98.77（8/20）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.85（8/20）",
+            "current": "31.87（8/20）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.9（8/19）",
-            "status": "🟢",
-            "statusText": "市場情緒平靜"
+            "current": "15.9（8/20）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -172,13 +172,13 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$84（8/19）",
+            "current": "$87（8/20）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
           {
             "name": "初領失業救濟金",
-            "current": "20.9萬/週（8/8）",
+            "current": "20.6萬/週（8/15）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -204,33 +204,33 @@
   "news": [
     {
       "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
-      "description": "",
+      "description": "市場對降息定價與政策不同步，可能引發利率波動與債券重新定價風險。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
     },
     {
       "title": "美債殖利率為何壓不下來？城堡證券直指Fed不願收緊政策｜新聞快訊｜豐雲學堂 - sinotrade.com.tw",
-      "description": "",
+      "description": "政策立場若不夠緊縮將延遲通膨降溫，壓抑長天期債券價格並推高借貸成本。",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9qbmhtYnRYVnpNTjM3Y0tMYWxweHIyekFyYlpONlUtQjRVT0ZvSlZ4TGxDUW5OV1FzaERtdmNZU3lTbHZUdXhLdTRLSllrN0VaR0dETktrU3FnbTBRS19FclN1N2dpWXhkNC12OXNFY05BOW9TLXc?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "",
+      "description": "供投資人掌握近期產業動態與總經事件時程，以利調整每週資產配置策略。",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "本週操盤筆記：美國就業數據、全球PMI與歐元區通膨 - news.cnyes.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5KT1YySkMxRE43bGpQU25RSmdJZEJtYzh2ai0zd2pleDRUeE9MT2dYUVByNDVFdVM0dmswZXE2UUJWWXR6bERPQ2ppQjVZdVE?oc=5"
+      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "description": "重磅經濟數據與央行決議密集出爐，將直接主導全球股市與匯率短期走勢。",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "description": "監管層警示科技泡沫與系統性衝擊，暗示投資人應留意科技股高估值回檔風險。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資撤出台股！新台幣先貶後升 央行尾盤出手穩住32元以下 | 太報 - LINE TODAY",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBPZEJLOU8yNVd0QnRCUU1rc0w1SnpzdXhEaHprYThzS21RU3VUZnJtVlBsUE1yWEEyWkV0NE9XTUprbExXS29fTDBBbWdfd0N0TzUtQjN3?oc=5"
+      "title": "美債殖利率、美元雙挫！新台幣拉出連二紅 收31.925元 | 太報 - LINE TODAY",
+      "description": "降息預期促使資金回流新興市場，有助緩解匯市貶值壓力並利多本國股匯表現。",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1YUDBhR3BNX0FnRHlrZDNFV1B0anpZY09naEpJOEdxdXRabVhPMzRDbHFBZ2IyYVdwUGRTVjEwai1GQjVibnFMTGJwSkRSRjl5TDJVOHVB?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/20 下午9:04:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/20 上午7:07:11",
