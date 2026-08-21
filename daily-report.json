@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-21T21:55:51.323Z",
+  "lastUpdated": "2026-08-21T23:10:06.450Z",
   "date": "2026年08月22日（星期六）",
   "basedOn": "2026年08月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -21,14 +21,14 @@
       "items": [
         "日經225：66,016（08/21，▼0.30%）"
       ],
-      "analysis": "日經225今日上漲"
+      "analysis": "日經2"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,913（08/21，▲0.88%）"
       ],
-      "analysis": "不加標題)."
+      "analysis": "KOSPI 今日大漲"
     },
     {
       "name": "🇮🇳 印度",
@@ -50,14 +50,14 @@
       "items": [
         "黃金：4,662（08/21，▲3.22%）"
       ],
-      "analysis": "cooled -> Fed rate hike"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,768（08/22，▲1.95%）"
       ],
-      "analysis": ".\n    *   Drivers:"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/22 上午7:10:06",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/22 上午5:55:51",
