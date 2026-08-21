@@ -1,68 +1,68 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-20T23:09:14.804Z",
+  "lastUpdated": "2026-08-21T13:54:50.475Z",
   "date": "2026年08月21日（星期五）",
-  "basedOn": "2026年08月20日（前一交易日）",
+  "basedOn": "2026年08月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,759（08/20，▼1.32%）",
-        "S&P 500：7,641（08/20，▼0.87%）",
-        "那斯達克：26,067（08/20，▼1.00%）",
-        "費城半導體指數：11,800（08/20，▲0.53%）"
+        "道瓊：53,123（08/21，▲0.69%）",
+        "S&P 500：7,671（08/21，▲0.38%）",
+        "那斯達克：26,115（08/21，▲0.18%）",
+        "費城半導體指數：11,875（08/21，▲0.63%）"
       ],
-      "analysis": "獲"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,217（08/20，▲1.36%）"
+        "日經225：66,016（08/21，▼0.30%）"
       ],
-      "analysis": "50 characters or less (50"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,853（08/20，▲5.89%）"
+        "KOSPI：6,913（08/21，▲0.88%）"
       ],
-      "analysis": ").\n        *   Output text"
+      "analysis": "Drafting the Content:**\n    *"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,538（08/20，▲0.82%）",
-        "NIFTY 50：24,232（08/20，▲0.64%）"
+        "SENSEX：77,541（08/21，▲0.00%）",
+        "NIFTY 50：24,252（08/21，▲0.08%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：44,934（08/20，▲0.48%）"
       ],
-      "analysis": "台股今日走勢"
+      "analysis": ").\n        *   Direct output of"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,579（08/20，▲1.99%）"
+        "黃金：4,646（08/21，▲2.87%）"
       ],
-      "analysis": "黃金今日漲"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,734（08/21，▲0.44%）"
+        "VN-Index：1,768（08/21，▲1.95%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月20日",
+    "date": "2026年8月21日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
     "layers": [
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（8/19，加權指數 vs 240日均線）",
+            "current": "約31%（8/21，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.84（8/20）",
+            "current": "98.78（8/21）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.86（8/21）",
+            "current": "31.80（8/21）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.0（8/20）",
+            "current": "15.5（8/21）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$86（8/20）",
+            "current": "$87（8/21）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股下挫外資轉匯出　新台幣收31.945元終止連4升 - 經濟日報",
+      "title": "外資回流股匯雙漲新台幣收31.848元寫近2個月新高| 產經 - cna.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPOGU0UmZPbHhEUGthVWxfR1lyZi00WWRUZ0JTOUFvRDdsWjBwcUVtUWpmVzRlX1hRYkF4SE1ZLWR2enZPd252V2RBcGg1cFlvUXRna2prdmI4THB6endnMk0wd2N6TnpGYXl1VWpMamdIQmhEVDAwN05UVFJMdlJ0cNIBX0FVX3lxTE85eUZ2SkNqZGtvQmpsSmpLbDBQeUtXdldfTjdXeU1wUWE4LXV1RlRleVl6NkxVZUJudFZFdmVLU0ZHWFk0NHUxUHZFUE9UY1lSLW1DSS00Y3pEMUc4eHF3?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFA5R0dfWl80MHBFT3pfY29PNFlXNkJROW1MbEFMbWNXeWRBdWdVU29Ba2RUT3hZZmZFbV95RnNrS2hsTm9Qam45UjZiUlhfYzJYYXFwVVg3Q3BkbDVGOFE?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "股金罕見齊揚",
+      "content": "美股普遍收紅之際黃金單日大漲逾2.8%，顯現追價與避險買盤並存。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "央行示警風險",
+      "content": "台灣央行首度將AI列入金融穩定變數，提醒防範全球潛在衝擊。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "央行決策週至",
+      "content": "歐英日利率決議與美非農將登場，市場質疑Fed收緊政策意志。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/21 下午9:54:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/21 上午7:09:14",
