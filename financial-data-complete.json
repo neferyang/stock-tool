@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T15:42:36.782750",
+  "updatedAt": "2026-08-22T16:41:02.490387",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
@@ -279928,7 +279928,7 @@
           "roe": -214.2,
           "netMargin": -217.1,
           "debtRatio": 45.8,
-          "updatedAt": "2026-08-21T18:59:50.167441",
+          "updatedAt": "2026-08-22T16:41:02.089852",
           "source": "FinMind",
           "isEstimate": true,
           "dataType": "推估",
@@ -280017,8 +280017,8 @@
           "dataType": "無資料"
         }
       ],
-      "noDataStreak": 25,
-      "lastAttemptAt": "2026-08-21T18:59:50.167441"
+      "noDataStreak": 26,
+      "lastAttemptAt": "2026-08-22T16:41:02.089852"
     },
     "8329": {
       "name": "台視",
