@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-22T23:06:44.585Z",
+  "lastUpdated": "2026-08-23T13:41:29.686Z",
   "date": "2026年08月23日（星期日）",
   "basedOn": "2026年08月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：26,180（08/21，▲0.43%）",
         "費城半導體指數：11,740（08/21，▼0.51%）"
       ],
-      "analysis": "美股今日上漲"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -36,7 +36,7 @@
         "SENSEX：77,541（08/21，▲0.00%）",
         "NIFTY 50：24,252（08/21，▲0.08%）"
       ],
-      "analysis": "印股今日"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,9 +48,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,624（08/21，▲2.39%）"
+        "黃金：4,681（08/21，▲3.64%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "(降息預期升溫/"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月22日",
+    "date": "2026年8月23日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
@@ -204,55 +204,60 @@
   "news": [
     {
       "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
-      "description": "政策利率預期分歧加劇，可能引發債券價格劇烈波動並衝擊資產配置。",
+      "description": "市場與央行利率預期分歧，殖利率波動恐加劇資產定價風險。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
     },
     {
-      "title": "美債殖利率為何壓不下來？城堡證券直指Fed不願收緊政策｜新聞快訊｜豐雲學堂 - sinotrade.com.tw",
-      "description": "貨幣緊縮力道存疑支撐高殖利率，將持續壓抑高估值資產與借貸成本。",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9qbmhtYnRYVnpNTjM3Y0tMYWxweHIyekFyYlpONlUtQjRVT0ZvSlZ4TGxDUW5OV1FzaERtdmNZU3lTbHZUdXhLdTRLSllrN0VaR0dETktrU3FnbTBRS19FclN1N2dpWXhkNC12OXNFY05BOW9TLXc?oc=5"
+      "title": "美債現在能買嗎？00679B為何漲不動？長債、短債差在哪、Fed還會降息嗎 - 數位時代",
+      "description": "降息路徑不明壓抑長債表現，投資人需審慎評估存續期間風險。",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOV1VkZG1SR201OHlGeVNuemIyTWlHTzhzTHhMLUstMGx6ano3WFhnTU5EZkl1dVp0MmxfNmFSQ3VVOXhnTTBlWnlnVkxkTG1la3ZOWjNQbEhucENLRnNxemZQT3l4ZHM5R05mcVRpY1E5TGk0Tmh4bHpPWTZjSjhXWGFPaXg?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "掌握近期關鍵總經與產業日程，有助於提前布局並防範突發市場風險。",
+      "description": "幫助投資人掌握關鍵經濟時程，提前布局並管理潛在市場波動。",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
-      "description": "全球重量級數據與央行決策齊聚，短期市場波動風險將顯著升高。",
+      "description": "全球重量級數據與央行決策齊發，將主導本週股債市場走勢與資金流向。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
-      "description": "監管層開始關注AI負面衝擊，相關熱門概念股恐面臨政策檢視與波動。",
+      "description": "監管層警示科技泡沫與黑天鵝風險，高估值族群需慎防修正壓力。",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "台幣匯率轉強如何影響台股？ - CMoney",
-      "description": "升值牽動外資動向與出口獲利，將引導市場資金在不同族群間輪動。",
+      "description": "升值牽動外資買盤動向與出口族群匯損，牽動台股板塊資金輪動。",
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzMDNhUkx6VzdEM19IODRMR2Y3RFZYV2pVMkMwU1M3Zlh5ajVieUlWQzIzT2szNDh3bWNORzRtcnRzV2tWUzNOS3JnZzNhbFpqdllQd0ZxRHpXNmU5UENEVUJYbXpIVDRjUkx2bDVsNTFEWHlsVF9yWWJDTQ?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "費半獨跌背離",
-      "content": "美股主要指數齊揚，唯獨費半逆勢跌逾0.5%，科技估值現隱憂。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警風險",
-      "content": "央行報告首提AI負面衝擊，監管審視恐加劇熱門概念股震盪。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "債市政策分歧",
-      "content": "債市質疑貨幣緊縮力道，殖利率難降加劇未來利率預期波動。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/23 下午9:41:29",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/23 上午7:06:44",
