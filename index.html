@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>股票估價分析工具</title>
+<!-- 主畫面 icon / PWA：加入主畫面時顯示壁虎 logo -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f5a858">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="股票估價分析">
 <script>
 // 全局修補：安全地處理 toFixed
 if (Number.prototype.toFixed) {
@@ -170,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.24',
+  version: '8.21.25',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
