@@ -114,3 +114,15 @@
 !docs/*.md
 # 所有 Markdown 文檔（根目錄）
 !*.md
+
+# ════════════════════════════════════════════
+# 主畫面 icon / PWA
+# ════════════════════════════════════════════
+# iOS 加入主畫面圖示
+!apple-touch-icon.png
+# PWA icon 192
+!icon-192.png
+# PWA icon 512
+!icon-512.png
+# PWA manifest
+!manifest.json
