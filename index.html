@@ -170,7 +170,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.23',
+  version: '8.21.24',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -236,7 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
 async function updateProgressDisplay() {
   try {
     let dataUrl = 'financial-data-complete.json';
-    const response = await fetch(dataUrl, {signal: AbortSignal.timeout(3000)});
+    // 檔案約 7.5MB，手機網路 3 秒常下載不完被 abort → 計數卡 0/0，放寬到 15 秒
+    const response = await fetch(dataUrl, {signal: AbortSignal.timeout(15000)});
     if (response.ok) {
       const data = await response.json();
       const stocks = data.stocks;
@@ -310,18 +311,17 @@ async function initStockCache() {
     console.warn('⚠️ TWSE API 直連失敗:', e.message);
   }
 
-  // 備援 3：使用 corsproxy
+  // 備援 3：使用 CORS 代理（多代理輪替）
   try {
     const url = 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L';
-    const proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
-    const resp = await fetch(proxyUrl, {signal: AbortSignal.timeout(10000)});
-    if (resp.ok) {
-      STOCK_CACHE = await resp.json();
-      console.log(`✅ 台股名稱緩存已加載 (corsproxy，${STOCK_CACHE.length} 支上市公司)`);
+    const data = await fetchViaProxies(url, {timeout: 10000, tag: 'stockCache'});
+    if (data) {
+      STOCK_CACHE = data;
+      console.log(`✅ 台股名稱緩存已加載 (CORS 代理，${STOCK_CACHE.length} 支上市公司)`);
       return;
     }
   } catch(e) {
-    console.warn('⚠️ TWSE corsproxy 備援失敗:', e.message);
+    console.warn('⚠️ TWSE CORS 代理備援失敗:', e.message);
   }
 
   // 最後備援：使用示例數據
@@ -563,6 +563,32 @@ setTimeout(() => {
 // ════════════════════════════════════════════════════════
 
 // v8/chart：台股美股都可透過 corsproxy 抓到
+// CORS 代理清單：github.io 靜態站沒有自家代理，台股/TWSE 資料需靠第三方代理繞過瀏覽器 CORS。
+// 多代理輪替：任一個下線或限流時自動換下一個，避免單點故障讓整個查詢失敗
+// （原本只用 corsproxy.io，它一掛台股就全查不到）。
+const CORS_PROXIES = [
+  u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
+  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+  u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u),
+  u => 'https://thingproxy.freeboard.io/fetch/' + u,
+];
+
+async function fetchViaProxies(url, {timeout = 15000, validate = null, tag = ''} = {}) {
+  for (const wrap of CORS_PROXIES) {
+    const proxied = wrap(url);
+    const label = (proxied.split('/')[2] || proxied);
+    try {
+      const r = await fetch(proxied, {signal: AbortSignal.timeout(timeout)});
+      if (r.status === 404) return null;
+      if (r.ok) {
+        const d = await r.json();
+        if (!validate || validate(d)) { console.log(`[proxy ok] ${tag} via ${label}`); return d; }
+      }
+    } catch(e) { console.log(`[proxy fail] ${tag} via ${label}: ${e.message}`); }
+  }
+  return null;
+}
+
 async function yfFetch(sym) {
   const url1 = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const url2 = `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
@@ -576,20 +602,9 @@ async function yfFetch(sym) {
     } catch(e) {}
   }
 
-  // corsproxy 備援（台股靠這個）
-  console.log('[yfFetch] trying corsproxy for', sym);
-  try {
-    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url1), {signal:AbortSignal.timeout(18000)});
-    console.log('[yfFetch] corsproxy status:', r.status, 'for', sym);
-    if (r.ok) {
-      const d = await r.json();
-      if (d?.chart?.result?.[0]) { console.log('[yfFetch] corsproxy ok'); return d.chart.result[0]; }
-      // 404 = 代號不存在
-      if (r.status === 404) return null;
-    }
-    if (r.status === 404) return null;
-  } catch(e) { console.log('[yfFetch] corsproxy error:', e.message); }
-  return null;
+  // CORS 代理備援（台股靠這個）：多代理輪替
+  const d = await fetchViaProxies(url1, {timeout:15000, tag:'chart '+sym, validate: x => !!x?.chart?.result?.[0]});
+  return d?.chart?.result?.[0] || null;
 }
 
 // quoteSummary：直連（美股）或 corsproxy（台股備援）
@@ -607,28 +622,21 @@ async function yfSummary(sym) {
     } catch(e) {}
   }
 
-  // 僅台股使用 corsproxy 備援（美股直接返回以加快速度）
+  // 僅台股使用 CORS 代理備援（美股直接返回以加快速度）：多代理輪替
   if (isTW) {
-    try {
-      const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(10000)});
-      console.log('[yfSummary] 台股 corsproxy', r.status, sym);
-      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
-    } catch(e) { console.warn('[yfSummary] corsproxy 備援失敗'); }
+    const d = await fetchViaProxies(url, {timeout:12000, tag:'summary '+sym, validate: x => !!x?.quoteSummary?.result?.[0]});
+    if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0];
   }
   return null;
 }
 
-// 通用 fetch（直連 + corsproxy 備援）
+// 通用 fetch（直連 + 多代理輪替備援）
 async function safeFetch(url) {
   try {
     const r = await fetch(url, {signal:AbortSignal.timeout(8000)});
     if (r.ok) return await r.json();
   } catch(e) {}
-  try {
-    const r = await fetch('https://corsproxy.io/?' + encodeURIComponent(url), {signal:AbortSignal.timeout(12000)});
-    if (r.ok) return await r.json();
-  } catch(e) {}
-  return null;
+  return await fetchViaProxies(url, {timeout:12000, tag:'safeFetch'});
 }
 
 // TWSE（上市）：本益比/P/B/殖利率（BWIBBU_ALL 含更多資料，BWIBBU_d 備援）
