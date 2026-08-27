@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-財金早報市場分析生成腳本
+財金報告市場分析生成腳本
 流程：Google News RSS 抓標題 → Claude API 生成繁中分析 → 輸出 market-analysis.json
 """
 
@@ -229,7 +229,7 @@ def find_price_for_market(indices, market_key):
 
 
 def main():
-    print('\n=== 財金早報市場分析生成 ===\n')
+    print('\n=== 財金報告市場分析生成 ===\n')
 
     if not GEMINI_API_KEY:
         print('⚠️  GEMINI_API_KEY 未設定，將使用規則式備援文字')

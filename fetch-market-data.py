@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-財金早報市場指數抓取腳本
+財金報告市場指數抓取腳本
 使用 yfinance 獲取全球主要市場指數
 """
 
@@ -224,7 +224,7 @@ def fetch_index(symbol, info):
         return None
 
 def main():
-    print('\n=== 財金早報市場數據抓取 ===\n')
+    print('\n=== 財金報告市場數據抓取 ===\n')
     results = {}
 
     for symbol, info in INDICES.items():

@@ -2,7 +2,7 @@
 
 ## 📋 概述
 
-財金早報頁面現已支持自動 GitHub Token 管理，用戶點擊「更新數據」按鈕時，系統會自動讀取 token 並觸發 GitHub Actions 工作流。
+財金報告頁面現已支持自動 GitHub Token 管理，用戶點擊「更新數據」按鈕時，系統會自動讀取 token 並觸發 GitHub Actions 工作流。
 
 ## 🔑 配置步驟（只需一次）
 
@@ -41,9 +41,9 @@
 - 工作流會自動生成 `github-config.json` 文件，其中包含你的 token
 - 該文件會自動提交到 repo 中（GitHub Pages）
 
-### 步驟 3：使用財金早報頁面
+### 步驟 3：使用財金報告頁面
 
-1. 訪問財金早報頁面：`index_v6_ai.html`
+1. 訪問財金報告頁面：`index_v6_ai.html`
 2. 點擊「🔄 更新數據」按鈕
 3. 系統自動：
    - 讀取 `github-config.json` 中的 token
@@ -101,7 +101,7 @@
 
 ## 🔗 相關 GitHub Pages
 
-- **財金早報頁面**：`https://neferyang.github.io/stock-tool/index_v6_ai.html`
+- **財金報告頁面**：`https://neferyang.github.io/stock-tool/index_v6_ai.html`
 - **GitHub Actions 頁面**：`https://github.com/neferyang/stock-tool/actions`
 - **Secrets 管理**：`https://github.com/neferyang/stock-tool/settings/secrets/actions`
 
@@ -157,7 +157,7 @@
 
 ## 📚 相關文件
 
-- `index_v6_ai.html` - 財金早報頁面，包含自動 token 讀取邏輯
+- `index_v6_ai.html` - 財金報告頁面，包含自動 token 讀取邏輯
 - `.github/workflows/daily-report-update.yml` - GitHub Actions 工作流配置
 - `github-config.json` - 自動生成的配置文件（包含 token）
 - `daily-report.json` - 每日財務報告數據
@@ -177,7 +177,7 @@
    - 應包含 token 和 `generatedAt` 時間戳
 
 4. **第四步**：頁面測試
-   - 訪問財金早報頁面
+   - 訪問財金報告頁面
    - 點擊「更新數據」按鈕
    - 應顯示「✅ 已觸發更新！」
 
@@ -185,4 +185,4 @@
 
 **配置完成！**✨ 
 
-現在你可以通過財金早報頁面一鍵更新所有市場數據，完全無需手動管理 GitHub token。
+現在你可以通過財金報告頁面一鍵更新所有市場數據，完全無需手動管理 GitHub token。

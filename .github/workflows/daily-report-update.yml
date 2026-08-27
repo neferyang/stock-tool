@@ -2,8 +2,13 @@ name: Daily Financial Report Update
 
 on:
   schedule:
-    - cron: '41 22 * * *'   # 台北 06:41（美股收盤後 2hr，亞洲開盤前；分鐘錯開避免整點排隊延遲）
-    - cron: '37 21 * * *'   # 台北 05:37（美股收盤後 1hr = 最早可拿到當日美股收盤；分鐘錯開避免整點排隊延遲）
+    # 一天4次，對應各市場收盤後1小時（分鐘皆錯開避免整點排隊延遲）。
+    # 這4個時間點是 schedule-watchdog.yml 的 check_daily_report_catchup() 補跑邏輯的
+    # 事實來源，改這裡務必同步改該函式的 windows 陣列，否則時窗判斷會跟實際排程對不上。
+    - cron: '33 6 * * *'    # 台北 14:33（台股收盤 13:30 後1hr）
+    - cron: '3 11 * * *'    # 台北 19:03（全亞股收盤後1hr，含印度SENSEX/NIFTY 15:30 IST最晚收盤）
+    - cron: '37 21 * * *'   # 台北 05:37（美股收盤後1hr = 最早可拿到當日美股收盤）
+    - cron: '41 22 * * *'   # 台北 06:41（美股收盤後2hr，亞股開盤前備援）
   workflow_dispatch:
   workflow_call:
 

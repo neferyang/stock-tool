@@ -179,13 +179,13 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.27',
+  version: '8.21.28',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
 
 // 分頁切換（原本index.html／index_v6_ai.html兩個獨立頁面合併成SPA，
-// 財金早報改lazy load：只有使用者真的點進去才fetch daily-report.json）
+// 財金報告改lazy load：只有使用者真的點進去才fetch daily-report.json）
 let reportLoaded = false;
 function switchTab(tab) {
   const panels = { valuation: 'tab-valuation', report: 'tab-report' };
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div id="res" class="hidden"></div>
 </div>
 
-<!-- ═══════════════ 財金早報分頁（合併自 index_v6_ai.html） ═══════════════ -->
+<!-- ═══════════════ 財金報告分頁（合併自 index_v6_ai.html） ═══════════════ -->
 <div id="tab-report" class="hidden">
   <div id="market-report"></div>
 </div>
@@ -27151,7 +27151,7 @@ if (document.readyState === 'loading') {
 </script>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
-<!-- 財金早報 - 市場數據加載與展示（合併自 index_v6_ai.html） -->
+<!-- 財金報告 - 市場數據加載與展示（合併自 index_v6_ai.html） -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script>
 async function loadDailyReport() {
@@ -27169,17 +27169,17 @@ async function loadDailyReport() {
         throw new Error(`HTTP ${response.status}`);
       }
     } catch (error) {
-      console.error('[財金早報] 加載外部數據失敗:', error.message);
+      console.error('[財金報告] 加載外部數據失敗:', error.message);
       throw error;
     }
 
     if (!reportData) throw new Error('無法解析數據');
     renderMarketReport(reportData);
   } catch (error) {
-    console.error('[財金早報] 載入失敗:', error.message);
+    console.error('[財金報告] 載入失敗:', error.message);
     const container = document.getElementById('market-report');
     if (container) {
-      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金早報數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${escapeHtml(error.message)}</span><br><span style="font-size:0.75rem;">請清除快取並刷新頁面</span></div>`;
+      container.innerHTML = `<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:16px;color:#991b1b;"><strong>❌ 財金報告數據載入失敗</strong><br><span style="font-size:0.85rem;">錯誤：${escapeHtml(error.message)}</span><br><span style="font-size:0.75rem;">請清除快取並刷新頁面</span></div>`;
     }
   }
 }
@@ -27202,7 +27202,7 @@ function renderMarketReport(data) {
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 24px;margin-bottom:20px;">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
         <div style="flex:1;">
-          <h2 style="margin:0;font-size:1.3rem;font-weight:800;color:#1a1a1a;">📊 每日財金早報</h2>
+          <h2 style="margin:0;font-size:1.3rem;font-weight:800;color:#1a1a1a;">📊 每日財金報告</h2>
           <p style="margin:8px 0 0;color:#666;font-size:0.95rem;">${escapeHtml(data.date)}</p>
           <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${escapeHtml(data.basedOn)}</p>
         </div>

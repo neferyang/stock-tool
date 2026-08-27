@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 每日財金早報自動更新腳本
+ * 每日財金報告自動更新腳本
  * 執行時機：GitHub Actions 每日 UTC 22:00 (台北時間 06:00)
  * 數據來源：fetch-market-data.py 產出的 market-data.json
  */
@@ -206,7 +206,7 @@ function updateMarkets(markets, indices) {
 
 async function main() {
   const reportPath = path.join(__dirname, 'daily-report.json');
-  console.log('🚀 財金早報自動更新開始\n');
+  console.log('🚀 財金報告自動更新開始\n');
 
   if (!fs.existsSync(reportPath)) {
     console.error(`❌ 找不到 daily-report.json`);
