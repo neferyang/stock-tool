@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-26T23:40:59.136008",
+  "updatedAt": "2026-08-27T05:04:45.205800",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
   "statistics": {
-    "total_stocks": 2352,
+    "total_stocks": 2353,
     "priority_1": 10,
     "priority_2": 32,
-    "priority_3": 2310
+    "priority_3": 2311
   },
   "stocks": {
     "2330": {
@@ -282955,8 +282955,115 @@
       ],
       "lastAttemptAt": "2026-08-26T09:06:23.932686",
       "noDataStreak": 6
+    },
+    "7914": {
+      "name": "碩明綠能",
+      "industry": "綠能環保",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2026",
+          "eps": 2.2,
+          "revenue": 5.7,
+          "netIncome": 1.2,
+          "operatingIncome": 2.0,
+          "operatingMargin": 35.6,
+          "fcf": 12.8,
+          "roe": 14.8,
+          "netMargin": 20.4,
+          "debtRatio": 66.4,
+          "updatedAt": "2026-08-27T05:04:45.005505",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "epsActual": 0.55,
+          "roeActual": 3.7,
+          "partialQuarters": 1
+        },
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2023",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2022",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2021",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
     }
   },
-  "marketUniverseTotal": 2299,
-  "marketUniverseUpdatedAt": "2026-08-25T01:56:21.020923"
+  "marketUniverseTotal": 2321,
+  "marketUniverseUpdatedAt": "2026-08-27T05:04:42.865866"
 }
