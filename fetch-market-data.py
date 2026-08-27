@@ -11,6 +11,7 @@ import json
 from datetime import datetime, timedelta
 import pytz
 import sys
+import time
 
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
@@ -52,11 +53,26 @@ def fetch_taiex():
     原因：yfinance 的 ^TWII 會缺漏交易日（實測 2026/07/14 台股有交易且大跌642點，
           但 yfinance 完全沒有該筆資料，導致早報顯示過期且方向相反的數據）
     """
+    # TWSE 偶發回傳空內容(非JSON)，r.json()會拋ValueError；比照auto-expand-stocks.py的
+    # fetch_json()，加3次重試(5s/10s/15s遞增)，避免單次空回應就整個放棄、白丟這次台股數字
+    # （update-daily-report.js找不到新資料時會保留舊值，不會顯示壞掉的數字，但數字就沒更新到）。
+    rows = None
+    last_err = None
+    for attempt in range(3):
+        try:
+            r = requests.get('https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK',
+                             headers={'User-Agent': 'Mozilla/5.0'}, timeout=15)
+            r.raise_for_status()
+            rows = r.json()
+            break
+        except (requests.exceptions.RequestException, ValueError) as e:
+            last_err = e
+            if attempt < 2:
+                time.sleep(5 * (attempt + 1))
+
     try:
-        r = requests.get('https://openapi.twse.com.tw/v1/exchangeReport/FMTQIK',
-                         headers={'User-Agent': 'Mozilla/5.0'}, timeout=15)
-        r.raise_for_status()
-        rows = r.json()
+        if rows is None:
+            raise last_err
         if not rows:
             print('[WARN] 台灣加權指數: TWSE API 無數據')
             return None
