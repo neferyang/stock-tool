@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.25',
+  version: '8.21.26',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -576,6 +576,9 @@ setTimeout(() => {
 // 多代理輪替：任一個下線或限流時自動換下一個，避免單點故障讓整個查詢失敗
 // （原本只用 corsproxy.io，它一掛台股就全查不到）。
 const CORS_PROXIES = [
+  // 自家代理（僅 Vercel 部署有 /api/proxy serverless；github.io 靜態站會 404 → 自動跳過）：
+  // 同源、server 端抓取，最穩最快，優先使用。
+  u => '/api/proxy?url=' + encodeURIComponent(u),
   u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
   u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
   u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u),
@@ -588,7 +591,8 @@ async function fetchViaProxies(url, {timeout = 15000, validate = null, tag = ''}
     const label = (proxied.split('/')[2] || proxied);
     try {
       const r = await fetch(proxied, {signal: AbortSignal.timeout(timeout)});
-      if (r.status === 404) return null;
+      // 第三方代理 404 = 上游查無此代號 → 中止；自家 /api/proxy 404 = 該環境無 serverless(github.io) → 換下一個
+      if (r.status === 404 && !proxied.startsWith('/api/proxy')) return null;
       if (r.ok) {
         const d = await r.json();
         if (!validate || validate(d)) { console.log(`[proxy ok] ${tag} via ${label}`); return d; }
