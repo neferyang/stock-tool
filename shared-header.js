@@ -1,11 +1,11 @@
-// 共用 App Header：股票估價工具／財金早報兩個分頁用同一份程式碼產生
+// 共用 App Header：股票估價工具／財金報告兩個分頁用同一份程式碼產生
 // header + 分頁列，統一配色與排版，之後要調視覺只改這一處。
 // v8.17起兩頁合併成同一個index.html的SPA，分頁改成JS切換（見index.html的
 // switchTab()），不再整頁跳轉；index_v6_ai.html保留成redirect stub供舊書籤使用。
 function renderAppHeader({ containerSelector, activeTab, icon, title, version, subtitle, showProgress }) {
   const tabs = [
     { key: 'valuation', icon: '📊', label: '股票估價工具' },
-    { key: 'report', icon: '🤖', label: '財金早報' },
+    { key: 'report', icon: '🤖', label: '財金報告' },
   ];
 
   const tabsHtml = tabs.map(t => {

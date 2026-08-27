@@ -42,16 +42,16 @@ open index.html
 
 ```
 ├── index.html              # 主應用（股票估價工具）
-├── index_v6_ai.html        # 財金早報分頁
+├── index_v6_ai.html        # 財金報告分頁
 ├── api/proxy.js            # Vercel 後端代理
 ├── vercel.json             # Vercel 配置
-├── daily-report.json       # 每日財金早報數據
+├── daily-report.json       # 每日財金報告數據
 └── .github/workflows/      # GitHub Actions 自動化
 ```
 
 ## 🔄 自動更新
 
-財金早報每天台北時間 06:00 自動更新。支援手動觸發：
+財金報告每天台北時間 06:00 自動更新。支援手動觸發：
 - 進入 GitHub Actions
 - 選擇 "Daily Financial Report Update"
 - 點擊 "Run workflow"
@@ -77,7 +77,7 @@ open index.html
 ## 📝 版本
 
 - 當前版本：v6.7.0
-- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub Actions 穩定性改善、財金早報動態加載、股票估價全部變數衝突修復完成
+- 包含：完全 toFixed 安全防護、Vercel 代理優化、GitHub Actions 穩定性改善、財金報告動態加載、股票估價全部變數衝突修復完成
 
 ## 🤝 貢獻
 
