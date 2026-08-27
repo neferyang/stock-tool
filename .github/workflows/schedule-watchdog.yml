@@ -84,10 +84,43 @@ jobs:
             gh workflow run "$file" --repo "$REPO"
           }
 
+          # daily-report-update.yml 是每日早晨排程(cron '37 21' + '41 22' UTC = 台北 05:37/06:41)。
+          # 原本用粗粒度「距上次執行14小時」門檻，會被白天的手動/補跑重置時鐘騙到：早晨排程被GitHub
+          # skip後、只要14h內有跑過任何一次(例如前一天午後手動補跑)就不補，早上就開天窗。改用精準時窗：
+          # 以最後一個排程22:41 UTC + 20分寬限 = 23:01 UTC為當日截止點，只看該輪起點(21:00 UTC)之後
+          # 有無執行紀錄，避開白天雜訊，天然一天最多補一次(一補上就查到本輪紀錄)。
+          check_daily_report_catchup() {
+            local file="daily-report-update.yml"
+            local now_ts today_due_ts window_start_ts window_start_iso recent
+            now_ts=$(date -u +%s)
+            today_due_ts=$(date -u -d "$(date -u +%Y-%m-%d) 23:01:00" +%s)
+
+            if [ "$now_ts" -lt "$today_due_ts" ]; then
+              # 今日截止(23:01 UTC)未到，檢查前一輪(起點 昨天 21:00 UTC)
+              window_start_ts=$(date -u -d "$(date -u -d 'yesterday' +%Y-%m-%d) 21:00:00" +%s)
+            else
+              # 今日截止已過，檢查今天這輪(起點 今天 21:00 UTC)
+              window_start_ts=$(date -u -d "$(date -u +%Y-%m-%d) 21:00:00" +%s)
+            fi
+            window_start_iso=$(date -u -d "@$window_start_ts" +%Y-%m-%dT%H:%M:%SZ)
+
+            # 不加status過濾：queued/in_progress也算，避免補跑跟延遲到達的原生排程疊加
+            recent=$(gh api "repos/$REPO/actions/workflows/$file/runs?per_page=10" \
+              --jq '.workflow_runs[] | select(.created_at >= "'"$window_start_iso"'") | .created_at' 2>/dev/null)
+
+            if [ -n "$recent" ]; then
+              echo "$file：本早報時窗($window_start_iso 起)已有執行紀錄，略過"
+              return
+            fi
+
+            echo "🔁 $file 本早報時窗($window_start_iso 起)查無執行紀錄，補跑"
+            gh workflow run "$file" --repo "$REPO"
+          }
+
           # 門檻需對齊各排程實際cron頻率，2026-07-22排程對調(auto-expand改1天1次、
           # update-financial-data改每小時1次)後這裡曾忘記同步更新，導致
           # auto-expand用舊的3小時門檻誤判「逾期」而被重複補跑、白耗FinMind額度。
           check_and_trigger "auto-expand-stocks.yml" 26
           check_hourly_financial_catchup
-          check_and_trigger "daily-report-update.yml" 14
+          check_daily_report_catchup
           check_and_trigger "mops_crawler.yml" 192
