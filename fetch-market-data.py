@@ -33,6 +33,18 @@ INDICES = {
     'GC=F':    {'name': '黃金',          'group': 'GOLD', 'tz': 'America/New_York'},
 }
 
+# 各市場收盤時間（當地時區，含30分鐘緩衝讓yfinance資料落地）。
+# 用於判斷 yfinance 回傳「今天」那根K棒是否為完整收盤價：早報一天跑多次，
+# 若執行當下該市場還在盤中，yfinance的當日K棒是即時跳動價、非收盤價，
+# 若不過濾會把盤中報價誤植為「收盤數字」寫進早報，導致同一天內每次早報數字
+# 都不同、且跟使用者當下看到的即時報價對不上（美股/黃金收盤後才抓，天然不受影響）。
+MARKET_CLOSE = {
+    '^N225':  (15, 30),
+    '^KS11':  (16, 0),
+    '^BSESN': (16, 0),
+    '^NSEI':  (16, 0),
+}
+
 
 def fetch_taiex():
     """
@@ -166,6 +178,21 @@ def fetch_index(symbol, info):
             if hist.empty:
                 print(f'[WARN] {info["name"]} ({symbol}): 排除未來日期後無數據')
                 return None
+            last_date = to_local_date(hist.index[-1])
+
+        # 排除「今天盤中還沒收盤」的即時報價：早報一天跑多次，若執行當下
+        # 該市場仍在交易時段，yfinance當日K棒是即時跳動價、非收盤價，
+        # 直接採用會讓早報數字每次不同、且跟即時報價本身就對不上。
+        close_hm = MARKET_CLOSE.get(symbol)
+        if close_hm and last_date == today_local:
+            close_h, close_m = close_hm
+            settle_dt = now_local.replace(hour=close_h, minute=close_m, second=0, microsecond=0)
+            if now_local < settle_dt:
+                print(f'[DEBUG] {info["name"]}: 今日尚未收盤（{now_local.strftime("%H:%M")} < {close_h:02d}:{close_m:02d}），改用前一已收盤交易日')
+                hist = hist.iloc[:-1]
+                if hist.empty:
+                    print(f'[WARN] {info["name"]} ({symbol}): 排除盤中報價後無數據')
+                    return None
 
         latest = hist.iloc[-1]
         prev = hist.iloc[-2] if len(hist) >= 2 else latest
