@@ -1,27 +1,27 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-27T11:04:17.204Z",
-  "date": "2026年08月27日（星期四）",
-  "basedOn": "2026年08月26日（前一交易日）",
+  "lastUpdated": "2026-08-27T16:31:22.342Z",
+  "date": "2026年08月28日（星期五）",
+  "basedOn": "2026年08月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：53,464（08/26，▼0.21%）",
-        "S&P 500：7,676（08/26，▼0.02%）",
-        "那斯達克：26,130（08/26，▼0.08%）",
-        "費城半導體指數：11,611（08/26，▲0.20%）"
+        "道瓊：53,613（08/27，▲0.28%）",
+        "S&P 500：7,722（08/27，▲0.60%）",
+        "那斯達克：26,469（08/27，▲1.30%）",
+        "費城半導體指數：11,791（08/27，▲1.54%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,132（08/27，▼0.20%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：45,833（08/26，▲1.47%）"
       ],
-      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,640（08/27，▲0.90%）"
+        "黃金：4,661（08/27，▲1.36%）"
       ],
-      "analysis": "（今日上漲0"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（8/27，加權指數 vs 240日均線）",
+            "current": "約31%（8/26，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.24（8/27）",
+            "current": "99.12（8/27）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.72（8/27）",
+            "current": "31.66（8/27）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.9（8/27）",
+            "current": "14.5（8/27）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "270 bps（2.70%，8/25）",
+            "current": "267 bps（2.67%，8/26）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -178,7 +178,7 @@
           },
           {
             "name": "初領失業救濟金",
-            "current": "20.6萬/週（8/15）",
+            "current": "20.3萬/週（8/22）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
-    },
-    {
       "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
+    },
+    {
+      "title": "Fed利率連五凍、內部仍偏鷹 交易員下修9月升息預期至60% - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE0yWGpUSVA3RWE0c1FRV0VqV3lHMDNWbmlLdW9UOGlLLVgzSTNHZjgtV0hZc1R6c0dzWFN3R0diU3BRUDlVYUJUVmlLVjZIYU0?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -228,16 +228,16 @@
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRURHbW5CbEhWT3JpbkRjNEY1NHlmNWliWDAzanRJckJFRUVFMWtoSW0zbnp0Qi1GTXZOYlQ4WVY4VU5jWWZKWmJEUnBrdXlNeTFfRk55YTdnSHNSdFRBT2FlWkc3cnAtMHFXUGVabk55eHhILWc?oc=5"
     },
     {
-      "title": "輝達財報助攻熱錢續匯入！新台幣勁揚近1角、升破31.8元 - 自由財經",
+      "title": "輝達報喜+外資回頭！新台幣拉出連二紅 大漲1.1角、收31.708元 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LX1JsWnZsd2M4R1dZQ1pnRTFlZHdCRDJ6S0N4U1VfOTlEWFdtRGg2cVlRU1NBV2pyS1IxM0c0NVZFbENET0JkWm5HVFN1SEF4TGplOXhpRHdLM2JZNGpN?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE8zN0VYWmZnd19lQlpHRG9BYTNsdlB6ME5qOGwwcC1tTXhVUjBpQ1ZpM1FsOWhBUjhiMXRMS1hra0NlclBXVy00VDZOY2tnemtjcjVHR2ln?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/28 上午12:31:22",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/27 下午7:04:17",
