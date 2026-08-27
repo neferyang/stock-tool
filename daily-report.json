@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-27T10:55:01.943Z",
+  "lastUpdated": "2026-08-27T11:04:17.204Z",
   "date": "2026年08月27日（星期四）",
   "basedOn": "2026年08月26日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：26,130（08/26，▼0.08%）",
         "費城半導體指數：11,611（08/26，▲0.20%）"
       ],
-      "analysis": "**\n    *"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：6,912（08/27，▲1.53%）"
       ],
-      "analysis": "KOSPI 漲"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：45,833（08/26，▲1.47%）"
       ],
-      "analysis": "台股今日上漲"
+      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,631（08/27，▲0.72%）"
+        "黃金：4,640（08/27，▲0.90%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "（今日上漲0"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.23（8/27）",
+            "current": "99.24（8/27）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.0（8/27）",
+            "current": "14.9（8/27）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -225,7 +225,7 @@
     {
       "title": "通脹與財政風險升溫 IMF敦促各國控債削赤 - 香港商报",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB5aF9oZElrbElPMlBzMTQxRS1pZWM5LXZwbERGeHUwbmY3RXhQRDNiejA3QjBMZy1IMVV3SlhvTlpxRUVrYXY2TnZzSFh3MjYxNlhBMXpTRExmWWMzTE4zYUxqeVA1MURsZXlET3AyYlJoZENWMktaLWtzSQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRURHbW5CbEhWT3JpbkRjNEY1NHlmNWliWDAzanRJckJFRUVFMWtoSW0zbnp0Qi1GTXZOYlQ4WVY4VU5jWWZKWmJEUnBrdXlNeTFfRk55YTdnSHNSdFRBT2FlWkc3cnAtMHFXUGVabk55eHhILWc?oc=5"
     },
     {
       "title": "輝達財報助攻熱錢續匯入！新台幣勁揚近1角、升破31.8元 - 自由財經",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/27 下午7:04:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/27 下午6:55:01",
