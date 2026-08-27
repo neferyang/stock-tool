@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-27T03:43:20.634Z",
+  "lastUpdated": "2026-08-27T10:55:01.943Z",
   "date": "2026年08月27日（星期四）",
   "basedOn": "2026年08月26日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,27 +14,27 @@
         "那斯達克：26,130（08/26，▼0.08%）",
         "費城半導體指數：11,611（08/26，▲0.20%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "**\n    *"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,164（08/27，▼0.15%）"
+        "日經225：66,132（08/27，▼0.20%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,933（08/27，▲1.83%）"
+        "KOSPI：6,912（08/27，▲1.53%）"
       ],
-      "analysis": ") after recent sharp circuit-breaker drops"
+      "analysis": "KOSPI 漲"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：77,473（08/26，▼0.24%）",
-        "NIFTY 50：24,208（08/26，▼0.52%）"
+        "SENSEX：76,934（08/27，▼0.70%）",
+        "NIFTY 50：24,091（08/27，▼0.48%）"
       ],
       "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
@@ -43,28 +43,28 @@
       "items": [
         "台灣加權指數：45,833（08/26，▲1.47%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股今日上漲"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,692（08/26，▲1.16%）"
+        "黃金：4,631（08/27，▲0.72%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,823（08/27，▲0.08%）"
+        "VN-Index：1,832（08/27，▲0.56%）"
       ],
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年8月27日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
+    "summary": "🔴×4　🟠×2　🟡×4　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.15（8/26）",
+            "current": "99.23（8/27）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.73（8/27）",
+            "current": "31.72（8/27）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.2（8/26）",
-            "status": "🟡",
-            "statusText": "波動率上升，留意情緒轉變"
+            "current": "15.0（8/27）",
+            "status": "🟢",
+            "statusText": "市場情緒平靜"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$82（8/26）",
+            "current": "$82（8/27）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB5aF9oZElrbElPMlBzMTQxRS1pZWM5LXZwbERGeHUwbmY3RXhQRDNiejA3QjBMZy1IMVV3SlhvTlpxRUVrYXY2TnZzSFh3MjYxNlhBMXpTRExmWWMzTE4zYUxqeVA1MURsZXlET3AyYlJoZENWMktaLWtzSQ?oc=5"
     },
     {
-      "title": "台股反轉+外資回補！新台幣站穩31.8字頭、創兩個月新高 - Yahoo新聞",
+      "title": "輝達財報助攻熱錢續匯入！新台幣勁揚近1角、升破31.8元 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOMnJyWnBLbTJRaXFRNjRlR3diRlBzSFdwY0V0MXVKWXZ2dFJJZURvbm9IX1VWUDJpLUhRZS16M1pNNW9QcW95QUY3dGd5eFhGTTFaWnhiWTB4X3MtaXpiV2d1dWtBTDFQd2VET3h0dTFRdmVxZ2FhcFc2dDJ3aldNb3cxSDg1M3MzX0hvZmpJdnFnYWVQdWc5QXMzSkdES0pBdU9IenlvZ0daV0w2QU5heE9rOEZoWDBhcG9fRV9mejBabThkVXU4RkVnSnhqT2piQWVhYnBDei1FejFUN2NMN1dKZThtdTcxSDBjZGtZXzM5VllwQVU1MXJGeWlNLU0tanVPRTFQcFVJTU9WMUw4T2FiZlRmNmctYlV2RjRFTy1TNEE5dzJoMnVFV1RhdUZybnlMRHRMMWV5WVB1MVJObTNMMUMzczlGTklhZmlqNXFjOHNXTHZhWg?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9LX1JsWnZsd2M4R1dZQ1pnRTFlZHdCRDJ6S0N4U1VfOTlEWFdtRGg2cVlRU1NBV2pyS1IxM0c0NVZFbENET0JkWm5HVFN1SEF4TGplOXhpRHdLM2JZNGpN?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/27 下午6:55:01",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/27 上午11:43:20",
