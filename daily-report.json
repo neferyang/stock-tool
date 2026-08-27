@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-27T16:31:22.342Z",
+  "lastUpdated": "2026-08-27T21:06:48.005Z",
   "date": "2026年08月28日（星期五）",
   "basedOn": "2026年08月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：53,613（08/27，▲0.28%）",
-        "S&P 500：7,722（08/27，▲0.60%）",
-        "那斯達克：26,469（08/27，▲1.30%）",
-        "費城半導體指數：11,791（08/27，▲1.54%）"
+        "道瓊：53,569（08/27，▲0.20%）",
+        "S&P 500：7,731（08/27，▲0.72%）",
+        "那斯達克：26,541（08/27，▲1.57%）",
+        "費城半導體指數：11,882（08/27，▲2.33%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,661（08/27，▲1.36%）"
+        "黃金：4,657（08/27，▲1.27%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,832（08/27，▲0.56%）"
+        "VN-Index：1,832（08/28，▲0.56%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -104,9 +104,9 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.64%（8/25）",
+            "current": "4.66%（8/26）",
             "status": "🟠",
-            "statusText": "距警戒（>4.80%）約0.16%"
+            "statusText": "距警戒（>4.80%）約0.14%"
           },
           {
             "name": "Fed 全年降息預期",
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.12（8/27）",
+            "current": "99.14（8/27）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.66（8/27）",
+            "current": "31.67（8/27）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -141,7 +141,7 @@
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.47%（10Y 4.64% - 2Y 4.17%，8/25）",
+            "current": "+0.47%（10Y 4.66% - 2Y 4.19%，8/26）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$82（8/27）",
+            "current": "$84（8/27）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "title": "澤平宏觀—投資時鐘：贏在周期| 宏觀 - 鉅亨號",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0zQ2Jrc3ItaGZGSXkyLWdnLWpzMFBxQ1pVdWwtLVhRQ0s5anRFa2ZFUGlQR0UxNmJQeXk1RzV6ZHhJTEo2aFpIdA?oc=5"
     },
     {
       "title": "通脹與財政風險升溫 IMF敦促各國控債削赤 - 香港商报",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/28 上午5:06:48",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/28 上午12:31:22",
