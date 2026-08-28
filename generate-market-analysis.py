@@ -107,19 +107,37 @@ def call_gemini(prompt):
         raise ValueError('GEMINI_API_KEY 未設定')
 
     url = f'https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}'
-    body = json.dumps({
-        'contents': [{'parts': [{'text': prompt}]}],
-        'generationConfig': {'maxOutputTokens': 200, 'temperature': 0.3}
-    }).encode('utf-8')
 
-    req = urllib.request.Request(url, data=body,
-        headers={'content-type': 'application/json'}, method='POST')
+    def _build_body(with_thinking_config):
+        generation_config = {'maxOutputTokens': 300, 'temperature': 0.3}
+        if with_thinking_config:
+            # gemini-2.5/3.7系列預設開啟thinking，會先扣maxOutputTokens額度做內部推理，
+            # 可見輸出被擠壓到只剩幾個字就被截斷（實測黃金分析被砍成「（今日上漲0」）。
+            # 這種格式化短輸出任務不需要thinking，設thinkingBudget=0關閉。
+            # 部分較新模型不接受此參數（400 INVALID_ARGUMENT），失敗時改不帶此參數重試，
+            # 邏輯與generate-news-highlights.py的call_gemini()同一套。
+            generation_config['thinkingConfig'] = {'thinkingBudget': 0}
+        return json.dumps({
+            'contents': [{'parts': [{'text': prompt}]}],
+            'generationConfig': generation_config,
+        }).encode('utf-8')
+
+    def _request(with_thinking_config):
+        req = urllib.request.Request(url, data=_build_body(with_thinking_config),
+            headers={'content-type': 'application/json'}, method='POST')
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            result = json.loads(resp.read().decode('utf-8'))
+        return result['candidates'][0]['content']['parts'][0]['text'].strip()
 
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(req, timeout=20) as resp:
-                result = json.loads(resp.read().decode('utf-8'))
-            return result['candidates'][0]['content']['parts'][0]['text'].strip()
+            try:
+                return _request(with_thinking_config=True)
+            except urllib.error.HTTPError as e:
+                if e.code == 400:
+                    print('   🔎 帶 thinkingConfig 遭 400，改不帶此參數重試...')
+                    return _request(with_thinking_config=False)
+                raise
         except urllib.error.HTTPError as e:
             if e.code == 429 and attempt < 2:
                 wait = 20 * (attempt + 1)
