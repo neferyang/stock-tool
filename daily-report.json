@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-28T05:43:37.648Z",
+  "lastUpdated": "2026-08-28T06:31:06.173Z",
   "date": "2026年08月28日（星期五）",
   "basedOn": "2026年08月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,636（08/28，▲0.57%）"
+        "黃金：4,634（08/28，▲0.53%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,828（08/28，▼0.19%）"
+        "VN-Index：1,827（08/28，▼0.24%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.60（8/28）",
+            "current": "31.59（8/28）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "通脹與財政風險升溫 IMF敦促各國控債削赤 - 香港商报",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRURHbW5CbEhWT3JpbkRjNEY1NHlmNWliWDAzanRJckJFRUVFMWtoSW0zbnp0Qi1GTXZOYlQ4WVY4VU5jWWZKWmJEUnBrdXlNeTFfRk55YTdnSHNSdFRBT2FlWkc3cnAtMHFXUGVabk55eHhILWc?oc=5"
     },
     {
       "title": "輝達財測亮眼點火股匯 新台幣見31.5字頭、創逾2個月新高 - 自由財經",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/28 下午2:31:06",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/28 下午1:43:37",
