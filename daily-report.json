@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-28T06:31:06.173Z",
+  "lastUpdated": "2026-08-28T12:42:52.869Z",
   "date": "2026年08月28日（星期五）",
   "basedOn": "2026年08月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,24 +19,24 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,132（08/27，▼0.20%）"
+        "日經225：66,406（08/28，▲0.41%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,912（08/27，▲1.53%）"
+        "KOSPI：6,789（08/28，▼1.79%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,934（08/27，▼0.70%）",
-        "NIFTY 50：24,091（08/27，▼0.48%）"
+        "SENSEX：77,265（08/28，▲0.43%）",
+        "NIFTY 50：24,176（08/28，▲0.35%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,634（08/28，▲0.53%）"
+        "黃金：4,654（08/28，▲0.97%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,827（08/28，▼0.24%）"
+        "VN-Index：1,832（08/28，▲0.03%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.19（8/28）",
+            "current": "99.23（8/28）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.59（8/28）",
+            "current": "31.60（8/28）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.5（8/27）",
+            "current": "14.4（8/28）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "通脹與財政風險升溫 IMF敦促各國控債削赤 - 香港商报",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRURHbW5CbEhWT3JpbkRjNEY1NHlmNWliWDAzanRJckJFRUVFMWtoSW0zbnp0Qi1GTXZOYlQ4WVY4VU5jWWZKWmJEUnBrdXlNeTFfRk55YTdnSHNSdFRBT2FlWkc3cnAtMHFXUGVabk55eHhILWc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "輝達財測亮眼點火股匯 新台幣見31.5字頭、創逾2個月新高 - 自由財經",
+      "title": "台股攻4萬6！新台幣一度回測31.5元關卡 周線拉出連五紅 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9YTHk4UTFueTNYX29RSFBHQUljaEc0MEloR3pGaFdBVVhwd0lNZHBLZk01N3RVd3VGTXh5Q2dSUTBjQzFhUXcycUFMdXdHSmFhQnNaMlB4Y3k5SEMxYldDcktuZm8?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yY3BmSDlERlpVUzJQX3BWUWNLZ3Y0RTI5STNiWjRVbkxUX3FfLWdfZGRzRXZxa0IyRUFVUlNTamhDUjBpVnNGSFUxTlJWTWY3NHZiX3Vn?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/28 下午8:42:52",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/28 下午2:31:06",
