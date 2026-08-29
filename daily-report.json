@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-29T03:27:20.220Z",
+  "lastUpdated": "2026-08-29T04:03:32.806Z",
   "date": "2026年08月29日（星期六）",
   "basedOn": "2026年08月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -50,7 +50,7 @@
       "items": [
         "黃金：4,504（08/28，▼2.29%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "受降息預期降溫及高盛下調目標價影響，黃金創高後獲利了結賣壓湧現，今日重挫2.29%，短線多空拉鋸加劇。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年8月29日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×2　🟡×4　🟢×5",
+    "summary": "🔴×5　🟠×2　🟡×3　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.68（8/28）",
+            "current": "99.16（8/27）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$83（8/28）",
-            "status": "🟡",
-            "statusText": "距警戒（>$100）有距離"
+            "current": "$nan（8/28）",
+            "status": "🔴",
+            "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
           {
             "name": "初領失業救濟金",
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
+      "title": "美債殖利率為何壓不下來？城堡證券直指Fed不願收緊政策｜新聞快訊｜豐雲學堂 - sinotrade.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9qbmhtYnRYVnpNTjM3Y0tMYWxweHIyekFyYlpONlUtQjRVT0ZvSlZ4TGxDUW5OV1FzaERtdmNZU3lTbHZUdXhLdTRLSllrN0VaR0dETktrU3FnbTBRS19FclN1N2dpWXhkNC12OXNFY05BOW9TLXc?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/29 下午12:03:32",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/29 上午11:27:20",
