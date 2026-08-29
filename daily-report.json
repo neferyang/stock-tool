@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-29T04:03:32.806Z",
+  "lastUpdated": "2026-08-29T11:04:03.785Z",
   "date": "2026年08月29日（星期六）",
-  "basedOn": "2026年08月28日（前一交易日）",
+  "basedOn": "2026年08月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -14,7 +14,7 @@
         "那斯達克：26,402（08/28，▼0.52%）",
         "費城半導體指數：11,470（08/28，▼3.47%）"
       ],
-      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -50,7 +50,7 @@
       "items": [
         "黃金：4,504（08/28，▼2.29%）"
       ],
-      "analysis": "受降息預期降溫及高盛下調目標價影響，黃金創高後獲利了結賣壓湧現，今日重挫2.29%，短線多空拉鋸加劇。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.4（8/28）",
+            "current": "14.5（8/27）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -228,16 +228,16 @@
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RRURHbW5CbEhWT3JpbkRjNEY1NHlmNWliWDAzanRJckJFRUVFMWtoSW0zbnp0Qi1GTXZOYlQ4WVY4VU5jWWZKWmJEUnBrdXlNeTFfRk55YTdnSHNSdFRBT2FlWkc3cnAtMHFXUGVabk55eHhILWc?oc=5"
     },
     {
-      "title": "台股攻4萬6！新台幣一度回測31.5元關卡 周線拉出連五紅 | 太報 - LINE TODAY",
+      "title": "台股反轉+外資回補！新台幣站穩31.8字頭、創兩個月新高 - Yahoo新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yY3BmSDlERlpVUzJQX3BWUWNLZ3Y0RTI5STNiWjRVbkxUX3FfLWdfZGRzRXZxa0IyRUFVUlNTamhDUjBpVnNGSFUxTlJWTWY3NHZiX3Vn?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOMnJyWnBLbTJRaXFRNjRlR3diRlBzSFdwY0V0MXVKWXZ2dFJJZURvbm9IX1VWUDJpLUhRZS16M1pNNW9QcW95QUY3dGd5eFhGTTFaWnhiWTB4X3MtaXpiV2d1dWtBTDFQd2VET3h0dTFRdmVxZ2FhcFc2dDJ3aldNb3cxSDg1M3MzX0hvZmpJdnFnYWVQdWc5QXMzSkdES0pBdU9IenlvZ0daV0w2QU5heE9rOEZoWDBhcG9fRV9mejBabThkVXU4RkVnSnhqT2piQWVhYnBDei1FejFUN2NMN1dKZThtdTcxSDBjZGtZXzM5VllwQVU1MXJGeWlNLU0tanVPRTFQcFVJTU9WMUw4T2FiZlRmNmctYlV2RjRFTy1TNEE5dzJoMnVFV1RhdUZybnlMRHRMMWV5WVB1MVJObTNMMUMzczlGTklhZmlqNXFjOHNXTHZhWg?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/29 下午7:04:03",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/29 下午12:03:32",
