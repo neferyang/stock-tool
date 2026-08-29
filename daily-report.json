@@ -1,8 +1,8 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-29T12:52:45.468Z",
+  "lastUpdated": "2026-08-29T15:41:58.761Z",
   "date": "2026年08月29日（星期六）",
-  "basedOn": "2026年08月27日（前一交易日）",
+  "basedOn": "2026年08月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
@@ -14,21 +14,21 @@
         "那斯達克：26,402（08/28，▼0.52%）",
         "費城半導體指數：11,470（08/28，▼3.47%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,406（08/28，▲0.41%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,789（08/28，▼1.79%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：77,265（08/28，▲0.43%）",
         "NIFTY 50：24,176（08/28，▲0.35%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（8/27，加權指數 vs 240日均線）",
+            "current": "約32%（8/28，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.16（8/27）",
+            "current": "99.70（8/28）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.5（8/27）",
+            "current": "14.4（8/28）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "美債殖利率為何壓不下來？城堡證券直指Fed不願收緊政策｜新聞快訊｜豐雲學堂 - sinotrade.com.tw",
+      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9qbmhtYnRYVnpNTjM3Y0tMYWxweHIyekFyYlpONlUtQjRVT0ZvSlZ4TGxDUW5OV1FzaERtdmNZU3lTbHZUdXhLdTRLSllrN0VaR0dETktrU3FnbTBRS19FclN1N2dpWXhkNC12OXNFY05BOW9TLXc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -236,8 +236,8 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/29 下午11:41:58",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/29 下午8:52:45",
