@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-08-30T23:56:14.172Z",
+  "lastUpdated": "2026-08-31T01:01:50.393Z",
   "date": "2026年08月31日（星期一）",
   "basedOn": "2026年08月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,504（08/30，▲0.59%）"
+        "黃金：4,519（08/30，▲0.92%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年8月30日",
+    "date": "2026年8月31日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×2　🟡×4　🟢×5",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.66（8/30）",
+            "current": "99.62（8/30）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.62（8/31）",
+            "current": "31.66（8/31）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$85（8/30）",
+            "current": "$84（8/30）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+    },
+    {
       "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
-    },
-    {
-      "title": "美債20年殖利率衝破5%，是金融危機警訊嗎？歷史、黃金、ETF一次看懂｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMitgNBVV95cUxNSC0wUUhxX3A1M3VnN2tGSWhiUUI5NTVBUUZFNUsyMjhYQlZ5UjA2cTNYdzl0UklXeFJvaTBPMHNjSHZkMUFDX2NiY1E0N18zUnV5SWNRMUpOZ2dFM0NUYzJ2Y2hFMl85bU5sbFJpNHpVUS1XZkJxUWljelJHeFE3eDNZNU9NTVNmWFZDRy1vckFwRm10UmZCT1RSOUJieXNBVi1SWjJlcV9aYUZoMkdtQlRQY1lmZWs4YWdMbGs1LVdjVWVac0haWVlCZUFzTkI3bkdUNVBGSV9pSEVoNUtRRkVyN094dkZmdmd2VXVJVjFMX29KMnJfMC16cHI5ZlpJb0tDNksybnIzVnVEekxKc2JEMlZGZ052Q3hUVUJNVEVudzNYU2VncXBXR1RBeHY0bEVhQXhUSVNoN0RyQmtham1NNHR0c1JJTFhfajEzRWJHT2ZzYVo1eUhFQTRoTENNRTRTdU0za2IydERYTk9GZWh5a2FBUGVRMFgyZkhhaTNaOW9SbnpjcS1ISlp6M3o5Tm55bEF3Y2lna3BScGZ0UmlvOWh1ZHZsSUNhcHR5ektNa0tSa3c?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/8/31 上午9:01:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/8/31 上午7:56:14",
