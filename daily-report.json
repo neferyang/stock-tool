@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-01T00:56:04.911Z",
+  "lastUpdated": "2026-09-01T01:35:27.797Z",
   "date": "2026年09月01日（星期二）",
   "basedOn": "2026年08月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：26,371（08/31，▼0.12%）",
         "費城半導體指數：11,535（08/31，▲0.57%）"
       ],
-      "analysis": "美股今日收跌0.70%，主要受季末獲利了結賣壓及科技股期貨走弱拖累，市場在強勁季度後情緒轉趨謹慎。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,506（08/31，▲0.63%）"
+        "黃金：4,497（08/31，▲0.42%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（8/28，加權指數 vs 240日均線）",
+            "current": "約33%（9/1，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.38（8/31）",
+            "current": "99.47（8/31）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.67（9/1）",
+            "current": "31.64（9/1）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - ctee.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "國內匯市：MSCI權重調整與外資賣超，新台幣匯率週一暴量小貶3.8分收31.666元 - 富聯網",
+      "title": "Fed升息預期升溫、新台幣結束連3紅 8月強勢反彈逾6角 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOTY2cUNsUDdoOHJjay1vT09SZVJHLUc3X3hjMmlBUDFkSHRFR0ZvMG5GUUhFRUNZQ3Z5RGlkTFZGT0dsR005dnpRRHlqYXc1VnlSejYxT054Ym5ydmM1NVE0TGNkMEtVR3B6ekpqdzZBbXM4eThmV0oxV3F1WmZmMHlfTHEwTFlm?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5yNFM2aWhiRW5rUXZ3QnFRZE5Ua3FvX0JCOWNyaUdXSmZfMlRVajNlN0VQM0dKWFUyS0N2aFozeXlWMHpTaTZzU3drSnNncnA0WXZZajc5U09iWkdKTVg4?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/1 上午9:35:27",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/1 上午8:56:04",
