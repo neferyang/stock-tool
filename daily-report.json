@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-01T09:55:55.983Z",
+  "lastUpdated": "2026-09-01T11:57:41.801Z",
   "date": "2026年09月01日（星期二）",
   "basedOn": "2026年08月31日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -33,8 +33,8 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,957（08/31，▲0.03%）",
-        "NIFTY 50：24,080（08/31，▼0.04%）"
+        "SENSEX：76,944（09/01，▼0.02%）",
+        "NIFTY 50：24,056（09/01，▼0.10%）"
       ],
       "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
@@ -48,9 +48,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,416（09/01，▼0.33%）"
+        "黃金：4,433（09/01，▲0.03%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.55（9/1）",
+            "current": "99.59（9/1）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.70（9/1）",
+            "current": "31.71（9/1）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.9（9/1）",
+            "current": "15.7（9/1）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -213,7 +213,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - n.yam.com",
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "國內匯市：MSCI權重調整與外資賣超，新台幣匯率週一暴量小貶3.8分收31.666元 - 富聯網",
+      "title": "台股強漲助攻新台幣走升收31.633元　Fed動向牽動後市 - money.udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNOTY2cUNsUDdoOHJjay1vT09SZVJHLUc3X3hjMmlBUDFkSHRFR0ZvMG5GUUhFRUNZQ3Z5RGlkTFZGT0dsR005dnpRRHlqYXc1VnlSejYxT054Ym5ydmM1NVE0TGNkMEtVR3B6ekpqdzZBbXM4eThmV0oxV3F1WmZmMHlfTHEwTFlm?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5OM0ExSVZHcVhVWFhjN3dUcHdWNV9mdG1LMlR5UGpOZW45VXd1LVlQXzJsekdJSkVRUkUwc3VXVms5TVVWS1dlX0xCcHltWXpna3NJNng2T0NRWHlVMkFR0gFfQVVfeXFMTk4zQTFJVkdxWFVYWGM3d1Rwd1Y1X2Z0bUsyVHlQak5lbjlVd3UtWVBfMmx6R0lKRVFSRTBzdVdWazlNVVZLV2VfTEJweW1Zemdrc0k2eDZPQ1FYeVUyQVE?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/1 下午7:57:41",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/1 下午5:55:55",
