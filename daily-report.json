@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-02T00:43:12.336Z",
+  "lastUpdated": "2026-09-02T10:00:14.764Z",
   "date": "2026年09月02日（星期三）",
   "basedOn": "2026年09月01日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,100（09/01，▼1.03%）",
         "費城半導體指數：11,289（09/01，▼2.14%）"
       ],
-      "analysis": "受中東地緣局勢推升油價"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,215（09/01，▼0.15%）"
+        "日經225：64,326（09/02，▼2.85%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,836（09/01，▲0.23%）"
+        "KOSPI：6,563（09/02，▼3.99%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：76,944（09/01，▼0.02%）",
         "NIFTY 50：24,056（09/01，▼0.10%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,9 +48,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,371（09/01，▼1.35%）"
+        "黃金：4,357（09/02，▲0.21%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（8/31，加權指數 vs 240日均線）",
+            "current": "約31%（9/2，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.71（9/1）",
+            "current": "99.81（9/2）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.69（9/2）",
+            "current": "31.76（9/2）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.3（9/1）",
+            "current": "16.8（9/2）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（9/1）",
+            "current": "$90（9/2）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
     },
     {
-      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
+      "title": "美債20年殖利率衝破5%，是金融危機警訊嗎？歷史、黃金、ETF一次看懂｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMitgNBVV95cUxNSC0wUUhxX3A1M3VnN2tGSWhiUUI5NTVBUUZFNUsyMjhYQlZ5UjA2cTNYdzl0UklXeFJvaTBPMHNjSHZkMUFDX2NiY1E0N18zUnV5SWNRMUpOZ2dFM0NUYzJ2Y2hFMl85bU5sbFJpNHpVUS1XZkJxUWljelJHeFE3eDNZNU9NTVNmWFZDRy1vckFwRm10UmZCT1RSOUJieXNBVi1SWjJlcV9aYUZoMkdtQlRQY1lmZWs4YWdMbGs1LVdjVWVac0haWVlCZUFzTkI3bkdUNVBGSV9pSEVoNUtRRkVyN094dkZmdmd2VXVJVjFMX29KMnJfMC16cHI5ZlpJb0tDNksybnIzVnVEekxKc2JEMlZGZ052Q3hUVUJNVEVudzNYU2VncXBXR1RBeHY0bEVhQXhUSVNoN0RyQmtham1NNHR0c1JJTFhfajEzRWJHT2ZzYVo1eUhFQTRoTENNRTRTdU0za2IydERYTk9GZWh5a2FBUGVRMFgyZkhhaTNaOW9SbnpjcS1ISlp6M3o5Tm55bEF3Y2lna3BScGZ0UmlvOWh1ZHZsSUNhcHR5ektNa0tSa3c?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/2 下午6:00:14",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/2 上午8:43:12",
