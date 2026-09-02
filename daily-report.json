@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-02T10:00:14.764Z",
+  "lastUpdated": "2026-09-02T11:40:06.685Z",
   "date": "2026年09月02日（星期三）",
   "basedOn": "2026年09月01日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -33,10 +33,10 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,944（09/01，▼0.02%）",
-        "NIFTY 50：24,056（09/01，▼0.10%）"
+        "SENSEX：76,570（09/02，▼0.49%）",
+        "NIFTY 50：23,914（09/02，▼0.59%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,357（09/02，▲0.21%）"
+        "黃金：4,366（09/02，▲0.42%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月2日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
+    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.81（9/2）",
+            "current": "99.80（9/2）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.76（9/2）",
+            "current": "31.75（9/2）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.8（9/2）",
+            "current": "16.5（9/2）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -173,8 +173,8 @@
           {
             "name": "WTI 原油",
             "current": "$90（9/2）",
-            "status": "🟠",
-            "statusText": "接近警戒（>$100）"
+            "status": "🟡",
+            "statusText": "距警戒（>$100）有距離"
           },
           {
             "name": "初領失業救濟金",
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "到底該不該升息？債市向聯準會發出挑戰 - news.cnyes.com",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "美債20年殖利率衝破5%，是金融危機警訊嗎？歷史、黃金、ETF一次看懂｜豐雲學堂2026 年 08 月 - sinotrade.com.tw",
+      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMitgNBVV95cUxNSC0wUUhxX3A1M3VnN2tGSWhiUUI5NTVBUUZFNUsyMjhYQlZ5UjA2cTNYdzl0UklXeFJvaTBPMHNjSHZkMUFDX2NiY1E0N18zUnV5SWNRMUpOZ2dFM0NUYzJ2Y2hFMl85bU5sbFJpNHpVUS1XZkJxUWljelJHeFE3eDNZNU9NTVNmWFZDRy1vckFwRm10UmZCT1RSOUJieXNBVi1SWjJlcV9aYUZoMkdtQlRQY1lmZWs4YWdMbGs1LVdjVWVac0haWVlCZUFzTkI3bkdUNVBGSV9pSEVoNUtRRkVyN094dkZmdmd2VXVJVjFMX29KMnJfMC16cHI5ZlpJb0tDNksybnIzVnVEekxKc2JEMlZGZ052Q3hUVUJNVEVudzNYU2VncXBXR1RBeHY0bEVhQXhUSVNoN0RyQmtham1NNHR0c1JJTFhfajEzRWJHT2ZzYVo1eUhFQTRoTENNRTRTdU0za2IydERYTk9GZWh5a2FBUGVRMFgyZkhhaTNaOW9SbnpjcS1ISlp6M3o5Tm55bEF3Y2lna3BScGZ0UmlvOWh1ZHZsSUNhcHR5ektNa0tSa3c?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股挑戰4萬7！亞幣全面轉弱 新台幣創三日新高、收31.633元 - 太報 TaiSounds",
+      "title": "日圓跌破160後反彈 新台幣爆量重貶9.5分、明日再測31.8元 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MN3F6QXdaWGtNSHQ4YXJWZ0JlMWtrd2hDdVVuZFpPLWtYOTVMLXNZQ0FfamNpOHNncXlhbUhiVzNVX0NBR0cxVFZTXzlHa2hJUW5aSW1yX2U5ZVVm?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE50MEZZaHlYTkZYUUlxQ1pucTlFQzZSamhURkVPX1dteWtZUzVoeHdQdUlwcjJkTkZtWEdEYzM5RUxqbUR6cm5obmlETlJwVzRvQndJeGNHRzg?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/2 下午7:40:06",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/2 下午6:00:14",
