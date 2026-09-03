@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-02T23:36:29.708Z",
+  "lastUpdated": "2026-09-03T00:46:10.510Z",
   "date": "2026年09月03日（星期四）",
   "basedOn": "2026年09月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,218（09/02，▲0.45%）",
         "費城半導體指數：11,339（09/02，▲0.45%）"
       ],
-      "analysis": "美股今漲0.56%，主因美光財報強勁提振盤後科技股情緒，逢低買盤回流帶動指數重返歷史高點。"
+      "analysis": "美股今日上漲0.56%，雖面臨升息預期升溫及類股輪動分歧，但在季末買盤與動能回流推動下重返歷史高點。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,326（09/02，▼2.85%）"
       ],
-      "analysis": "日經225微跌0.15%。主因債市波動引發賣壓及短期技術面過熱，AI族群漲勢收斂，壓抑了整體大盤表現。"
+      "analysis": "日經225微跌0.15%。主因債市波動與AI板塊短期過熱調整引發拋壓，惟外資持續流入支撐大盤跌幅受限。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,563（09/02，▼3.99%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "KOSPI今微漲0.23%。淡馬錫擬注資三星與海力士，加上SK赴美發ADR，激勵晶片股帶動大盤收紅。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,33 +36,33 @@
         "SENSEX：76,570（09/02，▼0.49%）",
         "NIFTY 50：23,914（09/02，▼0.59%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印股微跌0.02%，受國際油價與中東地緣局勢牽制，惟市場緊盯央行利率會議與首季財報，多空於兩萬四關卡拉鋸。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,165（09/02，▼1.67%）"
       ],
-      "analysis": "台股今日跌1.67%，主因外資擴大賣超且期貨空單集結壓境，引發市場避險情緒升溫，致使大盤承壓重挫。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,428（09/02，▲1.85%）"
+        "黃金：4,432（09/02，▲1.93%）"
       ],
-      "analysis": "黃金今日反彈1.85%，主因美國就業數據疲軟壓抑升息預期，市場在地緣風險與鷹派利率展望間拉鋸。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,832（09/03，▲0.03%）"
       ],
-      "analysis": "受富時羅素有望將越南升"
+      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月2日",
+    "date": "2026年9月3日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.58（9/2）",
+            "current": "99.57（9/2）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -208,7 +208,7 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - stock.ltn.com.tw",
+      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
     },
     {
-      "title": "台股挑戰4萬7！亞幣全面轉弱 新台幣創三日新高、收31.633元 - 太報 TaiSounds",
+      "title": "台股挑戰4萬7！亞幣全面轉弱 新台幣創三日新高、收31.633元 - taisounds.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MN3F6QXdaWGtNSHQ4YXJWZ0JlMWtrd2hDdVVuZFpPLWtYOTVMLXNZQ0FfamNpOHNncXlhbUhiVzNVX0NBR0cxVFZTXzlHa2hJUW5aSW1yX2U5ZVVm?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/3 上午8:46:10",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/3 上午7:36:29",
