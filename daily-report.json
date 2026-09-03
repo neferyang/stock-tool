@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-03T00:46:10.510Z",
+  "lastUpdated": "2026-09-03T11:03:19.994Z",
   "date": "2026年09月03日（星期四）",
   "basedOn": "2026年09月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,57 +14,57 @@
         "那斯達克：26,218（09/02，▲0.45%）",
         "費城半導體指數：11,339（09/02，▲0.45%）"
       ],
-      "analysis": "美股今日上漲0.56%，雖面臨升息預期升溫及類股輪動分歧，但在季末買盤與動能回流推動下重返歷史高點。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：64,326（09/02，▼2.85%）"
+        "日經225：64,214（09/03，▼0.17%）"
       ],
-      "analysis": "日經225微跌0.15%。主因債市波動與AI板塊短期過熱調整引發拋壓，惟外資持續流入支撐大盤跌幅受限。"
+      "analysis": "受債市波動衝擊及斐波那契38.2%技術阻力壓制，日經225今日微跌0.17%，短期於高檔震盪整理。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,563（09/02，▼3.99%）"
+        "KOSPI：6,579（09/03，▲0.26%）"
       ],
-      "analysis": "KOSPI今微漲0.23%。淡馬錫擬注資三星與海力士，加上SK赴美發ADR，激勵晶片股帶動大盤收紅。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,570（09/02，▼0.49%）",
-        "NIFTY 50：23,914（09/02，▼0.59%）"
+        "SENSEX：76,153（09/03，▼0.55%）",
+        "NIFTY 50：23,873（09/03，▼0.17%）"
       ],
-      "analysis": "印股微跌0.02%，受國際油價與中東地緣局勢牽制，惟市場緊盯央行利率會議與首季財報，多空於兩萬四關卡拉鋸。"
+      "analysis": "印度股市今日跌0.55%，主因油價波動、地緣局勢升溫，加上市場聚焦即將召開的央行利率會議，觀望氛圍濃厚。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,165（09/02，▼1.67%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "台股今日跌1.67%，主因上半年漲幅已高，面臨外資擴大賣超及期貨空單壓制，引發短線獲利了結賣壓。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,432（09/02，▲1.93%）"
+        "黃金：4,471（09/03，▲2.39%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "受就業數據疲軟降溫升息預期影響，金價單日反彈2.39%；惟聯準會鷹派立場與降息延後隱憂仍壓抑長期走勢。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,832（09/03，▲0.03%）"
+        "VN-Index：1,828（09/03，▼0.24%）"
       ],
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
+      "analysis": "VN-Index微跌0.24%。富時羅素將越南列入新興市場升級觀察名單，雖有長線利多，但因等待中期審查，加上NAB等銀行股震盪整理，市場獲利了結壓抑盤勢。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月3日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
+    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（9/1，加權指數 vs 240日均線）",
-            "status": "🟠",
-            "statusText": "接近警戒（>45%），過熱訊號浮現"
+            "current": "約30%（9/3，加權指數 vs 240日均線）",
+            "status": "🟡",
+            "statusText": "乖離率偏高，留意拉回風險"
           }
         ]
       },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.57（9/2）",
+            "current": "99.23（9/3）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.73（9/3）",
+            "current": "31.72（9/3）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.2（9/2）",
+            "current": "15.4（9/3）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（9/2）",
+            "current": "$93（9/3）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -204,55 +204,60 @@
   "news": [
     {
       "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "",
+      "description": "決策分歧加劇美債供給與流動性博弈，殖利率波動恐衝擊全球資產定價。",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
-      "description": "",
+      "description": "貨幣寬鬆預期落空將引發折現率重估，短期內股債齊跌風險急遽升高。",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "",
+      "description": "提供週期性的總經與產業前瞻指引，助投資人提前布局本週重大財經事件。",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "澤平宏觀—投資時鐘：贏在周期| 宏觀 - 鉅亨號",
-      "description": "",
+      "description": "提醒投資人應順應景氣循環調整資產配置，透過由上而下的策略降低風險。",
       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0zQ2Jrc3ItaGZGSXkyLWdnLWpzMFBxQ1pVdWwtLVhRQ0s5anRFa2ZFUGlQR0UxNmJQeXk1RzV6ZHhJTEo2aFpIdA?oc=5"
     },
     {
       "title": "央行揭示全球五大風險，台灣金融體系展現強韌底氣 - 理財鴿",
-      "description": "",
+      "description": "雖有外部地緣與經濟變數衝擊，但本土金融防禦力佳，有助穩定市場信心。",
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
     },
     {
-      "title": "台股挑戰4萬7！亞幣全面轉弱 新台幣創三日新高、收31.633元 - taisounds.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MN3F6QXdaWGtNSHQ4YXJWZ0JlMWtrd2hDdVVuZFpPLWtYOTVMLXNZQ0FfamNpOHNncXlhbUhiVzNVX0NBR0cxVFZTXzlHa2hJUW5aSW1yX2U5ZVVm?oc=5"
+      "title": "Fed升息預期升溫、新台幣結束連3紅 8月強勢反彈逾6角 - 自由財經",
+      "description": "美元強勢再起促使資金回流，台幣承壓恐引發外資調節並干擾台股走勢。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5yNFM2aWhiRW5rUXZ3QnFRZE5Ua3FvX0JCOWNyaUdXSmZfMlRVajNlN0VQM0dKWFUyS0N2aFozeXlWMHpTaTZzU3drSnNncnA0WXZZajc5U09iWkdKTVg4?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "台美走勢脫鉤",
+      "content": "美股四大指數全數收紅，台股卻逆勢重挫1.67%破四萬六。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "全球風險升溫",
+      "content": "央行示警五大風險，黃金單日強彈逾2%成避險首選。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "降息預期落空",
+      "content": "通膨再起使升息預期重燃，股債雙殺風險恐衝擊資金流向。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/3 下午7:03:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/3 上午8:46:10",
