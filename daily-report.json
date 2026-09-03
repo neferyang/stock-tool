@@ -1,18 +1,18 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-03T11:35:43.182Z",
+  "lastUpdated": "2026-09-03T15:03:51.603Z",
   "date": "2026年09月03日（星期四）",
-  "basedOn": "2026年09月02日（前一交易日）",
+  "basedOn": "2026年09月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：53,062（09/02，▲0.56%）",
-        "S&P 500：7,667（09/02，▲0.46%）",
-        "那斯達克：26,218（09/02，▲0.45%）",
-        "費城半導體指數：11,339（09/02，▲0.45%）"
+        "道瓊：53,462（09/03，▲0.75%）",
+        "S&P 500：7,704（09/03，▲0.48%）",
+        "那斯達克：26,402（09/03，▲0.70%）",
+        "費城半導體指數：11,189（09/03，▼1.32%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：6,579（09/03，▲0.26%）"
       ],
-      "analysis": "KOSPI今微漲0.26%，主因晶片股與AI概念受槓桿ETF推動反彈，惟高波動使市場情緒仍顯謹慎。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,12 +43,12 @@
       "items": [
         "台灣加權指數：46,165（09/02，▼1.67%）"
       ],
-      "analysis": "台股今日跌1.67%，主因外資累積龐大賣超與期貨空單避險，引發高檔獲利了結與籌碼壓低結算賣壓。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,479（09/03，▲2.57%）"
+        "黃金：4,521（09/03，▲3.53%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,14 +57,14 @@
       "items": [
         "VN-Index：1,828（09/03，▼0.24%）"
       ],
-      "analysis": "富時羅素升級新興市場利好，"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月3日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×2　🟡×5　🟢×4",
+    "summary": "🔴×4　🟠×2　🟡×4　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.15（9/3）",
+            "current": "99.02（9/3）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.68（9/3）",
+            "current": "31.69（9/3）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.3（9/3）",
-            "status": "🟡",
-            "statusText": "波動率上升，留意情緒轉變"
+            "current": "14.9（9/3）",
+            "status": "🟢",
+            "statusText": "市場情緒平靜"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "265 bps（2.65%，9/1）",
+            "current": "266 bps（2.66%，9/2）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -172,13 +172,13 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$93（9/3）",
+            "current": "$92（9/3）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
-            "current": "20.3萬/週（8/22）",
+            "current": "20.6萬/週（8/29）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -204,33 +204,23 @@
   "news": [
     {
       "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "美國政策角力引發美債供給擔憂，殖利率恐劇烈波動並推升全球融資成本。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
-      "description": "通膨反撲促使高利率維持更久，投資人須提防資產估值下修與流動性緊縮風險。",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
+      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "提示投資人預先審視即將公布的關鍵經濟數據與政策走向，以便提早調整布局。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "澤平宏觀—投資時鐘：贏在周期| 宏觀 - 鉅亨號",
-      "description": "提醒在總經轉折期應順應景氣循環配置資產，以掌握不同階段的輪動紅利。",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE0zQ2Jrc3ItaGZGSXkyLWdnLWpzMFBxQ1pVdWwtLVhRQ0s5anRFa2ZFUGlQR0UxNmJQeXk1RzV6ZHhJTEo2aFpIdA?oc=5"
-    },
-    {
-      "title": "央行揭示全球五大風險，台灣金融體系展現強韌底氣 - 理財鴿",
-      "description": "國際系統性風險雖高，但具防禦力的本土資產相對能提供投資人資金避風港。",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
-    },
-    {
-      "title": "台股挑戰4萬7！亞幣全面轉弱 新台幣創三日新高、收31.633元 - 太報 TaiSounds",
-      "description": "台股逆勢創高與匯市脫鉤，投資人須留意亞幣弱勢下的熱錢動向與潛在回檔風險。",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1MN3F6QXdaWGtNSHQ4YXJWZ0JlMWtrd2hDdVVuZFpPLWtYOTVMLXNZQ0FfamNpOHNncXlhbUhiVzNVX0NBR0cxVFZTXzlHa2hJUW5aSW1yX2U5ZVVm?oc=5"
+      "title": "最糟情況來了？四大因素恐讓美國明年陷停滯性通膨 - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1HVjJVbThjMFRIWXZ1aEpPa0pjTU8zdFB4Vk8tT05KbGxKRy1TalpoczJUdWdwMUt0VFp6Y25sVGxBV2x2enVMUkdFZlFvWEU?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +243,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/3 下午11:03:51",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/3 下午7:35:43",
