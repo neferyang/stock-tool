@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-03T23:26:14.905Z",
+  "lastUpdated": "2026-09-03T23:38:01.615Z",
   "date": "2026年09月04日（星期五）",
   "basedOn": "2026年09月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,584（09/03，▲1.40%）",
         "費城半導體指數：11,352（09/03，▲0.11%）"
       ],
-      "analysis": "美股上漲1.18%重返歷史高點，主因美光財報亮眼提振科技股盤後買氣，帶動市場消化地緣風險並延續反彈動能。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,214（09/03，▼0.17%）"
       ],
-      "analysis": "日經225指數創高後重挫2.85%，主因AI與科技權值股漲多面臨獲利了結賣壓，市場情緒自高點回調修正。"
+      "analysis": "受AI熱潮引發的估值焦慮影響，科技股重挫領跌，加上逢高獲利了結賣壓湧現，拖累日經225今日收跌2.85%。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,579（09/03，▲0.26%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "KOSPI重挫3.99%，主因AI晶片股漲多回檔、槓桿ETF助長波動，引發市場恐慌並加劇指數震盪。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：76,153（09/03，▼0.55%）",
         "NIFTY 50：23,873（09/03，▼0.17%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市今日微跌0.49%。主因市場觀望央行利率決議與財報，疊加中東地緣政治風險及油價波動引發謹慎賣壓。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,858（09/03，▼0.67%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,523（09/03，▲3.59%）"
+        "黃金：4,520（09/03，▲3.53%）"
       ],
-      "analysis": "今日黃金大漲3.59%，主因地緣政治避險需求激增，抵銷了聯準會鷹派預期，並吸引低檔買盤強勁逢低承接。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,828（09/04，▼0.24%）"
       ],
-      "analysis": "越南VN-Index微跌0.24%，主因逢高獲利了結與市場觀望，NAB等金融股走勢分化，大盤呈震盪整理。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
     },
     {
-      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡 - Yahoo新聞",
+      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡 - tw.news.yahoo.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQWS15bUJLUGpmbHFnOVFnQ2FyaWFhSmFvZGtmQnpUUGJRWGVJeGs1eG9adFhNRzVicU4xMHh6MHFOd2Z0cWd6akVjYW5GOExjcVdydlhSal82b2R0UDlHTWVDTGtGLWVaQzRVRjNiNGxJTGotREEwempSZmk0U3hPc0E3dU9VblZvTWdjMldEWW81WnZpcUx1aEJ0LUdmNjBMUlhOSGJsa0tBYW9NVTNaZm4wOTQ2VFdnazh5cGRaWllXRmwtbG1tRmZ3dzJnOWhCSTRjbzhTdmZVUUN5eEZheFlhanpWMzlmSmZaVEp4TzFTbWtXX2Vjc1h4YjB0UmlOd1BDZVY0cE5yYUh4UWhZV3dmeFlIYmhod1lncUtNZ2d5Yk95M3dLdGEyVlc4MnE0TC16c0tPZ1JuR01aMHhQVS1FeHlBUjFTOGh0TjBn?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/4 上午7:38:01",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/4 上午7:26:14",
