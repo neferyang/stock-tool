@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-03T23:38:01.615Z",
+  "lastUpdated": "2026-09-04T00:33:30.384Z",
   "date": "2026年09月04日（星期五）",
   "basedOn": "2026年09月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,584（09/03，▲1.40%）",
         "費城半導體指數：11,352（09/03，▲0.11%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股今日上漲1.18%。主因美光等科技巨頭財報亮眼，重燃AI概念股動能，激勵買盤回流並推升指數。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,214（09/03，▼0.17%）"
       ],
-      "analysis": "受AI熱潮引發的估值焦慮影響，科技股重挫領跌，加上逢高獲利了結賣壓湧現，拖累日經225今日收跌2.85%。"
+      "analysis": "日經225挫跌2.85%，主因AI熱潮引發估值焦慮，科技股領跌，加上創高後浮現獲利了結賣壓所致。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,579（09/03，▲0.26%）"
       ],
-      "analysis": "KOSPI重挫3.99%，主因AI晶片股漲多回檔、槓桿ETF助長波動，引發市場恐慌並加劇指數震盪。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,19 +36,19 @@
         "SENSEX：76,153（09/03，▼0.55%）",
         "NIFTY 50：23,873（09/03，▼0.17%）"
       ],
-      "analysis": "印度股市今日微跌0.49%。主因市場觀望央行利率決議與財報，疊加中東地緣政治風險及油價波動引發謹慎賣壓。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,858（09/03，▼0.67%）"
       ],
-      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
+      "analysis": "台股今跌0.67%，主因外資持續調節提款、期貨空單集結壓抑盤勢，加上權值股承壓，使大盤短期震盪走弱。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,520（09/03，▲3.53%）"
+        "黃金：4,530（09/03，▲3.74%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月3日",
+    "date": "2026年9月4日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.00（9/3）",
+            "current": "98.97（9/3）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.71（9/4）",
+            "current": "31.69（9/4）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "〈財經週報-通膨再起〉降息夢碎 股債雙殺壓力劇增 - 自由時報",
+      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhSDRMZzlUM3FUTFpFejRrMTVfM25kc1E2TTJaRkR1WVNCVzRWTDZHbEY5SHMwMFhBTDNlNGhyN2NaSnJqX0VDeG1KaTluQ1VMVmRMU1d2bG0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
     },
     {
       "title": "央行揭示全球五大風險，台灣金融體系展現強韌底氣 - 理財鴿",
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
     },
     {
-      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡 - tw.news.yahoo.com",
+      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡 - Yahoo新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQWS15bUJLUGpmbHFnOVFnQ2FyaWFhSmFvZGtmQnpUUGJRWGVJeGs1eG9adFhNRzVicU4xMHh6MHFOd2Z0cWd6akVjYW5GOExjcVdydlhSal82b2R0UDlHTWVDTGtGLWVaQzRVRjNiNGxJTGotREEwempSZmk0U3hPc0E3dU9VblZvTWdjMldEWW81WnZpcUx1aEJ0LUdmNjBMUlhOSGJsa0tBYW9NVTNaZm4wOTQ2VFdnazh5cGRaWllXRmwtbG1tRmZ3dzJnOWhCSTRjbzhTdmZVUUN5eEZheFlhanpWMzlmSmZaVEp4TzFTbWtXX2Vjc1h4YjB0UmlOd1BDZVY0cE5yYUh4UWhZV3dmeFlIYmhod1lncUtNZ2d5Yk95M3dLdGEyVlc4MnE0TC16c0tPZ1JuR01aMHhQVS1FeHlBUjFTOGh0TjBn?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/4 上午8:33:30",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/4 上午7:38:01",
