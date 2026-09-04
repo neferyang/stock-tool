@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-04T00:33:30.384Z",
+  "lastUpdated": "2026-09-04T10:01:20.754Z",
   "date": "2026年09月04日（星期五）",
   "basedOn": "2026年09月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,584（09/03，▲1.40%）",
         "費城半導體指數：11,352（09/03，▲0.11%）"
       ],
-      "analysis": "美股今日上漲1.18%。主因美光等科技巨頭財報亮眼，重燃AI概念股動能，激勵買盤回流並推升指數。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：64,214（09/03，▼0.17%）"
+        "日經225：65,021（09/04，▲1.26%）"
       ],
-      "analysis": "日經225挫跌2.85%，主因AI熱潮引發估值焦慮，科技股領跌，加上創高後浮現獲利了結賣壓所致。"
+      "analysis": "日經225漲1.26%，受軟銀等科技巨頭引領AI熱潮、半導體板塊強勁激勵，市場情緒偏牛，推升指數走高。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,579（09/03，▲0.26%）"
+        "KOSPI：6,687（09/04，▲1.64%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：76,153（09/03，▼0.55%）",
         "NIFTY 50：23,873（09/03，▼0.17%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "受地緣政治風險升溫及油價波動影響，印度股市今日跌0.55%，市場靜待央行利率決議，避險情緒壓抑大盤表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,858（09/03，▼0.67%）"
       ],
-      "analysis": "台股今跌0.67%，主因外資持續調節提款、期貨空單集結壓抑盤勢，加上權值股承壓，使大盤短期震盪走弱。"
+      "analysis": "台股今日收跌0.67%，主因外資持續擴大調節提款，且期貨空單增加引發壓低結算疑慮，市場轉趨觀望。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,530（09/03，▲3.74%）"
+        "黃金：4,515（09/04，▲0.52%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,828（09/04，▼0.24%）"
+        "VN-Index：1,853（09/04，▲1.39%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（9/2，加權指數 vs 240日均線）",
+            "current": "約31%（9/4，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.97（9/3）",
+            "current": "99.12（9/4）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.3（9/3）",
+            "current": "14.2（9/4）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（9/3）",
+            "current": "$91（9/4）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,9 +203,9 @@
   ],
   "news": [
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
     },
     {
       "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
@@ -213,24 +213,24 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
+      "title": "玉山投資市場精要_2025.04.11-理財日報 - esunbank.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRVdaaFVIT2o4SzJITGhxcUNEWERoWWg1bXI2TGJTem9IMkZVempVSjRlM1BfMGNCMElJSkJ2NUQ0VVRKTV9KTnN3MUZnOXZGNVlFaEtkUGRuNk90MzZBcHdjcmtpZ2x6QXVpckt0TjJBbnVsOTRVMGdXMVd6SVczcmxJRUNDTE5wNkF0clFTcG9FTDBKaUhQa1Y4clo?oc=5"
     },
     {
-      "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
+      "title": "本週操盤筆記：美國3月CPI、Fed會議紀錄 - news.cnyes.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5tN1c5ODlHU0xYRmtaVXpISUJjMXlqT25zaEhnVm9QX09YX05lNVNDTTVORHl1clVENFA2Mzd5aS00a2d6RTFfclpudDRkd0E?oc=5"
     },
     {
-      "title": "央行揭示全球五大風險，台灣金融體系展現強韌底氣 - 理財鴿",
+      "title": "G20認可數位資產有「推動經濟作用」！誓言打造明確創新監管路徑 - 加密城市CryptoCity",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE8wUlFkbmR4QldObVFZUGxJN1FrY2h0Q05xSUZnR0NZMkFMRUJLYXp3UjRmNWM0ckVaRWNZS2FpaEtEU0NqRUZ2UERVMlF4UmFGVXpNUE00Y2g1V0U0QkxRUGxabFk3d2ZQZWh6bkQ3eHU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQT1BVU0lhWWdWbzlHSGs1cTZNV2VRVGxzWk9vQUtpUUNsN2VUZDYtblZnNk5VeGJTdE9xZ1JpWVlwY0pRd0dQN3JWUEMxVWZzSndmN2dNWm1ZanVEMGJtX2prdEVkVVo1MVdWMjdrNVFIWGUwcXpZZmpDZ2ZQMWZtWDNMVktmdnA0Tmc?oc=5"
     },
     {
-      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡 - Yahoo新聞",
+      "title": "國內匯市：美元走弱+外資買超台股助攻，台幣匯率週五勁升1.25角，收31.63元 - 富聯網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMizgJBVV95cUxQWS15bUJLUGpmbHFnOVFnQ2FyaWFhSmFvZGtmQnpUUGJRWGVJeGs1eG9adFhNRzVicU4xMHh6MHFOd2Z0cWd6akVjYW5GOExjcVdydlhSal82b2R0UDlHTWVDTGtGLWVaQzRVRjNiNGxJTGotREEwempSZmk0U3hPc0E3dU9VblZvTWdjMldEWW81WnZpcUx1aEJ0LUdmNjBMUlhOSGJsa0tBYW9NVTNaZm4wOTQ2VFdnazh5cGRaWllXRmwtbG1tRmZ3dzJnOWhCSTRjbzhTdmZVUUN5eEZheFlhanpWMzlmSmZaVEp4TzFTbWtXX2Vjc1h4YjB0UmlOd1BDZVY0cE5yYUh4UWhZV3dmeFlIYmhod1lncUtNZ2d5Yk95M3dLdGEyVlc4MnE0TC16c0tPZ1JuR01aMHhQVS1FeHlBUjFTOGh0TjBn?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNS3ZMRHNJVlBDVkZhakt0UVpzYUZ0UGZEaW82WWRpTkhqRzNIQUJOakQ3Q0R3X1lCend1aVNRcEZCVHRxT1ZGVXo5ZGVTb0RqMlF5bjZkM2ZFbjVNZ3hEZFZuS0Myam1TeFBuMkdrT0hBYTQwZ3FzM1I4TjVXWG91R2hzbjl6S0o1?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/4 下午6:01:20",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/4 上午8:33:30",
