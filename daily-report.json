@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-04T10:01:20.754Z",
+  "lastUpdated": "2026-09-04T11:40:48.379Z",
   "date": "2026年09月04日（星期五）",
   "basedOn": "2026年09月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -21,7 +21,7 @@
       "items": [
         "日經225：65,021（09/04，▲1.26%）"
       ],
-      "analysis": "日經225漲1.26%，受軟銀等科技巨頭引領AI熱潮、半導體板塊強勁激勵，市場情緒偏牛，推升指數走高。"
+      "analysis": "日經225指數上漲1.26%，主因日圓走貶激勵出口類股，加上美股科技股走強帶動半導體族群買盤湧入。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -33,22 +33,22 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,153（09/03，▼0.55%）",
-        "NIFTY 50：23,873（09/03，▼0.17%）"
+        "SENSEX：76,515（09/04，▲0.48%）",
+        "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "受地緣政治風險升溫及油價波動影響，印度股市今日跌0.55%，市場靜待央行利率決議，避險情緒壓抑大盤表現。"
+      "analysis": "印股今漲0.48%，主因內資買盤強勁及經濟數據穩健，緩解外資流出壓力，推動科技與銀行股領漲走高。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,858（09/03，▼0.67%）"
       ],
-      "analysis": "台股今日收跌0.67%，主因外資持續擴大調節提款，且期貨空單增加引發壓低結算疑慮，市場轉趨觀望。"
+      "analysis": "受到美股科技股回檔及外資調節賣壓影響，權值股走勢疲軟，大盤震盪走低，終場下跌0.67%。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,515（09/04，▲0.52%）"
+        "黃金：4,517（09/04，▲0.56%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,7 +57,7 @@
       "items": [
         "VN-Index：1,853（09/04，▲1.39%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越指今日漲1.39%，主因外資買盤回流，加上銀行與地產權值股強勢領漲，市場對經濟復甦預期轉樂觀。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.12（9/4）",
+            "current": "99.08（9/4）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.69（9/4）",
+            "current": "31.67（9/4）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.2（9/4）",
+            "current": "14.1（9/4）",
             "status": "🟢",
             "statusText": "市場情緒平靜"
           },
@@ -203,34 +203,9 @@
   ],
   "news": [
     {
-      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
-    },
-    {
-      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
-    },
-    {
-      "title": "玉山投資市場精要_2025.04.11-理財日報 - esunbank.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRVdaaFVIT2o4SzJITGhxcUNEWERoWWg1bXI2TGJTem9IMkZVempVSjRlM1BfMGNCMElJSkJ2NUQ0VVRKTV9KTnN3MUZnOXZGNVlFaEtkUGRuNk90MzZBcHdjcmtpZ2x6QXVpckt0TjJBbnVsOTRVMGdXMVd6SVczcmxJRUNDTE5wNkF0clFTcG9FTDBKaUhQa1Y4clo?oc=5"
-    },
-    {
-      "title": "本週操盤筆記：美國3月CPI、Fed會議紀錄 - news.cnyes.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5tN1c5ODlHU0xYRmtaVXpISUJjMXlqT25zaEhnVm9QX09YX05lNVNDTTVORHl1clVENFA2Mzd5aS00a2d6RTFfclpudDRkd0E?oc=5"
-    },
-    {
-      "title": "G20認可數位資產有「推動經濟作用」！誓言打造明確創新監管路徑 - 加密城市CryptoCity",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQT1BVU0lhWWdWbzlHSGs1cTZNV2VRVGxzWk9vQUtpUUNsN2VUZDYtblZnNk5VeGJTdE9xZ1JpWVlwY0pRd0dQN3JWUEMxVWZzSndmN2dNWm1ZanVEMGJtX2prdEVkVVo1MVdWMjdrNVFIWGUwcXpZZmpDZ2ZQMWZtWDNMVktmdnA0Tmc?oc=5"
-    },
-    {
-      "title": "國內匯市：美元走弱+外資買超台股助攻，台幣匯率週五勁升1.25角，收31.63元 - 富聯網",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNS3ZMRHNJVlBDVkZhakt0UVpzYUZ0UGZEaW82WWRpTkhqRzNIQUJOakQ3Q0R3X1lCend1aVNRcEZCVHRxT1ZGVXo5ZGVTb0RqMlF5bjZkM2ZFbjVNZ3hEZFZuS0Myam1TeFBuMkdrT0hBYTQwZ3FzM1I4TjVXWG91R2hzbjl6S0o1?oc=5"
+      "title": "Sorry...",
+      "description": "標題資訊不足，無法判斷對市場與投資人的實質意涵。",
+      "url": ""
     }
   ],
   "observations": [
@@ -253,6 +228,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/4 下午7:40:48",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/4 下午6:01:20",
