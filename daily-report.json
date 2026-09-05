@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-05T13:56:42.124Z",
-  "date": "2026年09月05日（星期六）",
+  "lastUpdated": "2026-09-05T23:19:46.906Z",
+  "date": "2026年09月06日（星期日）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -14,7 +14,7 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股今日下跌0.51%，主因動能交易面臨2001年來"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -43,7 +43,7 @@
       "items": [
         "台灣加權指數：46,551（09/04，▲1.51%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "受AI基本面支撐與跌深反彈買盤帶動，台股今漲1.51%；惟外資空單與總經震盪未解，後市仍需審慎。"
     },
     {
       "name": "🥇 黃金",
@@ -55,9 +55,9 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,853（09/05，▲1.39%）"
+        "VN-Index：1,853（09/06，▲1.39%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越南VN-Index今日漲1.39%，主因新興券商強勢崛起、市場規模擴張，帶動金融等權值股買氣凝聚。"
     }
   ],
   "riskDashboard": {
@@ -203,9 +203,9 @@
   ],
   "news": [
     {
-      "title": "川普以中斷貿易逼Fed降息 背後什麼邏輯？為何市場沒當回事？ - 經濟日報",
+      "title": "Fed本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUGExSTdnUEg1bGJNVktYZFM1Sk5BeEUzOExYdGR6X2ZXVXZZM2JiS2R5LXdrZVBHVFVocWt1VkRCT3JhYllNVktTcjVGOXRZUE1pYnhXdHZVaWRBYnMtXzM1Q3N6V3hxcDVWS3dXTUxBc2xzVjRWeVRmZU02MlhDd3JzMl9TVjFma0JiT2VKdmLSAV9BVV95cUxOeFpRSFZDMGtFSVhpZ1Azenl5cGNMWm4ySm5ET3owQ0VIajBHdnhkRlVoN0NMYXZOSVgtSi1rcGZKWEl5M0d6Q2NDTVN6Qm5vZUlvV2xPOVN3ZEtBZC03cw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRGRUXzFxNmladFRFSHR5R3Y4MGl4aWFVWWQ3WERJNGhPbWxFaDZHUmlTNFdoLUgzc0RNcW5HLUM4LWJkMXNXTGlfVzhFYS1IZmYwa3BySTZGa0JpcHpVbzBYaW9hVXUzOGRNbmlTYzgtRmJBN3lJNUhqcEYyZXdPaWxYZ0XSAV9BVV95cUxPYUJlMXl2ZlZtMGpwMElCSXg0aExZSmVqbW9IOGdaQV9vZDZaVU40b09pSExBRUwtQTZ4bHc4U1E1Q2h6UWJGTXNBMnR6SUhDWmZva3YxM0ZCelRHd1JmWQ?oc=5"
     },
     {
       "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - news.cnyes.com",
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54VVRPX3RtR0lBVXB2UGhzeVk2M29EUXBZQXNaRW1TR3lIM3hFMUpNQ2VydFRqMWJpZ1g3Z0hRNmdhZU40MkZQNmFJNUpORFk?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - n.yam.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
-    },
-    {
       "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
+    },
+    {
+      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - sinotrade.com.tw",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/6 上午7:19:46",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/5 下午9:56:42",
