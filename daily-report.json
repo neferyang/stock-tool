@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-05T00:32:54.191Z",
+  "lastUpdated": "2026-09-05T08:38:45.213Z",
   "date": "2026年09月05日（星期六）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "受中東地緣局勢推升油價影響，市場對升息與通膨擔憂重燃，美股承壓下跌0.51%，科技股領跌拖累大盤。"
+      "analysis": "美股今日微跌0.51%，主因創高後面臨獲利了結賣壓，科技動能股走弱引發板塊輪動，抑制了大盤漲勢。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,021（09/04，▲1.26%）"
       ],
-      "analysis": "日經225指數微跌0.17%，主因中東地緣政治升溫引發避險情緒，壓抑AI與科技股反彈力道，盤勢陷入震盪。"
+      "analysis": "日經225今漲1.26%，主因美光財報激勵半導體低接買盤，疊加成分股迎AI題材換血，提振市場信心。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,687（09/04，▲1.64%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "受SK海力士赴美利多及AI概念股槓桿買盤推動，KOSPI今日強彈1.64%，但高波動風險仍存。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,35 +36,35 @@
         "SENSEX：76,515（09/04，▲0.48%）",
         "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市今日上漲0.48%。主因受國際油價波動、央行利率決策會議及企業財報預期推動，市場情緒偏向樂觀。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,551（09/04，▲1.51%）"
       ],
-      "analysis": "台股今強彈1.51%，主因逢低買盤進駐與AI基本面支撐，惟外資空單仍高，後市需慎防結算震盪風險。"
+      "analysis": "受AI基本面題材支撐與跌深反彈買盤進駐，台股今日上漲1.51%，惟外資空單仍存，後市續防震盪。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,477（09/04，▼0.32%）"
+        "黃金：4,430（09/04，▼1.38%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "黃金今日跌1.38%，主因聯準會鷹派立場推升美元，加上市場降息預期落空與投行下調目標價，引發多頭避險撤出。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,853（09/05，▲1.39%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "受新興券商強勢崛起、市場擴張及銀行股買盤提振，市場資金回流，推動越南VN-Index今日上漲1.39%。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月5日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×2　🟡×4　🟢×5",
+    "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約30%（9/3，加權指數 vs 240日均線）",
-            "status": "🟡",
-            "statusText": "乖離率偏高，留意拉回風險"
+            "current": "約31%（9/4，加權指數 vs 240日均線）",
+            "status": "🟠",
+            "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
         ]
       },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
     },
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "就業太強Fed升息聲起 川普卻撂狠話：不降息 就不跟貿易逆差國做生意 | 國際焦點 | 國際 - money.udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5SREpJSHc5QzJvdGFXWmlIbVA1eWpTVlM3Nk1YdzlZTzZHQ1pYZ19mX2J4T2xIbDUtQS11RlFudWNqRDZJSk1NVlNBcGV4RVBTZjR0WEY5Y2dUN19NbFhSSE9nOUNadkpxcjR2MWUxcHI4VTJpRzQw?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - money.udn.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "外資回補562億台股攻頂 新台幣強升1.25角收31.63元 - BigGo 財經",
+      "title": "台股強漲助攻新台幣走升收31.633元　Fed動向牽動後市 - money.udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBRNGV5emp6YXZEVXU1eFpPeXBkR3B5WUJUUU1pUjdGalQyc1c1cEVvVTEtMU9jaGFUS3VkUXY2aUVET2M4VHZyQWdtVjNrOE96VDB0WWtOaXZ0Vl94Z1FJbllVbWNra3RVN3oxR1MwRHl1OW14Y2dIUmNR?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBmRzN2SXM2cTRFN0JRNVM0TXNmVVV1ODA4bWJKVEJjdjRMMDNNSWJEYlFMMVRUT3VUQ3NDV2Z4Y3M2Vm1kVWpMcm1vY0xraVlNenRWOWpMWU9sQdIBX0FVX3lxTE5OM0ExSVZHcVhVWFhjN3dUcHdWNV9mdG1LMlR5UGpOZW45VXd1LVlQXzJsekdJSkVRUkUwc3VXVms5TVVWS1dlX0xCcHltWXpna3NJNng2T0NRWHlVMkFR?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/5 下午4:38:45",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/5 上午8:32:54",
