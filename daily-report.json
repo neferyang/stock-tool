@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-05T10:53:08.234Z",
+  "lastUpdated": "2026-09-05T12:08:01.391Z",
   "date": "2026年09月05日（星期六）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股今日跌0.51%，主因伊朗地緣衝突推升油價，加劇升息擔憂，引發指數自高點獲利了結回檔。"
+      "analysis": "美股今日收跌0.51%，主因中東衝突升溫推升油價，加劇升息擔憂，動能交易退潮亦加劇了市場回檔壓力。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,021（09/04，▲1.26%）"
       ],
-      "analysis": "日經225漲1.26%，主"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,687（09/04，▲1.64%）"
       ],
-      "analysis": "受SK海力士赴美ADR戰略布局及AI槓"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：76,515（09/04，▲0.48%）",
         "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "印度股市今日上漲0.48%。主因受國際油價波動、央行利率決策預期及地緣政治局勢牽動，逢低買盤支撐指數微幅走揚。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,551（09/04，▲1.51%）"
       ],
-      "analysis": "受AI基本面支撐與連跌後的"
+      "analysis": "台股反彈上漲1.51%，主因AI基本面題材浮現低接買盤；惟外資空單與調節賣壓未除，短線震盪仍劇。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,430（09/04，▼1.38%）"
       ],
-      "analysis": "受聯準會鷹派立場推升美元，加上高盛調降金價預期並淡化降息可能，引發獲利了結賣壓，黃金承壓下跌1.38%。"
+      "analysis": "今日黃金受鷹派聯準會預期與美元走強打壓下跌1.38%；高盛下調目標價及年內不降息疑慮加劇拋售壓力。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,853（09/05，▲1.39%）"
       ],
-      "analysis": "受新興券商強勢崛起、市場持續"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -203,56 +203,61 @@
   ],
   "news": [
     {
-      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
-      "description": "官員發言緩解緊縮焦慮，美債買點浮現且短線資金成本壓力可望減輕。",
-      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
+      "title": "就業太強Fed升息聲起 川普卻撂狠話：不降息 就不跟貿易逆差國做生意 | 國際焦點 | 國際 - 經濟日報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5SREpJSHc5QzJvdGFXWmlIbVA1eWpTVlM3Nk1YdzlZTzZHQ1pYZ19mX2J4T2xIbDUtQS11RlFudWNqRDZJSk1NVlNBcGV4RVBTZjR0WEY5Y2dUN19NbFhSSE9nOUNadkpxcjR2MWUxcHI4VTJpRzQw?oc=5"
     },
     {
-      "title": "川普救不了美債？殖利率要降恐得先讓經濟變差 - news.cnyes.com",
-      "description": "美債殖利率居高不下，暗示降息與債券反彈恐需以經濟衰退為代價。",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBDZlVmWjNZTmZ6eGNGejRwNHAtZmhEOGRScmI5clhXR2E5dTNZQXZ0QmpkV0htZUhBVWI5S2dXQXFHR3pDYVJnV3hEOHdDa1E?oc=5"
+      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54VVRPX3RtR0lBVXB2UGhzeVk2M29EUXBZQXNaRW1TR3lIM3hFMUpNQ2VydFRqMWJpZ1g3Z0hRNmdhZU40MkZQNmFJNUpORFk?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "提供本週重要產經事件指引，是投資人掌握總經變數與布局的關鍵。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
-      "description": "通膨死灰復燃擔憂加劇，數據若超預期恐引發停滯性通膨與市場拋售。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - money.udn.com",
-      "description": "官方與業界對AI泡沫看法分歧，投資人需審慎評估高本益比修正風險。",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "台股強漲助攻新台幣走升收31.633元　Fed動向牽動後市 - money.udn.com",
-      "description": "外資回流帶動股匯雙漲，但後續走勢仍",
+      "title": "台股強漲助攻新台幣走升收31.633元　Fed動向牽動後市 - 經濟日報",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBmRzN2SXM2cTRFN0JRNVM0TXNmVVV1ODA4bWJKVEJjdjRMMDNNSWJEYlFMMVRUT3VUQ3NDV2Z4Y3M2Vm1kVWpMcm1vY0xraVlNenRWOWpMWU9sQdIBX0FVX3lxTE5OM0ExSVZHcVhVWFhjN3dUcHdWNV9mdG1LMlR5UGpOZW45VXd1LVlQXzJsekdJSkVRUkUwc3VXVms5TVVWS1dlX0xCcHltWXpna3NJNng2T0NRWHlVMkFR?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "費半逆勢暴衝",
-      "content": "美股主要指數全面收黑，費半卻逆勢大漲逾3%，科技股內部走勢嚴重分歧。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "停滯通膨警訊",
-      "content": "油價居高不下碰上CPI公布在即，市場擔憂通膨死灰復燃將觸發停滯性通膨。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息衰退悖論",
-      "content": "美債殖利率居高不下，市場暗示降息與債券反彈恐需以經濟衰退為代價。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/5 下午8:08:01",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/5 下午6:53:08",
