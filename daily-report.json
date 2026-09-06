@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-06T00:25:12.152Z",
+  "lastUpdated": "2026-09-06T09:24:00.750Z",
   "date": "2026年09月06日（星期日）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股受科技動能股回檔拖累跌0.51%，市場呈現類股輪動，高檔獲利了結賣壓致標普與那指承壓。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：6,687（09/04，▲1.64%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "KOSPI今日漲1.64%，受SK海力士赴美發行ADR提振，加上槓桿型ETF推升AI族群買氣，帶動大盤反彈。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：76,515（09/04，▲0.48%）",
         "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "受隔夜亞股漲勢帶動，加上國際油價波動及權值焦點股推升市場情緒，印度股市今日穩健上揚0.48%。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,430（09/04，▼1.38%）"
+        "黃金：4,477（09/04，▼0.34%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "今日黃金下跌0.34%，主因聯準會鷹派預期推升美元走強，加上高檔獲利了結賣壓，短線金價持續承壓震盪。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,853（09/06，▲1.39%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "受惠新興券商強勁擴張及NAB等金融股帶動，市場資金活絡，激勵越南VN-Index今日上揚1.39%。"
     }
   ],
   "riskDashboard": {
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "Fed本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRGRUXzFxNmladFRFSHR5R3Y4MGl4aWFVWWQ3WERJNGhPbWxFaDZHUmlTNFdoLUgzc0RNcW5HLUM4LWJkMXNXTGlfVzhFYS1IZmYwa3BySTZGa0JpcHpVbzBYaW9hVXUzOGRNbmlTYzgtRmJBN3lJNUhqcEYyZXdPaWxYZ0XSAV9BVV95cUxPYUJlMXl2ZlZtMGpwMElCSXg0aExZSmVqbW9IOGdaQV9vZDZaVU40b09pSExBRUwtQTZ4bHc4U1E1Q2h6UWJGTXNBMnR6SUhDWmZva3YxM0ZCelRHd1JmWQ?oc=5"
-    },
-    {
       "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54VVRPX3RtR0lBVXB2UGhzeVk2M29EUXBZQXNaRW1TR3lIM3hFMUpNQ2VydFRqMWJpZ1g3Z0hRNmdhZU40MkZQNmFJNUpORFk?oc=5"
+    },
+    {
+      "title": "Fed本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRGRUXzFxNmladFRFSHR5R3Y4MGl4aWFVWWQ3WERJNGhPbWxFaDZHUmlTNFdoLUgzc0RNcW5HLUM4LWJkMXNXTGlfVzhFYS1IZmYwa3BySTZGa0JpcHpVbzBYaW9hVXUzOGRNbmlTYzgtRmJBN3lJNUhqcEYyZXdPaWxYZ0XSAV9BVV95cUxPYUJlMXl2ZlZtMGpwMElCSXg0aExZSmVqbW9IOGdaQV9vZDZaVU40b09pSExBRUwtQTZ4bHc4U1E1Q2h6UWJGTXNBMnR6SUhDWmZva3YxM0ZCelRHd1JmWQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "外資回補562億台股攻頂 新台幣強升1.25角收31.63元 - BigGo 財經",
+      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡| 財經焦點 - 太報 TaiSounds",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBRNGV5emp6YXZEVXU1eFpPeXBkR3B5WUJUUU1pUjdGalQyc1c1cEVvVTEtMU9jaGFUS3VkUXY2aUVET2M4VHZyQWdtVjNrOE96VDB0WWtOaXZ0Vl94Z1FJbllVbWNra3RVN3oxR1MwRHl1OW14Y2dIUmNR?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9DMWVEckkxWlVHb0FpWjJ4RVdYQ2pDa2pDQWpvamxtb3RRWWlvTWhmSDY3YWhHRVVGcXh4U0JIRlNpYkEwcE5CYThvZWRraGhRc1YzYXNRaHJYTjZx?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股晶片背離",
+      "content": "美股三大指數全面收黑，費半卻逆勢暴漲逾3%呈現極端分歧。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "中東戰火升溫",
+      "content": "伊朗戰事引發能源危機，油價居高不下衝擊美消費者信心探底。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "升息訊號拉鋸",
+      "content": "華勒發言降溫緊縮預期，專家反示警政治施壓恐增九月升息機率。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/6 下午5:24:00",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/6 上午8:25:12",
