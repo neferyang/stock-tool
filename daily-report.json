@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-06T11:16:17.465Z",
+  "lastUpdated": "2026-09-06T14:11:54.431Z",
   "date": "2026年09月06日（星期日）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股跌0.51%，受科技動能股回檔及類股輪動拖累，儘管大盤先前創高，投資人轉趨謹慎引發獲利了結賣壓。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,021（09/04，▲1.26%）"
       ],
-      "analysis": "日經225今日"
+      "analysis": "日經225今漲1.26%，受美光財報激勵帶動科技股回補買盤，加上指數納入AI等新成分股提振市場信心。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,687（09/04，▲1.64%）"
       ],
-      "analysis": "今日KOSPI漲1.64%，主因AI熱潮與槓桿ETF推動晶片股反彈，加上SK海力士赴美利多激勵市場情緒。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：76,515（09/04，▲0.48%）",
         "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "印股今日漲0.48%，"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,551（09/04，▲1.51%）"
       ],
-      "analysis": "今日台股反彈1.51%，"
+      "analysis": "台股今日勁揚1.51%，主因AI基本面題材撐盤，逢低買盤積極進場，惟外資龐大期貨空單仍存避險壓力。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,477（09/04，▼0.34%）"
       ],
-      "analysis": "受聯準會鷹派立場提振美元影響，降息預期降溫，加上高檔獲利了結賣壓，黃金今日承壓下跌0.34%。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,853（09/06，▲1.39%）"
       ],
-      "analysis": "VN-Index今日漲1.39%，主因新興券商強勢崛起"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -204,32 +204,32 @@
   "news": [
     {
       "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - news.cnyes.com",
-      "description": "官員鴿派發言緩解緊縮焦慮，債市買氣回溫帶動殖利率短線大幅回檔。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54VVRPX3RtR0lBVXB2UGhzeVk2M29EUXBZQXNaRW1TR3lIM3hFMUpNQ2VydFRqMWJpZ1g3Z0hRNmdhZU40MkZQNmFJNUpORFk?oc=5"
     },
     {
-      "title": "Fed本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
-      "description": "政治干預恐促使聯準會彰顯獨立性，增添利率決策逆向緊縮的不確定性。",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRGRUXzFxNmladFRFSHR5R3Y4MGl4aWFVWWQ3WERJNGhPbWxFaDZHUmlTNFdoLUgzc0RNcW5HLUM4LWJkMXNXTGlfVzhFYS1IZmYwa3BySTZGa0JpcHpVbzBYaW9hVXUzOGRNbmlTYzgtRmJBN3lJNUhqcEYyZXdPaWxYZ0XSAV9BVV95cUxPYUJlMXl2ZlZtMGpwMElCSXg0aExZSmVqbW9IOGdaQV9vZDZaVU40b09pSExBRUwtQTZ4bHc4U1E1Q2h6UWJGTXNBMnR6SUhDWmZva3YxM0ZCelRHd1JmWQ?oc=5"
+      "title": "Fed本月會升息嗎？專家：川普施壓降息反而強化9月升息可能性| 全球財經| 全球 - UDN",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83eXN3aGVrSUhBQ0tSQ2hkYXJHR0x3V2xFMm1lUFBvc0VZeS1NREZtS0JERjJRTkM3ZE5Fc3NlSURsRjBYRVUzRlE3TUhLemtQ?oc=5"
     },
     {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
-      "description": "地緣衝突推升通膨並重創消費信心，市場對經濟陷入深度衰退的恐慌加劇。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
-      "description": "關鍵通膨數據揭曉前夕，高油價使資金高度防備停滯性通膨帶來的評價下修。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
-      "description": "官方與業界對AI評價看法分歧，高檔震盪下投資人需重新檢視個股估值風險。",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡| 財經焦點 - 太報 TaiSounds",
-      "description": "外資大舉匯出引發股匯雙殺，新台幣走弱短期內恐持續壓抑台股資金動能。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9DMWVEckkxWlVHb0FpWjJ4RVdYQ2pDa2pDQWpvamxtb3RRWWlvTWhmSDY3YWhHRVVGcXh4U0JIRlNpYkEwcE5CYThvZWRraGhRc1YzYXNRaHJYTjZx?oc=5"
     }
   ],
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/6 下午10:11:54",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/6 下午7:16:17",
