@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-07T00:30:50.738Z",
+  "lastUpdated": "2026-09-07T09:33:16.519Z",
   "date": "2026年09月07日（星期一）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股今日跌0.51%，主因地緣政治風險升溫及通膨隱憂抑制買氣，科技股高檔遇壓，市場轉向觀"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：65,021（09/04，▲1.26%）"
+        "日經225：66,400（09/07，▲2.12%）"
       ],
       "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,687（09/04，▲1.64%）"
+        "KOSPI：6,995（09/07，▲4.61%）"
       ],
-      "analysis": "受SK海力士赴美利多及AI概念股熱潮帶動，KOSPI今日勁揚1.64%，槓桿資金進場推升科技板塊反彈。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,35 +36,35 @@
         "SENSEX：76,515（09/04，▲0.48%）",
         "NIFTY 50：23,898（09/04，▲0.10%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印股今日微漲0.48%，主因油價波動及亞股走勢分歧，市場受大型權值股支撐，整體呈現區間震盪偏多格局。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,551（09/04，▲1.51%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股今日上漲1.51%，主因AI基本面強勁支撐，且高盛上調指數目標提振多頭信心，惟外資空單仍須留意。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,477（09/06，▲1.06%）"
+        "黃金：4,477（09/07，▲1.06%）"
       ],
-      "analysis": "黃金今日上漲1.06%，主因地緣政治風險升溫推升避險買盤，但在聯準會利率路徑分歧下，短線呈現震盪反彈。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,853（09/07，▲1.39%）"
+        "VN-Index：1,822（09/07，▼1.70%）"
       ],
-      "analysis": "VN-Index今日漲1.39%，受新興券商強勢崛起及NAB等金融"
+      "analysis": "受獲利了結賣壓及金融權值股走弱拖累，VN-Index今日跌1.70%，惟市場長期擴張趨勢仍未改變。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月7日",
     "rating": "高度警戒",
-    "summary": "🔴×4　🟠×3　🟡×3　🟢×5",
+    "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（9/4，加權指數 vs 240日均線）",
+            "current": "約33%（9/7，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.13（9/6）",
+            "current": "98.94（9/7）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.62（9/7）",
+            "current": "31.52（9/7）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.5（9/4）",
-            "status": "🟢",
-            "statusText": "市場情緒平靜"
+            "current": "15.1（9/7）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（9/6）",
+            "current": "$91（9/7）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83eXN3aGVrSUhBQ0tSQ2hkYXJHR0x3V2xFMm1lUFBvc0VZeS1NREZtS0JERjJRTkM3ZE5Fc3NlSURsRjBYRVUzRlE3TUhLemtQ?oc=5"
     },
     {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+    },
+    {
       "title": "本週操盤筆記：美國就業數據、全球PMI與歐元區通膨 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5KT1YySkMxRE43bGpQU25RSmdJZEJtYzh2ai0zd2pleDRUeE9MT2dYUVByNDVFdVM0dmswZXE2UUJWWXR6bERPQ2ppQjVZdVE?oc=5"
-    },
-    {
-      "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
     },
     {
       "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "台股失守、外資連2提款！新台幣連二黑 擦邊31.8元關卡| 財經焦點 - 太報 TaiSounds",
+      "title": "台股上揚與外資匯入 新台幣兌美元走升 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9DMWVEckkxWlVHb0FpWjJ4RVdYQ2pDa2pDQWpvamxtb3RRWWlvTWhmSDY3YWhHRVVGcXh4U0JIRlNpYkEwcE5CYThvZWRraGhRc1YzYXNRaHJYTjZx?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE45WGxwemV1V1RPRmp1Z0lfbHdhODQ0WDlHcmd2dk52WldOUFlZQjhFS0g0WTRuaGVDMEFiWXpTalhqNWZqOC05NDAxX04zN0dL0gFWQVVfeXFMT25yczFPQ25ycmxETTF1NDY4OTVkUVYtRUkzN1pwMkJ4RFZVNDlzZmZkeU1fUUprQ2ttRmlaOEY1dTFsTmtTYkJIVkRYcklQRlhFQ2hNeXc?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股晶片背離",
+      "content": "美股三大指數收黑，費半指數卻逆勢暴漲3.37%。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "川普施壓變數",
+      "content": "前總統施壓降息，市場反倒擔憂強化了9月升息可能性。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "升息預期分歧",
+      "content": "華勒發言降溫升息押注，就業與通膨數據公布前多空拉鋸。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/7 下午5:33:16",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/7 上午8:30:50",
