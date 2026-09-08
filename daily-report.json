@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-08T00:51:28.044Z",
+  "lastUpdated": "2026-09-08T08:05:20.742Z",
   "date": "2026年09月08日（星期二）",
   "basedOn": "2026年09月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,507（09/04，▼0.29%）",
         "費城半導體指數：11,735（09/04，▲3.37%）"
       ],
-      "analysis": "美股今日收跌0.51%。在經歷近期強勁漲勢後，市場對高估值產生擔憂，引發獲利了結賣壓，致指數回檔整固。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：66,400（09/07，▲2.12%）"
+        "日經225：65,269（09/08，▼1.70%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225受美股科技股拋售及AI板塊回檔拖累，市場短期過熱引"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,995（09/07，▲4.61%）"
+        "KOSPI：6,955（09/08，▼0.58%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌0.58%。主因市場頻繁觸發熔斷使波動加劇，加上AI槓桿ETF降溫與避險情緒升"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：76,133（09/07，▼0.50%）",
         "NIFTY 50：23,779（09/07，▼0.50%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市受Gift Nifty走勢疲弱拖累，今日跌0.5%。市場聚焦SBI及Titan等權值股動向，獲利了結與謹慎情緒主導盤勢。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,469（09/07，▲0.88%）"
+        "黃金：4,437（09/08，▲0.16%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "黃金今日微漲0.16%，主因美國通膨降溫支撐買盤，惟高盛下調目標價及聯準會降息預期降溫，限縮了漲幅。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,822（09/08，▼1.70%）"
+        "VN-Index：1,830（09/08，▲0.48%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "VN-Index今日漲0.48%，"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約33%（9/7，加權指數 vs 240日均線）",
+            "current": "約32%（9/8，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.18（9/7）",
+            "current": "98.95（9/8）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.48（9/8）",
+            "current": "31.52（9/8）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.3（9/7）",
+            "current": "15.7（9/8）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（9/7）",
+            "current": "$94（9/8）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - news.cnyes.com",
+      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE54VVRPX3RtR0lBVXB2UGhzeVk2M29EUXBZQXNaRW1TR3lIM3hFMUpNQ2VydFRqMWJpZ1g3Z0hRNmdhZU40MkZQNmFJNUpORFk?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
     },
     {
-      "title": "Fed本月會升息嗎？專家：川普施壓降息反而強化9月升息可能性| 全球財經| 全球 - UDN",
+      "title": "Fed 本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE83eXN3aGVrSUhBQ0tSQ2hkYXJHR0x3V2xFMm1lUFBvc0VZeS1NREZtS0JERjJRTkM3ZE5Fc3NlSURsRjBYRVUzRlE3TUhLemtQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8yWGg3dkNaNXJleEtfNmZPTXZxNThsTVUtQXpEN253TW1pQVFiSS0yMF9OMWlneXpHXzNZTlFfT3dfV0hKZHpKcVFnWFVJZlJmaXM2TUtzOVZXQdIBX0FVX3lxTE9hQmUxeXZmVm0wanAwSUJJeDRoTFlKZWptb0g4Z1pBX29kNlpVTjRvT2lITEFFTC1BNnhsdzhTUTVDaHpRYkZNc0EydHpJSENaZm9rdjEzRkJ6VEd3UmZZ?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -218,14 +218,14 @@
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - 鏈新聞 ABMedia",
+      "title": "油價居高不下，CPI 公布在即，停滯性通膨真會發生嗎？ - abmedia.io",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE15dlNhSUQzT3RDeXFpWXh5TFlyajdXanVvQWIyal9fZEt1eTVQREw0TjAySFVHZ29GbGVZNURkRkwyNVRTMlQtVkk2SWpsaE1GaWpkYVhaN3NQY3BCTmc?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
       "title": "台幣以31.552元作收 攀三個月新高 - UDN",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "費半強勢背離",
+      "content": "美股主要指數全面收黑，費半卻逆勢大漲逾3%，半導體走勢極度分歧。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "政治干預政策",
+      "content": "川普公開施壓降息，市場反而擔憂適得其反，強化聯準會9月升息可能性。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "通膨疑慮再起",
+      "content": "高油價推升停滯性通膨風險，華勒發言雖降溫升息押注，政策走向仍分歧。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/8 下午4:05:20",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/8 上午8:51:28",
