@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-08T23:46:37.523Z",
+  "lastUpdated": "2026-09-09T00:48:15.105Z",
   "date": "2026年09月09日（星期三）",
   "basedOn": "2026年09月08日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -43,12 +43,12 @@
       "items": [
         "台灣加權指數：47,106（09/08，▼0.47%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "受外資期貨空單避險情緒及美股震盪影響，台股今日回檔0"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,398（09/08，▼0.73%）"
+        "黃金：4,386（09/08，▼0.98%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月8日",
+    "date": "2026年9月9日",
     "rating": "高度警戒",
     "summary": "🔴×4　🟠×3　🟡×4　🟢×4",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.81（9/8）",
+            "current": "98.79（9/8）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.50（9/9）",
+            "current": "31.48（9/9）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$94（9/8）",
+            "current": "$95（9/8）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
     },
     {
-      "title": "美債長端警報升級！20年、30年殖利率雙站5.2% 市場開始向華府收取「財政風險溢價」 - 蕃新聞",
+      "title": "Fed 本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - money.udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzeEx6T3RNT3BLNkZHdkJmNEpuMkdXM2dYanRCbUE3UTVVaHktZXFKcWsycUxoOXRHd193SEFoVGxDZHhVc2h1MnhfY19LeXpLenc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8yWGg3dkNaNXJleEtfNmZPTXZxNThsTVUtQXpEN253TW1pQVFiSS0yMF9OMWlneXpHXzNZTlFfT3dfV0hKZHpKcVFnWFVJZlJmaXM2TUtzOVZXQdIBX0FVX3lxTE9hQmUxeXZmVm0wanAwSUJJeDRoTFlKZWptb0g4Z1pBX29kNlpVTjRvT2lITEFFTC1BNnhsdzhTUTVDaHpRYkZNc0EydHpJSENaZm9rdjEzRkJ6VEd3UmZZ?oc=5"
     },
     {
       "title": "最糟情況來了？四大因素恐讓美國明年陷停滯性通膨 - news.cnyes.com",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股上揚與外資匯入 新台幣兌美元走升 - 經濟日報",
+      "title": "台幣以31.552元作收 攀三個月新高 - money.udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9takJFVW1JS19NNmExeEtwZ3h3OW5OemVsNkJtajRyaUNPenhKSm94MHU3bmxObFpIOTl0dTBTd0JtRHd1TnhlbVVzbHJVaDFLN2tSOVFnRFlrd9IBX0FVX3lxTFBULWozRFRvTXpMX2ZWQ3BQbDctVkZhaEVfeExSWXNMdktPNDA4VkI3dEJsWnZhUWdvSWVFTVVkd2lrUjNpek5ZcDF5ZktNdlB3emVLcm5xeVl0OWppc21r?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNc19SUjB2b2U1SlY1Znp4NGg4MG1lQ0Y1VV96S1ZoNVNRR0ZZWllrd0lmSTdXWG9RX2prQUs1RmtZOUhWVTVXYWVHanBRTjl2bDZnZ1FYRXNjNk5UblotemJpbmJJRTZZRlBfNjFVLWJnNC1OcnJFRmtxeHE4dnZ5bdIBX0FVX3lxTFA3RG42eVZYYnB0dldoN0tmcGVZWWt0ODlDc0xTa1p2R0dyaUM4d3JMTTVCS3ZZRVRIa0RNMnJjNDBJTDNrOEs1Z3F5MWY1RGRPMV9pWW16RVBGM2l6SW1F?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/9 上午8:48:15",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/9 上午7:46:37",
