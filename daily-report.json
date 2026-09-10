@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-10T23:08:22.913Z",
+  "lastUpdated": "2026-09-10T23:33:00.475Z",
   "date": "2026年09月11日（星期五）",
   "basedOn": "2026年09月10日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：26,082（09/10，▼0.65%）",
         "費城半導體指數：11,614（09/10，▼2.66%）"
       ],
-      "analysis": "美股今日下跌0.60%，主因強勢動能交易面臨2001年來最大平倉潮，獲利了結賣壓令創高漲勢暫歇。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：7,034（09/10，▼0.25%）"
       ],
-      "analysis": "南韓KOSPI指數今日上漲1.40%，主因受海外相關ETF上市預期提振買氣，伴隨AI概念股動能帶動逢低買盤進場，推升大盤強勁反彈。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,21 +43,21 @@
       "items": [
         "台灣加權指數：46,940（09/10，▼0.51%）"
       ],
-      "analysis": "台股今日跌0.51%，"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,358（09/10，▼1.30%）"
+        "黃金：4,359（09/10，▼1.30%）"
       ],
-      "analysis": "Idea 3:* 黃金今日跌1"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,829（09/11，▲0.12%）"
       ],
-      "analysis": "受新興券商強勢崛起及銀行股帶動，市場擴張吸引資金進駐，推動越南VN-Index微幅收漲0"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.62（9/11）",
+            "current": "31.63（9/11）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -204,32 +204,32 @@
   "news": [
     {
       "title": "Fed 本月會升息嗎？專家：川普施壓降息 反而強化9月升息可能性 - 經濟日報",
-      "description": "政治干預可能削弱降息預期，加劇市場對貨幣緊縮與流動性緊縮的震盪風險。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8yWGg3dkNaNXJleEtfNmZPTXZxNThsTVUtQXpEN253TW1pQVFiSS0yMF9OMWlneXpHXzNZTlFfT3dfV0hKZHpKcVFnWFVJZlJmaXM2TUtzOVZXQdIBX0FVX3lxTE9hQmUxeXZmVm0wanAwSUJJeDRoTFlKZWptb0g4Z1pBX29kNlpVTjRvT2lITEFFTC1BNnhsdzhTUTVDaHpRYkZNc0EydHpJSENaZm9rdjEzRkJ6VEd3UmZZ?oc=5"
     },
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "美國財政與貨幣政策立場分歧，將推升公債殖利率波動並引發市場資金排擠效應。",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - cmegroup.com",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "最糟情況來了？四大因素恐讓美國明年陷停滯性通膨 - news.cnyes.com",
-      "description": "停滯性通膨風險將壓縮企業獲利與降息空間，增加股債齊跌與資產配置難度。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1HVjJVbThjMFRIWXZ1aEpPa0pjTU8zdFB4Vk8tT05KbGxKRy1TalpoczJUdWdwMUt0VFp6Y25sVGxBV2x2enVMUkdFZlFvWEU?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "提供本週重要產經事件指引，有助投資人提前部署並防範潛在總經波動。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - ctee.com.tw",
-      "description": "官方關注科技過熱與金融體系脆弱性，暗示AI相關高估值資產面臨監管與回檔隱憂。",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "台股失守4萬7+外資提款！新台幣中止連4紅 貶破31.5元 - Yahoo新聞",
-      "description": "外資大舉撤離引發股匯雙殺，短線將加劇台股賣壓並削弱本幣資產信心。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxNLWVCcHc1VmFEak1iV3Flcl9zSlo1SGZncVN3eWNyOWhZZ2NVNDFoT2ZjUVJObXplWnplR2l1enFYNW9LVXphVUF6Nll5Q0RLaDdoV2xSaFhILWlHMndpdGVIRzhYSml4YlIzdi1mVUJKb3lncDJqcDkxYW43amxoSVcybFo1c3hhWW85aGoyYWJFUDJabDRMV2ktT21Xczd0am1kQWZzNUxITVgyUVhwTjRCOUZ5T2l1bjlrUzR6Q29FcnBFMFlaemZjWnZ6VFpqSzVYb2h3UFlPWVZOVGNlSWxJUHFMNFlWYXB1aFAyekMycHlkNDM4SUZpbmZCX2pudkZGOGdudUdadm9tNGZRdU8tRnpjbW4wTjhTZjZ6QjJNcmEyX0J0dHJiaFhGS3NpUjFnMzQ2ZHVTTVFjX19DRjlLeXI?oc=5"
     }
   ],
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/11 上午7:33:00",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/11 上午7:08:22",
