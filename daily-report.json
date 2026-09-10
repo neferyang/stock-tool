@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-09T23:29:44.014Z",
+  "lastUpdated": "2026-09-10T00:45:16.064Z",
   "date": "2026年09月10日（星期四）",
   "basedOn": "2026年09月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：7,052（09/09，▲1.40%）"
       ],
-      "analysis": "南韓KOSPI跌0.58%，主因市場聚焦頻繁熔斷風險與高波動性，加上槓桿ETF推升的AI漲勢暫歇，獲利了結賣壓湧現。"
+      "analysis": "韓股KOSPI受屢次熔斷引發的避險情緒、槓桿AI題材降溫及衍生品市場波動影響，獲利了結賣壓致今日跌0.58%。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,19 +36,19 @@
         "SENSEX：74,764（09/09，▼1.08%）",
         "NIFTY 50：23,432（09/09，▼0.86%）"
       ],
-      "analysis": "受Gift Nifty走弱及避險情緒影響，印度股市今日跌0.73%，投資人態度偏向觀望，短線逢高調節。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：47,183（09/09，▲0.16%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股今日微漲0.16%，市場由AI題材與"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,445（09/09，▲1.16%）"
+        "黃金：4,440（09/09，▲1.04%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -57,12 +57,12 @@
       "items": [
         "VN-Index：1,827（09/10，▼0.18%）"
       ],
-      "analysis": "VN-Index微跌0.18%，主因市場在券商板塊強勢擴張後逢高調節，銀行等權值股盤整壓抑大盤走勢。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月9日",
+    "date": "2026年9月10日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×2　🟡×4　🟢×4",
     "layers": [
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "98.78（9/9）",
+            "current": "98.82（9/9）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外匯存底重返6千億美元 8月單月跳增逾76億 - 財經新聞 - PChome Online 新聞 - PChome Online新聞",
+      "title": "外匯存底重返6千億美元 8月單月跳增逾76億 - 財經新聞 - PChome Online 新聞 - news.pchome.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTHNvN2lrYnAweFFsYVRBNlhCel9uLVo0alBZQkJSU1QzX2VRVUlTaEVrajBPTldtZkR1WVQ2em9uZGd2aHZXemRIM0VwcktBWm15ZC04WEpXLTNKOWRSajJDM1lMWlBIb081a0lzZG5qQWdCZndGLU9NckNDTXZHVUQ0X24yTE5a?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/10 上午8:45:16",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/10 上午7:29:44",
