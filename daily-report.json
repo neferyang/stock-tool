@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-12T23:24:14.521Z",
+  "lastUpdated": "2026-09-13T00:33:31.500Z",
   "date": "2026年09月13日（星期日）",
   "basedOn": "2026年09月11日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月12日",
+    "date": "2026年9月13日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×0　🟡×5　🟢×4",
     "layers": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/13 上午8:33:31",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/13 上午7:24:14",
