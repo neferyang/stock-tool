@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-14T16:58:06.631Z",
+  "lastUpdated": "2026-09-14T22:43:24.331Z",
   "date": "2026年09月15日（星期二）",
   "basedOn": "2026年09月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,26 +9,26 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,619（09/14，▲0.09%）",
-        "S&P 500：7,645（09/14，▼0.16%）",
-        "那斯達克：26,301（09/14，▼0.12%）",
-        "費城半導體指數：11,235（09/14，▼4.98%）"
+        "道瓊：52,421（09/14，▼0.29%）",
+        "S&P 500：7,620（09/14，▼0.48%）",
+        "那斯達克：26,186（09/14，▼0.56%）",
+        "費城半導體指數：11,131（09/14，▼5.86%）"
       ],
-      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
+      "analysis": "美股微跌0.29%。儘管CPI符合預期，但在創高後多頭居高思危，科技股獲利了結壓抑盤勢，市場呈現高檔震盪。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：63,493（09/14，▼0.81%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日經225指數今日重挫1.93%，主因受AI科技股估值過高"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,684（09/14，▼3.26%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "KOSPI重挫1.76%，主因科技股回檔引發槓桿ETF多殺多，疊加避險情緒推升波動率指數，市場震盪劇烈。"
     },
     {
       "name": "🇮🇳 印度",
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：46,185（09/11，▼1.61%）"
+        "台灣加權指數：45,863（09/14，▼0.70%）"
       ],
-      "analysis": "台股今日跌1.61%，主因外資大舉提款與空單避險，疊加市場對投機過熱及法人獲利了結的擔憂引發震盪。"
+      "analysis": "台股今日跌0.70%，主因外資大舉調節提款，加上市場對投機過熱與法人高檔獲利的擔憂，引發短線震盪回檔。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,347（09/14，▼0.44%）"
+        "黃金：4,337（09/14，▼1.64%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "黃金今日跌1.64%。主因金價衝高後引發技術性獲利了結，加上市場對利率路徑預期重估，引發短線修正。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,788（09/14，▼0.39%）"
+        "VN-Index：1,788（09/15，▼0.39%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.1（4:00 PM EDT, Fri Sep 11）",
+            "current": "40.9（4:00 PM EDT, Mon Sep 14）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.95%（9/10）",
+            "current": "4.96%（9/11）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.40（9/14）",
+            "current": "99.47（9/14）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.7（9/14）",
+            "current": "17.1（9/14）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.39%（10Y 4.95% - 2Y 4.56%，9/10）",
+            "current": "+0.33%（10Y 4.96% - 2Y 4.63%，9/11）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -208,19 +208,19 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
     },
     {
-      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+    },
+    {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
-    },
-    {
-      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/15 上午6:43:24",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/15 上午12:58:06",
