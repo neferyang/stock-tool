@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-13T23:32:44.303Z",
+  "lastUpdated": "2026-09-14T00:36:02.229Z",
   "date": "2026年09月14日（星期一）",
   "basedOn": "2026年09月11日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,333（09/11，▲0.96%）",
         "費城半導體指數：11,824（09/11，▲1.81%）"
       ],
-      "analysis": "美股上漲0.98%，主因8月CPI符合預期緩解通膨擔憂，資金回流推動指數再創新高，市場情緒維持樂觀。"
+      "analysis": "美股今日上漲0.98%，主要受8月CPI符合預期激勵，市場重拾信心推動指數再創新高，惟高檔回檔風險仍存。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,011（09/11，▼1.93%）"
       ],
-      "analysis": "日經225今日重挫1.93%，主因受日韓股市震盪及AI概念股熱潮降溫進行階段性回檔調整所拖累。"
+      "analysis": "受全球AI熱潮降溫及亞股重挫拖累，日經225指數今日跌逾1.93%，市場避險情緒升溫，科技股面臨階段性估值回檔修正。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,910（09/11，▼1.76%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "KOSPI今日跌1.76%。受市場高波動與槓桿ETF平倉影響，加上SK海力士赴美ADR引發權值股資金挪移疑慮，加劇外資拋售壓力。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：46,185（09/11，▼1.61%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "受外"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,382（09/13，▲0.35%）"
+        "黃金：4,382（09/13，▲0.36%）"
       ],
-      "analysis": "黃金今日微漲0.35%，受美通膨降溫與機構看好支撐，惟技術面承壓與高檔獲利了結，多空持續拉鋸。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月13日",
+    "date": "2026年9月14日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×0　🟡×5　🟢×4",
     "layers": [
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.67（9/14）",
+            "current": "31.64（9/14）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（9/13）",
+            "current": "$103（9/13）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -218,19 +218,19 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - n.yam.com",
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "AI丨國際清算銀行:AI快速發展帶來新金融穩定風險 - 信報網站",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxPME9lb1doeFdmV3VOS2hTVnRicXl4eXdtaG5NZTVMNVVjWHp2UXZwRnJ4RVdmUzhZT0ZsZWtJNnBNTGxwbUxndndfc20zeENaTmVXR3UzWXBVc3RrZS1iX3AyMzZBTXRIbmFmWm55Z0ZGaWpGdVp1emhOSFIyNkxMVFRJeGl1REhta3JqeWtrS3RMb2JYalllZll5eWtYSDYyWjB4MV9tckd3YTVSbUpzek1ySHVLeDYtcFN6XzgzM1d5MDhsVmNySkRsQkZEU1BkNHFYWTVBNjM3T0x4M2MzQ2ZOVzVlcmpfdUtlcTRMOFdlYXFMU1FiVmI1YTVGUF8xN1VFYXJLWm1XYXBQXzJyd0FzWExpYkVJcGF6V0NiYk5GREZWUHM4Wl9qTnp2akpOLTFPdmRSRmctaVRfVmhXTWFkb01oX2w0U2tiT3FqTC1feFl2MVVvb2xCeEw2UDNDSkRZT3Fqb01pZw?oc=5"
     },
     {
-      "title": "外資先跑砍台股 匯出20億美元 - UDN",
+      "title": "國內匯市：外資狂砍893億元！台股匯重挫，新台幣匯率帶量貶值9分，收31.638元 - 富聯網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1oTF9pNVlkUXNXQ1FDTXR6dS1rUHUwZ2FBMXlZd3pZMlBBR2stY0hES1NnaTRJM0lnMG8yV1FvRGZZMWZIODM3WGpCNzVzSDZW0gFWQVVfeXFMTVpScUd3WG01cm8zeE02Q1dkTnlHenZPM1pneGE2cUVLdmRCR3h1YUxiOHQ3cnNEWUZxRG5yelBlaXdyQk9WdmsxX3RwcGcySVA4OHFQT0E?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOUUpSZzVBeDVmUVdDeVNsMlhoZHp5QThxWUYtRUprM2VxSzFZUUVncU5QcXVLTkYxMnJTQ2d1Zl9hZDdMSE9hMkw3cGJoanp2ZDUtcVlvQ2tWdFY5SDd5MEREOXZtX3VhbUtQeG9ISnlTNnpzSVVLSVBwYU9fM01TR3RKSlRFOC1h?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/14 上午8:36:02",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/14 上午7:32:44",
