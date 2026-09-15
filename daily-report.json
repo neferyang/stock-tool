@@ -1,27 +1,27 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-15T12:02:38.726Z",
+  "lastUpdated": "2026-09-15T15:37:37.257Z",
   "date": "2026年09月15日（星期二）",
-  "basedOn": "2026年09月14日（前一交易日）",
+  "basedOn": "2026年09月15日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,421（09/14，▼0.29%）",
-        "S&P 500：7,620（09/14，▼0.48%）",
-        "那斯達克：26,186（09/14，▼0.56%）",
-        "費城半導體指數：11,131（09/14，▼5.86%）"
+        "道瓊：51,978（09/15，▼0.85%）",
+        "S&P 500：7,586（09/15，▼0.45%）",
+        "那斯達克：26,005（09/15，▼0.69%）",
+        "費城半導體指數：11,204（09/15，▲0.65%）"
       ],
-      "analysis": "美股小跌0.29%。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：63,484（09/15，▼0.01%）"
       ],
-      "analysis": "日經22"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,325（09/15，▼0.63%）"
+        "黃金：4,327（09/15，▼0.58%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.81（9/15）",
+            "current": "31.83（9/15）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.1（9/15）",
+            "current": "17.7（9/15）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "265 bps（2.65%，9/11）",
+            "current": "271 bps（2.71%，9/14）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（9/15）",
+            "current": "$105（9/15）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -204,33 +204,33 @@
   "news": [
     {
       "title": "近3年新高！美10年期公債殖利率升破5% 市場關注Fed是否升息 - TVBS新聞網",
-      "description": "無風險利率飆升將壓縮股市估值與企業獲利，亦大幅推升借貸與融資成本。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5TaVYxVWFwR0hiQ1J5VXluMUoxM3dJZEpNTU5Oc1dQblZXZkxSenFrcWhYTHhKVEJRN3dxbzd2WlhMVFlYODNlTkhCcGQ0NWs?oc=5"
     },
     {
       "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - news.cnyes.com",
-      "description": "超預期的緊縮預期恐引發各類資產重定價，對高槓桿與成長股造成劇烈衝擊。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
     },
     {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+    },
+    {
       "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
-      "description": "金價來到多空關鍵轉折點，突破或跌破將決定避險資金去留與新趨勢方向。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
-      "description": "重磅數據與央行決策密集出爐，全球股匯債市面臨極高波動度與方向定調。",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
-    },
-    {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
-      "description": "監管層開始正視AI帶來的金融脆弱性，科技板塊或面臨更嚴格的審查與估值修正。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資大舉撤退 新台幣重貶1.6角創逾半年最大跌幅 - rti.org.tw",
-      "description": "股匯雙殺加劇資金外流壓力，台股短期承壓且進口通膨隱憂恐將升溫。",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5IbnZoR0xNZk13SkxyTVZSc2F5RDRkUU5HNDkyaE1remRnVWptaG1CUHdPdmhlbDRRTDI0TEpwb1J4bG10dHloYjVFTE1nR1lhMC1jZXd2Zw?oc=5"
+      "title": "不只台股跌！新台幣4連貶收31.848、創逾半年最大跌幅外資一天再賣627億、台美央行決策前資金先撤 - 放言Fount Media",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFAzbE9OeDhMSmJzaHRGbC1qMXVQNmgzanRsSVExc0pVcWNoY0praGxSWTkzOXVpS2VpZVctcmtkQlVsUWNZT1c0enkxUER3S1ZvbFE?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/15 下午11:37:37",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/15 下午8:02:38",
