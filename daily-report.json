@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-15T00:07:10.089Z",
+  "lastUpdated": "2026-09-15T01:06:45.106Z",
   "date": "2026年09月15日（星期二）",
   "basedOn": "2026年09月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,14 +14,14 @@
         "那斯達克：26,186（09/14，▼0.56%）",
         "費城半導體指數：11,131（09/14，▼5.86%）"
       ],
-      "analysis": "美股跌0.29%。主"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：63,493（09/14，▼0.81%）"
       ],
-      "analysis": "日經225今日跌1.93%，主因AI熱潮降溫引發科技股階段性修正，伴隨亞股連鎖賣壓，市場短線避險情緒急升。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,328（09/14，▼1.83%）"
+        "黃金：4,333（09/14，▼1.72%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -57,7 +57,7 @@
       "items": [
         "VN-Index：1,788（09/15，▼0.39%）"
       ],
-      "analysis": "越指微跌0.39%，受獲利了結影響震盪整理。儘管新興券商崛起助長擴張，資金短線轉向謹慎，壓抑大盤表現。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.50（9/14）",
+            "current": "99.54（9/14）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.71（9/15）",
+            "current": "31.69（9/15）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（9/14）",
+            "current": "$103（9/14）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
     },
     {
-      "title": "華勒一句話救美債！Fed升息押注降溫 2年期殖利率一度重挫7基點 - Yahoo股市",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi-wJBVV95cUxNZEMyQk9kazJnOUM3TlpBc2M5UzNGZWZDemR1dFJQbDdqLVJoNzBmcW9GbzlNNDlGQnBveF9BSERscHNmWkcwNmE2SHdKeVpZWnVBQjdpLVhKWVV6WFNxemY3dU9yT2Y1OTU3ZEJaeXpkUmtmTjB6YWhrUi1SdFJEY3oydVNOSTlnSEJWaFdfdW1QcEVucEduOGt6WU9yeVJ3bEx3NkVXTUg2N2RkX05ERkZOcEM0empybklzSTBkYVRXV3FEZF8zcVVkUS1YUl9TVmV1NGtMMHR4b2RNWXlic2NBVWU1c1JnZWVTU2hSYm5XZTR2bkRDTExBQ2NxejJ5RU9ndDBRcW1GOFdLczRfZDBtUTN0XzMwS1ctTjFINGcySmdtWjQyTnQySWVVVS1kZU4zaVBJZkFmNjN4aU1DQVl4SERSQi1vQzJtYWduZzBIZFBmcnNBTmphQXpWRDhpYVhOMnc4ZG9VdTc2dTBMNTkyRmZyMkQ0ZGFN?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/15 上午9:06:45",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/15 上午8:07:10",
