@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-15T01:06:45.106Z",
+  "lastUpdated": "2026-09-15T11:35:38.298Z",
   "date": "2026年09月15日（星期二）",
   "basedOn": "2026年09月14日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,45 +19,45 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：63,493（09/14，▼0.81%）"
+        "日經225：63,484（09/15，▼0.01%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日經225微跌0.01%，創高突破6萬點後高檔震盪，休假歸隊獲利了結賣壓浮現，投資人靜待牛熊指標與美股指引。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,684（09/14，▼3.26%）"
+        "KOSPI：6,627（09/15，▼0.85%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：74,782（09/11，▼0.16%）",
-        "NIFTY 50：23,398（09/11，▼0.34%）"
+        "SENSEX：74,004（09/15，▼1.04%）",
+        "NIFTY 50：23,119（09/15，▼1.19%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市今日跌1.04%，主因投資人聚焦交易所估值競爭，引發獲利了結與類股輪動，避險情緒壓抑大盤表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,863（09/14，▼0.70%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "台股今跌0.70%，主因美股震盪與外資鉅額提款、期貨空單避險施壓，雖有基本面支撐，短線仍呈籌碼面調節。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,333（09/14，▼1.72%）"
+        "黃金：4,324（09/15，▼0.64%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,788（09/15，▼0.39%）"
+        "VN-Index：1,811（09/15，▲1.28%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南VN-Index今日漲1.28%，主要受新興券商強勢崛起及金融股（如NAB）走強提振，市場規模擴張帶動買氣。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約28%（9/11，加權指數 vs 240日均線）",
+            "current": "約26%（9/15，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.54（9/14）",
+            "current": "99.59（9/15）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.69（9/15）",
+            "current": "31.80（9/15）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.1（9/14）",
+            "current": "17.0（9/15）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$103（9/14）",
+            "current": "$102（9/15）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -203,19 +203,14 @@
   ],
   "news": [
     {
+      "title": "近3年新高！美10年期公債殖利率升破5% 市場關注Fed是否升息 - TVBS新聞網",
+      "description": "資金借",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5TaVYxVWFwR0hiQ1J5VXluMUoxM3dJZEpNTU5Oc1dQblZXZkxSenFrcWhYTHhKVEJRN3dxbzd2WlhMVFlYODNlTkhCcGQ0NWs?oc=5"
+    },
+    {
       "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
-    },
-    {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
-    },
-    {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
@@ -223,14 +218,19 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
+      "title": "本週操盤筆記：美非農就業、零售及全球PMI初值、歐英日央行利率決議、美光財報 - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBseDhhemxqRktrbU1PRFcwckFUNm1KVVNDTXE0RzVDZVZ0ZDJDazZWR293dzBzUlVpZXM2SE1sOE0teDJfYXFRMEZOTlNiUjA?oc=5"
+    },
+    {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "超級央行週登場！股匯難兄難弟 新台幣連三貶、盤中失守31.7字頭 | 太報 - LINE TODAY",
+      "title": "AI巨頭示警發展過快！ 台幣貶破31.8元創逾3週新低 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1ZTkFRRUVjOTEweUx0Q05qbXFpNWxqVWdaLTNkaXA5QUF4SC1BSjFPblU4UHp5ZWNtNVI0WDBiNndzOHYzSk1JQzg3a0NBWENteW1JOGpB?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBST3JiMnhoU0hqNEVyQjIxS2NkalpGMDl2b1U3aTBuMUVDUTY2WTgzb2p4eE1DdVFuMmxKd19PNWRHa2NvT3BLWmRYTTdNTG1VTWdVQVRIZHQ?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/15 下午7:35:38",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/15 上午9:06:45",
