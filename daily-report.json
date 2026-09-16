@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-15T23:47:26.874Z",
+  "lastUpdated": "2026-09-16T00:57:56.651Z",
   "date": "2026年09月16日（星期三）",
   "basedOn": "2026年09月15日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：25,982（09/15，▼0.78%）",
         "費城半導體指數：11,176（09/15，▲0.40%）"
       ],
-      "analysis": "美股今日跌0.63%。大盤創高後引發獲利了結賣壓，科技股承壓，加上通膨數據公布後市場對回檔風險趨於謹慎。"
+      "analysis": "美股今日回跌0.63%，主因指數創高後引發獲利了結賣壓，市場亦在通膨數據公布及類股輪動之際轉趨審慎。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：6,627（09/15，▼0.85%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI重挫3.26%，主因半導體巨頭SK海力士大跌引發恐慌性拋售，觸發年內第七次熔斷。市場"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,325（09/15，▼0.63%）"
+        "黃金：4,321（09/15，▼0.71%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月15日",
+    "date": "2026年9月16日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×0　🟡×5　🟢×4",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.61（9/15）",
+            "current": "99.71（9/15）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.83（9/16）",
+            "current": "31.87（9/16）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQQ3dUVk9HYlFCOU5oTUg3UXhlWVBpU0ZUMVluZkpnT1ZEa0hBZHdTT2lGYV9UaFdmYkttVTRGM1dEbVp4aDZCQXVKRzFwU1JPZVc1bDBGVTltckRWcXNDblFic0txa0hZaWtrZGIxM3ZUNmJqZEVUY05zLWotaU1pQU5HMXNtblRySlFZN3dDeUpCeXpBdWo0MkNYcWpYSFlhVlYyS1ZtcTlGU29TVXo1eGRHZGVNNUE4aW1BTXZvbHVJU2h3a1ZWV0p0bGIyZkt3N2J4bWpPYUtkVC1ZLVFF?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "不只台股跌！新台幣4連貶收31.848、創逾半年最大跌幅外資一天再賣627億、台美央行決策前資金先撤 - Yahoo新聞",
+      "title": "不只台股跌！新台幣4連貶收31.848、創逾半年最大跌幅外資一天再賣627億、台美央行決策前資金先撤 - tw.news.yahoo.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxNZjEwVWZFQmluQWE1QWdIaWY0R2YzQUxLNzJVczhQeWRObU5wZUpKcGNkd2ZLT0xhZV9ETmx4UFF6Unl0U2doaG5rZm9JbzVxMjdQLXI4Y3VWVjVtUkhHbUdZLXJud0s3VWVpVG5JRnJQUktZTmlJY2hkVUtxTlM5WlhlZkRSb0xNWWEteW1zbEdIbjQyUHJDdExaWTRMSlBJZXVHWU9UNmU1OTA0aEV0OW5vSTEzbGtFTTZpM1Y2RTdmMkJNeFJNTGNDZlpnVnJya2tRRlFZRkdIOHhicmRjY3I4NFdMUDRkY1U0cE5EcGxSR282XzdRc1pxWWVHTkVibFlYZ2VIc2xOOW5sYnhfTU1md3RDREhmcVBJMC1SbzFHV3Z1akNxYzVrYkZZVURkamNhRjVXM3g4S3dXNU9lN203T1phLWNUcHdCRnlkVnhEbkJ3VHZUWFhUY3A?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/16 上午8:57:56",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/16 上午7:47:26",
