@@ -1,34 +1,34 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-16T12:00:27.973Z",
+  "lastUpdated": "2026-09-16T15:31:56.494Z",
   "date": "2026年09月16日（星期三）",
-  "basedOn": "2026年09月15日（前一交易日）",
+  "basedOn": "2026年09月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,093（09/15，▼0.63%）",
-        "S&P 500：7,586（09/15，▼0.45%）",
-        "那斯達克：25,982（09/15，▼0.78%）",
-        "費城半導體指數：11,176（09/15，▲0.40%）"
+        "道瓊：52,072（09/16，▼0.04%）",
+        "S&P 500：7,616（09/16，▲0.40%）",
+        "那斯達克：26,197（09/16，▲0.83%）",
+        "費城半導體指數：11,374（09/16，▲1.77%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股微跌0.04%，主因CPI符合預期與道瓊創高後，市場擔憂高檔回檔風險，多空拉鋸陷入高檔震盪。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：63,923（09/16，▲0.69%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,718（09/16，▲1.37%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "KOSPI下跌0.85%，主要受權值股SK海力士重挫拖累，市場波動劇烈引發避險賣壓，出口盈餘利多難以支撐大盤。"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,391（09/16，▲1.35%）"
+        "黃金：4,395（09/16，▲1.44%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "99.68（9/16）",
+            "current": "99.67（9/16）",
             "status": "🟡",
             "statusText": "逼近100大關，升勢持續"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.8（9/16）",
+            "current": "16.7（9/16）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "271 bps（2.71%，9/14）",
+            "current": "276 bps（2.76%，9/15）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$103（9/16）",
+            "current": "$101（9/16）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "Fed明晨「升息」還是「不升息」哪個會害股市跌？答案讓人意外 - Yahoo股市",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxNX3YxQTd6dklrU0lGb3l2NUVkYTVNcEo1TnFRMEtXUkZoT280djRFQ2J2c1JpRGhyaGhoZkNZZzdXal9TT21oeWRBaGdYek5qLW10NnlEWC1zZU03S1lvUE5wbWdvZmFBRldxV3U2eDh1azJZZEN0TUZoYno4N2tlM3NVSXhJcXRuT2J3MDhVVUJJSVhUY1BuSnpSVXJRT2tRckF4Y3A0Ym9BUUtZQ2tPNWRBeWg5NmRFQUxjZ2NlNUVBMkVnN3FLb1FVaWo3U0xJNGJuTHpoTGs3NlhUS0RJMmREMk9SUWY4YVl3V0NscFJJakdGNmJ0SmRLa0k3Uk0tOXhfc1ZMWUNpWWV2dlUzT1RZajI1YXhlZkhEd0Z4cF9raG1E?oc=5"
+    },
+    {
       "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
-    },
-    {
-      "title": "Fed 下周會不會升息？主席華許立場為何？三種情境分析 - 經濟日報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5CSzNaRmxkdmpIU1lCWloxb3VDY2dRNHFTdXBpbV9GNGkwWjVsZGVjNmVGcUFxTnI4RFB6M3VBY25WNEh3cmp2Mm5HVHpzS25ua0xEOVB6UDZtd9IBX0FVX3lxTE1FRThDZ1NBM2t1UmhVSkVLVG9nUjA0akhBU1ZrbGk0TTNQUWNpREhwQWJkdjhHZE0xaTBVY0RRUmZ1V25YUGJBOElXb3Q1T2t4dF9FbHNTSlZReVpjd1Rv?oc=5"
     },
     {
       "title": "瑞士法郎回吐漲幅，但美國美元在通膨數據公布前仍承壓 - tmgm.com",
@@ -228,16 +228,16 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股上漲也救不了！新台幣拉出連5黑 「兩因素」守住31.8字頭| 金融 - 太報 TaiSounds",
+      "title": "台股上漲也救不了！新台幣拉出連5黑 「兩因素」守住31.8字頭 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8wbnJPY2xuWGw2bHJtNi01c2FycGY1QmRVME03bVdJN29WWnFRR29WMEJWejNVU1B5Y20tUnMxQ1NqV2hQVEhQU3ExenRmbkp4Y21lWl9zLUtydmtv?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBOUWNvWmVQdDlfQ1Q3YXhhSmtGNXI2YjVfdmdmUDNWekNFZHYyNEpGVHZ6cHpDUFJMZUNqU2ZLcVFHeE5hQ0pIbVpJZ283clc2SUdIcjV3?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/16 下午11:31:56",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/16 下午8:00:27",
