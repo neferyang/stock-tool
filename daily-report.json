@@ -1,34 +1,34 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-17T12:01:24.539Z",
+  "lastUpdated": "2026-09-17T15:33:06.043Z",
   "date": "2026年09月17日（星期四）",
-  "basedOn": "2026年09月16日（前一交易日）",
+  "basedOn": "2026年09月17日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,462（09/16，▼1.21%）",
-        "S&P 500：7,552（09/16，▼0.45%）",
-        "那斯達克：25,978（09/16，▼0.01%）",
-        "費城半導體指數：11,246（09/16，▲0.63%）"
+        "道瓊：51,735（09/17，▲0.53%）",
+        "S&P 500：7,628（09/17，▲1.00%）",
+        "那斯達克：26,379（09/17，▲1.54%）",
+        "費城半導體指數：11,572（09/17，▲2.90%）"
       ],
-      "analysis": "美股今日跌1.21%。主因創高後引發獲利了結與回檔擔憂，資金自科技股輪動，淡化了"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,136（09/17，▲0.33%）"
       ],
-      "analysis": "日經225漲0.33%。經歷先前AI回檔震盪後，逢"
+      "analysis": "日經225今漲0.69%。主因經歷先前AI股回"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,715（09/17，▼0.04%）"
       ],
-      "analysis": "KOSPI微跌0.04%平盤震盪。雖有經常帳盈餘支撐，但受先前熔斷恐慌及半導體權值股回檔餘震影響，市場情緒偏向謹慎觀望。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,21 +43,21 @@
       "items": [
         "台灣加權指數：45,849（09/16，▲0.74%）"
       ],
-      "analysis": "台股今日漲0.74%，主因AI基本面題材支撐，帶動低接買盤進場，惟外資空單仍存，短線維持震盪反彈。"
+      "analysis": "台股今日漲0.74%，主因地緣風險降溫及AI基本面買盤支撐，惟外資空單仍存，短線呈震盪反彈格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,367（09/17，▼0.46%）"
+        "黃金：4,404（09/17，▲0.37%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,823（09/17，▲0.70%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越股VN-Index今日漲0.70%，受惠全民"
     }
   ],
   "riskDashboard": {
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.26（9/17）",
+            "current": "100.18（9/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.0（9/17）",
+            "current": "15.8（9/17）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "276 bps（2.76%，9/15）",
+            "current": "270 bps（2.70%，9/16）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -178,7 +178,7 @@
           },
           {
             "name": "初領失業救濟金",
-            "current": "20.6萬/週（9/5）",
+            "current": "19.6萬/週（9/12）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -204,17 +204,17 @@
   "news": [
     {
       "title": "Fed升息1碼年底恐再升息 華許出手抗通膨5大要點一次看 - 民報",
-      "description": "緊縮週期恐延長，提高融資成本並壓抑風險資產評價與市場流動性。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1XSWVkWHphVzEzOFA4RVJEMU9DaUxLMXNTbnhXaVBJZHZSUmRYeTBqRmZWQ0FtR0gzSFlReG1UNFhUTzl0ZUpINFNjQWd1SnQ4ZExKcmsyZnNBX3FZc1ZxV3VWSDU?oc=5"
     },
     {
-      "title": "Fed宣布升息一碼！一碼是多少？對台股房貸美債ETF影響一次看懂 - TVBS新聞網",
-      "description": "借貸負擔加重，美債殖利率變動將直接牽動股市與債券ETF的報酬表現。",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE04dTVodlR5ZUVWdGJORTUxelRESHhyZG41R3hiSmJlbWh5MVdpQ1NXVTlTbGZmVGd6LVdWX3NXeVF1Vkw2T3RYNWt1Z1RhNkE?oc=5"
+      "title": "華許抗通膨說到做到帶頭升息1碼…Fed年底前料再出手川普再催降息| 全球財經| 全球 - UDN",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1sbGpBM3VFUlhmZVh3X3VETnU5djUydUc0NXM2OXVGWjR2NnA2Zmd4ZW10ZjNKZTUyUmVfMll5Ymx2dUtMeFZJS2NMYU9XZmZp?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "金價來到多空關鍵轉折點，突破或跌破重要防",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
@@ -223,7 +223,7 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - ctee.com.tw",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股走勢分歧",
-      "content": "道瓊大跌逾百點，費半卻逆勢收紅，顯示類股輪動加劇。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警風險",
-      "content": "官方首度提出AI潛在威脅，列為牽動金融穩定的外部變數。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "升息週期延長",
-      "content": "Fed升息一碼且年底恐再升，借貸成本墊高壓抑資產評價。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/17 下午11:33:06",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/17 下午8:01:24",
