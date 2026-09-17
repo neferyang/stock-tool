@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-17T15:33:06.043Z",
-  "date": "2026年09月17日（星期四）",
+  "lastUpdated": "2026-09-17T23:44:40.931Z",
+  "date": "2026年09月18日（星期五）",
   "basedOn": "2026年09月17日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,26 +9,26 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,735（09/17，▲0.53%）",
-        "S&P 500：7,628（09/17，▲1.00%）",
-        "那斯達克：26,379（09/17，▲1.54%）",
-        "費城半導體指數：11,572（09/17，▲2.90%）"
+        "道瓊：51,778（09/17，▲0.61%）",
+        "S&P 500：7,638（09/17，▲1.14%）",
+        "那斯達克：26,418（09/17，▲1.69%）",
+        "費城半導體指數：11,599（09/17，▲3.14%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股今日上漲0.61%。主因CPI通膨數據符合預期，市場情緒回暖帶動指數重返歷史高點，惟高檔回檔風險猶存。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,136（09/17，▲0.33%）"
       ],
-      "analysis": "日經225今漲0.69%。主因經歷先前AI股回"
+      "analysis": "日經225今漲0.69%。歷經重挫修正後，市場逢低買盤湧"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,715（09/17，▼0.04%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "受經常帳盈餘強勁與海外ETF上市帶動，KOSPI今日漲1.37%，在歷經多次熔斷暴跌後迎來低接買盤回補。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：74,315（09/17，▼0.03%）",
         "NIFTY 50：23,271（09/17，▲0.23%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：45,849（09/16，▲0.74%）"
+        "台灣加權指數：46,288（09/17，▲0.96%）"
       ],
-      "analysis": "台股今日漲0.74%，主因地緣風險降溫及AI基本面買盤支撐，惟外資空單仍存，短線呈震盪反彈格局。"
+      "analysis": "低買盤進駐激勵，惟外"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,404（09/17，▲0.37%）"
+        "黃金：4,383（09/17，▼0.11%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價今微跌0.11%，"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,823（09/17，▲0.70%）"
+        "VN-Index：1,823（09/18，▲0.70%）"
       ],
-      "analysis": "越股VN-Index今日漲0.70%，受惠全民"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "40.5（4:00 PM EDT, Wed Sep 16）",
+            "current": "41.0（4:00 PM EDT, Thu Sep 17）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約28%（9/17，加權指數 vs 240日均線）",
+            "current": "約27%（9/16，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.00%（9/15）",
+            "current": "5.01%（9/16）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.18（9/17）",
+            "current": "100.24（9/17）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.87（9/17）",
+            "current": "31.85（9/18）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.8（9/17）",
+            "current": "15.4（9/17）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.33%（10Y 5.00% - 2Y 4.67%，9/15）",
+            "current": "+0.27%（10Y 5.01% - 2Y 4.74%，9/16）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "Fed重啟升息周期！美元走強壓制全球貨幣 各國降息空間恐遭壓縮 - news.cnyes.com",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBSbTdjSXlmUFZRdmptVlZJVlloaTdTRTVKWlpQQzNDRlRzLXlWQWI5WW1uYzBJWDRVNThNX2FmWTdBV2RfOW5EWDJXRExBOWM?oc=5"
+    },
+    {
       "title": "Fed升息1碼年底恐再升息 華許出手抗通膨5大要點一次看 - 民報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1XSWVkWHphVzEzOFA4RVJEMU9DaUxLMXNTbnhXaVBJZHZSUmRYeTBqRmZWQ0FtR0gzSFlReG1UNFhUTzl0ZUpINFNjQWd1SnQ4ZExKcmsyZnNBX3FZc1ZxV3VWSDU?oc=5"
-    },
-    {
-      "title": "華許抗通膨說到做到帶頭升息1碼…Fed年底前料再出手川普再催降息| 全球財經| 全球 - UDN",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1sbGpBM3VFUlhmZVh3X3VETnU5djUydUc0NXM2OXVGWjR2NnA2Zmd4ZW10ZjNKZTUyUmVfMll5Ymx2dUtMeFZJS2NMYU9XZmZp?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/18 上午7:44:40",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/17 下午11:33:06",
