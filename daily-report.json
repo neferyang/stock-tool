@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-16T23:54:27.843Z",
+  "lastUpdated": "2026-09-17T01:02:47.329Z",
   "date": "2026年09月17日（星期四）",
   "basedOn": "2026年09月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,14 +14,14 @@
         "那斯達克：25,978（09/16，▼0.01%）",
         "費城半導體指數：11,246（09/16，▲0.63%）"
       ],
-      "analysis": "美股今日跌1.21%，主因指數創高後引發高檔獲利了結賣壓，市場對強勁漲"
+      "analysis": "美股今日下跌1.21%，"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：63,923（09/16，▲0.69%）"
       ],
-      "analysis": "日經225微跌0.01%，主因AI概念股漲多回檔、韓股重挫引發區域避險情緒，壓抑大盤表現。"
+      "analysis": "日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,21 +36,21 @@
         "SENSEX：74,336（09/16，▲0.45%）",
         "NIFTY 50：23,218（09/16，▲0.43%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印股今跌1.04%，主因高檔獲利了結，市場聚焦兩大交易所競爭，資金輪動引發震盪，短期觀望氣氛轉濃。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：45,849（09/16，▲0.74%）"
       ],
-      "analysis": "台股今漲0.74%，受AI基本"
+      "analysis": "台股今日受AI基本面強勁"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,309（09/16，▼0.55%）"
+        "黃金：4,329（09/16，▼0.09%）"
       ],
-      "analysis": "金價跌0.55%摜破4,000美元，受技術面「死亡交叉」與高檔獲利了結賣壓拖累，短期承壓續探底。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月16日",
+    "date": "2026年9月17日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.34（9/16）",
+            "current": "100.32（9/16）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.83（9/17）",
+            "current": "31.86（9/17）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（9/16）",
+            "current": "$101（9/16）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -203,9 +203,9 @@
   ],
   "news": [
     {
-      "title": "快訊／不甩川普降息呼籲！Fed決議升息1碼 2023年來首見緊縮 - TVBS新聞網",
+      "title": "Fed 決策／ 華許兌現壓抑通膨承諾 聯準會決策五要點一次看 | 國際焦點 | 國際 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1PSzliTXVJMUZyaklzNGt2NWJZbVZldXhheFJOaFphLXJVS2VfdUVtMlNsLUdWVHJiaUttMXBIRWxSMTlTQUZXc1ZQbnhSaG8?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrTGNLVkJBLUJwX3Z4RkVlTG1MVXJlQ1loZDVnV1R2MlYyekp6cWRYNGlFMHZtRmZIYWlTN0ZJQW5WTFhDMkZZTU04OEZSV2o2RXJ6ZG8zcFY3QQ?oc=5"
     },
     {
       "title": "Fed明晨「升息」還是「不升息」哪個會害股市跌？答案讓人意外 - Yahoo股市",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/17 上午9:02:47",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/17 上午7:54:27",
