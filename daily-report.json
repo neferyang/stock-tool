@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-18T00:57:27.114Z",
+  "lastUpdated": "2026-09-18T11:02:21.721Z",
   "date": "2026年09月18日（星期五）",
   "basedOn": "2026年09月17日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,29 +14,29 @@
         "那斯達克：26,418（09/17，▲1.69%）",
         "費城半導體指數：11,599（09/17，▲3.14%）"
       ],
-      "analysis": "美股今日漲0.61%，主因CPI通膨數據符合預期，強化降息信心，激勵道瓊等指數重返歷史新高。"
+      "analysis": "美股今日上漲0.61%重返新高，主因通膨數據符合預期，提振市場信心，帶動科技與大型股延續反彈動能。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：64,136（09/17，▲0.33%）"
+        "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225反彈1.38%，主因前期重挫引發逢低買盤進場，加上長期多頭預期支撐，促使AI及權值股技術性回升。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,715（09/17，▼0.04%）"
+        "KOSPI：6,894（09/18，▲2.66%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "受低接買盤湧入及海外相關ETF上市預期提振，KOSPI在歷經暴跌熔斷後強勁反彈2.66%。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：74,315（09/17，▼0.03%）",
-        "NIFTY 50：23,271（09/17，▲0.23%）"
+        "SENSEX：74,295（09/18，▼0.03%）",
+        "NIFTY 50：23,346（09/18，▲0.33%）"
       ],
-      "analysis": "印度股市今漲0.45%，受內需消費穩健及外資回流帶動，金融與科技權值股走強為主要推力，整體投資情緒樂觀。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,23 +48,23 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,398（09/17，▲0.23%）"
+        "黃金：4,418（09/18，▲0.41%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價今漲0.41%，雖技術面現死亡交叉引發泡沫擔憂，但高盛長線仍看多，低接買盤逢低進場推動反彈。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,823（09/18，▲0.70%）"
+        "VN-Index：1,816（09/18，▼0.39%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越南VN-Index今日微跌0.39%，主因近期全民炒股推升漲幅後引"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月18日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
+    "summary": "🔴×5　🟠×2　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約27%（9/16，加權指數 vs 240日均線）",
+            "current": "約30%（9/18，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.24（9/17）",
+            "current": "100.43（9/18）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.86（9/18）",
+            "current": "31.81（9/18）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.4（9/17）",
+            "current": "15.3（9/18）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$101（9/17）",
-            "status": "🔴",
-            "statusText": "突破警戒（>$100），通膨與供應風險升高"
+            "current": "$96（9/18）",
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -204,33 +204,33 @@
   "news": [
     {
       "title": "Fed重啟升息周期！美元走強壓制全球貨幣 各國降息空間恐遭壓縮 - news.cnyes.com",
-      "description": "",
+      "description": "全球流動性恐再度緊縮，非美資產面臨貶值與本國央行政策受限的雙重壓力。",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBSbTdjSXlmUFZRdmptVlZJVlloaTdTRTVKWlpQQzNDRlRzLXlWQWI5WW1uYzBJWDRVNThNX2FmWTdBV2RfOW5EWDJXRExBOWM?oc=5"
     },
     {
-      "title": "Fed升息1碼年底恐再升息 華許出手抗通膨5大要點一次看 - 民報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1XSWVkWHphVzEzOFA4RVJEMU9DaUxLMXNTbnhXaVBJZHZSUmRYeTBqRmZWQ0FtR0gzSFlReG1UNFhUTzl0ZUpINFNjQWd1SnQ4ZExKcmsyZnNBX3FZc1ZxV3VWSDU?oc=5"
+      "title": "Fed明晨「升息」還是「不升息」哪個會害股市跌？答案讓人意外 - Yahoo股市",
+      "description": "政策不確定性引發觀望，若降息預期落空或升息重擊估值，股市恐現劇烈波動。",
+      "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxNX3YxQTd6dklrU0lGb3l2NUVkYTVNcEo1TnFRMEtXUkZoT280djRFQ2J2c1JpRGhyaGhoZkNZZzdXal9TT21oeWRBaGdYek5qLW10NnlEWC1zZU03S1lvUE5wbWdvZmFBRldxV3U2eDh1azJZZEN0TUZoYno4N2tlM3NVSXhJcXRuT2J3MDhVVUJJSVhUY1BuSnpSVXJRT2tRckF4Y3A0Ym9BUUtZQ2tPNWRBeWg5NmRFQUxjZ2NlNUVBMkVnN3FLb1FVaWo3U0xJNGJuTHpoTGs3NlhUS0RJMmREMk9SUWY4YVl3V0NscFJJakdGNmJ0SmRLa0k3Uk0tOXhfc1ZMWUNpWWV2dlUzT1RZajI1YXhlZkhEd0Z4cF9raG1E?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "",
+      "description": "金價來到多空決戰點，突破或跌破關鍵門檻將引發停損與追價的趨勢性大行情。",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
-      "description": "",
+      "description": "技術面重大轉折浮現，投資人須盯緊多空分水嶺以重新調整避險資產部位。",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
-      "description": "",
+      "description": "官方關注科技估值過熱與潛在金融脆弱性，暗示熱門科技股波動風險正急遽升高。",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "股匯雙殺 台幣恐測32.5關卡 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hZVZIU3pZS3ZSTzFLM3Rjc2cwTWs1aTU2Q3VlLUdpY1YyekpMdGFoLWJrcGtVOC1id3JyUkQ0ZDBMWjdKTFBHc1FBQ3liYlRxNmdaRWVPc08?oc=5"
+      "title": "外資回頭帶動股匯雙漲！新台幣爆量升值7.3分、收31.808元 - 自由時報",
+      "description": "熱錢回流改善台股資金動能，匯率走強亦有助於舒緩進口通膨與市場信心。",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0xLUpLZXJ3aFhBeUk5NHBmOGs4ZkNoX2ZrdTNFZ0tvSVFoWXZyT2JKeEVmZjQ4X3dmVEcxakZoRDNkMVd1bzJwTnFMMUI3SVVycmhLaVl0SEY?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/18 下午7:02:21",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/18 上午8:57:27",
