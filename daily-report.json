@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-19T10:45:32.301Z",
+  "lastUpdated": "2026-09-19T11:24:28.591Z",
   "date": "2026年09月19日（星期六）",
   "basedOn": "2026年09月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,523（09/18，▲0.39%）",
         "費城半導體指數：11,922（09/18，▲2.78%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股微跌0.18%。雖CPI符合預期且指數創高，但強彈後市場居高思危，類股輪動引發獲利了結賣壓。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日經225今漲1.38%，主因軟銀等AI權值股強彈，市場消化先前重"
+      "analysis": "日經225今漲1.38%，主因AI熱潮帶動軟銀等科技權值股走強，牛熊指標轉佳，市場資金積極回流推升指數。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,894（09/18，▲2.66%）"
       ],
-      "analysis": "KOSPI在頻繁熔斷後迎來強彈2.66%，主因經常帳盈餘展"
+      "analysis": "受出口數據強勁與超跌反彈帶動，KOSPI今日勁揚2.66%，市場情緒在先前熔斷暴跌後逐步修復。"
     },
     {
       "name": "🇮🇳 印度",
@@ -50,14 +50,14 @@
       "items": [
         "黃金：4,425（09/18，▲0.57%）"
       ],
-      "analysis": "黃金今日微漲0.57%。市場受央"
+      "analysis": "金價今日反彈0.57%。儘"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,816（09/19，▼0.39%）"
       ],
-      "analysis": "VN-Index今跌0.39%，主因新興券商擴張引發競爭疑慮，加上NAB等金融股走弱壓抑盤勢。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -213,7 +213,7 @@
       "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxNX3YxQTd6dklrU0lGb3l2NUVkYTVNcEo1TnFRMEtXUkZoT280djRFQ2J2c1JpRGhyaGhoZkNZZzdXal9TT21oeWRBaGdYek5qLW10NnlEWC1zZU03S1lvUE5wbWdvZmFBRldxV3U2eDh1azJZZEN0TUZoYno4N2tlM3NVSXhJcXRuT2J3MDhVVUJJSVhUY1BuSnpSVXJRT2tRckF4Y3A0Ym9BUUtZQ2tPNWRBeWg5NmRFQUxjZ2NlNUVBMkVnN3FLb1FVaWo3U0xJNGJuTHpoTGs3NlhUS0RJMmREMk9SUWY4YVl3V0NscFJJakdGNmJ0SmRLa0k3Uk0tOXhfc1ZMWUNpWWV2dlUzT1RZajI1YXhlZkhEd0Z4cF9raG1E?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - stock.ltn.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
@@ -223,12 +223,12 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - ctee.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "股匯雙殺 台幣恐測32.5關卡 - 自由時報",
+      "title": "股匯雙殺 台幣恐測32.5關卡 - stock.ltn.com.tw",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hZVZIU3pZS3ZSTzFLM3Rjc2cwTWs1aTU2Q3VlLUdpY1YyekpMdGFoLWJrcGtVOC1id3JyUkQ0ZDBMWjdKTFBHc1FBQ3liYlRxNmdaRWVPc08?oc=5"
     }
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股走勢分歧",
-      "content": "費半大漲近2.8%帶動科技股，道瓊卻逆勢收跌呈現背離。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警風險",
-      "content": "報告首度點名AI潛在威脅，並警示全球市場面臨五大外部變數。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "升息疑慮再起",
-      "content": "市場擔憂重啟升息帶動美元走強，恐壓縮各國後續的降息空間。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/19 下午7:24:28",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/19 下午6:45:32",
