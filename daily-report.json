@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-19T00:50:23.920Z",
+  "lastUpdated": "2026-09-19T10:45:32.301Z",
   "date": "2026年09月19日（星期六）",
   "basedOn": "2026年09月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -21,14 +21,14 @@
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225今漲1.38%，主因軟銀等AI權值股強彈，市場消化先前重"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,894（09/18，▲2.66%）"
       ],
-      "analysis": "KOSPI小幅震盪，投資人觀望半導體循環及Fed政策方向，盤面呈整理格局。"
+      "analysis": "KOSPI在頻繁熔斷後迎來強彈2.66%，主因經常帳盈餘展"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,23 +48,23 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,416（09/18，▲0.37%）"
+        "黃金：4,425（09/18，▲0.57%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "黃金今日微漲0.57%。市場受央"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,816（09/19，▼0.39%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "VN-Index今跌0.39%，主因新興券商擴張引發競爭疑慮，加上NAB等金融股走弱壓抑盤勢。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月19日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×2　🟡×3　🟢×5",
+    "summary": "🔴×6　🟠×1　🟡×3　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約28%（9/17，加權指數 vs 240日均線）",
+            "current": "約30%（9/18，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "100.21（9/18）",
+            "current": "100.22（9/18）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$95（9/18）",
-            "status": "🟠",
-            "statusText": "接近警戒（>$100）"
+            "current": "$100（9/18）",
+            "status": "🔴",
+            "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
           {
             "name": "初領失業救濟金",
@@ -203,9 +203,9 @@
   ],
   "news": [
     {
-      "title": "10年美債殖利率重衝5%！貝萊德：市場恐過度解讀 看好美國經濟支撐亞洲基本面 - news.cnyes.com",
+      "title": "Fed重啟升息周期！美元走強壓制全球貨幣 各國降息空間恐遭壓縮 - news.cnyes.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41OWNNWUEwSFlhOHBhdjRiN254RkdfWEc5VGxqUHNlRi0zTWFoN0ZkNnA2emRUMlZ6TGI3azJ1SkVpZDV5SGxUVVJPWFZ3UGM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBSbTdjSXlmUFZRdmptVlZJVlloaTdTRTVKWlpQQzNDRlRzLXlWQWI5WW1uYzBJWDRVNThNX2FmWTdBV2RfOW5EWDJXRExBOWM?oc=5"
     },
     {
       "title": "Fed明晨「升息」還是「不升息」哪個會害股市跌？答案讓人意外 - Yahoo股市",
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資回頭帶動股匯雙漲！新台幣爆量升值7.3分、收31.808元 - 自由時報",
+      "title": "股匯雙殺 台幣恐測32.5關卡 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0xLUpLZXJ3aFhBeUk5NHBmOGs4ZkNoX2ZrdTNFZ0tvSVFoWXZyT2JKeEVmZjQ4X3dmVEcxakZoRDNkMVd1bzJwTnFMMUI3SVVycmhLaVl0SEY?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hZVZIU3pZS3ZSTzFLM3Rjc2cwTWs1aTU2Q3VlLUdpY1YyekpMdGFoLWJrcGtVOC1id3JyUkQ0ZDBMWjdKTFBHc1FBQ3liYlRxNmdaRWVPc08?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股走勢分歧",
+      "content": "費半大漲近2.8%帶動科技股，道瓊卻逆勢收跌呈現背離。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "央行示警風險",
+      "content": "報告首度點名AI潛在威脅，並警示全球市場面臨五大外部變數。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "升息疑慮再起",
+      "content": "市場擔憂重啟升息帶動美元走強，恐壓縮各國後續的降息空間。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/19 下午6:45:32",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/19 上午8:50:23",
