@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-19T14:23:55.366Z",
-  "date": "2026年09月19日（星期六）",
+  "lastUpdated": "2026-09-19T23:35:00.893Z",
+  "date": "2026年09月20日（星期日）",
   "basedOn": "2026年09月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -14,21 +14,21 @@
         "那斯達克：26,523（09/18，▲0.39%）",
         "費城半導體指數：11,922（09/18，▲2.78%）"
       ],
-      "analysis": "美股微跌0.18%，主"
+      "analysis": "美股微跌0.18%。市場創高後動能交易減弱，加上強勁漲勢後引發回檔擔憂與類股輪動，使盤勢承壓。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日經225今漲1.38%，主因AI浪潮推升科技股，軟銀市值"
+      "analysis": "日經225歷經重挫與AI調節後反彈1.38%，主因市場逢低買盤進場，帶動科技與ETF權值股技術性回升。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,894（09/18，▲2.66%）"
       ],
-      "analysis": "KOSPI今日反彈2.66%，主因日前暴跌觸發熔斷後迎"
+      "analysis": "KOSPI大漲2.66%，主因強勁經常帳盈餘展現出口韌性，疊加AI槓桿資金與SK海力士赴美利多激勵。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,7 +43,7 @@
       "items": [
         "台灣加權指數：47,181（09/18，▲1.93%）"
       ],
-      "analysis": "台股強彈1.93%，"
+      "analysis": "台股今日強彈1.93%，主"
     },
     {
       "name": "🥇 黃金",
@@ -55,7 +55,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,816（09/19，▼0.39%）"
+        "VN-Index：1,816（09/20，▼0.39%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -213,12 +213,12 @@
       "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxNX3YxQTd6dklrU0lGb3l2NUVkYTVNcEo1TnFRMEtXUkZoT280djRFQ2J2c1JpRGhyaGhoZkNZZzdXal9TT21oeWRBaGdYek5qLW10NnlEWC1zZU03S1lvUE5wbWdvZmFBRldxV3U2eDh1azJZZEN0TUZoYno4N2tlM3NVSXhJcXRuT2J3MDhVVUJJSVhUY1BuSnpSVXJRT2tRckF4Y3A0Ym9BUUtZQ2tPNWRBeWg5NmRFQUxjZ2NlNUVBMkVnN3FLb1FVaWo3U0xJNGJuTHpoTGs3NlhUS0RJMmREMk9SUWY4YVl3V0NscFJJakdGNmJ0SmRLa0k3Uk0tOXhfc1ZMWUNpWWV2dlUzT1RZajI1YXhlZkhEd0Z4cF9raG1E?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - stock.ltn.com.tw",
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "股匯雙殺 台幣恐測32.5關卡 - stock.ltn.com.tw",
+      "title": "外資回頭帶動股匯雙漲！新台幣爆量升值7.3分、收31.808元 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hZVZIU3pZS3ZSTzFLM3Rjc2cwTWs1aTU2Q3VlLUdpY1YyekpMdGFoLWJrcGtVOC1id3JyUkQ0ZDBMWjdKTFBHc1FBQ3liYlRxNmdaRWVPc08?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFA2U0l4VWlJYVZkYUFNYW1hdzhiU0UydXR1MkdNd1ItNU1KaXFISy1tb0YtSVpya0prNXFxbExQZ2h5ZERqZjlyOVNWbjZNbnd0eVNvTWdZRldUVHZSSjh30gFkQVVfeXFMTVNFdXdCLTFXRHg2RjNrUy1EdTdNc2dCTXNCODk4aWhOZzdWTWwxc2FWRFdseEs4eFNOUzV3eFFyWl9ETnczengyYXhUSWNPbGw5bWdWc1FUYl82MnR6ak9UY0g2Sw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/20 上午7:35:00",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/19 下午10:23:55",
