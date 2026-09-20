@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-20T00:36:04.049Z",
+  "lastUpdated": "2026-09-20T11:41:53.463Z",
   "date": "2026年09月20日（星期日）",
   "basedOn": "2026年09月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,14 +14,14 @@
         "那斯達克：26,523（09/18，▲0.39%）",
         "費城半導體指數：11,922（09/18，▲2.78%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股微跌0.18%，主因指數創高後引發高檔獲利了結賣壓，且市場持續消化通膨數據與聯準會鷹派升息預期。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225漲1.38%，主因軟銀等AI權值股強彈，帶動市場消化前日重挫情緒並逢低買進，激勵指數回穩。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,21 +36,21 @@
         "SENSEX：74,295（09/18，▼0.03%）",
         "NIFTY 50：23,346（09/18，▲0.33%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "(13)持(14)平(1"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：47,181（09/18，▲1.93%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股今受AI基本面支撐與跌深反彈買盤帶動，大漲1.93%，惟外資空單仍存，短線維持震盪格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,425（09/18，▲0.57%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價今日微漲0.57%，"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月20日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×1　🟡×3　🟢×5",
+    "summary": "🔴×5　🟠×2　🟡×3　🟢×5",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約30%（9/18，加權指數 vs 240日均線）",
+            "current": "約30%（9/20，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$100（9/18）",
-            "status": "🔴",
-            "statusText": "突破警戒（>$100），通膨與供應風險升高"
+            "current": "$96（9/18）",
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBSbTdjSXlmUFZRdmptVlZJVlloaTdTRTVKWlpQQzNDRlRzLXlWQWI5WW1uYzBJWDRVNThNX2FmWTdBV2RfOW5EWDJXRExBOWM?oc=5"
     },
     {
-      "title": "華許抗通膨說到做到帶頭升息1碼…Fed年底前料再出手川普再催降息| 全球財經| 全球 - udn.com",
+      "title": "Fed 決策／ 華許兌現壓抑通膨承諾 聯準會決策五要點一次看 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1sbGpBM3VFUlhmZVh3X3VETnU5djUydUc0NXM2OXVGWjR2NnA2Zmd4ZW10ZjNKZTUyUmVfMll5Ymx2dUtMeFZJS2NMYU9XZmZp?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBrTGNLVkJBLUJwX3Z4RkVlTG1MVXJlQ1loZDVnV1R2MlYyekp6cWRYNGlFMHZtRmZIYWlTN0ZJQW5WTFhDMkZZTU04OEZSV2o2RXJ6ZG8zcFY3QdIBX0FVX3lxTE5oV1VNU3ctZTdrelhSamJRWHpaRERjUzNoUllpbWlObDJieURRWURscFNBWFpHX2tmSE9QOWZoTTFTVkIzRlJuY1dFY0NmRUcxaEItb3RocWVzNnlkV2Z3?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/20 下午7:41:53",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/20 上午8:36:04",
