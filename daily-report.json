@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-19T23:35:00.893Z",
+  "lastUpdated": "2026-09-20T00:36:04.049Z",
   "date": "2026年09月20日（星期日）",
   "basedOn": "2026年09月18日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,523（09/18，▲0.39%）",
         "費城半導體指數：11,922（09/18，▲2.78%）"
       ],
-      "analysis": "美股微跌0.18%。市場創高後動能交易減弱，加上強勁漲勢後引發回檔擔憂與類股輪動，使盤勢承壓。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日經225歷經重挫與AI調節後反彈1.38%，主因市場逢低買盤進場，帶動科技與ETF權值股技術性回升。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,894（09/18，▲2.66%）"
       ],
-      "analysis": "KOSPI大漲2.66%，主因強勁經常帳盈餘展現出口韌性，疊加AI槓桿資金與SK海力士赴美利多激勵。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,7 +43,7 @@
       "items": [
         "台灣加權指數：47,181（09/18，▲1.93%）"
       ],
-      "analysis": "台股今日強彈1.93%，主"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月19日",
+    "date": "2026年9月20日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×1　🟡×3　🟢×5",
     "layers": [
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBSbTdjSXlmUFZRdmptVlZJVlloaTdTRTVKWlpQQzNDRlRzLXlWQWI5WW1uYzBJWDRVNThNX2FmWTdBV2RfOW5EWDJXRExBOWM?oc=5"
     },
     {
-      "title": "Fed明晨「升息」還是「不升息」哪個會害股市跌？答案讓人意外 - Yahoo股市",
+      "title": "華許抗通膨說到做到帶頭升息1碼…Fed年底前料再出手川普再催降息| 全球財經| 全球 - udn.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMipAJBVV95cUxNX3YxQTd6dklrU0lGb3l2NUVkYTVNcEo1TnFRMEtXUkZoT280djRFQ2J2c1JpRGhyaGhoZkNZZzdXal9TT21oeWRBaGdYek5qLW10NnlEWC1zZU03S1lvUE5wbWdvZmFBRldxV3U2eDh1azJZZEN0TUZoYno4N2tlM3NVSXhJcXRuT2J3MDhVVUJJSVhUY1BuSnpSVXJRT2tRckF4Y3A0Ym9BUUtZQ2tPNWRBeWg5NmRFQUxjZ2NlNUVBMkVnN3FLb1FVaWo3U0xJNGJuTHpoTGs3NlhUS0RJMmREMk9SUWY4YVl3V0NscFJJakdGNmJ0SmRLa0k3Uk0tOXhfc1ZMWUNpWWV2dlUzT1RZajI1YXhlZkhEd0Z4cF9raG1E?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1sbGpBM3VFUlhmZVh3X3VETnU5djUydUc0NXM2OXVGWjR2NnA2Zmd4ZW10ZjNKZTUyUmVfMll5Ymx2dUtMeFZJS2NMYU9XZmZp?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/20 上午8:36:04",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/20 上午7:35:00",
