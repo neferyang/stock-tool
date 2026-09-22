@@ -27,7 +27,7 @@ function renderAppHeader({ containerSelector, activeTab, icon, title, version, s
   container.innerHTML = `
 <div class="header">
   <div class="header-content">
-    <h1>${icon} ${title} <span class="vsub">v${version}</span></h1>
+    <h1><img src="header-icon.png" alt="" style="width:1.15em;height:1.15em;vertical-align:-0.2em;border-radius:6px;margin-right:6px;"> ${title} <span class="vsub">v${version}</span></h1>
     <p class="sub">${subtitle}</p>
     ${progressHtml}
   </div>
