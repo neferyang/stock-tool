@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.30',
+  version: '8.21.31',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -585,38 +585,57 @@ const CORS_PROXIES = [
   u => 'https://thingproxy.freeboard.io/fetch/' + u,
 ];
 
-async function fetchViaProxies(url, {timeout = 15000, validate = null, tag = ''} = {}) {
-  for (const wrap of CORS_PROXIES) {
+// 平行競速所有代理，取最快驗證成功的一個；不再依序等前一個逾時才試下一個
+// （序列 fallback 遇到某個免費代理當下degrade，會整條卡在它的timeout上）。
+async function fetchViaProxies(url, {timeout = 8000, validate = null, tag = ''} = {}) {
+  const controllers = CORS_PROXIES.map(() => new AbortController());
+  const attempts = CORS_PROXIES.map((wrap, i) => {
     const proxied = wrap(url);
     const label = (proxied.split('/')[2] || proxied);
-    try {
-      const r = await fetch(proxied, {signal: AbortSignal.timeout(timeout)});
-      // 第三方代理 404 = 上游查無此代號 → 中止；自家 /api/proxy 404 = 該環境無 serverless(github.io) → 換下一個
-      if (r.status === 404 && !proxied.startsWith('/api/proxy')) return null;
-      if (r.ok) {
+    const timer = setTimeout(() => controllers[i].abort(), timeout);
+    return fetch(proxied, {signal: controllers[i].signal})
+      .then(async r => {
+        clearTimeout(timer);
+        // 404 視同失敗，交由其他代理繼續嘗試（單一代理誤報404不該直接判定查無此代號）
+        if (!r.ok) throw new Error('http ' + r.status);
         const d = await r.json();
-        if (!validate || validate(d)) { console.log(`[proxy ok] ${tag} via ${label}`); return d; }
-      }
-    } catch(e) { console.log(`[proxy fail] ${tag} via ${label}: ${e.message}`); }
+        if (validate && !validate(d)) throw new Error('invalid response');
+        console.log(`[proxy ok] ${tag} via ${label}`);
+        return d;
+      })
+      .catch(e => {
+        clearTimeout(timer);
+        console.log(`[proxy fail] ${tag} via ${label}: ${e.message}`);
+        throw e;
+      });
+  });
+  try {
+    const result = await Promise.any(attempts);
+    controllers.forEach(c => c.abort()); // 贏家已到手，取消還在跑的其他請求
+    return result;
+  } catch(e) {
+    return null; // AggregateError：全部代理都失敗
   }
-  return null;
 }
 
 async function yfFetch(sym) {
   const url1 = `https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const url2 = `https://query2.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=2y`;
   const hdrs = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36','Accept':'application/json'};
+  const isTW = sym.endsWith('.TW') || sym.endsWith('.TWO');
 
-  // 直連（美股通常可用）
-  for (const url of [url1, url2]) {
-    try {
-      const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
-    } catch(e) {}
+  // 直連（美股通常可用；台股必被CORS擋，跳過直連省掉白等）
+  if (!isTW) {
+    for (const url of [url1, url2]) {
+      try {
+        const r = await fetch(url, {headers:hdrs, signal:AbortSignal.timeout(8000)});
+        if (r.ok) { const d = await r.json(); if (d?.chart?.result?.[0]) return d.chart.result[0]; }
+      } catch(e) {}
+    }
   }
 
-  // CORS 代理備援（台股靠這個）：多代理輪替
-  const d = await fetchViaProxies(url1, {timeout:15000, tag:'chart '+sym, validate: x => !!x?.chart?.result?.[0]});
+  // CORS 代理備援（台股靠這個）：多代理平行競速
+  const d = await fetchViaProxies(url1, {tag:'chart '+sym, validate: x => !!x?.chart?.result?.[0]});
   return d?.chart?.result?.[0] || null;
 }
 
@@ -626,18 +645,20 @@ async function yfSummary(sym) {
   const hdrs = {'User-Agent':'Mozilla/5.0','Accept':'application/json'};
   const isTW = sym.endsWith('.TW') || sym.endsWith('.TWO');
 
-  // 直連 query1 + query2（美股成功率 >95%，台股 ~50%）
-  for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
-    try {
-      const u = url.replace('query1.finance.yahoo.com', base.replace('https://',''));
-      const r = await fetch(u, {headers:hdrs, signal:AbortSignal.timeout(8000)});
-      if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
-    } catch(e) {}
+  // 直連 query1 + query2（美股成功率高；台股必被CORS擋，跳過直連省掉白等）
+  if (!isTW) {
+    for (const base of ['https://query1.finance.yahoo.com','https://query2.finance.yahoo.com']) {
+      try {
+        const u = url.replace('query1.finance.yahoo.com', base.replace('https://',''));
+        const r = await fetch(u, {headers:hdrs, signal:AbortSignal.timeout(8000)});
+        if (r.ok) { const d = await r.json(); if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0]; }
+      } catch(e) {}
+    }
   }
 
-  // 僅台股使用 CORS 代理備援（美股直接返回以加快速度）：多代理輪替
+  // 僅台股使用 CORS 代理備援（美股直接返回以加快速度）：多代理平行競速
   if (isTW) {
-    const d = await fetchViaProxies(url, {timeout:12000, tag:'summary '+sym, validate: x => !!x?.quoteSummary?.result?.[0]});
+    const d = await fetchViaProxies(url, {tag:'summary '+sym, validate: x => !!x?.quoteSummary?.result?.[0]});
     if (d?.quoteSummary?.result?.[0]) return d.quoteSummary.result[0];
   }
   return null;
