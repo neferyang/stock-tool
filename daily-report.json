@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-23T15:30:48.162Z",
-  "date": "2026年09月23日（星期三）",
+  "lastUpdated": "2026-09-23T23:56:41.351Z",
+  "date": "2026年09月24日（星期四）",
   "basedOn": "2026年09月23日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,679（09/23，▼0.71%）",
-        "S&P 500：7,729（09/23，▼0.46%）",
-        "那斯達克：27,023（09/23，▼0.36%）",
-        "費城半導體指數：12,536（09/23，▲0.83%）"
+        "道瓊：51,512（09/23，▼1.03%）",
+        "S&P 500：7,706（09/23，▼0.76%）",
+        "那斯達克：26,936（09/23，▼0.69%）",
+        "費城半導體指數：12,534（09/23，▲0.81%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -21,7 +21,7 @@
       "items": [
         "日經225：65,019（09/18，▲1.38%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225漲1.38%，主因在歷經黑色星期二的AI熱潮調整及連假休市後，逢低買盤進場帶動技術性反彈。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,26 +36,26 @@
         "SENSEX：74,828（09/23，▼0.04%）",
         "NIFTY 50：23,447（09/23，▲0.14%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：47,800（09/22，▲0.17%）"
+        "台灣加權指數：48,157（09/23，▲0.75%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,330（09/23，▼1.05%）"
+        "黃金：4,321（09/23，▼1.26%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,802（09/23，▼0.84%）"
+        "VN-Index：1,802（09/24，▼0.84%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月23日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×2　🟢×5",
+    "summary": "🔴×5　🟠×3　🟡×3　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.6（4:00 PM EDT, Tue Sep 22）",
+            "current": "41.3（4:00 PM EDT, Wed Sep 23）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（9/23，加權指數 vs 240日均線）",
+            "current": "約31%（9/21，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.96%（9/21）",
+            "current": "4.96%（9/22）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.02（9/23）",
+            "current": "101.14（9/23）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.76（9/23）",
+            "current": "31.79（9/24）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "14.6（9/23）",
-            "status": "🟢",
-            "statusText": "市場情緒平靜"
+            "current": "15.2（9/23）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.20%（10Y 4.96% - 2Y 4.76%，9/21）",
+            "current": "+0.25%（10Y 4.96% - 2Y 4.71%，9/22）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1HVjJVbThjMFRIWXZ1aEpPa0pjTU8zdFB4Vk8tT05KbGxKRy1TalpoczJUdWdwMUt0VFp6Y25sVGxBV2x2enVMUkdFZlFvWEU?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "IMF總裁呼籲先進國家削減債務 應對高融資成本與AI新風險 - TradingView",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5iRUpMVDFPVU5WaVhwQ0FtOUpFbE9BdFg3bmduZDg3Tl84SlQ3cHZuckw5VHdORjRmS1hBT042bnR2MWZKMEVGOElmODZYR2NSSUdxTU1YeHc3Mjd5M00wN1VicVM2QQ?oc=5"
     },
     {
-      "title": "台股站穩47K、外資連三買！新台幣擺脫31.8字頭 創一週來新高 - Yahoo新聞",
+      "title": "台股衝48K+外資狂掃 新台幣連四升、31.6元關卡近了| 金融 - 太報 TaiSounds",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxOdXZ2NEZXeE9INzIycWJEdDF4eGYwMkdVbVExRmh3a0hZNnlER1AyOEVOcFNKYU5jcS1CcHVVYTlQZFJSc3RiSDVwQk1QTGVrLTgwbl92TDJwdHRMZ210OEVjZ3BZYnBKLWVCWVFOaDlLNzJVOXZneUlvT1h3U051NUJSbHc2Qk94Nll3TGNqaGxaQnZDdUJjT2lWQl9zTU5ST0lmWkM0Nm5LNm1FU3ZUZnpPRUJHN2FsZi1xWmtNWGVMRDJOcmFPWDU1SDJIemRhV0hWYnpQT2VWV0IzX3BkZEpIWDRQVmNla1RURzB5VTV4QU4xNnlqX0FaaE9pXzN0MkRIRFdNSl9WNGJPSXVMSDM3U2E1cGlDTnN3XzF5MVpHNHhJV2phN0gzaWI?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE85VTV4OWFINUZrX3djcEstZ1NaVjlhTC02aV9MeGp0TnNkYmJFTDFIVlN4M1dLNWlucUd4TmY4WVdZYk9ZUzc2d25HZ0NaNlhEejVYdlRNcTJnajZM?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/24 上午7:56:41",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/23 下午11:30:48",
