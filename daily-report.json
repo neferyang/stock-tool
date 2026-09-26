@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-26T11:43:42.072Z",
+  "lastUpdated": "2026-09-26T15:03:34.033Z",
   "date": "2026年09月26日（星期六）",
   "basedOn": "2026年09月25日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：27,069（09/25，▲0.48%）",
         "費城半導體指數：12,669（09/25，▲1.41%）"
       ],
-      "analysis": "美股今日上漲0.93%重返新高，主因AI動能延續與經濟韌性提振買盤，抵消了鷹派緊縮與高檔回檔的擔憂。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,364（09/25，▲1.30%）"
       ],
-      "analysis": "日經225今日漲"
+      "analysis": "日經225漲1.3%，主因技術面突破區間壓縮，加上市場長期多頭預期增溫，激勵資金逢低進場挑戰年線。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：7,081（09/23，▲0.90%）"
       ],
-      "analysis": "受AI概念股漲勢及SK海力士赴美發行ADR消息激勵，科技權值股買盤湧入，推動南韓KOSPI今日上漲0.90%。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,21 +43,21 @@
       "items": [
         "台灣加權指數：48,025（09/24，▼0.28%）"
       ],
-      "analysis": "台股微跌0.28%，主要受外資擴大提款與期貨空單壓制，伴隨美股疲弱，市場在季底結算前轉趨觀望量縮。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,321（09/25，▲0.54%）"
       ],
-      "analysis": "金價今日小幅上揚0.54%。雖受Fed鷹派升息預期及降評施壓，但美元走軟與中東地緣避險需求提供支撐。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,785（09/26，▲0.56%）"
       ],
-      "analysis": "越指今漲0.56%，主因散戶交易熱潮延續、新興券商擴張，疊加VCB等銀行權值股走強支撐大盤。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -203,56 +203,61 @@
   ],
   "news": [
     {
-      "title": "債券ETF價格會止跌嗎 - 台灣好新聞",
-      "description": "殖利率高檔震盪加劇資本利損風險，投資人現階段宜審慎評估進場時機。",
+      "title": "債券ETF價格會止跌嗎 - taiwanhot.net",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOUzdEc1pCbmVYRVpNWnU4Q1lzM3lwTVpqaUZucmFVdUtVQkxseF9MMDdSZlNlWHgxZ0FTYnlIakk0YmUzSDZoRnI5b1VsNHZwaW1RdGZxY0lYTExQWUV4alFDeFZ1cktPVDVUTzJoc0JfeFdCYmNCYnNoY2J6UzBRQ0FZeXk3c1lHa3ZraV9Qc2VlUl85blBsLWF6SDlFSmpxYmMwU3pxaFJCTDJWQnhVZ3JXX3NFajktbGEySmtHbm9oS2lFcmFUZnhjUGQyMFZaZURnTExmN2FpVHEwQTQ3TG9TQlJqUzB0MW9DeU1yNWJ2dw?oc=5"
     },
     {
       "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - news.cnyes.com",
-      "description": "緊縮預期升溫將抽離市場流動性，風險性資產與高估值科技股恐面臨重估賣壓。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
     },
     {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "金價來到多空攤牌節點，跌破或突破關鍵點位將引發單邊強烈趨勢行情。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
-      "description": "金價處於重大方向抉擇期，投資人應緊盯關鍵防線以調整避險部位配置。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
       "title": "IMF總裁呼籲先進國家削減債務 應對高融資成本與AI新風險 - TradingView",
-      "description": "政府緊縮財政恐壓抑成熟市場長期公債供給與經濟動能，引導資金審慎配置。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5iRUpMVDFPVU5WaVhwQ0FtOUpFbE9BdFg3bmduZDg3Tl84SlQ3cHZuckw5VHdORjRmS1hBT042bnR2MWZKMEVGOElmODZYR2NSSUdxTU1YeHc3Mjd5M00wN1VicVM2QQ?oc=5"
     },
     {
       "title": "台股衝48K+外資狂掃 新台幣連四升、31.6元關卡近了| 金融 - 太報 TaiSounds",
-      "description": "外資大舉匯入推升股匯雙漲，短",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE85VTV4OWFINUZrX3djcEstZ1NaVjlhTC02aV9MeGp0TnNkYmJFTDFIVlN4M1dLNWlucUd4TmY4WVdZYk9ZUzc2d25HZ0NaNlhEejVYdlRNcTJnajZM?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股逆風衝高",
-      "content": "美債殖利率逼近5%，美股四大指數卻全面收紅，估值壓力暫被無視。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "債務風險升溫",
-      "content": "IMF警示先進國高融資成本與AI新風險，呼籲削減債務以免壓抑動能。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "升息預期再起",
-      "content": "Fed年底恐再升息三次，債券ETF價格承壓且市場面臨流動性考驗。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/26 下午11:03:34",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/26 下午7:43:42",
