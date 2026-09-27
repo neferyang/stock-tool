@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-26T23:56:33.564Z",
+  "lastUpdated": "2026-09-27T01:04:38.402Z",
   "date": "2026年09月27日（星期日）",
   "basedOn": "2026年09月25日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：27,069（09/25，▲0.48%）",
         "費城半導體指數：12,669（09/25，▲1.41%）"
       ],
-      "analysis": "美股今日上漲0.93%。儘管美元走強與聯準會鷹派立場帶來壓力，但在AI強勁動能推動下，市場重拾多頭信心再創新高。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：66,364（09/25，▲1.30%）"
       ],
-      "analysis": "日經225漲1.30%，受長期樂觀情緒帶動，惟指數逼近200日均線關鍵阻力，多空於區間激烈拉鋸。"
+      "analysis": "日經225今日漲1.30%，主因資金逢低布局權值股，指數自壓縮區間強勁反彈，正積極挑戰200日均線阻力。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：7,081（09/23，▲0.90%）"
       ],
-      "analysis": "韓股KOSPI上漲0.9%，受AI熱潮、槓桿ETF買盤及SK海力士赴美利多帶動，半導體走強推升指數。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年9月26日",
+    "date": "2026年9月27日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×3　🟡×2　🟢×5",
     "layers": [
@@ -218,7 +218,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "台股逆勢收跌",
-      "content": "美日韓股全數走揚，台股卻獨自跌破四萬八千點形成背離。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警變數",
-      "content": "金融穩定報告首提AI風險，點出全球五大變數恐衝擊市場。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "激進升息警訊",
-      "content": "美債殖利率逼近5%，傳Fed年底恐升息3次加劇賣壓。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/27 上午9:04:38",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/27 上午7:56:33",
