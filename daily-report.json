@@ -1,27 +1,27 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-28T12:03:47.239Z",
+  "lastUpdated": "2026-09-28T14:22:28.189Z",
   "date": "2026年09月28日（星期一）",
-  "basedOn": "2026年09月25日（前一交易日）",
+  "basedOn": "2026年09月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,829（09/25，▲0.93%）",
-        "S&P 500：7,743（09/25，▲0.51%）",
-        "那斯達克：27,069（09/25，▲0.48%）",
-        "費城半導體指數：12,669（09/25，▲1.41%）"
+        "道瓊：51,592（09/28，▼0.46%）",
+        "S&P 500：7,705（09/28，▼0.50%）",
+        "那斯達克：26,880（09/28，▼0.70%）",
+        "費城半導體指數：12,429（09/28，▼1.89%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,878（09/28，▼0.73%）"
       ],
-      "analysis": "日經225今跌0.73%。受指數創高後的高檔獲利了結賣"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,181（09/28，▼3.25%）"
+        "黃金：4,175（09/28，▼3.38%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -57,7 +57,7 @@
       "items": [
         "VN-Index：1,781（09/28，▼0.25%）"
       ],
-      "analysis": "受金融權值股拉回與獲利了結影響，VN-Index微跌0.25%，惟內資炒股潮與新興券商崛起仍支撐市場流動性。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.78（9/28）",
+            "current": "31.77（9/28）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.3（9/28）",
+            "current": "15.9（9/28）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "280 bps（2.80%，9/24）",
+            "current": "293 bps（2.93%，9/25）",
             "status": "🟢",
             "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$96（9/28）",
+            "current": "$94（9/28）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -223,12 +223,12 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - money.udn.com",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "新台幣季線有望轉強 市場關注季底外資動向 月線仍是偏弱格局 - money.udn.com",
+      "title": "新台幣季線有望轉強 市場關注季底外資動向 月線仍是偏弱格局 - 經濟日報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5WVFpCN1RuYUpUQWc4ejd6SDFRS0FsWjJPQndJNGlJQl95VkowTDYzWnVsSElZOTNBSldzX3plaHlKc01SWWhRNWs2MVhFSk9JaFRWcVZXUU9lZ2x3UmwyNXAwVDhScWdxakJ0dUNHMzJOYTVteFVlV9IBX0FVX3lxTE1TWnBfdjRmdmY1c2dEbzBMZ2xtRXo5LWFFMFpJLS1tdjUwNWpTTWpmXzJqd3JqdWtfdTRpNVo0UDhFLXRfaHFkYzJUam90VmpIZk5fWnRHMHN5RS1PLTg0?oc=5"
     }
@@ -236,8 +236,8 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/28 下午10:22:28",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/28 下午8:03:47",
