@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-29T11:29:26.517Z",
+  "lastUpdated": "2026-09-29T13:15:59.964Z",
   "date": "2026年09月29日（星期二）",
   "basedOn": "2026年09月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -43,12 +43,12 @@
       "items": [
         "台灣加權指數：48,025（09/24，▼0.28%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "加權指數微跌0.28%，主因外資近日大額提款壓抑盤勢，惟基本面穩健且逢季底作帳，逢回呈現量縮震盪。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,189（09/29，▲0.49%）"
+        "黃金：4,183（09/29，▲0.35%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.34（9/29）",
+            "current": "101.38（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.80（9/29）",
+            "current": "31.81（9/29）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（9/29）",
+            "current": "$91（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "新台幣季線有望轉強 市場關注季底外資動向 月線仍是偏弱格局 - 經濟日報",
+      "title": "股匯雙挫 新台幣盤中貶近1.5角收31.876元 - rti.org.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5WVFpCN1RuYUpUQWc4ejd6SDFRS0FsWjJPQndJNGlJQl95VkowTDYzWnVsSElZOTNBSldzX3plaHlKc01SWWhRNWs2MVhFSk9JaFRWcVZXUU9lZ2x3UmwyNXAwVDhScWdxakJ0dUNHMzJOYTVteFVlV9IBX0FVX3lxTE1TWnBfdjRmdmY1c2dEbzBMZ2xtRXo5LWFFMFpJLS1tdjUwNWpTTWpmXzJqd3JqdWtfdTRpNVo0UDhFLXRfaHFkYzJUam90VmpIZk5fWnRHMHN5RS1PLTg0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9UQkxWQW5XUjRiRlA3OGFVYWE4R0tvcjl6MjlfaFQweXlMMUxueDlpX0ViRDJwWW5nS1VnemI4MkVXYmtzVnA2Wlo3b3ZUanp0M1hSalkwVQ?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
       "title": "金價逆勢上漲",
-      "content": "全球股市全線走跌，黃金卻逆勢揚升至4,189點避險。"
+      "content": "全球股市全線重挫，黃金卻獨自逆勢微幅走升至4183元。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警過熱",
-      "content": "央行憂AI估值過高，市場與產業對本益比25倍看法分歧。"
+      "title": "股匯外資雙殺",
+      "content": "費半重挫且新台幣貶近1.5角，外部資金撤出加劇亞股壓力。"
     },
     {
       "emoji": "3️⃣",
-      "title": "升息壓力再起",
-      "content": "傳年底前恐升息3次、美債殖利率逼近5%，債市承受重壓。"
+      "title": "升息預期再起",
+      "content": "市場傳年底前恐升息3次，美債殖利率逼近5%壓抑風險資產。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/29 下午9:15:59",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/29 下午7:29:26",
