@@ -1,18 +1,18 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-29T13:15:59.964Z",
-  "date": "2026年09月29日（星期二）",
-  "basedOn": "2026年09月28日（前一交易日）",
+  "lastUpdated": "2026-09-29T17:01:18.531Z",
+  "date": "2026年09月30日（星期三）",
+  "basedOn": "2026年09月29日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,482（09/28，▼0.67%）",
-        "S&P 500：7,684（09/28，▼0.77%）",
-        "那斯達克：26,820（09/28，▼0.92%）",
-        "費城半導體指數：12,465（09/28，▼1.61%）"
+        "道瓊：51,186（09/29，▼0.57%）",
+        "S&P 500：7,661（09/29，▼0.30%）",
+        "那斯達克：26,772（09/29，▼0.18%）",
+        "費城半導體指數：12,636（09/29，▲1.37%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：48,025（09/24，▼0.28%）"
       ],
-      "analysis": "加權指數微跌0.28%，主因外資近日大額提款壓抑盤勢，惟基本面穩健且逢季底作帳，逢回呈現量縮震盪。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,183（09/29，▲0.35%）"
+        "黃金：4,184（09/29，▼3.17%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年9月29日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×2　🟡×4　🟢×4",
+    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約29%（9/29，加權指數 vs 240日均線）",
-            "status": "🟡",
-            "statusText": "乖離率偏高，留意拉回風險"
+            "current": "約31%（9/24，加權指數 vs 240日均線）",
+            "status": "🟠",
+            "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
         ]
       },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.38（9/29）",
+            "current": "101.56（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.81（9/29）",
+            "current": "31.84（9/29）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.9（9/29）",
+            "current": "16.4（9/29）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,9 +147,9 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "293 bps（2.93%，9/25）",
-            "status": "🟢",
-            "statusText": "遠低於警戒（>5.0%），處寬鬆狀態"
+            "current": "302 bps（3.02%，9/28）",
+            "status": "🟡",
+            "statusText": "信用利差略升，留意風險定價"
           }
         ]
       },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（9/29）",
+            "current": "$90（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,56 +203,36 @@
   ],
   "news": [
     {
-      "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - news.cnyes.com",
+      "title": "Sorry...",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
-    },
-    {
-      "title": "債券ETF價格會止跌嗎 - 台灣好新聞",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOUzdEc1pCbmVYRVpNWnU4Q1lzM3lwTVpqaUZucmFVdUtVQkxseF9MMDdSZlNlWHgxZ0FTYnlIakk0YmUzSDZoRnI5b1VsNHZwaW1RdGZxY0lYTExQWUV4alFDeFZ1cktPVDVUTzJoc0JfeFdCYmNCYnNoY2J6UzBRQ0FZeXk3c1lHa3ZraV9Qc2VlUl85blBsLWF6SDlFSmpxYmMwU3pxaFJCTDJWQnhVZ3JXX3NFajktbGEySmtHbm9oS2lFcmFUZnhjUGQyMFZaZURnTExmN2FpVHEwQTQ3TG9TQlJqUzB0MW9DeU1yNWJ2dw?oc=5"
-    },
-    {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
-    },
-    {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
-    },
-    {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
-    },
-    {
-      "title": "股匯雙挫 新台幣盤中貶近1.5角收31.876元 - rti.org.tw",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9UQkxWQW5XUjRiRlA3OGFVYWE4R0tvcjl6MjlfaFQweXlMMUxueDlpX0ViRDJwWW5nS1VnemI4MkVXYmtzVnA2Wlo3b3ZUanp0M1hSalkwVQ?oc=5"
+      "url": ""
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "金價逆勢上漲",
-      "content": "全球股市全線重挫，黃金卻獨自逆勢微幅走升至4183元。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "股匯外資雙殺",
-      "content": "費半重挫且新台幣貶近1.5角，外部資金撤出加劇亞股壓力。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "升息預期再起",
-      "content": "市場傳年底前恐升息3次，美債殖利率逼近5%壓抑風險資產。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/30 上午1:01:18",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/29 下午9:15:59",
