@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-29T00:04:09.513Z",
+  "lastUpdated": "2026-09-29T01:21:37.809Z",
   "date": "2026年09月29日（星期二）",
   "basedOn": "2026年09月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,820（09/28，▼0.92%）",
         "費城半導體指數：12,465（09/28，▼1.61%）"
       ],
-      "analysis": "美股今日跌"
+      "analysis": "美股今跌0.67%，主因美元走強、升息疑慮未散引發獲利了結賣壓，市場在高檔拉鋸，多頭轉趨謹慎。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,878（09/28，▼0.73%）"
       ],
-      "analysis": "日經225今日"
+      "analysis": "日經225漲1.3%，逢低買盤進場，在近期暴跌後技術性反彈，市場呈區間盤整，等待明確突破訊號。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,890（09/28，▼2.70%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI指數今日上漲0.90%，主要受AI熱潮及SK海力士赴美發行ADR消息激勵，帶動半導體與科技股走強。"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,160（09/28，▼3.73%）"
+        "黃金：4,147（09/28，▼4.03%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（9/24，加權指數 vs 240日均線）",
+            "current": "約30%（9/29，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.19（9/28）",
+            "current": "101.22（9/28）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.78（9/29）",
+            "current": "31.81（9/29）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -223,12 +223,12 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - money.udn.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
     },
     {
-      "title": "新台幣季線有望轉強 市場關注季底外資動向 月線仍是偏弱格局 - 經濟日報",
+      "title": "新台幣季線有望轉強 市場關注季底外資動向 月線仍是偏弱格局 - money.udn.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5WVFpCN1RuYUpUQWc4ejd6SDFRS0FsWjJPQndJNGlJQl95VkowTDYzWnVsSElZOTNBSldzX3plaHlKc01SWWhRNWs2MVhFSk9JaFRWcVZXUU9lZ2x3UmwyNXAwVDhScWdxakJ0dUNHMzJOYTVteFVlV9IBX0FVX3lxTE1TWnBfdjRmdmY1c2dEbzBMZ2xtRXo5LWFFMFpJLS1tdjUwNWpTTWpmXzJqd3JqdWtfdTRpNVo0UDhFLXRfaHFkYzJUam90VmpIZk5fWnRHMHN5RS1PLTg0?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/29 上午9:21:37",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/29 上午8:04:09",
