@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-29T02:29:09.747Z",
+  "lastUpdated": "2026-09-29T11:29:26.517Z",
   "date": "2026年09月29日（星期二）",
   "basedOn": "2026年09月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,22 +19,22 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：65,878（09/28，▼0.73%）"
+        "日經225：65,481（09/29，▼0.60%）"
       ],
-      "analysis": "受亞股全面"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,890（09/28，▼2.70%）"
+        "KOSPI：6,871（09/29，▼0.27%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：72,772（09/28，▼1.52%）",
-        "NIFTY 50：22,780（09/28，▼1.56%）"
+        "SENSEX：72,529（09/29，▼0.33%）",
+        "NIFTY 50：22,716（09/29，▼0.28%）"
       ],
       "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,160（09/28，▼3.74%）"
+        "黃金：4,189（09/29，▲0.49%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,780（09/29，▼0.07%）"
+        "VN-Index：1,778（09/29，▼0.17%）"
       ],
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約30%（9/29，加權指數 vs 240日均線）",
+            "current": "約29%（9/29，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.20（9/28）",
+            "current": "101.34（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.1（9/28）",
+            "current": "15.9（9/29）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$94（9/28）",
+            "current": "$92（9/29）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -218,7 +218,7 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "金價逆勢上漲",
+      "content": "全球股市全線走跌，黃金卻逆勢揚升至4,189點避險。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "央行示警過熱",
+      "content": "央行憂AI估值過高，市場與產業對本益比25倍看法分歧。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "升息壓力再起",
+      "content": "傳年底前恐升息3次、美債殖利率逼近5%，債市承受重壓。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/29 下午7:29:26",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/29 上午10:29:09",
