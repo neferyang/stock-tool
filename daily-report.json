@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-09-30T01:46:15.219Z",
+  "lastUpdated": "2026-09-30T12:23:39.475Z",
   "date": "2026年09月30日（星期三）",
   "basedOn": "2026年09月29日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,29 +14,29 @@
         "那斯達克：26,798（09/29，▼0.09%）",
         "費城半導體指數：12,629（09/29，▲1.32%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股今日微跌0.26%。市場受創高後的獲利了結賣壓、美元走強及聯準會政策拉鋸影響，多頭追價轉趨謹慎。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：65,481（09/29，▼0.60%）"
+        "日經225：66,754（09/30，▲1.94%）"
       ],
-      "analysis": "日經225今跌0.60%，受亞股全面下挫拖累，且指數承壓於200日均線阻力，市場避險情緒升溫。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,871（09/29，▼0.27%）"
+        "KOSPI：6,838（09/30，▼0.48%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：72,529（09/29，▼0.33%）",
-        "NIFTY 50：22,716（09/29，▼0.28%）"
+        "SENSEX：72,480（09/30，▼0.07%）",
+        "NIFTY 50：22,620（09/30，▼0.42%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市今日微跌0.07%。市場觀望情緒濃厚，投資人消化近期經濟數據，短線呈現高"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,201（09/29，▲0.79%）"
+        "黃金：4,221（09/30，▲1.00%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,778（09/30，▼0.17%）"
+        "VN-Index：1,769（09/30，▼0.51%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（9/30，加權指數 vs 240日均線）",
-            "status": "🟠",
-            "statusText": "接近警戒（>45%），過熱訊號浮現"
+            "current": "約30%（9/30，加權指數 vs 240日均線）",
+            "status": "🟡",
+            "statusText": "乖離率偏高，留意拉回風險"
           }
         ]
       },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.33（9/29）",
+            "current": "101.23（9/30）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.84（9/30）",
+            "current": "31.87（9/30）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.0（9/29）",
+            "current": "16.1（9/30）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$90（9/29）",
-            "status": "🟡",
-            "statusText": "距警戒（>$100）有距離"
+            "current": "$90（9/30）",
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -218,19 +218,19 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "央行示警 AI 產業估值過熱 童子賢：台股本益比在25倍沒有過熱 - 經濟日報",
+      "title": "英國央行拉響警報：AI仍面臨更大幅度調整可能！ - capitalfutures.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBHdDdjZW13Ry1JSi1DTVp1MmlweGNLbHVZQXhWNFBlZmt0X3QwRjRqZU9xbjNCUFZNVjJsV0EtNmZPc1FnY1ZoaXN6VmNKbXY3a0VaSm1qTnBuUdIBX0FVX3lxTE9uaDJ5T3Y2ZUZ2c0FfMFlCT3V4MWxYVEt0ekFINmtyRHQtaV9tV1NLR1R1WE5KSTUzRkExdHVmWVV4ZmNSZW1uOHNKbzBFRzJibTFNYTlUUW00VzZlbWRz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPSnZBVUU5aTVKQzBOUVI5c3FhTWZZRm1kekVVRXU5bXNxeElwOWVnRlB2bjVVbUZsWU9Yc1UySnJRU0xGYlU5TGNFRFk5blZEcjFTY2tmVEtUWkNJaWxfSzdVaWthWDAydmo5RzVpeWZoWUx6NXNNdTB4dnpnR255NnREOXJLSFJEYkNDTXg5WFVJTXNLcmdBbnpxTE5rQXhCSG5j?oc=5"
     },
     {
-      "title": "股匯雙挫 新台幣盤中貶近1.5角收31.876元 - rti.org.tw",
+      "title": "台股衝高外資回流 新台幣升2.4分、月季線收黑 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9UQkxWQW5XUjRiRlA3OGFVYWE4R0tvcjl6MjlfaFQweXlMMUxueDlpX0ViRDJwWW5nS1VnemI4MkVXYmtzVnA2Wlo3b3ZUanp0M1hSalkwVQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9qakVlU251NzN3QnFOSlZISm9jTTJZbGctbk9KeXFXMlFudjZRZmJvLTV4Nmw4d25lRm56eUlBNDc4cWxFZm9Yc1dzU1pXUzN4QVpKZTVRSmxRTlZla3FUWDJwXzJqcTMxeEQ4T2o3TXNwYnhp0gFfQVVfeXFMTzRMSl9nSHRjQVRRZ21JWlVBS3dLdVhTaVk3bGREVGdmQm4tX01lWmVHLUNaSVlvcnJybUdZMTA2RnFKenp3VU5rMExjWXhXVUZCR0VvcU5hWjJDVDBYajg?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/9/30 下午8:23:39",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/9/30 上午9:46:15",
