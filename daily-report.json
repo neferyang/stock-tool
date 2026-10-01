@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-01T13:47:00.791Z",
-  "date": "2026年10月01日（星期四）",
+  "lastUpdated": "2026-10-01T17:27:17.393Z",
+  "date": "2026年10月02日（星期五）",
   "basedOn": "2026年10月01日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：50,917（10/01，▲0.02%）",
-        "S&P 500：7,665（10/01，▲0.18%）",
-        "那斯達克：26,949（10/01，▲0.33%）",
-        "費城半導體指數：12,662（10/01，▲0.26%）"
+        "道瓊：50,883（10/01，▼0.04%）",
+        "S&P 500：7,656（10/01，▲0.05%）",
+        "那斯達克：26,856（10/01，▼0.02%）",
+        "費城半導體指數：12,784（10/01，▲1.23%）"
       ],
       "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：6,971（10/01，▲1.95%）"
       ],
-      "analysis": "南韓KOSPI今日漲1.95%，主因AI熱潮與槓桿ETF買盤推動，加上SK海力士擬赴美發行ADR，提振半導體族群樂觀情緒。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,26 +36,26 @@
         "SENSEX：71,910（10/01，▼0.79%）",
         "NIFTY 50：22,422（10/01，▼0.88%）"
       ],
-      "analysis": "印度股市今日跌0.79%。主因市場觀望情緒濃厚，投資人對後市"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：47,940（09/30，▲0.65%）"
       ],
-      "analysis": "台股今漲0.65%，主因輝達財報效應與投信季底作帳買盤支撐，市場淡化Fed鷹派預期，基本面信心帶動指數走揚。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,201（10/01，▲0.35%）"
+        "黃金：4,202（10/01，▲0.36%）"
       ],
-      "analysis": "金價微漲0.35%。美元走軟與中東地緣風險提供支撐，惟聯準會鷹派升息預期壓制漲幅，市場多空拉鋸。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,749（10/01，▼1.09%）"
+        "VN-Index：1,749（10/02，▼1.09%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月1日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
+    "summary": "🔴×5　🟠×2　🟡×5　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約31%（10/1，加權指數 vs 240日均線）",
-            "status": "🟠",
-            "statusText": "接近警戒（>45%），過熱訊號浮現"
+            "current": "約30%（9/30，加權指數 vs 240日均線）",
+            "status": "🟡",
+            "statusText": "乖離率偏高，留意拉回風險"
           }
         ]
       },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.78（10/1）",
+            "current": "102.17（10/1）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.7（10/1）",
+            "current": "16.8（10/1）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "308 bps（3.08%，9/29）",
+            "current": "312 bps（3.12%，9/30）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（10/1）",
+            "current": "$92（10/1）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -218,14 +218,14 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
     {
-      "title": "英國央行警告：AI估值面臨劇烈修正風險 恐衝擊全球經濟與主權債市場 - news.cnyes.com",
+      "title": "英國央行拉響警報：AI仍面臨更大幅度調整可能！ - capitalfutures.com.tw",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOenEzT0ZfNG5wdWN4QXdFdHRBeWVWQmN1Q1lJenpSTlp0eml1UU02eVZGNVQ2TkM1bC1ZWjllVTRDNktsVmVyUnJaV3BHZ1NadUE3RG8wM3pib3NOQTJmdFdXSWJBQkEyWGNNbmlSVF9rN3ZtcXNDd2Q3dkZ1ZmVKN280N3liSU1aa1YtenBxbWdOV09tS3VqUHNMQldvUTl6OHBrLXZ3?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUzdoX3V5Ykx0T2JxbjYxalFfaVBOWXV5U2dWMUtrOWxvTEZuTlA3bmMycmE5MWJqWWpqVmpGNnpMN01zZUFzUmt5Yks3d3Zqb3ZjWTlQTEE2RWp4QUVTMFNZTE9sLUREOVRGeWNuUVREUkpVQkhiMVNXZzdWc1JtY3I0OG1hb2FsR3o0S2E0SHhlWDBvSmlVdWVMZ2F6MHJz?oc=5"
     },
     {
       "title": "台股創高新台幣貶幅收斂 尾盤翻升收31.842元 - 經濟日報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/2 上午1:27:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/1 下午9:47:00",
