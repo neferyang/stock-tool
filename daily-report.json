@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-02T16:43:48.497Z",
+  "lastUpdated": "2026-10-02T23:50:36.767Z",
   "date": "2026年10月03日（星期六）",
   "basedOn": "2026年10月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,109（10/02，▲0.36%）",
-        "S&P 500：7,723（10/02，▲0.74%）",
-        "那斯達克：27,203（10/02，▲1.23%）",
-        "費城半導體指數：13,202（10/02，▲2.90%）"
+        "道瓊：51,177（10/02，▲0.49%）",
+        "S&P 500：7,723（10/02，▲0.73%）",
+        "那斯達克：27,191（10/02，▲1.19%）",
+        "費城半導體指數：13,137（10/02，▲2.40%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：48,353（10/01，▲0.86%）"
+        "台灣加權指數：48,476（10/02，▲0.25%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股微漲0.25%，主"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,167（10/02，▼0.84%）"
+        "黃金：4,172（10/02，▼0.72%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,738（10/02，▼0.66%）"
+        "VN-Index：1,738（10/03，▼0.66%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.1（4:00 PM EDT, Thu Oct 1）",
+            "current": "41.4（4:00 PM EDT, Fri Oct 2）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.29%（9/30）",
+            "current": "5.24%（10/1）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.94（10/2）",
+            "current": "101.92（10/2）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.83（10/2）",
+            "current": "31.80（10/2）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.6（10/2）",
+            "current": "15.3（10/2）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.41%（10Y 5.29% - 2Y 4.88%，9/30）",
+            "current": "+0.46%（10Y 5.24% - 2Y 4.78%，10/1）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -203,24 +203,24 @@
   ],
   "news": [
     {
+      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - today.line.me",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5jTVI5U3htNXFpaVZ3c3pjZG1HNkh1ZGJOaWFXQW83NXo3SDdzY1AtVk5GN210V3JLOE5QWTFrMVd5UFRBaEhTNlNkazZxWmFhWlRkX2x3?oc=5"
+    },
+    {
       "title": "美債殖利率上升「不用擔心」？分析：美國經濟夠強 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
-      "title": "學者觀點－川普喊降息 美國利率為何反升？ - 中時新聞網",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBxQU5NbnNLZ2tZSVp6MVNSdEh0WWl4Y0JhTkFkZFkyWHRZTXNtMjZyVDVrLUxLTzhyd0hWTzlwaTJJNDF6Rmx2aFdDZWJNRDE0dVRVNE5aaFhrVVl3am9qVXlJa0pNLVM1YVpv?oc=5"
-    },
-    {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
-    },
-    {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
+    },
+    {
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "英國央行拉響警報：AI仍面臨更大幅度調整可能！ - capitalfutures.com.tw",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/3 上午7:50:36",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/3 上午12:43:48",
