@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-03T08:21:09.495Z",
+  "lastUpdated": "2026-10-03T11:57:26.328Z",
   "date": "2026年10月03日（星期六）",
   "basedOn": "2026年10月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：27,191（10/02，▲1.19%）",
         "費城半導體指數：13,137（10/02，▲2.40%）"
       ],
-      "analysis": "美股今日漲0.49%，主因市場消化通膨數據後逢低買盤進場，資金在科技動能與傳產價值股間輪動推升指數。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：68,309（10/02，▼0.94%）"
       ],
-      "analysis": "日經225今跌0.94%。主因亞股普遍重挫拖累市場情緒，且指數面臨200日均線關鍵阻力，多空拉鋸引發獲利了結。"
+      "analysis": "受亞股重挫拖累，日經225跌0.94%。指數逼近200日均線面臨技術阻力，市場避險情緒升溫。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：7,004（10/02，▲0.46%）"
       ],
-      "analysis": "KOSPI今日上漲0.46%。儘管先前受熔斷恐慌與半導體重挫陰霾籠罩，但在低接買盤及AI概念股回穩支撐下小幅反彈。"
+      "analysis": "KOSPI今日小幅反彈0.46%，主因先前劇烈拋售及熔斷後逢低買盤進場，加上AI概念"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,21 +43,21 @@
       "items": [
         "台灣加權指數：48,476（10/02，▲0.25%）"
       ],
-      "analysis": "台股今日微幅收漲0.25%，主因AI題材與季底投信作帳支撐，惟外資空單壓境壓抑漲幅，盤勢維持高檔震盪。"
+      "analysis": "今日台股微漲0.25%，主要受AI題材撐盤與季底作帳激勵，惟外資空單壓境使追價力道受限，呈震盪格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,162（10/02，▼0.95%）"
       ],
-      "analysis": "金價今日跌0.95%，主因降息預期降溫、高盛下調目標價及通膨數據引發升息擔憂，抵銷了地緣避險支撐。"
+      "analysis": "金價今跌0.95%，主因降息預期降溫及高盛下調目標價，市場對聯準會升息擔憂壓過地緣避險需求。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,738（10/03，▼0.66%）"
       ],
-      "analysis": "VN-Index今日跌0.66%，主因近期漲多引發短線獲利了結賣壓，但內資開戶熱潮未減，長線結構仍獲支撐。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -203,17 +203,17 @@
   ],
   "news": [
     {
-      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - LINE TODAY",
-      "description": "就業放緩強化",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LanFYZUVmdEFzRVY4aWREU2tXSHg3ek9EY0NndUNvb01BN19nZ1VrcF8wV1NEV0t1dFRzX29jRWREWnpGWXRqWUwyMGRDU2hBLUxXMnlFU1NlMDF2RWdJblBJZTRHRXFHMU1KLVF6a2lUUlE2UjFpYmNxbWpQdw?oc=5"
-    },
-    {
       "title": "美債殖利率上升「不用擔心」？分析：美國經濟夠強 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - today.line.me",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LanFYZUVmdEFzRVY4aWREU2tXSHg3ek9EY0NndUNvb01BN19nZ1VrcF8wV1NEV0t1dFRzX29jRWREWnpGWXRqWUwyMGRDU2hBLUxXMnlFU1NlMDF2RWdJblBJZTRHRXFHMU1KLVF6a2lUUlE2UjFpYmNxbWpQdw?oc=5"
+    },
+    {
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "費半強黃金跌",
-      "content": "費半勁揚2.40%帶動美股，避險黃金反跌近1%回測關鍵價。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "英央行示警",
-      "content": "英國央行警示AI恐大幅回檔，科技股追高風險顯著增溫。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息預期背離",
-      "content": "就業降溫強化降息預期，美債殖利率卻反常回升顯現矛盾。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/3 下午7:57:26",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/3 下午4:21:09",
