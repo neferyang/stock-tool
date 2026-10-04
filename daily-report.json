@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-04T00:07:43.665Z",
+  "lastUpdated": "2026-10-04T02:07:58.905Z",
   "date": "2026年10月04日（星期日）",
   "basedOn": "2026年10月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：27,191（10/02，▲1.19%）",
         "費城半導體指數：13,137（10/02，▲2.40%）"
       ],
-      "analysis": "美股今日上漲0.49%再創新高，主因通膨數據降溫提振降息預期，帶動道瓊與科技動能回升，惟高檔拉回風險猶存。"
+      "analysis": "美股今日上漲0.49%再創新高，主因通膨數據符合預期強化降息希望，資金回流推動道瓊創高，惟高檔拉回風險猶存。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：7,004（10/02，▲0.46%）"
       ],
-      "analysis": "南韓KOSPI今日小幅反彈0.46%，主因在經歷暴跌熔斷後，低接買盤進場，加上AI需求前景支撐半導體股回穩。"
+      "analysis": "韓股KOSPI歷經重挫與熔斷後微幅反彈0.46%，受SK海力士赴美戰略及AI低接買盤帶動，短線回穩。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：48,476（10/02，▲0.25%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股受AI基本面與輝達財報支撐小漲0.25%，惟外資籌碼偏"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,162（10/02，▼0.95%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "受降息預期降溫及投行下調目標價打壓，金價今日跌0.95%；雖有地緣風險支撐，但高檔獲利了結賣壓沉重。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -208,12 +208,12 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
-      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - today.line.me",
+      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LanFYZUVmdEFzRVY4aWREU2tXSHg3ek9EY0NndUNvb01BN19nZ1VrcF8wV1NEV0t1dFRzX29jRWREWnpGWXRqWUwyMGRDU2hBLUxXMnlFU1NlMDF2RWdJblBJZTRHRXFHMU1KLVF6a2lUUlE2UjFpYmNxbWpQdw?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/4 上午10:07:58",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/4 上午8:07:43",
