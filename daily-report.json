@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-03T15:14:50.270Z",
-  "date": "2026年10月03日（星期六）",
+  "lastUpdated": "2026-10-04T00:07:43.665Z",
+  "date": "2026年10月04日（星期日）",
   "basedOn": "2026年10月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -14,21 +14,21 @@
         "那斯達克：27,191（10/02，▲1.19%）",
         "費城半導體指數：13,137（10/02，▲2.40%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股今日上漲0.49%再創新高，主因通膨數據降溫提振降息預期，帶動道瓊與科技動能回升，惟高檔拉回風險猶存。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：68,309（10/02，▼0.94%）"
       ],
-      "analysis": "受亞洲股市重挫拖累，日經225今日跌0.94%。指數面臨200日均線技術阻力，市場避險情緒升溫。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：7,004（10/02，▲0.46%）"
       ],
-      "analysis": "。歷經近期熔斷震盪後"
+      "analysis": "南韓KOSPI今日小幅反彈0.46%，主因在經歷暴跌熔斷後，低接買盤進場，加上AI需求前景支撐半導體股回穩。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,7 +43,7 @@
       "items": [
         "台灣加權指數：48,476（10/02，▲0.25%）"
       ],
-      "analysis": "今日台股漲0.25%，受AI題材及季底投信作帳支撐，惟外資近期調節且期貨偏空，壓抑指數漲幅維持溫和震盪。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
@@ -55,14 +55,14 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,738（10/03，▼0.66%）"
+        "VN-Index：1,738（10/04，▼0.66%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月3日",
+    "date": "2026年10月4日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
@@ -208,12 +208,12 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
-      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - LINE TODAY",
+      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1LanFYZUVmdEFzRVY4aWREU2tXSHg3ek9EY0NndUNvb01BN19nZ1VrcF8wV1NEV0t1dFRzX29jRWREWnpGWXRqWUwyMGRDU2hBLUxXMnlFU1NlMDF2RWdJblBJZTRHRXFHMU1KLVF6a2lUUlE2UjFpYmNxbWpQdw?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUzdoX3V5Ykx0T2JxbjYxalFfaVBOWXV5U2dWMUtrOWxvTEZuTlA3bmMycmE5MWJqWWpqVmpGNnpMN01zZUFzUmt5Yks3d3Zqb3ZjWTlQTEE2RWp4QUVTMFNZTE9sLUREOVRGeWNuUVREUkpVQkhiMVNXZzdWc1JtY3I0OG1hb2FsR3o0S2E0SHhlWDBvSmlVdWVMZ2F6MHJz?oc=5"
     },
     {
-      "title": "台股創高新台幣貶幅收斂 尾盤翻升收31.842元 - 經濟日報",
+      "title": "上月外資賣超台股、美元走強 外匯存底可能小幅減少 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5FZDNzTEc4eW9pbk1Cd3pRVzJGQ3lENWVnMGNDdEpXMkFLMnhVOWVUQnk2NnREYU94Wmp2TWtWREt5eEo4S2hwTGZvblNKcEJ3Vk1CeVRhNEQ3d9IBX0FVX3lxTE5wcllXOGdvZ0RWcWlOUjIta2JMV0VKTF9aTEpQYVlJZjAyMDdkNXBmdmxVa1lqZ24xMS0wYUpvZS04TzB2SVBsQm93YzJZamM3d0Y2cjRUWGtDTG9Xbk9F?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4yc1FRcjNZM2picWZJMm1GUXNLa3pZdGY0VFhfNUJObUU5UjZBajc3ZjVhcXNlNVVYcFZNWlpia1FNU0tpWjVfdDFvLXlqeXQ5ODZVRDV30gFWQVVfeXFMTjJzUVFyM1kzamJxZkkybUZRc0trell0ZjRUWF81Qk5tRTlSNkFqNzdmNWFxc2U1VVhwVk1aWmJrUU1TS2laNV90MW8teWp5dDk4NlVENXc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/4 上午8:07:43",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/3 下午11:14:50",
