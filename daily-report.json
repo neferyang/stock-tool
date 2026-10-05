@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-05T15:10:27.801Z",
-  "date": "2026年10月05日（星期一）",
+  "lastUpdated": "2026-10-05T19:48:45.248Z",
+  "date": "2026年10月06日（星期二）",
   "basedOn": "2026年10月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,12 +9,12 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,074（10/05，▼0.20%）",
-        "S&P 500：7,755（10/05，▲0.41%）",
-        "那斯達克：27,393（10/05，▲0.74%）",
-        "費城半導體指數：13,118（10/05，▼0.14%）"
+        "道瓊：51,349（10/05，▲0.34%）",
+        "S&P 500：7,789（10/05，▲0.85%）",
+        "那斯達克：27,526（10/05，▲1.23%）",
+        "費城半導體指數：13,176（10/05，▲0.30%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -36,7 +36,7 @@
         "SENSEX：72,382（10/05，▲0.66%）",
         "NIFTY 50：22,556（10/05，▲0.60%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,174（10/05，▲0.27%）"
+        "黃金：4,170（10/05，▲0.19%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,753（10/05，▲0.89%）"
+        "VN-Index：1,753（10/06，▲0.89%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月5日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
+    "summary": "🔴×5　🟠×2　🟡×5　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約34%（10/5，加權指數 vs 240日均線）",
+            "current": "約31%（10/2，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.18（10/5）",
+            "current": "102.14（10/5）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.72（10/5）",
+            "current": "31.71（10/5）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.5（10/5）",
+            "current": "15.6（10/5）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$90（10/5）",
-            "status": "🟠",
-            "statusText": "接近警戒（>$100）"
+            "current": "$89（10/5）",
+            "status": "🟡",
+            "statusText": "距警戒（>$100）有距離"
           },
           {
             "name": "初領失業救濟金",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUzdoX3V5Ykx0T2JxbjYxalFfaVBOWXV5U2dWMUtrOWxvTEZuTlA3bmMycmE5MWJqWWpqVmpGNnpMN01zZUFzUmt5Yks3d3Zqb3ZjWTlQTEE2RWp4QUVTMFNZTE9sLUREOVRGeWNuUVREUkpVQkhiMVNXZzdWc1JtY3I0OG1hb2FsR3o0S2E0SHhlWDBvSmlVdWVMZ2F6MHJz?oc=5"
     },
     {
-      "title": "阻貶新台幣！央行上半年賣匯逾170億美元 未觸美財政部紅線 - 自由財經",
+      "title": "台股直逼5萬點、外資狂買！新台幣升破31.8後「漲不動」 - Yahoo新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1YQ3Y2bldCem9SdDEwQVR6QmU5NlB2aG52a1NtcDk0allzclFGT0hyUDFFTFQxTndGYXRMdWVpVlhoWmxVSmpMUVB0cmppU0JqelJfb2s0QnRla2tudkdEcGxKejTSAWRBVV95cUxNWEN2Nm5XQnpvUnQxMEFUekJlOTZQdmhudmtTbXA5NGpZc3JRRk9IclAxRUxUMU53RmF0THVlaVZYaFpsVUpqTFFQdHJqaVNCanpSX29rNEJ0ZWtrbnZHRHBsSno0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxPVFdybXRQeWZFVXBqSEV2TFJDZ05KUGRwSUEzVk5ZbnloS3Yta0djUWNudVpJY0ZvT0o2RHBTREhHenBNNXp4ckZqc1Npc09wTXVYTC0zQWFRTzBjR29NV3NsODlYaS1wajd1bVFNN2I0b1N0Wk15M2V6Yk1XaXJ2WjlHUE9faWNESzFSeUgxeU1ibzhkM3VwUFJYMlNkXzVCUEpWU0VsWXhHdGh2anEyM0xvRjJENmNYVFZJek9tczZyYzJ2OXNhOVlTQ2Q2N0JVRnViWlMyd2pwTDktQkpUakZtamNoMGxfcDdfREJPbzdhclVEYU1mNW9NZTlBQlBwbWpnTC1KYUg4cFhDRWNyVjdiNDIyV2x2X1V5d00wMFVhRDJsbVlUaTJSVWV5b0h5bU13NTFBTmc0U0JvN1lQVDJR?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/6 上午3:48:45",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/5 下午11:10:27",
