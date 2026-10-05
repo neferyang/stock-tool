@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-05T14:17:35.682Z",
+  "lastUpdated": "2026-10-05T15:10:27.801Z",
   "date": "2026年10月05日（星期一）",
   "basedOn": "2026年10月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,19 +9,19 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,071（10/05，▼0.21%）",
-        "S&P 500：7,750（10/05，▲0.35%）",
-        "那斯達克：27,355（10/05，▲0.60%）",
-        "費城半導體指數：13,059（10/05，▼0.59%）"
+        "道瓊：51,074（10/05，▼0.20%）",
+        "S&P 500：7,755（10/05，▲0.41%）",
+        "那斯達克：27,393（10/05，▲0.74%）",
+        "費城半導體指數：13,118（10/05，▼0.14%）"
       ],
-      "analysis": "美股今日微跌0.21%，主因創高後引發高檔獲利了結與回檔擔憂，降息預期與市場避險情緒在震盪中拉鋸。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：69,947（10/05，▲2.40%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,172（10/05，▲0.23%）"
+        "黃金：4,174（10/05，▲0.27%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月5日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×2　🟡×5　🟢×3",
+    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.33（10/5）",
+            "current": "102.18（10/5）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.73（10/5）",
+            "current": "31.72（10/5）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.8（10/5）",
+            "current": "15.5（10/5）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -173,8 +173,8 @@
           {
             "name": "WTI 原油",
             "current": "$90（10/5）",
-            "status": "🟡",
-            "statusText": "距警戒（>$100）有距離"
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -203,17 +203,17 @@
   ],
   "news": [
     {
-      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
-    },
-    {
       "title": "美債殖利率上升「不用擔心」？分析：美國經濟夠強 - news.cnyes.com",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - today.line.me",
+      "title": "美就業數據降溫降息預期升 全球股市走揚美債殖利率回升 | 民視新聞網 - LINE TODAY",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPX2t3TGs4R0NQUEQybDZyUDhSdHFmOU1mVG1ua3dsNnpxOXdqeEJ2bGNzLWxkczBpQm5fekxqSVl6VGJDNkxCSFVraFd1Wks0ODRJclFSMC1QTG9KX1gzV1A5V0V6LVQ0SFJjTlJsNkhwVk5BZnQ2UGlzM2Rrc0h1d1kzdw?oc=5"
+    },
+    {
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
     },
@@ -228,7 +228,7 @@
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUzdoX3V5Ykx0T2JxbjYxalFfaVBOWXV5U2dWMUtrOWxvTEZuTlA3bmMycmE5MWJqWWpqVmpGNnpMN01zZUFzUmt5Yks3d3Zqb3ZjWTlQTEE2RWp4QUVTMFNZTE9sLUREOVRGeWNuUVREUkpVQkhiMVNXZzdWc1JtY3I0OG1hb2FsR3o0S2E0SHhlWDBvSmlVdWVMZ2F6MHJz?oc=5"
     },
     {
-      "title": "阻貶新台幣！央行上半年賣匯逾170億美元 未觸美財政部紅線 - ec.ltn.com.tw",
+      "title": "阻貶新台幣！央行上半年賣匯逾170億美元 未觸美財政部紅線 - 自由財經",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1YQ3Y2bldCem9SdDEwQVR6QmU5NlB2aG52a1NtcDk0allzclFGT0hyUDFFTFQxTndGYXRMdWVpVlhoWmxVSmpMUVB0cmppU0JqelJfb2s0QnRla2tudkdEcGxKejTSAWRBVV95cUxNWEN2Nm5XQnpvUnQxMEFUekJlOTZQdmhudmtTbXA5NGpZc3JRRk9IclAxRUxUMU53RmF0THVlaVZYaFpsVUpqTFFQdHJqaVNCanpSX29rNEJ0ZWtrbnZHRHBsSno0?oc=5"
     }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/5 下午11:10:27",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/5 下午10:17:35",
