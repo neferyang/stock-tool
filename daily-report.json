@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-06T17:13:55.389Z",
+  "lastUpdated": "2026-10-07T00:41:19.181Z",
   "date": "2026年10月07日（星期三）",
   "basedOn": "2026年10月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,539（10/06，▲0.53%）",
-        "S&P 500：7,827（10/06，▲0.68%）",
-        "那斯達克：27,639（10/06，▲0.59%）",
-        "費城半導體指數：13,249（10/06，▲0.58%）"
+        "道瓊：51,521（10/06，▲0.49%）",
+        "S&P 500：7,819（10/06，▲0.58%）",
+        "那斯達克：27,600（10/06，▲0.45%）",
+        "費城半導體指數：13,218（10/06，▲0.34%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -21,7 +21,7 @@
       "items": [
         "日經225：70,684（10/06，▲1.05%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225強彈2.4%，擺脫區域重挫陰"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -41,16 +41,16 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：49,712（10/05，▲2.55%）"
+        "台灣加權指數：49,823（10/06，▲0.22%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,182（10/06，▲0.61%）"
+        "黃金：4,191（10/06，▲0.81%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "黃金今日漲0.81%，主因美CPI回落與中東地緣風險支撐買盤，但高盛調降目標價與升息預期壓抑漲幅。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,9 +62,9 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月6日",
+    "date": "2026年10月7日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×2　🟡×5　🟢×3",
+    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.7（4:00 PM EDT, Mon Oct 5）",
+            "current": "41.9（4:00 PM EDT, Tue Oct 6）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約34%（10/5，加權指數 vs 240日均線）",
+            "current": "約34%（10/6，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.28%（10/2）",
+            "current": "5.31%（10/5）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.88（10/6）",
+            "current": "101.95（10/6）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.78（10/6）",
+            "current": "31.78（10/7）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.1（10/6）",
+            "current": "15.0（10/6）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.45%（10Y 5.28% - 2Y 4.83%，10/2）",
+            "current": "+0.47%（10Y 5.31% - 2Y 4.84%，10/5）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -173,8 +173,8 @@
           {
             "name": "WTI 原油",
             "current": "$90（10/6）",
-            "status": "🟡",
-            "statusText": "距警戒（>$100）有距離"
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 | NOWNEWS今日新聞 - LINE TODAY",
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBEZnJaMUVVOFZLMllGVUtQakYwSWNQOW9yeE5JRTRnaWdoWno0TTdWRkJFVUktUzlMRHhERGFzaWpiRHRrUEE5UWpUQkowekZMU3pqUFpn?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "英國央行拉響警報：AI仍面臨更大幅度調整可能！ - 群益期貨",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "台股創高背離",
+      "content": "指數逼近五萬點續漲，外資卻反手轉賣，籌碼面出現分歧。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "央行示警修正",
+      "content": "英國央行拉響警報，警告AI題材面臨更大幅度調整的可能。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "降息預期矛盾",
+      "content": "就業數據降溫推升降息預期，美債殖利率卻反常同步回升。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/7 上午8:41:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/7 上午1:13:55",
