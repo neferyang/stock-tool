@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-10-07T00:49:49.331329",
+  "updatedAt": "2026-10-07T06:12:09.258647",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
   "statistics": {
-    "total_stocks": 2361,
+    "total_stocks": 2362,
     "priority_1": 10,
     "priority_2": 32,
-    "priority_3": 2319
+    "priority_3": 2320
   },
   "stocks": {
     "2330": {
@@ -283930,8 +283930,115 @@
       ],
       "lastAttemptAt": "2026-10-02T19:50:38.341649",
       "noDataStreak": 3
+    },
+    "6660": {
+      "name": "厚美德",
+      "industry": "生技醫療業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2026",
+          "eps": 2.12,
+          "revenue": 9.8,
+          "netIncome": 0.9,
+          "operatingIncome": 0.6,
+          "operatingMargin": 6.0,
+          "fcf": 0.5,
+          "roe": 15.7,
+          "netMargin": 9.2,
+          "debtRatio": 35.9,
+          "updatedAt": "2026-10-07T06:12:09.058372",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "epsActual": 0.53,
+          "roeActual": 3.9,
+          "partialQuarters": 1
+        },
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2023",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2022",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2021",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
     }
   },
-  "marketUniverseTotal": 2309,
-  "marketUniverseUpdatedAt": "2026-10-03T05:28:17.158200"
+  "marketUniverseTotal": 2300,
+  "marketUniverseUpdatedAt": "2026-10-07T06:12:07.291806"
 }
