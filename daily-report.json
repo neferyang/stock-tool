@@ -1,40 +1,40 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-08T10:22:31.913Z",
+  "lastUpdated": "2026-10-08T13:54:50.368Z",
   "date": "2026年10月08日（星期四）",
-  "basedOn": "2026年10月07日（前一交易日）",
+  "basedOn": "2026年10月08日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,180（10/07，▼0.66%）",
-        "S&P 500：7,802（10/07，▼0.22%）",
-        "那斯達克：27,539（10/07，▼0.22%）",
-        "費城半導體指數：13,066（10/07，▼1.15%）"
+        "道瓊：51,164（10/08，▼0.03%）",
+        "S&P 500：7,781（10/08，▼0.27%）",
+        "那斯達克：27,385（10/08，▼0.56%）",
+        "費城半導體指數：12,829（10/08，▼1.82%）"
       ],
-      "analysis": "美股今日跌0.66%，"
+      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：69,042（10/08，▼1.42%）"
       ],
-      "analysis": "日經225今日跌1.42%，受亞股全面重挫拖累，且指數面臨200日均線阻力，市場避險情緒升溫引發回檔。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：6,626（10/08，▼2.62%）"
       ],
-      "analysis": "KOSPI重挫2.62%，主因槓桿ETF加劇AI概念股波動，疊加SK海力士赴美布局引發資金外流與匯率承壓。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：72,639（10/07，▼0.59%）",
-        "NIFTY 50：22,603（10/07，▼0.76%）"
+        "SENSEX：71,593（10/08，▼1.44%）",
+        "NIFTY 50：22,232（10/08，▼1.64%）"
       ],
       "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：49,806（10/07，▼0.03%）"
       ],
-      "analysis": "台股微跌0.03%呈平盤整理。受外資空單壓抑與提款疑慮影響，市場觀望總經變數，由投信季底作帳力道支撐。"
+      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,150（10/08，▲0.22%）"
+        "黃金：4,148（10/08，▲0.17%）"
       ],
-      "analysis": "黃金微漲0.22%。受美通膨降溫與中東地緣風險"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.40（10/8）",
+            "current": "102.30（10/8）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.7（10/8）",
+            "current": "15.4（10/8）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -178,7 +178,7 @@
           },
           {
             "name": "初領失業救濟金",
-            "current": "19.7萬/週（9/26）",
+            "current": "19.7萬/週（10/3）",
             "status": "🟢",
             "statusText": "低於警戒（>25萬），勞動市場穩健"
           }
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股直逼5萬點、外資狂買！新台幣升破31.8後「漲不動」 - Yahoo股市",
+      "title": "國慶連假前外資倒貨！股匯雙殺 新台幣一度貶破31.9元 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiwwJBVV95cUxPYVU3NHQwTVRyM3duZXVBUFFVN1VERDNnVGhkMDd4ZHdxQzU4ZXZUYXBCNzJZQWhJdzhPekNYSEtCWW9HVmQ4X2hSaS1VUTVySTV5U1FoeGVVcUszMkpJNjJzX0hSTkd3YkNoZVZqSWppTkYtY2Q1Sm0wU183TGlNUUNTclNUaEhKaVlqU1ZfeDhRYnJkbEgzTURqcUx1cWd6R1FwYmFhY2g0QlFON2tzc3MwcTV2ajNiX1c1eTdtbmhjVWZFVElLeGVtcWhyRUlYVGZHV0VzNlRVU08xWm5RajNfVXJkSGUzX2RNY1NrZGxtaTJWUXgtUExzMV9Lb2ZhMFJZZHVPcHRyUG5jWWJ4Qm8yZWQ2MERXMlkwSlhwSk56SXM2ZHFNbkdFVTY4bEo2UDBZVVlQV2NEX3VpZk1nVDNxaw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB6Zk9uQjBKT2xuLUZNbEJZbzFwN3RtOG40cEtLR0o3c1VvNlpwNndaaGdwV2hfYmtJSGZ2bkNTZ0I5bXpIS0lZMHdSMEVOSkN1eDdxUzFpZmlNUFJ4c3o40gFkQVVfeXFMT2JIaS1IWmI4SHdfYVU4dDU1ZE8wSDlxRC1HNmR3WWc2ZTQwcjVlc19XOWpvSUxCTk1PLUtwNnJQSlJwejUyM2lzUjIwNmdjbVowWVZ5Z1owZnBkZUs2MTlQcXU4NA?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "台股匯市背離",
-      "content": "台股逼近五萬點獲外資狂買，新台幣升破31.8後卻漲不動。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警風險",
-      "content": "全球股市全線收黑之際，央行金融穩定報告首度示警AI等五大變數。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "川普降息悖論",
-      "content": "川普高喊降息美債利率卻反升，華許與貝森特引發美債資金爭奪戰。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/8 下午9:54:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/8 下午6:22:31",
