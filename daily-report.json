@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-08T13:54:50.368Z",
-  "date": "2026年10月08日（星期四）",
+  "lastUpdated": "2026-10-08T17:56:04.523Z",
+  "date": "2026年10月09日（星期五）",
   "basedOn": "2026年10月08日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,12 +9,12 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,164（10/08，▼0.03%）",
-        "S&P 500：7,781（10/08，▼0.27%）",
-        "那斯達克：27,385（10/08，▼0.56%）",
-        "費城半導體指數：12,829（10/08，▼1.82%）"
+        "道瓊：51,200（10/08，▲0.04%）",
+        "S&P 500：7,750（10/08，▼0.66%）",
+        "那斯達克：27,135（10/08，▼1.46%）",
+        "費城半導體指數：12,571（10/08，▼3.79%）"
       ],
-      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
+      "analysis": "美股微漲0.04%，主"
     },
     {
       "name": "🇯🇵 日經225",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,148（10/08，▲0.17%）"
+        "黃金：4,156（10/08，▲0.37%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,739（10/08，▼0.82%）"
+        "VN-Index：1,739（10/09，▼0.82%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約32%（10/8，加權指數 vs 240日均線）",
+            "current": "約33%（10/7，加權指數 vs 240日均線）",
             "status": "🟠",
             "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.30（10/8）",
+            "current": "102.10（10/8）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.4（10/8）",
+            "current": "15.8（10/8）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "303 bps（3.03%，10/6）",
+            "current": "309 bps（3.09%，10/7）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
-    },
-    {
       "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+    },
+    {
+      "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yVng4dk5jcUhEeExUaGxDN1FrN21UTThmTDZ0MGlnQmsxdFFGWlRpWHNzaHpuVFdNcVhLV1JsdDRaQ1ZxOWxjNFIyYzNYWGlkbUE?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "國慶連假前外資倒貨！股匯雙殺 新台幣一度貶破31.9元 - 自由財經",
+      "title": "雙重壓力夾擊 台幣貶8分 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB6Zk9uQjBKT2xuLUZNbEJZbzFwN3RtOG40cEtLR0o3c1VvNlpwNndaaGdwV2hfYmtJSGZ2bkNTZ0I5bXpIS0lZMHdSMEVOSkN1eDdxUzFpZmlNUFJ4c3o40gFkQVVfeXFMT2JIaS1IWmI4SHdfYVU4dDU1ZE8wSDlxRC1HNmR3WWc2ZTQwcjVlc19XOWpvSUxCTk1PLUtwNnJQSlJwejUyM2lzUjIwNmdjbVowWVZ5Z1owZnBkZUs2MTlQcXU4NA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE16R3hfYjNsNkV0eHNHWkI1ekJUOG0yUUtFOVNmamRaRk56U2lLNDkzTU5iQ0U0QWJ2SEhEM0xSZmJKQWppS180VHYxZU44anJXRWJqSjI0bFBQWnRpN1NYR05YelBTR295NGN4ajd0UVExeHI4NFBIalItb03SAV9BVV95cUxNV3IySFY4TE5CTzZMNXkwdUwyUUxfckpVTXlNTW1SSjgxc1JWUFNJcEljdnk0RGE5T2Z3eXd2LVFsSzdPV0VDXzd6c1NoeElMZ2dZZEVYWkhaS3o4alFBZw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/9 上午1:56:04",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/8 下午9:54:50",
