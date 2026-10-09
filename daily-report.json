@@ -1,20 +1,20 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-09T09:20:55.315Z",
+  "lastUpdated": "2026-10-09T13:40:59.992Z",
   "date": "2026年10月09日（星期五）",
-  "basedOn": "2026年10月08日（前一交易日）",
+  "basedOn": "2026年10月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,232（10/08，▲0.10%）",
-        "S&P 500：7,765（10/08，▼0.47%）",
-        "那斯達克：27,193（10/08，▼1.25%）",
-        "費城半導體指數：12,624（10/08，▼3.39%）"
+        "道瓊：51,340（10/09，▲0.21%）",
+        "S&P 500：7,792（10/09，▲0.34%）",
+        "那斯達克：27,341（10/09，▲0.54%）",
+        "費城半導體指數：12,730（10/09，▲0.84%）"
       ],
-      "analysis": "美股微漲0.10%。受美債殖利率飆升壓抑，但在降息預期與市場避險情緒回穩支撐下，大盤震盪小幅收紅。"
+      "analysis": "美股微幅收漲0.21%，主因市場對降息預期回溫帶動買盤，但美債殖利率攀升持續壓抑科技動能，多空拉鋸。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,22 +28,22 @@
       "items": [
         "KOSPI：6,626（10/08，▼2.62%）"
       ],
-      "analysis": "(48 characters) - let's check char"
+      "analysis": "KOSPI今日跌2.62%，主因SK海力士等AI半導體股重挫、槓桿ETF平倉賣壓及頻繁熔斷重創市場信心。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：71,593（10/08，▼1.44%）",
-        "NIFTY 50：22,232（10/08，▼1.64%）"
+        "SENSEX：72,472（10/09，▲1.23%）",
+        "NIFTY 50：22,520（10/09，▲1.30%）"
       ],
-      "analysis": "印度股市跌1.44%，主因重量級財報公布前市場情緒謹慎，大盤波動加劇，資金轉向特定低價IT小型股。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：49,313（10/08，▼0.99%）"
       ],
-      "analysis": "台股今跌0.99%，"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
@@ -57,7 +57,7 @@
       "items": [
         "VN-Index：1,735（10/09，▼0.22%）"
       ],
-      "analysis": "VN-Index今日微跌"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.08（10/9）",
+            "current": "102.28（10/9）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "31.91（10/9）",
+            "current": "31.93（10/9）",
             "status": "🟡",
             "statusText": "新台幣走貶，留意升勢"
           }
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "309 bps（3.09%，10/7）",
+            "current": "315 bps（3.15%，10/8）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -204,13 +204,13 @@
   "news": [
     {
       "title": "川普喊降息 美國利率為何反升？ - 工商時報",
-      "description": "市場擔憂政策重燃通膨與赤字，長端殖利率反彈恐壓抑資",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzeHNyMVpxejJfSzZCZWpLVm5wTkFXYjFXbDhuaHRyOHdueUU2ZzQ5NUM4U2M3RTkyNGxwWkpJc3ZmRE1CMUpsenVncVNELWFzYXpsOTZYQVdHMHMyQzFZ?oc=5"
     },
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "美債殖利率上升「不用擔心」？分析：美國經濟夠強 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FeW1XYzY1eUVucFUweU1paDNuQzVIeVRocUFQV1FCQnl6MUVUX1Juay1aQXpYU1VQZ01oeVhYMFBCNkRlYV9fTnNfek01Tk0?oc=5"
     },
     {
       "title": "早安！今日產經早報 本週產經前瞻 - 蕃新聞",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "道瓊科技背離",
-      "content": "道瓊逆勢微漲，費半卻重挫逾3%，科技股估值面臨修正。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "央行示警風險",
-      "content": "英國央行警示AI恐大調整，避險買盤推升黃金漲破4200。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息通膨矛盾",
-      "content": "川普喊降息利率卻反升，赤字疑慮加劇美債資金爭奪戰。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/9 下午9:40:59",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/9 下午5:20:55",
