@@ -27,4 +27,10 @@ jobs:
           echo "=== 歷史 K 線 (日K, $FROM ~ $TO) ==="
           curl -sS -w "\nHTTP_STATUS:%{http_code}\n" \
             -H "X-API-KEY: $FUGLE_API_KEY" \
-            "https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/2330?from=$FROM&to=$TO"
+            "https://api.fugle.tw/marketdata/v1.0/stock/historical/candles/6498?from=$FROM&to=$TO"
+
+          echo ""
+          echo "=== 上櫃股即時報價 market 欄位 (6498) ==="
+          curl -sS -w "\nHTTP_STATUS:%{http_code}\n" \
+            -H "X-API-KEY: $FUGLE_API_KEY" \
+            "https://api.fugle.tw/marketdata/v1.0/stock/intraday/quote/6498"
