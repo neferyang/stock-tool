@@ -43,6 +43,17 @@ function loadMarketData() {
   }
 }
 
+function loadHotStocks() {
+  const p = path.join(__dirname, 'market-data.json');
+  if (!fs.existsSync(p)) return null;
+  try {
+    const raw = JSON.parse(fs.readFileSync(p, 'utf8'));
+    return raw.hotStocks || null;
+  } catch (e) {
+    return null;
+  }
+}
+
 function loadAnalysisData() {
   const p = path.join(__dirname, 'market-analysis.json');
   if (!fs.existsSync(p)) {
@@ -266,6 +277,13 @@ async function main() {
     updateMarkets(reportData.markets, indices);
   } else {
     console.warn('⚠️ 無市場數據，僅更新版本和日期');
+  }
+
+  // 台股焦點個股（Fugle 即時報價，沒資料就保留原值不覆蓋）
+  const hotStocks = loadHotStocks();
+  if (hotStocks && hotStocks.length > 0) {
+    reportData.hotStocks = hotStocks;
+    console.log(`✅ 台股焦點個股已更新 (${hotStocks.length} 檔)`);
   }
 
   // 載入分析文字並更新 analysis 欄位
