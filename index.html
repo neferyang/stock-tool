@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.23.0',
+  version: '8.24.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -27314,6 +27314,25 @@ function renderMarketReport(data) {
         `).join('')}
       </div>
     </div>
+
+    <!-- 台股焦點個股（Fugle 即時報價，沒資料就不渲染這個區塊） -->
+    ${(data.hotStocks && data.hotStocks.length > 0) ? `
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #059669;padding-bottom:8px;">🎯 台股焦點個股</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;">
+        ${data.hotStocks.map(s => {
+          const up = s.arrow === '▲';
+          const down = s.arrow === '▼';
+          const color = up ? '#dc2626' : (down ? '#16a34a' : '#666');
+          return `
+          <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:0.85rem;color:#666;margin-bottom:4px;">${escapeHtml(s.name)} ${escapeHtml(s.code)}</div>
+            <div style="font-size:1.1rem;font-weight:700;">${escapeHtml(String(s.price))}</div>
+            <div style="font-size:0.85rem;color:${color};font-weight:600;">${escapeHtml(s.arrow)} ${Math.abs(s.changePct).toFixed(2)}%</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>` : ''}
 
     <!-- 風險指標儀表板 -->
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">

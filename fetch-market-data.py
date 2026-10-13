@@ -8,6 +8,7 @@
 import yfinance as yf
 import requests
 import json
+import os
 from datetime import datetime, timedelta
 import pytz
 import sys
@@ -15,6 +16,18 @@ import time
 
 if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
+
+FUGLE_API_KEY = os.environ.get('FUGLE_API_KEY', '')
+
+# 財金報告的台股焦點個股：挑幾檔市值權值股，讓報告不是只有大盤指數
+HOT_STOCKS = [
+    ('2330', '台積電'),
+    ('2317', '鴻海'),
+    ('2454', '聯發科'),
+    ('2308', '台達電'),
+    ('2382', '廣達'),
+    ('2881', '富邦金'),
+]
 
 # 需要抓取的市場指數
 # tz: 各交易所本地時區（用於正確顯示交易日期）
@@ -45,6 +58,82 @@ MARKET_CLOSE = {
     '^BSESN': (16, 0),
     '^NSEI':  (16, 0),
 }
+
+
+def fugle_quote(symbol):
+    """Fugle 富果即時報價，沒設 FUGLE_API_KEY 或請求失敗回 None，呼叫端自行 fallback。"""
+    if not FUGLE_API_KEY:
+        return None
+    try:
+        r = requests.get(
+            f'https://api.fugle.tw/marketdata/v1.0/stock/intraday/quote/{symbol}',
+            headers={'X-API-KEY': FUGLE_API_KEY}, timeout=10)
+        r.raise_for_status()
+        return r.json()
+    except Exception as e:
+        print(f'[WARN] Fugle quote {symbol}: {e}')
+        return None
+
+
+def fetch_taiex_fugle():
+    """
+    台灣加權指數優先用 Fugle 即時指數（symbol: IX0001）。
+    TWSE 官方 FMTQIK 是收盤後才更新的日線資料，Fugle 盤中就能拿到當下指數，
+    報告數字更貼近當下盤勢。失敗（無 Key／額度用盡／查無資料）就回 None，
+    呼叫端 fallback 回 fetch_taiex() 的 TWSE 官方資料，不影響既有穩定度。
+    """
+    q = fugle_quote('IX0001')
+    if not q or 'closePrice' not in q:
+        return None
+    close = q['closePrice']
+    change = q.get('change', 0)
+    change_pct = q.get('changePercent', 0)
+    arrow = '▲' if change >= 0 else '▼'
+    date = q.get('date', '')  # Fugle格式 "2026-10-13"
+    date_str = f'{date[5:7]}/{date[8:10]}' if len(date) == 10 else ''
+
+    result = {
+        'name': '台灣加權指數',
+        'group': 'TW',
+        'price': round(close, 2),
+        'change': round(change, 2),
+        'changePct': round(change_pct, 2),
+        'arrow': arrow,
+        'date': date_str,
+        'displayStr': f'{close:,.0f}（{date_str}，{arrow}{abs(change_pct):.2f}%）'
+    }
+    print(f'[OK] 台灣加權指數: {close:,.0f} ({arrow}{abs(change_pct):.2f}%) [Fugle即時]')
+    return result
+
+
+def fetch_hot_stocks():
+    """
+    財金報告的台股焦點個股：用 Fugle 即時報價抓 HOT_STOCKS 清單裡的幾檔權值股，
+    讓報告不是只有大盤指數。沒設 FUGLE_API_KEY 直接回空陣列，
+    update-daily-report.js 沒資料就不渲染這個區塊，不影響報告其他部分。
+    """
+    if not FUGLE_API_KEY:
+        return []
+    results = []
+    for code, name in HOT_STOCKS:
+        q = fugle_quote(code)
+        if not q or 'lastPrice' not in q:
+            print(f'[WARN] 焦點個股 {name}({code}): 無資料')
+            continue
+        price = q['lastPrice']
+        change = q.get('change', 0)
+        change_pct = q.get('changePercent', 0)
+        arrow = '▲' if change > 0 else ('▼' if change < 0 else '-')
+        results.append({
+            'code': code,
+            'name': name,
+            'price': price,
+            'change': change,
+            'changePct': change_pct,
+            'arrow': arrow,
+        })
+        print(f'[OK] {name}({code}): {price} ({arrow}{abs(change_pct):.2f}%)')
+    return results
 
 
 def fetch_taiex():
@@ -248,8 +337,8 @@ def main():
         if data:
             results[symbol] = data
 
-    # 台股用官方 API 單獨處理
-    taiex = fetch_taiex()
+    # 台股優先用 Fugle 即時指數，失敗才 fallback 回 TWSE 官方 API
+    taiex = fetch_taiex_fugle() or fetch_taiex()
     if taiex:
         results['^TWII'] = taiex
 
@@ -258,11 +347,15 @@ def main():
     if vnindex:
         results['^VNINDEX.VN'] = vnindex
 
+    # 台股焦點個股（Fugle 即時報價，沒設 Key 就是空陣列）
+    hot_stocks = fetch_hot_stocks()
+
     # 儲存結果
     output = {
         'updatedAt': datetime.utcnow().isoformat() + 'Z',
         'indices': results,
-        'count': len(results)
+        'count': len(results),
+        'hotStocks': hot_stocks
     }
 
     with open('market-data.json', 'w', encoding='utf-8') as f:

@@ -32,6 +32,8 @@ jobs:
         run: pip install yfinance pytz
 
       - name: Fetch market indices
+        env:
+          FUGLE_API_KEY: ${{ secrets.FUGLE_API_KEY }}
         run: python fetch-market-data.py
 
       - name: Generate market analysis
