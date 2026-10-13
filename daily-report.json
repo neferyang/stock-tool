@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-13T14:31:10.415Z",
-  "date": "2026年10月13日（星期二）",
+  "lastUpdated": "2026-10-13T18:10:09.382Z",
+  "date": "2026年10月14日（星期三）",
   "basedOn": "2026年10月13日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,19 +9,19 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,903（10/13，▲0.10%）",
-        "S&P 500：7,804（10/13，▼0.04%）",
-        "那斯達克：27,226（10/13，▼0.07%）",
-        "費城半導體指數：12,037（10/13，▼1.64%）"
+        "道瓊：51,615（10/13，▼0.45%）",
+        "S&P 500：7,796（10/13，▼0.15%）",
+        "那斯達克：27,166（10/13，▼0.29%）",
+        "費城半導體指數：12,088（10/13，▼1.21%）"
       ],
-      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：67,778（10/13，▼1.82%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,26 +36,26 @@
         "SENSEX：73,034（10/13，▲1.54%）",
         "NIFTY 50：22,722（10/13，▲1.60%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "達27,000點，"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：48,341（10/13，▼1.95%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "今日台股挫跌1.95%，主因"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,191（10/13，▼0.00%）"
+        "黃金：4,172（10/13，▼0.44%）"
       ],
-      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,719（10/13，▼0.09%）"
+        "VN-Index：1,719（10/14，▼0.09%）"
       ],
       "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月13日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
+    "summary": "🔴×5　🟠×4　🟡×3　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約28%（10/13，加權指數 vs 240日均線）",
-            "status": "🟡",
-            "statusText": "乖離率偏高，留意拉回風險"
+            "current": "約31%（10/12，加權指數 vs 240日均線）",
+            "status": "🟠",
+            "statusText": "接近警戒（>45%），過熱訊號浮現"
           }
         ]
       },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.28（10/13）",
+            "current": "102.24（10/13）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.2（10/13）",
+            "current": "15.5（10/13）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "315 bps（3.15%，10/8）",
+            "current": "311 bps（3.11%，10/12）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwYUxqZXppa2VJeTRBVl9uQ3FHODlUSDNBeTFPUGFyNFZtSXJQZHk0TVBvREYzWnZ4TTUtVG1zSDc4THRMZk83Zm5kajYtNGc?oc=5"
     },
     {
-      "title": "〈台幣〉股匯雙殺！熱錢流出重貶1.9角摜破32元 創近2個月新低 - 鉅亨網",
+      "title": "外資大撤退！股匯遇亂流 台幣爆量重貶1.9角 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA0UEoxYWNydDZJcnVPa1lpSjloZVV0X0RiT0lQdVlwMlhtYzNaZllLYmVaVl8tMmVoVDN6cUYwTGNROHhQMUVqRzdacFRVMk0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBVMmlZX2NaVnJLVERNZEJMRXBBVHotMUEtZmRlSVdwaVpvWVBWMnF3Qk1SQVpsU1ppeHp3QmRLV0ZndEtTbC1mNGpiMENEQ0ha0gFWQVVfeXFMUENSTVFIT2FqT2NZY3BNSi1EcURtOWhYWDl5M2tnT0ZRZHRkVjFBS04zbW9fdjlQMHZfMGFXemFJOWJ6bjdRVDNwcGJzR01iOEotb29NMnc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/14 上午2:10:09",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/13 下午10:31:10",
