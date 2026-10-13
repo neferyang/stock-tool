@@ -1,0 +1,34 @@
+name: 測試 Fugle 富果行情 API
+
+# 僅手動觸發，驗證加權指數符號與熱門個股即時報價。
+# 驗證通過後這支 workflow 會被移除。
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 呼叫 Fugle API
+        env:
+          FUGLE_API_KEY: ${{ secrets.FUGLE_API_KEY }}
+        run: |
+          if [ -z "$FUGLE_API_KEY" ]; then
+            echo "❌ FUGLE_API_KEY 未設定"
+            exit 1
+          fi
+
+          echo "=== 測試加權指數符號 IX0001 ==="
+          curl -sS -w "\nHTTP_STATUS:%{http_code}\n" \
+            -H "X-API-KEY: $FUGLE_API_KEY" \
+            "https://api.fugle.tw/marketdata/v1.0/stock/intraday/quote/IX0001"
+
+          echo ""
+          echo "=== 測試熱門個股 2330 ==="
+          curl -sS -w "\nHTTP_STATUS:%{http_code}\n" \
+            -H "X-API-KEY: $FUGLE_API_KEY" \
+            "https://api.fugle.tw/marketdata/v1.0/stock/intraday/quote/2330"
