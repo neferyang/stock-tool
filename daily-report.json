@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-13T03:22:20.741Z",
+  "lastUpdated": "2026-10-13T07:47:27.319Z",
   "date": "2026年10月13日（星期二）",
   "basedOn": "2026年10月12日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,19 +14,19 @@
         "那斯達克：27,246（10/12，▼0.44%）",
         "費城半導體指數：12,237（10/12，▼2.67%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股今日漲0.38%，主因AI動能與金融股支撐買盤推向新高，惟公債殖利率攀升與緊縮隱憂仍限縮漲幅。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：69,031（10/09，▼0.02%）"
+        "日經225：67,778（10/13，▼1.82%）"
       ],
-      "analysis": "日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：6,384（10/12，▼3.65%）"
+        "KOSPI：6,035（10/13，▼5.46%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
@@ -41,23 +41,23 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：49,302（10/12，▼0.02%）"
+        "台灣加權指數：48,341（10/13，▼1.95%）"
       ],
-      "analysis": "台股小幅震盪，量縮整理，主流族群輪動，指數維持盤整格局。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,191（10/12，▼0.61%）"
+        "黃金：4,214（10/13，▲0.55%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,722（10/13，▲0.05%）"
+        "VN-Index：1,722（10/13，▲0.04%）"
       ],
-      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
+      "analysis": "VN-Index今日微漲0.04%。受散戶開戶潮湧現及新興券商擴張驅動，市場交投熱絡，短線呈現高檔震盪整理。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.41（10/12）",
+            "current": "102.27（10/13）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.08（10/13）",
+            "current": "32.15（10/13）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.2（10/12）",
+            "current": "15.6（10/13）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（10/12）",
+            "current": "$92（10/13）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 突破有望直衝5000美元 - 財訊",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mRk0wa3p6cERhbkpKUHMwNElQdmhSUnNOaW9vZUZLNUlqYTJIQXBGb20zVUNIRDF6ZEp6M2Nqa05ydjJobk5aMHZUemJJRWlGNFl2QTV5M3Jmd0xyWkxqTmUxNnlaYVhxQmxiYVRBQU13bHFFb1FFR3c1SQ?oc=5"
-    },
-    {
       "title": "美國通膨飆兩年新高！伊朗戰爭引爆能源危機 消費者信心跌破二戰後谷底 - 三立新聞",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9EM3M2RzFxVmtORjJSV0FKSzdKcWpjTGlSaVd5ZEZVdVJ1LUlPMFRSOTlMR2JuRjBrZlRNNWxGLXV1el9xNHFId0V0OA?oc=5"
+    },
+    {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "英國央行警告：AI估值面臨劇烈修正風險 恐衝擊全球經濟與主權債市場 - 鉅亨網",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwYUxqZXppa2VJeTRBVl9uQ3FHODlUSDNBeTFPUGFyNFZtSXJQZHk0TVBvREYzWnZ4TTUtVG1zSDc4THRMZk83Zm5kajYtNGc?oc=5"
     },
     {
-      "title": "美元偏強、外資出走！新台幣逼近32元大關 央行尾盤急拉仍連3黑 - 太報 TaiSounds",
+      "title": "外資連4賣提款近1,500億元！新台幣連三貶 32元保衛戰開打 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1CSm1YVmZtN3FKWVlSd2FXMW11dlhubV95VHk2Sy1zV0xtYW9YeXR4eVV1VGFxVmI1T1c4TkVJZTBOVnQ3RW9FYlhVUDNkZUNHTkR6dmZoS2U4VHBz?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52RTRpTjd5S0NJNXIwN3V5VXg4RTh2bjBFa3B2MzhiaTZtYUxNemtlcVl5MU5wS2JRRjRxN3lzLTNZWEJLc2xERVRubEkycVYyVlpLV2tVcGF0QdIBX0FVX3lxTE1YQW04TWlqb3Z6clFTc0dWWFpndFVlUS0xcmRkS2twOFdXTEhRWWx3LXBnaGpmN0hGdVE0VEd0OEpkVlpzSkZBdEwtSXhhaVlMY21ZRDE3TnhRbW5hUU5V?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/13 下午3:47:27",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/13 上午11:22:20",
@@ -2532,6 +2537,56 @@
       "version": "2.0.2",
       "date": "2026/6/16 下午7:42:57",
       "status": "自動更新 - 市場數據已刷新"
+    }
+  ],
+  "hotStocks": [
+    {
+      "code": "2330",
+      "name": "台積電",
+      "price": 2490,
+      "change": -50,
+      "changePct": -1.97,
+      "arrow": "▼"
+    },
+    {
+      "code": "2317",
+      "name": "鴻海",
+      "price": 240,
+      "change": -4.5,
+      "changePct": -1.84,
+      "arrow": "▼"
+    },
+    {
+      "code": "2454",
+      "name": "聯發科",
+      "price": 4525,
+      "change": -100,
+      "changePct": -2.16,
+      "arrow": "▼"
+    },
+    {
+      "code": "2308",
+      "name": "台達電",
+      "price": 1775,
+      "change": -125,
+      "changePct": -6.58,
+      "arrow": "▼"
+    },
+    {
+      "code": "2382",
+      "name": "廣達",
+      "price": 323,
+      "change": 1,
+      "changePct": 0.31,
+      "arrow": "▲"
+    },
+    {
+      "code": "2881",
+      "name": "富邦金",
+      "price": 160,
+      "change": 1.5,
+      "changePct": 0.95,
+      "arrow": "▲"
     }
   ]
 }
