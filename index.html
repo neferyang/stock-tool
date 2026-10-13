@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.22.0',
+  version: '8.23.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -725,6 +725,35 @@ async function fugleFetch(code) {
     return d && d.lastPrice ? d : null;
   } catch (e) {
     console.log('[fugleFetch] error:', e.message);
+    return null;
+  }
+}
+
+// 台股歷史K線：Fugle 富果，取代原本靠 CORS_PROXIES 競速抓 Yahoo Finance chart API
+// 當台股主要圖表來源。回傳格式轉成跟 Yahoo chart 相容的 {meta, timestamp, indicators}
+// 形狀，下游 K 線解析邏輯不用改；另外帶一個 market 欄位供呼叫端判斷上市/上櫃。
+async function fugleCandlesFetch(code) {
+  if (!code) return null;
+  try {
+    const r = await fetch('/api/fugle-candles?code=' + code, {signal: AbortSignal.timeout(8000)});
+    if (!r.ok) return null;
+    const d = await r.json();
+    if (!d || !Array.isArray(d.data) || d.data.length === 0) return null;
+    const rows = [...d.data].reverse(); // Fugle回傳新到舊，轉成舊到新對齊Yahoo chart格式
+    const timestamp = rows.map(x => Math.floor(new Date(x.date + 'T00:00:00+08:00').getTime() / 1000));
+    return {
+      meta: { regularMarketPrice: rows[rows.length - 1].close },
+      timestamp,
+      indicators: { quote: [{
+        close: rows.map(x => x.close),
+        high: rows.map(x => x.high),
+        low: rows.map(x => x.low),
+        volume: rows.map(x => x.volume),
+      }] },
+      market: d.market, // 'TSE' 上市 / 'OTC' 上櫃，供呼叫端判斷，非Yahoo原生欄位
+    };
+  } catch (e) {
+    console.log('[fugleCandlesFetch] error:', e.message);
     return null;
   }
 }
@@ -26673,21 +26702,35 @@ async function go(){
   try{
     setSt('<span class="spin"></span>抓取資料中...',false);
 
-    // 台股：先試 .TW，失敗再試 .TWO（上櫃股）
+    // 台股（純數字代號，不含主動式ETF的字母後綴）優先用 Fugle 歷史K線：官方直連、
+    // 不用跟 CORS_PROXIES 搶代理，且回應自帶 market 欄位（TSE/OTC），可以直接判斷
+    // 上市/上櫃，不用再靠 Yahoo 的 .TW 失敗才試 .TWO 這套嘗試兩次的土法煉鋼。
+    // 查無資料或 API 掛了才 fallback 回原本 Yahoo 流程。
     let chartResult = null;
-    if (isNumeric) {
-      chartResult = await yfFetch(raw+'.TW');
-      if (!chartResult) {
-        ticker = raw+'.TWO';
-        setSt('<span class="spin"></span>嘗試上櫃代號 '+ticker+'...',false);
-        chartResult = await yfFetch(raw+'.TWO');
+    let isOTC = false;
+    const pureNumeric = /^\d{4,6}$/.test(raw);
+    if (pureNumeric) {
+      chartResult = await fugleCandlesFetch(raw);
+      if (chartResult) {
+        isOTC = chartResult.market === 'OTC';
+        ticker = raw + (isOTC ? '.TWO' : '.TW');
       }
-    } else {
-      chartResult = await yfFetch(ticker);
+    }
+    if (!chartResult) {
+      if (isNumeric) {
+        chartResult = await yfFetch(raw+'.TW');
+        if (!chartResult) {
+          ticker = raw+'.TWO';
+          setSt('<span class="spin"></span>嘗試上櫃代號 '+ticker+'...',false);
+          chartResult = await yfFetch(raw+'.TWO');
+        }
+        isOTC = ticker.endsWith('.TWO');
+      } else {
+        chartResult = await yfFetch(ticker);
+      }
     }
 
     const isTW = ticker.endsWith('.TW') || ticker.endsWith('.TWO');
-    const isOTC = ticker.endsWith('.TWO'); // 上櫃
 
     // 並行抓取基本面資料
     // 注意：.replace('.TW','').replace('.TWO','') 這個寫法有 bug——".TWO" 本身包含

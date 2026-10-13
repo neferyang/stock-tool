@@ -42,6 +42,8 @@
 !api/stock/[code].js
 # Fugle 行情 API 代理（Key 存 Vercel env，不進前端）
 !api/fugle-quote.js
+# Fugle 歷史K線 API 代理
+!api/fugle-candles.js
 
 # ════════════════════════════════════════════
 # 自動化和數據
@@ -104,8 +106,6 @@
 !.github/workflows/daily-report-update.yml
 # 排程補跑監控工作流
 !.github/workflows/schedule-watchdog.yml
-# Fugle 行情 API 測試工作流（驗證用，完成後會移除/改寫）
-!.github/workflows/test-fugle-api.yml
 # Dependabot：監控 GitHub Actions 版本更新
 !.github/dependabot.yml
 
