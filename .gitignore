@@ -40,6 +40,8 @@
 !api/stock/
 # 單支股票 API（動態路由）
 !api/stock/[code].js
+# Fugle 行情 API 代理（Key 存 Vercel env，不進前端）
+!api/fugle-quote.js
 
 # ════════════════════════════════════════════
 # 自動化和數據

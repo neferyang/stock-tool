@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.21.32',
+  version: '8.22.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -707,6 +707,24 @@ async function tpexFetch(code) {
     }];
   } catch (e) {
     console.log('[tpexFetch] FinMind error:', e.message);
+    return null;
+  }
+}
+
+// 台股即時報價：Fugle 富果行情 API，走自家 /api/fugle-quote serverless 代理
+// （Key 存在 Vercel 環境變數，不能讓前端直接帶 Key 打 Fugle，會被盜刷額度）。
+// 比原本靠 CORS_PROXIES 競速抓 Yahoo Finance 快且穩定，查無資料或額度用盡
+// 就回 null，上層會自動 fallback 回 Yahoo 的 price（見呼叫處）。
+// 只有 Vercel 部署才有 /api/fugle-quote；github.io 靜態站會 404，同樣視為 null。
+async function fugleFetch(code) {
+  if (!code) return null;
+  try {
+    const r = await fetch('/api/fugle-quote?code=' + code, {signal: AbortSignal.timeout(6000)});
+    if (!r.ok) return null;
+    const d = await r.json();
+    return d && d.lastPrice ? d : null;
+  } catch (e) {
+    console.log('[fugleFetch] error:', e.message);
     return null;
   }
 }
@@ -26678,13 +26696,14 @@ async function go(){
     // 永遠顯示不出企業健康診斷卡跟財報歷史表格、產業分類也永遠掉回「其他業」。
     // 改用正則一次處理兩種後綴，不管後綴是 .TW 還是 .TWO 都能正確去掉。
     const code = ticker.replace(/\.TWO?$/, '');
-    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult] = await Promise.all([
+    const [twseArr, tpexArr, summaryResult, newsResult, finnhubResult, financialResult, fugleResult] = await Promise.all([
       (!isOTC && isTW) ? twseFetch() : Promise.resolve(null),  // 上市 TWSE
       isOTC ? tpexFetch(code) : Promise.resolve(null),          // 上櫃：FinMind TaiwanStockPER（TPEX官方API目前502）
       yfSummary(ticker),                                        // 所有股票都試（美股直連，台股走proxy）
       isTW ? newsAnnouncementsFetch(code) : Promise.resolve(null),  // P1：公開資訊觀測站公告
       !isTW ? finnhubFetch(ticker) : Promise.resolve(null),     // v4.18：美股 Finnhub 基本面數據（優化版）
-      isTW ? getFinancialData(code, isTW) : Promise.resolve(null)  // v4.22：歷年財報數據
+      isTW ? getFinancialData(code, isTW) : Promise.resolve(null),  // v4.22：歷年財報數據
+      isTW ? fugleFetch(code) : Promise.resolve(null)           // 台股即時報價，優先於 Yahoo
     ]);
 
     // P2：法人數據（暫時禁用，使用默認值避免超時）
@@ -26694,7 +26713,7 @@ async function go(){
     if (!chartResult) throw new Error('無法取得資料，請確認代號是否正確（台股用數字，美股用英文）');
 
     const meta = chartResult.meta || {};
-    const price = meta.regularMarketPrice || meta.price;
+    const price = (isTW && fugleResult?.lastPrice) || meta.regularMarketPrice || meta.price;
     if (!price) throw new Error('無法取得股價，請稍後再試');
 
     // K線資料
