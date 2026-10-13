@@ -1,20 +1,20 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-13T07:47:27.319Z",
+  "lastUpdated": "2026-10-13T14:31:10.415Z",
   "date": "2026年10月13日（星期二）",
-  "basedOn": "2026年10月12日（前一交易日）",
+  "basedOn": "2026年10月13日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,851（10/12，▲0.38%）",
-        "S&P 500：7,807（10/12，▼0.06%）",
-        "那斯達克：27,246（10/12，▼0.44%）",
-        "費城半導體指數：12,237（10/12，▼2.67%）"
+        "道瓊：51,903（10/13，▲0.10%）",
+        "S&P 500：7,804（10/13，▼0.04%）",
+        "那斯達克：27,226（10/13，▼0.07%）",
+        "費城半導體指數：12,037（10/13，▼1.64%）"
       ],
-      "analysis": "美股今日漲0.38%，主因AI動能與金融股支撐買盤推向新高，惟公債殖利率攀升與緊縮隱憂仍限縮漲幅。"
+      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -33,10 +33,10 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：71,925（10/12，▼0.76%）",
-        "NIFTY 50：22,363（10/12，▼0.70%）"
+        "SENSEX：73,034（10/13，▲1.54%）",
+        "NIFTY 50：22,722（10/13，▲1.60%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,214（10/13，▲0.55%）"
+        "黃金：4,191（10/13，▼0.00%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,722（10/13，▲0.04%）"
+        "VN-Index：1,719（10/13，▼0.09%）"
       ],
-      "analysis": "VN-Index今日微漲0.04%。受散戶開戶潮湧現及新興券商擴張驅動，市場交投熱絡，短線呈現高檔震盪整理。"
+      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.27（10/13）",
+            "current": "102.28（10/13）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.15（10/13）",
+            "current": "32.16（10/13）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "15.6（10/13）",
+            "current": "15.2（10/13）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（10/13）",
+            "current": "$94（10/13）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwYUxqZXppa2VJeTRBVl9uQ3FHODlUSDNBeTFPUGFyNFZtSXJQZHk0TVBvREYzWnZ4TTUtVG1zSDc4THRMZk83Zm5kajYtNGc?oc=5"
     },
     {
-      "title": "外資連4賣提款近1,500億元！新台幣連三貶 32元保衛戰開打 - 經濟日報",
+      "title": "〈台幣〉股匯雙殺！熱錢流出重貶1.9角摜破32元 創近2個月新低 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE52RTRpTjd5S0NJNXIwN3V5VXg4RTh2bjBFa3B2MzhiaTZtYUxNemtlcVl5MU5wS2JRRjRxN3lzLTNZWEJLc2xERVRubEkycVYyVlpLV2tVcGF0QdIBX0FVX3lxTE1YQW04TWlqb3Z6clFTc0dWWFpndFVlUS0xcmRkS2twOFdXTEhRWWx3LXBnaGpmN0hGdVE0VEd0OEpkVlpzSkZBdEwtSXhhaVlMY21ZRDE3TnhRbW5hUU5V?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA0UEoxYWNydDZJcnVPa1lpSjloZVV0X0RiT0lQdVlwMlhtYzNaZllLYmVaVl8tMmVoVDN6cUYwTGNROHhQMUVqRzdacFRVMk0?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/13 下午10:31:10",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/13 下午3:47:27",
