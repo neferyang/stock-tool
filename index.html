@@ -179,7 +179,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.24.0',
+  version: '8.24.1',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -1600,7 +1600,18 @@ function mkVerdict(price, vals, tech, indKey, indObj, m) {
     return{t:'buy',ti:'🟢 估值偏低，可考慮買進或分批布局'+newsAdjustment,bo:`多個估值模型顯示股價低於合理價值，技術面亦出現超賣或反彈訊號。適合${indKey==='etf'?'定期定額或逢低加碼':'確認右側方向後分批建倉'}${buyWarn}52週低點 ${lo} 為重要支撐，請設好停損點。${newsSummary}${majorNewsWarning}`};
   }
   if(bear>=2&&bear>bull) {
-    return{t:'sell',ti:'🔴 估值偏高，建議謹慎或考慮減碼',bo:`多個估值模型顯示股價已超過合理估值，技術面亦有超買跡象。持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，留意回落風險。${newsSummary}${majorNewsWarning}`};
+    // 列出實際觸發「偏高」的估值模型及其目標價，取代籠統的「多個估值模型顯示」，
+    // 讓判斷有具體依據可查（哪個模型、合理價多少），而不是空泛結論。
+    const bearModels = vals.filter(v=>v.b.includes('偏高'));
+    const bearDetail = bearModels.length > 0
+      ? `依 ${bearModels.length} 項模型判斷偏高：${bearModels.map(v=>`${v.m}（合理價約${v.t}）`).join('、')}。`
+      : '';
+    const hiRaw = m['52hi'];
+    const highGap = (hiRaw && hiRaw > 0) ? Math.abs((hiRaw - price) / price * 100) : null;
+    const highGapNote = highGap !== null
+      ? (highGap < 3 ? `現價已貼近52週高點（相差${f(highGap,1)}%），追高風險高。` : `現價距52週高點尚有${f(highGap,1)}%空間，留意追高風險。`)
+      : '';
+    return{t:'sell',ti:'🔴 估值偏高，建議謹慎或考慮減碼',bo:`${bearDetail}技術面亦有超買跡象，持有者可考慮分批減碼或設停利。52週高點 ${hi} 為強阻力，${highGapNote}${newsSummary}${majorNewsWarning}`};
   }
   return{t:'hold',ti:'🟡 估值合理，持有觀望'+newsAdjustment,bo:`目前股價處於合理估值區間，多空訊號混合。建議持有並觀察突破方向，關注下次財報及產業動向。參考區間：${lo} ~ ${hi}。${newsSummary}${majorNewsWarning}`};
 }
