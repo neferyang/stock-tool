@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-15T23:58:29.385Z",
+  "lastUpdated": "2026-10-16T00:56:41.881Z",
   "date": "2026年10月16日（星期五）",
   "basedOn": "2026年10月15日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -21,7 +21,7 @@
       "items": [
         "日經225：64,426（10/15，▼4.90%）"
       ],
-      "analysis": "日股小幅整理，投資人等待日銀政策方向，盤面呈現觀望態勢。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -36,7 +36,7 @@
         "SENSEX：74,316（10/15，▲2.11%）",
         "NIFTY 50：22,997（10/15，▲1.66%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,182（10/15，▲1.79%）"
+        "黃金：4,173（10/15，▲1.59%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月15日",
+    "date": "2026年10月16日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.5（4:00 PM EDT, Thu Oct 15）",
+            "current": "41.0（4:00 PM EDT, Thu Oct 15）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約29%（10/14，加權指數 vs 240日均線）",
+            "current": "約24%（10/15，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.04（10/15）",
+            "current": "102.07（10/15）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.34（10/16）",
+            "current": "32.33（10/16）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/16 上午8:56:41",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/16 上午7:58:29",
@@ -2618,50 +2623,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2440,
-      "change": -50,
-      "changePct": -2.01,
+      "price": 2405,
+      "change": -35,
+      "changePct": -1.43,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 239.5,
-      "change": -3.5,
-      "changePct": -1.44,
-      "arrow": "▼"
+      "price": 244,
+      "change": 4.5,
+      "changePct": 1.88,
+      "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4165,
-      "change": -310,
-      "changePct": -6.93,
-      "arrow": "▼"
+      "price": 4575,
+      "change": 410,
+      "changePct": 9.84,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1630,
-      "change": -155,
-      "changePct": -8.68,
+      "price": 1620,
+      "change": -10,
+      "changePct": -0.61,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 316.5,
-      "change": -6.5,
-      "changePct": -2.01,
-      "arrow": "▼"
+      "price": 322,
+      "change": 5.5,
+      "changePct": 1.74,
+      "arrow": "▲"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 159.5,
-      "change": -1,
-      "changePct": -0.62,
-      "arrow": "▼"
+      "price": 160,
+      "change": 0.5,
+      "changePct": 0.31,
+      "arrow": "▲"
     }
   ]
 }
