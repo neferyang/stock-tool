@@ -1,18 +1,18 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-16T11:48:30.167Z",
+  "lastUpdated": "2026-10-16T15:26:26.779Z",
   "date": "2026年10月16日（星期五）",
-  "basedOn": "2026年10月15日（前一交易日）",
+  "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,178（10/15，▲1.08%）",
-        "S&P 500：7,744（10/15，▲0.33%）",
-        "那斯達克：26,713（10/15，▲0.08%）",
-        "費城半導體指數：11,581（10/15，▼0.88%）"
+        "道瓊：52,353（10/16，▲0.34%）",
+        "S&P 500：7,722（10/16，▼0.29%）",
+        "那斯達克：26,424（10/16，▼1.08%）",
+        "費城半導體指數：11,344（10/16，▼2.05%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -21,14 +21,14 @@
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "日經225今漲1.39%，主因長期轉型題材支撐及跌深反彈，惟面臨200日均線阻力，短線多空持續拉鋸。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,9 +48,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,199（10/16，▲0.69%）"
+        "黃金：4,204（10/16，▲0.80%）"
       ],
-      "analysis": "受美伊局勢與通膨避險需求推動，金價今日漲0.69%；雖有升息預期壓抑，但底部支撐強勁引發反彈。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.38（10/16）",
+            "current": "32.40（10/16）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.1（10/16）",
+            "current": "16.2（10/16）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "325 bps（3.25%，10/14）",
+            "current": "323 bps（3.23%，10/15）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "川普喊降息 美國利率為何反升？ - 工商時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzeHNyMVpxejJfSzZCZWpLVm5wTkFXYjFXbDhuaHRyOHdueUU2ZzQ5NUM4U2M3RTkyNGxwWkpJc3ZmRE1CMUpsenVncVNELWFzYXpsOTZYQVdHMHMyQzFZ?oc=5"
-    },
-    {
       "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+    },
+    {
+      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
       "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
@@ -236,8 +236,8 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/16 下午11:26:26",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/16 下午7:48:30",
