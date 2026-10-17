@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-16T23:49:26.446Z",
+  "lastUpdated": "2026-10-17T00:56:48.307Z",
   "date": "2026年10月17日（星期六）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,140（10/16，▼2.15%）",
         "費城半導體指數：11,137（10/16，▼3.83%）"
       ],
-      "analysis": "美股今日跌0.34%。主因晶片股拋售加劇，疊加高利率環境與創高後的獲利了結賣壓，市場情緒趨於謹慎。"
+      "analysis": "美股今日跌0.34%。晶片股拋售加劇，疊加高檔獲利了結賣壓與利率緊縮隱憂，壓制大盤指數表現。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "日經225重挫4."
+      "analysis": "受亞股全面重挫拖累及技術"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "受外資歷史級拋售與恐慌情緒蔓延影響，韓股觸發熔斷暴跌7.57%，波動率飆升，當局已啟動緊急維穩應對。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,14 +36,14 @@
         "SENSEX：74,729（10/16，▲0.56%）",
         "NIFTY 50：23,146（10/16，▲0.65%）"
       ],
-      "analysis": "受Reliance Jio上市題材與科技股大漲帶動，印度股市勁揚2.11%，樂觀年終展望亦提振買盤。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：47,111（10/16，▲0.30%）"
       ],
-      "analysis": "台股今日小漲0.3%，主因AI基本面題材支撐買盤，惟外資空單壓力仍在，多空交戰下大盤呈現震盪微升。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
@@ -57,12 +57,12 @@
       "items": [
         "VN-Index：1,706（10/17，▲0.45%）"
       ],
-      "analysis": "越南VN-Index今日漲0.45%。受散戶開戶潮、新興券商擴張及銀行股買盤提振，市場資金活絡推升指數。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月16日",
+    "date": "2026年10月17日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
@@ -213,19 +213,19 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - 永豐金證券",
+      "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
     },
     {
-      "title": "【第750期】美國CPI增幅低於市場預期 本週關注全球央行年會結果 - 玉山銀行",
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcndVb056cF9fcklpTjc4N05GN01kNUlhRkI2Q3U4M0pBYm1FQkhCR18yY1NzZ1ZVUzd3UXlFNXpCSHJUYmRZVDgzcVlfV0VQMElLTFRWT3hPM3dIdmRyRWlVWjh1a1RVa2NRNXl6Nk5yaUY4QXZ1aTdPQmhIVnJXd1J0QWIxVkNDNGwxaWtpVFVaWC00b3c?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4Q3VtUjk0V3lwX3J3ZVBIdXQwM25iaDVnTE1GUHhmVUcteU9lUXNNZ25BTlhKOEVWNXF3bEw0dEI0dU44RzJpQ2Rfb3NJdlMtNnZHRWZmMy0xMmxwZ0JHeXJ5NFJxb0pocVQ4NkRNb1FHbVFMa08tMzh4OUUtV3c?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92S1lPTVY0eDlYYXI4ZUs4bG5DSVZHMzhaa1REbjNUUC0xeGhtMVVVLWZsMlNMSHFNYUV3NjNaRjJiTzhWQjUwQ3dtc2lOSEZUX2ljdUdkMXNuNDl4cUVzbEstLW5MQVBxMnRPOUdfWnI?oc=5"
     },
     {
       "title": "外資出逃 台股週線狂瀉逾2200點 新台幣週貶4.63角 - Rti 中央廣播電臺",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美亞股走勢背離",
-      "content": "費半重挫近4%且韓股暴跌，台股與越股同日卻逆勢收紅。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "外資出逃風險",
-      "content": "台股週線狂瀉逾2200點，匯市同步重貶加劇撤資壓力。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息預期落空",
-      "content": "非農下修且川普促降息，官員未鬆口使美債利率反常走升。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/17 上午8:56:48",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/17 上午7:49:26",
