@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-17T00:56:48.307Z",
+  "lastUpdated": "2026-10-17T10:32:12.228Z",
   "date": "2026年10月17日（星期六）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,140（10/16，▼2.15%）",
         "費城半導體指數：11,137（10/16，▼3.83%）"
       ],
-      "analysis": "美股今日跌0.34%。晶片股拋售加劇，疊加高檔獲利了結賣壓與利率緊縮隱憂，壓制大盤指數表現。"
+      "analysis": "美股今日收跌0.34%，主因市場觀望通膨數據與利率前景，科技股獲利了結賣壓湧現，投資人情緒轉趨謹慎。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "受亞股全面重挫拖累及技術"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI今日漲2.05%，主因美股走強激勵，外資回流晶片與科技權值股，帶動市場風險偏好回升。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：74,729（10/16，▲0.56%）",
         "NIFTY 50：23,146（10/16，▲0.65%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市今日上漲0.56%，主因外資持續回流、內需消費強勁，加上大型金融與科技權值股買盤支撐帶動。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,9 +48,9 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,187（10/16，▲0.40%）"
+        "黃金：4,181（10/16，▲0.26%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "受地緣政治風險及降息預期推動，避險需求升溫，黃金今日溫和收漲0.26%，短期多頭趨勢不變。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月17日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
+    "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約24%（10/15，加權指數 vs 240日均線）",
+            "current": "約24%（10/16，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.78（10/16）",
+            "current": "101.84（10/16）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$99（10/16）",
-            "status": "🟠",
-            "statusText": "接近警戒（>$100）"
+            "current": "$101（10/16）",
+            "status": "🔴",
+            "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
           {
             "name": "初領失業救濟金",
@@ -203,56 +203,36 @@
   ],
   "news": [
     {
-      "title": "川普喊降息 美國利率為何反升？ - 工商時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzeHNyMVpxejJfSzZCZWpLVm5wTkFXYjFXbDhuaHRyOHdueUU2ZzQ5NUM4U2M3RTkyNGxwWkpJc3ZmRE1CMUpsenVncVNELWFzYXpsOTZYQVdHMHMyQzFZ?oc=5"
-    },
-    {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
-    },
-    {
-      "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
-    },
-    {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
-    },
-    {
-      "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92S1lPTVY0eDlYYXI4ZUs4bG5DSVZHMzhaa1REbjNUUC0xeGhtMVVVLWZsMlNMSHFNYUV3NjNaRjJiTzhWQjUwQ3dtc2lOSEZUX2ljdUdkMXNuNDl4cUVzbEstLW5MQVBxMnRPOUdfWnI?oc=5"
-    },
-    {
-      "title": "外資出逃 台股週線狂瀉逾2200點 新台幣週貶4.63角 - Rti 中央廣播電臺",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBtdVVTY3FSQkFTTmlXcWVPY0ZiQlNyOG9vRy1JenFVdVg5WHNmQVpzX01yWGxZdTFueDF5QndJcEM0OEhIUmdYUVAwTE5DdVNZX2NGOThCMA?oc=5"
+      "title": "Sorry...",
+      "description": "此標題資訊不足，無法評估市場意涵與投資重要性。",
+      "url": ""
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美亞股市脫鉤",
+      "content": "美股科技族群重挫但亞洲主要指數全數收紅，市場呈現兩樣情。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "半導體遭拋售",
+      "content": "費城半導體指數大跌近4%，顯示科技硬體板塊面臨強烈賣壓。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "資金轉向避險",
+      "content": "美股全線走跌之際黃金逆勢收漲，資金保守防禦心態開始浮現。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/17 下午6:32:12",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/17 上午8:56:48",
