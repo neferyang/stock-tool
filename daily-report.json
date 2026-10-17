@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-17T13:54:28.994Z",
+  "lastUpdated": "2026-10-17T14:17:42.762Z",
   "date": "2026年10月17日（星期六）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,140（10/16，▼2.15%）",
         "費城半導體指數：11,137（10/16，▼3.83%）"
       ],
-      "analysis": "美股今日微跌0.34%，主因晶片股拋售加劇及地緣政治升溫，使指數在歷史高點面臨獲利了結壓力。"
+      "analysis": "美股微跌0.34%，主因晶片股拋售加劇與地緣政治緊張，加上高檔獲利了結賣壓湧現，壓抑整體大盤表現。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "日經225今漲1.39%，主因長期轉型題材提振信心與跌深反彈，惟短線面臨200日均線阻力，多空仍於區間拉鋸。"
+      "analysis": "日經225今漲1.39%，主因長期轉型題材支撐低接買盤回流，惟面臨200日均線阻力，後續多空仍受壓抑。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "南韓KOSPI反彈2.05%，主因政府召開緊急會議釋出救市訊號，帶動連日暴跌與高波動後的逢低買盤進場。"
+      "analysis": "南韓KOSPI今日反彈2.05%，主因當局召開緊急會議釋出護盤訊號，帶動超跌低接買盤湧入。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：74,729（10/16，▲0.56%）",
         "NIFTY 50：23,146（10/16，▲0.65%）"
       ],
-      "analysis": "印度股市今漲0.56%，主因Jio傳IPO提振市場信心，加上科技股走強及指數看漲展望，激勵買盤進場。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：47,111（10/16，▲0.30%）"
       ],
-      "analysis": "台股今日微幅收漲0.30%。外資連日提款後賣壓略見趨緩，逢低買盤與防守性資金進場支撐，帶動大盤震盪回穩。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
         "黃金：4,181（10/16，▲0.26%）"
       ],
-      "analysis": "金價今日微漲0.26%。儘管非農與升息預期施壓，但美伊局勢等地緣風險與抗通膨買盤，仍為底部提供支撐。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,706（10/17，▲0.45%）"
       ],
-      "analysis": "受全民投資熱潮帶動，新興券商強勢崛起並推動散戶資金湧入，激勵VN-Index今日微升0.45%，延續多頭擴張格局。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -204,32 +204,32 @@
   "news": [
     {
       "title": "川普喊降息 美國利率為何反升？ - 工商時報",
-      "description": "市場憂心政策推升通膨與財政赤字，公債殖利率不降反升，資產定價承壓。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzeHNyMVpxejJfSzZCZWpLVm5wTkFXYjFXbDhuaHRyOHdueUU2ZzQ5NUM4U2M3RTkyNGxwWkpJc3ZmRE1CMUpsenVncVNELWFzYXpsOTZYQVdHMHMyQzFZ?oc=5"
     },
     {
       "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "官員政策分歧加劇美債供給與定價壓力，固定收益市場波動與融資成本看增。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
-      "description": "服務業通膨黏著推遲降息預期，利率恐維持高檔更久，壓抑風險資產評價。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
-      "description": "金價處於關鍵技術多空分水嶺，高波動下投資人須嚴控避險部位風險。",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+      "title": "本週操盤筆記：美國就業數據、全球PMI與歐元區通膨 - 鉅亨網",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5KT1YySkMxRE43bGpQU25RSmdJZEJtYzh2ai0zd2pleDRUeE9MT2dYUVByNDVFdVM0dmswZXE2UUJWWXR6bERPQ2ppQjVZdVE?oc=5"
     },
     {
       "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
-      "description": "升息前景不明，官方轉向防範金融風險，市場流動性與信用環境料轉趨謹慎。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4Q3VtUjk0V3lwX3J3ZVBIdXQwM25iaDVnTE1GUHhmVUcteU9lUXNNZ25BTlhKOEVWNXF3bEw0dEI0dU44RzJpQ2Rfb3NJdlMtNnZHRWZmMy0xMmxwZ0JHeXJ5NFJxb0pocVQ4NkRNb1FHbVFMa08tMzh4OUUtV3c?oc=5"
     },
     {
       "title": "外資狂提款！台幣爆量慘跌「成最弱亞幣」恐下探33元？ - Yahoo新聞",
-      "description": "熱錢加速撤離恐加劇台股失守風險與進口通膨壓力，投資人需提高現金防禦。",
+      "description": "",
       "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNcUw4WFh2RTVSd2JMSVRqM0k0RndHMTdZQTFNVWc2N05NS1lJdmpmc01WZG5HVnpTckxIX2xUYUI2X2ZFZVBnQ3JnalRwTXdYblhqT2VCbDN0UlFvdGRVVDZVYXhIY1FHb0lrRktYUDhIQ2V2dGdIRjJhYUw0NVhhRGJPLWl0OEEtZFhrV001RS1YZGs5YU52V2pfS25vRUN4eUdqZEVsY05MbGl0RmhpR0VUWk9iaXZUUUFGQTVSRVYzUlIzaFVfaXBZRXJFdUdEYm5vQjM4Yl90NjVZR0RVSkVPeGZUZkRNQXlzSGJ5OW90R2NnMHBHRFBmaDhBenNsREpLM0Zzb1dOV19EZVBxQVVQU2FFSjFOcDRaU1VqNV9DbXBhOEhucU1qZTIzcWtLMGYyTXAtbHd3b3ZuZGc2dHZtOFVPNy1SOUE?oc=5"
     }
   ],
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/17 下午10:17:42",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/17 下午9:54:28",
