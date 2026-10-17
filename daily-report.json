@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-17T10:32:12.228Z",
+  "lastUpdated": "2026-10-17T11:06:06.918Z",
   "date": "2026年10月17日（星期六）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,140（10/16，▼2.15%）",
         "費城半導體指數：11,137（10/16，▼3.83%）"
       ],
-      "analysis": "美股今日收跌0.34%，主因市場觀望通膨數據與利率前景，科技股獲利了結賣壓湧現，投資人情緒轉趨謹慎。"
+      "analysis": "美股今日跌0.34%。主因晶片股擴大拋售，加上聯準會鷹派利率壓力與高檔獲利了結賣壓，壓抑整體大盤表現。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日經225漲1.39%，受長期轉型利多與低接買盤帶動自前波重挫反彈，惟200日均線阻力仍待多方消化。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "南韓KOSPI今日漲2.05%，主因美股走強激勵，外資回流晶片與科技權值股，帶動市場風險偏好回升。"
+      "analysis": "受政府緊急救市措施提振及逢低買盤進場，韓股自前期重挫中技術性反彈，激勵KOSPI今日勁揚2.05%。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,7 +36,7 @@
         "SENSEX：74,729（10/16，▲0.56%）",
         "NIFTY 50：23,146（10/16，▲0.65%）"
       ],
-      "analysis": "印度股市今日上漲0.56%，主因外資持續回流、內需消費強勁，加上大型金融與科技權值股買盤支撐帶動。"
+      "analysis": "受Reliance Jio傳聞IPO及科技股大漲激勵，印度股市今日升0.56%，年線看俏提振買氣。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -50,14 +50,14 @@
       "items": [
         "黃金：4,181（10/16，▲0.26%）"
       ],
-      "analysis": "受地緣政治風險及降息預期推動，避險需求升溫，黃金今日溫和收漲0.26%，短期多頭趨勢不變。"
+      "analysis": "黃金微漲0.26%，受中東地緣避險支撐，但美強勁就業強化升息預期與通膨擔憂，限制了反彈空間。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,706（10/17，▲0.45%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "VN-Index今日微漲0.45%。受新興券商擴張及銀行股支撐，搭配散戶開戶潮挹注資金，帶動大盤延續偏多格局。"
     }
   ],
   "riskDashboard": {
@@ -203,31 +203,61 @@
   ],
   "news": [
     {
-      "title": "Sorry...",
-      "description": "此標題資訊不足，無法評估市場意涵與投資重要性。",
-      "url": ""
+      "title": "川普喊降息 美國利率為何反升？ - 工商時報",
+      "description": "市場憂心政策推升通膨與財政赤字，公債殖利率不降反升，股債震盪加劇。",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzeHNyMVpxejJfSzZCZWpLVm5wTkFXYjFXbDhuaHRyOHdueUU2ZzQ5NUM4U2M3RTkyNGxwWkpJc3ZmRE1CMUpsenVncVNELWFzYXpsOTZYQVdHMHMyQzFZ?oc=5"
+    },
+    {
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "description": "官員政策步調分歧恐加劇美債殖利率波動，使債市流動性面臨重新定價。",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+    },
+    {
+      "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
+      "description": "服務業通膨黏著使官方降息受阻，高利率維持更久恐打壓股市評價。",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
+    },
+    {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "金價面臨方向性突破，投資人應緊盯關鍵點位以防範極端行情的波動風險。",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+    },
+    {
+      "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
+      "description": "貨幣決策偏向保守審慎，金融穩定考量或將壓抑市場原先對政策寬鬆的期待。",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4Q3VtUjk0V3lwX3J3ZVBIdXQwM25iaDVnTE1GUHhmVUcteU9lUXNNZ25BTlhKOEVWNXF3bEw0dEI0dU44RzJpQ2Rfb3NJdlMtNnZHRWZmMy0xMmxwZ0JHeXJ5NFJxb0pocVQ4NkRNb1FHbVFMa08tMzh4OUUtV3c?oc=5"
+    },
+    {
+      "title": "資金移轉、股匯連動 台幣短期貶壓恐難消 - UDN",
+      "description": "外資外流加劇匯率貶值壓力，台股短期恐因資金動能不足而承壓。",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5mNjRFUEV2SWdTZzBPS3M4U1RHejJCekFZZVZHTXhLOHM3OWpUYXpMUFVZT1h3US1NbnBWUHg1dW9CNFRRTkozTkQzMWNFcWNm0gFWQVVfeXFMUHY1Umw3N0g1TUxqMnNfVFJVdHozZDl6Sno5R3pZX2poSXJGYTdYVV9sNWJESzZpbldtTHppbHN5T25VRlVhNXVRX2NCaTJaN0l2N0t4d2c?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
       "title": "美亞股市脫鉤",
-      "content": "美股科技族群重挫但亞洲主要指數全數收紅，市場呈現兩樣情。"
+      "content": "美股科技與費半重挫逾3%，亞股卻全面逆勢收紅現背離。"
     },
     {
       "emoji": "2️⃣",
-      "title": "半導體遭拋售",
-      "content": "費城半導體指數大跌近4%，顯示科技硬體板塊面臨強烈賣壓。"
+      "title": "川普喊話失效",
+      "content": "降息呼聲難擋財政赤字擔憂，利率不降反升加劇債市動盪。"
     },
     {
       "emoji": "3️⃣",
-      "title": "資金轉向避險",
-      "content": "美股全線走跌之際黃金逆勢收漲，資金保守防禦心態開始浮現。"
+      "title": "官員打壓降息",
+      "content": "Goolsbee警告服務通膨難解，高利率恐拉長壓抑股市評價。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/17 下午7:06:06",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/17 下午6:32:12",
