@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-18T14:30:47.463Z",
-  "date": "2026年10月18日（星期日）",
+  "lastUpdated": "2026-10-18T23:40:50.817Z",
+  "date": "2026年10月19日（星期一）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -14,21 +14,21 @@
         "那斯達克：26,140（10/16，▼2.15%）",
         "費城半導體指數：11,137（10/16，▼3.83%）"
       ],
-      "analysis": "美股今日跌0.34%。主因晶片股遭拋售與高檔獲利了結賣壓，抵銷了降息預期與AI動能，大盤震盪拉鋸。"
+      "analysis": "美股微跌0.34%，主因晶片股遭遇拋售、地緣政治緊張，以及指數創高後多頭逢高調節引發拉回壓力。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：65,324（10/16，▲1.39%）"
       ],
-      "analysis": "日經225今漲1.39%，主因長期轉型題材支撐，帶動買盤逢低進場，推升指數反彈挑戰關鍵技術阻力位。"
+      "analysis": "日經225今日漲1.39%。主因AI題材發酵、科技權值股強勢領漲，帶動指數突破阻力，抵禦區域市場震盪。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,668（10/16，▲2.05%）"
       ],
-      "analysis": "KOSPI今日反彈2.05%，主因當局召開緊急穩定會議釋出護盤訊號，疊加跌深後低接買盤湧入所致。"
+      "analysis": "南韓政府召開緊急會議釋出救市信號，逢低買盤進場，推動KOSPI自重挫中強彈2.05%，惟波動仍偏高。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,21 +43,21 @@
       "items": [
         "台灣加權指數：47,111（10/16，▲0.30%）"
       ],
-      "analysis": "台股今日微幅收漲0.30%，主因外資大舉調節後浮現逢低買盤，市場雖受空單與競爭雜音壓抑，短線仍呈跌深弱反彈。"
+      "analysis": "台股微幅反彈0.30%。即便外資近期大幅提款且市場避險情緒偏高，但在逢低買盤與超跌反彈契機支撐下，大盤暫時止跌回穩。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,181（10/16，▲0.26%）"
+        "黃金：4,202（10/18，▲0.50%）"
       ],
-      "analysis": "黃金微漲0.26%。通膨回落與升息預期壓抑漲勢，但中東地緣政治風險及機構看好底部抬升，提供價格支撐。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,706（10/18，▲0.45%）"
+        "VN-Index：1,706（10/19，▲0.45%）"
       ],
-      "analysis": "受全民投資熱潮帶動，新興券商與銀行股走強，推升越南VN-Index今日上揚0.45%，延續多頭格局。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.84（10/16）",
+            "current": "101.87（10/18）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.43（10/18）",
+            "current": "32.39（10/19）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$99（10/16）",
+            "current": "$98（10/18）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4Q3VtUjk0V3lwX3J3ZVBIdXQwM25iaDVnTE1GUHhmVUcteU9lUXNNZ25BTlhKOEVWNXF3bEw0dEI0dU44RzJpQ2Rfb3NJdlMtNnZHRWZmMy0xMmxwZ0JHeXJ5NFJxb0pocVQ4NkRNb1FHbVFMa08tMzh4OUUtV3c?oc=5"
     },
     {
-      "title": "股匯雙殺…外資湧現撤離潮 匯市爆91億美元天量 - udn",
+      "title": "資金移轉、股匯連動 台幣短期貶壓恐難消 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9QUmFQdkd3LXBuTGg1aW85cUV0eVo2RThDamxLSnppeXVoUUk2ZFRPOHB4dFRNLVpabEc4VlZYU09MQ1lHVEF0RXg3WWY1TE560gFWQVVfeXFMTUpCLW9DNVhOYVB3SmhHeDNzT2puRzZncHRFN0F5Z1lvUXZSZjhKVDdKSkhVSUFhZzh1VHNVVEJnS1hFb1hpU1lYc0paNzBRUVZtamp1TUE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5mNjRFUEV2SWdTZzBPS3M4U1RHejJCekFZZVZHTXhLOHM3OWpUYXpMUFVZT1h3US1NbnBWUHg1dW9CNFRRTkozTkQzMWNFcWNm0gFWQVVfeXFMUHY1Umw3N0g1TUxqMnNfVFJVdHozZDl6Sno5R3pZX2poSXJGYTdYVV9sNWJESzZpbldtTHppbHN5T25VRlVhNXVRX2NCaTJaN0l2N0t4d2c?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股亞股分歧",
-      "content": "美股科技與費半重挫近4%，亞股卻全線收紅走出逆勢背離行情。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
-      "title": "外資撤離天量",
-      "content": "外部資金湧現撤離潮致股匯雙殺，匯市單日爆出91億美元天量。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息預期落空",
-      "content": "川普喊降息利率卻反升，官員更示警高通膨未解使寬鬆路徑受阻。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/19 上午7:40:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/18 下午10:30:47",
