@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-18T00:31:54.665Z",
+  "lastUpdated": "2026-10-18T10:57:56.809Z",
   "date": "2026年10月18日（星期日）",
   "basedOn": "2026年10月16日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -36,7 +36,7 @@
         "SENSEX：74,729（10/16，▲0.56%）",
         "NIFTY 50：23,146（10/16，▲0.65%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "受信實Jio傳出IPO計畫及IT類股大漲帶動，印度股市今日上漲0.56%。機構看好一年內目標上看27,000點，市場情緒樂觀。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -50,21 +50,21 @@
       "items": [
         "黃金：4,181（10/16，▲0.26%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "黃金今日微漲0.26%。主因美通膨降溫與中東地緣局勢帶來避險買盤，抵銷強勁就業數據引發的升息壓力。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,706（10/18，▲0.45%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "受全民炒股熱潮、新興券商擴張及銀行等權值股支撐，今日VN-Index上漲0.45%，延續多頭動能。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月18日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
+    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$101（10/16）",
-            "status": "🔴",
-            "statusText": "突破警戒（>$100），通膨與供應風險升高"
+            "current": "$99（10/16）",
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -228,31 +228,36 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4Q3VtUjk0V3lwX3J3ZVBIdXQwM25iaDVnTE1GUHhmVUcteU9lUXNNZ25BTlhKOEVWNXF3bEw0dEI0dU44RzJpQ2Rfb3NJdlMtNnZHRWZmMy0xMmxwZ0JHeXJ5NFJxb0pocVQ4NkRNb1FHbVFMa08tMzh4OUUtV3c?oc=5"
     },
     {
-      "title": "外資狂提款！台幣爆量慘跌「成最弱亞幣」恐下探33元？ - Yahoo新聞",
+      "title": "股匯雙殺…外資湧現撤離潮 匯市爆91億美元天量 - udn",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxNcUw4WFh2RTVSd2JMSVRqM0k0RndHMTdZQTFNVWc2N05NS1lJdmpmc01WZG5HVnpTckxIX2xUYUI2X2ZFZVBnQ3JnalRwTXdYblhqT2VCbDN0UlFvdGRVVDZVYXhIY1FHb0lrRktYUDhIQ2V2dGdIRjJhYUw0NVhhRGJPLWl0OEEtZFhrV001RS1YZGs5YU52V2pfS25vRUN4eUdqZEVsY05MbGl0RmhpR0VUWk9iaXZUUUFGQTVSRVYzUlIzaFVfaXBZRXJFdUdEYm5vQjM4Yl90NjVZR0RVSkVPeGZUZkRNQXlzSGJ5OW90R2NnMHBHRFBmaDhBenNsREpLM0Zzb1dOV19EZVBxQVVQU2FFSjFOcDRaU1VqNV9DbXBhOEhucU1qZTIzcWtLMGYyTXAtbHd3b3ZuZGc2dHZtOFVPNy1SOUE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9QUmFQdkd3LXBuTGg1aW85cUV0eVo2RThDamxLSnppeXVoUUk2ZFRPOHB4dFRNLVpabEc4VlZYU09MQ1lHVEF0RXg3WWY1TE560gFWQVVfeXFMTUpCLW9DNVhOYVB3SmhHeDNzT2puRzZncHRFN0F5Z1lvUXZSZjhKVDdKSkhVSUFhZzh1VHNVVEJnS1hFb1hpU1lYc0paNzBRUVZtamp1TUE?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美亞股走勢分歧",
+      "content": "費半重挫逾3%拖累美股，亞股卻普遍逆勢收紅形成背離。"
     },
     {
       "emoji": "2️⃣",
-      "title": "亞股跟風美股",
-      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
+      "title": "外資撤離爆天量",
+      "content": "匯市爆出91億美元天量，股匯雙殺凸顯外部資金外流風險。"
     },
     {
       "emoji": "3️⃣",
-      "title": "貴金屬波動",
-      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
+      "title": "聯準會鷹派示警",
+      "content": "官員直言高CPI不可接受，服務業通膨加劇降息預期落差。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/18 下午6:57:56",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/18 上午8:31:54",
