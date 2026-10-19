@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-19T13:50:21.670Z",
-  "date": "2026年10月19日（星期一）",
+  "lastUpdated": "2026-10-19T17:26:50.722Z",
+  "date": "2026年10月20日（星期二）",
   "basedOn": "2026年10月19日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,19 +9,19 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,873（10/19，▼0.25%）",
-        "S&P 500：7,695（10/19，▲0.46%）",
-        "那斯達克：26,401（10/19，▲1.00%）",
-        "費城半導體指數：11,436（10/19，▲2.68%）"
+        "道瓊：51,982（10/19，▼0.04%）",
+        "S&P 500：7,698（10/19，▲0.51%）",
+        "那斯達克：26,458（10/19，▲1.22%）",
+        "費城半導體指數：11,384（10/19，▲2.21%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,917（10/19，▼0.62%）"
       ],
-      "analysis": "日經225跌0.62%，主因亞股普遍重挫拖累，且指數面臨斐波那契技術阻力，高檔獲利了結賣壓湧現。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,180（10/19，▼0.02%）"
+        "黃金：4,157（10/19，▼0.58%）"
       ],
-      "analysis": "黃金今日微跌0.02%。通膨降溫與地緣局勢緩和削弱避險需求，加上非農走強升溫升息預期，令金價承壓整固。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,690（10/19，▼0.94%）"
+        "VN-Index：1,690（10/20，▼0.94%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約23%（10/19，加權指數 vs 240日均線）",
+            "current": "約24%（10/16，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.87（10/19）",
+            "current": "101.99（10/19）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.46（10/19）",
+            "current": "32.47（10/19）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.1（10/19）",
+            "current": "18.5（10/19）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "323 bps（3.23%，10/15）",
+            "current": "331 bps（3.31%，10/16）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$98（10/19）",
+            "current": "$99（10/19）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
+    },
+    {
       "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
-    },
-    {
-      "title": "市場不信Fed會再升息？美債曲線出現罕見警訊 - Yahoo股市",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxOSWtCOGNQcUhuY0FZYVUzU2VtbmFaaF9uQkExMElEZjlHaDRxMlN6cHlrTlJPUEd4empXVUxTaGRXZVJlVjJaeTBqb3NIcE1GbjFRZTl3QzMtWXRfaGFmWjJUOVc4a0ZpdVRueHZIV0ljbzFwckU4YkFva1dhVXZ4Rm5CeDQ2X0p1d3NiN0ZmT2g0NGhVUldOb2tYQ2lXZnByNXE4bGdBWnN3MFBBQVhSUzR1V0t5MXBkVTJ6Z2gzVDM1alhQRVNYU1E3c1RodXRySXNDRWdCT3FDTjlVNHNYVDZSUXBvX25NajNncVdBYmJtNS0tT1dQcUhHQlIyNHRzS2RNOGlndERRSndMeEVQSTFoaGRmVGZycG1GTzBMcmUwVGpTNmxqUzhTZ2xPSFp0UnBHUF9LRUw?oc=5"
     },
     {
       "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/20 上午1:26:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/19 下午9:50:21",
