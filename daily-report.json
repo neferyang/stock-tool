@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-19T23:41:02.340Z",
+  "lastUpdated": "2026-10-20T00:45:07.066Z",
   "date": "2026年10月20日（星期二）",
   "basedOn": "2026年10月19日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,21 +14,21 @@
         "那斯達克：26,431（10/19，▲1.11%）",
         "費城半導體指數：11,316（10/19，▲1.61%）"
       ],
-      "analysis": "美股微跌0.07%，主因降息預期與重磅科技財報前夕的觀望情緒拉鋸，市場於歷史高檔呈現震盪整固。"
+      "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,917（10/19，▼0.62%）"
       ],
-      "analysis": "日經225今漲1.39%。主因AI浪潮推動軟銀等權值股走強，帶動指數反彈並測試關鍵技術阻力位。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,768（10/19，▲1.76%）"
       ],
-      "analysis": "KOSPI在經歷劇烈暴跌與熔斷後反彈2.05%，主因當局召開緊急穩定會議並擬啟動應變計畫，帶動低接買盤湧入。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -43,14 +43,14 @@
       "items": [
         "台灣加權指數：46,822（10/19，▼0.61%）"
       ],
-      "analysis": "受外資擴大提款與避險空單增加影響，台股今跌0.61%，短線震盪加劇，市場聚焦關鍵支撐與資金回流契機。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,155（10/19，▼0.63%）"
+        "黃金：4,151（10/19，▼0.72%）"
       ],
-      "analysis": "今日黃金跌0.63%。主因非農就業增長強化聯準會升息預期，加上高盛調降目標價，通膨降溫亦削弱避險買盤。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月19日",
+    "date": "2026年10月20日",
     "rating": "高度警戒",
     "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
     "layers": [
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.97（10/19）",
+            "current": "101.93（10/19）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.48（10/20）",
+            "current": "32.47（10/20）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
+      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - 永豐金證券",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOZnJkaUZoSGxyRENYbE9CenNoaG5iZVM5WlpscVVCTFg1X3I1eTVla0FtbXhrQXZGcUs0aEZ6b1RJOXdXMC1KT1B2SkVUeDdNYk16U3JlOHk5Y0ZMYXJqcV9HMlJwbGVTRnRPR0owUVVTaVktdjV5a2wtTkk5blpacm90X3lrengzQXBMVDdOeUdFdDA2WS1yTlVlOUxVN2dUMm55Z3oxRXQtT1dhUEw1LVByY2NZX1RxTF9iT21Ha1o0R0FmXzRFSTZIRGZyWjE5aU5Ld3pMS2VQdUVLNE9aYkRLQzRJR0V1bFR2d09hd2x3TXpfeFBLMlRfRkc2bF83?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
       "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
@@ -236,23 +236,28 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美台科技背離",
-      "content": "美股費半漲逾1.6%，台股卻反向跌0.61%，走勢嚴重脫鉤。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
-      "title": "資金外逃風險",
-      "content": "外資單週匯出近180億美元，引發台幣重貶，外部資金持續抽離。"
+      "title": "亞股跟風美股",
+      "content": "亞股走勢跟隨美股，日股和台股表現受美股指引。"
     },
     {
       "emoji": "3️⃣",
-      "title": "降息通膨矛盾",
-      "content": "非農衰退壓抑升息預期，官員卻示警高CPI難忍受，政策陷分歧。"
+      "title": "貴金屬波動",
+      "content": "黃金價格波動，受美元走勢和風險情緒影響。"
     }
   ],
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/20 上午8:45:07",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/20 上午7:41:02",
@@ -2718,50 +2723,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2420,
-      "change": 0,
-      "changePct": 0,
-      "arrow": "-"
+      "price": 2530,
+      "change": 110,
+      "changePct": 4.55,
+      "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 239.5,
-      "change": -4.5,
-      "changePct": -1.84,
-      "arrow": "▼"
+      "price": 245,
+      "change": 5.5,
+      "changePct": 2.3,
+      "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4205,
-      "change": -45,
-      "changePct": -1.06,
-      "arrow": "▼"
+      "price": 4460,
+      "change": 255,
+      "changePct": 6.06,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1640,
-      "change": 5,
-      "changePct": 0.31,
+      "price": 1690,
+      "change": 50,
+      "changePct": 3.05,
       "arrow": "▲"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 314.5,
-      "change": -7.5,
-      "changePct": -2.33,
+      "price": 312,
+      "change": -2.5,
+      "changePct": -0.79,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
       "price": 158.5,
-      "change": -3,
-      "changePct": -1.86,
-      "arrow": "▼"
+      "change": 0,
+      "changePct": 0,
+      "arrow": "-"
     }
   ]
 }
