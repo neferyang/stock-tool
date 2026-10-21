@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-21T00:10:01.581Z",
+  "lastUpdated": "2026-10-21T01:07:22.881Z",
   "date": "2026年10月21日（星期三）",
   "basedOn": "2026年10月20日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,134（10/20，▼0.63%）"
+        "黃金：4,139（10/20，▼0.52%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.79（10/20）",
+            "current": "101.78（10/20）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.58（10/21）",
+            "current": "32.62（10/21）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股修正已到尾聲...專家給出五個理由 - 經濟日報",
+      "title": "〈台幣〉外資提款台股並匯出一度重貶2.27角 失守32.6元關卡 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1NT0N0cEYydHltZDloWkJKR1NibGZiN1UwYlBtb2oyeHBpNDRZVkx3NXBkN2tkaEFoYUN5a3RDSUxYSjVkUG9wV1BkNi1MNmtteEZNbklJdzROZ9IBX0FVX3lxTE1RSmZ2Z0ZuSTBiZVo2Yll1aE11TWhUNU1nNmVfcXJpblJTdFpNcGRYZk5IeFBVeExreHVENDc1TkJBemxvNjFaOVpxbHpJaGE2eFpIVUo1N3RCam8wOUtV?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFB3ajZ6VDdpYnVpdllad0RNX0Q5RF9HbEYtSDdKOWNuNW1sTWNMcHhxZ3R5a0Vfc2tHLUxRb1N4QXJvZnM3SklUc05EdG1yMnM?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/21 上午9:07:22",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/21 上午8:10:01",
@@ -2748,50 +2753,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2405,
-      "change": -15,
-      "changePct": -0.62,
-      "arrow": "▼"
+      "price": 2435,
+      "change": 30,
+      "changePct": 1.25,
+      "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 241.5,
-      "change": 2,
-      "changePct": 0.84,
+      "price": 245.5,
+      "change": 4,
+      "changePct": 1.66,
       "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4150,
-      "change": -55,
-      "changePct": -1.31,
-      "arrow": "▼"
+      "price": 4165,
+      "change": 15,
+      "changePct": 0.36,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1605,
-      "change": -35,
-      "changePct": -2.13,
-      "arrow": "▼"
+      "price": 1610,
+      "change": 5,
+      "changePct": 0.31,
+      "arrow": "▲"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 320.5,
-      "change": 6,
-      "changePct": 1.91,
+      "price": 325.5,
+      "change": 5,
+      "changePct": 1.56,
       "arrow": "▲"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 153.5,
-      "change": -5,
-      "changePct": -3.15,
-      "arrow": "▼"
+      "price": 154.5,
+      "change": 1,
+      "changePct": 0.65,
+      "arrow": "▲"
     }
   ]
 }
