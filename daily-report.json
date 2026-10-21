@@ -1,34 +1,34 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-21T12:13:57.861Z",
+  "lastUpdated": "2026-10-21T15:59:20.757Z",
   "date": "2026年10月21日（星期三）",
-  "basedOn": "2026年10月20日（前一交易日）",
+  "basedOn": "2026年10月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,496（10/20，▲1.02%）",
-        "S&P 500：7,713（10/20，▲0.28%）",
-        "那斯達克：26,425（10/20，▼0.02%）",
-        "費城半導體指數：11,284（10/20，▼0.29%）"
+        "道瓊：52,640（10/21，▲0.27%）",
+        "S&P 500：7,753（10/21，▲0.52%）",
+        "那斯達克：26,722（10/21，▲1.13%）",
+        "費城半導體指數：11,515（10/21，▲2.05%）"
       ],
-      "analysis": "美股今漲1.02%，主要受聯準會降息預期升溫，以及市場靜待大型科技股財報出爐、帶動風險情緒回暖所致。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：64,621（10/21，▲0.85%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,736（10/21，▲3.29%）"
       ],
-      "analysis": "KOSPI經歷重挫與熔斷後反彈3.29%，主因觸及技術支撐、政府召開緊急會議釋出救市信號，吸引低接買盤回流。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,28 +36,28 @@
         "SENSEX：73,710（10/21，▼0.19%）",
         "NIFTY 50：22,811（10/21，▼0.34%）"
       ],
-      "analysis": "印度股市微跌0.19%。市場受Reliance Jio IPO預期提振，但外資賣壓、油價波動及財報觀望情緒令漲幅受限。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,888（10/21，▲1.28%）"
       ],
-      "analysis": "台股今日反彈1.28%，主因跌深後低接買盤進場，加上美股連動激勵及外資賣超鈍化，帶動指數跌深回穩。"
+      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,159（10/21，▲0.39%）"
+        "黃金：4,151（10/21，▲0.21%）"
       ],
-      "analysis": "金價今日小幅上漲0.39%，主因荷莫茲協議現曙光舒緩通膨擔憂，但美降息預期降溫仍限制後續漲幅。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
         "VN-Index：1,739（10/21，▲2.76%）"
       ],
-      "analysis": "VN-Index今日強彈2.76%，主因全民投資熱潮帶動內資湧入，加上新興券商擴張及銀行金融股強勢領漲。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.65（10/21）",
+            "current": "101.81（10/21）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.36（10/21）",
+            "current": "32.40（10/21）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.3（10/21）",
+            "current": "16.7（10/21）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$99（10/21）",
+            "current": "$97（10/21）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "美債殖利率回檔或衝高？摩根許長泰剖析4大推升主因 估Fed最快12月升息 - 鉅亨網",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xdHZ5TzVNVTFHZjJDZnZzbWx0c21LV2xBUHoyRlVGT0lBZGNacXdWMWNodGlLZGR3TUFLME00LVNzMFNpVDcwVGZhV3pLU0U?oc=5"
+    },
+    {
       "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
-    },
-    {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台幣恐進一步測試 32.7 元 匯銀：央行調節 傾向維持有序升貶 - 經濟日報",
+      "title": "股匯齊反彈！新台幣翻紅強升1.29角、收32.488元 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1vRXVKQlVpVUdaUkIzVkRBQXZfMTc2Q1VybTRPQVVZLTgzTzNQdFhHNzlCQXNXUlVneFdDMmV4YlNqZVhSbmE1bEdGMkg2dVBib2JIRlV4WllCd9IBX0FVX3lxTFAxSDZuMVMzREZNVzI1RGZoUG45YTg3dEpQRmh5ajdlYVh3eGh4bGxwQ1dNUmtibW8zWEd2Uk5BNDJXYXJSSDlEZXhqV1Itc19UeUJfLUxrakNibnlnS2Fv?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE05WGdsSFlsdTY5MVVTbUNMRFBBdEJPdUlxRjVpMWN6ZUN4LS1uMFV4OGE1LWFGb0VlQWlzendTVnhPTTB4S3hmNG5DMGVvTXRMbTU5amhSVFU?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/21 下午11:59:20",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/21 下午8:13:57",
