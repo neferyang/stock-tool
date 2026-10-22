@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-22T10:23:59.379Z",
+  "lastUpdated": "2026-10-22T12:17:19.626Z",
   "date": "2026年10月22日（星期四）",
   "basedOn": "2026年10月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -33,8 +33,8 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：73,710（10/21，▼0.19%）",
-        "NIFTY 50：22,811（10/21，▼0.34%）"
+        "SENSEX：73,249（10/22，▼0.62%）",
+        "NIFTY 50：22,688（10/22，▼0.54%）"
       ],
       "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,105（10/22，▼1.09%）"
+        "黃金：4,079（10/22，▼1.71%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.62（10/22）",
+            "current": "101.75（10/22）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.52（10/22）",
+            "current": "32.54（10/22）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.4（10/22）",
+            "current": "18.2（10/22）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$100（10/22）",
+            "current": "$99（10/22）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "史上最大外資出逃、台幣淪最弱亞幣 央行總裁楊金龍的最新難題是什麼？ - 天下雜誌",
+      "title": "外資買超曇花一現？台股開高翻黑 新台幣32.5元關卡再受考驗 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0yU1NMWXpRZkJDeS1ZLXRWT2JvNWc3OENocFFFMktORElxX1cyLW1BQU0ySTNJWGR2MVpXaHk3d0RiWi1OekNqcTVHWGV3Zw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBTUi1zb2lVc1paU1F1TG9NS2J1bmVrbFpWVmJxYi1WTDQ3bFA3SmtRaUZ3WE5HV1VueS1zSHhOM1RGNkVHOHJWQnlpVFBhS2NXZ3FrdzVwcWdXWTJJcEJr0gFkQVVfeXFMTVNHZEZ6cDdrc1V5eXFUUXByN1RKM25yMUw4Q2x6UmdrNXNNbzhnODJSWHlxZjBMVjdmVXZoVU9qTGFBQm5vZHI2NmdrTWRlbnNZME9LVUFXc1BTbG83MS0zXzFvVA?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/22 下午8:17:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/22 下午6:23:59",
