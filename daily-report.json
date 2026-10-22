@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-22T01:02:30.207Z",
+  "lastUpdated": "2026-10-22T10:23:59.379Z",
   "date": "2026年10月22日（星期四）",
   "basedOn": "2026年10月21日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,14 +19,14 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：64,621（10/21，▲0.85%）"
+        "日經225：62,908（10/22，▼2.65%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,736（10/21，▲3.29%）"
+        "KOSPI：5,534（10/22，▼3.52%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：46,888（10/21，▲1.28%）"
+        "台灣加權指數：46,041（10/22，▼1.81%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,134（10/21，▼0.21%）"
+        "黃金：4,105（10/22，▼1.09%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,739（10/22，▲2.76%）"
+        "VN-Index：1,761（10/22，▲1.26%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月22日",
     "rating": "高度警戒",
-    "summary": "🔴×5　🟠×3　🟡×4　🟢×3",
+    "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約22%（10/20，加權指數 vs 240日均線）",
+            "current": "約20%（10/22，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.15%（10/19）",
+            "current": "5.12%（10/20）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,15 +116,15 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.70（10/21）",
+            "current": "101.62（10/22）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.43（10/22）",
-            "status": "🟠",
-            "statusText": "低於警戒（>32.50），但升勢明顯"
+            "current": "32.52（10/22）",
+            "status": "🔴",
+            "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
         ]
       },
@@ -135,19 +135,19 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.7（10/21）",
+            "current": "18.4（10/22）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.38%（10Y 5.15% - 2Y 4.77%，10/19）",
+            "current": "+0.33%（10Y 5.12% - 2Y 4.79%，10/20）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
           {
             "name": "高收益債信用利差",
-            "current": "329 bps（3.29%，10/19）",
+            "current": "333 bps（3.33%，10/20）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$98（10/21）",
+            "current": "$100（10/22）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "美銀剖析白宮盤算Fed升息加重政府還債負擔| 全球財經| 全球 - UDN",
+      "title": "美銀剖析白宮盤算 Fed 升息 加重政府還債負擔 - 經濟日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9tVEtfc1d5OEZFX1p4bHlKSi14dklON2h5aUUtaFpGMXJtODF1RktIcFJRb1ZhNXRGalNjdWhDaFl1S2E2aUhXQjVkVUhZQV9E?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQWkRpOUZpbXhFZDRYR2pXX0psejVWNFdWX3JpbVNrZFJ0Z3NTby1GeFhYczBrWmJTVUpwS2g0amdZUjk1ZDJ0N0VkVnBZeWU5SGZWeHlmRW1sWXR1Ri1BRnJFM2kwSFQ3N1BLY3dVMkZjRDYydjRmZVVRNi1OZXZnM9IBX0FVX3lxTFBlTmNDOU9NTDMwWXZfVG5wZGhzN2RKWTJFSmF3dTQ5cXFRMzNyTXR2MjZsbmpNZWlfR3NnUGplelNWdUFwS1hxZzJocm5VbmgyZlF6OHdiUWphSGNsbGpJ?oc=5"
     },
     {
       "title": "美債殖利率回檔或衝高？摩根許長泰剖析4大推升主因 估Fed最快12月升息 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE50OWR6TFJXeGhUXzZVNWRCWmZycXA3VnpublNibHBJdG1tLUZZYlNUQUZGMnRmUTY4WXpFZXo0S1kzYzM5Y2ZWcXZBVQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xdHZ5TzVNVTFHZjJDZnZzbWx0c21LV2xBUHoyRlVGT0lBZGNacXdWMWNodGlLZGR3TUFLME00LVNzMFNpVDcwVGZhV3pLU0U?oc=5"
     },
     {
       "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台幣恐進一步測試 32.7 元 匯銀：央行調節 傾向維持有序升貶 - 經濟日報",
+      "title": "史上最大外資出逃、台幣淪最弱亞幣 央行總裁楊金龍的最新難題是什麼？ - 天下雜誌",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1vRXVKQlVpVUdaUkIzVkRBQXZfMTc2Q1VybTRPQVVZLTgzTzNQdFhHNzlCQXNXUlVneFdDMmV4YlNqZVhSbmE1bEdGMkg2dVBib2JIRlV4WllCd9IBX0FVX3lxTFAxSDZuMVMzREZNVzI1RGZoUG45YTg3dEpQRmh5ajdlYVh3eGh4bGxwQ1dNUmtibW8zWEd2Uk5BNDJXYXJSSDlEZXhqV1Itc19UeUJfLUxrakNibnlnS2Fv?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0yU1NMWXpRZkJDeS1ZLXRWT2JvNWc3OENocFFFMktORElxX1cyLW1BQU0ySTNJWGR2MVpXaHk3d0RiWi1OekNqcTVHWGV3Zw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/22 下午6:23:59",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/22 上午9:02:30",
@@ -2783,50 +2788,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2455,
-      "change": 35,
-      "changePct": 1.45,
-      "arrow": "▲"
+      "price": 2385,
+      "change": -35,
+      "changePct": -1.45,
+      "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 250.5,
-      "change": 0.5,
-      "changePct": 0.2,
-      "arrow": "▲"
+      "price": 245,
+      "change": -5,
+      "changePct": -2,
+      "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4545,
-      "change": 405,
-      "changePct": 9.78,
-      "arrow": "▲"
+      "price": 4010,
+      "change": -130,
+      "changePct": -3.14,
+      "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1630,
-      "change": 5,
-      "changePct": 0.31,
-      "arrow": "▲"
+      "price": 1560,
+      "change": -65,
+      "changePct": -4,
+      "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 329,
-      "change": 0.5,
-      "changePct": 0.15,
-      "arrow": "▲"
+      "price": 322,
+      "change": -6.5,
+      "changePct": -1.98,
+      "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 160,
-      "change": 1.5,
-      "changePct": 0.95,
-      "arrow": "▲"
+      "price": 158.5,
+      "change": 0,
+      "changePct": 0,
+      "arrow": "-"
     }
   ]
 }
