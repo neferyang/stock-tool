@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-23T15:46:36.304Z",
-  "date": "2026年10月23日（星期五）",
+  "lastUpdated": "2026-10-23T22:41:23.875Z",
+  "date": "2026年10月24日（星期六）",
   "basedOn": "2026年10月23日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,356（10/23，▼0.97%）",
-        "S&P 500：7,653（10/23，▼0.14%）",
-        "那斯達克：26,077（10/23，▲0.26%）",
-        "費城半導體指數：10,851（10/23，▲1.11%）"
+        "道瓊：52,215（10/23，▼1.23%）",
+        "S&P 500：7,624（10/23，▼0.52%）",
+        "那斯達克：25,955（10/23，▼0.21%）",
+        "費城半導體指數：10,779（10/23，▲0.44%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,013（10/23，▼1.18%）"
+        "黃金：4,010（10/23，▼1.24%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,774（10/23，▲0.77%）"
+        "VN-Index：1,774（10/24，▲0.77%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "40.6（4:00 PM EDT, Thu Oct 22）",
+            "current": "40.4（4:00 PM EDT, Fri Oct 23）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.13%（10/21）",
+            "current": "4.96%（10/22）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.77（10/23）",
+            "current": "101.75（10/23）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.56（10/23）",
+            "current": "32.57（10/23）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "19.0（10/23）",
+            "current": "19.5（10/23）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.32%（10Y 5.13% - 2Y 4.81%，10/21）",
+            "current": "+0.31%（10Y 4.96% - 2Y 4.65%，10/22）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "史上最大外資出逃、台幣淪最弱亞幣 央行總裁楊金龍的最新難題是什麼？ - 天下雜誌",
+      "title": "外資買超曇花一現？台股開高翻黑 新台幣32.5元關卡再受考驗 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0yU1NMWXpRZkJDeS1ZLXRWT2JvNWc3OENocFFFMktORElxX1cyLW1BQU0ySTNJWGR2MVpXaHk3d0RiWi1OekNqcTVHWGV3Zw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBTUi1zb2lVc1paU1F1TG9NS2J1bmVrbFpWVmJxYi1WTDQ3bFA3SmtRaUZ3WE5HV1VueS1zSHhOM1RGNkVHOHJWQnlpVFBhS2NXZ3FrdzVwcWdXWTJJcEJr0gFkQVVfeXFMTVNHZEZ6cDdrc1V5eXFUUXByN1RKM25yMUw4Q2x6UmdrNXNNbzhnODJSWHlxZjBMVjdmVXZoVU9qTGFBQm5vZHI2NmdrTWRlbnNZME9LVUFXc1BTbG83MS0zXzFvVA?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/24 上午6:41:23",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/23 下午11:46:36",
