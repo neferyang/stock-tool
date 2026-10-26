@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-26T10:22:30.907Z",
+  "lastUpdated": "2026-10-26T13:30:42.835Z",
   "date": "2026年10月26日（星期一）",
   "basedOn": "2026年10月23日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -33,10 +33,10 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：73,124（10/23，▼0.17%）",
-        "NIFTY 50：22,600（10/23，▼0.39%）"
+        "SENSEX：73,607（10/26，▲0.66%）",
+        "NIFTY 50：22,753（10/26，▲0.68%）"
       ],
-      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,031（10/26，▲0.57%）"
+        "黃金：4,024（10/26，▲0.40%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.82（10/26）",
+            "current": "101.94（10/26）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.58（10/26）",
+            "current": "32.57（10/26）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "19.3（10/26）",
+            "current": "19.0（10/26）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$101（10/26）",
+            "current": "$102（10/26）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
-    },
-    {
       "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
+    },
+    {
+      "title": "美債殖利率回檔或衝高？摩根許長泰剖析4大推升主因 估Fed最快12月升息 - 鉅亨網",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xdHZ5TzVNVTFHZjJDZnZzbWx0c21LV2xBUHoyRlVGT0lBZGNacXdWMWNodGlLZGR3TUFLME00LVNzMFNpVDcwVGZhV3pLU0U?oc=5"
     },
     {
       "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "史上最大外資出逃、台幣淪最弱亞幣 央行總裁楊金龍的最新難題是什麼？ - 天下雜誌",
+      "title": "〈社論〉外資股匯雙殺，政府該救到什麼程度？ - 中華新聞雲／中華日報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0yU1NMWXpRZkJDeS1ZLXRWT2JvNWc3OENocFFFMktORElxX1cyLW1BQU0ySTNJWGR2MVpXaHk3d0RiWi1OekNqcTVHWGV3Zw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1taUJaWjk2V29iM29NMTFhRnY1dmxQaVc5UHY5LXphYTJkVnNzY2ZXMWc3YzBfcnVUamhXQTM5ZEVsWHQ4U3YxcWl5S0x3V1gtaWc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/26 下午9:30:42",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/26 下午6:22:30",
