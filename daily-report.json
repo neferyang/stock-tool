@@ -1,20 +1,20 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-26T13:30:42.835Z",
-  "date": "2026年10月26日（星期一）",
-  "basedOn": "2026年10月23日（前一交易日）",
+  "lastUpdated": "2026-10-26T17:22:18.779Z",
+  "date": "2026年10月27日（星期二）",
+  "basedOn": "2026年10月26日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,215（10/23，▼1.23%）",
-        "S&P 500：7,624（10/23，▼0.52%）",
-        "那斯達克：25,955（10/23，▼0.21%）",
-        "費城半導體指數：10,779（10/23，▲0.44%）"
+        "道瓊：52,366（10/26，▲0.29%）",
+        "S&P 500：7,687（10/26，▲0.83%）",
+        "那斯達克：26,245（10/26，▲1.12%）",
+        "費城半導體指數：11,149（10/26，▲3.42%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：5,469（10/26，▼1.46%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,024（10/26，▲0.40%）"
+        "黃金：4,038（10/26，▲0.74%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,764（10/26，▼0.60%）"
+        "VN-Index：1,764（10/27，▼0.60%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.94（10/26）",
+            "current": "101.93（10/26）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.57（10/26）",
+            "current": "32.54（10/26）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "19.0（10/26）",
+            "current": "18.3（10/26）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "340 bps（3.40%，10/22）",
+            "current": "338 bps（3.38%，10/23）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
+      "title": "19年首見 美30年公債殖利率衝破5趴 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9WSVBFLTE4U0lyNmhsMUtUVmtBVXN6NFUtRjdPRXFNclYtVXQ4b1hrMHl3SF9Wdko0MUdBRmh3em4yWnBQWHoySlhyU0hnb3VUNV9jNkNUV0M?oc=5"
+    },
+    {
       "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
-    },
-    {
-      "title": "美債殖利率回檔或衝高？摩根許長泰剖析4大推升主因 估Fed最快12月升息 - 鉅亨網",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE8xdHZ5TzVNVTFHZjJDZnZzbWx0c21LV2xBUHoyRlVGT0lBZGNacXdWMWNodGlLZGR3TUFLME00LVNzMFNpVDcwVGZhV3pLU0U?oc=5"
     },
     {
       "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92S1lPTVY0eDlYYXI4ZUs4bG5DSVZHMzhaa1REbjNUUC0xeGhtMVVVLWZsMlNMSHFNYUV3NjNaRjJiTzhWQjUwQ3dtc2lOSEZUX2ljdUdkMXNuNDl4cUVzbEstLW5MQVBxMnRPOUdfWnI?oc=5"
     },
     {
       "title": "〈社論〉外資股匯雙殺，政府該救到什麼程度？ - 中華新聞雲／中華日報",
@@ -236,8 +236,8 @@
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/27 上午1:22:18",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/26 下午9:30:42",
