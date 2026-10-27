@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-26T17:22:18.779Z",
+  "lastUpdated": "2026-10-27T00:51:54.468Z",
   "date": "2026年10月27日（星期二）",
   "basedOn": "2026年10月26日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,366（10/26，▲0.29%）",
-        "S&P 500：7,687（10/26，▲0.83%）",
-        "那斯達克：26,245（10/26，▲1.12%）",
-        "費城半導體指數：11,149（10/26，▲3.42%）"
+        "道瓊：52,362（10/26，▲0.28%）",
+        "S&P 500：7,677（10/26，▲0.70%）",
+        "那斯達克：26,169（10/26，▲0.82%）",
+        "費城半導體指數：11,083（10/26，▲2.82%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -36,7 +36,7 @@
         "SENSEX：73,607（10/26，▲0.66%）",
         "NIFTY 50：22,753（10/26，▲0.68%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,038（10/26，▲0.74%）"
+        "黃金：4,024（10/26，▲0.41%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月26日",
+    "date": "2026年10月27日",
     "rating": "高度警戒",
     "summary": "🔴×7　🟠×1　🟡×4　🟢×3",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "40.4（4:00 PM EDT, Fri Oct 23）",
+            "current": "40.7（4:00 PM EDT, Mon Oct 26）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.96%（10/22）",
+            "current": "5.00%（10/23）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.93（10/26）",
+            "current": "102.03（10/26）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.54（10/26）",
+            "current": "32.53（10/27）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.3（10/26）",
+            "current": "18.4（10/26）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.31%（10Y 4.96% - 2Y 4.65%，10/22）",
+            "current": "+0.31%（10Y 5.00% - 2Y 4.69%，10/23）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（10/26）",
+            "current": "$101（10/26）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -218,14 +218,14 @@
       "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOZnJkaUZoSGxyRENYbE9CenNoaG5iZVM5WlpscVVCTFg1X3I1eTVla0FtbXhrQXZGcUs0aEZ6b1RJOXdXMC1KT1B2SkVUeDdNYk16U3JlOHk5Y0ZMYXJqcV9HMlJwbGVTRnRPR0owUVVTaVktdjV5a2wtTkk5blpacm90X3lrengzQXBMVDdOeUdFdDA2WS1yTlVlOUxVN2dUMm55Z3oxRXQtT1dhUEw1LVByY2NZX1RxTF9iT21Ha1o0R0FmXzRFSTZIRGZyWjE5aU5Ld3pMS2VQdUVLNE9aYkRLQzRJR0V1bFR2d09hd2x3TXpfeFBLMlRfRkc2bF83?oc=5"
     },
     {
-      "title": "聯準會的 Goolsbee 警告，偏高的 CPI 不可接受，因服務業通膨帶來壓力 - tmgm.com",
+      "title": "本週操盤筆記：美國就業數據、全球PMI與歐元區通膨 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPcW4tUWMzM1hmWllTbnlCSFNaZHFIWDNGekVKM3VHRGFUcV9NMk1WMEFqZ1V0Y203TkdTdkVOcDIyMHlQMFRCRzVGYnI5Ri12alg0VnhtekV6cm1xQXI5WXZQX01WemVJZjFLUE0xa1VnQWNqQTI1SGh0c18zTVNva1dERzhXQTdZbTJiNVgyVlJGdmFkdG94aExNdmU2ZzlIS3NsMUc0WDdmM0RlbUxtbEw0UmxDVlVaZUtrbmVJQTVoZDV5cTdsYVh6emRiV0tW?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5KT1YySkMxRE43bGpQU25RSmdJZEJtYzh2ai0zd2pleDRUeE9MT2dYUVByNDVFdVM0dmswZXE2UUJWWXR6bERPQ2ppQjVZdVE?oc=5"
     },
     {
-      "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92S1lPTVY0eDlYYXI4ZUs4bG5DSVZHMzhaa1REbjNUUC0xeGhtMVVVLWZsMlNMSHFNYUV3NjNaRjJiTzhWQjUwQ3dtc2lOSEZUX2ljdUdkMXNuNDl4cUVzbEstLW5MQVBxMnRPOUdfWnI?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
       "title": "〈社論〉外資股匯雙殺，政府該救到什麼程度？ - 中華新聞雲／中華日報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/27 上午8:51:54",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/27 上午1:22:18",
@@ -2898,42 +2903,42 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2385,
-      "change": -35,
-      "changePct": -1.45,
+      "price": 2305,
+      "change": -80,
+      "changePct": -3.35,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 245,
-      "change": -5,
-      "changePct": -2,
+      "price": 238,
+      "change": -7,
+      "changePct": -2.86,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4010,
-      "change": -130,
-      "changePct": -3.14,
-      "arrow": "▼"
+      "price": 4200,
+      "change": 190,
+      "changePct": 4.74,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1560,
-      "change": -65,
-      "changePct": -4,
+      "price": 1485,
+      "change": -75,
+      "changePct": -4.81,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 322,
-      "change": -6.5,
-      "changePct": -1.98,
-      "arrow": "▼"
+      "price": 328.5,
+      "change": 6.5,
+      "changePct": 2.02,
+      "arrow": "▲"
     },
     {
       "code": "2881",
