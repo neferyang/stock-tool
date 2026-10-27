@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-27T01:48:39.612Z",
+  "lastUpdated": "2026-10-27T10:58:07.537Z",
   "date": "2026年10月27日（星期二）",
   "basedOn": "2026年10月26日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,52 +19,52 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：62,190（10/26，▼0.80%）"
+        "日經225：63,268（10/27，▲1.73%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,469（10/26，▼1.46%）"
+        "KOSPI：5,638（10/27，▲3.09%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：73,607（10/26，▲0.66%）",
-        "NIFTY 50：22,753（10/26，▲0.68%）"
+        "SENSEX：73,599（10/27，▼0.01%）",
+        "NIFTY 50：22,750（10/27，▼0.02%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：46,374（10/27，▲0.72%）"
+        "台灣加權指數：46,096（10/27，▲0.12%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,022（10/26，▲0.35%）"
+        "黃金：4,014（10/27，▼0.60%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,764（10/27，▼0.60%）"
+        "VN-Index：1,762（10/27，▼0.10%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年10月27日",
     "rating": "高度警戒",
-    "summary": "🔴×7　🟠×1　🟡×4　🟢×3",
+    "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約21%（10/27，加權指數 vs 240日均線）",
+            "current": "約20%（10/27，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,15 +116,15 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.03（10/26）",
+            "current": "102.19（10/27）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.54（10/27）",
-            "status": "🔴",
-            "statusText": "突破警戒（>32.50），資金外流壓力升高"
+            "current": "32.41（10/27）",
+            "status": "🟠",
+            "statusText": "低於警戒（>32.50），但升勢明顯"
           }
         ]
       },
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.4（10/26）",
+            "current": "18.1（10/27）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$101（10/26）",
+            "current": "$101（10/27）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行示警AI融資風險升高等風險 但續看好台灣經濟 - 台視全球資訊網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdVd1S0ExbzVEc19NZVZSd1Y4LVhvb0ZadHRYOUMydnl2ZmFPZ0czbldTZEhpWDItalZuSTQwQ1lVTTRLSHBlalFITW1OdmphY1BPYWFvR3QyQmpUUnFRaV8wOGU2eGdnb1RLRGFFMEVRR0ZGS3NfWlZsMlBiMXQwc3g1NFhZYmJXM25hZkQ3ck5Jdw?oc=5"
     },
     {
-      "title": "〈社論〉外資股匯雙殺，政府該救到什麼程度？ - 中華新聞雲／中華日報",
+      "title": "熱錢大逃殺！央行揭露外資今年淨匯出776億美元 新台幣貶逾3％ - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1taUJaWjk2V29iM29NMTFhRnY1dmxQaVc5UHY5LXphYTJkVnNzY2ZXMWc3YzBfcnVUamhXQTM5ZEVsWHQ4U3YxcWl5S0x3V1gtaWc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE53cUd1bGtZSDNaVkgwcE5GWTMxRUNTTUxOSkFxTXBjOXY5YlRuSG1Ocjg2bkFrSTNDM2UweXlZdy1Pejc0TEJpaFluX3dlOWYxaXlHeGtmZ09tQzQtVGpN0gFkQVVfeXFMTVN6SWx0MWFXdEU4OEQzYmVqc1B5TERNSExGcU0zakI5b1F0RlppWHJVVFVvQ3ZmLVVKcVJNQXktT2lnNE1KSERWUTFlck02MFkxUGFjNGhJaEh6eEl4WDdvWEliWQ?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/27 下午6:58:07",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/27 上午9:48:39",
@@ -2908,49 +2913,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2405,
-      "change": 20,
-      "changePct": 0.84,
+      "price": 2400,
+      "change": 15,
+      "changePct": 0.63,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 246,
-      "change": 1,
-      "changePct": 0.41,
+      "price": 247.5,
+      "change": 2.5,
+      "changePct": 1.02,
       "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4030,
-      "change": 20,
-      "changePct": 0.5,
-      "arrow": "▲"
+      "price": 3960,
+      "change": -50,
+      "changePct": -1.25,
+      "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1525,
-      "change": -35,
-      "changePct": -2.24,
+      "price": 1510,
+      "change": -50,
+      "changePct": -3.21,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 325.5,
-      "change": 3.5,
-      "changePct": 1.09,
+      "price": 327.5,
+      "change": 5.5,
+      "changePct": 1.71,
       "arrow": "▲"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 161.5,
-      "change": 3,
-      "changePct": 1.89,
+      "price": 162,
+      "change": 3.5,
+      "changePct": 2.21,
       "arrow": "▲"
     }
   ]
