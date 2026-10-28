@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-27T16:27:12.274Z",
+  "lastUpdated": "2026-10-28T00:11:53.305Z",
   "date": "2026年10月28日（星期三）",
   "basedOn": "2026年10月27日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,401（10/27，▲0.08%）",
-        "S&P 500：7,728（10/27，▲0.67%）",
-        "那斯達克：26,509（10/27，▲1.30%）",
-        "費城半導體指數：11,443（10/27，▲3.24%）"
+        "道瓊：52,378（10/27，▲0.03%）",
+        "S&P 500：7,723（10/27，▲0.60%）",
+        "那斯達克：26,478（10/27，▲1.18%）",
+        "費城半導體指數：11,483（10/27，▲3.60%）"
       ],
       "analysis": "美股小幅震盪，多空力道相當，市場靜待重要經濟數據或 Fed 官員發言指引。"
     },
@@ -36,33 +36,33 @@
         "SENSEX：73,599（10/27，▼0.01%）",
         "NIFTY 50：22,750（10/27，▼0.02%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
         "台灣加權指數：46,096（10/27，▲0.12%）"
       ],
-      "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
+      "analysis": "台股微漲0.12%，雖外資近期大幅提款壓抑盤勢，但AI長線買盤支撐高檔震盪，多空拉鋸下收小紅。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,074（10/27，▲0.88%）"
+        "黃金：4,076（10/27，▲0.93%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,762（10/27，▼0.10%）"
+        "VN-Index：1,762（10/28，▼0.10%）"
       ],
       "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年10月27日",
+    "date": "2026年10月28日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "40.7（4:00 PM EDT, Mon Oct 26）",
+            "current": "40.9（4:00 PM EDT, Tue Oct 27）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "5.00%（10/23）",
+            "current": "5.00%（10/26）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.30（10/27）",
+            "current": "102.35（10/27）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.39（10/27）",
+            "current": "32.42（10/28）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.6（10/27）",
+            "current": "17.5（10/27）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.31%（10Y 5.00% - 2Y 4.69%，10/23）",
+            "current": "+0.32%（10Y 5.00% - 2Y 4.68%，10/26）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcndVb056cF9fcklpTjc4N05GN01kNUlhRkI2Q3U4M0pBYm1FQkhCR18yY1NzZ1ZVUzd3UXlFNXpCSHJUYmRZVDgzcVlfV0VQMElLTFRWT3hPM3dIdmRyRWlVWjh1a1RVa2NRNXl6Nk5yaUY4QXZ1aTdPQmhIVnJXd1J0QWIxVkNDNGwxaWtpVFVaWC00b3c?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "央行示警AI融資風險升高等風險 但續看好台灣經濟 - 台視全球資訊網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNdVd1S0ExbzVEc19NZVZSd1Y4LVhvb0ZadHRYOUMydnl2ZmFPZ0czbldTZEhpWDItalZuSTQwQ1lVTTRLSHBlalFITW1OdmphY1BPYWFvR3QyQmpUUnFRaV8wOGU2eGdnb1RLRGFFMEVRR0ZGS3NfWlZsMlBiMXQwc3g1NFhZYmJXM25hZkQ3ck5Jdw?oc=5"
     },
     {
-      "title": "外資今年已匯出776億美元 央行:台幣匯率仍屬穩定 - Yahoo股市",
+      "title": "外資近4月淨匯出543億美元 助貶台幣 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxPRV90VERFb29YWW9NVUpJdWtGMmIyWl9rWFdZTXNpT1BvazZlaUpXOGRtXzZGU2M1M1JrdDdLN1lMMzZydnVmTF9qcnR0ZEhqdHdxV25Yb0xubEFuN1JhNlgtbUNrbzRXV2J0Mk1jMlh4UjVaZ2lLYTM0UThXNjhLS2NwMUV4dm03aXgtZHl4czRrbTdJMW93cVRNWDZ2Q28tQzdXOFZqZ3VZYXVKdGN1V0lSbGExa0l5X3FGaXRBQlBzWENnSEYxZGFhNUVpUVBlMy1GLTBoNlhObi1sTFNBSGtLN1NHcGZLQ3BISDRwMVA1eUxpV2ttakFxMXNlR2NLWTZIVUVWb2FuSERMQk4zdzlyTWI5TFJMN0JibTFGOTlSeV9kVERLYnpuMW5LZV9SQWFBc0ZDZC1fNXlKN0l0Z1NqQjE1ZlY1MGhxdE5nZVlodw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5fR2pmYmxGV0tLeUdqWDhGSGJKaWptanVjTko3blotYjhvWndmQ192dVp5ZjlybjNuRnpidDRZZU52cVpObE0zbGlWTDQ3ZnFMcnE2cjByS1M?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/28 上午8:11:53",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/28 上午12:27:12",
