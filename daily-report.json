@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-29T17:28:48.741Z",
+  "lastUpdated": "2026-10-29T23:48:13.232Z",
   "date": "2026年10月30日（星期五）",
   "basedOn": "2026年10月29日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,254（10/29，▼0.42%）",
-        "S&P 500：7,708（10/29，▼0.46%）",
-        "那斯達克：26,165（10/29，▼1.45%）",
-        "費城半導體指數：11,498（10/29，▼1.59%）"
+        "道瓊：52,343（10/29，▼0.25%）",
+        "S&P 500：7,720（10/29，▼0.30%）",
+        "那斯達克：26,185（10/29，▼1.38%）",
+        "費城半導體指數：11,518（10/29，▼1.42%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -36,7 +36,7 @@
         "SENSEX：74,151（10/29，▲1.24%）",
         "NIFTY 50：22,937（10/29，▲1.05%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,037（10/29，▼0.37%）"
+        "黃金：4,027（10/29，▼0.61%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "41.0（4:00 PM EDT, Wed Oct 28）",
+            "current": "40.9（4:00 PM EDT, Thu Oct 29）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.99%（10/27）",
+            "current": "5.05%（10/28）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.98（10/29）",
+            "current": "101.85（10/29）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.54（10/29）",
+            "current": "32.56（10/29）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "16.5（10/29）",
+            "current": "17.2（10/29）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.29%（10Y 4.99% - 2Y 4.70%，10/27）",
+            "current": "+0.38%（10Y 5.05% - 2Y 4.67%，10/28）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$102（10/29）",
+            "current": "$103（10/29）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 突破有望直衝5000美元 - 財訊",
+      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - 永豐金證券",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mRk0wa3p6cERhbkpKUHMwNElQdmhSUnNOaW9vZUZLNUlqYTJIQXBGb20zVUNIRDF6ZEp6M2Nqa05ydjJobk5aMHZUemJJRWlGNFl2QTV5M3Jmd0xyWkxqTmUxNnlaYVhxQmxiYVRBQU13bHFFb1FFR3c1SQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
       "title": "央行報告示警AI投資風險！揭外資今年淨匯出776億美元 新台幣貶逾3% - 非凡新聞台",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5GZk1VdWgxLWxCVHdNV3FzczBKVnY4MG5IX240WnFkU29yMTZmV19HamZ4bDk0VktFU3hacDVaY1Z5OG9iMDJXT0NySjdXS1dKcFlOQXpFcVJJNHMyaWFZ?oc=5"
     },
     {
-      "title": "股匯雙殺！台股失守4萬7 新台幣再度貶破32.5關卡 - 三立新聞網SETN.com",
+      "title": "新台幣狂貶最大元兇！ 央行揭外資今年匯出近2.5兆元 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBqMXYwUHdUcmhCNWhNZUdhY0JlRE00OEE2QUlramVzdS1WcDliaUVzWDJjVnRJaVlGUlFQVW9iZXZTQXJjRndPaEY3RQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi5wJBVV95cUxQVThQQmNkUE03YnQ1RUkwbUdqSko1eEs5aWdIUExuamkxeUp0ZExrSjNXWnhNaHJVZk5NV1lseURfdFVRb3M2ejFiSXo3UElhN0E1OTQ5QUdhWXdhM1E1VUwwT2I4WjZzX3ZfLU5xdDRuaUlzLTNnRy0yS19GRVZ5enFiZGR4QkV0V3FmNk1zQTRmQkdlc3hpSGNDZ1NaQzlUMnZ3TlF4OTFWUUo0VUNtUkpFVHpJaWxyNllhek1IVVNPdmIwY0h5MGkyRnJPMDdXVElrWVF3dmlHMWo0T0RaWmlfVFNKdWhVVDdkTHlFTGFLX2liUFRKLWpSeGdGWkx6NXV2YVk2dVVVaDZaTjNaR25fR1Q2YmhGU0FJSE9CeThGYlFCMU8wdXBQNkdrVGUxU3F0LXJsLTRFRDNkTGhNSjJfVFZjSV9oeEtyd3dxTkc3LS1XbU5ZaEhfYWdiSjNmSlE3YUdiYw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/30 上午7:48:13",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/30 上午1:28:48",
