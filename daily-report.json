@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-29T01:21:30.232Z",
+  "lastUpdated": "2026-10-29T02:08:17.826Z",
   "date": "2026年10月29日（星期四）",
   "basedOn": "2026年10月28日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -36,19 +36,19 @@
         "SENSEX：73,246（10/28，▼0.48%）",
         "NIFTY 50：22,699（10/28，▼0.22%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：46,973（10/29，▼0.13%）"
+        "台灣加權指數：46,366（10/29，▼1.42%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,048（10/28，▼0.64%）"
+        "黃金：4,069（10/28，▼0.13%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約22%（10/29，加權指數 vs 240日均線）",
+            "current": "約21%（10/29，加權指數 vs 240日均線）",
             "status": "🟡",
             "statusText": "乖離率偏高，留意拉回風險"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.23（10/28）",
+            "current": "102.12（10/28）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.40（10/29）",
+            "current": "32.44（10/29）",
             "status": "🟠",
             "statusText": "低於警戒（>32.50），但升勢明顯"
           }
@@ -203,9 +203,34 @@
   ],
   "news": [
     {
-      "title": "Sorry...",
+      "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
       "description": "",
-      "url": ""
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
+    },
+    {
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+    },
+    {
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 突破有望直衝5000美元 - 財訊",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mRk0wa3p6cERhbkpKUHMwNElQdmhSUnNOaW9vZUZLNUlqYTJIQXBGb20zVUNIRDF6ZEp6M2Nqa05ydjJobk5aMHZUemJJRWlGNFl2QTV5M3Jmd0xyWkxqTmUxNnlaYVhxQmxiYVRBQU13bHFFb1FFR3c1SQ?oc=5"
+    },
+    {
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+    },
+    {
+      "title": "英國央行警告：AI估值面臨劇烈修正風險 恐衝擊全球經濟與主權債市場 - 鉅亨網",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwYUxqZXppa2VJeTRBVl9uQ3FHODlUSDNBeTFPUGFyNFZtSXJQZHk0TVBvREYzWnZ4TTUtVG1zSDc4THRMZk83Zm5kajYtNGc?oc=5"
+    },
+    {
+      "title": "基本面優於韓楊金龍：外資偏愛台股- 日報 - 工商時報",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE80TV9ueC1kN1J2SlZQTm51MzBheHpER0E3Snp3ZkFUaDJKbjlGMDJtUERkU1FhcXhLcmNxeXZxZFUtTktoRXJBa3BzcmJPZnY1TWxXcFRVZm9EbldyNjd3?oc=5"
     }
   ],
   "observations": [
@@ -228,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/29 上午10:08:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/29 上午9:21:30",
@@ -2933,49 +2963,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2415,
-      "change": -10,
-      "changePct": -0.41,
+      "price": 2400,
+      "change": -25,
+      "changePct": -1.03,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 251.5,
-      "change": 0,
-      "changePct": 0,
-      "arrow": "-"
+      "price": 250,
+      "change": -1.5,
+      "changePct": -0.6,
+      "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4220,
-      "change": -15,
-      "changePct": -0.35,
+      "price": 4115,
+      "change": -120,
+      "changePct": -2.83,
       "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1500,
-      "change": -50,
-      "changePct": -3.23,
+      "price": 1460,
+      "change": -90,
+      "changePct": -5.81,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 325.5,
-      "change": -4.5,
-      "changePct": -1.36,
+      "price": 321.5,
+      "change": -8.5,
+      "changePct": -2.58,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 163,
-      "change": 2,
-      "changePct": 1.24,
+      "price": 162.5,
+      "change": 1.5,
+      "changePct": 0.93,
       "arrow": "▲"
     }
   ]
