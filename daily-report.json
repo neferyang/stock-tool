@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-31T02:00:45.730Z",
+  "lastUpdated": "2026-10-31T12:52:19.471Z",
   "date": "2026年10月31日（星期六）",
   "basedOn": "2026年10月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,885（10/30，▼3.63%）"
+        "黃金：3,899（10/30，▼3.29%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.96（10/30）",
+            "current": "101.88（10/30）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$103（10/30）",
+            "current": "$104（10/30）",
             "status": "🔴",
             "statusText": "突破警戒（>$100），通膨與供應風險升高"
           },
@@ -213,24 +213,24 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 突破有望直衝5000美元 - 財訊",
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mRk0wa3p6cERhbkpKUHMwNElQdmhSUnNOaW9vZUZLNUlqYTJIQXBGb20zVUNIRDF6ZEp6M2Nqa05ydjJobk5aMHZUemJJRWlGNFl2QTV5M3Jmd0xyWkxqTmUxNnlaYVhxQmxiYVRBQU13bHFFb1FFR3c1SQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
-      "title": "油價9字頭再現！荷姆茲海峽危機引爆全球停滯性通膨風險 凱投宏觀：恐再見到150美元 - 鉅亨網",
+      "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TZkpYR0RwR3laYTBBdlRvQTVPQkJEVVJHUjVqMWJhSUcwWllTVUFpQkNfakhLd080c09nTnFYZzYyLVZlRUdhbUZ1QUZMOTQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOZnJkaUZoSGxyRENYbE9CenNoaG5iZVM5WlpscVVCTFg1X3I1eTVla0FtbXhrQXZGcUs0aEZ6b1RJOXdXMC1KT1B2SkVUeDdNYk16U3JlOHk5Y0ZMYXJqcV9HMlJwbGVTRnRPR0owUVVTaVktdjV5a2wtTkk5blpacm90X3lrengzQXBMVDdOeUdFdDA2WS1yTlVlOUxVN2dUMm55Z3oxRXQtT1dhUEw1LVByY2NZX1RxTF9iT21Ha1o0R0FmXzRFSTZIRGZyWjE5aU5Ld3pMS2VQdUVLNE9aYkRLQzRJR0V1bFR2d09hd2x3TXpfeFBLMlRfRkc2bF83?oc=5"
     },
     {
-      "title": "AI資料中心卡4關！央行澆冷水　示警融資風險 - ETtoday財經雲",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Vd2hOeHVqTjlrT2U3S0RPM0pkTktkOFJGMzFIYkNlakFrd2k5VzQ0NzBaT3g0UXk1QVNGd3E5TEdjQ3EwSUphRExwaUxBb3pCVmfSAVBBVV95cUxPQllqZGQ4VzdLdVZJbllhbU00NXVtNDlrdEp3cjRqSi1FXzVyNE9MZ2xKMHppalRQQXhrLWV3elE4dkxXaENDR2VwY2h5UzRRQw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資匯出成重傷害新台幣10月狂貶逾6角、亞幣最弱- 金融 - 工商時報",
+      "title": "外資大撤退 出口企業卻迎匯率紅利？台積電、廣達等6檔受矚 選股還得看「這條件」 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9Od09kb0g5WUIyM0NGNVdtN1c3TzBSZFRHUDZnS1RuTEtKTG5Ta0tWY05zRUoteG5XUXByZ25HSHBjTVNJQl9CRXVhUmUyeHU1Wk40U1RZSTg1TDkxUFBN?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBXSkhrejdPVXlYVmNpdE5tQjl2Ml9ZM3plNGRReFY3OXUtYWo0NzdaVE9vdGRqSjFnT055TkRXSGdNYkx5UTRad2dGRlVCd2hBZDRVNlhOWVQ1S29lUk1N?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/31 下午8:52:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/31 上午10:00:45",
