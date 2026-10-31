@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-31T00:46:33.584Z",
+  "lastUpdated": "2026-10-31T01:07:52.933Z",
   "date": "2026年10月31日（星期六）",
   "basedOn": "2026年10月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -218,9 +218,9 @@
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
-      "title": "【第750期】美國CPI增幅低於市場預期 本週關注全球央行年會結果 - 玉山銀行",
+      "title": "【行情快報】美國經濟有衰退風險嗎？解讀市場三大利空！ - MacroMicro",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcndVb056cF9fcklpTjc4N05GN01kNUlhRkI2Q3U4M0pBYm1FQkhCR18yY1NzZ1ZVUzd3UXlFNXpCSHJUYmRZVDgzcVlfV0VQMElLTFRWT3hPM3dIdmRyRWlVWjh1a1RVa2NRNXl6Nk5yaUY4QXZ1aTdPQmhIVnJXd1J0QWIxVkNDNGwxaWtpVFVaWC00b3c?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
       "title": "AI資料中心卡4關！央行澆冷水　示警融資風險 - ETtoday財經雲",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/31 上午9:07:52",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/31 上午8:46:33",
