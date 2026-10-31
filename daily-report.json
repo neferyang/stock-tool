@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-10-31T12:52:19.471Z",
+  "lastUpdated": "2026-10-31T13:01:08.491Z",
   "date": "2026年10月31日（星期六）",
   "basedOn": "2026年10月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -213,19 +213,19 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
-      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
-    },
-    {
       "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOZnJkaUZoSGxyRENYbE9CenNoaG5iZVM5WlpscVVCTFg1X3I1eTVla0FtbXhrQXZGcUs0aEZ6b1RJOXdXMC1KT1B2SkVUeDdNYk16U3JlOHk5Y0ZMYXJqcV9HMlJwbGVTRnRPR0owUVVTaVktdjV5a2wtTkk5blpacm90X3lrengzQXBMVDdOeUdFdDA2WS1yTlVlOUxVN2dUMm55Z3oxRXQtT1dhUEw1LVByY2NZX1RxTF9iT21Ha1o0R0FmXzRFSTZIRGZyWjE5aU5Ld3pMS2VQdUVLNE9aYkRLQzRJR0V1bFR2d09hd2x3TXpfeFBLMlRfRkc2bF83?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "黃金下一步要崩還是噴？2大關鍵價位曝光 突破有望直衝5000美元 - 財訊",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5mRk0wa3p6cERhbkpKUHMwNElQdmhSUnNOaW9vZUZLNUlqYTJIQXBGb20zVUNIRDF6ZEp6M2Nqa05ydjJobk5aMHZUemJJRWlGNFl2QTV5M3Jmd0xyWkxqTmUxNnlaYVhxQmxiYVRBQU13bHFFb1FFR3c1SQ?oc=5"
+    },
+    {
+      "title": "AI資料中心卡4關！央行澆冷水　示警融資風險 - ETtoday財經雲",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1Vd2hOeHVqTjlrT2U3S0RPM0pkTktkOFJGMzFIYkNlakFrd2k5VzQ0NzBaT3g0UXk1QVNGd3E5TEdjQ3EwSUphRExwaUxBb3pCVmfSAVBBVV95cUxPQllqZGQ4VzdLdVZJbllhbU00NXVtNDlrdEp3cjRqSi1FXzVyNE9MZ2xKMHppalRQQXhrLWV3elE4dkxXaENDR2VwY2h5UzRRQw?oc=5"
     },
     {
       "title": "外資大撤退 出口企業卻迎匯率紅利？台積電、廣達等6檔受矚 選股還得看「這條件」 - 工商時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/10/31 下午9:01:08",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/10/31 下午8:52:19",
