@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-01T00:29:26.194Z",
+  "lastUpdated": "2026-11-01T01:40:17.673Z",
   "date": "2026年11月01日（星期日）",
   "basedOn": "2026年10月30日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
+    },
+    {
       "title": "【MM一週盤前】非農意外衰退、升息預期降溫，本週聚焦美國 CPI！ - MacroMicro",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOZnJkaUZoSGxyRENYbE9CenNoaG5iZVM5WlpscVVCTFg1X3I1eTVla0FtbXhrQXZGcUs0aEZ6b1RJOXdXMC1KT1B2SkVUeDdNYk16U3JlOHk5Y0ZMYXJqcV9HMlJwbGVTRnRPR0owUVVTaVktdjV5a2wtTkk5blpacm90X3lrengzQXBMVDdOeUdFdDA2WS1yTlVlOUxVN2dUMm55Z3oxRXQtT1dhUEw1LVByY2NZX1RxTF9iT21Ha1o0R0FmXzRFSTZIRGZyWjE5aU5Ld3pMS2VQdUVLNE9aYkRLQzRJR0V1bFR2d09hd2x3TXpfeFBLMlRfRkc2bF83?oc=5"
-    },
-    {
-      "title": "油價9字頭再現！荷姆茲海峽危機引爆全球停滯性通膨風險 凱投宏觀：恐再見到150美元 - 鉅亨網",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TZkpYR0RwR3laYTBBdlRvQTVPQkJEVVJHUjVqMWJhSUcwWllTVUFpQkNfakhLd080c09nTnFYZzYyLVZlRUdhbUZ1QUZMOTQ?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/1 上午9:40:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/1 上午8:29:26",
