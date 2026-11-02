@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-02T20:50:32.261Z",
+  "lastUpdated": "2026-11-02T22:38:42.012Z",
   "date": "2026年11月03日（星期二）",
   "basedOn": "2026年11月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,042（11/02，▲0.52%）",
-        "S&P 500：7,547（11/02，▼0.43%）",
-        "那斯達克：25,169（11/02，▼1.06%）",
-        "費城半導體指數：10,314（11/02，▼3.50%）"
+        "道瓊：51,984（11/02，▲0.41%）",
+        "S&P 500：7,541（11/02，▼0.51%）",
+        "那斯達克：25,164（11/02，▼1.07%）",
+        "費城半導體指數：10,328（11/02，▼3.37%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -43,12 +43,12 @@
       "items": [
         "台灣加權指數：44,920（11/02，▼0.65%）"
       ],
-      "analysis": "台股今日下跌0.65%，主因受"
+      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,950（11/02，▲1.32%）"
+        "黃金：3,957（11/02，▲1.48%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.98%（10/29）",
+            "current": "4.94%（10/30）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.74（11/2）",
+            "current": "101.77（11/2）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "21.6（11/2）",
+            "current": "21.1（11/2）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.37%（10Y 4.98% - 2Y 4.61%，10/29）",
+            "current": "+0.38%（10Y 4.94% - 2Y 4.56%，10/30）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -213,19 +213,19 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "油價9字頭再現！荷姆茲海峽危機引爆全球停滯性通膨風險 凱投宏觀：恐再見到150美元 - 鉅亨網",
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TZkpYR0RwR3laYTBBdlRvQTVPQkJEVVJHUjVqMWJhSUcwWllTVUFpQkNfakhLd080c09nTnFYZzYyLVZlRUdhbUZ1QUZMOTQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "title": "【行情快報】美國經濟有衰退風險嗎？解讀市場三大利空！ - MacroMicro",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "華許出席IMF年會未鬆口本月是否升息 只談「央行須關注金融穩定面臨的風險」 | 太報 - LINE TODAY",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE92S1lPTVY0eDlYYXI4ZUs4bG5DSVZHMzhaa1REbjNUUC0xeGhtMVVVLWZsMlNMSHFNYUV3NjNaRjJiTzhWQjUwQ3dtc2lOSEZUX2ljdUdkMXNuNDl4cUVzbEstLW5MQVBxMnRPOUdfWnI?oc=5"
     },
     {
       "title": "外資股匯兩頭撤…新台幣承壓短線震盪偏弱- 日報 - 工商時報",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/3 上午6:38:42",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/3 上午4:50:32",
