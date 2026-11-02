@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-02T16:30:44.017Z",
+  "lastUpdated": "2026-11-02T20:50:32.261Z",
   "date": "2026年11月03日（星期二）",
   "basedOn": "2026年11月02日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,285（11/02，▲0.99%）",
-        "S&P 500：7,625（11/02，▲0.60%）",
-        "那斯達克：25,624（11/02，▲0.74%）",
-        "費城半導體指數：10,685（11/02，▼0.04%）"
+        "道瓊：52,042（11/02，▲0.52%）",
+        "S&P 500：7,547（11/02，▼0.43%）",
+        "那斯達克：25,169（11/02，▼1.06%）",
+        "費城半導體指數：10,314（11/02，▼3.50%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -43,19 +43,19 @@
       "items": [
         "台灣加權指數：44,920（11/02，▼0.65%）"
       ],
-      "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
+      "analysis": "台股今日下跌0.65%，主因受"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,973（11/02，▲1.90%）"
+        "黃金：3,950（11/02，▲1.32%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,711（11/02，▼1.77%）"
+        "VN-Index：1,711（11/03，▼1.77%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月2日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×2　🟡×4　🟢×3",
+    "summary": "🔴×6　🟠×3　🟡×3　🟢×3",
     "layers": [
       {
         "number": 1,
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.72（11/2）",
+            "current": "101.74（11/2）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.55（11/2）",
+            "current": "32.59（11/2）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.7（11/2）",
-            "status": "🟡",
-            "statusText": "波動率上升，留意情緒轉變"
+            "current": "21.6（11/2）",
+            "status": "🟠",
+            "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$97（11/2）",
+            "current": "$96（11/2）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,16 +228,16 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "阻貶台幣 抗外資匯出 央行找出口商助陣 - UDN",
+      "title": "外資股匯兩頭撤…新台幣承壓短線震盪偏弱- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5TSlNheW05MndxV2prTUdicTZzY1VCdTZRdXZPZE1HTWp4UEN2UHV6MHhQQnl1YnpqamhDRDJPS2lZXzFfSmo1QlB2TklOR0xf0gFWQVVfeXFMTmd0UXJjQWNJVVpkZWdudnU5OXpPZmF3NzRBVnl6MmljRGl5WmUzV3FyRmpQLWJBZTJrTUJiay1TVDBNd0wyZ0tFX3B1azFrakVpNVI4RHc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE90aHBJZmxpbzFJYUxyRy02aC10UDBqNzRjMmRkMkNGM19wZzgwMzNaemV5bkhZX0lTa3JTMVNyZ3JUQlRHYXIxUzRtbjRfSGNwMzc4ejQ1ZDAzZHZiT3ZJ?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股全面上漲",
-      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
+      "title": "美股回檔調整",
+      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/3 上午4:50:32",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/3 上午12:30:44",
