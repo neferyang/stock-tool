@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-03T18:25:09.595Z",
+  "lastUpdated": "2026-11-03T23:42:38.692Z",
   "date": "2026年11月04日（星期三）",
   "basedOn": "2026年11月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,880（11/03，▼0.20%）",
-        "S&P 500：7,586（11/03，▲0.60%）",
-        "那斯達克：25,432（11/03，▲1.06%）",
-        "費城半導體指數：10,631（11/03，▲2.93%）"
+        "道瓊：51,787（11/03，▼0.38%）",
+        "S&P 500：7,569（11/03，▲0.36%）",
+        "那斯達克：25,372（11/03，▲0.83%）",
+        "費城半導體指數：10,600（11/03，▲2.63%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,945（11/03，▼0.63%）"
+        "黃金：3,942（11/03，▼0.70%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.94%（10/30）",
+            "current": "4.91%（11/2）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.78（11/3）",
+            "current": "101.89（11/3）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.79（11/3）",
+            "current": "32.73（11/3）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "20.5（11/3）",
+            "current": "20.8（11/3）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.38%（10Y 4.94% - 2Y 4.56%，10/30）",
+            "current": "+0.32%（10Y 4.91% - 2Y 4.59%，11/2）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$96（11/3）",
+            "current": "$97（11/3）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -213,14 +213,14 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
+      "title": "油價9字頭再現！荷姆茲海峽危機引爆全球停滯性通膨風險 凱投宏觀：恐再見到150美元 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TZkpYR0RwR3laYTBBdlRvQTVPQkJEVVJHUjVqMWJhSUcwWllTVUFpQkNfakhLd080c09nTnFYZzYyLVZlRUdhbUZ1QUZMOTQ?oc=5"
     },
     {
-      "title": "美國CPI與PPI前瞻: 非農數據大幅下修91萬人後，三分鐘帶您瞭解本周CPI、PPI將如何影響美股走勢【美股盤前】 - 永豐金證券",
+      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
     },
     {
       "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "外資狂賣？新台幣重貶逾2角「跌破32.8元」 一年半最低 - Yahoo股市",
+      "title": "股匯逃殺 外資今年來賣超台股2.55兆 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxOSVdOT0JBUlpkajE0RmdnRXMwazJLMmVUbWFIR3BXNmh2NDNha2U4QjBzMy10WEFJSzVWY2dFdmhHSHZiOEc4d2c4d0dwTG92YnA0djJlekhpb1VjT25MN3dYdlFHdU1VZ0o1QW1BdnRTWFUwMEhqN1FfM2lCTXpSdzh0SXNSTG5SMWZXX0NNMnFsNUo3S2RQb1lsLURaYjRxY0NsazFIMTdwaTh0RnJiQmJBLW5qSUFzcl9ZUEYwTXR1a1lWSFd3QnNqdGNnSi03VFNsUTRFajlSeU9MaU1oaUJQenplUGtGYnF6cEpQOXI5OEY1aFdoempNbDByc0hFbWttajBxanJXUVpwTFdmbFMtTXBSVG9najNuM01zRlhCN211cTRVQ1FxNW9DMU42MjlXX0t6cF9zb0FtS1FCLWlfQklrdVNjTlVCR2c3M09TbFZCQzY2N0VOR0x5bnAyX2FQMVRaSm9jQQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1tYVVTenFucEJ4RXVWZnZUd0FMV08tS2FsZ0dYd0ZxRDNjRllhYXFqel94bXVkN1VCZjM4SHRDNXR5YUZyRTE2ODNLX1pFNTFO0gFWQVVfeXFMUGc4cnVtNk1pQmdTM05wWDdGMldRWnBpaDYwbGg0cFEtQlN1bUJnSW9fb1RSUXNWXzZ6MldHRFlzSk95SlR2OTk2SWlONzNzcmppRHNMMVE?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/4 上午7:42:38",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/4 上午2:25:09",
