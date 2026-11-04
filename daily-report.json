@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-03T23:42:38.692Z",
+  "lastUpdated": "2026-11-04T01:46:09.826Z",
   "date": "2026年11月04日（星期三）",
   "basedOn": "2026年11月03日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -14,7 +14,7 @@
         "那斯達克：25,372（11/03，▲0.83%）",
         "費城半導體指數：10,600（11/03，▲2.63%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "受聯準會升息與鷹派點陣圖衝擊，加上指數高檔引發獲利了結與回檔擔憂，美股承壓微跌0.38%。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -41,16 +41,16 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：43,308（11/03，▼3.59%）"
+        "台灣加權指數：43,167（11/04，▼0.32%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,942（11/03，▼0.70%）"
+        "黃金：3,966（11/03，▼0.10%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,9 +62,9 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年11月3日",
+    "date": "2026年11月4日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×3　🟡×3　🟢×3",
+    "summary": "🔴×6　🟠×3　🟡×2　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,9 +91,9 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約16%（11/2，加權指數 vs 240日均線）",
-            "status": "🟡",
-            "statusText": "乖離率偏高，留意拉回風險"
+            "current": "約12%（11/4，加權指數 vs 240日均線）",
+            "status": "🟢",
+            "statusText": "乖離率溫和，未過熱"
           }
         ]
       },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.89（11/3）",
+            "current": "101.38（11/3）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.73（11/3）",
+            "current": "32.83（11/4）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$97（11/3）",
+            "current": "$96（11/3）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -203,9 +203,9 @@
   ],
   "news": [
     {
-      "title": "債蛙解套1／財管教授百張長債ETF不抱了　轉進短債、金融股原因曝 - 鏡週刊Mirror Media",
+      "title": "理財最前線／長債ETF苦等解套　專家教戰3招換債拚6％收益 - 鏡週刊Mirror Media",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBtbU8zM2JId0RMTTYzcEdLUmprVkNIcjlfYXhBeTdJS0o2dzRPMnFPVTFZci1BVF9zS19LU0FLc25wUU9JNzZDTnJFc2xGLWNiT1F6UEtadjUwOEUtaHfSAWNBVV95cUxNSjVnWnRVbDlra2VCUWc5YVhsVlhJYS1aRlk3ZjktTHpXbHFvRC15Z2N6ZlZlcGNjNFFteWZsTm5NUzJlVGFVUHR6NDBIbEpFSi1idm5RSzlKUGs2Q3hjSDJJOTQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PY3c1cjR2d3A4a010YnBoT3hkaUVIRWI5X0VjRG9lT2JNUkN3YlZzeU5MbXpRTk94dWFLOTFQczBxVHlLS2JOUXZUcEd2TmZLU3hkenBkZVJJcC0tcXfSAWNBVV95cUxQVUN6Z3VnUzRDVmk5WVIzYzgzRG5qTmlVb2Z5X3BBT0tjMWlYZW4zc09DbVNub2NqLUhwMkc2WHU4Z2cxNE5leWp4UWd0bHdYTzFHVkk5clM0cFBhT2ZLd2JTUWM?oc=5"
     },
     {
       "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
@@ -213,24 +213,24 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "油價9字頭再現！荷姆茲海峽危機引爆全球停滯性通膨風險 凱投宏觀：恐再見到150美元 - 鉅亨網",
+      "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1TZkpYR0RwR3laYTBBdlRvQTVPQkJEVVJHUjVqMWJhSUcwWllTVUFpQkNfakhLd080c09nTnFYZzYyLVZlRUdhbUZ1QUZMOTQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE54SWliR3cwbXl2dDFoSWgwSTBhU3RwMW5FMFdvMm1SbVFXWGs3SklXLUQ0cVVNM0JSZmFxaFBOV1lTSjdHSlBoM0F2YkxOY2Rad1ZzWmkzX0hYNEhaOWJBWERjMDNrQ2FGajFBa21jaS1jcmpTWVhrXy1kSkI?oc=5"
     },
     {
-      "title": "黃金最新「關鍵價格」曝光！下一步崩盤還是狂噴 答案揭曉 - 自由時報",
+      "title": "【行情快報】美國經濟有衰退風險嗎？解讀市場三大利空！ - MacroMicro",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE11d29oRXJyOWtIMi1tNEJKa2kwUXJvRF9qM2Fyal9URVhRRnk5RjJrcjdEUW1mbmtYLW9jWVZUWjZOLUdkYTNmSVlHazJZX1ZQWjBzTkE4NnM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
-      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
+      "title": "全球市場風險加劇，AI鉅額投資恐成下一衝擊源？ - 群益期貨",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWU5RTXo3RmFVMjgxUWVUZG1EbnBxZkJPOUlRUXdoMG9QVUVlYkY5Vlp3T2VTaVdUUTljTG4tYWZQd0dFd29VV2pmT19SMXpOaFZvak1rLUQzOXF4NkgtN3IxbHp5LThXbFdnWkZFdEhUbjJ0bWdYZFdXZmR0cG1Hd2U3UmRmbm43N1Rkd2diZw?oc=5"
     },
     {
-      "title": "股匯逃殺 外資今年來賣超台股2.55兆 - UDN",
+      "title": "台股開盤回穩一度漲逾400點 新台幣續貶失守32.8元 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1tYVVTenFucEJ4RXVWZnZUd0FMV08tS2FsZ0dYd0ZxRDNjRllhYXFqel94bXVkN1VCZjM4SHRDNXR5YUZyRTE2ODNLX1pFNTFO0gFWQVVfeXFMUGc4cnVtNk1pQmdTM05wWDdGMldRWnBpaDYwbGg0cFEtQlN1bUJnSW9fb1RSUXNWXzZ6MldHRFlzSk95SlR2OTk2SWlONzNzcmppRHNMMVE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4yVVhQdk9oQ1AwWXgtZ0Z4YmxZX1dMV0doalRReFktTWZjSXp1aFdfRUVyY0Z3Y3NpQUVWRjdHRWVOMHVmOVdrQzR3ZlVOaDQ5?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/4 上午9:46:09",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/4 上午7:42:38",
@@ -3128,49 +3133,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2295,
-      "change": -35,
-      "changePct": -1.5,
+      "price": 2285,
+      "change": -10,
+      "changePct": -0.44,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 245.5,
-      "change": -5.5,
-      "changePct": -2.19,
+      "price": 242.5,
+      "change": -3,
+      "changePct": -1.22,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3675,
-      "change": -295,
-      "changePct": -7.43,
-      "arrow": "▼"
+      "price": 3695,
+      "change": 20,
+      "changePct": 0.54,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1270,
-      "change": -85,
-      "changePct": -6.27,
+      "price": 1265,
+      "change": -5,
+      "changePct": -0.39,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 311.5,
-      "change": -6.5,
-      "changePct": -2.04,
+      "price": 307,
+      "change": -4.5,
+      "changePct": -1.44,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 154,
-      "change": -5.5,
-      "changePct": -3.45,
+      "price": 152.5,
+      "change": -1.5,
+      "changePct": -0.97,
       "arrow": "▼"
     }
   ]
