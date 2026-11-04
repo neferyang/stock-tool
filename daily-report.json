@@ -1,70 +1,70 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-04T02:51:36.944Z",
+  "lastUpdated": "2026-11-04T14:49:32.483Z",
   "date": "2026年11月04日（星期三）",
-  "basedOn": "2026年11月03日（前一交易日）",
+  "basedOn": "2026年11月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,787（11/03，▼0.38%）",
-        "S&P 500：7,569（11/03，▲0.36%）",
-        "那斯達克：25,372（11/03，▲0.83%）",
-        "費城半導體指數：10,600（11/03，▲2.63%）"
+        "道瓊：53,015（11/04，▲2.37%）",
+        "S&P 500：7,699（11/04，▲1.72%）",
+        "那斯達克：25,908（11/04，▲2.11%）",
+        "費城半導體指數：10,588（11/04，▼0.12%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：63,082（11/02，▼0.33%）"
+        "日經225：62,189（11/04，▼1.42%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,649（11/03，▼3.59%）"
+        "KOSPI：5,684（11/04，▲0.62%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：76,918（11/03，▲1.62%）",
-        "NIFTY 50：23,811（11/03，▲1.58%）"
+        "SENSEX：77,301（11/04，▲0.50%）",
+        "NIFTY 50：23,961（11/04，▲0.63%）"
       ],
       "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：42,690（11/04，▼1.43%）"
+        "台灣加權指數：42,949（11/04，▼0.83%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,953（11/03，▼0.43%）"
+        "黃金：4,055（11/04，▲2.90%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,697（11/04，▼0.17%）"
+        "VN-Index：1,733（11/04，▲1.97%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月4日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×3　🟡×2　🟢×4",
+    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.31（11/3）",
+            "current": "101.33（11/4）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "20.8（11/3）",
-            "status": "🟠",
-            "statusText": "逼近警戒（20~30），波動率明顯上升"
+            "current": "17.9（11/4）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "343 bps（3.43%，11/2）",
+            "current": "340 bps（3.40%，11/3）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$95（11/3）",
+            "current": "$93（11/4）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWU5RTXo3RmFVMjgxUWVUZG1EbnBxZkJPOUlRUXdoMG9QVUVlYkY5Vlp3T2VTaVdUUTljTG4tYWZQd0dFd29VV2pmT19SMXpOaFZvak1rLUQzOXF4NkgtN3IxbHp5LThXbFdnWkZFdEhUbjJ0bWdYZFdXZmR0cG1Hd2U3UmRmbm43N1Rkd2diZw?oc=5"
     },
     {
-      "title": "台股開盤回穩一度漲逾400點 新台幣續貶失守32.8元 - UDN",
+      "title": "美期中選舉影響亞股分歧 台股盤中下殺千點終場收4萬2 - 公視新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE4yVVhQdk9oQ1AwWXgtZ0Z4YmxZX1dMV0doalRReFktTWZjSXp1aFdfRUVyY0Z3Y3NpQUVWRjdHRWVOMHVmOVdrQzR3ZlVOaDQ50gFWQVVfeXFMUGFVclowQWVNS196NFpaekVkWlF4V0RrcHM3dmZCVGZ3STRtaC15eTFLWnZvX2NSUHh2eDNjaG1sbWRGTFFaRzcyQUpSMnlRQjN6RFVaZXc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwNTBYZnAwYjVHRW82RThvLVNQaWg2WVVEZWc5OEkxenp2cGI1SFc0d1hMbVB3M0NZdjFpYzBFaHo3RTV0aUQ3TVNUYWFnRnc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/4 下午10:49:32",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/4 上午10:51:36",
@@ -3138,50 +3143,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2285,
-      "change": -10,
-      "changePct": -0.44,
+      "price": 2260,
+      "change": -35,
+      "changePct": -1.53,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 240.5,
-      "change": -5,
-      "changePct": -2.04,
+      "price": 240,
+      "change": -5.5,
+      "changePct": -2.24,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3570,
-      "change": -105,
-      "changePct": -2.86,
-      "arrow": "▼"
+      "price": 3715,
+      "change": 40,
+      "changePct": 1.09,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1200,
-      "change": -70,
-      "changePct": -5.51,
+      "price": 1220,
+      "change": -50,
+      "changePct": -3.94,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 304.5,
-      "change": -7,
-      "changePct": -2.25,
+      "price": 302.5,
+      "change": -9,
+      "changePct": -2.89,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 153,
-      "change": -1,
-      "changePct": -0.65,
-      "arrow": "▼"
+      "price": 154.5,
+      "change": 0.5,
+      "changePct": 0.32,
+      "arrow": "▲"
     }
   ]
 }
