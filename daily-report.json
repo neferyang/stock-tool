@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-05T01:53:28.640Z",
+  "lastUpdated": "2026-11-05T02:55:36.604Z",
   "date": "2026年11月05日（星期四）",
   "basedOn": "2026年11月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：5,684（11/04，▲0.62%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：42,041（11/05，▼2.11%）"
+        "台灣加權指數：42,509（11/05，▼1.03%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,119（11/04，▲4.54%）"
+        "黃金：4,131（11/04，▲4.84%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,733（11/05，▲1.97%）"
+        "VN-Index：1,746（11/05，▲0.77%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.31（11/4）",
+            "current": "101.30（11/4）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.90（11/5）",
+            "current": "32.92（11/5）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWU5RTXo3RmFVMjgxUWVUZG1EbnBxZkJPOUlRUXdoMG9QVUVlYkY5Vlp3T2VTaVdUUTljTG4tYWZQd0dFd29VV2pmT19SMXpOaFZvak1rLUQzOXF4NkgtN3IxbHp5LThXbFdnWkZFdEhUbjJ0bWdYZFdXZmR0cG1Hd2U3UmRmbm43N1Rkd2diZw?oc=5"
     },
     {
-      "title": "美期中選舉影響亞股分歧 台股盤中下殺千點終場收4萬2 - 公視新聞",
+      "title": "股匯震盪 匯銀：外資匯出露緩和跡象 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAwNTBYZnAwYjVHRW82RThvLVNQaWg2WVVEZWc5OEkxenp2cGI1SFc0d1hMbVB3M0NZdjFpYzBFaHo3RTV0aUQ3TVNUYWFnRnc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9XZzhFdGhlWnVVbE96LXM3SUF4dGgtQndoZ0ZTUWFPYlhNQUxFeGZTWjlvdUxjSlJzcFBiUjFWcm5vR1hKdjR6dDAtdmFBZGVI0gFWQVVfeXFMTXZNZVF5OWdkaWNiX1dIQkxrak1rR1l6dVpPNWM3V1pscEFhX1hBMDIzSGJsX0dZbHVkMm5wdy1QMUJfVEZLU0tWT05SZnYybnF5c0d3UXc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/5 上午10:55:36",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/5 上午9:53:28",
@@ -3158,49 +3163,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2260,
-      "change": 0,
-      "changePct": 0,
-      "arrow": "-"
+      "price": 2270,
+      "change": 10,
+      "changePct": 0.44,
+      "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 237,
-      "change": -3,
-      "changePct": -1.25,
-      "arrow": "▼"
+      "price": 240.5,
+      "change": 0.5,
+      "changePct": 0.21,
+      "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3545,
-      "change": -170,
-      "changePct": -4.58,
+      "price": 3630,
+      "change": -85,
+      "changePct": -2.29,
       "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1125,
-      "change": -95,
-      "changePct": -7.79,
+      "price": 1160,
+      "change": -60,
+      "changePct": -4.92,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 301.5,
-      "change": -1,
-      "changePct": -0.33,
-      "arrow": "▼"
+      "price": 306,
+      "change": 3.5,
+      "changePct": 1.16,
+      "arrow": "▲"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 156.5,
-      "change": 2,
-      "changePct": 1.29,
+      "price": 155.5,
+      "change": 1,
+      "changePct": 0.65,
       "arrow": "▲"
     }
   ]
