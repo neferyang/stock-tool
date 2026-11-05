@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-05T00:03:55.457Z",
+  "lastUpdated": "2026-11-05T01:53:28.640Z",
   "date": "2026年11月05日（星期四）",
   "basedOn": "2026年11月04日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -41,14 +41,14 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：42,949（11/04，▼0.83%）"
+        "台灣加權指數：42,041（11/05，▼2.11%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,073（11/04，▲3.37%）"
+        "黃金：4,119（11/04，▲4.54%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約12%（11/3，加權指數 vs 240日均線）",
+            "current": "約9%（11/5，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.49（11/4）",
+            "current": "101.31（11/4）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.82（11/5）",
+            "current": "32.90（11/5）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$88（11/4）",
+            "current": "$87（11/4）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/5 上午9:53:28",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/5 上午8:03:55",
@@ -3154,48 +3159,48 @@
       "code": "2330",
       "name": "台積電",
       "price": 2260,
-      "change": -35,
-      "changePct": -1.53,
-      "arrow": "▼"
+      "change": 0,
+      "changePct": 0,
+      "arrow": "-"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 240,
-      "change": -5.5,
-      "changePct": -2.24,
+      "price": 237,
+      "change": -3,
+      "changePct": -1.25,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3715,
-      "change": 40,
-      "changePct": 1.09,
-      "arrow": "▲"
+      "price": 3545,
+      "change": -170,
+      "changePct": -4.58,
+      "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1220,
-      "change": -50,
-      "changePct": -3.94,
+      "price": 1125,
+      "change": -95,
+      "changePct": -7.79,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 302.5,
-      "change": -9,
-      "changePct": -2.89,
+      "price": 301.5,
+      "change": -1,
+      "changePct": -0.33,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 154.5,
-      "change": 0.5,
-      "changePct": 0.32,
+      "price": 156.5,
+      "change": 2,
+      "changePct": 1.29,
       "arrow": "▲"
     }
   ]
