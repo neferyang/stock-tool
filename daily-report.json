@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-05T14:36:06.417Z",
+  "lastUpdated": "2026-11-05T14:55:13.915Z",
   "date": "2026年11月05日（星期四）",
   "basedOn": "2026年11月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,12 +9,12 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：53,642（11/05，▲0.54%）",
-        "S&P 500：7,667（11/05，▼0.28%）",
-        "那斯達克：25,497（11/05，▼0.93%）",
-        "費城半導體指數：9,769（11/05，▼4.87%）"
+        "道瓊：53,156（11/05，▼0.38%）",
+        "S&P 500：7,583（11/05，▼1.37%）",
+        "那斯達克：25,075（11/05，▼2.57%）",
+        "費城半導體指數：9,613（11/05，▼6.39%）"
       ],
-      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
+      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
     {
       "name": "🇯🇵 日經225",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,137（11/05，▲1.56%）"
+        "黃金：4,126（11/05，▲1.30%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月5日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
+    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.93（11/5）",
+            "current": "32.97（11/5）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "17.0（11/5）",
+            "current": "18.3（11/5）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -173,8 +173,8 @@
           {
             "name": "WTI 原油",
             "current": "$90（11/5）",
-            "status": "🟡",
-            "statusText": "距警戒（>$100）有距離"
+            "status": "🟠",
+            "statusText": "接近警戒（>$100）"
           },
           {
             "name": "初領失業救濟金",
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
-      "title": "富邦金估2027年全球經濟溫和擴張 點出地緣政治、AI投資及美國債務三大風險 - 鉅亨網",
+      "title": "新台幣恐弱到明年第一季！央行升息壓力升高，羅瑋解析2027年全球經濟四大變數| 林彥呈| 財經 - 風傳媒",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1uWk9lMjlmS3BEWnR1TTJYNlowTHpUWUpCanBMVGhRVHRDbzhTMjNHMUp0V1gyLXFJcUhsNXo3ci02Z2R4dHJVWWRHMEJ2dw?oc=5"
     },
     {
       "title": "台股連6跌重挫5460點 外資賣超6144億 - 公視新聞",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/5 下午10:55:13",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/5 下午10:36:06",
