@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-06T01:48:28.004Z",
+  "lastUpdated": "2026-11-06T03:01:33.565Z",
   "date": "2026年11月06日（星期五）",
   "basedOn": "2026年11月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -28,7 +28,7 @@
       "items": [
         "KOSPI：5,384（11/05，▼5.28%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -41,23 +41,23 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：38,401（11/06，▼7.63%）"
+        "台灣加權指數：40,218（11/06，▼3.26%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,075（11/05，▲0.06%）"
+        "黃金：4,074（11/05，▲0.03%）"
       ],
       "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,741（11/06，▲0.44%）"
+        "VN-Index：1,722（11/06，▼1.07%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約-2%（11/6，加權指數 vs 240日均線）",
+            "current": "約3%（11/6，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.62（11/5）",
+            "current": "101.68（11/5）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "33.03（11/6）",
+            "current": "32.96（11/6）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$91（11/5）",
+            "current": "$92（11/5）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/6 上午11:01:33",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/6 上午9:48:28",
@@ -3183,49 +3188,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2070,
-      "change": -170,
-      "changePct": -7.59,
+      "price": 2175,
+      "change": -65,
+      "changePct": -2.9,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 217.5,
-      "change": -17.5,
-      "changePct": -7.45,
+      "price": 226.5,
+      "change": -8.5,
+      "changePct": -3.62,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3165,
-      "change": -295,
-      "changePct": -8.53,
+      "price": 3405,
+      "change": -55,
+      "changePct": -1.59,
       "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1020,
-      "change": -110,
-      "changePct": -9.73,
+      "price": 1060,
+      "change": -70,
+      "changePct": -6.19,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 283,
-      "change": -17,
-      "changePct": -5.67,
+      "price": 290.5,
+      "change": -9.5,
+      "changePct": -3.17,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 142.5,
-      "change": -13,
-      "changePct": -8.36,
+      "price": 150,
+      "change": -5.5,
+      "changePct": -3.54,
       "arrow": "▼"
     }
   ]
