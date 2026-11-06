@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-06T03:01:33.565Z",
+  "lastUpdated": "2026-11-06T08:34:19.999Z",
   "date": "2026年11月06日（星期五）",
   "basedOn": "2026年11月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,14 +19,14 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：61,078（11/05，▼1.79%）"
+        "日經225：57,435（11/06，▼5.96%）"
       ],
       "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,384（11/05，▼5.28%）"
+        "KOSPI：5,060（11/06，▼6.02%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：40,218（11/06，▼3.26%）"
+        "台灣加權指數：39,702（11/06，▼4.51%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,074（11/05，▲0.03%）"
+        "黃金：4,072（11/06，▼1.00%）"
       ],
-      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,722（11/06，▼1.07%）"
+        "VN-Index：1,725（11/06，▼0.88%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月6日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×3　🟡×2　🟢×4",
+    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約3%（11/6，加權指數 vs 240日均線）",
+            "current": "約2%（11/6，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.68（11/5）",
+            "current": "101.89（11/6）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.96（11/6）",
+            "current": "32.80（11/6）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "28.2（11/5）",
+            "current": "27.6（11/6）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
@@ -172,9 +172,9 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$92（11/5）",
-            "status": "🟠",
-            "statusText": "接近警戒（>$100）"
+            "current": "$90（11/6）",
+            "status": "🟡",
+            "statusText": "距警戒（>$100）有距離"
           },
           {
             "name": "初領失業救濟金",
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
-      "title": "新台幣恐弱到明年第一季！央行升息壓力升高，羅瑋解析2027年全球經濟四大變數| 林彥呈| 財經 - 風傳媒",
+      "title": "富邦金估2027年全球經濟溫和擴張 點出地緣政治、AI投資及美國債務三大風險 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1uWk9lMjlmS3BEWnR1TTJYNlowTHpUWUpCanBMVGhRVHRDbzhTMjNHMUp0V1gyLXFJcUhsNXo3ci02Z2R4dHJVWWRHMEJ2dw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
     },
     {
-      "title": "郭恭克專欄》政治風險降溫、AI產業重新定價，美、台股展望與資金配置策略 - 信傳媒",
+      "title": "央行出手了？外資「連7賣」、今再提款台股逾911億台幣午後卻急升| 財經 - Newtalk新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB3NkYycG1aeU1Ta1pENE5fVVhMd3g5TExRVGtUWV9uVVZicjBjQnBCMjlaWThMYWFRVGhXNEYxTlRLUDJRWkNGNUh6U0huUDZHbTA4Y2x2NWxVZw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hY05tZmpMMWU5dUxEZFRjaFFHYlRyM3h6UHBscXRuejVTZDFBMzNRUXpRbElyb2FiTXVCRWVXVWxoNU5USmUtRE96SXNfZ05TMTl4Zll3Z1dpcTA?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/6 下午4:34:19",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/6 上午11:01:33",
@@ -3188,33 +3193,33 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2175,
-      "change": -65,
-      "changePct": -2.9,
+      "price": 2135,
+      "change": -105,
+      "changePct": -4.69,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 226.5,
-      "change": -8.5,
-      "changePct": -3.62,
+      "price": 224.5,
+      "change": -10.5,
+      "changePct": -4.47,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3405,
-      "change": -55,
-      "changePct": -1.59,
+      "price": 3390,
+      "change": -70,
+      "changePct": -2.02,
       "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1060,
-      "change": -70,
-      "changePct": -6.19,
+      "price": 1055,
+      "change": -75,
+      "changePct": -6.64,
       "arrow": "▼"
     },
     {
@@ -3228,9 +3233,9 @@
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 150,
-      "change": -5.5,
-      "changePct": -3.54,
+      "price": 148,
+      "change": -7.5,
+      "changePct": -4.82,
       "arrow": "▼"
     }
   ]
