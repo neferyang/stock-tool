@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-05T18:46:10.614Z",
+  "lastUpdated": "2026-11-06T01:48:28.004Z",
   "date": "2026年11月06日（星期五）",
   "basedOn": "2026年11月05日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,699（11/05，▼3.10%）",
-        "S&P 500：7,377（11/05，▼4.05%）",
-        "那斯達克：24,370（11/05，▼5.31%）",
-        "費城半導體指數：9,183（11/05，▼10.57%）"
+        "道瓊：51,523（11/05，▼3.44%）",
+        "S&P 500：7,354（11/05，▼4.36%）",
+        "那斯達克：24,315（11/05，▼5.52%）",
+        "費城半導體指數：9,011（11/05，▼12.25%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -41,16 +41,16 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：41,575（11/05，▼3.20%）"
+        "台灣加權指數：38,401（11/06，▼7.63%）"
       ],
       "analysis": "台股收跌，外資賣超壓抑，高檔獲利了結賣壓出現，技術面短線需整理。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,113（11/05，▲0.99%）"
+        "黃金：4,075（11/05，▲0.06%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年11月5日",
+    "date": "2026年11月6日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×3　🟡×2　🟢×4",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "40.6（4:00 PM EST, Wed Nov 4）",
+            "current": "38.8（4:00 PM EST, Thu Nov 5）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約11%（11/4，加權指數 vs 240日均線）",
+            "current": "約-2%（11/6，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.95%（11/3）",
+            "current": "4.90%（11/4）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.46（11/5）",
+            "current": "101.62（11/5）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "33.05（11/5）",
+            "current": "33.03（11/6）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "26.7（11/5）",
+            "current": "28.2（11/5）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.34%（10Y 4.95% - 2Y 4.61%，11/3）",
+            "current": "+0.32%（10Y 4.90% - 2Y 4.58%，11/4）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNZnJrU25MRGFSaG50UVl2dW81RWtXdHU3U3dhU0h1S3owTlVHNjlYQUdkd0NnRGVQRUF0RG40WEpZSzhsdFJFMmdtRURKTThUdFVkNWtOcS05ak9QeUdOVEY0dDBpRW9vN1o0SUF4YzBuZEs5aERiVmZnSDYtQlFhNGZRRHF2bXh3TjltQzFfSEg2TnJKdkppWmtFaE9ESmFlTHhIMEYyR0NJdm9rMlAwRVF3ZjAtUDdHUGxMQkJXZG9jMDFpVGRWMHRqd2tVUGtXUnlvX1haejB5Tmsy?oc=5"
     },
     {
-      "title": "富邦金估2027年全球經濟溫和擴張 點出地緣政治、AI投資及美國債務三大風險 - 鉅亨網",
+      "title": "新台幣恐弱到明年第一季！央行升息壓力升高，羅瑋解析2027年全球經濟四大變數| 林彥呈| 財經 - 風傳媒",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1uWk9lMjlmS3BEWnR1TTJYNlowTHpUWUpCanBMVGhRVHRDbzhTMjNHMUp0V1gyLXFJcUhsNXo3ci02Z2R4dHJVWWRHMEJ2dw?oc=5"
     },
     {
-      "title": "台股連6跌重挫5460點 外資賣超6144億 - 公視新聞",
+      "title": "郭恭克專欄》政治風險降溫、AI產業重新定價，美、台股展望與資金配置策略 - 信傳媒",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBMWTdyMVJzM3pzMGJZT3g2QmJGX3VqYWd2ME11OTBxQXZKLVpQT001RUJENVhGd1BIaUZSMGVLQ2xRT0pKVFQzMjFpcklscHc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB3NkYycG1aeU1Ta1pENE5fVVhMd3g5TExRVGtUWV9uVVZicjBjQnBCMjlaWThMYWFRVGhXNEYxTlRLUDJRWkNGNUh6U0huUDZHbTA4Y2x2NWxVZw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/6 上午9:48:28",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/6 上午2:46:10",
@@ -3178,50 +3183,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2240,
-      "change": -20,
-      "changePct": -0.88,
+      "price": 2070,
+      "change": -170,
+      "changePct": -7.59,
       "arrow": "▼"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 235,
-      "change": -5,
-      "changePct": -2.08,
+      "price": 217.5,
+      "change": -17.5,
+      "changePct": -7.45,
       "arrow": "▼"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3460,
-      "change": -255,
-      "changePct": -6.86,
+      "price": 3165,
+      "change": -295,
+      "changePct": -8.53,
       "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1130,
-      "change": -90,
-      "changePct": -7.38,
+      "price": 1020,
+      "change": -110,
+      "changePct": -9.73,
       "arrow": "▼"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 300,
-      "change": -2.5,
-      "changePct": -0.83,
+      "price": 283,
+      "change": -17,
+      "changePct": -5.67,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 155.5,
-      "change": 1,
-      "changePct": 0.65,
-      "arrow": "▲"
+      "price": 142.5,
+      "change": -13,
+      "changePct": -8.36,
+      "arrow": "▼"
     }
   ]
 }
