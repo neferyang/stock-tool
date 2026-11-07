@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-07T01:13:52.780Z",
+  "lastUpdated": "2026-11-07T02:32:53.635Z",
   "date": "2026年11月07日（星期六）",
   "basedOn": "2026年11月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約7%（11/5，加權指數 vs 240日均線）",
+            "current": "約2%（11/6，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
     },
     {
-      "title": "央行出手了？外資「連7賣」、今再提款台股逾911億台幣午後卻急升| 財經 - Newtalk新聞",
+      "title": "台股11月才5天崩3637點！外資殺權值、台幣貶破33，這波跌勢比7月更猛的真相 - Yahoo股市",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hY05tZmpMMWU5dUxEZFRjaFFHYlRyM3h6UHBscXRuejVTZDFBMzNRUXpRbElyb2FiTXVCRWVXVWxoNU5USmUtRE96SXNfZ05TMTl4Zll3Z1dpcTA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMisANBVV95cUxQMUlWekdtT2pKVWJIczduWTlUTTdqbm1JLXoxSnRHaGxIZUpscmlXQkxIYVhGUnlyVWxJcmpMN0tYRVozR2NhYXBvRnR4LWZPX2UxSEN3aDNrZy1Kc25CeWFjYTRnYWY3TE96Q0dXNnlhRml0am5na2R1RWRVUFBKR2xhNmd5UFc5dXZHLWwyZ3A0aURNQjNwZmhXSzhRRjl5YndLR2xKeHpIbmV2TTFyVjBmRENMWVE4MjYxc2E1bGVfRUZuYXZCeDZydGlVRW1mdkFmZWplRXZVQkZvejhuTVowMFdOLUptMzAzcFdOa1U5RnRuZmFJb2N3UjlaUzlDNUtLaUFTdXNEOW5nanJPX213U01hRFk5T25seG9wQjI5bnFxMjBaTVNRSFM2bm9wZUloWHVuTENZenRvejllbHJ5c3R4OGI4d1NjMk1mQWxiVE1ZMGFud0VWZjBHT0VxU3JwaU50a2djNVdpNzY3ZkpfQ3pCYW92b1B2THNuQW5XZDlQTzgxQ3U3dVgxQjhibWM1TFVzWlNLbmk5RWNlbzA2QzI4anlaOVRsc0UzRWw?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/7 上午10:32:53",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/7 上午9:13:52",
