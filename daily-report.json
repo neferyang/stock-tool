@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-06T17:59:17.478Z",
+  "lastUpdated": "2026-11-07T01:13:52.780Z",
   "date": "2026年11月07日（星期六）",
   "basedOn": "2026年11月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,441（11/06，▼0.16%）",
-        "S&P 500：7,386（11/06，▲0.44%）",
-        "那斯達克：24,552（11/06，▲0.97%）",
-        "費城半導體指數：9,254（11/06，▲2.70%）"
+        "道瓊：51,286（11/06，▼0.46%）",
+        "S&P 500：7,377（11/06，▲0.31%）",
+        "那斯達克：24,579（11/06，▲1.09%）",
+        "費城半導體指數：9,390（11/06，▲4.21%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,065（11/06，▼1.17%）"
+        "黃金：4,080（11/06，▼0.83%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -62,7 +62,7 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年11月6日",
+    "date": "2026年11月7日",
     "rating": "高度警戒",
     "summary": "🔴×6　🟠×3　🟡×2　🟢×4",
     "layers": [
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "38.8（4:00 PM EST, Thu Nov 5）",
+            "current": "38.9（4:00 PM EST, Fri Nov 6）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.90%（11/4）",
+            "current": "4.84%（11/5）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.21（11/6）",
+            "current": "102.28（11/6）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.77（11/6）",
+            "current": "33.11（11/6）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -141,7 +141,7 @@
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.32%（10Y 4.90% - 2Y 4.58%，11/4）",
+            "current": "+0.38%（10Y 4.84% - 2Y 4.46%，11/5）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -203,14 +203,14 @@
   ],
   "news": [
     {
-      "title": "理財最前線／長債ETF苦等解套　專家教戰3招換債拚6％收益 - 鏡週刊Mirror Media",
-      "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PY3c1cjR2d3A4a010YnBoT3hkaUVIRWI5X0VjRG9lT2JNUkN3YlZzeU5MbXpRTk94dWFLOTFQczBxVHlLS2JOUXZUcEd2TmZLU3hkenBkZVJJcC0tcXfSAWNBVV95cUxQVUN6Z3VnUzRDVmk5WVIzYzgzRG5qTmlVb2Z5X3BBT0tjMWlYZW4zc09DbVNub2NqLUhwMkc2WHU4Z2cxNE5leWp4UWd0bHdYTzFHVkk5clM0cFBhT2ZLd2JTUWM?oc=5"
-    },
-    {
       "title": "升息對美債有什麼影響？看懂利率、債券價格與殖利率的反向關係 - 口袋證券",
       "description": "",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
+    },
+    {
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "description": "",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/7 上午9:13:52",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/7 上午1:59:17",
