@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-07T02:32:53.635Z",
+  "lastUpdated": "2026-11-07T07:27:23.923Z",
   "date": "2026年11月07日（星期六）",
   "basedOn": "2026年11月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,080（11/06，▼0.83%）"
+        "黃金：4,075（11/06，▼0.94%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -116,7 +116,7 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.28（11/6）",
+            "current": "102.30（11/6）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$90（11/6）",
+            "current": "$91（11/6）",
             "status": "🟠",
             "statusText": "接近警戒（>$100）"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
     },
     {
-      "title": "台股11月才5天崩3637點！外資殺權值、台幣貶破33，這波跌勢比7月更猛的真相 - Yahoo股市",
+      "title": "新台幣貶破33元又翻升！外資資產逼近存底3倍 央行穩匯挑戰升高 - 民報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMisANBVV95cUxQMUlWekdtT2pKVWJIczduWTlUTTdqbm1JLXoxSnRHaGxIZUpscmlXQkxIYVhGUnlyVWxJcmpMN0tYRVozR2NhYXBvRnR4LWZPX2UxSEN3aDNrZy1Kc25CeWFjYTRnYWY3TE96Q0dXNnlhRml0am5na2R1RWRVUFBKR2xhNmd5UFc5dXZHLWwyZ3A0aURNQjNwZmhXSzhRRjl5YndLR2xKeHpIbmV2TTFyVjBmRENMWVE4MjYxc2E1bGVfRUZuYXZCeDZydGlVRW1mdkFmZWplRXZVQkZvejhuTVowMFdOLUptMzAzcFdOa1U5RnRuZmFJb2N3UjlaUzlDNUtLaUFTdXNEOW5nanJPX213U01hRFk5T25seG9wQjI5bnFxMjBaTVNRSFM2bm9wZUloWHVuTENZenRvejllbHJ5c3R4OGI4d1NjMk1mQWxiVE1ZMGFud0VWZjBHT0VxU3JwaU50a2djNVdpNzY3ZkpfQ3pCYW92b1B2THNuQW5XZDlQTzgxQ3U3dVgxQjhibWM1TFVzWlNLbmk5RWNlbzA2QzI4anlaOVRsc0UzRWw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1za0JwQ0U0Qm03WVlNbFBlelhLdF8xT0FCUGZuaEU1Y1I4eVAzUjFSNEV5MFp3a0dScFQ1NGdtSHVhQjdrOVBLS05DaHc0blFEaFFwYTBGdzZNWlZzczZUcjRGeDM?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/7 下午3:27:23",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/7 上午10:32:53",
