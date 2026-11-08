@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-08T02:02:12.948Z",
+  "lastUpdated": "2026-11-08T08:53:39.352Z",
   "date": "2026年11月08日（星期日）",
   "basedOn": "2026年11月06日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBoWklpWlpuSFF4aDk3bkNyc1pIMUFNdHNuRnR4VXR2SkRlZ2daaVVDRHJfWkFKUUFuZmhjbURNX3NWZklsRjRKSzVwMjJEeXc?oc=5"
     },
     {
-      "title": "新台幣貶破33元又翻升！外資資產逼近存底3倍 央行穩匯挑戰升高 - 民報",
+      "title": "台股明日能翻身？下周「3大指標」必看　達人：比股價漲跌更重要 - ETtoday財經雲",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1za0JwQ0U0Qm03WVlNbFBlelhLdF8xT0FCUGZuaEU1Y1I4eVAzUjFSNEV5MFp3a0dScFQ1NGdtSHVhQjdrOVBLS05DaHc0blFEaFFwYTBGdzZNWlZzczZUcjRGeDM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1yYVM2b0gtV3ZHZXNqRXlNM0NRUjhlOVBJUGViZ28zWktmU2NxdkNrTE9BbDFJQUxFaTVjajNEQ0U4Q21lOGxjdWIxS3NiNXJCNVHSAVBBVV95cUxPaXVLZFZSTDduci1HMUVGbUxLYUUwMG9EZXU3TVdOM0ZwYVhoOURnVlBhR3hzZW5adk1MSGpYYWJNVldWYkx5YWdDNXdRMnZEbQ?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/8 下午4:53:39",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/8 上午10:02:12",
