@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-09T21:31:02.392Z",
+  "lastUpdated": "2026-11-09T23:38:25.296Z",
   "date": "2026年11月10日（星期二）",
   "basedOn": "2026年11月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,148（11/09，▲1.80%）"
+        "黃金：4,156（11/09，▲1.99%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "38.9（4:00 PM EST, Fri Nov 6）",
+            "current": "39.9（4:00 PM EST, Mon Nov 9）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -122,7 +122,7 @@
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.76（11/9）",
+            "current": "32.79（11/9）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$87（11/9）",
+            "current": "$86（11/9）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "債蛙解套1／財管教授百張長債ETF不抱了　轉進短債、金融股原因曝 - 鏡週刊Mirror Media",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBtbU8zM2JId0RMTTYzcEdLUmprVkNIcjlfYXhBeTdJS0o2dzRPMnFPVTFZci1BVF9zS19LU0FLc25wUU9JNzZDTnJFc2xGLWNiT1F6UEtadjUwOEUtaHfSAWNBVV95cUxNSjVnWnRVbDlra2VCUWc5YVhsVlhJYS1aRlk3ZjktTHpXbHFvRC15Z2N6ZlZlcGNjNFFteWZsTm5NUzJlVGFVUHR6NDBIbEpFSi1idm5RSzlKUGs2Q3hjSDJJOTQ?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE10ZEF2VFZGQm12V0FTMWlCM3NBQ0RZRUJyeGtpSGFCZG9pRm1fNk8yZjdaWkI4aksyRmlzaWFEXzg4a2JDdkEzbU9sMUwzX1FzMlR1TWtyYUVDb3JzUTU0VlFHVGt3WjFQaDJGc2VHckx2c3hJ?oc=5"
     },
     {
-      "title": "台股強彈難擋外資匯出 新台幣爆量重貶逾1角收32.882元 - 中央社 CNA",
+      "title": "國安基金護盤！台股收復4萬點大關 外資還是賣 新台幣也續貶 - UDN",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9XWERPc3h5VHc0WnRoWlluUDNpV1dkWkxaQ19fVGgzZzlHQ3dIaUJsS1N3dGIxb0hZZUhINlpsOXFoMTFoZElwSUFmVE1OWk82NXAxbHItcjZwR055Unc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBTLU1WeXJKTXNOSHN5X05uUWg2Uks2bWFOTTh2RVhqdU15S3NZX0ZOWHloM1dvMlNrdXZ5M2x3bHA2b2ptQmtLLXQzNWJfTHNJ0gFWQVVfeXFMTWlld3Z6cVZMWU91ZjNucHJoU0s0bS1hSVc1ZkktYTBEdUZyTVc4ZkZidUpYUUNic1haQ183N0dDOGtBUTVDZzY4Sml4bmlXNnM4eGhFVnc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/10 上午7:38:25",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/10 上午5:31:02",
