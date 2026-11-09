@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-09T16:49:05.411Z",
+  "lastUpdated": "2026-11-09T21:31:02.392Z",
   "date": "2026年11月10日（星期二）",
   "basedOn": "2026年11月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,227（11/09，▲1.84%）",
-        "S&P 500：7,526（11/09，▲2.03%）",
-        "那斯達克：25,152（11/09，▲2.33%）",
-        "費城半導體指數：9,956（11/09，▲6.03%）"
+        "道瓊：52,390（11/09，▲2.15%）",
+        "S&P 500：7,550（11/09，▲2.35%）",
+        "那斯達克：25,253（11/09，▲2.74%）",
+        "費城半導體指數：10,034（11/09，▲6.85%）"
       ],
       "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
@@ -36,7 +36,7 @@
         "SENSEX：81,107（11/09，▲0.10%）",
         "NIFTY 50：25,045（11/09，▲0.06%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,127（11/09，▲1.27%）"
+        "黃金：4,148（11/09，▲1.80%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,714（11/09，▼0.64%）"
+        "VN-Index：1,714（11/10，▼0.64%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月9日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
+    "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.84%（11/5）",
+            "current": "4.86%（11/6）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.84（11/9）",
+            "current": "101.68（11/9）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.80（11/9）",
+            "current": "32.76（11/9）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "21.0（11/9）",
-            "status": "🟠",
-            "statusText": "逼近警戒（20~30），波動率明顯上升"
+            "current": "19.9（11/9）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.38%（10Y 4.84% - 2Y 4.46%，11/5）",
+            "current": "+0.35%（10Y 4.86% - 2Y 4.51%，11/6）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$88（11/9）",
+            "current": "$87（11/9）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "CFA協會：地緣政治衝擊與AI網絡攻擊 位列威脅金融穩定的首要風險 - Yahoo 財經",
+      "title": "金融觀察/AI產業成央行幣策新考量\\鄧宇- 經濟 - 大公文匯網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE10ZEF2VFZGQm12V0FTMWlCM3NBQ0RZRUJyeGtpSGFCZG9pRm1fNk8yZjdaWkI4aksyRmlzaWFEXzg4a2JDdkEzbU9sMUwzX1FzMlR1TWtyYUVDb3JzUTU0VlFHVGt3WjFQaDJGc2VHckx2c3hJ?oc=5"
     },
     {
       "title": "台股強彈難擋外資匯出 新台幣爆量重貶逾1角收32.882元 - 中央社 CNA",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/10 上午5:31:02",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/10 上午12:49:05",
