@@ -1,27 +1,27 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-09T14:27:30.229Z",
-  "date": "2026年11月09日（星期一）",
-  "basedOn": "2026年11月06日（前一交易日）",
+  "lastUpdated": "2026-11-09T16:49:05.411Z",
+  "date": "2026年11月10日（星期二）",
+  "basedOn": "2026年11月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：51,286（11/06，▼0.46%）",
-        "S&P 500：7,377（11/06，▲0.31%）",
-        "那斯達克：24,579（11/06，▲1.09%）",
-        "費城半導體指數：9,390（11/06，▲4.21%）"
+        "道瓊：52,227（11/09，▲1.84%）",
+        "S&P 500：7,526（11/09，▲2.03%）",
+        "那斯達克：25,152（11/09，▲2.33%）",
+        "費城半導體指數：9,956（11/09，▲6.03%）"
       ],
-      "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
+      "analysis": "美股三大指數收漲，市場情緒偏樂觀，科技股帶動漲勢，Fed 政策方向持續牽引盤面。"
     },
     {
       "name": "🇯🇵 日經225",
       "items": [
         "日經225：58,776（11/09，▲2.33%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,130（11/09，▲1.35%）"
+        "黃金：4,127（11/09，▲1.27%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約7%（11/9，加權指數 vs 240日均線）",
+            "current": "約2%（11/6，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.82（11/9）",
+            "current": "101.84（11/9）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.81（11/9）",
+            "current": "32.80（11/9）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "23.2（11/9）",
+            "current": "21.0（11/9）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "348 bps（3.48%，11/5）",
+            "current": "342 bps（3.42%，11/6）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$87（11/9）",
+            "current": "$88（11/9）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
     },
     {
-      "title": "〈台幣〉多空激戰防守33元大關 遭外資大舉匯出苦吞重貶1.14角 - 鉅亨網",
+      "title": "台股強彈難擋外資匯出 新台幣爆量重貶逾1角收32.882元 - 中央社 CNA",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9MTy1vUDIxWVNNX3JCUjZzX182UC1qS0YtOHRXdXlxZmRYMk9sUVpEX1AxUFk2NkVBTVRJZzhudERScldFWHBVNTQxQ3FoSFE?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9XWERPc3h5VHc0WnRoWlluUDNpV1dkWkxaQ19fVGgzZzlHQ3dIaUJsS1N3dGIxb0hZZUhINlpsOXFoMTFoZElwSUFmVE1OWk82NXAxbHItcjZwR055Unc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/10 上午12:49:05",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/9 下午10:27:30",
