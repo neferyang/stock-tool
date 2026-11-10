@@ -1,7 +1,7 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-10T15:12:11.956Z",
-  "date": "2026年11月10日（星期二）",
+  "lastUpdated": "2026-11-10T18:40:23.345Z",
+  "date": "2026年11月11日（星期三）",
   "basedOn": "2026年11月10日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,232（11/10，▼0.30%）",
-        "S&P 500：7,537（11/10，▼0.17%）",
-        "那斯達克：25,244（11/10，▼0.03%）",
-        "費城半導體指數：10,142（11/10，▲1.08%）"
+        "道瓊：52,115（11/10，▼0.52%）",
+        "S&P 500：7,495（11/10，▼0.72%）",
+        "那斯達克：24,942（11/10，▼1.23%）",
+        "費城半導體指數：9,888（11/10，▼1.45%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -48,14 +48,14 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,048（11/10，▼1.61%）"
+        "黃金：4,030（11/10，▼2.06%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,743（11/10，▲1.68%）"
+        "VN-Index：1,743（11/11，▲1.68%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約10%（11/10，加權指數 vs 240日均線）",
+            "current": "約7%（11/9，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.07（11/10）",
+            "current": "102.29（11/10）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.96（11/10）",
+            "current": "32.99（11/10）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "20.4（11/10）",
+            "current": "20.8（11/10）",
             "status": "🟠",
             "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
@@ -147,7 +147,7 @@
           },
           {
             "name": "高收益債信用利差",
-            "current": "342 bps（3.42%，11/6）",
+            "current": "334 bps（3.34%，11/9）",
             "status": "🟡",
             "statusText": "信用利差略升，留意風險定價"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$85（11/10）",
+            "current": "$86（11/10）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -223,9 +223,9 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "金融觀察/AI產業成央行幣策新考量\\鄧宇- 經濟 - 大公文匯網",
+      "title": "CFA協會：地緣政治衝擊與AI網絡攻擊 位列威脅金融穩定的首要風險 - Yahoo 財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE10ZEF2VFZGQm12V0FTMWlCM3NBQ0RZRUJyeGtpSGFCZG9pRm1fNk8yZjdaWkI4aksyRmlzaWFEXzg4a2JDdkEzbU9sMUwzX1FzMlR1TWtyYUVDb3JzUTU0VlFHVGt3WjFQaDJGc2VHckx2c3hJ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
     },
     {
       "title": "〈台幣〉台股飆漲助攻！盤中觸及32.794元高低價差1.76角 終場小升1.7分 - 鉅亨網",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/11 上午2:40:23",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/10 下午11:12:11",
