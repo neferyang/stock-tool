@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-10T04:30:23.143Z",
+  "lastUpdated": "2026-11-10T13:05:18.077Z",
   "date": "2026年11月10日（星期二）",
   "basedOn": "2026年11月09日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,16 +19,16 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：58,776（11/09，▲2.33%）"
+        "日經225：60,460（11/10，▲2.87%）"
       ],
       "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,019（11/09，▼0.81%）"
+        "KOSPI：5,239（11/10，▲4.39%）"
       ],
-      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
+      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
     {
       "name": "🇮🇳 印度",
@@ -41,21 +41,21 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：42,337（11/10，▲1.62%）"
+        "台灣加權指數：42,712（11/10，▲2.52%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,118（11/09，▲1.06%）"
+        "黃金：4,086（11/10，▼0.69%）"
       ],
-      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
+      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,737（11/10，▲1.33%）"
+        "VN-Index：1,743（11/10，▲1.68%）"
       ],
       "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
@@ -64,7 +64,7 @@
     "title": "📡 市場風險指標儀表板",
     "date": "2026年11月10日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
+    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約9%（11/10，加權指數 vs 240日均線）",
+            "current": "約10%（11/10，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "101.69（11/9）",
+            "current": "101.77（11/10）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.86（11/10）",
+            "current": "32.91（11/10）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,9 +135,9 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "19.9（11/9）",
-            "status": "🟡",
-            "statusText": "波動率上升，留意情緒轉變"
+            "current": "20.0（11/10）",
+            "status": "🟠",
+            "statusText": "逼近警戒（20~30），波動率明顯上升"
           },
           {
             "name": "美債10Y－2Y利差",
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$86（11/9）",
+            "current": "$85（11/10）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - 鉅亨網",
+      "title": "到底該不該升息？債市向聯準會發出挑戰 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE10ZEF2VFZGQm12V0FTMWlCM3NBQ0RZRUJyeGtpSGFCZG9pRm1fNk8yZjdaWkI4aksyRmlzaWFEXzg4a2JDdkEzbU9sMUwzX1FzMlR1TWtyYUVDb3JzUTU0VlFHVGt3WjFQaDJGc2VHckx2c3hJ?oc=5"
     },
     {
-      "title": "國安基金護盤！台股收復4萬點大關 外資還是賣 新台幣也續貶 - UDN",
+      "title": "〈台幣〉台股飆漲助攻！盤中觸及32.794元高低價差1.76角 終場小升1.7分 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBTLU1WeXJKTXNOSHN5X05uUWg2Uks2bWFOTTh2RVhqdU15S3NZX0ZOWHloM1dvMlNrdXZ5M2x3bHA2b2ptQmtLLXQzNWJfTHNJ0gFWQVVfeXFMTWlld3Z6cVZMWU91ZjNucHJoU0s0bS1hSVc1ZkktYTBEdUZyTVc4ZkZidUpYUUNic1haQ183N0dDOGtBUTVDZzY4Sml4bmlXNnM4eGhFVnc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBVU1ZJSEpuSlNSaVhYcHZOY0ZqVVdVUEpOVGY2Qlp0SWdweE9uZExQUXZ6R2RSSEgxdXNRdW1BdGRnWWpLWVJnQ0RIZ3BDdGs?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/10 下午9:05:18",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/10 下午12:30:23",
@@ -3303,25 +3308,25 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2250,
-      "change": 15,
-      "changePct": 0.67,
+      "price": 2285,
+      "change": 50,
+      "changePct": 2.24,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 240,
-      "change": 1,
-      "changePct": 0.42,
+      "price": 241.5,
+      "change": 2.5,
+      "changePct": 1.05,
       "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3805,
-      "change": 80,
-      "changePct": 2.15,
+      "price": 3830,
+      "change": 105,
+      "changePct": 2.82,
       "arrow": "▲"
     },
     {
@@ -3335,10 +3340,10 @@
     {
       "code": "2382",
       "name": "廣達",
-      "price": 296.5,
-      "change": 0,
-      "changePct": 0,
-      "arrow": "-"
+      "price": 298.5,
+      "change": 2,
+      "changePct": 0.67,
+      "arrow": "▲"
     },
     {
       "code": "2881",
