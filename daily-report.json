@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-11T02:29:01.121Z",
+  "lastUpdated": "2026-11-11T07:18:17.043Z",
   "date": "2026年11月11日（星期三）",
   "basedOn": "2026年11月10日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,14 +19,14 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：60,460（11/10，▲2.87%）"
+        "日經225：61,249（11/11，▲1.31%）"
       ],
       "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,239（11/10，▲4.39%）"
+        "KOSPI：5,375（11/11，▲2.60%）"
       ],
       "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
     },
@@ -41,23 +41,23 @@
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：43,216（11/11，▲1.18%）"
+        "台灣加權指數：44,257（11/11，▲3.62%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,052（11/10，▼1.51%）"
+        "黃金：4,070（11/11，▲0.99%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,745（11/11，▲0.11%）"
+        "VN-Index：1,739（11/11，▼0.22%）"
       ],
-      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
+      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約11%（11/11，加權指數 vs 240日均線）",
+            "current": "約13%（11/11，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.25（11/10）",
+            "current": "102.30（11/11）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.86（11/11）",
+            "current": "32.83（11/11）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$86（11/10）",
+            "current": "$86（11/11）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
+      "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "前IMF首席經濟學家羅格夫首度訪台！為何他直言「美元霸權非永恆」？ - 遠見雜誌",
+      "title": "CFA協會：地緣政治衝擊與AI網絡攻擊 位列威脅金融穩定的首要風險 - Yahoo 財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9USkhIQ0hQeXJXc3J1MG1NMmxxaWtRd3llREI5TkprenNhakVfMmkwNnkyc1QyQmFCMkEyT1o0dW1Qd0VEUUMwdWJDbS12QQ?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
     },
     {
-      "title": "新台幣面臨資金外流壓力 外資連八日賣超台股 - 商傳媒",
+      "title": "台股一度大漲逾千點！外資匯出壓力未歇 新台幣翻貶再逼近33元 - 自由財經",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNd21TVXE1RnM0OVVubEloVkp3OVltYkswT3ptTjNfZGFDcXNoVC1iQl84UHIxZUVZUS1ZVFJvUWlOa2ZsNHY0THgwNVJhNmE2eUNkcGFhZ0lDSGtPanQxenUtNTFtbmlnMkU0SHlsNDNvcGxSUzNuOHdBQ2ZrRXVkVVctLTQwNjVMVU9mV0FJYVpqNW5PaWdFT0xZc2pLNkZsZnk2QVJSdERpT0VkRF9xZWNqNkNwdUhzNnpFM2w0UmdqTTN4bGk0SGFNMjIwc3IwWWZRSDNoY1NxVUJLd1AtWnMzYWtnMHR0cFUwT0lvQ0lWTkpEZ2hTcHkySlV6dGNtRm5hY3dBQ1plOUJwNnJUNWNKOHR4SWxKckZPUTYwSDFnQ3NEV1VtbHFPQVRRanhKUVFTT2tPRHNUQWJVNzdqMGg1ZzR6ck5wbExYVWM3UkJUVGc?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qNnEySm10VFNUUDE4V3V0ZGlUMDZZTS1nODg3cEVwZWZkcDN3UF9aQ09ZSzdrMDVEUkUzX1p0RjU4eFdsVzJfNEVYM1htLXF5QTMyY1hJU0kwWVEyVWZr0gFkQVVfeXFMTjMxLVl6SEduNFRjaFpOV3ZkX2I4Sk5MMFozUXJDT2l6Smhpc3dHLS1tdllZejh0aF82WkJsUnUzU2Zvcy1rZm9TSzZHMGNuUVh4cElBcG1YY3hOSDB4dmtEX3Y2Ng?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/11 下午3:18:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/11 上午10:29:01",
@@ -3333,49 +3338,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2340,
-      "change": 55,
-      "changePct": 2.41,
+      "price": 2395,
+      "change": 110,
+      "changePct": 4.81,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 239,
-      "change": -2.5,
-      "changePct": -1.04,
-      "arrow": "▼"
+      "price": 242,
+      "change": 0.5,
+      "changePct": 0.21,
+      "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3825,
-      "change": -5,
-      "changePct": -0.13,
-      "arrow": "▼"
+      "price": 3990,
+      "change": 160,
+      "changePct": 4.18,
+      "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1240,
-      "change": -35,
-      "changePct": -2.75,
-      "arrow": "▼"
+      "price": 1295,
+      "change": 20,
+      "changePct": 1.57,
+      "arrow": "▲"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 293.5,
-      "change": -5,
-      "changePct": -1.68,
+      "price": 298,
+      "change": -0.5,
+      "changePct": -0.17,
       "arrow": "▼"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 153.5,
-      "change": 0.5,
-      "changePct": 0.33,
+      "price": 159.5,
+      "change": 6.5,
+      "changePct": 4.25,
       "arrow": "▲"
     }
   ]
