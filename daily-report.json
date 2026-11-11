@@ -1,18 +1,18 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-11T07:18:17.043Z",
+  "lastUpdated": "2026-11-11T14:43:50.356Z",
   "date": "2026年11月11日（星期三）",
-  "basedOn": "2026年11月10日（前一交易日）",
+  "basedOn": "2026年11月11日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
   "autoUpdateSchedule": "每日 06:00 (台北時間)",
   "markets": [
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,232（11/10，▼0.30%）",
-        "S&P 500：7,521（11/10，▼0.38%）",
-        "那斯達克：25,066（11/10，▼0.74%）",
-        "費城半導體指數：9,998（11/10，▼0.35%）"
+        "道瓊：52,155（11/11，▼0.15%）",
+        "S&P 500：7,590（11/11，▲0.92%）",
+        "那斯達克：25,459（11/11，▲1.57%）",
+        "費城半導體指數：10,405（11/11，▲4.06%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -33,10 +33,10 @@
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：81,107（11/09，▲0.10%）",
-        "NIFTY 50：25,045（11/09，▲0.06%）"
+        "SENSEX：81,879（11/11，▲0.95%）",
+        "NIFTY 50：25,255（11/11，▲0.84%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
@@ -48,16 +48,16 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,070（11/11，▲0.99%）"
+        "黃金：4,038（11/11，▲0.19%）"
       ],
       "analysis": "金價上漲，地緣政治風險或美元走弱提供支撐，避險需求推升買盤。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,739（11/11，▼0.22%）"
+        "VN-Index：1,747（11/11，▲0.22%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南 VN-Index 上漲，外資買超及經濟成長前景吸引資金流入。"
     }
   ],
   "riskDashboard": {
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.30（11/11）",
+            "current": "102.92（11/11）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.83（11/11）",
+            "current": "32.89（11/11）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "19.5（11/10）",
+            "current": "18.3（11/11）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$86（11/11）",
+            "current": "$87（11/11）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "Fed年底前可能「升息3次」 美債殖利率逼近5% 市場壓力測試要來了 - 鉅亨網",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBQZ3JScFdIdzlpcnY0b3g0UVh6YzQ3UVdMSTB6WEhEN0NKYWNOMUJ6Q3E4MkZ3V3hQSlpJR01vREp1YzlmQ202dXREYXo0VmM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -223,21 +223,21 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "CFA協會：地緣政治衝擊與AI網絡攻擊 位列威脅金融穩定的首要風險 - Yahoo 財經",
+      "title": "央行：用好債市非銀大額贖回互換便利，維護股票、債券、外匯等金融市場平穩運行 作者 智通財經 - Investing.com 香港 - 股市報價& 財經新聞",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9CWXJDeXlWOU10R2R6WVRFaVdra0hidlE2M1JiMTUzT0J5cmN2c0hBdGxWYXphV2FhcFVaOWhoMjQzMWpUTzhFSEx2aFg3ZS16Nmg3NHByUktvc3BRaGZ0akFtR01fOWU1NHZIczhvVGM?oc=5"
     },
     {
-      "title": "台股一度大漲逾千點！外資匯出壓力未歇 新台幣翻貶再逼近33元 - 自由財經",
+      "title": "〈台幣〉台股大漲1545點助攻爆量32億美元 升值3.7分收32.845元 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qNnEySm10VFNUUDE4V3V0ZGlUMDZZTS1nODg3cEVwZWZkcDN3UF9aQ09ZSzdrMDVEUkUzX1p0RjU4eFdsVzJfNEVYM1htLXF5QTMyY1hJU0kwWVEyVWZr0gFkQVVfeXFMTjMxLVl6SEduNFRjaFpOV3ZkX2I4Sk5MMFozUXJDT2l6Smhpc3dHLS1tdllZejh0aF82WkJsUnUzU2Zvcy1rZm9TSzZHMGNuUVh4cElBcG1YY3hOSDB4dmtEX3Y2Ng?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1naEZmdWltMnhlN1pZNm9RX1dkdEtPMFJWX0pJalVnRkFqX2toUU1XQjZHa0RRTjVLckk0X1pVM3VpMUVYaUh0ZzBVcWR2YXc?oc=5"
     }
   ],
   "observations": [
     {
       "emoji": "1️⃣",
-      "title": "美股回檔調整",
-      "content": "美股出現調整，投資人謹慎情緒升溫，避險資金流入。"
+      "title": "美股全面上漲",
+      "content": "美股三大指數普漲，市場情緒偏樂觀，科技股表現亮眼。"
     },
     {
       "emoji": "2️⃣",
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/11 下午10:43:50",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/11 下午3:18:17",
