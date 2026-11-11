@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-10T18:40:23.345Z",
+  "lastUpdated": "2026-11-11T00:52:09.673Z",
   "date": "2026年11月11日（星期三）",
   "basedOn": "2026年11月10日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -9,10 +9,10 @@
     {
       "name": "🇺🇸 美國股市",
       "items": [
-        "道瓊：52,115（11/10，▼0.52%）",
-        "S&P 500：7,495（11/10，▼0.72%）",
-        "那斯達克：24,942（11/10，▼1.23%）",
-        "費城半導體指數：9,888（11/10，▼1.45%）"
+        "道瓊：52,232（11/10，▼0.30%）",
+        "S&P 500：7,521（11/10，▼0.38%）",
+        "那斯達克：25,066（11/10，▼0.74%）",
+        "費城半導體指數：9,998（11/10，▼0.35%）"
       ],
       "analysis": "美股三大指數收跌，升息預期升溫或獲利了結賣壓拖累，投資人觀望情緒濃厚。"
     },
@@ -48,7 +48,7 @@
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：4,030（11/10，▼2.06%）"
+        "黃金：4,042（11/10，▼1.76%）"
       ],
       "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
     },
@@ -62,9 +62,9 @@
   ],
   "riskDashboard": {
     "title": "📡 市場風險指標儀表板",
-    "date": "2026年11月10日",
+    "date": "2026年11月11日",
     "rating": "高度警戒",
-    "summary": "🔴×6　🟠×2　🟡×3　🟢×4",
+    "summary": "🔴×6　🟠×1　🟡×4　🟢×4",
     "layers": [
       {
         "number": 1,
@@ -73,7 +73,7 @@
         "indicators": [
           {
             "name": "CAPE 席勒本益比",
-            "current": "39.9（4:00 PM EST, Mon Nov 9）",
+            "current": "39.7（4:00 PM EST, Tue Nov 10）",
             "status": "🔴",
             "statusText": "達歷史相對高檔，結構性泡沫風險升高"
           },
@@ -104,7 +104,7 @@
         "indicators": [
           {
             "name": "美10年期公債殖利率",
-            "current": "4.86%（11/6）",
+            "current": "4.88%（11/9）",
             "status": "🔴",
             "statusText": "突破警戒（>4.80%），資金環境緊縮"
           },
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "102.29（11/10）",
+            "current": "102.22（11/10）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.99（11/10）",
+            "current": "32.87（11/11）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,13 +135,13 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "20.8（11/10）",
-            "status": "🟠",
-            "statusText": "逼近警戒（20~30），波動率明顯上升"
+            "current": "19.5（11/10）",
+            "status": "🟡",
+            "statusText": "波動率上升，留意情緒轉變"
           },
           {
             "name": "美債10Y－2Y利差",
-            "current": "+0.35%（10Y 4.86% - 2Y 4.51%，11/6）",
+            "current": "+0.32%（10Y 4.88% - 2Y 4.56%，11/9）",
             "status": "🟡",
             "statusText": "正值但幅度小，曲線仍顯壓抑"
           },
@@ -208,9 +208,9 @@
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE0yNUZDbGs0SWd1cE1OVXhHVEw2OGtlOFJsT3J6cHU0WEZMdl9CNDZtRjBGeHhQU1oxdm9wYzRMMjg2N2tUdWdVU29vRk5vNE9IWGM0R0R3?oc=5"
     },
     {
-      "title": "到底該不該升息？債市向聯準會發出挑戰 - 鉅亨網",
+      "title": "華許不急、貝森特不能等：美債進入「資金爭奪」時代 - CME Group",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBlWENPTHZUNkFBUkZDUHF3WTktbDIwNGtGMGsyamlmam84YWhDRk5kcFBSVE1pR2U1bko2WGRXdGNmUS1CV20wZHhhT3ducGM?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4tRWdyai02Z1Y3dEJaWUpmQjh0ejVTV21hX1FlTUxvcnU1XzJ5dExBelhsSlN5SG9MMTFUcWdianNiSXd2MEIzb3BxbG9mNzZDNmJSTVZNdF9YRzhsWWNHZWZWci0wdzRISF9sTVZKMy1oc0tmYjN5QXlIbDBSYVU?oc=5"
     },
     {
       "title": "為壓制通膨巨獸，經濟衰退無可避免？回顧美國近50年的歷史經驗：世界經濟恐將硬著陸 - Smart自學網",
@@ -228,9 +228,9 @@
       "url": "https://news.google.com/rss/articles/CBMinwNBVV95cUxPMXl6MGJ1OGtzc0doVWVzSWwwSlc1d1R6LVBob2VqYWgtX0swcnB5YzBkc2J3NUZjMEcxSldIOTVvRHBGTXprbDQyMEtuWjBybllobTZNN0RKdXQzampHdXZEaFp3dVplT2Z2ZDdkcVM0bmY3Wk9xMExOQnVoeUlsTUhPdjNPZmNYZk9ldy0yeE1rRHhKR3pZMlhSNGpLOEt0M2lJMWtaTm9SS3hCc3V0T1ltdTRPc2o4UlpEY3Vtd19wT0NwU2ZYUUNfVTNNbWZySjUtU1Itb0kxdFYxZ2dDWlA1MWFhNXBWNDEzSzVkYmpKZEVReHNxVFFtb3ZPMlFDR1RxSjRNUWZXelNocXJ0SG9RZm1PMGwxUVBDNWpDS0IyYkhKd3NWckV0cWhWTkk2b25fUDh0Q0J0T0MwR2hTdFQ3NE9CZnpQUVZOMlEzNjIzMU9jNnltQzYyd3hqZmJ0d2Y5V292eVFKM2RtamtIaWNFbS1nSUp6eEl2ZklKTlNaUjZpVjBzS1JPcUZqa08wWFVFeHpIN2NPbDlFNFI0?oc=5"
     },
     {
-      "title": "〈台幣〉台股飆漲助攻！盤中觸及32.794元高低價差1.76角 終場小升1.7分 - 鉅亨網",
+      "title": "新台幣面臨資金外流壓力 外資連八日賣超台股 - 商傳媒",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBVU1ZJSEpuSlNSaVhYcHZOY0ZqVVdVUEpOVGY2Qlp0SWdweE9uZExQUXZ6R2RSSEgxdXNRdW1BdGRnWWpLWVJnQ0RIZ3BDdGs?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMi0wJBVV95cUxNd21TVXE1RnM0OVVubEloVkp3OVltYkswT3ptTjNfZGFDcXNoVC1iQl84UHIxZUVZUS1ZVFJvUWlOa2ZsNHY0THgwNVJhNmE2eUNkcGFhZ0lDSGtPanQxenUtNTFtbmlnMkU0SHlsNDNvcGxSUzNuOHdBQ2ZrRXVkVVctLTQwNjVMVU9mV0FJYVpqNW5PaWdFT0xZc2pLNkZsZnk2QVJSdERpT0VkRF9xZWNqNkNwdUhzNnpFM2w0UmdqTTN4bGk0SGFNMjIwc3IwWWZRSDNoY1NxVUJLd1AtWnMzYWtnMHR0cFUwT0lvQ0lWTkpEZ2hTcHkySlV6dGNtRm5hY3dBQ1plOUJwNnJUNWNKOHR4SWxKckZPUTYwSDFnQ3NEV1VtbHFPQVRRanhKUVFTT2tPRHNUQWJVNzdqMGg1ZzR6ck5wbExYVWM3UkJUVGc?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/11 上午8:52:09",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/11 上午2:40:23",
@@ -3318,50 +3323,50 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2285,
-      "change": 50,
-      "changePct": 2.24,
+      "price": 2370,
+      "change": 85,
+      "changePct": 3.72,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 241.5,
-      "change": 2.5,
-      "changePct": 1.05,
+      "price": 245.5,
+      "change": 4,
+      "changePct": 1.66,
       "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 3830,
-      "change": 105,
-      "changePct": 2.82,
-      "arrow": "▲"
+      "price": 3725,
+      "change": -105,
+      "changePct": -2.74,
+      "arrow": "▼"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1275,
-      "change": 115,
-      "changePct": 9.91,
+      "price": 1400,
+      "change": 125,
+      "changePct": 9.8,
       "arrow": "▲"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 298.5,
-      "change": 2,
-      "changePct": 0.67,
+      "price": 304,
+      "change": 5.5,
+      "changePct": 1.84,
       "arrow": "▲"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 153,
-      "change": -0.5,
-      "changePct": -0.33,
-      "arrow": "▼"
+      "price": 154,
+      "change": 1,
+      "changePct": 0.65,
+      "arrow": "▲"
     }
   ]
 }
