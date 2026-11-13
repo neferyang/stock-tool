@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-13T03:05:25.393Z",
+  "lastUpdated": "2026-11-13T14:31:17.272Z",
   "date": "2026年11月13日（星期五）",
   "basedOn": "2026年11月12日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -19,45 +19,45 @@
     {
       "name": "🇯🇵 日經225",
       "items": [
-        "日經225：60,819（11/12，▼0.70%）"
+        "日經225：61,142（11/13，▲0.53%）"
       ],
-      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
+      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
-        "KOSPI：5,343（11/12，▼0.61%）"
+        "KOSPI：5,291（11/13，▼0.98%）"
       ],
       "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
       "items": [
-        "SENSEX：81,911（11/12，▲0.04%）",
-        "NIFTY 50：25,299（11/12，▲0.18%）"
+        "SENSEX：81,592（11/13，▼0.39%）",
+        "NIFTY 50：25,144（11/13，▼0.61%）"
       ],
-      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
+      "analysis": "印度股市回落，全球資金緊縮預期壓抑新興市場表現。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：43,944（11/13，▲1.98%）"
+        "台灣加權指數：43,675（11/13，▲1.35%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
     {
       "name": "🥇 黃金",
       "items": [
-        "黃金：3,913（11/12，▼2.19%）"
+        "黃金：3,888（11/13，▲0.08%）"
       ],
-      "analysis": "金價下跌，美元走強或風險偏好回升壓抑金價，市場需求降溫。"
+      "analysis": "金價窄幅震盪，多空因素相互抵消，市場等待明確方向指引。"
     },
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,726（11/13，▼0.49%）"
+        "VN-Index：1,735（11/13，▲0.01%）"
       ],
-      "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
+      "analysis": "越南市場持平整理，觀望情緒主導，靜待外部環境明朗化。"
     }
   ],
   "riskDashboard": {
@@ -91,7 +91,7 @@
           },
           {
             "name": "台股年乖離率",
-            "current": "約13%（11/13，加權指數 vs 240日均線）",
+            "current": "約12%（11/13，加權指數 vs 240日均線）",
             "status": "🟢",
             "statusText": "乖離率溫和，未過熱"
           }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "103.17（11/12）",
+            "current": "103.25（11/13）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.84（11/13）",
+            "current": "32.87（11/13）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -135,7 +135,7 @@
         "indicators": [
           {
             "name": "VIX 恐慌指數",
-            "current": "18.7（11/12）",
+            "current": "18.0（11/13）",
             "status": "🟡",
             "statusText": "波動率上升，留意情緒轉變"
           },
@@ -172,7 +172,7 @@
           },
           {
             "name": "WTI 原油",
-            "current": "$88（11/12）",
+            "current": "$89（11/13）",
             "status": "🟡",
             "statusText": "距警戒（>$100）有距離"
           },
@@ -223,14 +223,14 @@
       "url": "https://news.google.com/rss/articles/CBMi3wRBVV95cUxPMFFDang0Zk8tMk1sOTdIdDZDckh2WkRoNkI2bk10UE5LYzNBY1lJODl5ZXk4MDEtWXUyT0pxbFZ1anluc2JJY1c3emxuaDd2N3NnT1B0N3d3dW0wVFBDSVRzXzAtVFpRSktrQXJkQ0N2NTVlWEZhVWtmSFlScHZtdmt0Y1lqMzB6d3doVS1PZEphNEpoSGk4SHNzRXNjRExHSUVUclkwbTRkUVl0dGFEb0hUNTFpNGFHUlM0Q3kzc2NRUndLaXlNZ3NFa0Y0SS1CZXkxczUxMkJPaDFfWll3YlZuNVRRQU9mZTd2QXVxdXdlY3dkM005Uk8yS3ZvM0hURnozeGRQSkNSUXZVNXNDX2hVTF9BbF9BX1pSTTZfbFFPZEl1dkhkQzlnbDdjdDkwNTFUS3podG9lLTdZVjJZcDR4UGFZZHc4Y08xQkxkSnFIRW9pNmZfNEpWZGRzMTcwZjZOcnB5SE15OFBYVC01c2VZcktKcE9Hb3NPOTR3WHdveWhTQXlDaVpSUmMyc0R5bER2ZGpGMXYwRklhV2hBTzlWakpOWFdNYlJZZUhLMU53WEtZaDQ1VksxNXpsY0IwdFJ6MWp2cHhHUUttMzNETm52X1dmQThkdFAwSUFpRnl4MzlTQlM3MmV6T3ZncFZXYVVGamxsdHI4RkZIU004OS1ZQXRxOFVadHhST3dVMk5QTFB3MkRhT2Fla09BUXNLM3RNUzJNa3pmWVdSWWphR0hBRHdCZTl6am5xZFlEb2Y2YUFudDZOZVRJNDVWV2VmSUFZM245aWF6NVZ3OUow?oc=5"
     },
     {
-      "title": "輝達已「大到不能倒」？市場憂風險轉向金融體系- 科技新聞 - PChome Online 新聞",
+      "title": "央行首提AI風險！金融穩定報告示警全球5大變數- 日報 - 工商時報",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSEJoOUxENk5QSDg0MHFJTVBFT24xZkg0NkdlWVltS2pLT2RWdy15Z2Z3QXlrY2NnQVZ3XzVwXzNLLVVXaVJNckVQSzZRd3NfaDE1VjF5Qk84X2tweHRaSGxmZlN0TzZxc2tsb3RCMm9rTjZvYlRaZ3lCcFpJT2xzQjhBZ2tWQjdQM3JWNw?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5PTXp0bjNGTmpuNmdLTlgySFFOTjBsMEJTRFNKdVdnSDFPZTRmU2FKRDRZcElCdnZfZFdsYU5mZ052WnFpNURvU2hKYzlhcEMzMTlzODhmQkNfNVNYYjlj?oc=5"
     },
     {
-      "title": "台股狂飆逾2600點！ 台幣反貶近1.5角 專家：留意外資倒貨 - Yahoo股市",
+      "title": "〈台幣〉輝達震盪利空出盡外資回補288億 匯價翻紅升5.1分站穩32.8元關卡 - 鉅亨網",
       "description": "",
-      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxOenNIS2tzeU13Mm14WmpOSGF6b1pDZUlkdWpwcE5SVHNfM0xZbkhodlhpS044RDQtZ2NVZUU3aS1SSVdFaFl2U1dKYkVkb2JnLWdadEtBVFJfYk9NVFV2TlZoZnY5VFMtNmp0S3dOQ1Y2NGV1ZFlaa3dyR0JDcDBBNjROUGNzY183dndQdUZLbEhFTUJZYlJDQWZZZEdrSEZLSy10ZkgxNTRhZi14bDR0ZXE4SzdhQ09hM2N2N1pjOTdWNG9YQjhydnI5SXJsYjNsaVhhTFJHWlFoOUZTdzJhVVFWN0JHQ2dNQ1o0Uk1jV2xRYk9HRzUtY3BJUGZuRHFraGowQzU3QXowbjBXcTFJcWxfdk40RTFucTk0b3l0MDdsc29yeVhPenZORFFmZktqbWs4YW1fc29HUmdsRDVGRDFUd2pzR1FueXk3MzJ2ek1jd25aY09BSA?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1SVFkxRjJVcUg2eFhZQUszSV9hRlJPdzE2YVRvZ3R0MWtaY0E1M01xU3A2dmhzbXpXbk1YT2V0SmpZT0dOdExhbXdjYVJiNTA?oc=5"
     }
   ],
   "observations": [
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/13 下午10:31:17",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/13 上午11:05:25",
@@ -3393,49 +3398,49 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2365,
-      "change": 25,
-      "changePct": 1.07,
+      "price": 2350,
+      "change": 10,
+      "changePct": 0.43,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 238.5,
-      "change": -1.5,
-      "changePct": -0.62,
-      "arrow": "▼"
+      "price": 241,
+      "change": 1,
+      "changePct": 0.42,
+      "arrow": "▲"
     },
     {
       "code": "2454",
       "name": "聯發科",
-      "price": 4235,
-      "change": 385,
-      "changePct": 10,
+      "price": 4120,
+      "change": 270,
+      "changePct": 7.01,
       "arrow": "▲"
     },
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1245,
-      "change": 5,
-      "changePct": 0.4,
-      "arrow": "▲"
-    },
-    {
-      "code": "2382",
-      "name": "廣達",
-      "price": 278.5,
+      "price": 1240,
       "change": 0,
       "changePct": 0,
       "arrow": "-"
     },
     {
+      "code": "2382",
+      "name": "廣達",
+      "price": 276.5,
+      "change": -2,
+      "changePct": -0.72,
+      "arrow": "▼"
+    },
+    {
       "code": "2881",
       "name": "富邦金",
-      "price": 163,
-      "change": 4,
-      "changePct": 2.52,
+      "price": 161.5,
+      "change": 2.5,
+      "changePct": 1.57,
       "arrow": "▲"
     }
   ]
