@@ -1,6 +1,6 @@
 {
   "version": "2.0.28",
-  "lastUpdated": "2026-11-13T02:09:50.504Z",
+  "lastUpdated": "2026-11-13T03:05:25.393Z",
   "date": "2026年11月13日（星期五）",
   "basedOn": "2026年11月12日（前一交易日）",
   "updateSource": "GitHub Actions (yfinance + Claude + News)",
@@ -21,14 +21,14 @@
       "items": [
         "日經225：60,819（11/12，▼0.70%）"
       ],
-      "analysis": "日股收漲，日圓走弱提振出口類股，避險資金回流，整體市場氣氛偏正向。"
+      "analysis": "日股收跌，日圓走強壓抑出口股獲利，全球風險情緒降溫拖累日本市場。"
     },
     {
       "name": "🇰🇷 南韓 KOSPI",
       "items": [
         "KOSPI：5,343（11/12，▼0.61%）"
       ],
-      "analysis": "南韓KOSPI收漲，半導體及科技權值股領漲，外資買盤支撐市場氣氛偏正向。"
+      "analysis": "南韓KOSPI收跌，科技股獲利了結賣壓拖累，外資賣超壓抑指數表現。"
     },
     {
       "name": "🇮🇳 印度",
@@ -36,12 +36,12 @@
         "SENSEX：81,911（11/12，▲0.04%）",
         "NIFTY 50：25,299（11/12，▲0.18%）"
       ],
-      "analysis": "印度股市上漲，經濟成長動能強勁，外資持續流入新興市場。"
+      "analysis": "印度股市持平，投資人觀望政策動向，市場整體偏謹慎。"
     },
     {
       "name": "🇹🇼 台灣加權指數",
       "items": [
-        "台灣加權指數：44,398（11/13，▲3.03%）"
+        "台灣加權指數：43,944（11/13，▲1.98%）"
       ],
       "analysis": "台股收漲，外資買超支撐，AI 及半導體族群領漲，加權指數維持強勢格局。"
     },
@@ -55,7 +55,7 @@
     {
       "name": "🇻🇳 越南 VN-Index",
       "items": [
-        "VN-Index：1,735（11/13，▼0.70%）"
+        "VN-Index：1,726（11/13，▼0.49%）"
       ],
       "analysis": "越南 VN-Index 下跌，全球升息預期與資金外流壓力拖累東南亞市場。"
     }
@@ -116,13 +116,13 @@
           },
           {
             "name": "DXY 美元指數",
-            "current": "103.14（11/12）",
+            "current": "103.17（11/12）",
             "status": "🟠",
             "statusText": "接近警戒（>105）"
           },
           {
             "name": "美元兌台幣 USD/TWD",
-            "current": "32.86（11/13）",
+            "current": "32.84（11/13）",
             "status": "🔴",
             "statusText": "突破警戒（>32.50），資金外流壓力升高"
           }
@@ -253,6 +253,11 @@
   "disclaimer": "⚠️ 本資訊僅供參考，不構成投資建議",
   "lastForcedUpdate": "2026-06-18T02:45:46.619Z",
   "versionHistory": [
+    {
+      "version": "2.0.28",
+      "date": "2026/11/13 上午11:05:25",
+      "status": "自動更新 - yfinance 市場數據"
+    },
     {
       "version": "2.0.28",
       "date": "2026/11/13 上午10:09:50",
@@ -3388,18 +3393,18 @@
     {
       "code": "2330",
       "name": "台積電",
-      "price": 2385,
-      "change": 45,
-      "changePct": 1.92,
+      "price": 2365,
+      "change": 25,
+      "changePct": 1.07,
       "arrow": "▲"
     },
     {
       "code": "2317",
       "name": "鴻海",
-      "price": 241,
-      "change": 1,
-      "changePct": 0.42,
-      "arrow": "▲"
+      "price": 238.5,
+      "change": -1.5,
+      "changePct": -0.62,
+      "arrow": "▼"
     },
     {
       "code": "2454",
@@ -3412,25 +3417,25 @@
     {
       "code": "2308",
       "name": "台達電",
-      "price": 1305,
-      "change": 65,
-      "changePct": 5.24,
+      "price": 1245,
+      "change": 5,
+      "changePct": 0.4,
       "arrow": "▲"
     },
     {
       "code": "2382",
       "name": "廣達",
-      "price": 280,
-      "change": 1.5,
-      "changePct": 0.54,
-      "arrow": "▲"
+      "price": 278.5,
+      "change": 0,
+      "changePct": 0,
+      "arrow": "-"
     },
     {
       "code": "2881",
       "name": "富邦金",
-      "price": 162.5,
-      "change": 3.5,
-      "changePct": 2.2,
+      "price": 163,
+      "change": 4,
+      "changePct": 2.52,
       "arrow": "▲"
     }
   ]
