@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-11-18T04:27:00.256021",
+  "updatedAt": "2026-11-18T07:43:25.039971",
   "source": "FinMind API",
   "lastYear": 2025,
   "note": "智能分批更新系統 - 根據優先級和數據源限制分批更新",
   "statistics": {
-    "total_stocks": 2384,
+    "total_stocks": 2385,
     "priority_1": 10,
     "priority_2": 32,
-    "priority_3": 2342
+    "priority_3": 2343
   },
   "stocks": {
     "2330": {
@@ -286479,8 +286479,115 @@
       ],
       "lastAttemptAt": "2026-11-17T10:51:34.302976",
       "noDataStreak": 1
+    },
+    "7966": {
+      "name": "璦司柏",
+      "industry": "通信網路業",
+      "priority": 3,
+      "priority_name": "一般",
+      "data": [
+        {
+          "year": "2026",
+          "eps": 2.4,
+          "revenue": 10.7,
+          "netIncome": 0.8,
+          "operatingIncome": 0.9,
+          "operatingMargin": 8.7,
+          "fcf": 1.6,
+          "roe": 24.3,
+          "netMargin": 7.4,
+          "debtRatio": 31.4,
+          "updatedAt": "2026-11-18T07:43:24.839716",
+          "source": "FinMind",
+          "isEstimate": true,
+          "dataType": "推估",
+          "epsActual": 0.6,
+          "roeActual": 6.1,
+          "partialQuarters": 1
+        },
+        {
+          "year": "2025",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2024",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2023",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2022",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        },
+        {
+          "year": "2021",
+          "eps": null,
+          "revenue": null,
+          "netIncome": null,
+          "operatingIncome": null,
+          "operatingMargin": null,
+          "fcf": null,
+          "roe": null,
+          "netMargin": null,
+          "debtRatio": null,
+          "updatedAt": null,
+          "source": null,
+          "isEstimate": false,
+          "dataType": "無資料"
+        }
+      ]
     }
   },
-  "marketUniverseTotal": 2311,
-  "marketUniverseUpdatedAt": "2026-11-17T08:08:52.006162"
+  "marketUniverseTotal": 2319,
+  "marketUniverseUpdatedAt": "2026-11-18T07:43:23.248495"
 }
