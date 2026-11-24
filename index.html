@@ -69,6 +69,14 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .itag{background:var(--al);color:var(--accent);padding:2px 10px;border-radius:20px;font-size:.8rem;font-weight:600}
 .sec{margin-bottom:28px}
 .st2{font-size:1rem;font-weight:700;border-left:3px solid var(--accent);padding-left:10px;margin-bottom:14px}
+.sec-collapse{margin-bottom:28px}
+.sec-collapse>summary{cursor:pointer;font-size:1rem;font-weight:700;color:var(--muted);padding:10px 14px;background:var(--sbg);border:1px solid var(--border);border-radius:8px;list-style:none;user-select:none}
+.sec-collapse>summary::-webkit-details-marker{display:none}
+.sec-collapse>summary::before{content:'▶';display:inline-block;margin-right:8px;font-size:.75rem;transition:transform .2s}
+.sec-collapse[open]>summary::before{transform:rotate(90deg)}
+.sec-collapse[open]>summary{margin-bottom:14px;border-radius:8px 8px 0 0}
+.sec-collapse .sec{margin-bottom:20px}
+.sec-collapse .sec:last-child{margin-bottom:0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px}
 .card{background:var(--sbg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
 .cl{font-size:.75rem;color:var(--muted)}.cv{font-size:1.05rem;font-weight:600}
@@ -87,7 +95,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.75rem;font-weight:600;white-space:nowrap}
 .bl{background:#dcfce7;color:#15803d}.bf{background:#fef9c3;color:#854d0e}.bh{background:#fee2e2;color:#b91c1c}.bn{background:#f3f4f6;color:#6b7280}
 .vd{border-radius:10px;padding:16px 20px;margin-bottom:28px;border-left:4px solid}
-.vd.buy{border-color:var(--green);background:#f0fdf4}
+.vd.buy{border-color:var(--red);background:#fff1f2}
 .vd.hold{border-color:var(--yel);background:#fffbeb}
 .health-card{border-radius:8px;padding:16px}
 .health-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
@@ -100,7 +108,7 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .health-summary-title{font-weight:700;margin-bottom:4px}
 .health-summary-desc{font-size:.8rem;color:#666;line-height:1.4}
 .trend-chart-box{position:relative;height:320px;margin-bottom:24px;background:#f9fafb;border-radius:12px;padding:12px;border:1px solid var(--border)}
-.vd.sell{border-color:var(--red);background:#fff1f2}
+.vd.sell{border-color:var(--green);background:#f0fdf4}
 .vdtit{font-weight:700;font-size:1.1rem;margin-bottom:6px}.vdbod{font-size:.875rem;line-height:1.8}
 .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}
 .tc{background:var(--sbg);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
@@ -179,7 +187,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.24.2',
+  version: '8.25.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -197,6 +205,7 @@ function switchTab(tab) {
     a.style.color = active ? 'var(--text)' : 'var(--muted)';
     a.style.background = active ? '#fff' : '#f9fafb';
     a.style.borderBottomColor = active ? 'var(--accent)' : 'transparent';
+    a.setAttribute('aria-selected', active);
   });
   if (location.hash.slice(1) !== tab) history.replaceState(null, '', '#' + tab);
   if (tab === 'report' && !reportLoaded) {
@@ -209,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<div id="tab-valuation">
+<div id="tab-valuation" role="tabpanel">
 <!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
   <input type="text" id="ti" placeholder="🔍 輸入代號或名稱... 如 2330、台積電、AAPL" autocomplete="off" autocapitalize="characters"/>
@@ -226,12 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
   🇹🇼 台股輸入數字代號（自動加 .TW）；🇺🇸 美股直接輸入英文代號；⏎ 按 Enter 也可查詢<br>
   📌 範例：<code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">2330</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">台積電</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">AAPL</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">0050</code> <code style="background:rgba(0,0,0,0.05);padding:2px 6px;border-radius:4px;">SPY</code>
 </p>
-<div id="st"></div>
+<div id="st" aria-live="polite"></div>
 <div id="res" class="hidden"></div>
 </div>
 
 <!-- ═══════════════ 財金報告分頁（合併自 index_v6_ai.html） ═══════════════ -->
-<div id="tab-report" class="hidden">
+<div id="tab-report" class="hidden" role="tabpanel">
   <div id="market-report"></div>
 </div>
 </div>
@@ -1547,10 +1556,10 @@ function calcPriceTargets(price, m, tech, indKey) {
   // 基本面
   if (pe && pe > 0 && eps > 0) {
     const fairPE = params.fairPE || 16;
-    rows.push({cls:'pt-buy', icon:'🟢', label:`合理買進價（P/E=${fairPE}x）`, val:f(eps*fairPE), note:`EPS=${f(eps)} × 合理P/E ${fairPE}x`});
-    rows.push({cls:'pt-buy', icon:'🟢', label:`強力買進價（P/E=${Math.round(fairPE*0.75)}x）`, val:f(eps*fairPE*0.75), note:'折讓25%，低估明顯時考慮積極買入'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:`合理賣出價（P/E=${Math.round(fairPE*1.2)}x）`, val:f(eps*fairPE*1.2), note:'超過合理P/E 20%，考慮分批減碼'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:`停利參考價（P/E=${Math.round(fairPE*1.5)}x）`, val:f(eps*fairPE*1.5), note:'明顯超漲區，積極停利'});
+    rows.push({cls:'pt-buy', icon:'🔴', label:`合理買進價（P/E=${fairPE}x）`, val:f(eps*fairPE), note:`EPS=${f(eps)} × 合理P/E ${fairPE}x`});
+    rows.push({cls:'pt-buy', icon:'🔴', label:`強力買進價（P/E=${Math.round(fairPE*0.75)}x）`, val:f(eps*fairPE*0.75), note:'折讓25%，低估明顯時考慮積極買入'});
+    rows.push({cls:'pt-sell', icon:'🟢', label:`合理賣出價（P/E=${Math.round(fairPE*1.2)}x）`, val:f(eps*fairPE*1.2), note:'超過合理P/E 20%，考慮分批減碼'});
+    rows.push({cls:'pt-sell', icon:'🟢', label:`停利參考價（P/E=${Math.round(fairPE*1.5)}x）`, val:f(eps*fairPE*1.5), note:'明顯超漲區，積極停利'});
   }
 
   // 殖利率防線
@@ -1561,8 +1570,8 @@ function calcPriceTargets(price, m, tech, indKey) {
 
   // 布林通道
   if (tech.bollU && tech.bollL) {
-    rows.push({cls:'pt-buy', icon:'🟢', label:'布林下軌（短線超賣）', val:f(tech.bollL), note:'觸及下軌可短線反彈，注意量能確認'});
-    rows.push({cls:'pt-sell', icon:'🔴', label:'布林上軌（短線超買）', val:f(tech.bollU), note:'觸及上軌注意拉回，追高需謹慎'});
+    rows.push({cls:'pt-buy', icon:'🔴', label:'布林下軌（短線超賣）', val:f(tech.bollL), note:'觸及下軌可短線反彈，注意量能確認'});
+    rows.push({cls:'pt-sell', icon:'🟢', label:'布林上軌（短線超買）', val:f(tech.bollU), note:'觸及上軌注意拉回，追高需謹慎'});
   }
 
   return rows;
@@ -26941,32 +26950,24 @@ async function go(){
     const indObj = INDUSTRY_DB[indKey];
     const indName = indObj ? (indObj.name || indKey) : '未分類';
 
-    // 技術指標（優化：快速計算 MA，延遲複雜指標）
+    // 技術指標：MA/RSI/MACD/KD/布林通道全部同步算完才往下走。
+    // 原本 RSI/MACD/KD/布林通道包在 setTimeout(500ms) 裡「異步計算避免阻塞主線程」，
+    // 但下面的 mkVerdict() 跟技術指標卡片的渲染都是同步執行、在 setTimeout 真正跑之前
+    // 就已經讀完 tech/r14/mc/kdv/bl 的初始假值——等於這幾個指標永遠不會真的影響買賣
+    // 建議，技術指標卡片也永遠是空的。這幾支函式對~500筆價格陣列的計算量很小，
+    // 完全不需要延遲，改同步算，問題自然消失。
     const ma5v=maVal(AP,5), ma10v=maVal(AP,10), ma20v=maVal(AP,20), ma60v=maVal(AP,60), ma240v=maVal(AP,240);
+    const r14=rsiVal(AP,14);
+    const mc=macdVal(AP);
+    const kdv=AH.length>=9?kdVal(AH,AL,AP):null;
+    const bl=bollVal(AP,20);
     const tech = {
-      rsi: 50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
-      macdBull: false,
-      macdBear: false,
-      kd: 50,
-      bollU: null, bollL: null
+      rsi: r14??50, ma20:ma20v, ma60:ma60v, ma240:ma240v,
+      macdBull: mc?(mc.dif>0&&mc.hist>0):false,
+      macdBear: mc?(mc.dif<0&&mc.hist<0):false,
+      kd: kdv?kdv.k:50,
+      bollU: bl?bl.upper:null, bollL: bl?bl.lower:null
     };
-
-    // 複雜指標異步計算（不阻塞主線程，但先初始化變數避免 undefined）
-    let r14 = null, mc = null, kdv = null, bl = null;
-    setTimeout(() => {
-      r14=rsiVal(AP,14);
-      mc=macdVal(AP);
-      kdv=AH.length>=9?kdVal(AH,AL,AP):null;
-      bl=bollVal(AP,20);
-
-      tech.rsi = r14??50;
-      tech.macdBull = mc?(mc.dif>0&&mc.hist>0):false;
-      tech.macdBear = mc?(mc.dif<0&&mc.hist<0):false;
-      tech.kd = kdv?kdv.k:50;
-      tech.bollU = bl?bl.upper:null;
-      tech.bollL = bl?bl.lower:null;
-      console.log('[技術指標] 非同步計算完成');
-    }, 500);
 
     // 估值 & 建議
     const vals = calcVals(price, m, indKey, indObj);
@@ -27058,6 +27059,9 @@ ${!isTW && !m.pe && !m.eps ? `
   ${sc2('產業分類', indName+' ('+indResult.confidence+')')}
 </div></div>
 
+<details class="sec-collapse">
+<summary>📈 財務體質與歷史分析（展開查看）</summary>
+
 ${latestFinancial && latestFinancial.roe !== null && latestFinancial.roe !== undefined && indKey!=='etf' ? (() => {
   const hs = calculateHealthScore(latestFinancial.roe ?? 0, latestFinancial.operatingMargin ?? 0, latestFinancial.netMargin ?? 0, latestFinancial.debtRatio ?? 0, indKey);
   const roeEval = latestFinancial.roe !== null && latestFinancial.roe !== undefined ? evaluateROE(latestFinancial.roe) : null;
@@ -27139,6 +27143,8 @@ ${indKey==='etf' && (m.totalAssets!=null||m.ytdReturn!=null||m.y3return!=null||m
   ${sc2('費用率', m.expRatio!=null?f(m.expRatio*100,3)+'%':'N/A')}
 </div></div>`:''}
 
+</details>
+
 <div class="sec"><div class="st2">估值模型試算（${indName}）</div><div style="overflow-x:auto">
 <table class="vt vt-model"><thead><tr><th>模型</th><th>說明</th><th>估算值</th><th>評估</th></tr></thead><tbody>
 ${vals.length?vals.map(v=>`<tr><td><strong>${v.m}</strong></td><td style="font-size:.8rem;color:var(--muted)">${v.d}</td><td><strong>${v.t}</strong></td><td>${v.b}</td></tr>`).join(''):`<tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">${isOTC?'上櫃股財務資料目前無法透過公開API取得（P/E、EPS等顯示N/A屬正常）':indKey==='etf'?'ETF 不適用傳統企業估值模型，請參考技術面和費用率分析':'財務資料不足，無法計算'}</td></tr>`}
@@ -27153,6 +27159,8 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
 <p style="font-size:.75rem;color:var(--muted);margin-top:8px">⚠️ 以上價位僅供參考，操作前請搭配完整研究判斷。</p>
 </div>`:''}
 
+<details class="sec-collapse">
+<summary>📐 技術指標（10項，展開查看）</summary>
 <div class="sec"><div class="st2">技術指標</div><div class="tgrid">
   ${ma5v!=null?tc2('MA5（週線）',f(ma5v),price>ma5v?'▲ 股價在MA5之上':'▼ 跌破MA5（短線轉弱）',price>ma5v?'sb':'ss'):''}
   ${ma20v!=null?tc2('MA20（月線）',f(ma20v),price>ma20v?'▲ 月線守護中':'▼ 跌破月線，轉弱',price>ma20v?'sb':'ss'):''}
@@ -27165,6 +27173,7 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
   ${ma5v&&ma20v?tc2('均線排列',price>ma5v&&ma5v>ma20v?'多頭排列':price<ma5v&&ma5v<ma20v?'空頭排列':'糾結整理',price>ma5v&&ma5v>ma20v?'▲ 強勢多頭排列':price<ma20v?'▼ 弱勢空頭排列':'MA線糾結等方向',price>ma5v&&ma5v>ma20v?'sb':price<ma20v?'ss':'sn2'):''}
   <div class="tc"><div class="tl">距52週區間位置</div><div class="tv">${pct52}</div><div class="ts sn2">0%=年低 / 100%=年高</div></div>
 </div></div>
+</details>
 
 <div class="sec"><div class="st2">價格走勢圖（MA20 / MA60 / 成交量）</div>
 <div class="pb">
