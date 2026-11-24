@@ -4,14 +4,16 @@
 // switchTab()），不再整頁跳轉；index_v6_ai.html保留成redirect stub供舊書籤使用。
 function renderAppHeader({ containerSelector, activeTab, icon, title, version, subtitle, showProgress }) {
   const tabs = [
-    { key: 'valuation', icon: '📊', label: '股票估價工具' },
-    { key: 'report', icon: '🤖', label: '財金報告' },
+    { key: 'valuation', icon: '📊', label: '股票估價工具', panel: 'tab-valuation' },
+    { key: 'report', icon: '🤖', label: '財金報告', panel: 'tab-report' },
   ];
 
+  // role="tab"/aria-selected：原本純用 onclick+style 切換視覺狀態，螢幕報讀器完全
+  // 聽不到分頁切換，加上標準 ARIA tab pattern 讓輔助科技使用者也能感知目前在哪一頁。
   const tabsHtml = tabs.map(t => {
     const active = t.key === activeTab;
     const hoverAttrs = active ? '' : ` onmouseover="this.style.color='var(--text)';this.style.background='#fff'" onmouseout="this.style.color='var(--muted)';this.style.background='#f9fafb'"`;
-    return `<a href="#${t.key}" data-tab-link="${t.key}" onclick="event.preventDefault();switchTab('${t.key}')" style="flex:1;padding:14px 20px;text-decoration:none;color:${active ? 'var(--text)' : 'var(--muted)'};font-weight:600;border-bottom:3px solid ${active ? 'var(--accent)' : 'transparent'};background:${active ? '#fff' : '#f9fafb'};text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;"${hoverAttrs}>${t.icon} ${t.label}</a>`;
+    return `<a href="#${t.key}" data-tab-link="${t.key}" role="tab" aria-selected="${active}" aria-controls="${t.panel}" onclick="event.preventDefault();switchTab('${t.key}')" style="flex:1;padding:14px 20px;text-decoration:none;color:${active ? 'var(--text)' : 'var(--muted)'};font-weight:600;border-bottom:3px solid ${active ? 'var(--accent)' : 'transparent'};background:${active ? '#fff' : '#f9fafb'};text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .3s;"${hoverAttrs}>${t.icon} ${t.label}</a>`;
   }).join('');
 
   const progressHtml = showProgress ? `
@@ -32,7 +34,7 @@ function renderAppHeader({ containerSelector, activeTab, icon, title, version, s
     ${progressHtml}
   </div>
 </div>
-<div style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;">
+<div role="tablist" style="display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:20px;">
   ${tabsHtml}
 </div>`;
 }
