@@ -138,10 +138,9 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .search-results{position:absolute;top:100%;left:0;right:0;background:#fff;border:2px solid #e5e7eb;border-radius:12px;max-height:320px;overflow-y:auto;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,0.12);margin-top:8px}
 .search-results ul{list-style:none;margin:0;padding:0}
 .result-item{padding:12px 16px;cursor:pointer;border-bottom:1px solid #f3f4f6;display:flex;justify-content:space-between;align-items:center;transition:all .2s}
-.result-item:hover{background:#f8f9ff;border-radius:8px;padding-left:20px}
+.result-item:hover,.result-item.active{background:#f8f9ff;border-radius:8px;padding-left:20px}
 .result-item:last-child{border-bottom:none}
 .result-item strong{color:#1a1a1a;font-weight:600}
-.result-type{font-size:.75rem;color:#7c3aed;background:#f3e8ff;padding:3px 8px;border-radius:6px;font-weight:600}
 .no-result{padding:20px 16px;color:var(--muted);text-align:center;font-size:.9rem}
 /* ═══════════════ 響應式設計 ═══════════════ */
 @media(max-width:640px){
@@ -193,7 +192,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.25.1',
+  version: '8.26.0',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -227,11 +226,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <div id="tab-valuation" role="tabpanel">
 <!-- ═══════════════ 搜尋框 ═══════════════ -->
 <div class="sbox" style="position:relative;">
-  <input type="text" id="ti" placeholder="🔍 輸入代號或名稱... 如 2330、台積電、AAPL" autocomplete="off" autocapitalize="characters"/>
+  <input type="text" id="ti" placeholder="🔍 輸入代號或名稱... 如 2330、台積電、AAPL" autocomplete="off" autocapitalize="characters"
+    role="combobox" aria-expanded="false" aria-controls="results-list" aria-autocomplete="list" aria-haspopup="listbox"/>
   <button id="btn" onclick="go()">分析</button>
   <!-- 搜尋結果下拉菜單 -->
   <div id="search-results" class="search-results hidden">
-    <ul id="results-list"></ul>
+    <ul id="results-list" role="listbox"></ul>
   </div>
 </div>
 
@@ -481,6 +481,8 @@ function displaySearchResults(results) {
   if (results.length === 0) {
     resultsList.innerHTML = '<li class="no-result">找不到相符的股票</li>';
     resultsDiv.classList.remove('hidden');
+    document.getElementById('ti').setAttribute('aria-expanded', 'true');
+    activeOptionIdx = -1;
     return;
   }
 
@@ -488,7 +490,7 @@ function displaySearchResults(results) {
     const isTW = r.Type && (r.Type.includes('上市') || r.Type.includes('上櫃') || r.Type.includes('興櫃') || r.Type === 'ETF');
     const displayName = r.CHName || r.Name || r.Code;
     const typeLabel = isTW ? `<span style="color:#16a34a">🟢 ${r.Type || '上市'}</span>` : `<span style="color:#2563eb">🔵 美股</span>`;
-    return `<li class="result-item" data-code="${r.Code}" data-name="${displayName}" data-idx="${idx}">\
+    return `<li class="result-item" id="opt-${idx}" role="option" aria-selected="false" tabindex="-1" data-code="${r.Code}" data-name="${displayName}" data-idx="${idx}">\
       <div>\
         <strong>${displayName}</strong> (${r.Code})\
       </div>\
@@ -506,12 +508,42 @@ function displaySearchResults(results) {
   });
 
   resultsDiv.classList.remove('hidden');
+  document.getElementById('ti').setAttribute('aria-expanded', 'true');
+  activeOptionIdx = -1;
 }
 
 function selectStock(code, name) {
   document.getElementById('ti').value = code;
-  document.getElementById('search-results').classList.add('hidden');
+  closeDropdown();
   go();
+}
+
+// 自動完成下拉原本是純滑鼠點選的widget：<ul>/<li>沒有任何ARIA role，
+// 螢幕報讀器使用者完全不知道輸入框下面還有個候選清單存在，也沒辦法用鍵盤選。
+// 補上標準combobox模式：ArrowUp/Down在選項間移動並更新aria-activedescendant，
+// Enter選取目前反白的選項(沒反白任何選項時維持原本「直接送出查詢」的行為)，
+// Escape關閉下拉。
+let activeOptionIdx = -1;
+
+function closeDropdown() {
+  document.getElementById('search-results').classList.add('hidden');
+  document.getElementById('ti').setAttribute('aria-expanded', 'false');
+  document.getElementById('ti').removeAttribute('aria-activedescendant');
+  activeOptionIdx = -1;
+}
+
+function setActiveOption(idx) {
+  const items = document.querySelectorAll('#results-list .result-item');
+  if (items.length === 0) return;
+  if (idx < 0) idx = items.length - 1;
+  if (idx >= items.length) idx = 0;
+  items.forEach(it => { it.classList.remove('active'); it.setAttribute('aria-selected', 'false'); });
+  const target = items[idx];
+  target.classList.add('active');
+  target.setAttribute('aria-selected', 'true');
+  target.scrollIntoView({ block: 'nearest' });
+  document.getElementById('ti').setAttribute('aria-activedescendant', target.id);
+  activeOptionIdx = idx;
 }
 
 // 搜尋輸入框事件監聽 - 改進版（兼容不同加載時機）
@@ -543,7 +575,7 @@ function initSearchFeature() {
     const keyword = e.target.value.trim();
 
     if (keyword.length === 0) {
-      document.getElementById('search-results').classList.add('hidden');
+      closeDropdown();
       return;
     }
 
@@ -558,7 +590,29 @@ function initSearchFeature() {
   // 點擊外部關閉下拉菜單
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.sbox')) {
-      document.getElementById('search-results').classList.add('hidden');
+      closeDropdown();
+    }
+  });
+
+  // 鍵盤導覽：下拉開著時 Up/Down 移動反白選項、Enter 選取、Escape 關閉；
+  // 下拉沒開或沒有任何選項被反白時，Enter 維持原行為（直接送出查詢）。
+  input.addEventListener('keydown', function(e) {
+    const dropdownOpen = !document.getElementById('search-results').classList.contains('hidden');
+    if (!dropdownOpen) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveOption(activeOptionIdx + 1);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveOption(activeOptionIdx - 1);
+    } else if (e.key === 'Escape') {
+      closeDropdown();
+    } else if (e.key === 'Enter' && activeOptionIdx >= 0) {
+      e.preventDefault();
+      e.stopImmediatePropagation(); // 蓋掉下面那個「Enter一律直接送出查詢」的監聽
+      const items = document.querySelectorAll('#results-list .result-item');
+      const target = items[activeOptionIdx];
+      if (target) selectStock(target.getAttribute('data-code'), target.getAttribute('data-name'));
     }
   });
 }
@@ -26715,6 +26769,7 @@ function setPd(n,b){
 // 主程式
 // ════════════════════════════════════════════════════════
 async function go(){
+  closeDropdown(); // 送出查詢後下拉選單本來不會自動收起，停留在結果/錯誤訊息上方
   let raw=document.getElementById('ti').value.trim().toUpperCase();
   if(!raw)return;
   // 新式主動式ETF代號是5碼數字+1碼字母（如00981A），純數字regex會漏判，
@@ -26942,14 +26997,6 @@ async function go(){
       m.minorNewsCount = 0;
     }
 
-    // P2 數據（暫時禁用，以確保 P1 正常工作）
-    m.institutionalHolding = 0;
-    m.institutionalTrend = 'stable';
-    m.institutionalDate = '';
-    m.confDate = '';
-    m.confUrl = '';
-    m.confTitle = '';
-
     // 產業分類（新系統）
     const indResult = classifyIndustry(ticker, m.name, m.sector, m.industry);
     const indKey = indResult.industry;
@@ -27135,13 +27182,6 @@ ${financialTrend.map(f => `<tr${f.isEstimate ? ' style="color:var(--muted)"' : '
 </div>
 ` : ''}
 
-${m.institutionalHolding > 0 || m.confDate ? `<div class="sec"><div class="st2">🏢 法人評估</div><div class="grid">
-  ${m.institutionalHolding > 0 ? `<div class="card"><div class="cl">機構持股比例</div><div class="cv">${(m.institutionalHolding).toFixed(1)}%</div></div>` : ''}
-  ${m.institutionalTrend ? `<div class="card"><div class="cl">持股趨勢</div><div class="cv">${m.institutionalTrend==='up'?'📈 增加':m.institutionalTrend==='down'?'📉 減少':'→ 穩定'}</div></div>` : ''}
-  ${m.institutionalDate ? `<div class="card"><div class="cl">數據日期</div><div class="cv" style="font-size:0.8rem">${m.institutionalDate}</div></div>` : ''}
-  ${m.confDate ? `<div class="card"><div class="cl">法人說明會</div><div class="cv"><a href="${m.confUrl}" target="_blank" style="color:var(--accent);text-decoration:none">${m.confDate.substring(0,10)}→</a></div></div>` : ''}
-</div></div>` : ''}
-
 ${indKey==='etf' && (m.totalAssets!=null||m.ytdReturn!=null||m.y3return!=null||m.expRatio!=null)?`<div class="sec"><div class="st2">ETF 指標</div><div class="grid">
   ${sc2('基金規模', fB(m.totalAssets))}
   ${sc2('今年報酬', m.ytdReturn!=null?f(m.ytdReturn*100,2)+'%':'N/A')}
@@ -27216,11 +27256,24 @@ ${ptRows.map(r=>`<tr><td class="${r.cls}">${r.icon} ${r.label}</td><td><strong c
     }
 
   } catch(e) {
-    setSt('❌ '+e.message,true);
+    // 原本直接把e.message丟給使用者：程式內主動throw的訊息本來就是中文友善文案，
+    // 但fetch失敗(TypeError: Failed to fetch)、逾時(AbortError)這類瀏覽器原生例外
+    // 訊息是英文技術字串，對查股票的人沒有意義。先攔截常見的幾種，其餘保底用
+    // 通用訊息，原始錯誤仍照舊印在console給開發除錯用。
+    setSt('❌ '+friendlyErrorMessage(e),true);
     console.error(e);
   } finally {
     btn.disabled=false;
   }
+}
+
+function friendlyErrorMessage(e) {
+  const msg = e && e.message || '';
+  // 主動throw的錯誤本來就是中文(見上面「無法取得資料」「無法取得股價」等)，原樣顯示
+  if (/[一-鿿]/.test(msg)) return msg;
+  if (e && e.name === 'AbortError') return '查詢逾時，請稍後再試';
+  if (/Failed to fetch|NetworkError|network/i.test(msg)) return '網路連線異常，請檢查網路後重試';
+  return '查詢發生未預期錯誤，請稍後再試';
 }
 
 function setSt(m,err){const el=document.getElementById('st');el.innerHTML=m;el.className=err?'err':'';}
@@ -27302,10 +27355,13 @@ function escapeHtml(str) {
   }[c]));
 }
 
-// 區塊標題的強調色原本各自寫死hex(#4f46e5紫/#059669綠/#d97706橘/#3b82f6藍)，
-// 跟估價工具分頁用的:root CSS變數完全無關，是兩套視覺語言硬接在一起。
-// 其中#4f46e5是偏紫色，detect工具曾抓到「AI色票：偵測到紫色調」就是指這裡。
-// 改用var(--accent)/var(--green)/var(--yel)等既有token，兩分頁強調色至少對得上。
+// 區塊標題強調色、連結色原本寫死hex(#4f46e5紫/#059669綠/#d97706橘/#3b82f6藍/
+// #1d4ed8連結藍)，其中好幾個其實跟:root既有token數值完全一樣或極接近，純粹是
+// 沒注意到就另外複製一份、沒有重用。已改用var(--accent)/var(--green)/var(--yel)。
+// 注意：下面幾個色塊(風險警示的琥珀底、綜合研判的紅底、今日觀察的藍底)維持原樣
+// 寫死hex——這些是刻意做出的主題色塊背景/框線/文字組合，:root沒有對應的淺色調
+// token可以套，不是「忘了用變數」，是真的沒有現成token可用，所以沒動。
+// #4f46e5偏紫，detect工具曾抓到的「AI色票：偵測到紫色調」就是指這裡(已修掉)。
 function renderMarketReport(data) {
   const container = document.getElementById('market-report');
   if (!container) return;
@@ -27412,7 +27468,7 @@ function renderMarketReport(data) {
         // 只允許http(s)連結進href，防止news來源被污染塞入javascript:等惡意scheme
         const safeUrl = /^https?:\/\//i.test(n.url || '') ? n.url : '';
         const titleHtml = safeUrl
-          ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:none;">${escapeHtml(n.title)} ↗</a>`
+          ? `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none;">${escapeHtml(n.title)} ↗</a>`
           : escapeHtml(n.title);
         return `
         <div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #e5e7eb;">
