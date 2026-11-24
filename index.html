@@ -60,6 +60,12 @@ h1{font-size:2rem;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
 .sbox button:active{transform:translateY(0)}
 .sbox button:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed;transform:none}
 .hint{font-size:.8rem;color:var(--muted);margin-bottom:20px;line-height:1.6;background:#f0f7ff;padding:12px 14px;border-radius:8px;border-left:3px solid var(--accent)}
+/* 自動完成下拉開啟時，它的 box-shadow 是半透明的（本來就該是，陰影不該是實心），
+   蓋在下方 .hint 提示框的第一行文字上時，陰影跟文字混成一團糊字（實測截圖可見）。
+   下拉框本身的白底是不透明的沒問題，問題是陰影溢出的範圍剛好疊到提示框。下拉開著
+   時提示文字本來就是重複資訊（使用者正在看建議清單），直接用:has()隱藏，不佔版面
+   高度(visibility非display:none，避免輸入框跳動)，下拉收起就恢復正常。 */
+.sbox:has(#search-results:not(.hidden)) ~ .hint{visibility:hidden}
 #st{font-size:.875rem;color:var(--muted);min-height:22px;margin-bottom:16px}
 #st.err{color:var(--red)}
 .sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
@@ -187,7 +193,7 @@ renderAppHeader({
   activeTab: 'valuation',
   icon: '📊',
   title: '股票估價分析工具',
-  version: '8.25.0',
+  version: '8.25.1',
   subtitle: '💡 支援台股、美股、ETF 的智能搜尋與全面估值分析。資料來源：Yahoo Finance + TWSE + Finnhub',
   showProgress: true
 });
@@ -27296,6 +27302,10 @@ function escapeHtml(str) {
   }[c]));
 }
 
+// 區塊標題的強調色原本各自寫死hex(#4f46e5紫/#059669綠/#d97706橘/#3b82f6藍)，
+// 跟估價工具分頁用的:root CSS變數完全無關，是兩套視覺語言硬接在一起。
+// 其中#4f46e5是偏紫色，detect工具曾抓到「AI色票：偵測到紫色調」就是指這裡。
+// 改用var(--accent)/var(--green)/var(--yel)等既有token，兩分頁強調色至少對得上。
 function renderMarketReport(data) {
   const container = document.getElementById('market-report');
   if (!container) return;
@@ -27310,7 +27320,7 @@ function renderMarketReport(data) {
           <p style="margin:4px 0 0;color:#999;font-size:0.85rem;">資料基準：${escapeHtml(data.basedOn)}</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
-          <div style="font-size:0.75rem;background:#eef2ff;color:#4f46e5;font-weight:600;padding:8px 12px;border-radius:6px;">
+          <div style="font-size:0.75rem;background:var(--al);color:var(--accent);font-weight:600;padding:8px 12px;border-radius:6px;">
             ${escapeHtml(data.riskDashboard.rating)}
           </div>
         </div>
@@ -27319,7 +27329,7 @@ function renderMarketReport(data) {
 
     <!-- 市場概況 -->
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
-      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #4f46e5;padding-bottom:8px;">🌍 全球市場概況</h3>
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:8px;">🌍 全球市場概況</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
         ${(data.markets || []).map(market => `
           <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:14px;">
@@ -27338,12 +27348,12 @@ function renderMarketReport(data) {
     <!-- 台股焦點個股（Fugle 即時報價，沒資料就不渲染這個區塊） -->
     ${(data.hotStocks && data.hotStocks.length > 0) ? `
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
-      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #059669;padding-bottom:8px;">🎯 台股焦點個股</h3>
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid var(--green);padding-bottom:8px;">🎯 台股焦點個股</h3>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
         ${data.hotStocks.map(s => {
           const up = s.arrow === '▲';
           const down = s.arrow === '▼';
-          const color = up ? '#dc2626' : (down ? '#16a34a' : '#666');
+          const color = up ? 'var(--red)' : (down ? 'var(--green)' : 'var(--muted)');
           return `
           <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;text-align:center;">
             <div style="font-size:0.85rem;color:#666;margin-bottom:4px;">${escapeHtml(s.name)} ${escapeHtml(s.code)}</div>
@@ -27356,12 +27366,12 @@ function renderMarketReport(data) {
 
     <!-- 風險指標儀表板 -->
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
-      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #d97706;padding-bottom:8px;">⚠️ 市場風險指標儀表板</h3>
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid var(--yel);padding-bottom:8px;">⚠️ 市場風險指標儀表板</h3>
       <div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px;margin-bottom:16px;font-size:0.9rem;">
         <strong>${escapeHtml(data.riskDashboard.rating)}</strong> | ${escapeHtml(data.riskDashboard.summary)}
       </div>
       ${(data.riskDashboard.layers || []).map(layer => `
-        <div style="margin-bottom:14px;border-left:4px solid #4f46e5;padding-left:16px;">
+        <div style="margin-bottom:14px;border-left:4px solid var(--accent);padding-left:16px;">
           <h4 style="margin:0;font-size:1rem;font-weight:700;">【第${escapeHtml(layer.number)}層】${escapeHtml(layer.name)}</h4>
           <p style="margin:4px 0;font-size:0.85rem;color:#666;">📌 ${escapeHtml(layer.question)}</p>
           <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;">
@@ -27392,7 +27402,7 @@ function renderMarketReport(data) {
 
     <!-- 重要新聞 -->
     <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;">
-      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid #059669;padding-bottom:8px;">【📰 重要新聞】</h3>
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;border-bottom:2px solid var(--green);padding-bottom:8px;">【📰 重要新聞】</h3>
       ${(data.news || []).map(n => {
         // 摘要若只是標題的重複(Google News RSS 常見)就不顯示；有連結則把標題做成可點的新聞連結。
         // 前端同樣做一次去重防呆，讓尚未重新產生的舊資料也能即時生效。
@@ -27414,7 +27424,7 @@ function renderMarketReport(data) {
 
     <!-- 今日觀察 -->
     <div style="background:#dbeafe;border:1px solid #93c5fd;border-radius:12px;padding:20px;margin-bottom:20px;">
-      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;color:#1e40af;border-bottom:2px solid #3b82f6;padding-bottom:8px;">【💡 今日觀察】</h3>
+      <h3 style="margin:0 0 16px;font-size:1.1rem;font-weight:700;color:#1e40af;border-bottom:2px solid var(--accent);padding-bottom:8px;">【💡 今日觀察】</h3>
       ${(data.observations || []).map(o => `
         <div style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #93c5fd;">
           <div style="font-weight:700;margin-bottom:6px;color:#1e40af;">${escapeHtml(o.emoji)} ${escapeHtml(o.title)}</div>
